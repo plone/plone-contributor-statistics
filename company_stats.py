@@ -37,14 +37,18 @@ def load_company_mapping(mapping_file='company_mapping.txt'):
 
 
 def get_latest_stats_file():
-    """Find the most recent plone_contributors CSV file."""
-    # Look for specific year files first, then default
-    csv_files = glob.glob('plone_contributors_*.csv')
+    """Find the most recent plone contributors CSV file."""
+    # Look for new format (year-first) and legacy format
+    csv_files = glob.glob('????-plone-contributors.csv')  # New format: 2024-plone-contributors.csv
+    csv_files.extend(glob.glob('????-????-plone-contributors.csv'))  # New format: 2023-2024-plone-contributors.csv
+    csv_files.extend(glob.glob('plone_contributors_*.csv'))  # Legacy format
+    if 'plone-contributors.csv' in glob.glob('plone-contributors.csv'):
+        csv_files.append('plone-contributors.csv')
     if 'plone_contributors.csv' in glob.glob('plone_contributors.csv'):
         csv_files.append('plone_contributors.csv')
     
     if not csv_files:
-        print("No plone_contributors CSV files found. Run 'python plone_stats.py' first.")
+        print("No plone contributors CSV files found. Run 'python plone_stats.py' first.")
         return None
     
     # Sort by modification time, most recent first
@@ -52,6 +56,40 @@ def get_latest_stats_file():
     latest_file = csv_files[0]
     print(f"Using latest stats file: {latest_file}")
     return latest_file
+
+
+def extract_date_range_from_filename(filename):
+    """Extract year or date range from the input filename for output naming."""
+    import re
+    
+    # Extract just the filename without path
+    basename = os.path.basename(filename)
+    
+    # Check for new format: year pattern (e.g., 2024-plone-contributors.csv)
+    year_match = re.search(r'(\d{4})-plone-contributors\.csv', basename)
+    if year_match:
+        return year_match.group(1)
+    
+    # Check for new format: year range pattern (e.g., 2023-2024-plone-contributors.csv)
+    range_match = re.search(r'(\d{4}-\d{4})-plone-contributors\.csv', basename)
+    if range_match:
+        return range_match.group(1)
+    
+    # Check for legacy format: year pattern (e.g., plone_contributors_2024.csv)
+    legacy_year_match = re.search(r'plone_contributors_(\d{4})\.csv', basename)
+    if legacy_year_match:
+        return legacy_year_match.group(1)
+    
+    # Check for legacy format: year range pattern (e.g., plone_contributors_2023_2024.csv)
+    legacy_range_match = re.search(r'plone_contributors_(\d{4}_\d{4})\.csv', basename)
+    if legacy_range_match:
+        return legacy_range_match.group(1).replace('_', '-')
+    
+    # Default files - no year suffix
+    if basename in ['plone-contributors.csv', 'plone_contributors.csv']:
+        return None
+    
+    return None
 
 
 def aggregate_company_stats(stats_df, company_mapping):
@@ -117,10 +155,13 @@ def create_company_dataframe(company_stats):
     return df
 
 
-def save_company_report(df, filename=None):
+def save_company_report(df, filename=None, date_range=None):
     """Save company statistics to CSV file."""
     if filename is None:
-        filename = 'plone_company_contributors'
+        if date_range:
+            filename = f'{date_range}-plone-company-contributors'
+        else:
+            filename = 'plone-company-contributors'
     
     # Save to CSV
     csv_file = f'{filename}.csv'
@@ -143,6 +184,9 @@ def main():
     if not stats_file:
         sys.exit(1)
     
+    # Extract date range from filename for output naming
+    date_range = extract_date_range_from_filename(stats_file)
+    
     # Load individual contributor stats
     try:
         stats_df = pd.read_csv(stats_file)
@@ -162,8 +206,8 @@ def main():
     print("TOP COMPANIES BY COMMITS:")
     print(company_df[['company', 'total_commits', 'total_pull_requests', 'contributors_count', 'repositories_count']])
     
-    # Save report
-    csv_file = save_company_report(company_df)
+    # Save report with date range in filename
+    csv_file = save_company_report(company_df, date_range=date_range)
     
     print(f"\nProcessed {len(company_df)} companies")
     print(f"Total mapped contributors: {sum(len(set(company_mapping[k] for k in company_mapping if company_mapping[k] == company)) for company in set(company_mapping.values()))}")
