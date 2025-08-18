@@ -1,8 +1,11 @@
 codesyntax:erral,ionlizarazu
+cosent:gyst
+dataflake:dataflake
 derico:MrTango
 eau-de-web:avoinea,ichim-david,tiberiuichim,claudiaifrim,nileshgulia1
 freitag:gforcada
 fhnw:adrianschulz
+imio:gotcha
 interaktiv:mliebischer
 iskra:rboixaderg
 kitconcept:tisto,sneridagh,ericof,fredvd,davisagli,iFlameing,iRohitSingh,robgietema,kittauri,danalvrz,Tishasoumya-02,reebalazs,jnptk,jackahl
