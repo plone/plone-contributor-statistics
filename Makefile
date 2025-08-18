@@ -1,4 +1,4 @@
-.PHONY: help install clean run-stats run-contributors run-companies setup dev-setup lint format check test
+.PHONY: help install clean run-stats run-contributors run-companies run-company-stats setup dev-setup lint format check test
 
 # Default target
 help:
@@ -11,6 +11,7 @@ help:
 	@echo "  run-stats         Run main statistics extraction"
 	@echo "  run-contributors  Run contributor statistics analysis"
 	@echo "  run-companies     Run company statistics analysis"
+	@echo "  run-company-stats Generate company statistics from individual stats"
 	@echo "  clean             Clean up generated files"
 	@echo "  lint              Run code linting"
 	@echo "  format            Format Python code"
@@ -46,6 +47,10 @@ run-contributors:
 run-companies:
 	python plone_companies.py
 
+# Generate company statistics from individual contributor stats
+run-company-stats:
+	python company_stats.py
+
 # Clean generated files
 clean:
 	rm -f plone_stats_*.csv
@@ -54,6 +59,8 @@ clean:
 	rm -f plone_contributor_stats_*.json
 	rm -f plone_companies_*.csv
 	rm -f plone_companies_*.json
+	rm -f company_stats_*.csv
+	rm -f company_stats_*.json
 	find . -name "*.pyc" -delete
 	find . -name "__pycache__" -type d -exec rm -rf {} +
 
