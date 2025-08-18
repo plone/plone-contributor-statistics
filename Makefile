@@ -1,4 +1,4 @@
-.PHONY: help install clean run-stats run-stats-2024 run-stats-2023 run-stats-2022 run-stats-2021 run-stats-2020 run-stats-custom run-contributors run-companies run-company-stats setup dev-setup lint format check test
+.PHONY: help install clean run-stats run-stats-2024 run-stats-2023 run-stats-2022 run-stats-2021 run-stats-2020 run-stats-custom run-contributors run-companies run-company-stats run-company-stats-2024 run-company-stats-2023 run-company-stats-2022 run-company-stats-2021 run-plips run-plip-companies setup dev-setup lint format check test
 
 # Default target
 help:
@@ -17,7 +17,13 @@ help:
 	@echo "  run-stats-custom  Run statistics with custom date range (see help)"
 	@echo "  run-contributors  Run contributor statistics analysis"
 	@echo "  run-companies     Run company statistics analysis"
-	@echo "  run-company-stats Generate company statistics from individual stats"
+	@echo "  run-company-stats Generate company statistics from individual stats (current year)"
+	@echo "  run-company-stats-2024 Generate company statistics for 2024"
+	@echo "  run-company-stats-2023 Generate company statistics for 2023"
+	@echo "  run-company-stats-2022 Generate company statistics for 2022"
+	@echo "  run-company-stats-2021 Generate company statistics for 2021"
+	@echo "  run-plips         Extract PLIP statistics from all repositories"
+	@echo "  run-plip-companies Generate PLIP company statistics using company mapping"
 	@echo "  clean             Clean up generated files"
 	@echo "  lint              Run code linting"
 	@echo "  format            Format Python code"
@@ -88,12 +94,36 @@ run-companies:
 run-company-stats:
 	python company_stats.py
 
+# Generate company statistics for specific years
+run-company-stats-2024:
+	python company_stats.py --year 2024
+
+run-company-stats-2023:
+	python company_stats.py --year 2023
+
+run-company-stats-2022:
+	python company_stats.py --year 2022
+
+run-company-stats-2021:
+	python company_stats.py --year 2021
+
+# Extract PLIP statistics
+run-plips:
+	python plone_plips.py
+
+# Generate PLIP company statistics
+run-plip-companies:
+	python plip_company_stats.py
+
 # Clean generated files
 clean:
 	rm -f *-plone-contributors*.csv
 	rm -f plone-contributors*.csv
 	rm -f *-plone-company-contributors*.csv
 	rm -f plone-company-contributors*.csv
+	rm -f plone-plips.csv
+	rm -f plone-plips-detailed.csv
+	rm -f plone-plip-companies.csv
 	rm -f plone_contributors*.csv
 	rm -f plone_contributor_stats*.csv
 	rm -f plone_companies*.csv
