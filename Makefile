@@ -1,4 +1,4 @@
-.PHONY: help install clean run-stats run-stats-2024 run-stats-custom run-contributors run-companies run-company-stats setup dev-setup lint format check test
+.PHONY: help install clean run-stats run-stats-2024 run-stats-2023 run-stats-2022 run-stats-2021 run-stats-2020 run-stats-custom run-contributors run-companies run-company-stats setup dev-setup lint format check test
 
 # Default target
 help:
@@ -10,6 +10,10 @@ help:
 	@echo "  setup             Setup environment (.env file and dependencies)"
 	@echo "  run-stats         Run main statistics extraction (current year)"
 	@echo "  run-stats-2024    Run statistics for 2024"
+	@echo "  run-stats-2023    Run statistics for 2023"
+	@echo "  run-stats-2022    Run statistics for 2022"
+	@echo "  run-stats-2021    Run statistics for 2021"
+	@echo "  run-stats-2020    Run statistics for 2020"
 	@echo "  run-stats-custom  Run statistics with custom date range (see help)"
 	@echo "  run-contributors  Run contributor statistics analysis"
 	@echo "  run-companies     Run company statistics analysis"
@@ -49,6 +53,22 @@ run-stats:
 run-stats-2024:
 	python plone_stats.py --year 2024
 
+# Run statistics for 2023
+run-stats-2023:
+	python plone_stats.py --year 2023
+
+# Run statistics for 2022
+run-stats-2022:
+	python plone_stats.py --year 2022
+
+# Run statistics for 2021
+run-stats-2021:
+	python plone_stats.py --year 2021
+
+# Run statistics for 2020
+run-stats-2020:
+	python plone_stats.py --year 2020
+
 # Run statistics with custom date range
 run-stats-custom:
 	@echo "Usage examples:"
@@ -70,6 +90,10 @@ run-company-stats:
 
 # Clean generated files
 clean:
+	rm -f *-plone-contributors*.csv
+	rm -f plone-contributors*.csv
+	rm -f *-plone-company-contributors*.csv
+	rm -f plone-company-contributors*.csv
 	rm -f plone_contributors*.csv
 	rm -f plone_contributor_stats*.csv
 	rm -f plone_companies*.csv

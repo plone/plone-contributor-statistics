@@ -290,7 +290,7 @@ class PloneStatsExtractor:
     def save_report(self, df: pd.DataFrame, filename: str = None):
         """Save the report to CSV file."""
         if filename is None:
-            filename = 'plone_contributors'
+            filename = 'plone-contributors'
         
         # Save to CSV
         csv_file = f'{filename}.csv'
@@ -410,9 +410,9 @@ def main():
         # Generate filename with date range
         if start_date and end_date:
             if start_date.year == end_date.year:
-                filename = f'plone_contributors_{start_date.year}'
+                filename = f'{start_date.year}-plone-contributors'
             else:
-                filename = f'plone_contributors_{start_date.year}_{end_date.year}'
+                filename = f'{start_date.year}-{end_date.year}-plone-contributors'
         else:
             filename = None  # Use default filename
             
