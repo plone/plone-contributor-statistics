@@ -37,10 +37,14 @@ def load_company_mapping(mapping_file='company_mapping.txt'):
 
 
 def get_latest_stats_file():
-    """Find the most recent plone_stats CSV file."""
-    csv_files = glob.glob('plone_stats_*.csv')
+    """Find the most recent plone_contributors CSV file."""
+    # Look for specific year files first, then default
+    csv_files = glob.glob('plone_contributors_*.csv')
+    if 'plone_contributors.csv' in glob.glob('plone_contributors.csv'):
+        csv_files.append('plone_contributors.csv')
+    
     if not csv_files:
-        print("No plone_stats CSV files found. Run 'python plone_stats.py' first.")
+        print("No plone_contributors CSV files found. Run 'python plone_stats.py' first.")
         return None
     
     # Sort by modification time, most recent first
@@ -114,25 +118,16 @@ def create_company_dataframe(company_stats):
 
 
 def save_company_report(df, filename=None):
-    """Save company statistics to CSV and JSON files."""
+    """Save company statistics to CSV file."""
     if filename is None:
-        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        filename = f'company_stats_{timestamp}'
+        filename = 'plone_company_contributors'
     
     # Save to CSV
     csv_file = f'{filename}.csv'
     df.to_csv(csv_file, index=False)
     print(f"Company report saved to {csv_file}")
     
-    # Save to JSON
-    json_file = f'{filename}.json'
-    # Convert DataFrame to dict for JSON serialization
-    company_data = df.to_dict('records')
-    with open(json_file, 'w') as f:
-        json.dump(company_data, f, indent=2, default=str)
-    print(f"Company data saved to {json_file}")
-    
-    return csv_file, json_file
+    return csv_file
 
 
 def main():
@@ -168,7 +163,7 @@ def main():
     print(company_df[['company', 'total_commits', 'total_pull_requests', 'contributors_count', 'repositories_count']])
     
     # Save report
-    csv_file, json_file = save_company_report(company_df)
+    csv_file = save_company_report(company_df)
     
     print(f"\nProcessed {len(company_df)} companies")
     print(f"Total mapped contributors: {sum(len(set(company_mapping[k] for k in company_mapping if company_mapping[k] == company)) for company in set(company_mapping.values()))}")

@@ -13,6 +13,7 @@ import os
 import time
 import json
 import requests
+import argparse
 from datetime import datetime
 from collections import defaultdict
 from typing import Dict, List, Any
@@ -287,48 +288,149 @@ class PloneStatsExtractor:
         return df
     
     def save_report(self, df: pd.DataFrame, filename: str = None):
-        """Save the report to CSV and JSON files."""
+        """Save the report to CSV file."""
         if filename is None:
-            timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-            filename = f'plone_stats_{timestamp}'
+            filename = 'plone_contributors'
         
         # Save to CSV
         csv_file = f'{filename}.csv'
         df.to_csv(csv_file, index=False)
         print(f"Report saved to {csv_file}")
         
-        # Save to JSON
-        json_file = f'{filename}.json'
-        with open(json_file, 'w') as f:
-            json.dump(self.contributors_data, f, indent=2, default=str)
-        print(f"Raw data saved to {json_file}")
+        return csv_file
+
+def parse_arguments():
+    """Parse command line arguments for date range configuration."""
+    parser = argparse.ArgumentParser(
+        description="Extract GitHub statistics from the Plone organization",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  python plone_stats.py                    # Current year (default)
+  python plone_stats.py --year 2024       # All of 2024
+  python plone_stats.py --start-date 2024-01-01 --end-date 2024-06-30  # First half of 2024
+  python plone_stats.py --start-date 2023-01-01 --end-date 2024-12-31  # Two year span
+        """
+    )
+    
+    parser.add_argument(
+        '--year', 
+        type=int, 
+        help='Extract stats for a specific year (e.g., 2024)'
+    )
+    
+    parser.add_argument(
+        '--start-date', 
+        type=str, 
+        help='Start date in YYYY-MM-DD format (e.g., 2024-01-01)'
+    )
+    
+    parser.add_argument(
+        '--end-date', 
+        type=str, 
+        help='End date in YYYY-MM-DD format (e.g., 2024-12-31)'
+    )
+    
+    parser.add_argument(
+        '--token',
+        type=str,
+        help='GitHub token (if not using .env file)'
+    )
+    
+    return parser.parse_args()
+
+
+def validate_and_parse_dates(args):
+    """Validate and parse date arguments."""
+    start_date = None
+    end_date = None
+    
+    if args.year:
+        # Use specified year
+        start_date = datetime(args.year, 1, 1)
+        end_date = datetime(args.year, 12, 31, 23, 59, 59)
+        print(f"Using year: {args.year}")
+    elif args.start_date or args.end_date:
+        # Use custom date range
+        if args.start_date:
+            try:
+                start_date = datetime.strptime(args.start_date, '%Y-%m-%d')
+            except ValueError:
+                raise ValueError(f"Invalid start date format: {args.start_date}. Use YYYY-MM-DD")
         
-        return csv_file, json_file
+        if args.end_date:
+            try:
+                end_date = datetime.strptime(args.end_date, '%Y-%m-%d')
+                end_date = end_date.replace(hour=23, minute=59, second=59)  # End of day
+            except ValueError:
+                raise ValueError(f"Invalid end date format: {args.end_date}. Use YYYY-MM-DD")
+        
+        # Validate date range
+        if start_date and end_date and start_date > end_date:
+            raise ValueError("Start date must be before end date")
+    else:
+        # Default to current year
+        current_year = datetime.now().year
+        start_date = datetime(current_year, 1, 1)
+        end_date = datetime(current_year, 12, 31, 23, 59, 59)
+        print(f"Using default year: {current_year}")
+    
+    return start_date, end_date
+
 
 def main():
     """Main function to run the statistics extraction."""
     print("Plone GitHub Statistics Extractor")
     print("=" * 40)
     
-    # Create extractor with current year as default date range (let it load token from .env)
-    extractor = PloneStatsExtractor()
+    # Parse command line arguments
+    args = parse_arguments()
     
-    # Extract statistics from all repositories
-    extractor.extract_all_stats()
+    try:
+        # Parse and validate dates
+        start_date, end_date = validate_and_parse_dates(args)
+        
+        # Create extractor with specified date range
+        extractor = PloneStatsExtractor(
+            token=args.token,
+            start_date=start_date, 
+            end_date=end_date
+        )
+        
+        # Extract statistics from all repositories
+        extractor.extract_all_stats()
+        
+        # Generate and save report
+        df = extractor.generate_report()
+        
+        print("\n" + "=" * 50)
+        print("TOP 10 CONTRIBUTORS BY COMMITS:")
+        print(df.head(10)[['username', 'total_commits', 'total_pull_requests', 'repositories_count']])
+        
+        # Generate filename with date range
+        if start_date and end_date:
+            if start_date.year == end_date.year:
+                filename = f'plone_contributors_{start_date.year}'
+            else:
+                filename = f'plone_contributors_{start_date.year}_{end_date.year}'
+        else:
+            filename = None  # Use default filename
+            
+        csv_file = extractor.save_report(df, filename)
+        
+        print(f"\nStatistics extraction completed!")
+        print(f"Total repositories found: {len(extractor.repositories)}")
+        print(f"Total contributors found: {len(df)}")
+        print(f"Total repositories processed: {len(extractor.repositories)}")
+        
+    except ValueError as e:
+        print(f"Error: {e}")
+        return 1
+    except Exception as e:
+        print(f"Unexpected error: {e}")
+        return 1
     
-    # Generate and save report
-    df = extractor.generate_report()
-    
-    print("\n" + "=" * 50)
-    print("TOP 10 CONTRIBUTORS BY COMMITS:")
-    print(df.head(10)[['username', 'total_commits', 'total_pull_requests', 'repositories_count']])
-    
-    csv_file, json_file = extractor.save_report(df)
-    
-    print(f"\nStatistics extraction completed!")
-    print(f"Total repositories found: {len(extractor.repositories)}")
-    print(f"Total contributors found: {len(df)}")
-    print(f"Total repositories processed: {len(extractor.repositories)}")
+    return 0
 
 if __name__ == "__main__":
     main()

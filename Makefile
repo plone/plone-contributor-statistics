@@ -1,4 +1,4 @@
-.PHONY: help install clean run-stats run-contributors run-companies run-company-stats setup dev-setup lint format check test
+.PHONY: help install clean run-stats run-stats-2024 run-stats-custom run-contributors run-companies run-company-stats setup dev-setup lint format check test
 
 # Default target
 help:
@@ -8,7 +8,9 @@ help:
 	@echo "  help              Show this help message"
 	@echo "  install           Install Python dependencies"
 	@echo "  setup             Setup environment (.env file and dependencies)"
-	@echo "  run-stats         Run main statistics extraction"
+	@echo "  run-stats         Run main statistics extraction (current year)"
+	@echo "  run-stats-2024    Run statistics for 2024"
+	@echo "  run-stats-custom  Run statistics with custom date range (see help)"
 	@echo "  run-contributors  Run contributor statistics analysis"
 	@echo "  run-companies     Run company statistics analysis"
 	@echo "  run-company-stats Generate company statistics from individual stats"
@@ -16,6 +18,10 @@ help:
 	@echo "  lint              Run code linting"
 	@echo "  format            Format Python code"
 	@echo "  check             Check code quality and dependencies"
+	@echo ""
+	@echo "Date range examples:"
+	@echo "  python plone_stats.py --year 2024"
+	@echo "  python plone_stats.py --start-date 2024-01-01 --end-date 2024-06-30"
 
 # Install dependencies
 install:
@@ -35,9 +41,20 @@ setup: install
 dev-setup: setup
 	pip install black flake8 mypy
 
-# Run main statistics extraction
+# Run main statistics extraction (current year)
 run-stats:
 	python plone_stats.py
+
+# Run statistics for 2024
+run-stats-2024:
+	python plone_stats.py --year 2024
+
+# Run statistics with custom date range
+run-stats-custom:
+	@echo "Usage examples:"
+	@echo "  python plone_stats.py --year 2023"
+	@echo "  python plone_stats.py --start-date 2024-01-01 --end-date 2024-12-31"
+	@echo "  python plone_stats.py --start-date 2023-01-01 --end-date 2024-12-31"
 
 # Run contributor statistics
 run-contributors:
@@ -53,14 +70,10 @@ run-company-stats:
 
 # Clean generated files
 clean:
-	rm -f plone_stats_*.csv
-	rm -f plone_stats_*.json
-	rm -f plone_contributor_stats_*.csv
-	rm -f plone_contributor_stats_*.json
-	rm -f plone_companies_*.csv
-	rm -f plone_companies_*.json
-	rm -f company_stats_*.csv
-	rm -f company_stats_*.json
+	rm -f plone_contributors*.csv
+	rm -f plone_contributor_stats*.csv
+	rm -f plone_companies*.csv
+	rm -f plone_company_contributors*.csv
 	find . -name "*.pyc" -delete
 	find . -name "__pycache__" -type d -exec rm -rf {} +
 
