@@ -11,10 +11,10 @@ dataflake:dataflake
 dbain:pigeonflight
 derico:MrTango
 eau-de-web:avoinea,ichim-david,tiberiuichim,claudiaifrim,nileshgulia1,ana-oprea,dobri1408,Petchesi-Iulian
-esteele:esteele
 fhnw:adrianschulz,tomschall
 frapell:frapell
 freitag:gforcada
+garbas:garbas
 iham:iham
 imio:gotcha,bsuttor,gbastien
 interaktiv:mliebischer
@@ -36,6 +36,7 @@ redturtle:mamico,cekk,pnicolli,giuliaghisini,Wagner3UB,folix-01,yurj,nzambello
 rohberg:ksuess
 rohnsha0:rohnsha0
 rpatterson:rpatterson
+salesforce:dextermilo,esteele
 serpro:wesleybl
 starzel:pbauer,tlotze,gomez
 smcmahon:smcmahon
