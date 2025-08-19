@@ -1,4 +1,4 @@
-.PHONY: help install clean run-stats run-stats-2025 run-stats-2024 run-stats-2023 run-stats-2022 run-stats-2021 run-stats-2020 run-stats-2019 run-stats-2018 run-stats-2017 run-stats-2016 run-stats-2015 run-stats-custom run-contributors run-organisations run-organisation-stats run-organisation-stats-2025 run-organisation-stats-2024 run-organisation-stats-2023 run-organisation-stats-2022 run-organisation-stats-2021 run-organisation-stats-2020 run-organisation-stats-2019 run-organisation-stats-2018 run-organisation-stats-2017 run-organisation-stats-2016 run-organisation-stats-2015 run-plips run-plip-organisations setup dev-setup lint format check test
+.PHONY: help install clean run-stats run-stats-2025 run-stats-2024 run-stats-2023 run-stats-2022 run-stats-2021 run-stats-2020 run-stats-2019 run-stats-2018 run-stats-2017 run-stats-2016 run-stats-2015 run-stats-custom run-contributors run-organisations run-organisation-stats run-organisation-stats-2025 run-organisation-stats-2024 run-organisation-stats-2023 run-organisation-stats-2022 run-organisation-stats-2021 run-organisation-stats-2020 run-organisation-stats-2019 run-organisation-stats-2018 run-organisation-stats-2017 run-organisation-stats-2016 run-organisation-stats-2015 run-plips run-plip-organisations analyze-independent setup dev-setup lint format check test
 
 # Default target
 help:
@@ -37,6 +37,7 @@ help:
 	@echo "  run-organisation-stats-2015 Generate organisation statistics for 2015"
 	@echo "  run-plips         Extract PLIP statistics from all repositories"
 	@echo "  run-plip-organisations Generate PLIP organisation statistics using organisation mapping"
+	@echo "  analyze-independent Analyze Independent contributors for potential organisation mappings"
 	@echo "  clean             Clean up generated files"
 	@echo "  lint              Run code linting"
 	@echo "  format            Format Python code"
@@ -162,6 +163,10 @@ run-plips:
 # Generate PLIP organisation statistics
 run-plip-organisations:
 	python plip_organisation_stats.py
+
+# Analyze Independent contributors for potential organisation mappings
+analyze-independent:
+	python analyze_independent_contributors.py
 
 # Clean generated files
 clean:
