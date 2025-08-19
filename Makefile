@@ -1,4 +1,4 @@
-.PHONY: help install clean run-stats run-stats-2024 run-stats-2023 run-stats-2022 run-stats-2021 run-stats-2020 run-stats-custom run-contributors run-companies run-company-stats run-company-stats-2024 run-company-stats-2023 run-company-stats-2022 run-company-stats-2021 run-plips run-plip-companies setup dev-setup lint format check test
+.PHONY: help install clean run-stats run-stats-2025 run-stats-2024 run-stats-2023 run-stats-2022 run-stats-2021 run-stats-2020 run-stats-2019 run-stats-2018 run-stats-2017 run-stats-2016 run-stats-2015 run-stats-custom run-contributors run-companies run-company-stats run-company-stats-2025 run-company-stats-2024 run-company-stats-2023 run-company-stats-2022 run-company-stats-2021 run-company-stats-2020 run-company-stats-2019 run-company-stats-2018 run-company-stats-2017 run-company-stats-2016 run-company-stats-2015 run-plips run-plip-companies setup dev-setup lint format check test
 
 # Default target
 help:
@@ -9,19 +9,32 @@ help:
 	@echo "  install           Install Python dependencies"
 	@echo "  setup             Setup environment (.env file and dependencies)"
 	@echo "  run-stats         Run main statistics extraction (current year)"
+	@echo "  run-stats-2025    Run statistics for 2025"
 	@echo "  run-stats-2024    Run statistics for 2024"
 	@echo "  run-stats-2023    Run statistics for 2023"
 	@echo "  run-stats-2022    Run statistics for 2022"
 	@echo "  run-stats-2021    Run statistics for 2021"
 	@echo "  run-stats-2020    Run statistics for 2020"
+	@echo "  run-stats-2019    Run statistics for 2019"
+	@echo "  run-stats-2018    Run statistics for 2018"
+	@echo "  run-stats-2017    Run statistics for 2017"
+	@echo "  run-stats-2016    Run statistics for 2016"
+	@echo "  run-stats-2015    Run statistics for 2015"
 	@echo "  run-stats-custom  Run statistics with custom date range (see help)"
 	@echo "  run-contributors  Run contributor statistics analysis"
 	@echo "  run-companies     Run company statistics analysis"
 	@echo "  run-company-stats Generate company statistics from individual stats (current year)"
+	@echo "  run-company-stats-2025 Generate company statistics for 2025"
 	@echo "  run-company-stats-2024 Generate company statistics for 2024"
 	@echo "  run-company-stats-2023 Generate company statistics for 2023"
 	@echo "  run-company-stats-2022 Generate company statistics for 2022"
 	@echo "  run-company-stats-2021 Generate company statistics for 2021"
+	@echo "  run-company-stats-2020 Generate company statistics for 2020"
+	@echo "  run-company-stats-2019 Generate company statistics for 2019"
+	@echo "  run-company-stats-2018 Generate company statistics for 2018"
+	@echo "  run-company-stats-2017 Generate company statistics for 2017"
+	@echo "  run-company-stats-2016 Generate company statistics for 2016"
+	@echo "  run-company-stats-2015 Generate company statistics for 2015"
 	@echo "  run-plips         Extract PLIP statistics from all repositories"
 	@echo "  run-plip-companies Generate PLIP company statistics using company mapping"
 	@echo "  clean             Clean up generated files"
@@ -55,25 +68,39 @@ dev-setup: setup
 run-stats:
 	python plone_stats.py
 
-# Run statistics for 2024
+# Run statistics for specific years
+run-stats-2025:
+	python plone_stats.py --year 2025
+
 run-stats-2024:
 	python plone_stats.py --year 2024
 
-# Run statistics for 2023
 run-stats-2023:
 	python plone_stats.py --year 2023
 
-# Run statistics for 2022
 run-stats-2022:
 	python plone_stats.py --year 2022
 
-# Run statistics for 2021
 run-stats-2021:
 	python plone_stats.py --year 2021
 
-# Run statistics for 2020
 run-stats-2020:
 	python plone_stats.py --year 2020
+
+run-stats-2019:
+	python plone_stats.py --year 2019
+
+run-stats-2018:
+	python plone_stats.py --year 2018
+
+run-stats-2017:
+	python plone_stats.py --year 2017
+
+run-stats-2016:
+	python plone_stats.py --year 2016
+
+run-stats-2015:
+	python plone_stats.py --year 2015
 
 # Run statistics with custom date range
 run-stats-custom:
@@ -95,6 +122,9 @@ run-company-stats:
 	python company_stats.py
 
 # Generate company statistics for specific years
+run-company-stats-2025:
+	python company_stats.py --year 2025
+
 run-company-stats-2024:
 	python company_stats.py --year 2024
 
@@ -106,6 +136,24 @@ run-company-stats-2022:
 
 run-company-stats-2021:
 	python company_stats.py --year 2021
+
+run-company-stats-2020:
+	python company_stats.py --year 2020
+
+run-company-stats-2019:
+	python company_stats.py --year 2019
+
+run-company-stats-2018:
+	python company_stats.py --year 2018
+
+run-company-stats-2017:
+	python company_stats.py --year 2017
+
+run-company-stats-2016:
+	python company_stats.py --year 2016
+
+run-company-stats-2015:
+	python company_stats.py --year 2015
 
 # Extract PLIP statistics
 run-plips:
