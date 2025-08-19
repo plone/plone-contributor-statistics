@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-Company Statistics Aggregator for Plone GitHub Statistics
+Organisation Statistics Aggregator for Plone GitHub Statistics
 
-Reads the output from plone_stats.py and aggregates statistics by company
-using the mapping defined in company_mapping.txt
+Reads the output from plone_stats.py and aggregates statistics by organisation
+using the mapping defined in organisation_mapping.txt
 """
 
 import pandas as pd
@@ -13,31 +13,42 @@ from datetime import datetime
 import glob
 import os
 import sys
+import argparse
 
 
-def load_company_mapping(mapping_file='company_mapping.txt'):
-    """Load company mapping from text file."""
-    company_mapping = {}
+def load_organisation_mapping(mapping_file='organisation_mapping.txt'):
+    """Load organisation mapping from text file."""
+    organisation_mapping = {}
     
     if not os.path.exists(mapping_file):
         print(f"Warning: {mapping_file} not found. All contributors will be marked as 'Independent'")
-        return company_mapping
+        return organisation_mapping
     
     with open(mapping_file, 'r') as f:
         for line in f:
             line = line.strip()
             if ':' in line:
-                company, contributors = line.split(':', 1)
+                organisation, contributors = line.split(':', 1)
                 contributor_list = [c.strip() for c in contributors.split(',')]
                 for contributor in contributor_list:
-                    company_mapping[contributor] = company
+                    organisation_mapping[contributor] = organisation
     
-    print(f"Loaded mapping for {len(company_mapping)} contributors across {len(set(company_mapping.values()))} companies")
-    return company_mapping
+    print(f"Loaded mapping for {len(organisation_mapping)} contributors across {len(set(organisation_mapping.values()))} organisations")
+    return organisation_mapping
 
 
-def get_latest_stats_file():
-    """Find the most recent plone contributors CSV file."""
+def get_stats_file(year=None):
+    """Find the plone contributors CSV file for a specific year or the latest one."""
+    if year:
+        # Look for specific year file
+        year_file = f'{year}-plone-contributors.csv'
+        if os.path.exists(year_file):
+            print(f"Using stats file: {year_file}")
+            return year_file
+        else:
+            print(f"File {year_file} not found")
+            return None
+    
     # Look for new format (year-first) and legacy format
     csv_files = glob.glob('????-plone-contributors.csv')  # New format: 2024-plone-contributors.csv
     csv_files.extend(glob.glob('????-????-plone-contributors.csv'))  # New format: 2023-2024-plone-contributors.csv
@@ -92,9 +103,9 @@ def extract_date_range_from_filename(filename):
     return None
 
 
-def aggregate_company_stats(stats_df, company_mapping):
-    """Aggregate individual contributor stats by company."""
-    company_stats = defaultdict(lambda: {
+def aggregate_organisation_stats(stats_df, organisation_mapping):
+    """Aggregate individual contributor stats by organisation."""
+    organisation_stats = defaultdict(lambda: {
         'total_commits': 0,
         'total_pull_requests': 0,
         'contributors': set(),
@@ -105,41 +116,41 @@ def aggregate_company_stats(stats_df, company_mapping):
     
     for _, row in stats_df.iterrows():
         username = row['username']
-        company = company_mapping.get(username, 'Independent')
+        organisation = organisation_mapping.get(username, 'Independent')
         
         # Aggregate stats
-        company_stats[company]['total_commits'] += row['total_commits']
-        company_stats[company]['total_pull_requests'] += row['total_pull_requests']
-        company_stats[company]['contributors'].add(username)
+        organisation_stats[organisation]['total_commits'] += row['total_commits']
+        organisation_stats[organisation]['total_pull_requests'] += row['total_pull_requests']
+        organisation_stats[organisation]['contributors'].add(username)
         
         # Add repositories (split comma-separated string)
         if pd.notna(row['repositories']) and row['repositories']:
             repos = [r.strip() for r in row['repositories'].split(',')]
-            company_stats[company]['repositories'].update(repos)
+            organisation_stats[organisation]['repositories'].update(repos)
         
         # Track date ranges
         if pd.notna(row['first_contribution']):
             first_date = pd.to_datetime(row['first_contribution'])
-            if (company_stats[company]['first_contribution'] is None or 
-                first_date < company_stats[company]['first_contribution']):
-                company_stats[company]['first_contribution'] = first_date
+            if (organisation_stats[organisation]['first_contribution'] is None or 
+                first_date < organisation_stats[organisation]['first_contribution']):
+                organisation_stats[organisation]['first_contribution'] = first_date
         
         if pd.notna(row['last_contribution']):
             last_date = pd.to_datetime(row['last_contribution'])
-            if (company_stats[company]['last_contribution'] is None or 
-                last_date > company_stats[company]['last_contribution']):
-                company_stats[company]['last_contribution'] = last_date
+            if (organisation_stats[organisation]['last_contribution'] is None or 
+                last_date > organisation_stats[organisation]['last_contribution']):
+                organisation_stats[organisation]['last_contribution'] = last_date
     
-    return company_stats
+    return organisation_stats
 
 
-def create_company_dataframe(company_stats):
-    """Convert company stats to DataFrame."""
+def create_organisation_dataframe(organisation_stats):
+    """Convert organisation stats to DataFrame."""
     data = []
     
-    for company, stats in company_stats.items():
+    for organisation, stats in organisation_stats.items():
         data.append({
-            'company': company,
+            'organisation': organisation,
             'total_commits': stats['total_commits'],
             'total_pull_requests': stats['total_pull_requests'],
             'contributors_count': len(stats['contributors']),
@@ -155,32 +166,41 @@ def create_company_dataframe(company_stats):
     return df
 
 
-def save_company_report(df, filename=None, date_range=None):
-    """Save company statistics to CSV file."""
+def save_organisation_report(df, filename=None, date_range=None):
+    """Save organisation statistics to CSV file."""
     if filename is None:
         if date_range:
-            filename = f'{date_range}-plone-company-contributors'
+            filename = f'{date_range}-plone-organisation-contributors'
         else:
-            filename = 'plone-company-contributors'
+            filename = 'plone-organisation-contributors'
     
     # Save to CSV
     csv_file = f'{filename}.csv'
     df.to_csv(csv_file, index=False)
-    print(f"Company report saved to {csv_file}")
+    print(f"Organisation report saved to {csv_file}")
     
     return csv_file
 
 
+def parse_arguments():
+    """Parse command line arguments"""
+    parser = argparse.ArgumentParser(description='Generate organisation statistics from individual contributor data')
+    parser.add_argument('--year', type=int, help='Generate statistics for specific year (e.g., 2024)')
+    return parser.parse_args()
+
 def main():
-    """Main function to generate company statistics."""
-    print("Plone Company Statistics Aggregator")
-    print("=" * 40)
+    """Main function to generate organisation statistics."""
+    print("Plone Organisation Statistics Aggregator")
+    print("=" * 42)
     
-    # Load company mapping
-    company_mapping = load_company_mapping()
+    # Parse command line arguments
+    args = parse_arguments()
     
-    # Find and load latest stats file
-    stats_file = get_latest_stats_file()
+    # Load organisation mapping
+    organisation_mapping = load_organisation_mapping()
+    
+    # Find and load stats file (specific year or latest)
+    stats_file = get_stats_file(args.year)
     if not stats_file:
         sys.exit(1)
     
@@ -195,22 +215,22 @@ def main():
         print(f"Error loading {stats_file}: {e}")
         sys.exit(1)
     
-    # Aggregate by company
-    company_stats = aggregate_company_stats(stats_df, company_mapping)
+    # Aggregate by organisation
+    organisation_stats = aggregate_organisation_stats(stats_df, organisation_mapping)
     
     # Create DataFrame
-    company_df = create_company_dataframe(company_stats)
+    organisation_df = create_organisation_dataframe(organisation_stats)
     
-    # Display top companies
+    # Display top organisations
     print("\n" + "=" * 50)
-    print("TOP COMPANIES BY COMMITS:")
-    print(company_df[['company', 'total_commits', 'total_pull_requests', 'contributors_count', 'repositories_count']])
+    print("TOP ORGANISATIONS BY COMMITS:")
+    print(organisation_df[['organisation', 'total_commits', 'total_pull_requests', 'contributors_count', 'repositories_count']])
     
     # Save report with date range in filename
-    csv_file = save_company_report(company_df, date_range=date_range)
+    csv_file = save_organisation_report(organisation_df, date_range=date_range)
     
-    print(f"\nProcessed {len(company_df)} companies")
-    print(f"Total mapped contributors: {sum(len(set(company_mapping[k] for k in company_mapping if company_mapping[k] == company)) for company in set(company_mapping.values()))}")
+    print(f"\nProcessed {len(organisation_df)} organisations")
+    print(f"Total mapped contributors: {sum(len(set(organisation_mapping[k] for k in organisation_mapping if organisation_mapping[k] == organisation)) for organisation in set(organisation_mapping.values()))}")
 
 
 if __name__ == "__main__":

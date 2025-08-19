@@ -1,4 +1,4 @@
-.PHONY: help install clean run-stats run-stats-2025 run-stats-2024 run-stats-2023 run-stats-2022 run-stats-2021 run-stats-2020 run-stats-2019 run-stats-2018 run-stats-2017 run-stats-2016 run-stats-2015 run-stats-custom run-contributors run-companies run-company-stats run-company-stats-2025 run-company-stats-2024 run-company-stats-2023 run-company-stats-2022 run-company-stats-2021 run-company-stats-2020 run-company-stats-2019 run-company-stats-2018 run-company-stats-2017 run-company-stats-2016 run-company-stats-2015 run-plips run-plip-companies setup dev-setup lint format check test
+.PHONY: help install clean run-stats run-stats-2025 run-stats-2024 run-stats-2023 run-stats-2022 run-stats-2021 run-stats-2020 run-stats-2019 run-stats-2018 run-stats-2017 run-stats-2016 run-stats-2015 run-stats-custom run-contributors run-organisations run-organisation-stats run-organisation-stats-2025 run-organisation-stats-2024 run-organisation-stats-2023 run-organisation-stats-2022 run-organisation-stats-2021 run-organisation-stats-2020 run-organisation-stats-2019 run-organisation-stats-2018 run-organisation-stats-2017 run-organisation-stats-2016 run-organisation-stats-2015 run-plips run-plip-organisations setup dev-setup lint format check test
 
 # Default target
 help:
@@ -22,21 +22,21 @@ help:
 	@echo "  run-stats-2015    Run statistics for 2015"
 	@echo "  run-stats-custom  Run statistics with custom date range (see help)"
 	@echo "  run-contributors  Run contributor statistics analysis"
-	@echo "  run-companies     Run company statistics analysis"
-	@echo "  run-company-stats Generate company statistics from individual stats (current year)"
-	@echo "  run-company-stats-2025 Generate company statistics for 2025"
-	@echo "  run-company-stats-2024 Generate company statistics for 2024"
-	@echo "  run-company-stats-2023 Generate company statistics for 2023"
-	@echo "  run-company-stats-2022 Generate company statistics for 2022"
-	@echo "  run-company-stats-2021 Generate company statistics for 2021"
-	@echo "  run-company-stats-2020 Generate company statistics for 2020"
-	@echo "  run-company-stats-2019 Generate company statistics for 2019"
-	@echo "  run-company-stats-2018 Generate company statistics for 2018"
-	@echo "  run-company-stats-2017 Generate company statistics for 2017"
-	@echo "  run-company-stats-2016 Generate company statistics for 2016"
-	@echo "  run-company-stats-2015 Generate company statistics for 2015"
+	@echo "  run-organisations Run organisation statistics analysis"
+	@echo "  run-organisation-stats Generate organisation statistics from individual stats (current year)"
+	@echo "  run-organisation-stats-2025 Generate organisation statistics for 2025"
+	@echo "  run-organisation-stats-2024 Generate organisation statistics for 2024"
+	@echo "  run-organisation-stats-2023 Generate organisation statistics for 2023"
+	@echo "  run-organisation-stats-2022 Generate organisation statistics for 2022"
+	@echo "  run-organisation-stats-2021 Generate organisation statistics for 2021"
+	@echo "  run-organisation-stats-2020 Generate organisation statistics for 2020"
+	@echo "  run-organisation-stats-2019 Generate organisation statistics for 2019"
+	@echo "  run-organisation-stats-2018 Generate organisation statistics for 2018"
+	@echo "  run-organisation-stats-2017 Generate organisation statistics for 2017"
+	@echo "  run-organisation-stats-2016 Generate organisation statistics for 2016"
+	@echo "  run-organisation-stats-2015 Generate organisation statistics for 2015"
 	@echo "  run-plips         Extract PLIP statistics from all repositories"
-	@echo "  run-plip-companies Generate PLIP company statistics using company mapping"
+	@echo "  run-plip-organisations Generate PLIP organisation statistics using organisation mapping"
 	@echo "  clean             Clean up generated files"
 	@echo "  lint              Run code linting"
 	@echo "  format            Format Python code"
@@ -113,69 +113,68 @@ run-stats-custom:
 run-contributors:
 	python plone_contributor_statistics.py
 
-# Run company statistics
-run-companies:
+# Run organisation statistics
+run-organisations:
 	python plone_companies.py
 
-# Generate company statistics from individual contributor stats
-run-company-stats:
-	python company_stats.py
+# Generate organisation statistics from individual contributor stats
+run-organisation-stats:
+	python organisation_stats.py
 
-# Generate company statistics for specific years
-run-company-stats-2025:
-	python company_stats.py --year 2025
+# Generate organisation statistics for specific years
+run-organisation-stats-2025:
+	python organisation_stats.py --year 2025
 
-run-company-stats-2024:
-	python company_stats.py --year 2024
+run-organisation-stats-2024:
+	python organisation_stats.py --year 2024
 
-run-company-stats-2023:
-	python company_stats.py --year 2023
+run-organisation-stats-2023:
+	python organisation_stats.py --year 2023
 
-run-company-stats-2022:
-	python company_stats.py --year 2022
+run-organisation-stats-2022:
+	python organisation_stats.py --year 2022
 
-run-company-stats-2021:
-	python company_stats.py --year 2021
+run-organisation-stats-2021:
+	python organisation_stats.py --year 2021
 
-run-company-stats-2020:
-	python company_stats.py --year 2020
+run-organisation-stats-2020:
+	python organisation_stats.py --year 2020
 
-run-company-stats-2019:
-	python company_stats.py --year 2019
+run-organisation-stats-2019:
+	python organisation_stats.py --year 2019
 
-run-company-stats-2018:
-	python company_stats.py --year 2018
+run-organisation-stats-2018:
+	python organisation_stats.py --year 2018
 
-run-company-stats-2017:
-	python company_stats.py --year 2017
+run-organisation-stats-2017:
+	python organisation_stats.py --year 2017
 
-run-company-stats-2016:
-	python company_stats.py --year 2016
+run-organisation-stats-2016:
+	python organisation_stats.py --year 2016
 
-run-company-stats-2015:
-	python company_stats.py --year 2015
+run-organisation-stats-2015:
+	python organisation_stats.py --year 2015
 
 # Extract PLIP statistics
 run-plips:
 	python plone_plips.py
 
-# Generate PLIP company statistics
-run-plip-companies:
-	python plip_company_stats.py
+# Generate PLIP organisation statistics
+run-plip-organisations:
+	python plip_organisation_stats.py
 
 # Clean generated files
 clean:
 	rm -f *-plone-contributors*.csv
 	rm -f plone-contributors*.csv
-	rm -f *-plone-company-contributors*.csv
-	rm -f plone-company-contributors*.csv
+	rm -f *-plone-organisation-contributors*.csv
+	rm -f plone-organisation-contributors*.csv
 	rm -f plone-plips.csv
 	rm -f plone-plips-detailed.csv
-	rm -f plone-plip-companies.csv
+	rm -f plone-plip-organisations.csv
 	rm -f plone_contributors*.csv
 	rm -f plone_contributor_stats*.csv
 	rm -f plone_companies*.csv
-	rm -f plone_company_contributors*.csv
 	find . -name "*.pyc" -delete
 	find . -name "__pycache__" -type d -exec rm -rf {} +
 
