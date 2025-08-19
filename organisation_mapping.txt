@@ -38,9 +38,11 @@ rohnsha0:rohnsha0
 rpatterson:rpatterson
 serpro:wesleybl
 starzel:pbauer,tlotze,gomez
+smcmahon:smcmahon
 stevepiercy:stevepiercy
 syslab:ale-rt,pilz,thet,reinhardt,svx
 tkimnguyen:tkimnguyen
+tomgross:tomgross
 tomster:tomster
 tschorr:tschorr
 university-hospital-dresden:1letter
