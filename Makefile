@@ -1,4 +1,4 @@
-.PHONY: help install clean run-stats run-stats-2025 run-stats-2024 run-stats-2023 run-stats-2022 run-stats-2021 run-stats-2020 run-stats-2019 run-stats-2018 run-stats-2017 run-stats-2016 run-stats-2015 run-stats-2014 run-stats-2013 run-stats-2012 run-stats-2011 run-stats-2010 run-stats-2009 run-stats-2008 run-stats-2007 run-stats-2006 run-stats-2005 run-stats-custom run-contributors run-organisations run-organisation-stats run-organisation-stats-2025 run-organisation-stats-2024 run-organisation-stats-2023 run-organisation-stats-2022 run-organisation-stats-2021 run-organisation-stats-2020 run-organisation-stats-2019 run-organisation-stats-2018 run-organisation-stats-2017 run-organisation-stats-2016 run-organisation-stats-2015 run-organisation-stats-2014 run-organisation-stats-2013 run-organisation-stats-2012 run-organisation-stats-2011 run-organisation-stats-2010 run-organisation-stats-2009 run-organisation-stats-2008 run-organisation-stats-2007 run-organisation-stats-2006 run-organisation-stats-2005 run-plips run-plip-organisations analyze-independent setup dev-setup lint format check test
+.PHONY: help install clean run-stats run-stats-2025 run-stats-2024 run-stats-2023 run-stats-2022 run-stats-2021 run-stats-2020 run-stats-2019 run-stats-2018 run-stats-2017 run-stats-2016 run-stats-2015 run-stats-2014 run-stats-2013 run-stats-2012 run-stats-2011 run-stats-2010 run-stats-2009 run-stats-2008 run-stats-2007 run-stats-2006 run-stats-2005 run-stats-custom run-contributors run-organisations run-organisation-stats run-organisation-stats-2025 run-organisation-stats-2024 run-organisation-stats-2023 run-organisation-stats-2022 run-organisation-stats-2021 run-organisation-stats-2020 run-organisation-stats-2019 run-organisation-stats-2018 run-organisation-stats-2017 run-organisation-stats-2016 run-organisation-stats-2015 run-organisation-stats-2014 run-organisation-stats-2013 run-organisation-stats-2012 run-organisation-stats-2011 run-organisation-stats-2010 run-organisation-stats-2009 run-organisation-stats-2008 run-organisation-stats-2007 run-organisation-stats-2006 run-organisation-stats-2005 run-plips run-plip-organisations analyze-independent three-year-summary ten-year-summary setup dev-setup lint format check test
 
 # Default target
 help:
@@ -58,6 +58,8 @@ help:
 	@echo "  run-plips         Extract PLIP statistics from all repositories"
 	@echo "  run-plip-organisations Generate PLIP organisation statistics using organisation mapping"
 	@echo "  analyze-independent Analyze Independent contributors for potential organisation mappings"
+	@echo "  three-year-summary Generate combined statistics summary for 2022-2024"
+	@echo "  ten-year-summary  Generate combined statistics summary for 2015-2024"
 	@echo "  clean             Clean up generated files"
 	@echo "  lint              Run code linting"
 	@echo "  format            Format Python code"
@@ -248,6 +250,14 @@ run-plip-organisations:
 analyze-independent:
 	python analyze_independent_contributors.py
 
+# Generate three-year summary combining 2022-2024 organisation statistics
+three-year-summary:
+	python multi_year_summary.py
+
+# Generate ten-year summary combining 2015-2024 organisation statistics
+ten-year-summary:
+	python multi_year_summary.py --years 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024
+
 # Clean generated files
 clean:
 	rm -f *-plone-contributors*.csv
@@ -257,6 +267,8 @@ clean:
 	rm -f plone-plips.csv
 	rm -f plone-plips-detailed.csv
 	rm -f plone-plip-organisations.csv
+	rm -f summary-past-*-years-*.csv
+	rm -f STATISTICS-PAST-*-YEARS.txt
 	rm -f plone_contributors*.csv
 	rm -f plone_contributor_stats*.csv
 	rm -f plone_companies*.csv

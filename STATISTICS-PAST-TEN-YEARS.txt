@@ -1,0 +1,32 @@
+# Ten-Year Summary Results (2015-2024)
+
+- 51 total organisations tracked across the decade
+- 83,111 total commits and 20,615 pull requests
+- 735 unique contributors across all organisations
+- File generated: summary-past-ten-years-2015-2024.csv
+
+## Top 10 contributors by commits (2015-2024)
+
+1. mauritsvanrees              14,812 commits
+2. gforcada                     5,946 commits
+3. jensens                      5,333 commits
+4. tisto                        5,241 commits
+5. vangheem                     4,650 commits
+6. sneridagh                    4,389 commits
+7. esteele                      3,470 commits
+8. pbauer                       3,352 commits
+9. thet                         3,077 commits
+10. stevepiercy                  2,901 commits
+
+## Top 10 organisations by commits (2015-2024)
+
+1. kitconcept: 14,937 commits
+2. py76: 14,812 commits
+3. Independent: 6,887 commits
+4. freitag: 5,946 commits
+5. kleinundpartner: 5,333 commits
+6. vangheem: 4,650 commits
+7. syslab: 3,923 commits
+8. esteele: 3,470 commits
+9. starzel: 3,375 commits
+10. stevepiercy: 2,901 commits

@@ -1,0 +1,32 @@
+# Three-Year Summary Results (2022-2024)
+
+- 49 total organisations tracked across 3 years
+- 26,510 total commits and 7,112 pull requests
+- 382 unique contributors across all organisations
+- File generated: summary-past-three-years-2022-2024.csv
+
+## Top 10 contributors by commits (2022-2024)
+
+1. mauritsvanrees               5,277 commits
+2. stevepiercy                  2,609 commits
+3. gforcada                     2,578 commits
+4. sneridagh                    2,178 commits
+5. petschki                     2,065 commits
+6. jensens                      1,256 commits
+7. ericof                       1,189 commits
+8. davisagli                    1,030 commits
+9. ksuess                         777 commits
+10. MrTango                        684 commits
+
+## Top 10 organisations by commits (2022-2024)
+
+1. kitconcept: 6,044 commits
+2. py76: 5,277 commits
+3. stevepiercy: 2,609 commits
+4. freitag: 2,578 commits
+5. kombinat: 2,065 commits
+6. kleinundpartner: 1,256 commits
+7. Independent: 1,007 commits
+8. syslab: 803 commits
+9. rohberg: 777 commits
+10. derico: 684 commits
