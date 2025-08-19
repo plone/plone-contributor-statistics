@@ -1,4 +1,4 @@
-.PHONY: help install clean run-stats run-stats-2025 run-stats-2024 run-stats-2023 run-stats-2022 run-stats-2021 run-stats-2020 run-stats-2019 run-stats-2018 run-stats-2017 run-stats-2016 run-stats-2015 run-stats-custom run-contributors run-organisations run-organisation-stats run-organisation-stats-2025 run-organisation-stats-2024 run-organisation-stats-2023 run-organisation-stats-2022 run-organisation-stats-2021 run-organisation-stats-2020 run-organisation-stats-2019 run-organisation-stats-2018 run-organisation-stats-2017 run-organisation-stats-2016 run-organisation-stats-2015 run-plips run-plip-organisations analyze-independent setup dev-setup lint format check test
+.PHONY: help install clean run-stats run-stats-2025 run-stats-2024 run-stats-2023 run-stats-2022 run-stats-2021 run-stats-2020 run-stats-2019 run-stats-2018 run-stats-2017 run-stats-2016 run-stats-2015 run-stats-2014 run-stats-2013 run-stats-2012 run-stats-2011 run-stats-2010 run-stats-2009 run-stats-2008 run-stats-2007 run-stats-2006 run-stats-2005 run-stats-custom run-contributors run-organisations run-organisation-stats run-organisation-stats-2025 run-organisation-stats-2024 run-organisation-stats-2023 run-organisation-stats-2022 run-organisation-stats-2021 run-organisation-stats-2020 run-organisation-stats-2019 run-organisation-stats-2018 run-organisation-stats-2017 run-organisation-stats-2016 run-organisation-stats-2015 run-organisation-stats-2014 run-organisation-stats-2013 run-organisation-stats-2012 run-organisation-stats-2011 run-organisation-stats-2010 run-organisation-stats-2009 run-organisation-stats-2008 run-organisation-stats-2007 run-organisation-stats-2006 run-organisation-stats-2005 run-plips run-plip-organisations analyze-independent setup dev-setup lint format check test
 
 # Default target
 help:
@@ -20,6 +20,16 @@ help:
 	@echo "  run-stats-2017    Run statistics for 2017"
 	@echo "  run-stats-2016    Run statistics for 2016"
 	@echo "  run-stats-2015    Run statistics for 2015"
+	@echo "  run-stats-2014    Run statistics for 2014"
+	@echo "  run-stats-2013    Run statistics for 2013"
+	@echo "  run-stats-2012    Run statistics for 2012"
+	@echo "  run-stats-2011    Run statistics for 2011"
+	@echo "  run-stats-2010    Run statistics for 2010"
+	@echo "  run-stats-2009    Run statistics for 2009"
+	@echo "  run-stats-2008    Run statistics for 2008"
+	@echo "  run-stats-2007    Run statistics for 2007"
+	@echo "  run-stats-2006    Run statistics for 2006"
+	@echo "  run-stats-2005    Run statistics for 2005"
 	@echo "  run-stats-custom  Run statistics with custom date range (see help)"
 	@echo "  run-contributors  Run contributor statistics analysis"
 	@echo "  run-organisations Run organisation statistics analysis"
@@ -35,6 +45,16 @@ help:
 	@echo "  run-organisation-stats-2017 Generate organisation statistics for 2017"
 	@echo "  run-organisation-stats-2016 Generate organisation statistics for 2016"
 	@echo "  run-organisation-stats-2015 Generate organisation statistics for 2015"
+	@echo "  run-organisation-stats-2014 Generate organisation statistics for 2014"
+	@echo "  run-organisation-stats-2013 Generate organisation statistics for 2013"
+	@echo "  run-organisation-stats-2012 Generate organisation statistics for 2012"
+	@echo "  run-organisation-stats-2011 Generate organisation statistics for 2011"
+	@echo "  run-organisation-stats-2010 Generate organisation statistics for 2010"
+	@echo "  run-organisation-stats-2009 Generate organisation statistics for 2009"
+	@echo "  run-organisation-stats-2008 Generate organisation statistics for 2008"
+	@echo "  run-organisation-stats-2007 Generate organisation statistics for 2007"
+	@echo "  run-organisation-stats-2006 Generate organisation statistics for 2006"
+	@echo "  run-organisation-stats-2005 Generate organisation statistics for 2005"
 	@echo "  run-plips         Extract PLIP statistics from all repositories"
 	@echo "  run-plip-organisations Generate PLIP organisation statistics using organisation mapping"
 	@echo "  analyze-independent Analyze Independent contributors for potential organisation mappings"
@@ -103,6 +123,36 @@ run-stats-2016:
 run-stats-2015:
 	python plone_stats.py --year 2015
 
+run-stats-2014:
+	python plone_stats.py --year 2014
+
+run-stats-2013:
+	python plone_stats.py --year 2013
+
+run-stats-2012:
+	python plone_stats.py --year 2012
+
+run-stats-2011:
+	python plone_stats.py --year 2011
+
+run-stats-2010:
+	python plone_stats.py --year 2010
+
+run-stats-2009:
+	python plone_stats.py --year 2009
+
+run-stats-2008:
+	python plone_stats.py --year 2008
+
+run-stats-2007:
+	python plone_stats.py --year 2007
+
+run-stats-2006:
+	python plone_stats.py --year 2006
+
+run-stats-2005:
+	python plone_stats.py --year 2005
+
 # Run statistics with custom date range
 run-stats-custom:
 	@echo "Usage examples:"
@@ -155,6 +205,36 @@ run-organisation-stats-2016:
 
 run-organisation-stats-2015:
 	python organisation_stats.py --year 2015
+
+run-organisation-stats-2014:
+	python organisation_stats.py --year 2014
+
+run-organisation-stats-2013:
+	python organisation_stats.py --year 2013
+
+run-organisation-stats-2012:
+	python organisation_stats.py --year 2012
+
+run-organisation-stats-2011:
+	python organisation_stats.py --year 2011
+
+run-organisation-stats-2010:
+	python organisation_stats.py --year 2010
+
+run-organisation-stats-2009:
+	python organisation_stats.py --year 2009
+
+run-organisation-stats-2008:
+	python organisation_stats.py --year 2008
+
+run-organisation-stats-2007:
+	python organisation_stats.py --year 2007
+
+run-organisation-stats-2006:
+	python organisation_stats.py --year 2006
+
+run-organisation-stats-2005:
+	python organisation_stats.py --year 2005
 
 # Extract PLIP statistics
 run-plips:
