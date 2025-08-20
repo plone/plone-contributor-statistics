@@ -63,6 +63,7 @@ help:
 	@echo "  ten-year-summary  Generate combined statistics summary for 2015-2024"
 	@echo "  yearly-activity   Generate yearly development activity analysis"
 	@echo "  yearly-graphs     Generate visual graphs from yearly activity data"
+	@echo "  npm-packages      Analyze NPM packages published by Plone organizations"
 	@echo "  clean             Clean up generated files"
 	@echo "  lint              Run code linting"
 	@echo "  format            Format Python code"
@@ -273,6 +274,10 @@ yearly-activity:
 yearly-graphs:
 	python generate_yearly_graphs.py
 
+# Analyze NPM packages published by Plone organizations
+npm-packages:
+	python npm_package_stats.py
+
 # Clean generated files
 clean:
 	rm -f *-plone-contributors*.csv
@@ -287,6 +292,8 @@ clean:
 	rm -f yearly-activity-statistics.csv
 	rm -f YEARLY-ACTIVITY-ANALYSIS.md
 	rm -rf graphs/
+	rm -f npm-packages-*.md
+	rm -f npm-packages-*.csv
 	rm -f plone_contributors*.csv
 	rm -f plone_contributor_stats*.csv
 	rm -f plone_companies*.csv
