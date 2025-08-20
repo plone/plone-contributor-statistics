@@ -61,6 +61,8 @@ help:
 	@echo "  three-year-summary Generate combined statistics summary for 2022-2024"
 	@echo "  five-year-summary Generate combined statistics summary for 2020-2024"
 	@echo "  ten-year-summary  Generate combined statistics summary for 2015-2024"
+	@echo "  yearly-activity   Generate yearly development activity analysis"
+	@echo "  yearly-graphs     Generate visual graphs from yearly activity data"
 	@echo "  clean             Clean up generated files"
 	@echo "  lint              Run code linting"
 	@echo "  format            Format Python code"
@@ -263,6 +265,14 @@ five-year-summary:
 ten-year-summary:
 	python multi_year_summary.py --years 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024
 
+# Generate yearly development activity analysis
+yearly-activity:
+	python yearly_activity_analysis.py
+
+# Generate visual graphs from yearly activity data
+yearly-graphs:
+	python generate_yearly_graphs.py
+
 # Clean generated files
 clean:
 	rm -f *-plone-contributors*.csv
@@ -274,6 +284,9 @@ clean:
 	rm -f plone-plip-organisations.csv
 	rm -f summary-past-*-years-*.csv
 	rm -f STATISTICS-PAST-*-YEARS.txt
+	rm -f yearly-activity-statistics.csv
+	rm -f YEARLY-ACTIVITY-ANALYSIS.md
+	rm -rf graphs/
 	rm -f plone_contributors*.csv
 	rm -f plone_contributor_stats*.csv
 	rm -f plone_companies*.csv
