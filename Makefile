@@ -59,6 +59,7 @@ help:
 	@echo "  run-plip-organisations Generate PLIP organisation statistics using organisation mapping"
 	@echo "  analyze-independent Analyze Independent contributors for potential organisation mappings"
 	@echo "  three-year-summary Generate combined statistics summary for 2022-2024"
+	@echo "  five-year-summary Generate combined statistics summary for 2020-2024"
 	@echo "  ten-year-summary  Generate combined statistics summary for 2015-2024"
 	@echo "  clean             Clean up generated files"
 	@echo "  lint              Run code linting"
@@ -253,6 +254,10 @@ analyze-independent:
 # Generate three-year summary combining 2022-2024 organisation statistics
 three-year-summary:
 	python multi_year_summary.py
+
+# Generate five-year summary combining 2020-2024 organisation statistics
+five-year-summary:
+	python multi_year_summary.py --years 2020 2021 2022 2023 2024
 
 # Generate ten-year summary combining 2015-2024 organisation statistics
 ten-year-summary:

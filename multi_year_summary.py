@@ -144,6 +144,10 @@ def save_summary(df, years):
         csv_filename = f"summary-past-three-years-{year_range}.csv"
         txt_filename = f"STATISTICS-PAST-THREE-YEARS.txt"
         summary_type = "Three-year"
+    elif year_count == 5:
+        csv_filename = f"summary-past-five-years-{year_range}.csv"
+        txt_filename = f"STATISTICS-PAST-FIVE-YEARS.txt"
+        summary_type = "Five-year"
     elif year_count == 10:
         csv_filename = f"summary-past-ten-years-{year_range}.csv"
         txt_filename = f"STATISTICS-PAST-TEN-YEARS.txt"
@@ -157,7 +161,12 @@ def save_summary(df, years):
     df.to_csv(csv_filename, index=False)
     
     # Prepare text content for both console output and file
-    period_label = "the decade" if year_count == 10 else f"{year_count} years"
+    if year_count == 10:
+        period_label = "the decade"
+    elif year_count == 5:
+        period_label = "the past 5 years"
+    else:
+        period_label = f"{year_count} years"
     
     txt_content = []
     txt_content.append(f"# {summary_type.title()} Summary Results ({year_range})")

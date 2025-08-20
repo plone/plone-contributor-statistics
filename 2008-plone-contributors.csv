@@ -1,0 +1,51 @@
+username,total_commits,total_pull_requests,repositories_count,repositories,first_contribution,last_contribution
+hannosch,543,0,50,"Products.ATContentTypes, Products.Archetypes, Products.CMFDiffTool, Products.CMFDynamicViewFTI, Products.CMFEditions, Products.CMFFormController, Products.CMFPlacefulWorkflow, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.LinguaPlone, Products.Marshall, Products.MimetypesRegistry, Products.PlacelessTranslationService, Products.PloneLanguageTool, Products.PlonePAS, Products.PloneTestCase, Products.PortalTransforms, Products.ResourceRegistries, Products.contentmigration, Products.statusmessages, Products.validation, buildout.coredev, five.intid, plone.app.blob, plone.app.content, plone.app.contentmenu, plone.app.contentrules, plone.app.controlpanel, plone.app.customerize, plone.app.form, plone.app.i18n, plone.app.iterate, plone.app.layout, plone.app.linkintegrity, plone.app.openid, plone.app.portlets, plone.app.redirector, plone.app.upgrade, plone.app.viewletmanager, plone.app.vocabularies, plone.app.workflow, plone.app.z3cform, plone.i18n, plone.memoize, plone.portlet.collection, plone.portlet.static, plone.portlets, plone.recipe.zope2instance, plone.session, plone.z3cform",2008-01-06,2008-12-21
+wichert,306,0,42,"Products.ATContentTypes, Products.Archetypes, Products.CMFDiffTool, Products.CMFEditions, Products.CMFFormController, Products.CMFPlacefulWorkflow, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.ExtendedPathIndex, Products.LinguaPlone, Products.PlonePAS, Products.PloneTestCase, Products.ResourceRegistries, Products.contentmigration, borg.localrole, five.intid, plone.app.content, plone.app.contentmenu, plone.app.contentrules, plone.app.controlpanel, plone.app.customerize, plone.app.form, plone.app.i18n, plone.app.iterate, plone.app.layout, plone.app.ldap, plone.app.linkintegrity, plone.app.openid, plone.app.portlets, plone.app.redirector, plone.app.viewletmanager, plone.app.vocabularies, plone.app.workflow, plone.browserlayer, plone.i18n, plone.keyring, plone.openid, plone.portlet.collection, plone.portlet.static, plone.protect, plone.recipe.zope2instance, plone.session",2008-01-06,2008-12-28
+witsch,252,0,22,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlacefulWorkflow, Products.LinguaPlone, Products.Marshall, archetypes.referencebrowserwidget, borg.localrole, plone.app.blob, plone.app.content, plone.app.contentmenu, plone.app.controlpanel, plone.app.customerize, plone.app.imaging, plone.app.linkintegrity, plone.app.redirector, plone.app.viewletmanager, plone.app.workflow, plone.browserlayer, plone.folder, plone.keyring, plone.protect, plone.session",2008-01-06,2008-12-28
+optilude,195,0,26,"borg.localrole, diazo, plone.alterego, plone.app.content, plone.app.contentmenu, plone.app.contentrules, plone.app.dexterity, plone.app.form, plone.app.iterate, plone.app.layout, plone.app.portlets, plone.app.redirector, plone.app.workflow, plone.app.z3cform, plone.autoform, plone.behavior, plone.browserlayer, plone.contentrules, plone.formwidget.autocomplete, plone.formwidget.contenttree, plone.portlet.collection, plone.portlet.static, plone.portlets, plone.reload, plone.supermodel, plone.z3cform",2008-01-06,2008-12-07
+davisagli,110,0,23,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlacefulWorkflow, Products.CMFPlone, Products.CMFQuickInstallerTool, buildout.coredev, plone.app.content, plone.app.contentrules, plone.app.customerize, plone.app.dexterity, plone.app.form, plone.app.layout, plone.app.openid, plone.app.portlets, plone.app.viewletmanager, plone.app.workflow, plone.behavior, plone.openid, plone.portlet.collection, plone.portlets, plone.schemaeditor, plone.session, plone.z3cform",2008-03-02,2008-12-14
+dnouri,92,0,11,"Products.Archetypes, Products.CMFEditions, Products.LinguaPlone, Products.PortalTransforms, Products.validation, plone.app.i18n, plone.app.iterate, plone.app.layout, plone.app.portlets, plone.app.z3cform, plone.z3cform",2008-02-10,2008-11-30
+stefanholek,81,0,20,"Products.Archetypes, Products.CMFQuickInstallerTool, Products.LinguaPlone, Products.PloneLanguageTool, Products.PloneTestCase, Products.PortalTransforms, Products.ResourceRegistries, buildout.coredev, plone.app.blob, plone.app.content, plone.app.controlpanel, plone.app.customerize, plone.app.i18n, plone.app.layout, plone.app.linkintegrity, plone.app.portlets, plone.i18n, plone.protect, plone.recipe.zope2instance, plone.session",2008-02-03,2008-12-28
+mauritsvanrees,75,0,21,"Products.ATContentTypes, Products.Archetypes, Products.CMFEditions, Products.CMFPlacefulWorkflow, Products.CMFPlone, Products.LinguaPlone, Products.PlonePAS, Products.ResourceRegistries, buildout.coredev, plone.app.contentrules, plone.app.controlpanel, plone.app.form, plone.app.i18n, plone.app.layout, plone.app.linkintegrity, plone.app.openid, plone.app.portlets, plone.intelligenttext, plone.portlet.collection, plone.portlet.static, plone.session",2008-01-06,2008-10-19
+encolpe,75,0,9,"Products.CMFEditions, Products.CMFPlacefulWorkflow, Products.CMFPlone, Products.CMFQuickInstallerTool, plone.app.iterate, plone.app.layout, plone.app.workflow, plone.locking, plone.recipe.zope2instance",2008-01-06,2008-11-30
+lrowe,68,0,22,"Products.ATContentTypes, Products.Archetypes, Products.CMFDiffTool, Products.CMFDynamicViewFTI, Products.CMFEditions, Products.CMFFormController, Products.CMFPlacefulWorkflow, Products.Marshall, Products.MimetypesRegistry, Products.PlonePAS, Products.PortalTransforms, Products.ResourceRegistries, Products.validation, diazo, plone.app.blob, plone.app.content, plone.app.form, plone.app.imaging, plone.app.layout, plone.app.ldap, plone.schemaeditor, plone.session",2008-01-13,2008-12-14
+fschulze,36,0,14,"Products.PortalTransforms, Products.ResourceRegistries, archetypes.referencebrowserwidget, archetypes.schemaextender, buildout.coredev, plone.app.content, plone.app.contentrules, plone.app.controlpanel, plone.app.form, plone.app.layout, plone.app.portlets, plone.app.viewletmanager, plone.app.vocabularies, plone.portlet.collection",2008-01-06,2008-10-05
+sidnei,36,0,11,"Products.Archetypes, Products.CMFEditions, Products.CMFFormController, Products.CMFPlacefulWorkflow, Products.CMFQuickInstallerTool, Products.Marshall, Products.MimetypesRegistry, Products.PortalTransforms, borg.localrole, plone.i18n, plone.recipe.zope2instance",2008-02-24,2008-12-28
+alecpm,32,0,7,"Products.ATContentTypes, Products.CMFDiffTool, Products.CMFEditions, Products.CMFPlacefulWorkflow, Products.PlonePAS, archetypes.schemaextender, borg.localrole",2008-01-13,2008-11-30
+calvinhp,25,0,5,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, plone.app.contentmenu, plone.app.layout",2008-07-20,2008-12-14
+limi,22,0,8,"Products.ATContentTypes, Products.Archetypes, Products.ResourceRegistries, plone.app.dexterity, plone.app.iterate, plone.app.layout, plone.app.openid, plone.i18n",2008-01-20,2008-12-28
+malthe,21,0,9,"Products.ATContentTypes, Products.Archetypes, Products.ResourceRegistries, plone.app.content, plone.app.contentrules, plone.app.portlets, plone.app.workflow, plone.app.z3cform, plone.portlets",2008-02-17,2008-11-30
+tomgross,21,0,1,archetypes.referencebrowserwidget,2008-09-21,2008-12-07
+csenger,17,0,6,"Products.MimetypesRegistry, plone.app.contentmenu, plone.app.controlpanel, plone.app.form, plone.app.workflow, plone.app.z3cform",2008-04-13,2008-11-09
+jensens,17,0,4,"Products.Archetypes, Products.ResourceRegistries, archetypes.schemaextender, plone.recipe.zope2instance",2008-02-24,2008-11-30
+duffyd,14,0,1,plone.recipe.zope2instance,2008-03-16,2008-04-13
+dorneles,12,0,3,"Products.Archetypes, Products.CMFEditions, plone.app.contentmenu",2008-01-06,2008-07-06
+pellekrogholt,10,0,1,plone.app.controlpanel,2008-10-19,2008-11-30
+mishunov,9,0,5,"Products.ATContentTypes, Products.CMFPlone, plone.app.content, plone.app.layout, plone.portlet.static",2008-07-20,2008-09-07
+gotcha,8,0,3,"Products.Archetypes, plone.app.form, plone.app.z3cform",2008-03-16,2008-11-09
+vloothuis,7,0,1,plone.app.content,2008-03-02,2008-03-23
+thefunny42,6,0,1,plone.z3cform,2008-09-28,2008-12-07
+naro,6,0,5,"Products.CMFQuickInstallerTool, plone.app.blob, plone.app.content, plone.app.iterate, plone.app.portlets",2008-01-27,2008-06-01
+smcmahon,4,0,1,plone.recipe.zope2instance,2008-01-06,2008-12-14
+claytron,4,0,1,plone.recipe.zope2instance,2008-04-13,2008-06-01
+davidemoro,4,0,2,"plone.keyring, plone.protect",2008-05-04,2008-05-04
+thet,4,0,1,Products.Archetypes,2008-09-14,2008-09-14
+erikrose,4,0,1,plone.app.layout,2008-06-29,2008-06-29
+regebro,3,0,2,"archetypes.referencebrowserwidget, plone.app.vocabularies",2008-11-02,2008-11-09
+reebalazs,3,0,2,"Products.Archetypes, plone.app.form",2008-01-27,2008-03-02
+rpatterson,3,0,1,five.intid,2008-02-17,2008-06-22
+emanlove,3,0,1,plone.app.layout,2008-12-07,2008-12-14
+mrtopf,3,0,1,plone.app.portlets,2008-04-13,2008-04-20
+dukebody,2,0,1,Products.Archetypes,2008-08-17,2008-08-17
+garbas,2,0,1,Products.Archetypes,2008-08-17,2008-08-17
+maikroeder,2,0,1,Products.Archetypes,2008-07-27,2008-07-27
+reinout,2,0,1,five.intid,2008-03-02,2008-03-02
+vladimir-iliev,2,0,1,plone.i18n,2008-11-09,2008-11-09
+myroslav,2,0,1,plone.i18n,2008-12-21,2008-12-21
+bobdobbs666,2,0,2,"Products.CMFDiffTool, Products.CMFPlacefulWorkflow",2008-10-19,2008-10-19
+vangheem,1,0,1,plone.z3cform,2008-10-12,2008-10-12
+zopyx,1,0,1,plone.z3cform,2008-09-07,2008-09-07
+martior,1,0,1,plone.app.portlets,2008-03-09,2008-03-09
+esteele,1,0,1,Products.Archetypes,2008-08-10,2008-08-10
+rnixx,1,0,1,archetypes.referencebrowserwidget,2008-10-26,2008-10-26
+MatthewWilkes,1,0,1,plone.session,2008-02-03,2008-02-03
