@@ -1,0 +1,30 @@
+username,total_commits,total_pull_requests,repositories_count,repositories,first_contribution,last_contribution
+jcameroncooper,211,0,1,Products.PlonePAS,2005-04-10,2005-11-27
+alecpm,146,0,7,"Products.ATContentTypes, Products.Archetypes, Products.CMFDiffTool, Products.CMFEditions, Products.CMFPlacefulWorkflow, Products.PlacelessTranslationService, Products.ResourceRegistries",2005-04-10,2005-12-18
+sidnei,144,0,6,"Products.ATContentTypes, Products.Archetypes, Products.Marshall, Products.MimetypesRegistry, Products.PlacelessTranslationService, Products.PlonePAS",2005-01-02,2005-12-25
+jensens,133,0,5,"Products.ATContentTypes, Products.Archetypes, Products.CMFQuickInstallerTool, Products.MimetypesRegistry, Products.PlonePAS",2005-01-02,2005-12-25
+hannosch,100,0,7,"Products.ATContentTypes, Products.Archetypes, Products.CMFQuickInstallerTool, Products.MimetypesRegistry, Products.PlacelessTranslationService, Products.PloneLanguageTool, Products.ResourceRegistries",2005-04-03,2005-12-25
+baekholt,98,0,2,"Products.Archetypes, Products.ResourceRegistries",2005-03-06,2005-09-11
+stefanholek,75,0,6,"Products.ATContentTypes, Products.Archetypes, Products.CMFQuickInstallerTool, Products.MimetypesRegistry, Products.PlacelessTranslationService, Products.PlonePAS",2005-01-30,2005-12-25
+fschulze,45,0,4,"Products.ATContentTypes, Products.Archetypes, Products.CMFQuickInstallerTool, Products.ResourceRegistries",2005-05-29,2005-12-18
+limi,38,0,6,"Products.ATContentTypes, Products.Archetypes, Products.CMFQuickInstallerTool, Products.MimetypesRegistry, Products.PloneLanguageTool, Products.ResourceRegistries",2005-01-23,2005-12-18
+optilude,26,0,5,"Products.ATContentTypes, Products.Archetypes, Products.CMFQuickInstallerTool, Products.PloneLanguageTool, Products.contentmigration",2005-02-06,2005-12-18
+chadwhitacre,25,0,2,"Products.PlonePAS, Products.ResourceRegistries",2005-01-30,2005-03-13
+encolpe,25,0,1,Products.CMFPlacefulWorkflow,2005-11-06,2005-12-25
+rockyburt,13,0,2,"Products.Archetypes, Products.PlonePAS",2005-01-30,2005-10-30
+wichert,11,0,4,"Products.ATContentTypes, Products.Archetypes, Products.CMFQuickInstallerTool, Products.PlonePAS",2005-11-13,2005-12-25
+gotcha,7,0,1,Products.Archetypes,2005-03-06,2005-03-27
+joelburton,7,0,2,"Products.Archetypes, Products.PlonePAS",2005-01-16,2005-08-07
+geoff-davis,6,0,2,"Products.CMFQuickInstallerTool, Products.ResourceRegistries",2005-06-19,2005-08-07
+vds,6,0,1,Products.CMFEditions,2005-06-26,2005-06-26
+reinout,5,0,2,"Products.ATContentTypes, Products.Archetypes",2005-05-08,2005-05-22
+lrowe,5,0,3,"Products.Archetypes, Products.PlonePAS, Products.ResourceRegistries",2005-08-21,2005-12-25
+jodok,5,0,3,"Products.ATContentTypes, Products.PlacelessTranslationService, Products.ResourceRegistries",2005-01-30,2005-08-07
+mrtopf,4,0,1,Products.Archetypes,2005-03-20,2005-04-03
+robertrottermann,4,0,1,Products.ATContentTypes,2005-04-10,2005-04-17
+mishunov,2,0,1,Products.ATContentTypes,2005-12-18,2005-12-25
+bobdobbs666,1,0,1,Products.Archetypes,2005-07-24,2005-07-24
+dataflake,1,0,1,Products.ATContentTypes,2005-04-10,2005-04-10
+glenfant,1,0,1,Products.ATContentTypes,2005-07-10,2005-07-10
+csenger,1,0,1,Products.ATContentTypes,2005-12-18,2005-12-18
+siebo,1,0,1,Products.Archetypes,2005-12-25,2005-12-25

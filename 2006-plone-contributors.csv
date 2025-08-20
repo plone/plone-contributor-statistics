@@ -1,0 +1,25 @@
+username,total_commits,total_pull_requests,repositories_count,repositories,first_contribution,last_contribution
+hannosch,280,0,17,"Products.ATContentTypes, Products.CMFDiffTool, Products.CMFQuickInstallerTool, Products.PlacelessTranslationService, Products.PloneLanguageTool, Products.ResourceRegistries, plone.app.contentrules, plone.app.controlpanel, plone.app.form, plone.app.i18n, plone.app.layout, plone.app.linkintegrity, plone.app.openid, plone.i18n, plone.memoize, plone.openid, plone.session",2006-01-08,2006-12-31
+optilude,118,0,8,"Products.ATContentTypes, plone.app.contentrules, plone.app.layout, plone.app.linkintegrity, plone.app.workflow, plone.contentrules, plone.memoize, plone.portlets",2006-02-19,2006-12-31
+wichert,86,0,11,"Products.ATContentTypes, Products.CMFDiffTool, Products.PlacelessTranslationService, Products.PloneLanguageTool, Products.ResourceRegistries, five.intid, plone.app.controlpanel, plone.app.openid, plone.contentrules, plone.openid, plone.session",2006-01-22,2006-12-31
+alecpm,71,0,4,"Products.ATContentTypes, Products.CMFDiffTool, Products.ResourceRegistries, plone.app.form",2006-01-08,2006-12-17
+fschulze,66,0,3,"Products.ATContentTypes, Products.ResourceRegistries, plone.app.layout",2006-02-05,2006-12-31
+limi,35,0,5,"Products.ATContentTypes, Products.CMFQuickInstallerTool, Products.PloneLanguageTool, Products.ResourceRegistries, plone.app.layout",2006-01-15,2006-12-31
+rockyburt,20,0,4,"Products.ATContentTypes, Products.ResourceRegistries, Products.contentmigration, plone.app.form",2006-05-07,2006-12-10
+rpatterson,20,0,1,Products.contentmigration,2006-09-03,2006-10-22
+stefanholek,19,0,1,Products.ATContentTypes,2006-01-01,2006-11-26
+witsch,12,0,1,plone.app.linkintegrity,2006-12-24,2006-12-24
+baekholt,9,0,2,"Products.ResourceRegistries, plone.portlets",2006-02-19,2006-12-31
+encolpe,9,0,2,"Products.ATContentTypes, Products.PloneLanguageTool",2006-10-08,2006-10-08
+tomster,8,0,2,"Products.ATContentTypes, plone.app.controlpanel",2006-12-24,2006-12-24
+sidnei,7,0,2,"Products.ATContentTypes, Products.PlacelessTranslationService",2006-01-15,2006-02-19
+jensens,7,0,2,"Products.ATContentTypes, Products.PloneLanguageTool",2006-09-03,2006-10-22
+reebalazs,5,0,2,"Products.ResourceRegistries, plone.portlets",2006-05-07,2006-12-24
+natea,2,0,1,Products.ATContentTypes,2006-01-29,2006-01-29
+dorneles,2,0,2,"Products.ATContentTypes, Products.CMFDiffTool",2006-01-22,2006-11-19
+jladage,2,0,1,Products.PloneLanguageTool,2006-06-11,2006-06-11
+meizon,2,0,1,Products.ATContentTypes,2006-01-29,2006-01-29
+jodok,1,0,1,Products.ATContentTypes,2006-01-01,2006-01-01
+joelburton,1,0,1,Products.CMFQuickInstallerTool,2006-03-26,2006-03-26
+vincic,1,0,1,Products.PlacelessTranslationService,2006-04-30,2006-04-30
+dnouri,1,0,1,Products.PloneLanguageTool,2006-11-05,2006-11-05
