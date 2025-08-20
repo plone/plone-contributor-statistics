@@ -1,32 +1,32 @@
 # Three-Year Summary Results (2022-2024)
 
-- 49 total organisations tracked across 3 years
+- 50 total organisations tracked across 3 years
 - 26,510 total commits and 7,112 pull requests
 - 382 unique contributors across all organisations
 - File generated: summary-past-three-years-2022-2024.csv
 
-## Top 10 contributors by commits (2022-2024)
+## Top 10 contributors by pull requests (2022-2024)
 
-1. mauritsvanrees               5,277 commits
-2. stevepiercy                  2,609 commits
-3. gforcada                     2,578 commits
-4. sneridagh                    2,178 commits
-5. petschki                     2,065 commits
-6. jensens                      1,256 commits
-7. ericof                       1,189 commits
-8. davisagli                    1,030 commits
-9. ksuess                         777 commits
-10. MrTango                        684 commits
+1. sneridagh - 1,046 PRs (2,178 commits)
+2. stevepiercy - 680 PRs (2,609 commits)
+3. mauritsvanrees - 590 PRs (5,277 commits)
+4. petschki - 484 PRs (2,065 commits)
+5. gforcada - 469 PRs (2,578 commits)
+6. davisagli - 282 PRs (1,030 commits)
+7. jensens - 197 PRs (1,256 commits)
+8. erral - 184 PRs (325 commits)
+9. ksuess - 177 PRs (777 commits)
+10. ericof - 169 PRs (1,189 commits)
 
-## Top 10 organisations by commits (2022-2024)
+## Top 10 organisations by pull requests (2022-2024)
 
-1. kitconcept: 6,044 commits
-2. py76: 5,277 commits
-3. stevepiercy: 2,609 commits
-4. freitag: 2,578 commits
-5. kombinat: 2,065 commits
-6. kleinundpartner: 1,256 commits
-7. Independent: 1,007 commits
-8. syslab: 803 commits
-9. rohberg: 777 commits
-10. derico: 684 commits
+1. kitconcept: 1,936 PRs (6,044 commits)
+2. Independent: 761 PRs (994 commits)
+3. stevepiercy: 680 PRs (2,609 commits)
+4. py76: 590 PRs (5,277 commits)
+5. kombinat: 484 PRs (2,065 commits)
+6. freitag: 469 PRs (2,578 commits)
+7. redturtle: 243 PRs (302 commits)
+8. eau-de-web: 221 PRs (579 commits)
+9. codesyntax: 217 PRs (453 commits)
+10. syslab: 213 PRs (803 commits)

@@ -128,8 +128,8 @@ def combine_multi_year_stats(years):
     
     result = aggregated[column_order]
     
-    # Sort by total commits descending
-    result = result.sort_values('total_commits', ascending=False).reset_index(drop=True)
+    # Sort by total pull requests descending
+    result = result.sort_values('total_pull_requests', ascending=False).reset_index(drop=True)
     
     return result
 
@@ -171,17 +171,17 @@ def save_summary(df, years):
     top_contributors_lines = get_top_contributors(years, year_range)
     if top_contributors_lines:
         txt_content.append("")
-        txt_content.append(f"## Top 10 contributors by commits ({year_range})")
+        txt_content.append(f"## Top 10 contributors by pull requests ({year_range})")
         txt_content.append("")
         txt_content.extend(top_contributors_lines)
     
     # Add top organisations
     txt_content.append("")
-    txt_content.append(f"## Top 10 organisations by commits ({year_range})")
+    txt_content.append(f"## Top 10 organisations by pull requests ({year_range})")
     txt_content.append("")
     top_orgs = df.head(10)
     for i, row in top_orgs.iterrows():
-        txt_content.append(f"{i+1}. {row['organisation']}: {row['total_commits']:,} commits")
+        txt_content.append(f"{i+1}. {row['organisation']}: {row['total_pull_requests']:,} PRs ({row['total_commits']:,} commits)")
     
     # Write to TXT file
     with open(txt_filename, 'w', encoding='utf-8') as f:
@@ -207,15 +207,26 @@ def get_top_contributors(years, year_range):
         # Create a temporary script to run the top contributors analysis
         temp_script = f"""
 import sys
+import os
 sys.path.append('.')
+
+# Suppress the verbose output from analyze_top_contributors
+original_stdout = sys.stdout
+sys.stdout = open(os.devnull, 'w')
+
 from top_contributors_summary import analyze_top_contributors
 
 years = {list(years)}
-result_df = analyze_top_contributors(years, 10, 'total_commits')
+result_df = analyze_top_contributors(years, 10, 'total_pull_requests')
+
+# Restore stdout and print only our desired format
+sys.stdout.close()
+sys.stdout = original_stdout
+
 if result_df is not None:
     for i in range(min(10, len(result_df))):
         row = result_df.iloc[i]
-        print(f"{{i+1}}. {{row['username']}} - {{row['total_commits']:,}} commits")
+        print(f"{{i+1}}. {{row['username']}} - {{row['total_pull_requests']:,}} PRs ({{row['total_commits']:,}} commits)")
 """
         
         with tempfile.NamedTemporaryFile(mode='w', suffix='.py', delete=False) as f:
