@@ -16,7 +16,7 @@ syslab,82,41,4,"ale-rt, reinhardt, svx, thet",26,"Products.CMFPlone, Products.Pl
 starzel,67,30,2,"Gomez, pbauer",16,"Plone, Products.CMFDiffTool, Products.CMFPlone, buildout.coredev, demo.plone.org, documentation, plone-backend, plone.api, plone.app.iterate, plone.app.standardtiles, plone.distribution, plone.exportimport, plone.reload, plone.restapi, plone.volto, volto",2024-01-07,2024-12-15
 rohberg,62,26,1,ksuess,11,"buildout.coredev, cookieplone-templates, demo.plone.org, documentation, plone.app.discussion, plone.app.z3cform, plone.exportimport, plone.formwidget.hcaptcha, plone.volto, training, volto",2024-02-25,2024-12-22
 iskra,48,10,2,"nilbacardit26, rboixaderg",2,"guillotina, guillotina_elasticsearch",2024-01-14,2024-10-20
-tkimnguyen,45,11,1,tkimnguyen,3,"2024.ploneconf.org, documentation, training",2024-12-01,2024-12-29
+sixfeetup,45,11,1,tkimnguyen,3,"2024.ploneconf.org, documentation, training",2024-12-01,2024-12-29
 nuclia,43,39,3,"bloodbare, ebrehault, mpellerin42",3,"guillotina, pastanaga-angular, volto",2024-01-21,2024-11-03
 rohnsha0,32,6,1,rohnsha0,4,"Products.CMFPlone, buildout.coredev, plone.app.contentmenu, plone.app.vocabularies",2024-06-09,2024-10-13
 zest,27,3,1,jladage,3,"plone.app.layout, plone.app.upgrade, plone.base",2024-03-24,2024-03-31
@@ -32,6 +32,6 @@ fhnw,3,5,2,"adrianschulz, tomschall",3,"cookieplone-templates, plone.de, volto",
 frapell,2,2,1,frapell,2,"Products.CMFPlone, buildout.coredev",2024-03-03,2024-03-03
 tschorr,2,1,1,tschorr,1,helm-charts,2024-04-14,2024-04-21
 affinitic,2,1,1,laulaz,2,"mockup, plone.formwidget.autocomplete",2024-05-05,2024-10-06
-polyester,1,1,1,polyester,2,"documentation, training",2024-11-24,2024-11-24
+ccc,1,1,1,polyester,2,"documentation, training",2024-11-24,2024-11-24
 ku-leuven,1,0,1,spereverde,1,plone.app.iterate,2024-02-18,2024-02-18
 dbain,0,1,1,pigeonflight,1,volto,,

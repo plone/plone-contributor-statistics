@@ -38,7 +38,7 @@ help:
 	@echo "  run-stats-custom  Run statistics with custom date range (see help)"
 	@echo "  run-contributors  Run contributor statistics analysis"
 	@echo "  run-organisations Run organisation statistics analysis"
-	@echo "  run-organisation-stats Generate organisation statistics from individual stats (current year)"
+	@echo "  run-organisation-stats Generate organisation statistics from individual stats (all available years)"
 	@echo "  run-organisation-stats-2025 Generate organisation statistics for 2025"
 	@echo "  run-organisation-stats-2024 Generate organisation statistics for 2024"
 	@echo "  run-organisation-stats-2023 Generate organisation statistics for 2023"
@@ -200,9 +200,17 @@ run-contributors:
 run-organisations:
 	python plone_companies.py
 
-# Generate organisation statistics from individual contributor stats
+# Generate organisation statistics from individual contributor stats (all available years)
 run-organisation-stats:
-	python organisation_stats.py
+	@echo "Running organisation statistics for all available years..."
+	@for year_file in *-plone-contributors.csv; do \
+		if [ -f "$$year_file" ]; then \
+			year=$$(echo $$year_file | sed 's/-plone-contributors.csv//'); \
+			echo "Processing $$year..."; \
+			python organisation_stats.py --year $$year; \
+		fi \
+	done
+	@echo "Finished generating organisation statistics for all years"
 
 # Generate organisation statistics for specific years
 run-organisation-stats-2025:

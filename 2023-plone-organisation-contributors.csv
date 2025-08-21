@@ -18,7 +18,7 @@ university-hospital-dresden,37,13,1,1letter,7,"Products.CMFPlone, buildout.cored
 academy-of-fine-arts-vienna,23,10,1,gogobd,6,"buildout.coredev, cookiecutter-zope-instance, plone.api, plone.app.mosaic, plone.app.multilingual, plone.event",2023-01-08,2023-11-05
 serpro,16,21,1,wesleybl,6,"buildout.coredev, meta, plone.rest, plone.restapi, plone.volto, volto",2023-07-09,2023-12-31
 pretaweb,13,20,3,"JeffersonBledsoe, djay, instification",6,"plone.app.caching, plone.app.vulnerabilities, plone.namedfile, plone.rest, plone.restapi, volto",2023-03-26,2023-11-05
-polyester,13,0,1,polyester,4,"documentation, papyrus, sphinxtheme.plone, training",2023-03-05,2023-05-07
+ccc,13,0,1,polyester,4,"documentation, papyrus, sphinxtheme.plone, training",2023-03-05,2023-05-07
 frapell,12,11,1,frapell,7,"buildout.coredev, mockup, plone.app.event, plone.app.mosaic, plone.app.portlets, plone.app.standardtiles, plone.staticresources",2023-01-01,2023-05-21
 tschorr,9,4,1,tschorr,5,"Products.CMFPlone, Products.PlonePAS, buildout.coredev, plone.restapi, volto",2023-04-23,2023-05-21
 iskra,9,10,2,"nilbacardit26, rboixaderg",3,"guillotina, guillotina_elasticsearch, volto",2023-10-08,2023-12-31
@@ -32,6 +32,6 @@ agitator,2,1,1,agitator,1,plonetheme.barceloneta,2023-01-22,2023-01-22
 abstract,2,5,1,szakitibi,5,"Products.CMFPlone, plone.app.contenttypes, plone.app.multilingual, plone.app.z3cform, plone.registry",2023-10-01,2023-10-01
 university-tu-dresden,1,2,1,pgrunewald,2,"buildout.coredev, volto",2023-07-16,2023-07-16
 university-tu-munich,1,1,1,loechel,1,meta,2023-10-08,2023-10-08
-yarn,0,1,1,witsch,1,plone.portlet.collection,,
+jarn,0,1,1,witsch,1,plone.portlet.collection,,
 ku-leuven,0,1,1,spereverde,1,plone.app.iterate,,
-tkimnguyen,0,1,1,tkimnguyen,1,documentation,,
+sixfeetup,0,1,1,tkimnguyen,1,documentation,,
