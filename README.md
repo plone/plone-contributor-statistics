@@ -1,4 +1,4 @@
-# Plone GitHub Statistics Extractor
+# Plone Contributor Statistics Extractor
 
 Comprehensive GitHub statistics extraction and analysis system for the Plone ecosystem, including individual contributor stats, organisation attribution, and PLIP (Plone Improvement Proposals) tracking across all Plone repositories.
 
@@ -21,8 +21,8 @@ make setup
 # Run current year statistics
 make run-stats
 
-# Generate organisation statistics for 2024
-make run-organisation-stats-2024
+# Generate organisation statistics (you have to run "run-stats" first)
+make run-organisation-stats
 
 # Extract PLIP statistics
 make run-plips
@@ -104,6 +104,11 @@ make check
 - `plone-plips.csv` - PLIP counts per author (aggregated)
 - `plone-plips-detailed.csv` - Individual PLIP records
 - `plone-plip-organisations.csv` - PLIP statistics by organisation
+
+### Flourish Charts
+
+- Individual Contributors: https://public.flourish.studio/visualisation/24775871/
+- Organisations: https://public.flourish.studio/visualisation/24775561/
 
 ### Configuration
 

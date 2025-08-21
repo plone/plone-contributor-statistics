@@ -1,6 +1,6 @@
 organisation,total_commits,total_pull_requests,contributors_count,contributors,repositories_count,repositories,first_contribution,last_contribution
-enfold,124,0,1,sidnei,3,"Products.Archetypes, Products.CMFQuickInstallerTool, Products.PlacelessTranslationService",2004-01-11,2004-11-28
-jarn,102,0,3,"baekholt, limi, stefanholek",4,"Products.Archetypes, Products.CMFQuickInstallerTool, Products.PlacelessTranslationService, Products.PloneLanguageTool",2004-01-04,2004-11-21
-kleinundpartner,79,0,1,jensens,2,"Products.Archetypes, Products.CMFQuickInstallerTool",2004-01-25,2004-12-26
+Enfold,124,0,1,sidnei,3,"Products.Archetypes, Products.CMFQuickInstallerTool, Products.PlacelessTranslationService",2004-01-11,2004-11-28
+Jarn,102,0,3,"baekholt, limi, stefanholek",4,"Products.Archetypes, Products.CMFQuickInstallerTool, Products.PlacelessTranslationService, Products.PloneLanguageTool",2004-01-04,2004-11-21
+Klein & Partner,79,0,1,jensens,2,"Products.Archetypes, Products.CMFQuickInstallerTool",2004-01-25,2004-12-26
 Independent,42,0,7,"bitranch, bobdobbs666, geoff-davis, jodok, joelburton, mcdonc, xiru",3,"Products.Archetypes, Products.PlacelessTranslationService, Products.PloneLanguageTool",2004-02-08,2004-10-17
-imio,8,0,1,gotcha,2,"Products.Archetypes, Products.PloneLanguageTool",2004-05-30,2004-12-19
+IMIO,8,0,1,gotcha,2,"Products.Archetypes, Products.PloneLanguageTool",2004-05-30,2004-12-19
