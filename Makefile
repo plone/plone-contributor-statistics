@@ -74,6 +74,7 @@ help:
 	@echo "  yearly-activity   Generate yearly development activity analysis"
 	@echo "  yearly-graphs     Generate visual graphs from yearly activity data"
 	@echo "  npm-packages      Analyze NPM packages published by Plone organizations"
+	@echo "  pypi-packages     Analyze PyPI packages published by Plone organizations"
 	@echo "  clean             Clean up generated files"
 	@echo "  lint              Run code linting"
 	@echo "  format            Format Python code"
@@ -318,6 +319,10 @@ yearly-graphs:
 npm-packages:
 	python npm_package_stats.py
 
+# Analyze PyPI packages published by Plone organizations
+pypi-packages:
+	python pypi_package_stats.py
+
 # Clean generated files
 clean:
 	rm -f *-plone-contributors*.csv
@@ -334,6 +339,8 @@ clean:
 	rm -rf graphs/
 	rm -f npm-packages-*.md
 	rm -f npm-packages-*.csv
+	rm -f pypi-packages-*.md
+	rm -f pypi-packages-*.csv
 	rm -f plone_contributors*.csv
 	rm -f plone_contributor_stats*.csv
 	rm -f plone_companies*.csv
