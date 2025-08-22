@@ -1,4 +1,4 @@
-.PHONY: help install clean run-stats run-stats-2025 run-stats-2024 run-stats-2023 run-stats-2022 run-stats-2021 run-stats-2020 run-stats-2019 run-stats-2018 run-stats-2017 run-stats-2016 run-stats-2015 run-stats-2014 run-stats-2013 run-stats-2012 run-stats-2011 run-stats-2010 run-stats-2009 run-stats-2008 run-stats-2007 run-stats-2006 run-stats-2005 run-stats-2004 run-stats-2003 run-stats-2002 run-stats-2001 run-stats-2000 run-stats-custom run-contributors run-organisations run-organisation-stats run-organisation-stats-2025 run-organisation-stats-2024 run-organisation-stats-2023 run-organisation-stats-2022 run-organisation-stats-2021 run-organisation-stats-2020 run-organisation-stats-2019 run-organisation-stats-2018 run-organisation-stats-2017 run-organisation-stats-2016 run-organisation-stats-2015 run-organisation-stats-2014 run-organisation-stats-2013 run-organisation-stats-2012 run-organisation-stats-2011 run-organisation-stats-2010 run-organisation-stats-2009 run-organisation-stats-2008 run-organisation-stats-2007 run-organisation-stats-2006 run-organisation-stats-2005 run-organisation-stats-2004 run-organisation-stats-2003 run-organisation-stats-2002 run-organisation-stats-2001 run-organisation-stats-2000 run-plips run-plip-organisations analyze-independent three-year-summary ten-year-summary flourish-graph-organisation-contributors-csv-file setup dev-setup lint format check test
+.PHONY: help install clean run-stats run-stats-2025 run-stats-2024 run-stats-2023 run-stats-2022 run-stats-2021 run-stats-2020 run-stats-2019 run-stats-2018 run-stats-2017 run-stats-2016 run-stats-2015 run-stats-2014 run-stats-2013 run-stats-2012 run-stats-2011 run-stats-2010 run-stats-2009 run-stats-2008 run-stats-2007 run-stats-2006 run-stats-2005 run-stats-2004 run-stats-2003 run-stats-2002 run-stats-2001 run-stats-2000 run-stats-custom run-contributors run-organisations run-organisation-stats run-organisation-stats-2025 run-organisation-stats-2024 run-organisation-stats-2023 run-organisation-stats-2022 run-organisation-stats-2021 run-organisation-stats-2020 run-organisation-stats-2019 run-organisation-stats-2018 run-organisation-stats-2017 run-organisation-stats-2016 run-organisation-stats-2015 run-organisation-stats-2014 run-organisation-stats-2013 run-organisation-stats-2012 run-organisation-stats-2011 run-organisation-stats-2010 run-organisation-stats-2009 run-organisation-stats-2008 run-organisation-stats-2007 run-organisation-stats-2006 run-organisation-stats-2005 run-organisation-stats-2004 run-organisation-stats-2003 run-organisation-stats-2002 run-organisation-stats-2001 run-organisation-stats-2000 run-plips run-plip-organisations analyze-independent three-year-summary ten-year-summary flourish-graph-organisation-contributors-csv-file flourish-graph-individual-contributors-csv-file setup dev-setup lint format check test
 
 # Default target
 help:
@@ -76,6 +76,7 @@ help:
 	@echo "  npm-packages      Analyze NPM packages published by Plone organizations"
 	@echo "  pypi-packages     Analyze PyPI packages published by Plone organizations"
 	@echo "  flourish-graph-organisation-contributors-csv-file Generate organization CSV for Flourish visualization"
+	@echo "  flourish-graph-individual-contributors-csv-file Generate individual contributors CSV for Flourish visualization"
 	@echo "  clean             Clean up generated files"
 	@echo "  lint              Run code linting"
 	@echo "  format            Format Python code"
@@ -335,6 +336,10 @@ pypi-packages:
 # Generate organization CSV for Flourish visualization
 flourish-graph-organisation-contributors-csv-file:
 	python create_organization_flourish_csv.py
+
+# Generate individual contributors CSV for Flourish visualization
+flourish-graph-individual-contributors-csv-file:
+	python create_individual_contributors_flourish_csv.py
 
 # Clean generated files
 clean:
