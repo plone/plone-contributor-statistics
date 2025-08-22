@@ -1,25 +1,18 @@
 4Teamwork:lukasgraf,buchi,phgross,deiferni,jone,elioschmutz
 Abstract IT:szakitibi,gianniftp
 Academy of FA Vienna:gogobd,iham
-aclark:aclark
 Affinitic:laulaz,mpeeters
 Agitator:agitator
 bearstach:encolpe
 CMS Communications:terapyon
 Codesyntax:erral,ionlizarazu,libargutxi
 Cosent:gyst
-dataflake:dataflake
-dbain:pigeonflight
 Derico:MrTango
-dnouri:dnouri
-dukebody:dukebody
 Eau de Web:avoinea,ichim-david,tiberiuichim,claudiaifrim,nileshgulia1,ana-oprea,dobri1408,Petchesi-Iulian
 Enfold:sidnei,jcameroncooper
 FHNW:adrianschulz,tomschall,tomgross
-frapell:frapell
 der Freitag:gforcada
 Soliton Consulting:fulv
-garbas:garbas
 IMIO:gotcha,bsuttor,gbastien,sverbois,sgeulette
 Interaktiv:mliebischer
 Iskra:rboixaderg,nilbacardit26,masipcat
@@ -29,7 +22,6 @@ kitconcept GmbH:tisto,sneridagh,ericof,fredvd,davisagli,iFlameing,iRohitSingh,ro
 Klein & Partner:jensens
 Kombinat:petschki
 KU Leuven:spereverde
-macagua:macagua
 minddistrict:icemac
 Nelen-Schuurmans:reinout
 Nuclia:bloodbare,ebrehault,mpellerin42
@@ -40,7 +32,6 @@ PY76:mauritsvanrees
 Radio Free Asia:flipmcf
 RedTurtle:mamico,cekk,pnicolli,giuliaghisini,Wagner3UB,folix-01,yurj,nzambello
 Rohberg:ksuess
-rohnsha0:rohnsha0
 Royal Belgium Institute of National Science:davconvent
 Salesforce:dextermilo,esteele
 Serpro:wesleybl
@@ -50,7 +41,6 @@ Starzel:pbauer,tlotze,gomez,Gomez
 Steve Piercy:stevepiercy
 Syslab:ale-rt,pilz,thet,reinhardt,svx
 Makina Corpus:tdesvenain
-tschorr:tschorr
 Uni. Hospital Dresden:1letter
 Uni. Jyvaskylä:datakurre
 TU Dresden:pgrunewald

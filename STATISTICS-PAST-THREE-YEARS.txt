@@ -7,26 +7,52 @@
 
 ## Top 10 contributors by pull requests (2022-2024)
 
-1. sneridagh - 1,046 PRs (2,178 commits)
-2. stevepiercy - 680 PRs (2,609 commits)
-3. mauritsvanrees - 590 PRs (5,277 commits)
-4. petschki - 484 PRs (2,065 commits)
-5. gforcada - 469 PRs (2,578 commits)
-6. davisagli - 282 PRs (1,030 commits)
-7. jensens - 197 PRs (1,256 commits)
-8. erral - 184 PRs (325 commits)
-9. ksuess - 177 PRs (777 commits)
-10. ericof - 169 PRs (1,189 commits)
+1. sneridagh - 1,046 PRs
+2. stevepiercy - 680 PRs
+3. mauritsvanrees - 590 PRs
+4. petschki - 484 PRs
+5. gforcada - 469 PRs
+6. davisagli - 282 PRs
+7. jensens - 197 PRs
+8. erral - 184 PRs
+9. ksuess - 177 PRs
+10. ericof - 169 PRs
+
+## Top 10 contributors by commits (2022-2024)
+
+1. mauritsvanrees - 5,277 commits
+2. stevepiercy - 2,609 commits
+3. gforcada - 2,578 commits
+4. sneridagh - 2,178 commits
+5. petschki - 2,065 commits
+6. jensens - 1,256 commits
+7. ericof - 1,189 commits
+8. davisagli - 1,030 commits
+9. ksuess - 777 commits
+10. erral - 325 commits
 
 ## Top 10 organisations by pull requests (2022-2024)
 
-1. kitconcept: 1,936 PRs (6,044 commits)
-2. Independent: 761 PRs (994 commits)
-3. stevepiercy: 680 PRs (2,609 commits)
-4. py76: 590 PRs (5,277 commits)
-5. kombinat: 484 PRs (2,065 commits)
-6. freitag: 469 PRs (2,578 commits)
-7. redturtle: 243 PRs (302 commits)
-8. eau-de-web: 221 PRs (579 commits)
-9. codesyntax: 217 PRs (453 commits)
-10. syslab: 213 PRs (803 commits)
+1. kitconcept: 1,936 PRs
+2. Independent: 761 PRs
+3. stevepiercy: 680 PRs
+4. py76: 590 PRs
+5. kombinat: 484 PRs
+6. freitag: 469 PRs
+7. redturtle: 243 PRs
+8. eau-de-web: 221 PRs
+9. codesyntax: 217 PRs
+10. syslab: 213 PRs
+
+## Top 10 organisations by commits (2022-2024)
+
+1. kitconcept: 6,044 commits
+2. py76: 5,277 commits
+3. stevepiercy: 2,609 commits
+4. freitag: 2,578 commits
+5. kombinat: 2,065 commits
+6. Independent: 994 commits
+7. syslab: 803 commits
+8. eau-de-web: 579 commits
+9. codesyntax: 453 commits
+10. redturtle: 302 commits
