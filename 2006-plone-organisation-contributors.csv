@@ -1,0 +1,11 @@
+organisation,total_commits,total_pull_requests,contributors_count,contributors,repositories_count,repositories,first_contribution,last_contribution
+Jarn,429,0,7,"baekholt, fschulze, hannosch, limi, stefanholek, tomster, witsch",18,"Products.ATContentTypes, Products.CMFDiffTool, Products.CMFQuickInstallerTool, Products.PlacelessTranslationService, Products.PloneLanguageTool, Products.ResourceRegistries, plone.app.contentrules, plone.app.controlpanel, plone.app.form, plone.app.i18n, plone.app.layout, plone.app.linkintegrity, plone.app.openid, plone.i18n, plone.memoize, plone.openid, plone.portlets, plone.session",2006-01-01,2006-12-31
+Deloitte Digital,118,0,1,optilude,8,"Products.ATContentTypes, plone.app.contentrules, plone.app.layout, plone.app.linkintegrity, plone.app.workflow, plone.contentrules, plone.memoize, plone.portlets",2006-02-19,2006-12-31
+Simplon,86,0,1,wichert,11,"Products.ATContentTypes, Products.CMFDiffTool, Products.PlacelessTranslationService, Products.PloneLanguageTool, Products.ResourceRegistries, five.intid, plone.app.controlpanel, plone.app.openid, plone.contentrules, plone.openid, plone.session",2006-01-22,2006-12-31
+Independent,81,0,8,"alecpm, dnouri, dorneles, jodok, joelburton, meizon, natea, vincic",7,"Products.ATContentTypes, Products.CMFDiffTool, Products.CMFQuickInstallerTool, Products.PlacelessTranslationService, Products.PloneLanguageTool, Products.ResourceRegistries, plone.app.form",2006-01-01,2006-12-17
+Zest Software,22,0,2,"jladage, rockyburt",5,"Products.ATContentTypes, Products.PloneLanguageTool, Products.ResourceRegistries, Products.contentmigration, plone.app.form",2006-05-07,2006-12-10
+Sixfeetup,20,0,1,rpatterson,1,Products.contentmigration,2006-09-03,2006-10-22
+bearstach,9,0,1,encolpe,2,"Products.ATContentTypes, Products.PloneLanguageTool",2006-10-08,2006-10-08
+Enfold,7,0,1,sidnei,2,"Products.ATContentTypes, Products.PlacelessTranslationService",2006-01-15,2006-02-19
+Klein & Partner,7,0,1,jensens,2,"Products.ATContentTypes, Products.PloneLanguageTool",2006-09-03,2006-10-22
+kitconcept GmbH,5,0,1,reebalazs,2,"Products.ResourceRegistries, plone.portlets",2006-05-07,2006-12-24

@@ -1,0 +1,11 @@
+organisation,total_commits,total_pull_requests,contributors_count,contributors,repositories_count,repositories,first_contribution,last_contribution
+Jarn,361,0,6,"baekholt, fschulze, hannosch, limi, lrowe, stefanholek",8,"Products.ATContentTypes, Products.Archetypes, Products.CMFQuickInstallerTool, Products.MimetypesRegistry, Products.PlacelessTranslationService, Products.PloneLanguageTool, Products.PlonePAS, Products.ResourceRegistries",2005-01-23,2005-12-25
+Enfold,355,0,2,"jcameroncooper, sidnei",6,"Products.ATContentTypes, Products.Archetypes, Products.Marshall, Products.MimetypesRegistry, Products.PlacelessTranslationService, Products.PlonePAS",2005-01-02,2005-12-25
+Independent,210,0,14,"alecpm, bobdobbs666, chadwhitacre, csenger, dataflake, geoff-davis, glenfant, jodok, joelburton, mishunov, mrtopf, robertrottermann, siebo, vds",9,"Products.ATContentTypes, Products.Archetypes, Products.CMFDiffTool, Products.CMFEditions, Products.CMFPlacefulWorkflow, Products.CMFQuickInstallerTool, Products.PlacelessTranslationService, Products.PlonePAS, Products.ResourceRegistries",2005-01-16,2005-12-25
+Klein & Partner,133,0,1,jensens,5,"Products.ATContentTypes, Products.Archetypes, Products.CMFQuickInstallerTool, Products.MimetypesRegistry, Products.PlonePAS",2005-01-02,2005-12-25
+Deloitte Digital,26,0,1,optilude,5,"Products.ATContentTypes, Products.Archetypes, Products.CMFQuickInstallerTool, Products.PloneLanguageTool, Products.contentmigration",2005-02-06,2005-12-18
+bearstach,25,0,1,encolpe,1,Products.CMFPlacefulWorkflow,2005-11-06,2005-12-25
+Zest Software,13,0,1,rockyburt,2,"Products.Archetypes, Products.PlonePAS",2005-01-30,2005-10-30
+Simplon,11,0,1,wichert,4,"Products.ATContentTypes, Products.Archetypes, Products.CMFQuickInstallerTool, Products.PlonePAS",2005-11-13,2005-12-25
+IMIO,7,0,1,gotcha,1,Products.Archetypes,2005-03-06,2005-03-27
+Nelen-Schuurmans,5,0,1,reinout,2,"Products.ATContentTypes, Products.Archetypes",2005-05-08,2005-05-22
