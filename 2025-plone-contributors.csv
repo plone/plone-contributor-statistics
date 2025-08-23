@@ -1,0 +1,133 @@
+username,total_commits,total_pull_requests,repositories_count,repositories,first_contribution,last_contribution
+mauritsvanrees,855,164,82,"Plone, Products.CMFEditions, Products.CMFPlacefulWorkflow, Products.CMFPlone, Products.PlonePAS, buildout.coredev, collective.monkeypatcher, demo.plone.org, diazo, documentation, five.intid, meta, mr.roboto, plone-backend, plone.api, plone.app.caching, plone.app.content, plone.app.contentmenu, plone.app.contentrules, plone.app.contenttypes, plone.app.customerize, plone.app.dexterity, plone.app.discussion, plone.app.event, plone.app.iterate, plone.app.layout, plone.app.lockingbehavior, plone.app.mosaic, plone.app.multilingual, plone.app.portlets, plone.app.querystring, plone.app.redirector, plone.app.registry, plone.app.relationfield, plone.app.robotframework, plone.app.standardtiles, plone.app.testing, plone.app.theming, plone.app.tiles, plone.app.upgrade, plone.app.users, plone.app.versioningbehavior, plone.app.viewletmanager, plone.app.vocabularies, plone.app.widgets, plone.app.workflow, plone.app.z3cform, plone.autoform, plone.autoinclude, plone.base, plone.behavior, plone.dexterity, plone.distribution, plone.exportimport, plone.formwidget.autocomplete, plone.formwidget.namedfile, plone.formwidget.recurrence, plone.i18n, plone.jenkins_node, plone.locking, plone.memoize, plone.namedfile, plone.portlet.collection, plone.portlet.static, plone.portlets, plone.protect, plone.recipe.zeoserver, plone.recipe.zope2instance, plone.releaser, plone.rest, plone.restapi, plone.schema, plone.schemaeditor, plone.session, plone.staticresources, plone.testing, plone.theme, plone.tiles, plone.volto, plone.z3cform, plonetheme.barceloneta, volto",2025-01-05,2025-07-27
+stevepiercy,490,138,18,".github, Products.CMFPlone, buildout.coredev, cookieplone, cookieplone-templates, demo.plone.org, documentation, meta, plone-backend, plone-frontend, plone-sphinx-theme, plone-zeo, plone.api, plone.exportimport, plone.namedfile, plone.restapi, training, volto",2025-01-05,2025-08-17
+petschki,446,103,24,"Products.CMFEditions, Products.CMFPlone, buildout.coredev, demo.plone.org, documentation, meta, mockup, plone.app.contentrules, plone.app.contenttypes, plone.app.layout, plone.app.linkintegrity, plone.app.mosaic, plone.app.multilingual, plone.app.standardtiles, plone.app.theming, plone.app.tiles, plone.app.vocabularies, plone.app.z3cform, plone.jenkins_node, plone.restapi, plone.schemaeditor, plone.staticresources, plone.tiles, plonetheme.barceloneta",2025-01-12,2025-07-27
+davisagli,433,82,28,"2023.ploneconf.org, Plone, Products.CMFEditions, Products.CMFPlone, buildout.coredev, cookieplone, cookieplone-templates, demo.plone.org, documentation, meta, plone-backend, plone.api, plone.app.caching, plone.app.content, plone.app.dexterity, plone.app.discussion, plone.app.iterate, plone.app.multilingual, plone.behavior, plone.distribution, plone.exportimport, plone.namedfile, plone.org, plone.rest, plone.restapi, plone.volto, tagung.plone.de, volto",2025-01-05,2025-08-17
+gforcada,282,61,84,"Products.CMFDynamicViewFTI, Products.CMFEditions, Products.CMFPlacefulWorkflow, Products.CMFPlone, Products.PortalTransforms, borg.localrole, buildout.coredev, collective.monkeypatcher, diazo, documentation, five.intid, jenkins.plone.org, meta, mr.roboto, plone.alterego, plone.api, plone.app.caching, plone.app.content, plone.app.contentlisting, plone.app.contentmenu, plone.app.contentrules, plone.app.contenttypes, plone.app.customerize, plone.app.dexterity, plone.app.discussion, plone.app.i18n, plone.app.intid, plone.app.iterate, plone.app.layout, plone.app.linkintegrity, plone.app.multilingual, plone.app.portlets, plone.app.querystring, plone.app.redirector, plone.app.registry, plone.app.relationfield, plone.app.robotframework, plone.app.standardtiles, plone.app.textfield, plone.app.theming, plone.app.upgrade, plone.app.users, plone.app.viewletmanager, plone.app.vocabularies, plone.app.workflow, plone.app.z3cform, plone.autoform, plone.autoinclude, plone.batching, plone.behavior, plone.browserlayer, plone.cachepurging, plone.contentrules, plone.dexterity, plone.distribution, plone.event, plone.folder, plone.formwidget.namedfile, plone.formwidget.recurrence, plone.indexer, plone.intelligenttext, plone.keyring, plone.locking, plone.memoize, plone.namedfile, plone.outputfilters, plone.portlets, plone.protect, plone.recipe.zeoserver, plone.registry, plone.resource, plone.restapi, plone.rfc822, plone.schemaeditor, plone.session, plone.staticresources, plone.stringinterp, plone.subrequest, plone.supermodel, plone.testing, plone.theme, plone.transformchain, plone.uuid, plone.volto",2025-01-05,2025-08-17
+sneridagh,180,179,11,"2025.ploneconf.org, buildout.coredev, cookieplone-templates, demo.plone.org, documentation, plone-backend, plone-frontend, plone.i18n, plone.restapi, plone.volto, volto",2025-01-05,2025-07-13
+MrTango,152,18,15,"bobtemplates.plone, copier-backend-addon, copier-zope-setup, documentation, plone-vs-snippets, plone.app.layout, plone.app.workflow, plone.base, plone.classicui, plone.gallery, plone.namedfile, plone.outputfilters, plone.restapi, plonecli, tagung.plone.de",2025-02-09,2025-08-17
+fredvd,148,16,10,"2023.ploneconf.org, 2025.ploneconf.org, admin-team, mr.roboto, plone-backend, plone.de, plone.org, postgres2zodb, tagung.plone.de, volto",2025-01-05,2025-07-13
+erral,139,55,18,"Products.CMFPlone, bobtemplates.plone, buildout.coredev, cookieplone, cookieplone-templates, documentation, mr.roboto, plone-backend, plone-vs-snippets, plone-vs-utilities, plone.app.layout, plone.app.multilingual, plone.app.z3cform, plone.namedfile, plone.restapi, plonecli, plonetheme.barceloneta, volto",2025-01-05,2025-08-10
+ericof,122,41,14,"2025.ploneconf.org, Products.CMFPlone, buildout.coredev, cookieplone, cookieplone-templates, demo.plone.org, documentation, meta, plone.distribution, plone.exportimport, plone.volto, repoplone, tagung.plone.de, volto",2025-01-12,2025-08-10
+thet,95,56,20,"Products.CMFPlone, buildout.coredev, documentation, mockup, plone.app.content, plone.app.contenttypes, plone.app.discussion, plone.app.event, plone.app.layout, plone.app.mosaic, plone.app.portlets, plone.app.standardtiles, plone.app.theming, plone.app.tiles, plone.app.upgrade, plone.base, plone.patternslib, plone.staticresources, plone.volto, plonetheme.barceloneta",2025-01-26,2025-08-17
+ale-rt,67,33,19,"Products.CMFPlone, buildout.coredev, documentation, plone.api, plone.app.content, plone.app.discussion, plone.app.layout, plone.app.querystring, plone.app.testing, plone.app.theming, plone.app.upgrade, plone.app.z3cform, plone.autoinclude, plone.base, plone.namedfile, plone.patternslib, plone.protect, plone.restapi, plone.z3cform",2025-01-05,2025-08-10
+rohnsha0,63,45,14,"Products.CMFPlone, buildout.coredev, documentation, plone.api, plone.app.content, plone.app.discussion, plone.app.iterate, plone.base, plone.formwidget.recaptcha, plone.restapi, plone.scale, plone.session, plone.volto, volto",2025-01-26,2025-06-08
+1letter,52,20,10,"Products.CMFPlone, buildout.coredev, documentation, mockup, plone.app.layout, plone.app.multilingual, plone.app.upgrade, plone.base, plone.outputfilters, plone.schemaeditor",2025-02-09,2025-06-22
+kittauri,41,12,3,"cookieplone-templates, tagung.plone.de, volto",2025-01-26,2025-07-20
+jensens,41,5,7,"buildout.coredev, cookiecutter-zope-instance, cookieplone-templates, documentation, plone-backend, plone.namedfile, plone.restapi",2025-01-05,2025-07-13
+tisto,40,0,1,plone-contributor-statistics,2025-08-17,2025-08-17
+pbauer,37,15,5,"Products.CMFPlone, buildout.coredev, cookieplone-templates, demo.plone.org, documentation",2025-02-09,2025-07-13
+wesleybl,30,36,11,"buildout.coredev, code-quality, cookieplone-templates, plone-backend, plone-frontend, plone.app.iterate, plone.app.multilingual, plone.distribution, plone.restapi, plone.schemaeditor, volto",2025-01-26,2025-08-17
+ksuess,27,27,7,"buildout.coredev, documentation, plone.api, plone.app.content, plone.distribution, training, volto",2025-01-26,2025-08-17
+ujsquared,21,8,4,"cookieplone-templates, plone-sphinx-theme, plone.api, plone.restapi",2025-03-02,2025-04-06
+nilbacardit26,21,8,2,"guillotina, guillotina_elasticsearch",2025-01-19,2025-08-03
+Manas-Kenge,19,16,3,"documentation, plone-sphinx-theme, volto",2025-03-02,2025-04-27
+acsr,17,17,6,"cookieplone, cookieplone-templates, documentation, mockup, tagung.plone.de, training",2025-01-26,2025-04-13
+yurj,16,2,3,"buildout.coredev, plone.app.multilingual, plone.app.z3cform",2025-04-20,2025-04-27
+ewohnlich,12,4,2,"cookieplone, plone.exportimport",2025-02-02,2025-07-27
+pnicolli,12,23,1,volto,2025-01-26,2025-05-25
+cihanandac,10,5,4,"mockup, plone.app.layout, plone.locking, plone.protect",2025-02-09,2025-05-25
+mpellerin42,10,10,1,pastanaga-angular,2025-04-06,2025-06-15
+pgrunewald,9,4,4,"mockup, plone.app.caching, plone.app.multilingual, plone.restapi",2025-02-09,2025-06-15
+mamico,9,5,4,"plone.app.caching, plone.app.multilingual, plone.namedfile, plone.restapi",2025-01-19,2025-04-27
+tlotze,8,3,1,cookieplone-templates,2025-02-09,2025-02-23
+ichim-david,8,3,3,"cookieplone-templates, plone.volto, volto",2025-01-05,2025-05-18
+alexandreIFB,7,20,1,volto,2025-03-23,2025-06-15
+nileshgulia1,7,11,3,"Products.CMFEditions, plone.restapi, volto",2025-01-12,2025-05-25
+ana-oprea,6,2,2,"plone.volto, volto",2025-03-23,2025-05-18
+szakitibi,6,3,3,"plone.app.multilingual, plone.base, plone.behavior",2025-06-08,2025-07-27
+Abhishek-17h,5,11,1,volto,2025-04-06,2025-04-27
+giuliaghisini,5,9,1,volto,2025-01-05,2025-03-23
+operramon,5,5,1,pastanaga-angular,2025-02-02,2025-07-13
+gamboz,5,2,2,"bobtemplates.plone, documentation",2025-02-16,2025-02-23
+bloodbare,4,0,1,guillotina,2025-03-23,2025-03-30
+silviubogan,4,10,1,volto,2025-04-27,2025-06-08
+dataflake,4,2,2,"buildout.coredev, plone.recipe.zope2instance",2025-03-09,2025-03-09
+djay,4,4,2,"buildout.coredev, plone.restapi",2025-01-12,2025-03-30
+Fosten,4,2,2,".github, plone.org",2025-05-11,2025-07-13
+gil-cano,3,3,2,"cookieplone, cookieplone-templates",2025-04-06,2025-04-27
+Wagner3UB,3,13,1,volto,2025-03-02,2025-03-23
+reebalazs,3,6,2,"plone.autoinclude, volto",2025-01-05,2025-03-23
+codehashira99,3,9,2,"documentation, training",2025-03-16,2025-03-16
+tkimnguyen,3,1,2,"cookieplone, training",2025-01-26,2025-02-09
+sverbois,3,2,2,"mockup, plone.base",2025-02-23,2025-03-16
+cekk,3,1,2,"plone.app.dexterity, plone.restapi",2025-02-09,2025-05-25
+robgietema,3,1,1,volto,2025-01-19,2025-03-23
+gyst,2,2,2,"Products.CMFPlone, plone.restapi",2025-02-02,2025-02-09
+Faakhir30,2,2,1,plone.restapi,2025-01-19,2025-02-16
+Shyam-Raghuwanshi,2,7,1,volto,2025-01-12,2025-01-12
+JeffersonBledsoe,2,6,3,"plone.app.querystring, plone.restapi, volto",2025-05-25,2025-05-25
+Narcis2005,2,2,1,volto,2025-03-23,2025-03-23
+Tishasoumya-02,2,4,1,volto,2025-01-19,2025-05-11
+TechSubham,2,1,1,volto,2025-01-05,2025-01-05
+dobri1408,2,5,1,volto,2025-05-18,2025-05-18
+ionlizarazu,2,9,1,volto,2025-01-26,2025-04-27
+tomschall,2,3,1,volto,2025-05-04,2025-06-15
+purniiiima,1,1,1,cookieplone-templates,2025-02-02,2025-02-02
+gotcha,1,1,1,Products.CMFPlone,2025-01-05,2025-01-05
+polyester,1,1,1,documentation,2025-07-27,2025-07-27
+krissik,1,1,1,documentation,2025-07-13,2025-07-13
+ebrehault,1,1,1,pastanaga-angular,2025-01-12,2025-01-12
+gogobd,1,1,1,plone.app.mosaic,2025-05-11,2025-05-11
+lyralemos,1,1,1,plone.distribution,2025-02-23,2025-02-23
+pilz,1,1,1,plone.app.users,2025-05-04,2025-05-04
+iRohitSingh,1,2,1,volto,2025-03-09,2025-03-09
+kreafox,1,0,1,volto,2025-05-18,2025-05-18
+rboixaderg,1,9,3,"guillotina, guillotina-volto, volto",2025-08-17,2025-08-17
+maethu,1,1,1,plone.restapi,2025-04-20,2025-04-20
+tiberiuichim,1,2,2,"plone.restapi, volto",2025-06-15,2025-06-15
+avoinea,1,1,2,"plone.volto, volto",2025-02-09,2025-02-09
+claudiaifrim,1,0,1,volto,2025-04-06,2025-04-06
+Harshit457,0,1,1,plonetheme.barceloneta,,
+mayur-driod,0,1,1,volto,,
+weblate,0,5,1,volto,,
+boss6825,0,3,1,volto,,
+jatravi,0,1,1,documentation,,
+iFlameing,0,5,1,volto,,
+alizgirl,0,1,1,documentation,,
+IsaacRoy,0,1,1,documentation,,
+verena-km,0,1,1,documentation,,
+deodorhunter,0,3,1,volto,,
+pranshustuff,0,1,1,documentation,,
+instification,0,1,1,plone.namedfile,,
+Haiderkhan64,0,4,1,volto,,
+mliebischer,0,1,1,plone.namedfile,,
+Forla03,0,1,1,plone.app.multilingual,,
+icemac,0,1,1,five.intid,,
+dhruvak001,0,1,1,plone.restapi,,
+sauzher,0,1,1,plone.app.theming,,
+MohammadBinAftab,0,2,2,"plone.api, plone.restapi",,
+amankumar100,0,1,1,Products.CMFPlone,,
+irtisamsajin,0,1,1,plone.restapi,,
+rnixx,0,1,1,buildout.coredev,,
+jeetsingh008,0,1,1,plone.org,,
+sabrina-bongiovanni,0,2,1,volto,,
+ninanoleto,0,1,1,mockup,,
+toropok,0,1,1,volto,,
+frapell,0,6,2,"Products.CMFPlone, mockup",,
+tedw87,0,2,1,volto,,
+jnptk,0,2,2,"plone.volto, volto",,
+ManojaD2004,0,2,1,volto,,
+praharsh777,0,1,1,volto,,
+AyushKatre05,0,1,1,volto,,
+swapanmandi,0,2,1,volto,,
+YashGupt29,0,2,1,volto,,
+akhileshdasari2004,0,1,1,volto,,
+VarshanMaj1,0,1,1,volto,,
+Kartikayy007,0,1,1,volto,,
+Anemaygi,0,1,1,volto,,
+harshanmateti,0,1,1,volto,,
+macagua,0,2,2,"plone.volto, volto",,
+javatcoding1,0,2,1,volto,,
+Manikantan-S,0,1,1,volto,,
+mohit-nagaraj,0,1,1,volto,,
+dana-cfc4,0,1,1,volto,,
+datakurre,0,2,1,2025.ploneconf.org,,
+calinvladth,0,4,1,volto,,
+superAman07,0,1,1,volto,,
+tazsq,0,1,1,volto,,
+danalvrz,0,1,1,volto,,
+Thanush-03,0,3,3,"documentation, plone.distribution, training",,
+aboycalledhero,0,3,1,training,,
+shashank0470,0,3,1,volto,,
+ranjan103,0,1,1,volto,,

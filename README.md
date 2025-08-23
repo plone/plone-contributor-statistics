@@ -18,10 +18,13 @@ Comprehensive GitHub statistics extraction and analysis system for the Plone eco
 # Setup environment and dependencies
 make setup
 
-# Run current year statistics
+# Run current year (2025) statistics
 make run-stats
 
-# Generate organisation statistics (you have to run "run-stats" first)
+# Run statistics for individual years (e.g. 2022)
+make run-stats-2022
+
+# Run organisation statistics (this requires <YEAR>-plone-contributors.csv files to be present)
 make run-organisation-stats
 
 # Extract PLIP statistics
