@@ -57,6 +57,9 @@ def load_yearly_data():
     df = pd.read_csv(csv_file)
     df['year_date'] = pd.to_datetime(df['year'], format='%Y')
     
+    # Filter to only include years 2014-2024
+    df = df[(df['year'] >= 2014) & (df['year'] <= 2024)]
+    
     return df
 
 
@@ -72,7 +75,7 @@ def create_commits_trend_graph(df, output_dir="graphs"):
     ax.fill_between(df['year'], df['total_commits'], alpha=0.3, color='#1f77b4')
     ax.set_ylabel('Total Commits', fontsize=14)
     ax.set_xlabel('Year', fontsize=14)
-    ax.set_title('Plone Ecosystem - Commits Over Time (2015-2024)', fontsize=16, fontweight='bold')
+    ax.set_title('Plone Ecosystem - Commits Over Time (2014-2024)', fontsize=16, fontweight='bold')
     ax.grid(True, alpha=0.3)
     ax.legend(fontsize=12)
     
@@ -109,16 +112,6 @@ def create_commits_trend_graph(df, output_dir="graphs"):
                        fontsize=10, ha='left', fontweight='bold',
                        color=milestone_color)
     
-    # Add annotations for key points
-    max_commits_idx = df['total_commits'].idxmax()
-    max_year = df.loc[max_commits_idx, 'year']
-    max_commits = df.loc[max_commits_idx, 'total_commits']
-    
-    ax.annotate(f'{max_commits:,.0f}', 
-                xy=(max_year, max_commits), 
-                xytext=(max_year, max_commits + max_commits * 0.05),
-                arrowprops=dict(arrowstyle='->', color='red'),
-                fontsize=12, ha='center', fontweight='bold')
     
     plt.tight_layout()
     
@@ -141,7 +134,7 @@ def create_prs_trend_graph(df, output_dir="graphs"):
     ax.fill_between(df['year'], df['total_pull_requests'], alpha=0.3, color='#ff7f0e')
     ax.set_ylabel('Total Pull Requests', fontsize=14)
     ax.set_xlabel('Year', fontsize=14)
-    ax.set_title('Plone Ecosystem - Pull Requests Over Time (2015-2024)', fontsize=16, fontweight='bold')
+    ax.set_title('Plone Ecosystem - Pull Requests Over Time (2014-2024)', fontsize=16, fontweight='bold')
     ax.grid(True, alpha=0.3)
     ax.legend(fontsize=12)
     
@@ -184,16 +177,6 @@ def create_prs_trend_graph(df, output_dir="graphs"):
                        fontsize=10, ha='left', fontweight='bold',
                        color=milestone_color)
     
-    # Add annotations for key points
-    max_prs_idx = df['total_pull_requests'].idxmax()
-    max_year = df.loc[max_prs_idx, 'year']
-    max_prs = df.loc[max_prs_idx, 'total_pull_requests']
-    
-    ax.annotate(f'{max_prs:,.0f}', 
-                xy=(max_year, max_prs), 
-                xytext=(max_year, max_prs + max_prs * 0.05),
-                arrowprops=dict(arrowstyle='->', color='red'),
-                fontsize=12, ha='center', fontweight='bold')
     
     plt.tight_layout()
     
@@ -215,7 +198,7 @@ def create_commits_prs_trend_graph(df, output_dir="graphs"):
              color='#1f77b4', label='Commits')
     ax1.fill_between(df['year'], df['total_commits'], alpha=0.3, color='#1f77b4')
     ax1.set_ylabel('Total Commits')
-    ax1.set_title('Plone Ecosystem Development Activity (2015-2024)', fontsize=16, fontweight='bold')
+    ax1.set_title('Plone Ecosystem Development Activity (2014-2024)', fontsize=16, fontweight='bold')
     ax1.grid(True, alpha=0.3)
     ax1.legend()
     
@@ -291,7 +274,7 @@ def create_pr_adoption_graph(df, output_dir="graphs"):
     
     ax.set_ylabel('PR/Commit Ratio (%)')
     ax.set_xlabel('Year')
-    ax.set_title('Pull Request Adoption in Plone Development (2015-2024)', 
+    ax.set_title('Pull Request Adoption in Plone Development (2014-2024)', 
                 fontsize=16, fontweight='bold')
     ax.grid(True, alpha=0.3)
     ax.legend()
@@ -339,7 +322,7 @@ def create_ecosystem_growth_graph(df, output_dir="graphs"):
              color='#d62728', label='Contributors')
     ax1.fill_between(df['year'], df['total_contributors'], alpha=0.3, color='#d62728')
     ax1.set_ylabel('Total Contributors')
-    ax1.set_title('Plone Ecosystem Growth Metrics (2015-2024)', fontsize=16, fontweight='bold')
+    ax1.set_title('Plone Ecosystem Growth Metrics (2014-2024)', fontsize=16, fontweight='bold')
     ax1.grid(True, alpha=0.3)
     ax1.legend()
     
@@ -394,7 +377,7 @@ def create_growth_rates_heatmap(df, output_dir="graphs"):
     sns.heatmap(growth_data, annot=True, fmt='.1f', cmap='RdYlGn', center=0, 
                 ax=ax, cbar_kws={'label': 'Growth Rate (%)'})
     
-    ax.set_title('Year-over-Year Growth Rates in Plone Development (2016-2024)', 
+    ax.set_title('Year-over-Year Growth Rates in Plone Development (2015-2024)', 
                 fontsize=16, fontweight='bold')
     ax.set_xlabel('Year')
     ax.set_ylabel('Metric')
@@ -419,7 +402,7 @@ def create_productivity_metrics_graph(df, output_dir="graphs"):
              color='#17becf', label='Commits per Contributor')
     ax1.fill_between(df['year'], df['commits_per_contributor'], alpha=0.3, color='#17becf')
     ax1.set_ylabel('Commits per Contributor')
-    ax1.set_title('Developer Productivity Metrics (2015-2024)', fontsize=16, fontweight='bold')
+    ax1.set_title('Developer Productivity Metrics (2014-2024)', fontsize=16, fontweight='bold')
     ax1.grid(True, alpha=0.3)
     ax1.legend()
     
@@ -517,7 +500,7 @@ def create_combined_overview_graph(df, output_dir="graphs"):
         ax.set_xticklabels(years, rotation=45)
     
     # Main title
-    fig.suptitle('Plone Ecosystem Development Overview (2015-2024)', 
+    fig.suptitle('Plone Ecosystem Development Overview (2014-2024)', 
                 fontsize=18, fontweight='bold', y=0.98)
     
     output_file = f"{output_dir}/yearly_activity_overview.png"
