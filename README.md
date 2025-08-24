@@ -30,6 +30,10 @@ make run-organisation-stats
 # Generate yearly graphs
 make yearly-graphs
 
+# Generate Flourish Graphs
+make flourish-graph-individual-contributors-csv-file
+make flourish-graph-organisation-contributors-csv-file
+
 # Extract PLIP statistics
 make run-plips
 
