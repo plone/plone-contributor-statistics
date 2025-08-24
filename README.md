@@ -27,6 +27,9 @@ make run-stats-2022
 # Run organisation statistics (this requires <YEAR>-plone-contributors.csv files to be present)
 make run-organisation-stats
 
+# Generate yearly graphs
+make yearly-graphs
+
 # Extract PLIP statistics
 make run-plips
 

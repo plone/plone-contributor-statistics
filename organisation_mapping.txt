@@ -38,7 +38,6 @@ Serpro:wesleybl
 Sixfeetup:cdw9,rpatterson,tkimnguyen
 Reid-McMahon:smcmahon
 Starzel:pbauer,tlotze,gomez,Gomez
-Steve Piercy:stevepiercy
 Syslab:ale-rt,pilz,thet,reinhardt,svx
 Makina Corpus:tdesvenain
 Uni. Hospital Dresden:1letter

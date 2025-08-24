@@ -60,8 +60,152 @@ def load_yearly_data():
     return df
 
 
+def create_commits_trend_graph(df, output_dir="graphs"):
+    """Create commits trend graph."""
+    Path(output_dir).mkdir(exist_ok=True)
+    
+    fig, ax = plt.subplots(figsize=(12, 8))
+    
+    # Commits trend
+    ax.plot(df['year'], df['total_commits'], marker='o', linewidth=3, markersize=8, 
+             color='#1f77b4', label='Total Commits')
+    ax.fill_between(df['year'], df['total_commits'], alpha=0.3, color='#1f77b4')
+    ax.set_ylabel('Total Commits', fontsize=14)
+    ax.set_xlabel('Year', fontsize=14)
+    ax.set_title('Plone Ecosystem - Commits Over Time (2015-2024)', fontsize=16, fontweight='bold')
+    ax.grid(True, alpha=0.3)
+    ax.legend(fontsize=12)
+    
+    # Format y-axis for commits
+    ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: f'{x:,.0f}'))
+    
+    
+    # Set x-axis to show all years
+    years = df['year'].tolist()
+    ax.set_xticks(years)
+    ax.set_xticklabels(years, rotation=45)
+    
+    # Add Plone milestone annotations
+    milestones = [
+        (2015, 'Plone 5'),
+        (2018, 'Volto & REST API'),
+        (2022, 'Plone 6')
+    ]
+    milestone_color = '#000000'  # Black color for all milestones
+    
+    for year, label in milestones:
+        if year in df['year'].values:
+            commits_value = df[df['year'] == year]['total_commits'].iloc[0]
+            y_min, y_max = ax.get_ylim()
+            
+            # Add white dashed vertical line within graph area
+            ax.axvline(x=year, color='white', linestyle='--', alpha=0.8, linewidth=1, 
+                      ymin=(y_min/y_max), ymax=(commits_value/y_max))
+            
+            # Add text annotation to the right of vertical line with bottom spacing
+            ax.annotate(label, 
+                       xy=(year, y_min + (y_max - y_min) * 0.08), 
+                       xytext=(5, 0), textcoords='offset points',
+                       fontsize=10, ha='left', fontweight='bold',
+                       color=milestone_color)
+    
+    # Add annotations for key points
+    max_commits_idx = df['total_commits'].idxmax()
+    max_year = df.loc[max_commits_idx, 'year']
+    max_commits = df.loc[max_commits_idx, 'total_commits']
+    
+    ax.annotate(f'{max_commits:,.0f}', 
+                xy=(max_year, max_commits), 
+                xytext=(max_year, max_commits + max_commits * 0.05),
+                arrowprops=dict(arrowstyle='->', color='red'),
+                fontsize=12, ha='center', fontweight='bold')
+    
+    plt.tight_layout()
+    
+    output_file = f"{output_dir}/commits_trend.png"
+    plt.savefig(output_file, dpi=300, bbox_inches='tight')
+    plt.close()
+    
+    return output_file
+
+
+def create_prs_trend_graph(df, output_dir="graphs"):
+    """Create pull requests trend graph."""
+    Path(output_dir).mkdir(exist_ok=True)
+    
+    fig, ax = plt.subplots(figsize=(12, 8))
+    
+    # PRs trend
+    ax.plot(df['year'], df['total_pull_requests'], marker='s', linewidth=3, markersize=8, 
+             color='#ff7f0e', label='Total Pull Requests')
+    ax.fill_between(df['year'], df['total_pull_requests'], alpha=0.3, color='#ff7f0e')
+    ax.set_ylabel('Total Pull Requests', fontsize=14)
+    ax.set_xlabel('Year', fontsize=14)
+    ax.set_title('Plone Ecosystem - Pull Requests Over Time (2015-2024)', fontsize=16, fontweight='bold')
+    ax.grid(True, alpha=0.3)
+    ax.legend(fontsize=12)
+    
+    # Format y-axis for PRs
+    ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: f'{x:,.0f}'))
+    
+    # Add trend line
+    z = np.polyfit(df['year'], df['total_pull_requests'], 1)
+    p = np.poly1d(z)
+    ax.plot(df['year'], p(df['year']), "--", color='red', alpha=0.8, linewidth=2, 
+            label=f'Trend Line (slope: {z[0]:,.0f} PRs/year)')
+    ax.legend(fontsize=12)
+    
+    # Set x-axis to show all years
+    years = df['year'].tolist()
+    ax.set_xticks(years)
+    ax.set_xticklabels(years, rotation=45)
+    
+    # Add Plone milestone annotations
+    milestones = [
+        (2015, 'Plone 5'),
+        (2018, 'Volto & REST API'),
+        (2022, 'Plone 6')
+    ]
+    milestone_color = '#000000'  # Black color for all milestones
+    
+    for year, label in milestones:
+        if year in df['year'].values:
+            prs_value = df[df['year'] == year]['total_pull_requests'].iloc[0]
+            y_min, y_max = ax.get_ylim()
+            
+            # Add white dashed vertical line within graph area
+            ax.axvline(x=year, color='white', linestyle='--', alpha=0.8, linewidth=1, 
+                      ymin=(y_min/y_max), ymax=(prs_value/y_max))
+            
+            # Add text annotation to the right of vertical line with bottom spacing
+            ax.annotate(label, 
+                       xy=(year, y_min + (y_max - y_min) * 0.08), 
+                       xytext=(5, 0), textcoords='offset points',
+                       fontsize=10, ha='left', fontweight='bold',
+                       color=milestone_color)
+    
+    # Add annotations for key points
+    max_prs_idx = df['total_pull_requests'].idxmax()
+    max_year = df.loc[max_prs_idx, 'year']
+    max_prs = df.loc[max_prs_idx, 'total_pull_requests']
+    
+    ax.annotate(f'{max_prs:,.0f}', 
+                xy=(max_year, max_prs), 
+                xytext=(max_year, max_prs + max_prs * 0.05),
+                arrowprops=dict(arrowstyle='->', color='red'),
+                fontsize=12, ha='center', fontweight='bold')
+    
+    plt.tight_layout()
+    
+    output_file = f"{output_dir}/pull_requests_trend.png"
+    plt.savefig(output_file, dpi=300, bbox_inches='tight')
+    plt.close()
+    
+    return output_file
+
+
 def create_commits_prs_trend_graph(df, output_dir="graphs"):
-    """Create commits and PRs trend graph."""
+    """Create combined commits and PRs trend graph."""
     Path(output_dir).mkdir(exist_ok=True)
     
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 10), sharex=True)
@@ -90,6 +234,36 @@ def create_commits_prs_trend_graph(df, output_dir="graphs"):
     # Format y-axis for PRs
     ax2.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: f'{x:,.0f}'))
     
+    # Add Plone milestone annotations
+    milestones = [
+        (2015, 'Plone 5'),
+        (2018, 'Volto & REST API'),
+        (2022, 'Plone 6')
+    ]
+    milestone_color = '#000000'  # Black color for all milestones
+    
+    for year, label in milestones:
+        if year in df['year'].values:
+            commits_value = df[df['year'] == year]['total_commits'].iloc[0]
+            prs_value = df[df['year'] == year]['total_pull_requests'].iloc[0]
+            
+            # Get y-axis limits for both subplots
+            y_min1, y_max1 = ax1.get_ylim()
+            y_min2, y_max2 = ax2.get_ylim()
+            
+            # Add white dashed vertical lines within graph areas
+            ax1.axvline(x=year, color='white', linestyle='--', alpha=0.8, linewidth=1, 
+                       ymin=(y_min1/y_max1), ymax=(commits_value/y_max1))
+            ax2.axvline(x=year, color='white', linestyle='--', alpha=0.8, linewidth=1, 
+                       ymin=(y_min2/y_max2), ymax=(prs_value/y_max2))
+            
+            # Add text annotations to the right of vertical lines with bottom spacing
+            ax1.annotate(label, 
+                        xy=(year, y_min1 + (y_max1 - y_min1) * 0.08), 
+                        xytext=(5, 0), textcoords='offset points',
+                        fontsize=9, ha='left', fontweight='bold',
+                        color=milestone_color)
+    
     # Set x-axis to show all years
     years = df['year'].tolist()
     ax2.set_xticks(years)
@@ -97,7 +271,7 @@ def create_commits_prs_trend_graph(df, output_dir="graphs"):
     
     plt.tight_layout()
     
-    output_file = f"{output_dir}/commits_prs_trend.png"
+    output_file = f"{output_dir}/commits_prs_combined_trend.png"
     plt.savefig(output_file, dpi=300, bbox_inches='tight')
     plt.close()
     
@@ -379,7 +553,13 @@ def main():
     
     graphs = []
     
-    print("  📊 Creating commits and PRs trend graph...")
+    print("  📊 Creating commits trend graph...")
+    graphs.append(create_commits_trend_graph(df, output_dir))
+    
+    print("  📊 Creating pull requests trend graph...")
+    graphs.append(create_prs_trend_graph(df, output_dir))
+    
+    print("  📊 Creating combined commits and PRs trend graph...")
     graphs.append(create_commits_prs_trend_graph(df, output_dir))
     
     print("  📈 Creating PR adoption graph...")
