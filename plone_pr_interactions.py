@@ -413,23 +413,22 @@ class PlonePRInteractionExtractor:
                 logger.error(f"Error processing {repo}: {e}")
                 continue
         
-        # Save results
-        if not output_file:
-            timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-            output_file = f"plone_pr_interactions_{timestamp}.json"
-        
-        with open(output_file, 'w') as f:
-            json.dump(all_analyses, f, indent=2, default=str)
-        
-        logger.info(f"Saved {len(all_analyses)} PR interaction analyses to {output_file}")
-        
-        # Generate summary CSV
-        self.generate_summary_csv(all_analyses, output_file.replace('.json', '_summary.csv'))
+        # Save results as CSV (no JSON output)
+        # This will be handled by save_csv_report method
         
         return all_analyses
     
-    def generate_summary_csv(self, analyses, output_file):
-        """Generate a summary CSV of PR interactions."""
+    def save_csv_report(self, analyses, filename: str = None):
+        """Save the PR interactions report to CSV file (similar to plone_stats.py)."""
+        if filename is None:
+            filename = 'plone-pr-interactions'
+        
+        # Create data directory if it doesn't exist
+        os.makedirs('data', exist_ok=True)
+        
+        # Save to CSV in data folder
+        csv_file = f'data/{filename}.csv'
+        
         fieldnames = [
             'repo', 'pr_number', 'title', 'author', 'created_at', 'merged_at', 'state', 'merged',
             'issue_comments_count', 'review_comments_count', 'reviews_count', 'total_comments',
@@ -438,7 +437,7 @@ class PlonePRInteractionExtractor:
             'reactions_total', 'first_response_time'
         ]
         
-        with open(output_file, 'w', newline='') as csvfile:
+        with open(csv_file, 'w', newline='') as csvfile:
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
             
@@ -446,7 +445,8 @@ class PlonePRInteractionExtractor:
                 row = {field: analysis.get(field, '') for field in fieldnames}
                 writer.writerow(row)
         
-        logger.info(f"Generated summary CSV: {output_file}")
+        logger.info(f"Report saved to {csv_file}")
+        return csv_file
     
     def generate_engagement_report(self, analyses, output_file=None, year=None):
         """Generate an engagement analysis report."""
@@ -656,11 +656,19 @@ Examples:
     try:
         analyses = extractor.extract_interactions(repos=args.repos, start_date=start_date, end_date=end_date)
         
-        # Generate engagement report
+        # Generate filename with year (same pattern as plone_stats.py)
         year = args.year if args.year else datetime.now().year
+        filename = f'{year}-plone-pr-interactions'
+        
+        # Save CSV report
+        csv_file = extractor.save_csv_report(analyses, filename)
+        
+        # Generate engagement markdown report
         extractor.generate_engagement_report(analyses, year=year)
         
         logger.info("✅ PR interaction extraction completed successfully!")
+        logger.info(f"CSV report saved to: {csv_file}")
+        logger.info(f"Markdown report saved to: report/github-pr-interactions-report-{year}.md")
         
     except Exception as e:
         logger.error(f"❌ Extraction failed: {e}")
