@@ -79,6 +79,7 @@ help:
 	@echo "  flourish-graph-individual-contributors-csv-file Generate individual contributors CSV for Flourish visualization"
 	@echo "  generate-report   Generate comprehensive contributor and organization report"
 	@echo "  pr-interactions   Extract pull request comments and interactions from GitHub"
+	@echo "  pr-interactions-2025 Extract pull request comments and interactions for 2025"
 	@echo "  clean             Clean up generated files"
 	@echo "  lint              Run code linting"
 	@echo "  format            Format Python code"
@@ -350,6 +351,10 @@ generate-report:
 # Extract pull request comments and interactions from GitHub
 pr-interactions:
 	python plone_pr_interactions.py
+
+# Extract pull request comments and interactions for 2025
+pr-interactions-2025:
+	python plone_pr_interactions.py --year 2025
 
 # Clean generated files
 clean:

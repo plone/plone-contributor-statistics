@@ -53,10 +53,62 @@ class PlonePRInteractionExtractor:
         # Cache for repository data
         self.repo_cache = {}
         
-        # Plone core repositories to analyze
-        self.plone_repos = [
-            'plone/volto'
-        ]
+        # Organization to fetch repositories from
+        self.org = 'plone'
+        
+        # Will be populated by get_organization_repos()
+        self.plone_repos = []
+        self.repositories = []
+    
+    def get_organization_repos(self):
+        """Fetch all repositories from the Plone organization."""
+        logger.info(f"Fetching repositories from {self.org} organization...")
+        repos = []
+        page = 1
+        
+        while True:
+            url = f'https://api.github.com/orgs/{self.org}/repos'
+            params = {'page': page, 'per_page': 100, 'sort': 'updated'}
+            
+            response = self.session.get(url, params=params)
+            
+            if response.status_code == 401:
+                logger.error(f"Authentication failed (401). GitHub token is required for organization data.")
+                logger.error(f"Get a token at: https://github.com/settings/tokens")
+                logger.error(f"Add it to .env file as: GITHUB_TOKEN=your_token")
+                return []
+            elif response.status_code == 403:
+                logger.error(f"Access forbidden (403). Token may lack 'read:org' scope or org is private.")
+                logger.error(f"For public repos only, trying individual repo access...")
+                # Try to get some popular Plone repos directly
+                popular_repos = ['Plone', 'plone.api', 'Products.CMFPlone', 'plone.app.contenttypes', 'plone.restapi', 'volto']
+                repos = []
+                for repo_name in popular_repos:
+                    repo_url = f'https://api.github.com/repos/{self.org}/{repo_name}'
+                    repo_resp = self.session.get(repo_url)
+                    if repo_resp.status_code == 200:
+                        repos.append(repo_resp.json())
+                        logger.info(f"  Added repository: {repo_name}")
+                    else:
+                        logger.warning(f"  Could not access: {repo_name} ({repo_resp.status_code})")
+                return repos
+            elif response.status_code != 200:
+                logger.error(f"Error fetching repos: {response.status_code}")
+                break
+                
+            data = response.json()
+            if not data:
+                break
+                
+            repos.extend(data)
+            logger.info(f"Fetched {len(data)} repositories (page {page})")
+            page += 1
+            
+        self.repositories = repos
+        # Convert to repo names for compatibility
+        self.plone_repos = [f"{self.org}/{repo['name']}" for repo in repos]
+        logger.info(f"Total repositories found: {len(repos)}")
+        return repos
     
     def check_rate_limit(self):
         """Check and handle GitHub API rate limiting."""
@@ -321,7 +373,10 @@ class PlonePRInteractionExtractor:
     
     def extract_interactions(self, repos=None, start_date=None, end_date=None, output_file=None):
         """Extract PR interactions for specified repositories."""
-        repos = repos or self.plone_repos
+        # Fetch all Plone repositories if none specified
+        if repos is None:
+            self.get_organization_repos()
+            repos = self.plone_repos
         
         if start_date and end_date:
             logger.info(f"Extracting PR interactions from {start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')}")
@@ -393,10 +448,15 @@ class PlonePRInteractionExtractor:
         
         logger.info(f"Generated summary CSV: {output_file}")
     
-    def generate_engagement_report(self, analyses, output_file=None):
+    def generate_engagement_report(self, analyses, output_file=None, year=None):
         """Generate an engagement analysis report."""
         if not output_file:
-            output_file = "plone_pr_engagement_report.md"
+            if year:
+                # Create report directory if it doesn't exist
+                os.makedirs('report', exist_ok=True)
+                output_file = f"report/github-pr-interactions-report-{year}.md"
+            else:
+                output_file = "plone_pr_engagement_report.md"
         
         # Calculate statistics
         total_prs = len(analyses)
@@ -404,7 +464,7 @@ class PlonePRInteractionExtractor:
         
         # Helper function to filter out bots
         def is_bot(username):
-            bot_patterns = ['[bot]', '-bot', 'bot-', 'dependabot', 'greenkeeper']
+            bot_patterns = ['[bot]', '-bot', 'bot-', 'dependabot', 'greenkeeper', 'mister-roboto']
             username_lower = username.lower()
             return any(pattern in username_lower for pattern in bot_patterns)
         
@@ -542,11 +602,12 @@ def main():
         description='Extract Plone PR interactions and engagement data',
         epilog="""
 Examples:
-  python plone_pr_interactions.py                    # Current year (default)
-  python plone_pr_interactions.py --year 2024       # All of 2024
-  python plone_pr_interactions.py --year 2025       # All of 2025
-  python plone_pr_interactions.py --start-date 2024-01-01 --end-date 2024-06-30  # First half of 2024
-  python plone_pr_interactions.py --all             # All PRs (no date filter)
+  python plone_pr_interactions.py                    # All Plone repos, current year
+  python plone_pr_interactions.py --year 2024       # All Plone repos, all of 2024
+  python plone_pr_interactions.py --year 2025       # All Plone repos, all of 2025
+  python plone_pr_interactions.py --repos plone/volto --year 2025  # Only Volto, 2025
+  python plone_pr_interactions.py --repos plone/volto plone/plone.restapi --year 2024  # Specific repos
+  python plone_pr_interactions.py --all             # All Plone repos, all PRs (no date filter)
         """,
         formatter_class=argparse.RawDescriptionHelpFormatter
     )
@@ -558,6 +619,8 @@ Examples:
                        help='End date in YYYY-MM-DD format (e.g., 2024-12-31)')
     parser.add_argument('--all', action='store_true', 
                        help='Extract all PRs (no date filter)')
+    parser.add_argument('--repos', nargs='+', 
+                       help='Specific repositories to analyze (e.g., plone/volto plone/plone.restapi). If not specified, all Plone repos will be fetched.')
     
     args = parser.parse_args()
     
@@ -591,10 +654,11 @@ Examples:
     logger.info("Starting Plone PR interaction extraction...")
     
     try:
-        analyses = extractor.extract_interactions(start_date=start_date, end_date=end_date)
+        analyses = extractor.extract_interactions(repos=args.repos, start_date=start_date, end_date=end_date)
         
         # Generate engagement report
-        extractor.generate_engagement_report(analyses)
+        year = args.year if args.year else datetime.now().year
+        extractor.generate_engagement_report(analyses, year=year)
         
         logger.info("✅ PR interaction extraction completed successfully!")
         
