@@ -1,0 +1,733 @@
+repo,pr_number,title,author,created_at,merged_at,state,merged,issue_comments_count,review_comments_count,reviews_count,total_comments,participants_count,reviewers_count,commenters_count,approved_reviews,changes_requested_reviews,comment_reviews,reactions_total,first_response_time
+plone/plone.schemaeditor,24,"Add a ""protected"" method to IFieldFactory",ebrehault,2015-06-02T15:24:01Z,2015-06-03T09:46:58Z,closed,True,5,0,0,5,3,0,3,0,0,0,0,15.056944444444444
+plone/plone.schemaeditor,33,addTokenToUrl soft dependency 2nd try,thet,2015-09-04T15:27:52Z,2015-09-04T18:51:50Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.schemaeditor,32,"Revert ""addTokenToUrl soft dependency""",thet,2015-09-02T15:51:13Z,2015-09-02T15:51:27Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.schemaeditor,31,addTokenToUrl soft dependency,thet,2015-08-31T22:52:26Z,2015-09-02T12:28:02Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.schemaeditor,26,Display status message in parent window after modal close,ebrehault,2015-06-06T15:59:30Z,2015-07-08T04:31:20Z,closed,True,10,0,0,10,3,0,3,0,0,0,0,30.066388888888888
+plone/plone.schemaeditor,27,Supports additionalSchemata in field Add form ,ebrehault,2015-06-15T12:30:09Z,2015-07-02T03:54:24Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.schemaeditor,25,Fix robot,gotcha,2015-06-02T15:58:17Z,2015-06-03T07:01:31Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.schemaeditor,19,Fix schmaeditor to preserve i18n Message values,datakurre,2014-10-16T00:19:41Z,2015-05-27T11:09:45Z,closed,True,12,0,0,12,2,0,2,0,0,0,0,5192.896111111111
+plone/plone.schemaeditor,23,Rename pat-modal to pat-plone-modal.,jcbrand,2015-04-17T16:22:14Z,2015-04-22T20:01:42Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.schemaeditor,22,sorted fields by localized name/possibly inappropriate use of zope.i18n.translate(),zopyx,2015-04-09T19:18:53Z,,closed,False,5,1,0,6,4,0,4,0,0,0,0,1.1483333333333334
+plone/plone.schemaeditor,21,make fieldset creation optional,ebrehault,2015-02-22T20:16:12Z,2015-02-26T18:45:10Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.schemaeditor,20,Update to use mockup Modal for plone 5,davisagli,2015-02-16T00:51:45Z,2015-02-16T01:11:34Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.33166666666666667
+plone/plone.app.viewletmanager,10,Fix manage-viewlets for Plone 5,pbauer,2015-08-28T09:52:53Z,2015-08-28T12:08:12Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.viewletmanager,9,Rename _uncatched_errors to _exceptions_handled_elsewhere and add `Retry`,jean,2015-03-30T05:42:18Z,2015-03-30T09:24:55Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,2.5380555555555557
+plone/plone.app.viewletmanager,6,Rename _uncatched_errors to _exceptions_handled_elsewhere,jean,2014-11-21T17:19:13Z,,closed,False,2,0,0,2,2,0,2,0,0,0,0,2516.110277777778
+plone/plone.app.viewletmanager,8,Sort viewlets on export,gforcada,2015-03-04T16:04:25Z,2015-03-05T23:13:06Z,closed,True,7,0,0,7,3,0,3,0,0,0,0,26.9525
+plone/plone.app.caching,18,Update Site Setup link in all control panels,davilima6,2015-11-23T00:10:58Z,2015-11-25T00:32:40Z,closed,True,4,0,0,4,2,0,2,0,0,0,0,48.28194444444444
+plone/plone.app.caching,10,Barceloneta,bloodbare,2014-10-09T11:50:38Z,2014-10-09T11:59:17Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.caching,8,patch now() to fix tests that fail 24h before daylight saving time.,pbauer,2014-03-29T16:35:56Z,2014-03-29T17:16:49Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.caching,3,ramcache transformIterable mustn't return None if it reads the iterable input,ebrehault,2012-11-14T09:05:54Z,2012-11-18T18:39:57Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.caching,17,Change the category of the configlet to 'plone-advanced',bloodbare,2015-07-16T16:27:46Z,2015-07-16T16:31:39Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.caching,16,remove gzip option,vangheem,2015-06-11T14:44:47Z,2015-06-11T17:47:34Z,closed,True,7,0,0,7,3,0,3,0,0,0,0,5.909166666666667
+plone/plone.app.caching,14,Fix bug in manual purging via controlpanel,puittenbroek,2015-03-30T09:35:21Z,2015-03-31T09:57:09Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,23.02
+plone/plone.app.caching,12,Fixed getObjectDefaultView method to strip off leading / and/or @@,alecghica,2015-01-21T12:26:20Z,2015-01-21T12:38:33Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.caching,11,Fixed getObjectDefaultView method to strip off leading / and/or @@,alecghica,2015-01-21T12:25:10Z,2015-01-21T12:38:14Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.scale,5,Bug fix. Image thumbnail cannot be used to scale up.,sureshvv,2015-03-05T00:44:32Z,2015-03-06T11:23:24Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.relationfield,7,Schemaeditor adaptation,smcmahon,2014-01-13T22:08:04Z,,closed,False,3,0,0,3,3,0,2,0,0,0,0,2921.62
+plone/plone.app.relationfield,8,cherry pick plone.rfc822 1.0.2 marshalls collections as ascii. from mast...,maartenkling,2014-06-03T14:38:50Z,2014-06-03T16:23:11Z,closed,True,4,0,0,4,2,0,2,0,0,0,0,0.8222222222222222
+plone/plone.app.relationfield,15,Fix test isolation,tisto,2015-07-13T17:23:01Z,2015-07-17T19:40:39Z,closed,True,3,0,0,3,3,0,3,0,0,0,0,40.91555555555556
+plone/plone.app.relationfield,14,Fixes plone/Products.CMFPlone#669,fulv,2015-07-12T23:22:19Z,2015-07-13T05:30:32Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.relationfield,13,fix tests,ebrehault,2015-07-02T10:21:16Z,2015-07-02T13:37:14Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,2.0205555555555557
+plone/plone.app.iterate,18,Keep the default page setting when checking in a document. (Plone 5),mauritsvanrees,2015-11-13T19:54:13Z,2015-11-13T23:43:01Z,closed,True,2,0,0,2,1,0,1,0,0,0,0,
+plone/plone.app.iterate,17,Keep default page on checkin (Plone 4.3),mauritsvanrees,2015-11-13T19:51:55Z,2015-11-13T23:42:39Z,closed,True,2,0,0,2,1,0,1,0,0,0,0,
+plone/plone.app.iterate,11,13881 prevent ownership change,esteele,2014-03-27T19:58:42Z,,closed,False,5,0,0,5,3,0,3,0,0,0,0,51.58222222222222
+plone/plone.app.iterate,16,Check if object does not have iterate policy,vangheem,2015-07-26T05:10:24Z,2015-07-26T06:19:17Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.iterate,15,Provide dexterity support in plone.app.iterate,vangheem,2015-07-15T17:56:18Z,2015-07-16T11:27:50Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.iterate,14,don't remove acquisition on object for getToolByName call,tomgross,2015-06-08T07:16:04Z,2015-06-08T16:09:44Z,closed,True,3,0,0,3,3,0,2,0,0,0,0,3.2169444444444446
+plone/plone.app.iterate,10,Handle local roles after checkout/checkin,jfroche,2014-03-04T14:24:08Z,,closed,False,2,0,0,2,2,0,1,0,0,0,0,8421.085277777778
+plone/Products.CMFPlacefulWorkflow,8,"ignore Topic if it does not exist, since plone.app.collection might be installed",cdw9,2015-12-17T15:55:42Z,2015-12-21T20:31:56Z,closed,True,4,0,0,4,2,0,2,0,0,0,0,99.59805555555556
+plone/Products.CMFPlacefulWorkflow,7,Update Site Setup link in all control panels,davilima6,2015-11-22T23:41:37Z,2015-11-25T00:35:14Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.PortalTransforms,6,Remove Products.CMFDefault dependency,gforcada,2015-05-17T21:58:43Z,,closed,False,3,0,0,3,2,0,2,0,0,0,0,45.018055555555556
+plone/Products.PortalTransforms,7,Correcting Typo errors in user manual,prakharjoshi,2015-05-23T08:11:19Z,2015-08-20T14:35:54Z,closed,True,6,0,0,6,3,0,3,0,0,0,0,7.245833333333334
+plone/Products.PortalTransforms,9,fix error mis-configured transforms would cause,vangheem,2015-08-04T18:33:59Z,2015-08-04T19:59:18Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/Products.PortalTransforms,8,Removed CMFDefault dependency,tomgross,2015-05-29T13:43:45Z,2015-05-30T11:52:11Z,closed,True,4,0,0,4,4,0,3,0,0,0,0,0.7141666666666666
+plone/Products.PortalTransforms,5,"Do not escape <, >, and & inside script tag",gotcha,2015-03-31T13:38:02Z,2015-04-21T05:29:14Z,closed,True,5,0,0,5,4,0,4,0,0,0,0,168.13888888888889
+plone/Products.MimetypesRegistry,2,Fix 14078: remove Article from magic matching,ebrehault,2014-05-07T14:17:18Z,2014-05-09T08:09:43Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.MimetypesRegistry,4,Portal properties cleanup,pbauer,2015-09-20T15:23:04Z,2015-09-20T15:23:08Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.CMFDiffTool,3,Dexterity behaviour bug,sdelcourt,2014-11-02T14:26:24Z,2014-11-02T14:31:24Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.CMFDiffTool,7,Provide diff for dexterity behaviors' fields,cedricmessiant,2015-06-30T09:13:50Z,2015-07-30T12:32:17Z,closed,True,6,0,0,6,3,0,3,0,0,0,0,7.202222222222222
+plone/Products.CMFDiffTool,8,Fix diff for dexterity behaviors (Plone 5.0),cedricmessiant,2015-07-24T12:17:34Z,2015-07-30T12:32:29Z,closed,True,5,0,0,5,2,0,2,0,0,0,0,0.86
+plone/Products.CMFDiffTool,6,Close partially issue #330,keul,2015-05-03T09:00:33Z,2015-05-08T16:09:57Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.alterego,1,Remove egg_info,gforcada,2015-09-12T14:28:09Z,2015-09-13T20:28:51Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.CMFDynamicViewFTI,7,"Cleanup: PEP8 et al., security/zca via decorators, ...",jensens,2015-07-27T16:17:10Z,2015-07-27T17:37:54Z,closed,True,2,0,0,2,1,0,1,0,0,0,0,
+plone/Products.CMFDynamicViewFTI,6,fix https://github.com/plone/Products.CMFPlone/issues/591,gotcha,2015-06-02T13:43:32Z,2015-06-03T07:02:51Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.CMFDynamicViewFTI,5,Removed CMFDefault dependency,tomgross,2015-05-07T09:07:14Z,2015-05-07T12:02:32Z,closed,True,5,0,0,5,2,0,2,0,0,0,0,1.5397222222222222
+plone/Products.CMFDynamicViewFTI,4,Paste delete rename default page,gotcha,2015-03-17T09:22:25Z,2015-03-17T09:22:55Z,closed,True,8,0,0,8,2,0,2,0,0,0,0,0.1986111111111111
+plone/Products.CMFDynamicViewFTI,3,"Revert ""Revert ""Ported to plone.app.testing""""",gforcada,2015-01-28T15:11:47Z,2015-03-10T14:44:16Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.5536111111111112
+plone/Products.CMFDynamicViewFTI,2,"Revert ""Ported to plone.app.testing""",gforcada,2015-01-28T15:10:07Z,2015-01-28T15:10:12Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.CMFEditions,32,fix #31 - do not rely on specific size,tschorr,2015-11-04T07:38:26Z,2015-11-04T11:12:37Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.CMFEditions,30,use unrestricted catalog search for storage statistics,tschorr,2015-09-09T08:38:41Z,2015-09-14T09:07:47Z,closed,True,9,0,0,9,4,0,4,0,0,0,0,0.7188888888888889
+plone/Products.CMFEditions,17,Fix #16: Allow developers to define a @@version-view to customize how a version of an item is displayed in versions_history_form.pt,rafaelbco,2014-07-30T12:45:18Z,2014-07-31T13:11:45Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.CMFEditions,15,Fix #14: Duplicate functionality in @@history and version_diff.pt.,rafaelbco,2014-07-29T14:34:11Z,2014-07-30T11:34:51Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.CMFEditions,23,Input sanitation for retrieveSubstitute(),zupo,2015-02-01T21:48:29Z,2015-09-23T11:08:21Z,closed,True,2,0,0,2,2,0,1,0,0,0,0,2588.952222222222
+plone/Products.CMFEditions,5,Try to fix https://dev.plone.org/ticket/12949,ivanteoh,2012-06-14T04:52:30Z,,closed,False,15,0,0,15,7,0,7,0,0,0,0,4018.1641666666665
+plone/Products.CMFEditions,21,"Revert ""Revert ""Ported tests to plone.app.testing""""",gforcada,2015-01-28T20:57:33Z,2015-01-28T23:05:55Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.CMFEditions,20,"Revert ""Ported tests to plone.app.testing""",gforcada,2015-01-28T20:55:56Z,2015-01-28T20:56:02Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.CMFEditions,19,Ported tests to plone.app.testing,tomgross,2014-11-16T14:44:54Z,2015-01-27T16:53:54Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.contentrules,19,Update Site Setup link in all control panels,davilima6,2015-11-23T00:13:12Z,2015-11-25T00:32:49Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,48.255833333333335
+plone/plone.app.contentrules,18,Fix a write on read situation (Plone 4.3),gforcada,2015-10-23T08:22:34Z,2015-10-28T11:50:12Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,123.46805555555555
+plone/plone.app.contentrules,17,Fix a write on read situation,gforcada,2015-10-21T10:20:04Z,2015-10-23T12:49:06Z,closed,True,4,0,0,4,2,0,2,0,0,0,0,11.373055555555556
+plone/plone.app.contentrules,16,Use z3c.form for custom email-action form template,pbauer,2015-09-10T10:23:57Z,2015-09-10T20:15:51Z,closed,True,5,0,0,5,2,0,2,0,0,0,0,2.1855555555555557
+plone/plone.app.contentrules,11,"Revert ""Revert ""Remove DL's from portal message templates.""""",jensens,2015-03-16T18:18:51Z,,closed,False,2,0,0,2,2,0,2,0,0,0,0,4265.363055555556
+plone/plone.app.contentrules,15,Use Plone MockMailHost and removed duplicate code,tomgross,2015-06-13T19:26:06Z,2015-06-14T13:35:13Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.contentrules,14,move to z3c.form,vangheem,2015-05-29T22:53:22Z,2015-06-01T09:08:22Z,closed,True,4,0,0,4,3,0,3,0,0,0,0,45.9175
+plone/plone.app.contentrules,13,Removed CMFDefault dependency,tomgross,2015-05-29T12:51:57Z,2015-05-30T12:51:48Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,22.86722222222222
+plone/plone.app.contentrules,12,Rename pat-modal to pat-plone-modal,jcbrand,2015-04-17T16:24:13Z,2015-04-22T20:01:50Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.contentrules,8,Barceloneta,bloodbare,2014-10-09T11:47:03Z,2014-10-09T11:58:33Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.contentrules,6,Ported tests to plone.app.testing,tomgross,2014-07-18T12:56:14Z,2014-07-18T17:59:21Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,16.566111111111113
+plone/plone.app.contentrules,4,Add an option to allow a rule to trigger other rules,tdesvenain,2013-10-26T15:37:36Z,2013-11-06T13:02:28Z,closed,True,2,0,0,2,1,0,1,0,0,0,0,
+plone/plone.app.contentrules,10,"Revert ""Remove DL's from portal message templates.""",jensens,2015-03-16T18:17:39Z,2015-03-16T18:17:45Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.contentrules,5,Remove DL's from portal message templates.,khink,2014-02-10T16:40:52Z,2015-03-16T17:01:16Z,closed,True,7,2,0,9,3,0,3,0,0,0,0,4535.9013888888885
+plone/Products.PlonePAS,13,Add back ordereddict (for python 2.6 support),gforcada,2015-12-13T21:39:53Z,2015-12-14T21:46:32Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.PlonePAS,7,"pep8 et al, review and code modernization, zca and security decorators, remove Plone4+Py2.6 code, overhaul",jensens,2015-03-09T17:51:31Z,2015-03-11T15:47:06Z,closed,True,18,0,0,18,5,0,5,0,0,0,0,42.91638888888889
+plone/Products.PlonePAS,1,pep8 cleanup (mostly),zombified,2012-05-21T15:09:55Z,2012-05-21T15:18:18Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.4127777777777778
+plone/Products.PlonePAS,2,"searchForMembers, properly encode request values",do3cc,2015-02-04T20:55:50Z,2015-02-09T22:10:43Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.PlonePAS,3,"searchForMembers, properly encode request values",do3cc,2015-02-04T22:07:19Z,2015-02-09T22:10:15Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.contentlisting,8, Introduce ``@@contentlisting`` with Collection support (Plone 4.3),thet,2015-06-18T12:32:03Z,,closed,False,4,0,0,4,3,0,3,0,0,0,0,1533.5891666666666
+plone/plone.app.contentlisting,12,"In tests, use ``selection.any`` in querystrings.",mauritsvanrees,2015-11-23T14:24:53Z,2015-11-25T10:38:04Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.contentlisting,11,PR: Cleanup and rework: contenttype-icons and ...,fgrcon,2015-11-05T14:07:19Z,2015-11-11T14:58:09Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.contentlisting,10,remove deprecated contenttype icons ,fgrcon,2015-10-21T09:49:21Z,,closed,False,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.contentlisting,1,Return portal_type in ContentTypeClass,gaudenz,2012-02-09T13:48:50Z,2012-02-15T08:08:33Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.contentlisting,9,Implement cropping for CroppedDescription,pbauer,2015-09-10T14:01:48Z,2015-09-10T18:56:34Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.contentlisting,6,Introduce ``@@contentlisting`` with Collection support,thet,2015-04-28T13:27:52Z,,closed,False,4,0,0,4,1,0,1,0,0,0,0,
+plone/plone.app.contentlisting,7,Make isVisibleInNav method read navigation displayed types settings,tisto,2015-05-05T07:42:56Z,2015-05-05T08:56:48Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.contentlisting,5,forward getURL's relative kw for contentlistings (plone4 compat),kiorky,2015-01-27T17:47:21Z,2015-02-03T22:31:05Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,172.7275
+plone/plone.app.contentmenu,5,Barceloneta,bloodbare,2014-10-09T11:52:33Z,2014-10-09T11:59:55Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.contentmenu,4,Ported unittests to plone.app.testing,tomgross,2014-01-12T17:58:28Z,2014-01-21T07:33:01Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,205.57777777777778
+plone/plone.app.contentmenu,12,pep8 et al.,jensens,2015-08-03T13:05:29Z,2015-08-03T15:21:55Z,closed,True,4,0,0,4,1,0,1,0,0,0,0,
+plone/plone.app.contentmenu,11,do not open manage portlets in a modal,vangheem,2015-07-26T05:33:10Z,2015-07-26T13:00:22Z,closed,True,2,0,0,2,1,0,1,0,0,0,0,
+plone/plone.app.contentmenu,10,Toolbar fixup,bloodbare,2015-07-16T16:26:08Z,2015-07-16T16:32:50Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.contentmenu,9,Rename pat-modal to pat-plone-modal.,jcbrand,2015-04-17T16:23:35Z,2015-04-22T20:01:46Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.customerize,6,five.customerize moved to github,djowett,2015-06-10T09:20:40Z,2015-06-10T12:33:43Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.customerize,5,Remove ZopeTestCase dependency.,tisto,2015-06-10T05:12:17Z,,closed,False,3,2,0,5,4,0,4,0,0,0,0,1.3533333333333333
+plone/plone.app.customerize,3,use layer instead of test_class for doctests,tomgross,2015-01-06T15:23:05Z,,closed,False,2,0,0,2,2,0,2,0,0,0,0,6016.801944444444
+plone/plone.app.customerize,7,use layer instead of test_class for doctests,tomgross,2015-09-17T10:03:16Z,2015-09-21T07:24:08Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,30.279722222222222
+plone/plone.app.customerize,4,Subclass ZopeTestCase.Functional,gforcada,2015-05-09T13:39:40Z,2015-05-09T19:50:06Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.intid,3,Linkintegrity,pbauer,2015-08-23T15:25:04Z,2015-08-24T18:40:21Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,30.62361111111111
+plone/plone.app.i18n,3,Language selector adapted to plone 5,tisto,2015-03-25T08:35:52Z,2015-03-25T20:36:34Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.textfield,6,Do not give an error when the raw value is None.,mauritsvanrees,2013-10-03T21:17:52Z,2013-10-05T14:33:02Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.textfield,16,Fix negative equality bug RawValueHolder and RichTextValue introduced in 1.2.5,jone,2015-05-26T16:12:09Z,2015-05-26T16:20:40Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.1386111111111111
+plone/plone.app.textfield,15,Fix marshaler decode to decode raw value as unicode (IText),datakurre,2015-01-22T18:43:59Z,2015-01-23T07:32:50Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.textfield,13,Fix marshaler decode to always set raw value as unicode,datakurre,2014-12-11T11:08:58Z,2015-01-22T16:27:37Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,1013.8722222222223
+plone/plone.app.textfield,14,"Revert ""Fix marshaler decode to always set raw value as unicode""",tisto,2015-01-22T17:01:46Z,2015-01-22T17:01:54Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.workflow,3,Remove DL's from portal message in templates.,khink,2014-02-11T09:11:57Z,2015-03-16T17:40:48Z,closed,True,6,0,0,6,3,0,3,0,0,0,0,4519.5925
+plone/plone.app.versioningbehavior,18,Fixes #10: Views for Image and File versions don't work.,rafaelbco,2015-10-19T16:05:56Z,,closed,False,5,0,0,5,3,0,3,0,0,0,0,53.77916666666667
+plone/plone.app.versioningbehavior,20,Refs #18 - Fix for Views for Image and File versions don't work.,pysailor,2015-11-23T13:18:50Z,2015-11-25T11:17:45Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,2.1527777777777777
+plone/plone.app.versioningbehavior,11,Ported tests to plone.app.testing.,jone,2014-11-19T17:36:25Z,2015-01-27T16:49:52Z,closed,True,2,1,0,3,2,0,2,0,0,0,0,21.224444444444444
+plone/plone.app.versioningbehavior,16,Updated italian translation,ale-rt,2015-09-25T15:49:27Z,2015-09-25T15:52:44Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.versioningbehavior,15,Remove reference to itself,gforcada,2015-09-16T22:05:06Z,2015-09-17T07:47:31Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,9.706388888888888
+plone/plone.browserlayer,4,Minor cleanup in order to follow plone code style conventions.,jensens,2015-10-08T09:04:27Z,2015-10-08T10:25:29Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.cachepurging,5,Fix typo: shoudl -> should,ale-rt,2015-12-30T10:45:32Z,2015-12-30T12:10:58Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.cachepurging,4,"Change i18n_domain to ""plone""",staeff,2015-11-20T16:30:06Z,2015-11-25T12:32:58Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.cachepurging,3,Not iterate on none,gotcha,2015-07-06T10:03:34Z,2015-07-06T10:51:00Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.contentrules,3,Write on read,gforcada,2015-10-23T14:25:30Z,,closed,False,1,0,0,1,2,0,1,0,0,0,0,1016.3663888888889
+plone/plone.contentrules,2,Fix a write on read situation,gforcada,2015-10-21T10:11:58Z,,closed,False,9,0,0,9,3,0,3,0,0,0,0,11.514166666666666
+plone/plone.contentrules,1,Cascading rules,tdesvenain,2013-10-26T15:37:08Z,2013-11-06T10:40:24Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.event,5,No need for unittest2,gforcada,2015-09-13T20:26:22Z,2015-09-14T02:35:00Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.event,1,Added rdate and exdate support,Solgema,2011-12-05T10:19:40Z,,closed,False,1,0,0,1,2,0,1,0,0,0,0,4.9222222222222225
+plone/plone.autoform,9,"pep8 cleanup, utf8-header,sorted imports, readability, ...",jensens,2014-10-01T14:18:13Z,2014-10-02T12:43:46Z,closed,True,0,2,0,2,2,0,2,0,0,0,0,0.4197222222222222
+plone/plone.folder,1,Allow sorting by a method and allow simple reversing without a key,mauritsvanrees,2013-09-04T16:30:50Z,2013-10-05T17:17:08Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,744.7722222222222
+plone/plone.folder,2,"pep8 cleanup, less id builtin usage, depend on Products.CMFCore ",jensens,2015-07-27T12:41:47Z,2015-07-27T17:04:41Z,closed,True,4,0,0,4,1,0,1,0,0,0,0,
+plone/plone.app.querystring,57,"In tests, use 'selection.any' in querystrings.",mauritsvanrees,2015-11-23T14:25:27Z,2015-11-25T10:38:46Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.querystring,53,Upgrade step to fix 'Subject' index on existing collections,ezvirtual,2015-09-29T05:01:45Z,2015-09-29T20:10:37Z,closed,True,3,0,0,3,3,0,3,0,0,0,0,9.390833333333333
+plone/plone.app.querystring,55,"fix resultview icons,…",fgrcon,2015-10-14T21:09:45Z,2015-10-17T09:51:48Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.querystring,39,Collections fixes,frapell,2015-08-20T17:55:30Z,2015-08-21T15:03:22Z,closed,True,1,5,0,6,3,0,3,0,0,0,0,0.42388888888888887
+plone/plone.app.querystring,40,Add user vocabulary,vangheem,2015-08-21T17:32:10Z,2015-08-21T22:22:44Z,closed,True,4,0,0,4,2,0,2,0,0,0,0,2.2327777777777778
+plone/plone.app.querystring,42,fix migration from p4 to p5,pbauer,2015-08-24T10:27:29Z,2015-08-24T11:26:26Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.9808333333333333
+plone/plone.app.querystring,52,Fixes problems introduced by merge.,jensens,2015-09-21T21:14:38Z,2015-09-21T22:22:36Z,closed,True,2,0,0,2,1,0,1,0,0,0,0,
+plone/plone.app.querystring,43,Fixed QuerystringRegistryReader.mapSortableIndex so it doesnt return …,winstonf88,2015-09-01T20:57:43Z,2015-09-18T13:56:56Z,closed,True,24,2,0,26,7,0,7,0,0,0,0,15.805555555555555
+plone/plone.app.querystring,46,add before/after relative date query,petschki,2015-09-04T10:32:42Z,2015-09-19T13:19:13Z,closed,True,7,0,0,7,3,0,3,0,0,0,0,118.6675
+plone/plone.app.querystring,50,Fixed QuerystringRegistryReader.mapSortableIndex so it doesnt return …,winstonf88,2015-09-09T20:48:14Z,2015-09-18T16:18:23Z,closed,True,7,0,0,7,3,0,3,0,0,0,0,37.34527777777778
+plone/plone.app.querystring,49,Fixed QuerystringRegistryReader.mapSortableIndex so it doesnt return …,winstonf88,2015-09-09T20:42:51Z,2015-09-18T16:18:31Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,133.05972222222223
+plone/plone.app.querystring,51,Fix vocabularies sorting,ebrehault,2015-09-11T10:10:53Z,2015-09-11T11:42:58Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.querystring,48,Fixed QuerystringRegistryReader.mapSortableIndex so it doesnt return …,winstonf88,2015-09-09T20:20:35Z,,closed,False,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.querystring,47,1.2.x issue 37,winstonf88,2015-09-09T20:20:17Z,,closed,False,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.querystring,44,1.2.x,winstonf88,2015-09-02T16:37:17Z,,closed,False,6,0,0,6,6,0,5,0,0,0,0,17.365
+plone/plone.app.querystring,38,Collections fixes,frapell,2015-08-20T03:33:18Z,2015-08-20T05:12:53Z,closed,True,6,0,0,6,3,0,3,0,0,0,0,3.5155555555555558
+plone/plone.app.querystring,31,Add operators selection.any and selection.all to Subject,MrTango,2015-04-18T18:20:00Z,2015-07-17T12:13:58Z,closed,True,9,0,0,9,4,0,4,0,0,0,0,0.5891666666666666
+plone/plone.app.querystring,36,Fix getObjPositionInParent be sortable,datakurre,2015-05-04T12:25:02Z,2015-05-10T13:24:49Z,closed,True,10,0,0,10,4,0,4,0,0,0,0,1.4808333333333332
+plone/plone.app.querystring,35,Update setup.py,lowks,2015-04-28T14:35:40Z,2015-05-09T13:08:10Z,closed,True,7,0,0,7,4,0,4,0,0,0,0,245.8388888888889
+plone/plone.app.querystring,34,Issue 32 changes to 1.2.x branch,rodfersou,2015-04-27T14:17:08Z,2015-04-27T23:02:48Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.querystring,33,Issue 32 - Collection not filtering integer field,rodfersou,2015-04-27T11:49:55Z,2015-04-27T20:33:37Z,closed,True,5,1,0,6,4,0,3,0,0,0,0,0.7286111111111111
+plone/plone.app.querystring,23,Bugfix 22,jensens,2014-03-29T21:05:57Z,2014-04-03T21:43:00Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.2947222222222222
+plone/plone.app.querystring,30,Add operators selection.oneOf and selection.all,MrTango,2015-04-17T14:59:19Z,,closed,False,7,0,0,7,4,0,4,0,0,0,0,1.1419444444444444
+plone/plone.app.querystring,10,This fixes a bug when multiple path criterions are used and adds an option to not search subfolders.,tisto,2012-11-08T19:18:20Z,,closed,False,7,0,0,7,5,0,5,0,0,0,0,624.4713888888889
+plone/plone.app.querystring,29,"Path query can be relative, absolute from navigation root and absolute from site root",rnixx,2014-11-12T11:14:35Z,2014-12-02T13:57:35Z,closed,True,5,13,0,18,4,0,4,0,0,0,0,0.4666666666666667
+plone/plone.app.vocabularies,23,don't break while generating tokens for names with non-ascii characters,davisagli,2015-11-28T02:06:30Z,2015-12-02T09:04:29Z,closed,True,10,0,0,10,3,0,3,0,0,0,0,85.86833333333334
+plone/plone.app.vocabularies,22,Portal properties cleanup,pbauer,2015-09-20T15:33:01Z,2015-09-20T15:33:05Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.vocabularies,20,Pull available_editors values from the configuration registry,esteele,2015-09-07T04:28:13Z,2015-09-07T05:50:29Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.vocabularies,18,"cleanup: pep8, decorators, et al, pimped README",jensens,2015-07-30T13:44:21Z,2015-07-30T15:38:21Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.vocabularies,16,Make KeywordsVocabulary Work Smoothly with Unicode Vocabularies.,l34marr,2015-07-22T14:49:19Z,,closed,False,8,1,0,9,3,0,3,0,0,0,0,4.901666666666666
+plone/plone.app.vocabularies,17,fix: use unicode for plone.app.vocabularies.SyndicatableFeedItems,Gagaro,2015-07-29T09:31:10Z,2015-07-29T10:53:31Z,closed,True,3,0,0,3,2,0,1,0,0,0,0,0.18638888888888888
+plone/plone.app.vocabularies,12,Fix issue with missing context,pbauer,2015-03-30T14:16:04Z,2015-03-31T08:57:25Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,18.209722222222222
+plone/plone.formwidget.recurrence,18,Fix index out of range bug for current batch,julianhandl,2015-11-18T10:09:09Z,2015-12-03T23:24:50Z,closed,True,3,0,0,3,2,0,1,0,0,0,0,106.07722222222222
+plone/plone.formwidget.recurrence,17,No need for unittest2,gforcada,2015-09-13T20:27:05Z,2015-09-14T10:01:52Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,11.107222222222223
+plone/plone.formwidget.recurrence,15,Recurrence widget not shown in Plone 4.3/Archetypes.,mitakas,2014-11-12T13:40:47Z,2015-01-15T20:13:52Z,closed,True,3,0,0,3,3,0,3,0,0,0,0,1539.3058333333333
+plone/plone.memoize,2,Restructure docs,thet,2015-12-15T23:27:29Z,2015-12-22T14:35:47Z,closed,True,7,0,0,7,3,0,3,0,0,0,0,128.145
+plone/plone.intelligenttext,3,"Minor cleanup (pep8, readability, ReST)",jensens,2015-10-08T09:24:16Z,2015-10-08T10:45:33Z,closed,True,2,3,0,5,2,0,2,0,0,0,0,0.029166666666666667
+plone/plone.intelligenttext,2,Python 3 compatibility,davisagli,2015-09-23T21:50:54Z,2015-09-28T11:48:51Z,closed,True,4,0,0,4,2,0,2,0,0,0,0,9.265277777777778
+plone/plone.portlet.static,8,Barceloneta,bloodbare,2014-10-09T11:52:00Z,2014-10-09T11:59:42Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.portlet.static,7,Replace DL/DT/DD in portlet with more semantic markup,khink,2014-05-23T13:24:16Z,2014-09-23T11:51:29Z,closed,True,2,0,0,2,3,0,2,0,0,0,0,1339.5947222222221
+plone/plone.portlet.static,9,Check that renderer has a '__portlet_metadata__' attribute,sverbois,2015-02-04T18:24:59Z,2015-02-04T18:36:52Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.4061111111111111
+plone/plone.behavior,2,"PLIP 20239: Behavior name in ZCML directive, registration lookup utility",rnixx,2014-11-12T11:28:07Z,2015-07-09T08:09:53Z,closed,True,11,1,0,12,4,0,4,0,0,0,0,1785.3405555555555
+plone/plone.behavior,6,Update metaconfigure.py,jensens,2015-07-13T13:46:27Z,2015-07-15T10:16:55Z,closed,True,4,0,0,4,1,0,1,0,0,0,0,
+plone/plone.behavior,3,Simplification and documentation,jensens,2015-05-06T16:26:26Z,2015-05-11T18:32:13Z,closed,True,7,5,0,12,2,0,2,0,0,0,0,0.2936111111111111
+plone/plone.app.registry,11,Update Site Setup link in all control panels,davilima6,2015-11-22T23:54:50Z,2015-11-25T00:34:59Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.registry,10,"cleanup: pep8, utf8 headers, readability, etc.",jensens,2015-10-06T10:07:28Z,2015-10-07T10:26:31Z,closed,True,3,0,0,3,1,0,1,0,0,0,0,
+plone/plone.app.registry,9,Let our `plone.app.registry` import step depend on `typeinfo`.,mauritsvanrees,2015-09-30T23:48:46Z,2015-10-06T10:24:10Z,closed,True,2,0,0,2,1,0,1,0,0,0,0,
+plone/plone.app.registry,2,add interface to search and page through registry settings,vangheem,2012-06-21T05:02:55Z,2012-06-27T12:59:56Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,151.9638888888889
+plone/plone.app.registry,8,Remove egg_info,gforcada,2015-09-12T14:27:38Z,2015-09-13T20:28:58Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.registry,7,Toolbar fixup,bloodbare,2015-07-16T16:28:30Z,2015-07-16T16:31:01Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.formwidget.namedfile,15,Base64Converter for file/image widgets on ASCII fields,thet,2015-01-21T15:51:11Z,2015-01-22T15:29:39Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.resource,8,"Cleanup: PEP8, plone-coding conventions, ReST fixes, documentation ov…",jensens,2015-10-12T09:29:25Z,2015-10-12T12:10:51Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.recipe.zeoserver,3,Fix zeopack connection handling,gaudenz,2012-09-06T11:11:43Z,2012-09-08T20:14:26Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,57.20777777777778
+plone/plone.recipe.zeoserver,14,Obsoleted link for bug and questions?,mamico,2015-06-18T07:32:39Z,2015-06-18T09:10:20Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.recipe.zeoserver,12,Add default storage number in zeopack script,mamico,2015-04-17T20:00:03Z,2015-04-17T22:56:33Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,2.94
+plone/plone.recipe.zeoserver,10,Postpone computation of workingset,gotcha,2015-01-05T15:06:45Z,2015-01-05T15:07:13Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.resourceeditor,15,Remove bobobase_modification_time,thet,2015-10-14T13:47:28Z,2015-10-15T09:39:46Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.resourceeditor,13,"Minor cleanup (pep8, readability, ReST)",jensens,2015-10-08T09:48:43Z,2015-10-08T12:13:14Z,closed,True,2,0,0,2,1,0,1,0,0,0,0,
+plone/plone.resourceeditor,12,Saving fix,obct537,2015-10-03T17:57:14Z,2015-10-03T18:05:44Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.resourceeditor,2,fix ascii decode errors in safeFile,djay,2012-09-27T16:31:56Z,,closed,False,8,0,0,8,3,0,3,0,0,0,0,14.877222222222223
+plone/plone.resourceeditor,11,Added check to prevent saving over folders,obct537,2015-09-08T17:22:55Z,2015-09-08T17:23:59Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.resourceeditor,9,Relative urls for LESS builder,obct537,2015-08-10T19:12:17Z,2015-08-10T19:26:43Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.resourceeditor,8,Added code to register additional non-standard mimetypes,obct537,2015-07-31T18:30:09Z,2015-07-31T19:54:16Z,closed,True,3,0,0,3,3,0,3,0,0,0,0,0.12361111111111112
+plone/plone.resourceeditor,7,Fixes,obct537,2015-06-15T15:02:51Z,2015-06-15T15:32:35Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.resourceeditor,6,Image resources,obct537,2015-03-19T19:29:09Z,2015-03-19T20:01:11Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.resourceeditor,5,Thememapper pattern compliancy,ebrehault,2014-11-23T15:41:32Z,2015-01-06T13:14:58Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.testing,7,Allow applyProfile to skip steps,pbauer,2014-04-23T10:14:29Z,2014-06-05T08:24:42Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.testing,5,revert theme change for now,tisto,2013-10-05T22:05:26Z,2013-10-05T22:05:39Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.testing,2,allow loading ZCMLs as overrides,zupo,2013-03-09T08:06:15Z,,closed,False,5,0,0,5,3,0,3,0,0,0,0,10.393333333333333
+plone/plone.app.testing,1,Add [robot] extras for requiring dependencies for Robot Framework tests,datakurre,2013-02-09T09:38:45Z,2013-02-09T15:03:21Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,63.07
+plone/plone.app.testing,15,No need for unittest2,gforcada,2015-08-11T15:48:32Z,2015-08-21T09:13:17Z,closed,True,2,0,0,2,3,0,2,0,0,0,0,0.2847222222222222
+plone/plone.app.testing,13,do not install CMFDefault,tomgross,2015-05-07T13:02:01Z,2015-06-19T14:24:13Z,closed,True,24,0,0,24,4,0,4,0,0,0,0,8.311944444444444
+plone/plone.app.testing,11,Document PloneWithPackageLayer,gotcha,2015-03-18T16:42:45Z,2015-06-05T19:45:51Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.testing,12,Remove PloneLanguageTool from PloneFixture.,tisto,2015-03-25T08:34:38Z,2015-03-25T20:36:09Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.batching,4,Fix issue with orphaning,do3cc,2015-01-27T19:13:10Z,2015-01-31T00:54:31Z,closed,True,5,0,0,5,4,0,4,0,0,0,0,78.70527777777778
+plone/plone.batching,6,"Revert ""Revert ""Fix issue with orphaning""""",do3cc,2015-02-02T13:30:04Z,,closed,False,1,0,0,1,2,0,1,0,0,0,0,786.7461111111111
+plone/plone.batching,8,"fix for ""plone.batching fails if b_start is too high"" see plone/Products.CMFPlone#639",gbastien,2015-07-09T15:15:21Z,2015-07-15T11:10:07Z,closed,True,8,0,0,8,3,0,3,0,0,0,0,138.6913888888889
+plone/plone.batching,7,Fix lastpage computation with orphaning,gbastien,2015-04-28T12:10:02Z,2015-04-28T12:37:13Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.45111111111111113
+plone/plone.batching,5,"Revert ""Fix issue with orphaning""",tisto,2015-02-01T15:02:49Z,2015-02-01T15:02:53Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,22.135555555555555
+plone/plone.i18n,11,Allow calling getPreferredLanguage with no request,tomgross,2015-04-20T10:04:16Z,2015-04-22T13:35:18Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.i18n,10,Plip 13091,tisto,2015-03-25T08:52:55Z,2015-03-25T20:37:12Z,closed,True,2,0,0,2,3,0,2,0,0,0,0,13.934444444444445
+plone/plone.protect,30,Make sure transforms don't fail on redirects,lukasgraf,2015-11-02T11:22:54Z,2015-11-02T13:57:38Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,14.18361111111111
+plone/plone.protect,27,"Show title and description in @@confirm-action view, disable editable border",lukasgraf,2015-10-12T22:19:10Z,2015-10-13T06:47:56Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.protect,26,README: Document addTokenToUrl(),lukasgraf,2015-10-12T20:30:01Z,2015-10-12T20:44:13Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.protect,25,Fix for content-type header check and environment variable check.,mauritsvanrees,2015-10-07T17:00:59Z,2015-10-07T18:56:24Z,closed,True,9,0,0,9,3,0,3,0,0,0,0,0.04666666666666667
+plone/plone.protect,24,Always force html serializer as the XHTML variant seems,vangheem,2015-10-07T15:11:54Z,2015-10-07T16:29:36Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.protect,22,don't worry about writes to session objects in the temporary storage,davisagli,2015-10-06T16:48:21Z,2015-10-06T18:13:20Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.019444444444444445
+plone/plone.protect,21,make imports backward compatible,vangheem,2015-10-06T04:51:11Z,2015-10-06T11:57:45Z,closed,True,3,0,0,3,1,0,1,0,0,0,0,
+plone/plone.protect,20,patch pluggable auth with marmoset patch,vangheem,2015-09-26T10:50:13Z,2015-09-27T01:41:26Z,closed,True,3,0,0,3,1,0,1,0,0,0,0,
+plone/plone.protect,18,change pluggable auth patches to marmoset,vangheem,2015-09-26T10:38:07Z,2015-09-26T10:38:12Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.protect,19,"Revert ""change pluggable auth patches to marmoset""",vangheem,2015-09-26T10:38:58Z,2015-09-26T10:39:11Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.protect,16,get auto-csrf protection working on the zope root,vangheem,2015-09-22T04:19:58Z,2015-09-22T18:52:11Z,closed,True,3,0,0,3,1,0,1,0,0,0,0,
+plone/plone.protect,13,fix pluggable auth CSRF warnings on zope root,vangheem,2015-07-23T21:06:20Z,2015-07-24T03:34:07Z,closed,True,4,0,0,4,2,0,2,0,0,0,0,9.237777777777778
+plone/plone.protect,12,provide safeWrite function,vangheem,2015-07-19T13:48:50Z,2015-07-19T23:30:23Z,closed,True,3,0,0,3,1,0,1,0,0,0,0,
+plone/plone.protect,11,Correct grammar in readme,adamcheasley,2015-07-03T15:15:10Z,2015-07-04T12:40:57Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.protect,7,Add ITransform.transformBytes for protect transform to fix compatibility,datakurre,2015-03-07T09:15:47Z,2015-03-10T16:44:28Z,closed,True,3,0,0,3,3,0,2,0,0,0,0,10.6075
+plone/plone.outputfilters,14,"Fix issue with unicode, img tags and unrestrictedTraverse",vangheem,2015-11-05T20:45:09Z,2015-11-06T17:19:33Z,closed,True,2,0,0,2,1,0,1,0,0,0,0,
+plone/plone.outputfilters,15,fix: handle error when resolving uid if object is not a content,Gagaro,2015-12-09T16:29:26Z,2015-12-10T08:41:06Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.outputfilters,13,Add GS dependencies,do3cc,2015-10-13T10:18:57Z,2015-10-15T09:31:27Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.outputfilters,1,Just a handful of pep8 fixes,zombified,2012-05-20T21:52:59Z,2012-05-20T21:55:36Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.outputfilters,9,Strip trailing slashes from image src. This fixes images not getting res...,enfold-josh,2014-11-25T16:22:14Z,,closed,False,8,0,0,8,3,0,2,0,0,0,0,7206.973888888889
+plone/plone.outputfilters,11,Remove kupu BBB code,gforcada,2015-06-17T21:53:50Z,2015-06-18T04:11:32Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.outputfilters,10,Portet to plone.app.testing,tomgross,2015-01-21T14:24:16Z,2015-03-06T02:23:40Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.subrequest,5,propagate IDisableCSRFProtection interface on subrequest to parent request object,vangheem,2015-09-03T21:29:19Z,2015-09-04T17:24:00Z,closed,True,3,0,0,3,1,0,1,0,0,0,0,
+plone/plone.subrequest,4,propagate registered safe writes from plone.protect to parent request,vangheem,2015-08-06T22:38:54Z,2015-08-07T01:27:17Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.subrequest,2,Fix issue where new cookies from the main request.response are not passed to subrequests,datakurre,2014-11-02T06:42:46Z,2015-03-05T18:21:06Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,2963.608333333333
+plone/plone.app.robotframework,50,Bump up versions of dependencies,hvelarde,2015-11-18T00:47:14Z,2015-11-18T01:12:58Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.robotframework,49,Upgrade selenium to 2.48.0,hvelarde,2015-11-11T22:35:20Z,2015-11-12T11:28:36Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.robotframework,48,"add tag wip-not_in_docs to tests, so they are not executed when build…",polyester,2015-10-17T12:20:35Z,2015-10-17T13:56:18Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.robotframework,47,Add support for lazy sandbox-server (Zope2Server) shutdown ,datakurre,2015-10-10T10:15:58Z,2015-10-10T10:16:03Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.robotframework,46,Fix CSRF errors on content creation keywords,vangheem,2015-09-22T15:40:23Z,2015-09-22T17:22:20Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,1.726388888888889
+plone/plone.app.robotframework,43,Adding sample robot code for mentioned example,prakharjoshi,2015-08-09T15:37:05Z,2015-08-09T17:03:29Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,1.4405555555555556
+plone/plone.app.robotframework,40,Add an extra argument to override watched file extensions,cillianderoiste,2015-06-02T17:22:54Z,2015-07-23T15:31:42Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.robotframework,35,Plip 10359 - Security Control Panel migration,jcerjak,2015-01-27T00:51:00Z,2015-02-04T20:27:46Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,211.61194444444445
+plone/plone.transformchain,3,allow disabling transform via request information,tomgross,2014-11-28T11:22:22Z,,closed,False,2,0,0,2,2,0,1,0,0,0,0,7139.997222222222
+plone/plone.testing,17,doctests cleanup,thet,2015-12-11T00:33:14Z,2015-12-11T00:55:34Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.testing,16,Zope 4 fixes,thet,2015-12-10T21:39:21Z,2015-12-11T00:31:00Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.testing,6,Fixing unquoting bug.,malthe,2012-10-01T12:35:30Z,2012-10-01T12:37:10Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.029444444444444443
+plone/plone.testing,15,fix(ex_handling): Don't let finally block mask ex,do3cc,2015-08-12T13:51:38Z,2015-08-13T06:53:54Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.5833333333333334
+plone/plone.testing,14,Allow mulitple registration functions for product install,tomgross,2015-07-10T13:09:06Z,2015-07-24T07:47:35Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,116.89666666666666
+plone/plone.testing,13,Fix URL to point to the repository.,icemac,2015-04-27T06:42:50Z,2015-04-27T07:12:02Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.theme,3,Remove dependency on CMFDefault,tomgross,2015-04-20T15:32:36Z,2015-04-21T06:48:34Z,closed,True,2,0,0,2,3,0,2,0,0,0,0,5.784722222222222
+plone/plone.theme,2,test layer is testing layer,tisto,2015-03-25T08:35:24Z,2015-03-25T20:36:21Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.session,5,Cleanup: pep8 et al,jensens,2015-06-02T13:12:05Z,2015-07-24T15:57:21Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.session,4,Default encoding for unicode userid,puittenbroek,2015-04-09T08:16:33Z,2015-04-24T21:47:50Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,372.29277777777776
+plone/plone.registry,5,"Cleanup: Pep8, utf8 headers, whitespace fixes, readability, ReST-fixes…",jensens,2015-10-08T08:51:55Z,2015-10-08T11:21:26Z,closed,True,2,0,0,2,1,0,1,0,0,0,0,
+plone/plone.registry,3,Bundle in plone,bloodbare,2014-08-11T13:08:38Z,2014-08-11T13:09:11Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.registry,1,RecordsProxy that works with collection fields nicely.,djay,2012-11-04T15:10:05Z,,closed,False,10,0,0,10,3,0,3,0,0,0,0,161.27194444444444
+plone/plone.registry,4,Remove egg_info,gforcada,2015-09-12T14:25:47Z,2015-09-13T20:29:11Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,48.705555555555556
+plone/plone.schema,2,Remove own i18n domain,staeff,2015-11-20T14:24:18Z,2015-11-25T10:24:19Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,192.545
+plone/plone.schema,1,Fix install_requires,gforcada,2014-11-16T23:54:44Z,2015-01-15T16:52:05Z,closed,True,4,0,0,4,3,0,3,0,0,0,0,1432.8905555555555
+plone/plone.docker,3,Fix typo in link to motivation.rst .,rigarash,2015-04-02T06:29:12Z,2015-04-02T16:46:20Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.docker,1,fix typo,MrTango,2015-01-22T09:48:09Z,2015-01-22T10:45:22Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.9561111111111111
+plone/plone.app.linkintegrity,33,Handle links that do not have an intid yet,vangheem,2015-12-09T02:20:49Z,2015-12-09T07:27:36Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.linkintegrity,31,Introduce IRetriever adapter for easier customization,tomgross,2015-11-21T17:52:30Z,2015-11-22T20:26:23Z,closed,True,4,0,0,4,2,0,2,0,0,0,0,0.05527777777777778
+plone/plone.app.linkintegrity,30,Make import from Dexterity conditional,pbauer,2015-11-16T16:15:56Z,2015-11-16T19:09:17Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.125
+plone/plone.app.linkintegrity,20,Reaplied on correct branch.,bloodbare,2014-10-09T11:52:53Z,2014-10-09T12:00:02Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.linkintegrity,22,Linkintegrity for Plone 5,pbauer,2015-08-23T15:13:36Z,2015-08-24T18:41:07Z,closed,True,8,0,0,8,2,0,2,0,0,0,0,23.556944444444444
+plone/plone.app.linkintegrity,3,Dexterity support,jpgimenez,2012-09-26T12:31:38Z,2012-10-03T20:19:28Z,closed,True,0,2,0,2,2,0,1,0,0,0,0,174.40916666666666
+plone/plone.app.linkintegrity,23,reintroduce the the good old LinkIntegrityNotificationException ,pbauer,2015-08-26T09:43:32Z,2015-08-26T16:22:16Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.formwidget.autocomplete,12,Jquery 1.9 fixes,petschki,2014-10-10T10:51:30Z,2014-10-11T22:23:06Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.tiles,5,use non-custom layout if available,vangheem,2015-09-02T16:55:54Z,,closed,False,1,0,0,1,2,0,1,0,0,0,0,1.0766666666666667
+plone/plone.tiles,4,Add opt-in persistent overriding for transient tile data,datakurre,2015-08-22T10:56:19Z,2015-09-02T19:58:35Z,closed,True,8,0,0,8,2,0,2,0,0,0,0,17.166944444444443
+plone/plone.app.users,52,Update Site Setup link in all control panels,davilima6,2015-11-22T23:58:01Z,2015-11-25T00:34:34Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.users,51,Fix #50: do not force forms attr to In User Profile at import,ebrehault,2015-10-18T08:26:17Z,2015-10-18T10:03:28Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.users,32,Plip13350 edit member schema ttw post z3cform merge,ebrehault,2015-01-30T23:45:06Z,,closed,False,29,0,0,29,4,0,4,0,0,0,0,103.18694444444445
+plone/plone.app.users,27,Use email_from_address from registry (Plone 5) in tests.,khink,2014-11-15T13:43:24Z,2014-12-12T12:55:03Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.users,24,Update tag for id=content element to article instead of a simple div.,bloodbare,2014-10-09T11:49:26Z,2014-10-09T11:59:04Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.users,12,Remove unused validate method.,khink,2013-11-13T12:59:40Z,2013-11-13T13:04:29Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.users,5,"Change user id generation, making it pluggable",mauritsvanrees,2012-11-09T19:18:37Z,,closed,False,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.users,2,Plip10959 Implementation Review,rpatterson,2012-01-28T00:04:49Z,2012-06-14T11:53:53Z,closed,True,0,1,0,1,2,0,1,0,0,0,0,10.609444444444444
+plone/plone.app.users,48,cache schemas in volatile attributes of portal,gotcha,2015-07-27T14:19:09Z,2015-07-27T15:34:17Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.13166666666666665
+plone/plone.app.users,46,Gotcha cleanup,gotcha,2015-07-26T15:08:59Z,2015-07-26T20:34:31Z,closed,True,0,4,0,4,2,0,2,0,0,0,0,1.8305555555555555
+plone/plone.app.users,49,restore test for portrait in registration,ebrehault,2015-07-27T15:45:55Z,2015-07-27T17:04:09Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.users,44,Provide a new schema adapter only when the TTW schema is changed,ebrehault,2015-07-24T15:28:16Z,,closed,False,3,0,0,3,1,0,1,0,0,0,0,
+plone/plone.app.users,47,Provide a new schema adapter only when the TTW schema is changed (rebased),ebrehault,2015-07-27T10:08:51Z,,closed,False,3,0,0,3,2,0,2,0,0,0,0,4.230555555555555
+plone/plone.app.users,45,Disable toolbar buttons on personal preferences,vangheem,2015-07-26T04:18:54Z,2015-07-26T05:35:08Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.users,42,Plip13350 edit member schema ttw rebase,ebrehault,2015-06-04T20:11:52Z,2015-07-17T19:38:39Z,closed,True,33,0,0,33,3,0,3,0,0,0,0,9.155277777777778
+plone/plone.app.users,43,made the buttons blue,agitator,2015-07-15T16:47:07Z,2015-07-15T18:32:13Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.users,36,Fixed @@change-password to accept current password containing non-ascii ...,sgeulette,2015-04-30T11:21:20Z,2015-06-03T09:17:33Z,closed,True,15,0,0,15,4,0,4,0,0,0,0,202.5113888888889
+plone/plone.app.users,41,Import ConfigurationChangedEvent from Products.CMFPlone instead of fr…,tisto,2015-06-02T16:35:46Z,2015-06-02T17:38:34Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.users,39,"Refs #33 - Fix ""Add new user"" form when there are too many groups.",avoinea,2015-05-18T16:33:26Z,2015-05-18T16:35:07Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.users,40,"Refs #33 - Fix ""Add new user"" form when there are too many groups.",avoinea,2015-05-18T16:33:48Z,2015-05-18T16:34:46Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.users,37,Fixed @@change-password to accept current password containing non-ascii ...,sgeulette,2015-04-30T12:00:39Z,2015-05-11T09:28:34Z,closed,True,5,0,0,5,2,0,2,0,0,0,0,201.8375
+plone/plone.app.users,34,remove CMFDefault dependency,tomgross,2015-04-20T19:14:45Z,2015-04-20T23:27:05Z,closed,True,4,0,0,4,2,0,2,0,0,0,0,1.9141666666666666
+plone/plone.app.users,31,Plip 10359 - Security Control Panel migration,jcerjak,2015-01-27T00:54:54Z,2015-03-02T17:10:17Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.users,29,Ported tests to plone.app.testing,tomgross,2014-12-26T19:27:57Z,2015-01-23T09:17:08Z,closed,True,2,0,0,2,3,0,2,0,0,0,0,11.665833333333333
+plone/plone.app.users,30,adjust form/nav markup for Plone 5,davisagli,2015-01-02T18:54:55Z,2015-01-02T19:37:12Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.releaser,2,Refactor package check,gforcada,2015-05-10T13:30:23Z,,closed,False,4,0,0,4,4,0,4,0,0,0,0,23.825555555555557
+plone/diazo,36,Added path option for theme element,ddokter,2015-01-08T11:38:49Z,,closed,False,2,0,0,2,3,0,2,0,0,0,0,5702.204166666666
+plone/diazo,53,better link to nginx documentation for gzip compression,tkimnguyen,2015-11-17T16:00:29Z,2015-11-17T19:54:33Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/diazo,49,Include content review,ebrehault,2015-10-18T13:10:18Z,,closed,False,2,0,0,2,2,0,2,0,0,0,0,106.52444444444444
+plone/diazo,42,Content to content transform,ebrehault,2015-03-16T22:02:41Z,,closed,False,11,0,0,11,6,0,6,0,0,0,0,0.8583333333333333
+plone/diazo,44,Content to content inclusion,ebrehault,2015-04-02T21:47:19Z,,closed,False,10,0,0,10,3,0,3,0,0,0,0,7.766666666666667
+plone/diazo,38,Absolute prefix support for srcset attributes,huubbouma,2015-02-16T13:42:11Z,2015-09-05T03:37:48Z,closed,True,5,0,0,5,3,0,3,0,0,0,0,0.5955555555555555
+plone/diazo,19,Simahawk 20130712 update docs,simahawk,2013-07-12T13:50:55Z,2014-05-08T14:15:53Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,4925.137777777778
+plone/diazo,9,Handle empty responses by returning an unthemed response,davidjb,2012-08-07T04:17:20Z,2012-08-07T14:48:07Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,9.536388888888888
+plone/diazo,31,Updated information on Nginx stand-alone deployment,chris2fr,2014-08-21T17:06:48Z,2015-05-20T09:04:50Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,84.40222222222222
+plone/diazo,45,Corrected Diazo quickstart guide and updated to latest versions,agentcoops,2015-04-24T23:14:22Z,2015-05-08T21:54:40Z,closed,True,7,0,0,7,3,0,3,0,0,0,0,21.070555555555554
+plone/diazo,46,After before content review,lrowe,2015-04-27T03:53:31Z,2015-04-27T03:53:39Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/diazo,43,Modifying content on the fly with after and before rules,ebrehault,2015-03-24T18:47:10Z,,closed,False,6,0,0,6,2,0,2,0,0,0,0,4.617222222222222
+plone/diazo,41,Fix case when theme is provided via an remote https source,loechel,2015-03-02T18:08:55Z,2015-04-08T12:59:34Z,closed,True,3,5,0,8,2,0,2,0,0,0,0,1.7822222222222222
+plone/plone.jenkins_node,5,Install pygithub,gforcada,2015-11-08T23:55:44Z,2015-11-09T21:55:55Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.jenkins_node,4,nodeJS,gforcada,2015-05-03T19:39:19Z,2015-05-25T21:04:34Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.jenkins_node,3,Fix and split tasks,gforcada,2015-03-09T23:51:29Z,2015-03-15T11:10:51Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,137.22166666666666
+plone/plonetheme.sunburst,14,Remove Chrome Frame from X-UA-Compatible HTTP header as it's deprecated,hvelarde,2015-09-24T22:36:32Z,2015-09-29T20:54:51Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plonetheme.sunburst,4,Apply .portalMessage styling to reST admonitions,rpatterson,2012-03-25T08:30:30Z,2012-11-25T17:15:49Z,closed,True,2,0,0,2,3,0,2,0,0,0,0,5888.797777777778
+plone/plone.locking,10,Backport #9 for Plone 4.3,gforcada,2015-10-21T09:03:43Z,2015-10-22T11:47:41Z,closed,True,2,0,0,2,1,0,1,0,0,0,0,
+plone/plone.locking,9,Locks stored as annotations are safe to write,gforcada,2015-10-19T15:17:34Z,2015-10-21T08:52:19Z,closed,True,7,0,0,7,4,0,4,0,0,0,0,0.45666666666666667
+plone/plone.locking,8,Portal properties cleanup,pbauer,2015-09-20T15:29:42Z,2015-09-20T15:29:46Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.locking,7,Portal properties cleanup,esteele,2015-09-07T04:23:12Z,2015-09-07T05:49:52Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.locking,6,mark objects as safe to write,vangheem,2015-07-19T13:49:40Z,2015-07-19T23:30:38Z,closed,True,3,0,0,3,1,0,1,0,0,0,0,
+plone/plone.app.lockingbehavior,4,"Changed i18n_domain to ""plone""",claytonc,2015-11-05T12:04:51Z,2015-11-05T23:21:27Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,11.279166666666667
+plone/plone.app.lockingbehavior,3,"changed i18n_domain to ""plone""",claytonc,2015-11-04T17:25:57Z,2015-11-04T19:35:43Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,2.2494444444444444
+plone/plone.app.lockingbehavior,2,Fixes plone/Products.CMFPlone#669,fulv,2015-07-12T23:24:26Z,2015-07-13T05:30:51Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.widgets,121,Don't install the plone.app.widgets dummy default profile in tests.,thet,2015-11-23T21:59:05Z,2015-11-23T23:12:04Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.widgets,113,fix related items pattern when browsing through collective.lineage su…,petschki,2015-10-05T13:09:39Z,2015-10-05T13:23:03Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.22027777777777777
+plone/plone.app.widgets,110,Portal properties cleanup,pbauer,2015-09-20T15:32:36Z,2015-09-20T15:32:42Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.widgets,108,Add some registry settings for datetime options,petschki,2015-09-14T08:09:22Z,,closed,False,6,10,0,16,4,0,4,0,0,0,0,63.014722222222225
+plone/plone.app.widgets,109,Allow time options to be customized for DatetimeWidget.,thet,2015-09-16T23:20:15Z,2015-09-17T09:29:15Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.widgets,80,Add a widget for File Uploads,athomerson,2014-11-19T20:18:37Z,,closed,False,4,0,0,4,2,0,1,0,0,0,0,5922.323055555556
+plone/plone.app.widgets,83,Added FileUpload widget for NamedFiles.,athomerson,2014-12-12T17:03:54Z,,closed,False,11,0,0,11,3,0,3,0,0,0,0,3412.4775
+plone/plone.app.widgets,101,Change getVocabulary to work also on non IPloneSiteRoot contexts,thet,2015-04-30T19:42:51Z,2015-05-04T00:41:55Z,closed,True,14,0,0,14,4,0,4,0,0,0,0,0.05138888888888889
+plone/plone.app.widgets,86,include mockup v1.8.3 bundle,frisi,2015-02-23T10:57:17Z,,closed,False,1,0,0,1,2,0,1,0,0,0,0,988.0577777777778
+plone/plone.app.widgets,87,Add selectable_types option to RelatedItemsWidget,petschki,2015-02-27T09:19:54Z,,closed,False,1,0,0,1,2,0,1,0,0,0,0,893.6388888888889
+plone/plone.app.widgets,99,TinyMCE RelatedItems options,thet,2015-04-05T14:46:12Z,2015-04-05T14:50:11Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.059166666666666666
+plone/plone.app.widgets,97,Add Plone 5 warning,gforcada,2015-03-21T12:48:45Z,2015-03-22T00:07:18Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,2.1533333333333333
+plone/plone.app.widgets,95,Update development and CI configurations,hvelarde,2015-03-20T17:31:00Z,2015-03-20T17:57:10Z,closed,True,6,0,0,6,4,0,4,0,0,0,0,0.44722222222222224
+plone/plone.app.widgets,96,"Revert ""Update development and CI configurations""",hvelarde,2015-03-20T19:16:00Z,2015-03-20T19:16:09Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.widgets,93,Update development and CI configurations,hvelarde,2015-03-19T19:16:07Z,2015-03-20T13:08:35Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.widgets,73,Missing keys on robot test,bloodbare,2014-10-09T11:53:40Z,2014-10-09T12:00:17Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.widgets,65,make sure relatedItems field still gets the right vocab,davisagli,2014-03-12T16:05:07Z,,closed,False,5,0,0,5,3,0,3,0,0,0,0,2.575833333333333
+plone/plone.app.widgets,60,Select widget robotframework tests,gforcada,2014-03-01T22:19:05Z,2014-03-04T08:57:56Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.widgets,85,jsi18n -> plonejsi18n,kiorky,2015-01-21T17:16:40Z,2015-01-21T17:43:45Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.widgets,89,Include plone.mockup,thet,2015-03-08T12:29:48Z,2015-03-08T12:31:39Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.widgets,90,"Revert ""Include plone.mockup""",thet,2015-03-10T23:08:31Z,2015-03-10T23:08:37Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.widgets,91,Issue 72 use controlpanelsettings,petschki,2015-03-19T14:35:01Z,2015-03-19T14:46:40Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.portlet.collection,12,"Fix ""select random items"" for new-style collections",davisagli,2015-12-19T02:18:09Z,2015-12-29T12:44:27Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.portlet.collection,11,PR: Cleanup and rework: contenttype-icons and ...,fgrcon,2015-11-05T14:06:09Z,2015-11-11T14:58:07Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.portlet.collection,10,"show thumbs in collection portlet, CMFPlone#1151 ....",fgrcon,2015-10-26T21:42:04Z,,closed,False,3,0,0,3,2,0,2,0,0,0,0,39.37305555555555
+plone/plone.portlet.collection,9,Portal properties cleanup,pbauer,2015-09-20T15:29:23Z,2015-09-20T15:29:27Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.portlet.collection,8,Fix show_dates by calling obj.Date().,tisto,2015-09-02T05:48:47Z,2015-09-02T06:33:43Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.portlet.collection,7,Fix show_dates by calling obj.Date().,tisto,2015-09-01T15:24:54Z,2015-09-02T04:24:54Z,closed,True,4,0,0,4,1,0,1,0,0,0,0,
+plone/plone.portlet.collection,6,This package does not depend on plone.app.form,tomgross,2015-06-02T11:54:56Z,2015-06-02T13:43:45Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,1.2752777777777777
+plone/plone.portlet.collection,3,Remove DL's from portlet templates.,khink,2014-02-11T14:37:39Z,2015-03-16T16:58:10Z,closed,True,5,0,0,5,3,0,3,0,0,0,0,4514.208055555556
+plone/Products.Archetypes,50,Update base_edit.cpt,tsimkins,2015-10-06T18:02:20Z,,closed,False,10,0,0,10,3,0,3,0,0,0,0,16.770833333333332
+plone/Products.Archetypes,26,"Various vocabulary fixes, mostly for translations and IntDisplayLists",mauritsvanrees,2013-08-28T21:42:01Z,2013-09-02T14:57:20Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.Archetypes,21,"When displaying a field with a vocabular, get the values and translate them",mauritsvanrees,2013-07-03T22:02:24Z,,closed,False,1,0,0,1,1,0,1,0,0,0,0,
+plone/Products.Archetypes,11,Trying to solve 12065,keul,2012-09-21T15:29:49Z,,closed,False,4,0,0,4,3,0,3,0,0,0,0,1829.0830555555556
+plone/Products.Archetypes,49,Portal properties cleanup,pbauer,2015-09-20T15:28:57Z,2015-09-20T15:29:01Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.Archetypes,48,compare picklist entry value not text,paulrentschler,2015-08-14T13:49:22Z,2015-08-21T10:21:57Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,163.07611111111112
+plone/Products.Archetypes,47,moved createObject from ATContentTypes,tomgross,2015-07-05T06:00:41Z,2015-07-13T13:41:47Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.Archetypes,45,we only allow `utf-8` site-encoding at the moment,tomgross,2015-04-28T17:02:50Z,2015-05-08T21:37:21Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,243.44916666666666
+plone/Products.Archetypes,46,Remove dependendcy on CMFDefault,tomgross,2015-05-05T14:45:19Z,2015-05-06T21:41:19Z,closed,True,6,0,0,6,3,0,3,0,0,0,0,7.085555555555556
+plone/Products.Archetypes,44,Plip13091,bloodbare,2015-03-25T21:06:12Z,2015-03-25T21:06:16Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.Archetypes,42,Ported tests to plone.app.testing,tomgross,2014-11-05T19:36:57Z,2015-03-03T17:38:17Z,closed,True,10,3,0,13,3,0,3,0,0,0,0,4.286666666666667
+plone/Products.Archetypes,43,Improvements to Archetypes integration with structure export/import,MatthewWilkes,2015-02-08T16:21:04Z,2015-02-12T00:17:36Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,29,Multiserver,smcmahon,2015-11-12T21:32:15Z,2015-11-12T21:32:23Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,28,Add note to firewall playbook,smcmahon,2015-10-30T21:51:35Z,2015-10-30T21:51:42Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,27,Fix firewall.yml to work without configure.yml,smcmahon,2015-10-30T18:45:55Z,2015-10-30T18:46:00Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,26,Document new variable scheme.,smcmahon,2015-10-30T18:19:07Z,2015-10-30T18:19:18Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,25,Refactor variables to avoid configure.yml,smcmahon,2015-10-30T18:07:04Z,2015-10-30T18:07:14Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,24,Add multiple plone server options.,smcmahon,2015-10-28T21:04:33Z,2015-10-28T21:04:47Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,13,Add `reject_unauth_destination` to `smtpd_relay_restrictions`,davisagli,2015-03-23T17:14:14Z,2015-03-27T10:43:55Z,closed,True,4,0,0,4,2,0,2,0,0,0,0,77.15916666666666
+plone/ansible-playbook,22,two docfixes to make sphinx happy,polyester,2015-09-05T13:24:56Z,2015-09-08T20:01:42Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,20,Move definition of default timezone where it belongs (configure.yml) …,fulv,2015-07-06T22:55:09Z,2015-08-12T19:54:53Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,884.9986111111111
+plone/ansible-playbook,19,Corrected pattern in myhost.cfg,djowett,2015-07-03T14:37:16Z,2015-07-03T16:12:26Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,18,Add a task to set the timezone.,fulv,2015-06-23T19:06:59Z,2015-07-03T16:13:35Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,17,"Changes for Ubuntu 15.04, see issue #16",fulv,2015-05-28T04:27:07Z,,closed,False,5,0,0,5,2,0,2,0,0,0,0,17.655277777777776
+plone/ansible-playbook,10,Add beaker cookies to cache_sanitize_cookie_exceptions,fulv,2015-02-11T00:10:38Z,2015-02-11T00:21:21Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.18166666666666667
+plone/ansible-playbook,8,Clean up Vagrantfile,mrcrilly,2015-02-09T13:38:44Z,2015-02-09T21:32:39Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,7.895
+plone/plone.app.deco,16,multiple work merged together and needs review,garbas,2011-11-08T05:51:21Z,2011-11-08T17:59:31Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Installers-UnifiedInstaller,42,word change to point to community.plone.org,polyester,2015-09-12T16:53:18Z,2015-09-12T18:17:04Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Installers-UnifiedInstaller,39,Docs overhaul,svx,2015-07-14T07:55:13Z,2015-07-14T22:48:48Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,14.89638888888889
+plone/Installers-UnifiedInstaller,37,Remove symlink,gforcada,2015-06-14T13:58:32Z,2015-06-14T17:48:04Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Installers-UnifiedInstaller,35,Update link,svx,2015-06-14T03:19:17Z,2015-06-14T14:02:29Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/dev.plone.org,2,Updated landing page (index.rst),3dogMcNeill,2015-11-04T14:15:37Z,2015-11-04T14:17:46Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,0.028888888888888888
+plone/dev.plone.org,1,update to dev.plone.org has moved page,tkimnguyen,2015-10-31T18:48:25Z,2015-10-31T18:52:48Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.06388888888888888
+plone/plone.formwidget.multifile,7,Add French and Dutch translations,laulaz,2015-12-18T08:26:37Z,2015-12-18T08:27:07Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.formwidget.multifile,6,Fix missing Javascript call that breaks the widget,laulaz,2015-12-18T08:15:20Z,2015-12-18T08:15:55Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.formwidget.multifile,3,"New implementation based on HTML5 and Javascript, no Flash.",rafaelbco,2012-10-04T18:32:36Z,2012-12-02T06:35:53Z,closed,True,2,0,0,2,3,0,2,0,0,0,0,1304.5022222222221
+plone/plone4.csrffixes,16,Rename README.txt to README.rst,gforcada,2015-11-18T11:10:16Z,2015-11-18T16:59:19Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone4.csrffixes,13,updated README.txt with details on robot framework,lukebrannon,2015-11-05T04:46:45Z,2015-11-13T08:18:42Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone4.csrffixes,11,Check options before trying to work on them,ale-rt,2015-10-15T12:10:25Z,2015-10-15T15:45:12Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone4.csrffixes,10,"Use ""application/javascript"" media type instead of the obsolete ""text/javascript""",hvelarde,2015-10-13T12:11:24Z,2015-10-13T13:53:52Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone4.csrffixes,3,fix tinymce recursion error,cekk,2015-10-07T09:41:25Z,,closed,False,1,0,0,1,2,0,1,0,0,0,0,2.5455555555555556
+plone/plone4.csrffixes,1,Make sure this hotfix doesn't block future bugfix releases of plone.locking,davisagli,2015-10-06T17:52:34Z,2015-10-06T18:17:25Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.TinyMCE,130,Fixed bug where the plonebrowser dialog wouldn't properly populate th…,msom,2015-12-15T15:54:04Z,2015-12-30T12:15:35Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.TinyMCE,121,let upload adapter check permissions,tschorr,2015-10-29T12:46:25Z,,closed,False,7,0,0,7,3,0,3,0,0,0,0,81.56111111111112
+plone/Products.TinyMCE,124,fix `path` expression in `wysiwyg_support`,gotcha,2015-11-20T10:17:41Z,2015-11-20T11:31:25Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.TinyMCE,122,let upload adapter check permissions - 1.3.x version,tschorr,2015-11-07T09:51:50Z,2015-11-07T15:59:18Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,2.496111111111111
+plone/Products.TinyMCE,120,"Declare missing dependency, closes #119",davilima6,2015-10-14T11:50:37Z,2015-10-15T09:42:03Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.TinyMCE,82,Call convertURL when inserting link or image.,mauritsvanrees,2014-09-01T18:50:52Z,2014-09-02T06:59:10Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.TinyMCE,68,Fixed uploading dexterity file via TinyMCE file uploader,kroman0,2013-11-21T10:30:29Z,2014-01-20T00:54:41Z,closed,True,2,0,0,2,3,0,2,0,0,0,0,0.059444444444444446
+plone/Products.TinyMCE,50,add additional german translations,tschanzt,2013-03-13T13:58:29Z,2013-03-22T18:39:00Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,47.9775
+plone/Products.TinyMCE,61,1.3.x css relative links optimization,jpgimenez,2013-06-21T14:14:40Z,,closed,False,3,0,0,3,2,0,1,0,0,0,0,7867.9725
+plone/Products.TinyMCE,60,1.2.x css relative links optimization,jpgimenez,2013-06-20T22:15:27Z,,closed,False,2,0,0,2,2,0,1,0,0,0,0,7883.958333333333
+plone/Products.TinyMCE,46,Fix issue https://dev.plone.org/ticket/12128 adding a js global variable...,jpgimenez,2013-02-05T20:16:37Z,,closed,False,5,0,0,5,4,0,4,0,0,0,0,33.43611111111111
+plone/Products.TinyMCE,33,Simplify how js resources & field configuration are loaded.,davisagli,2012-10-13T23:03:29Z,2012-10-24T16:17:20Z,closed,True,6,3,0,9,5,0,5,0,0,0,0,0.17583333333333334
+plone/Products.TinyMCE,21,Fix encoding in templates,jone,2012-04-24T10:00:39Z,,closed,False,1,0,0,1,1,0,1,0,0,0,0,
+plone/Products.TinyMCE,107,improve ui and ux for (image)browser,frisi,2015-07-09T11:00:26Z,2015-07-22T15:10:16Z,closed,True,3,0,0,3,3,0,3,0,0,0,0,142.9111111111111
+plone/Products.TinyMCE,109,Fixed current image scale in image popups,frisi,2015-07-10T07:33:40Z,2015-07-22T14:01:29Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.TinyMCE,90,maybe i'm the only one how needed this ...,iham,2015-03-20T13:16:29Z,2015-09-29T20:14:04Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.TinyMCE,105,Ie11 for 1.3.x,do3cc,2015-06-17T11:40:25Z,2015-06-26T11:12:06Z,closed,True,10,0,0,10,2,0,2,0,0,0,0,162.57305555555556
+plone/Products.TinyMCE,116,update basque translation,erral,2015-09-21T08:06:04Z,2015-09-21T20:17:14Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,12.009444444444444
+plone/Products.TinyMCE,77,Add support for inserting images and linking to objects outside of the n...,anthonygerrard,2014-03-25T11:39:43Z,,closed,False,4,0,0,4,3,0,3,0,0,0,0,5.019722222222223
+plone/Products.TinyMCE,115,Moved utility globals outside the getValidtags method,keul,2015-09-18T15:43:31Z,2015-09-18T16:31:19Z,closed,True,4,0,0,4,2,0,2,0,0,0,0,0.7941666666666667
+plone/Products.TinyMCE,72, Fix TinyMCE Firefox  Range.prototype error,ichim-david,2014-01-27T09:57:13Z,,closed,False,7,0,0,7,3,0,3,0,0,0,0,9289.4425
+plone/Products.TinyMCE,100,Fix Braziliam Portuguese translations,rodfersou,2015-05-22T18:03:52Z,2015-05-26T13:12:59Z,closed,True,3,0,0,3,3,0,3,0,0,0,0,1756.1866666666667
+plone/Products.TinyMCE,108,make upload work with sites using diazo ,frisi,2015-07-09T15:00:50Z,2015-07-22T15:50:45Z,closed,True,3,0,0,3,3,0,2,0,0,0,0,138.89194444444445
+plone/Products.TinyMCE,84,Fixed current image scale in image popups,huubbouma,2014-12-11T14:40:13Z,,closed,False,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.TinyMCE,94,Implement tinymce 3.5.11 (Includes IE11 support),maethu,2015-05-05T15:49:10Z,,closed,False,11,0,0,11,6,0,6,0,0,0,0,18.686944444444446
+plone/Products.TinyMCE,103,"If safe_html transform is disabled, allow other non xhtml conform tags as well.",agitator,2015-06-16T13:47:41Z,2015-06-16T14:00:12Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.TinyMCE,102,Fix Braziliam Portuguese translations,rodfersou,2015-05-27T01:45:23Z,2015-05-27T10:11:16Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/Products.TinyMCE,92,Fix i18n:domain for Plone Browser Plugin Template.,l34marr,2015-03-26T14:27:31Z,2015-05-26T14:53:23Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,1324.7197222222221
+plone/Products.TinyMCE,81,Have Products.TinyMCE to work again with Plone 4.2,frapell,2014-06-12T18:47:27Z,,closed,False,6,0,0,6,4,0,4,0,0,0,0,1.9022222222222223
+plone/Products.TinyMCE,79,Fix missing id for dx files - really fixes #13759,Gomez,2014-05-02T16:22:42Z,,closed,False,6,0,0,6,2,0,2,0,0,0,0,112.36888888888889
+plone/Products.TinyMCE,91,Update Traditonal Chinese Translation.,l34marr,2015-03-25T06:22:13Z,2015-03-25T08:30:45Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.PasswordResetTool,1,login name can be different from user id even when use_email_as_login is False,davisagli,2013-05-09T16:56:20Z,2013-05-13T13:55:42Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,92.98611111111111
+plone/Products.PasswordResetTool,9,fix getting email from for mail password,vangheem,2015-07-02T12:29:20Z,2015-07-02T15:12:19Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/Products.PasswordResetTool,8,Plip10359 security controlpanel,jcerjak,2015-01-27T00:43:43Z,2015-02-27T09:00:03Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.PasswordResetTool,7,2.0.x Add userid information in reset mail,sgeulette,2015-01-21T13:38:45Z,2015-02-09T13:59:43Z,closed,True,2,0,0,2,1,0,1,0,0,0,0,
+plone/Products.PasswordResetTool,6,Add userid information in reset mail,sgeulette,2015-01-21T13:33:38Z,2015-02-09T13:42:00Z,closed,True,8,0,0,8,5,0,5,0,0,0,0,16.305
+plone/txtfilter,1,Remove egg_info,gforcada,2015-09-12T14:29:22Z,2015-09-13T20:28:22Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,28.54083333333333
+plone/ploneorg.admin,1,Add a note to prevent confusion about this repo purpose,jean,2015-10-17T08:18:03Z,2015-10-17T12:14:23Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/buildout.deco,11,multiple work merged together and needs review ,garbas,2011-11-08T05:46:30Z,2011-11-08T17:57:19Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/buildout.deco,9,No fork git policy,tomster,2011-11-07T20:51:41Z,2011-11-07T21:34:54Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.stagingbehavior,3,Fix a problem with the implementation of dexterity support at plone.app....,jpgimenez,2012-10-02T18:05:43Z,2012-10-04T14:21:13Z,closed,True,2,0,0,2,3,0,2,0,0,0,0,14.213888888888889
+plone/plone.app.stagingbehavior,6,Improve  Working copy to baseline relation management,gborelli,2013-12-02T12:38:05Z,,closed,False,2,2,0,4,3,0,3,0,0,0,0,1.1675
+plone/plone.app.stagingbehavior,10,  Remove dependency on five.grok,mamico,2015-01-28T17:08:52Z,,closed,False,2,0,0,2,2,0,1,0,0,0,0,161.30444444444444
+plone/mockup-core,35,Fix the recursive override,frapell,2015-09-16T13:16:47Z,2015-09-16T14:23:54Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,1.1402777777777777
+plone/mockup-core,34,Update CHANGES.rst,fulv,2015-09-16T03:38:30Z,2015-09-16T03:43:07Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.0763888888888889
+plone/mockup-core,33,Change logging statements to info instead of warn,fulv,2015-09-16T03:30:25Z,2015-09-16T03:35:03Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.07972222222222222
+plone/mockup-core,32,Fix overriding default pattern parameters when initializing. fixes gh-31,frapell,2015-09-01T02:18:54Z,2015-09-01T13:01:04Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,10.705
+plone/mockup-core,24,change from MIT to BSD. Refs: https://github.com/plone/mockup/issues/422,thet,2014-12-01T11:19:30Z,2014-12-01T13:55:52Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/mockup-core,30,always log exception on pattern initialization errors,vangheem,2015-07-08T16:33:50Z,2015-07-08T20:27:29Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,3.895277777777778
+plone/mockup-core,29,Add karma config to run tests on Jenkins,gforcada,2015-05-28T19:47:25Z,2015-05-28T20:24:48Z,closed,True,5,0,0,5,3,0,3,0,0,0,0,0.5505555555555556
+plone/mockup-core,28,update react,vangheem,2015-05-25T14:33:09Z,,closed,False,0,0,0,0,1,0,0,0,0,0,0,
+plone/mockup-core,27,Update framework dependencies.,thet,2015-05-05T15:15:42Z,2015-05-05T15:33:57Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.29583333333333334
+plone/mockup-core,26,Use pat-registry again.,jcbrand,2015-02-11T08:55:42Z,2015-02-11T17:30:09Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.051111111111111114
+plone/mockup-core,25,Patternslib merge: Removed the Mockup registry in favor of Patternslib's,jcbrand,2015-01-25T13:04:56Z,2015-01-26T09:12:19Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,8.57
+plone/plone.app.toolbar,135,add tests for some folder actions and fix dx properties,vangheem,2014-02-04T20:48:34Z,2014-02-05T14:50:43Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.toolbar,134,add tests for some folder actions,vangheem,2014-01-31T21:59:26Z,,closed,False,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.toolbar,133,fix tests,vangheem,2014-01-31T17:23:46Z,2014-01-31T19:28:49Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.toolbar,130,ajax_load=1 for toolbar urls,thet,2013-09-25T23:03:53Z,2013-10-02T22:54:45Z,closed,True,12,0,0,12,3,0,3,0,0,0,0,21.358333333333334
+plone/plone.app.toolbar,65,reload resources in debug mode,davisagli,2012-09-22T15:09:43Z,2012-09-22T15:11:56Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.toolbar,4,New toolbar code,garbas,2012-01-03T10:39:47Z,2012-01-03T10:57:26Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/buildout.jenkins,18,jenkins-code-analysis-flake8 unable to run due to invalid path,tlyng,2015-02-17T11:38:50Z,2015-02-17T12:32:31Z,closed,True,7,0,0,7,4,0,4,0,0,0,0,0.8936111111111111
+plone/buildout.jenkins,6,Allow an easy way to ignore some pep8 checks that a team may not want to...,gforcada,2012-04-17T10:20:09Z,2012-05-08T06:15:45Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.MasterSelectWidget,3,Add a MasterMultiSelectWidget,sdelcourt,2015-07-13T08:48:56Z,2015-07-29T08:10:20Z,closed,True,4,0,0,4,3,0,3,0,0,0,0,49.33972222222222
+plone/plone.directives.form,4,Update i18n domain,staeff,2015-11-20T15:36:08Z,2015-11-25T12:34:09Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.directives.form,1,Use form schema directives from plone.autoform,davisagli,2011-11-14T06:04:52Z,2012-02-25T07:39:18Z,closed,True,0,3,0,3,2,0,2,0,0,0,0,231.66222222222223
+plone/heroku-button-plone,6,Added additional environment variables,pigeonflight,2014-11-01T18:46:58Z,,closed,False,2,0,0,2,2,0,1,0,0,0,0,4960.481111111111
+plone/heroku-button-plone,5,added heroku.cfg file,pigeonflight,2014-11-01T15:23:16Z,2014-11-01T15:24:26Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/heroku-button-plone,8,Update app.json,hellfish2,2015-03-25T21:29:42Z,,closed,False,1,0,0,1,1,0,1,0,0,0,0,
+plone/paragon.site,2,Rename dir from doc to docs,svx,2015-04-27T13:09:24Z,2015-04-30T12:21:51Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/heroku-buildpack-plone,14,It is now possible to set the site password at push time with ADMIN_PASSWORD env var,pigeonflight,2014-11-01T18:40:45Z,,closed,False,4,2,0,6,3,0,3,0,0,0,0,0.8725
+plone/heroku-buildpack-plone,13,"updated detect, to listen for a heroku.cfg file",pigeonflight,2014-11-01T17:23:48Z,,closed,False,2,1,0,3,3,0,2,0,0,0,0,2.245
+plone/heroku-buildpack-plone,11,Updated to support heroku button,pigeonflight,2014-11-01T15:11:33Z,,closed,False,1,0,0,1,2,0,1,0,0,0,0,4.477222222222222
+plone/ploneorg.core,101,Allcaps homepage,allcaps,2015-11-23T20:34:12Z,,closed,False,3,0,0,3,2,0,2,0,0,0,0,256.625
+plone/ploneorg.core,115,Add badges to contributor profile page,alecpm,2015-12-03T08:16:10Z,2015-12-04T13:20:12Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ploneorg.core,79,plone 5 compatibility,thet,2015-10-17T23:08:28Z,,closed,False,2,0,0,2,2,0,2,0,0,0,0,8.231111111111112
+plone/ploneorg.core,31,Overall stats of issues/ commits from github ,jensens,2015-05-18T17:30:43Z,2015-07-13T20:34:41Z,closed,True,8,1,0,9,3,0,3,0,0,0,0,597.8127777777778
+plone/ploneorg.core,28,waffle.io Badge,waffle-iron,2015-05-12T09:43:58Z,,closed,False,1,0,0,1,2,0,1,0,0,0,0,0.010555555555555556
+plone/plone.app.blocks,20,Add support for (static) content layouts,datakurre,2015-08-22T11:17:44Z,2015-09-04T15:42:50Z,closed,True,7,0,0,7,2,0,2,0,0,0,0,16.746388888888887
+plone/plone.app.blocks,18,fix caching issue for layout types,vangheem,2015-08-11T18:53:35Z,2015-08-11T18:59:43Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.blocks,19,Add ability to provide more than one layout with a layout directory,vangheem,2015-08-11T20:38:06Z,2015-08-11T23:39:05Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.blocks,17,Enable output filters for content layout view,datakurre,2015-08-08T00:37:18Z,2015-08-08T00:51:46Z,closed,True,8,0,0,8,3,0,3,0,0,0,0,0.24555555555555555
+plone/plone.app.blocks,16,provide abilty to set default grid system,vangheem,2015-07-09T02:13:43Z,2015-07-09T17:10:56Z,closed,True,7,0,0,7,2,0,2,0,0,0,0,3.7691666666666666
+plone/plone.app.blocks,7,Rnixx issue5,rnixx,2013-10-28T12:18:14Z,,closed,False,10,0,0,10,4,0,4,0,0,0,0,0.3080555555555556
+plone/ansible.plone_server,20,Disambiguate cron and supervisor configs,rockfruit,2015-02-13T14:19:21Z,,closed,False,2,0,0,2,3,0,2,0,0,0,0,5478.043333333333
+plone/ansible.plone_server,52,Flexible buildout,smcmahon,2015-12-22T21:06:15Z,2015-12-22T22:24:53Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible.plone_server,51,Flexible buildout,smcmahon,2015-12-22T02:52:09Z,,closed,False,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible.plone_server,50,Flexible buildout,smcmahon,2015-12-21T23:32:57Z,,closed,False,1,0,0,1,2,0,1,0,0,0,0,0.029722222222222223
+plone/ansible.plone_server,46,Multiserver,smcmahon,2015-11-12T21:27:02Z,2015-11-12T21:31:03Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible.plone_server,44,updated supervisor to also control pound and varnish,colinpade,2015-10-27T23:48:55Z,,closed,False,1,0,0,1,2,0,1,0,0,0,0,42.201388888888886
+plone/ansible.plone_server,45,Remove duplicated lines,fulv,2015-10-28T19:49:36Z,2015-10-29T16:52:54Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible.plone_server,43,Plone 5 (Fixes plone/ansible.plone_server#42),fulv,2015-10-04T20:15:24Z,,closed,False,2,0,0,2,2,0,2,0,0,0,0,216.32583333333332
+plone/ansible.plone_server,37,Travis build,jpgimenez,2015-08-12T21:20:02Z,2015-09-27T19:53:40Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,48.07
+plone/ansible.plone_server,38,make it possible to run an alternate buildout configuration file,davisagli,2015-08-14T19:47:33Z,,closed,False,1,0,0,1,1,0,1,0,0,0,0,
+plone/ansible.plone_server,36,Allow to define the users and groups,jpgimenez,2015-08-12T13:14:00Z,2015-08-12T19:57:40Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,6.730833333333333
+plone/ansible.plone_server,34,Support for CentOS and Fedora,jpgimenez,2015-08-10T19:18:44Z,2015-08-12T19:53:04Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,48.577777777777776
+plone/ansible.plone_server,32,"Fixes issue #31, ensure string to boolean casting.",jpgimenez,2015-07-28T21:16:06Z,,closed,False,2,0,0,2,2,0,2,0,0,0,0,1.1383333333333334
+plone/ansible.plone_server,25,Add missing dependency `curl`.,htgoebel,2015-03-08T14:45:01Z,,closed,False,6,0,0,6,3,0,3,0,0,0,0,522.9127777777778
+plone/ansible.plone_server,21,Fix some bugs occuring in uncommon environments.,htgoebel,2015-03-07T23:12:32Z,2015-04-13T10:20:55Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,538.6541666666667
+plone/ansible.plone_server,22,Introduce variable `plone_instance_home` and siblings.    ,htgoebel,2015-03-07T23:15:14Z,2015-04-13T10:20:54Z,closed,True,7,2,0,9,4,0,4,0,0,0,0,1.718888888888889
+plone/ansible.plone_server,27,Correct reference to plone_major_version,djowett,2015-03-13T17:35:31Z,2015-03-13T21:35:00Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible.plone_server,26,Change home for plone daemon to instance-home.,htgoebel,2015-03-08T14:45:37Z,,closed,False,1,0,0,1,1,0,1,0,0,0,0,
+plone/ansible.plone_server,16,Add `sudo: yes` for tasks having a `sudo_user` set.,htgoebel,2015-02-06T11:00:40Z,,closed,False,1,0,0,1,1,0,1,0,0,0,0,
+plone/ansible.plone_server,19,Add missing file extension in tarball file existance check,rockfruit,2015-02-13T11:44:41Z,2015-02-13T16:27:00Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible.plone_server,9,"Modify task names, allowing multiple instances",rockfruit,2015-01-26T10:35:46Z,,closed,False,2,0,0,2,2,0,2,0,0,0,0,36.429722222222225
+plone/ansible.plone_server,17,Fixed issue #14,zylinx,2015-02-09T19:10:48Z,2015-02-10T22:55:22Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,2.213888888888889
+plone/ansible.plone_server,1,Add more description about what the role does.,htgoebel,2014-11-23T17:59:22Z,2014-11-28T19:03:42Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,121.07916666666667
+plone/ansible.plone_server,10,update client port variable replacements,rockfruit,2015-01-26T11:00:53Z,2015-01-27T23:35:09Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,6.502777777777778
+plone/ansible.plone_server,8,add plone_extension_profiles to addPloneSite template,rockfruit,2015-01-26T10:28:15Z,2015-01-27T22:50:03Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,36.36611111111111
+plone/ansible.plone_server,6,Add zeo-address to buildout-template client sections,rockfruit,2015-01-26T10:11:29Z,,closed,False,1,0,0,1,2,0,1,0,0,0,0,7.020277777777777
+plone/plone.app.drafts,1,Add support for drafting on Dexterity add and edit forms,datakurre,2015-05-20T18:18:53Z,2015-05-23T15:35:32Z,closed,True,7,0,0,7,2,0,2,0,0,0,0,112.62222222222222
+plone/Products.ATContentTypes,25,Backport CSRF fix from @vangheem,gforcada,2015-10-23T15:11:26Z,2015-12-13T20:44:06Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.ATContentTypes,27,Create standard news/events collections with selection.any.,mauritsvanrees,2015-11-23T14:24:06Z,2015-11-25T10:41:25Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.ATContentTypes,26,Update Site Setup link in all control panels,davilima6,2015-11-23T00:06:52Z,2015-11-25T08:22:33Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.ATContentTypes,22,hide atcontenttypes from installable products,vangheem,2015-07-13T10:08:40Z,,closed,False,6,0,0,6,2,0,2,0,0,0,0,48.12777777777778
+plone/Products.ATContentTypes,23,Portal properties cleanup,pbauer,2015-09-20T15:28:29Z,2015-09-20T15:28:34Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.ATContentTypes,21,createObject moved to Archetpyes,tomgross,2015-07-07T14:27:29Z,2015-07-13T13:41:54Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.ATContentTypes,19,add CSRF token in createObject redirection,ebrehault,2015-05-12T12:21:26Z,2015-05-18T14:19:01Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,145.95916666666668
+plone/Products.ATContentTypes,18,Remove all CMFDefault dependencies,tomgross,2015-04-24T19:44:06Z,2015-04-25T22:17:34Z,closed,True,3,0,0,3,3,0,2,0,0,0,0,12.060555555555556
+plone/Products.ATContentTypes,9,Barceloneta,bloodbare,2014-10-09T11:50:05Z,2014-10-09T11:59:10Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.ATContentTypes,15,PloneTestCase removal,tisto,2015-03-10T20:25:49Z,2015-04-07T07:46:57Z,closed,True,5,0,0,5,3,0,3,0,0,0,0,617.7469444444445
+plone/Products.ATContentTypes,17,Tomgross ptc2,gforcada,2015-04-07T05:40:49Z,,closed,False,2,1,0,3,2,0,2,0,0,0,0,3.8016666666666667
+plone/Products.ATContentTypes,16,Plip13091,tisto,2015-03-25T08:35:04Z,2015-03-25T20:36:16Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.ATContentTypes,14,Allow exporting ATTopic,MatthewWilkes,2015-02-08T16:33:16Z,2015-02-12T00:17:43Z,closed,True,0,2,0,2,2,0,2,0,0,0,0,3.126388888888889
+plone/Products.ATContentTypes,12,"Revert ""Add profile 'base' to allow addons to depend on ATContentTypes i...",tisto,2015-01-22T18:26:44Z,2015-01-22T18:26:48Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.ATContentTypes,13,"Revert ""Revert ""Add profile 'base' to allow addons to depend on ATConten...",tisto,2015-01-23T08:38:10Z,2015-01-23T08:38:14Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.ATContentTypes,11,Add profile 'base' to allow addons to depend on ATContentTypes in Plone 5,pbauer,2014-12-27T20:28:55Z,2015-01-22T15:49:11Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.CMFQuickInstallerTool,1,Remove InstalledProduct instance when a product is uninstalled,rochecompaan,2012-03-07T09:54:09Z,2012-03-09T19:29:41Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.CMFQuickInstallerTool,2,Allow to pass the option to skip certain steps to installProduct,pbauer,2014-04-22T20:52:09Z,2014-06-05T08:24:05Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/Products.CMFQuickInstallerTool,7,Enable doctests,gforcada,2015-05-23T21:31:18Z,,closed,False,3,0,0,3,3,0,2,0,0,0,0,11.827222222222222
+plone/Products.CMFQuickInstallerTool,10,Let tests work with Plone 4.3 (Archetypes) and Plone 5.0 (p.a.contenttypes),tomgross,2015-06-03T09:59:51Z,,closed,False,1,0,0,1,2,0,1,0,0,0,0,95.3325
+plone/Products.CMFQuickInstallerTool,12,"When uninstalling a product, mark its install profile as unknown.",mauritsvanrees,2015-09-18T22:50:52Z,2015-09-21T20:14:27Z,closed,True,4,0,0,4,1,0,1,0,0,0,0,
+plone/Products.CMFQuickInstallerTool,11,cleanup: pep8 et al,jensens,2015-07-28T11:54:21Z,2015-07-28T13:45:34Z,closed,True,2,0,0,2,1,0,1,0,0,0,0,
+plone/Products.CMFQuickInstallerTool,6,run uninstall-profile on uninstalling,pbauer,2015-05-22T10:07:11Z,2015-06-07T22:00:56Z,closed,True,3,3,0,6,4,0,4,0,0,0,0,395.89694444444444
+plone/Products.CMFQuickInstallerTool,9,"Revert ""Readded doctests which were not run after migration to p.a.te…",pbauer,2015-06-02T14:47:14Z,2015-06-02T14:47:18Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.CMFQuickInstallerTool,8,Readded doctests which were not run after migration to p.a.testing,tomgross,2015-06-02T08:56:33Z,2015-06-02T10:25:35Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.03972222222222222
+plone/plone.recipe.unifiedinstaller,3,Include [zrs] option when looking for zeoserver recipe,mikejmets,2015-05-24T09:52:31Z,2015-05-24T09:53:26Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.folder,3,Ported tests to plone.app.testing,tomgross,2015-01-27T20:00:15Z,2015-01-27T20:45:54Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,998.6622222222222
+plone/plone.app.folder,7,Ported tests to plone.app.testing,gforcada,2015-01-28T22:14:35Z,2015-03-05T05:52:57Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.folder,8,Remove profile,gforcada,2015-02-09T12:12:30Z,2015-02-18T13:43:16Z,closed,True,7,0,0,7,2,0,2,0,0,0,0,1.898611111111111
+plone/plone.app.folder,6,"Revert ""Revert ""Revert ""Ported tests to plone.app.testing""""""",gforcada,2015-01-28T21:57:14Z,2015-01-28T21:57:21Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.folder,5,"Revert ""Revert ""Ported tests to plone.app.testing""""",gforcada,2015-01-28T14:05:48Z,2015-01-28T21:35:25Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.folder,4,"Revert ""Ported tests to plone.app.testing""",gforcada,2015-01-28T11:23:10Z,2015-01-28T11:30:43Z,closed,True,2,0,0,2,1,0,1,0,0,0,0,
+plone/Products.CMFFormController,2,form.submitted secure deletion,cekk,2015-05-20T07:52:49Z,2015-05-20T11:23:51Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.7736111111111111
+plone/Products.ExtendedPathIndex,1,Remove optimization,malthe,2012-08-30T13:06:38Z,2012-11-25T22:00:01Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.ResourceRegistries,19,Importing is done in CMFPLone,bloodbare,2014-10-09T11:54:18Z,2014-10-09T12:00:23Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.ResourceRegistries,18,handle theme names containing a `.` correctly.,frisi,2014-06-20T11:35:06Z,2015-09-21T23:13:48Z,closed,True,10,0,0,10,2,0,2,0,0,0,0,2446.349722222222
+plone/plone.relations,1,Fix typos,gforcada,2012-11-26T13:45:03Z,2012-11-26T23:42:41Z,closed,True,4,0,0,4,2,0,2,0,0,0,0,22.070555555555554
+plone/plone.app.async,1,implement job setup/teardown in a Job subclass,davisagli,2012-01-19T21:36:26Z,,closed,False,5,0,0,5,3,0,3,0,0,0,0,133.09
+plone/plone.app.ldap,30,Import/export group mappings,adaugherity,2015-08-18T20:29:52Z,2015-09-28T17:00:27Z,closed,True,4,0,0,4,2,0,2,0,0,0,0,516.4786111111111
+plone/plone.app.ldap,21,AD & other misc. fixes,adaugherity,2014-09-12T22:18:31Z,2015-07-23T08:59:45Z,closed,True,9,0,0,9,5,0,5,0,0,0,0,5986.832777777778
+plone/plone.app.ldap,25,Enable CI in Travis and add some basic tests,hvelarde,2015-07-09T20:10:00Z,2015-07-22T12:33:38Z,closed,True,3,5,0,8,3,0,3,0,0,0,0,2.0305555555555554
+plone/plone-devstart,8,"while unzipping, skip the initial path element",davisagli,2012-09-19T13:29:58Z,2013-06-10T15:10:52Z,closed,True,2,0,0,2,2,0,1,0,0,0,0,6337.734444444444
+plone/plone-devstart,9,support virualenv v 1.10,robertrottermann,2013-07-25T13:28:54Z,,closed,False,3,0,0,3,2,0,1,0,0,0,0,6965.873333333333
+plone/plone.app.search,13,Updated to enable rss subscription in plone 4.3,skillfully,2014-11-25T12:29:18Z,,closed,False,3,0,0,3,2,0,1,0,0,0,0,7210.830833333333
+plone/plone.app.search,12,Barceloneta,bloodbare,2014-10-09T11:51:40Z,2014-10-09T11:59:36Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.search,16,Allow to overrided the search view.,tisto,2015-07-02T05:44:33Z,,closed,False,5,0,0,5,5,0,5,0,0,0,0,1.1311111111111112
+plone/plone.app.search,14,Plip 10359 - Security Control Panel migration,jcerjak,2015-01-27T00:52:01Z,2015-02-27T07:35:10Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,751.1708333333333
+plone/ploneorg.theme,1,Allcaps theme,allcaps,2015-11-13T18:07:18Z,2015-12-04T13:05:53Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.workflowmanager,41,Adapting js to plone5,bloodbare,2015-06-29T19:17:47Z,2015-06-29T19:20:08Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.vulnerabilities,5,Updated with latest versions released since this was last touched.,fulv,2015-05-02T01:53:29Z,2015-05-02T02:08:20Z,closed,True,3,0,0,3,3,0,3,0,0,0,0,0.2613888888888889
+plone/Products.PloneTestCase,1,Some pep8 cleanup,zombified,2012-05-21T16:59:13Z,2012-05-21T17:00:57Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.PloneLanguageTool,7,Revert gforcada's revert of pull request #4',tisto,2015-03-04T11:03:25Z,,closed,False,1,0,0,1,2,0,1,0,0,0,0,1855.9322222222222
+plone/Products.PloneLanguageTool,4,Ported tests to plone.app.testing,tomgross,2014-09-25T13:35:34Z,2014-09-25T15:23:00Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,1414.4502777777777
+plone/plone.recipe.codeanalysis,176,Increase flake8 minimum version,do3cc,2015-12-16T09:05:01Z,2015-12-16T10:10:02Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.recipe.codeanalysis,171,debug coveralls,gforcada,2015-11-17T00:52:26Z,2015-11-17T01:24:48Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.recipe.codeanalysis,169,Remove tests that belong to flake8 plugins,gforcada,2015-11-16T09:18:43Z,2015-11-16T09:34:00Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.recipe.codeanalysis,168,Pin everything,gforcada,2015-11-10T15:26:28Z,2015-11-14T14:30:30Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.recipe.codeanalysis,105,Better pre commit hook,do3cc,2014-12-31T12:57:14Z,,closed,False,12,0,0,12,5,0,5,0,0,0,0,0.04861111111111111
+plone/plone.recipe.codeanalysis,159,Fix typo on test that prevented ipdb imports from being found,hvelarde,2015-09-14T12:45:30Z,2015-09-20T10:50:41Z,closed,True,3,0,0,3,4,0,3,0,0,0,0,21.112222222222222
+plone/plone.recipe.codeanalysis,157,Add flake8-isort.,tisto,2015-09-14T07:09:07Z,2015-09-20T07:39:26Z,closed,True,9,0,0,9,2,0,2,0,0,0,0,0.8655555555555555
+plone/plone.recipe.codeanalysis,160,Move to flake8 plugins,gforcada,2015-09-18T07:46:41Z,2015-09-18T08:02:05Z,closed,True,3,0,0,3,4,0,3,0,0,0,0,0.2575
+plone/plone.recipe.codeanalysis,153,WIP isort,gforcada,2015-09-03T08:46:51Z,,closed,False,13,2,0,15,3,0,3,0,0,0,0,12.061944444444444
+plone/plone.recipe.codeanalysis,158,Remove debug statements,gforcada,2015-09-14T08:58:32Z,2015-09-17T09:04:05Z,closed,True,11,1,0,12,4,0,4,0,0,0,0,0.035
+plone/plone.recipe.codeanalysis,144,Bring it on!,do3cc,2015-08-21T14:29:39Z,,closed,False,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.recipe.codeanalysis,152,Skip value and lock on disabled multiprocessing,saily,2015-09-03T07:28:35Z,2015-09-03T10:10:50Z,closed,True,9,0,0,9,2,0,2,0,0,0,0,0.32
+plone/plone.recipe.codeanalysis,150,Stop racing,do3cc,2015-09-02T13:11:28Z,2015-09-02T13:22:45Z,closed,True,1,1,0,2,3,0,2,0,0,0,0,6.5475
+plone/plone.recipe.codeanalysis,146,Better pep3101,do3cc,2015-08-27T11:12:13Z,2015-09-02T12:26:35Z,closed,True,1,3,0,4,2,0,2,0,0,0,0,0.6911111111111111
+plone/plone.recipe.codeanalysis,145,Modern vim has undo files that can still float around,do3cc,2015-08-27T11:12:01Z,2015-08-27T11:52:43Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.recipe.codeanalysis,147,Add extensive configuration example,do3cc,2015-08-27T11:33:35Z,2015-08-27T11:57:32Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.39861111111111114
+plone/plone.recipe.codeanalysis,143,Add more tests for Recipe,gforcada,2015-08-07T22:33:39Z,2015-08-07T22:38:57Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.recipe.codeanalysis,141,Clean output on tests,gforcada,2015-08-07T14:39:07Z,2015-08-07T19:37:11Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.9155555555555556
+plone/plone.recipe.codeanalysis,142,Add minimal tests for Recipe,gforcada,2015-08-07T15:59:02Z,2015-08-07T17:35:25Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.recipe.codeanalysis,139,Badges,tisto,2015-08-07T08:42:11Z,,closed,False,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.recipe.codeanalysis,140,Travis cache,tisto,2015-08-07T08:42:55Z,,closed,False,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.recipe.codeanalysis,134,Improve JSHint tests,gforcada,2015-07-31T22:05:38Z,2015-07-31T22:16:12Z,closed,True,2,0,0,2,2,0,1,0,0,0,0,154.2552777777778
+plone/plone.recipe.codeanalysis,133,Compile regular expressions,gforcada,2015-07-31T10:08:48Z,2015-07-31T21:49:42Z,closed,True,3,0,0,3,3,0,3,0,0,0,0,3.351111111111111
+plone/plone.recipe.codeanalysis,125,Create hooks folder if it doesn't exist,gforcada,2015-05-22T08:32:08Z,2015-07-05T09:32:12Z,closed,True,12,1,0,13,4,0,4,0,0,0,0,0.05416666666666667
+plone/plone.recipe.codeanalysis,132,Flake8 options,gforcada,2015-06-21T13:25:44Z,2015-06-22T05:58:14Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,16.544444444444444
+plone/plone.recipe.codeanalysis,130,This closes #129,gil-cano,2015-06-14T06:10:41Z,2015-06-16T05:31:08Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,7.495833333333334
+plone/plone.recipe.codeanalysis,113,Add basic manifest check.,saily,2015-04-27T22:27:23Z,2015-05-03T19:20:39Z,closed,True,4,9,0,13,5,0,5,0,0,0,0,8.213055555555556
+plone/plone.recipe.codeanalysis,114,Flake8 plugins,saily,2015-04-28T21:33:14Z,2015-04-30T07:01:53Z,closed,True,12,14,0,26,6,0,6,0,0,0,0,1.228888888888889
+plone/plone.recipe.codeanalysis,109,Refactor to OO,saily,2015-04-25T22:28:07Z,,closed,False,3,0,0,3,3,0,3,0,0,0,0,18.65361111111111
+plone/plone.recipe.codeanalysis,110,Add multiprocessing support,saily,2015-04-26T02:46:14Z,,closed,False,11,0,0,11,4,0,4,0,0,0,0,10.114444444444445
+plone/plone.recipe.codeanalysis,111,"Return correct exit codes in console scripts, fixes #66",saily,2015-04-26T17:01:13Z,2015-04-26T17:05:17Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.030555555555555555
+plone/plone.recipe.codeanalysis,30,Rename 'string-formatting' option to 'pep3101' to keep consistency,hvelarde,2013-09-18T20:55:43Z,2013-09-27T21:17:57Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.recipe.codeanalysis,23,Deprecate CSS Lint options and update documentation,hvelarde,2013-09-10T20:48:46Z,2013-09-11T07:48:42Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.recipe.codeanalysis,74,JavaScript Code Style Checker support,saily,2014-04-18T12:12:11Z,2014-04-22T19:14:04Z,closed,True,5,0,0,5,5,0,4,0,0,0,0,0.13805555555555554
+plone/plone.openid,2,Fixed extractCredentials to strip whitespaces around __ac_identity_url,datakurre,2012-02-24T17:53:45Z,2012-11-23T11:36:12Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.openid,7,"Second try: ""Merge tomgross-removeunusedcode""",tisto,2015-03-04T07:53:22Z,2015-03-06T09:08:57Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.openid,5,Remove unused tesing code with dependency to PloneTestCase,tomgross,2014-11-16T16:10:08Z,2014-12-10T07:58:24Z,closed,True,1,2,0,3,2,0,2,0,0,0,0,6.207777777777777
+plone/sphinxtheme.plone,16,Change js script for ga,svx,2014-06-30T09:14:17Z,2014-07-08T08:01:10Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,37.38861111111111
+plone/archetypes.querywidget,12,Added 'safe_unicode' call for raw query values,rodfersou,2015-05-04T14:08:56Z,2015-11-09T22:28:02Z,closed,True,18,0,0,18,4,0,4,0,0,0,0,0.17
+plone/archetypes.querywidget,3,Fixed conditional initialization of querywidget,kroman0,2012-09-26T09:25:55Z,2012-09-26T20:53:41Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/archetypes.querywidget,7,Use multiadapter for obtaining a QueryBuilder instance,keul,2013-11-13T16:35:11Z,2013-11-24T16:39:30Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/archetypes.querywidget,8,Support recursive queries,mauritsvanrees,2013-11-14T08:41:27Z,,closed,False,3,0,0,3,3,0,2,0,0,0,0,248.0425
+plone/plone.app.blob,18,plone.app.blob does not get exported with the genericsetup contenthandler,do3cc,2015-02-25T12:21:26Z,2015-11-13T08:08:43Z,closed,True,5,0,0,5,2,0,2,0,0,0,0,0.10694444444444444
+plone/plone.app.blob,8,mimetype can't be None and always use filename if available,tschanzt,2013-09-13T14:15:51Z,2013-09-13T14:19:18Z,closed,True,4,0,0,4,3,0,3,0,0,0,0,0.06555555555555556
+plone/plone.app.blob,4,initial implementation of storing inline mimetypes in registry,djay,2013-02-04T02:00:06Z,2014-09-12T04:04:45Z,closed,True,22,3,0,25,7,0,7,0,0,0,0,22.203333333333333
+plone/plone.app.blob,11,"Revert ""Ported tests to plone.app.testing and pep8""",jensens,2014-09-25T16:37:26Z,2014-09-25T16:37:40Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.blob,12,"Revert ""Revert ""Ported tests to plone.app.testing and pep8""""",jensens,2014-09-26T07:13:24Z,2014-09-28T22:02:58Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,13.139166666666666
+plone/plone.app.blob,13,"Revert ""Revert ""Revert ""Ported tests to plone.app.testing and pep8""""""",jensens,2014-09-30T14:32:57Z,2014-09-30T14:33:09Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.blob,15,fix inline migrator for AT types and add option to remove data in old field,frisi,2014-11-25T15:13:20Z,2015-07-24T09:12:48Z,closed,True,5,0,0,5,2,0,2,0,0,0,0,4218.2975
+plone/plone.app.blob,24,"Revert ""Fixing permission for download (refs #22)""",tisto,2015-05-29T15:39:05Z,2015-05-29T15:43:39Z,closed,True,6,0,0,6,3,0,3,0,0,0,0,0.08277777777777778
+plone/plone.app.blob,23,Fixing permission for download (refs #22),david-batranu,2015-05-27T12:27:46Z,2015-05-27T14:17:31Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.blob,21,fix tests for latest plone.app.imaging changes for Plone 5,vangheem,2015-05-08T17:15:04Z,2015-05-08T17:15:07Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.blob,20,Fix #19:  Fix: Products.MimetypesRegistry used in p.a.blob.utils but no dependency,jensens,2015-03-06T14:35:02Z,2015-03-07T19:39:26Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.blob,17,"Revert ""Revert ""Ported tests to plone.app.testing and pep8 - v3""""",gforcada,2015-01-28T14:04:13Z,2015-03-05T16:35:29Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.blob,16,"Revert ""Ported tests to plone.app.testing and pep8 - v3""",gforcada,2015-01-28T11:21:07Z,2015-01-28T11:51:47Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.blob,14,Ported tests to plone.app.testing and pep8 - v3,jensens,2014-10-01T21:23:05Z,2015-01-27T16:54:28Z,closed,True,5,0,0,5,2,0,2,0,0,0,0,116.835
+plone/papyrus,82,plone.testing has also relevant testing info,thet,2015-12-10T13:54:27Z,2015-12-11T10:48:36Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,1.238888888888889
+plone/papyrus,81,use selected_version variable,polyester,2015-12-01T13:04:18Z,2015-12-01T16:05:23Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/papyrus,80,order versions newest-first,polyester,2015-12-01T13:02:43Z,2015-12-01T16:05:10Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/papyrus,79,order doc-versions in newest-first order,polyester,2015-12-01T12:58:10Z,2015-12-01T13:05:23Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/papyrus,77,buildout.coredev: use depth=1.,mauritsvanrees,2015-11-20T18:16:30Z,2015-11-20T18:20:47Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.07305555555555555
+plone/papyrus,72,include plone.app.event,thet,2015-10-17T11:30:07Z,2015-10-18T07:59:37Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,20.504722222222224
+plone/papyrus,73,change how screenshots are generated,polyester,2015-10-17T13:23:34Z,2015-10-17T13:38:55Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/papyrus,71,Phantom,polyester,2015-10-10T07:01:47Z,2015-10-10T07:51:50Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.15527777777777776
+plone/papyrus,69,Improve linkcheck,svx,2015-09-24T10:48:21Z,2015-09-24T20:42:54Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/papyrus,68,switch protocol. Closes https://github.com/plone/papyrus/issues/66,polyester,2015-09-22T12:35:24Z,2015-09-22T12:37:20Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/papyrus,65,Better spellcheck,svx,2015-09-04T12:00:42Z,2015-09-04T12:20:00Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/papyrus,60,External Sources refactoring,jensens,2015-07-14T10:35:48Z,,closed,False,0,0,0,0,1,0,0,0,0,0,0,
+plone/papyrus,52,[ci skip] This add the posibility to include gists straight from github,svx,2015-05-14T15:48:38Z,2015-05-14T15:48:54Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/papyrus,51,"fetch README.rst and CHANGES.rst for externals, limit history, warnings",polyester,2015-05-14T12:54:15Z,2015-05-14T12:59:28Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/papyrus,38,Fix Travis CI -build,datakurre,2015-01-07T01:44:04Z,2015-01-24T16:37:09Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/papyrus,19,Fix for #17,svx,2014-08-31T08:38:45Z,2014-09-01T14:27:30Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,25.724722222222223
+plone/papyrus,14,Make it clear that 97% of the readme is not about papyrus as a while but...,do3cc,2014-07-11T15:32:26Z,2014-07-11T16:27:42Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/papyrus,13,"Remove ga-extension, we do it different now",svx,2014-06-30T09:10:15Z,2014-07-08T07:49:00Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/papyrus,22,Fix buildout to properly evualuate package versions [fixes #119],datakurre,2014-09-09T23:35:02Z,2014-09-10T07:32:54Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/planet.plone.org,56,Version 2.0 change dir,svx,2015-12-26T11:35:57Z,2015-12-26T11:36:24Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/planet.plone.org,55,Update link to Steve M's blog (https and atom),smcmahon,2015-12-04T19:43:02Z,2015-12-04T21:30:45Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/planet.plone.org,49,Update niteoweb.com feed,zupo,2015-10-14T16:05:49Z,2015-10-14T19:26:14Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/planet.plone.org,48,Update Davide Moro's feed,davidemoro,2015-09-12T12:41:33Z,2015-09-12T13:19:30Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/planet.plone.org,47,added wildcardcorp.com blog feed,tkimnguyen,2015-09-08T19:20:28Z,2015-09-08T21:23:11Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/planet.plone.org,45,Update the URL to our blog,nightmarebadger,2015-05-06T14:21:13Z,2015-05-06T14:23:08Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/planet.plone.org,46,Update my blog feed url,bsuttor,2015-07-09T11:33:17Z,2015-07-10T11:18:52Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/planet.plone.org,44,Add my blog,gforcada,2015-04-13T21:04:53Z,2015-04-13T21:11:12Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/planet.plone.org,37,Update feeds.cfg to include my blog,birdwell,2014-06-25T16:49:41Z,2014-07-17T22:47:58Z,closed,True,5,0,0,5,3,0,2,0,0,0,0,533.9697222222222
+plone/planet.plone.org,43,Switched my url to use the blogger rss instead of the default atom feed,pigeonflight,2015-03-04T02:08:53Z,2015-03-04T09:19:59Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/planet.plone.org,42,Added my blog (Timo Stollenwerk).,tisto,2015-02-28T10:40:04Z,2015-02-28T12:46:09Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/planet.plone.org,41,Re-adding my blog.,jcbrand,2015-01-26T15:26:21Z,2015-01-26T15:33:03Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.referenceablebehavior,7,Moved translations to plone.app.locales,claytonc,2015-11-09T17:54:45Z,2015-11-11T14:26:52Z,closed,True,2,0,0,2,2,0,1,0,0,0,0,44.41138888888889
+plone/plone.app.referenceablebehavior,5,Fixes plone/Products.CMFPlone#669,fulv,2015-07-12T23:26:40Z,2015-07-13T05:31:18Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.referenceablebehavior,6,Linkintegrity,pbauer,2015-08-23T15:26:07Z,2015-08-24T18:40:51Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.referenceablebehavior,4,Ported to plone.app.testing,tomgross,2015-01-06T13:42:02Z,2015-01-06T14:28:12Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.7716666666666666
+plone/archetypes.multilingual,14,Any AT object can be adapted to ILanguage,ebrehault,2015-07-02T15:15:26Z,2015-07-03T08:00:17Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/archetypes.multilingual,9,add __name__ method,bsuttor,2015-01-29T15:06:15Z,,closed,False,2,0,0,2,2,0,2,0,0,0,0,2662.492777777778
+plone/archetypes.multilingual,11,Plip13091 multilingual,tisto,2015-03-25T08:06:01Z,2015-03-25T19:45:13Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/archetypes.multilingual,8,Fix format error,bsuttor,2015-01-29T14:11:38Z,2015-01-29T15:22:45Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/archetypes.multilingual,7,Bring master to 2.0,saily,2015-01-23T13:21:05Z,2015-01-23T13:22:40Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.contentmigration,2,Fix to set None as old AT content type UID before object is deleted,datakurre,2014-07-29T06:31:37Z,2014-08-20T12:54:39Z,closed,True,6,0,0,6,3,0,3,0,0,0,0,2.245277777777778
+plone/Products.contentmigration,8,Remove implicit dependency on CMFDefault by moving testcontent to product,tomgross,2015-06-18T15:20:53Z,2015-06-19T07:54:28Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,16.559166666666666
+plone/plone.app.imaging,20,disable csrf protection when scale is generated and traversed to,gforcada,2015-10-23T14:19:08Z,2015-12-13T20:41:29Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.imaging,18,Issue 16 1.0.x - Fix incompatibilities with five.pt and chameleon,rodfersou,2015-09-01T11:15:23Z,2015-11-26T00:06:09Z,closed,True,14,0,0,14,5,0,5,0,0,0,0,1.3063888888888888
+plone/plone.app.imaging,23,Handled scale traversal correctly in five.pt (chameleon) - master,mauritsvanrees,2015-11-19T22:54:27Z,2015-11-21T22:53:33Z,closed,True,2,0,0,2,1,0,1,0,0,0,0,
+plone/plone.app.imaging,17,Issue 16 - Fix incompatibilities with five.pt and chameleon,rodfersou,2015-09-01T11:01:25Z,,closed,False,8,0,0,8,4,0,4,0,0,0,0,1.5322222222222222
+plone/plone.app.imaging,22,Fixed 404 NotFound error when accessing image scales via webdav. (master),mauritsvanrees,2015-11-18T22:46:00Z,2015-11-18T23:57:50Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,1.2055555555555555
+plone/plone.app.imaging,21,Fixed 404 NotFound error when accessing image scales via webdav.,mauritsvanrees,2015-11-18T16:38:14Z,2015-11-18T20:23:24Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,3.756111111111111
+plone/plone.app.imaging,7,Backporting the auto CSRF protection from 1.1 branch,keul,2014-05-08T14:07:47Z,,closed,False,11,2,0,13,5,0,4,0,0,0,0,2451.3855555555556
+plone/plone.app.imaging,19,disable csrf protection when scale is generated and traversed to,gforcada,2015-10-09T08:09:08Z,,closed,False,3,0,0,3,1,0,1,0,0,0,0,
+plone/plone.app.imaging,1,Implement ``tag`` method in the scaling view to avoid reading image into memory,malthe,2011-11-28T23:53:32Z,2011-12-02T17:08:24Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.33416666666666667
+plone/plone.app.imaging,13,move to cmfplone with z3cform,vangheem,2015-05-07T21:46:04Z,2015-05-08T15:55:48Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.imaging,11,Fix doctests,tomgross,2015-01-21T15:35:22Z,2015-01-23T13:24:54Z,closed,True,2,0,0,2,3,0,2,0,0,0,0,19.94
+plone/plone.app.collection,22,Plip 10359 - Security Control Panel migration,jcerjak,2015-01-27T00:46:14Z,2015-03-02T17:07:09Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.collection,20,Refactor robot tests,bsuttor,2014-08-25T10:42:20Z,2014-09-01T06:13:01Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.collection,4,RSS Support,frapell,2012-08-30T15:42:52Z,,closed,False,5,0,0,5,2,0,2,0,0,0,0,0.5333333333333333
+plone/plone.app.collection,25,Make formatting of start & end dates consistent with other dates,djowett,2015-06-16T15:56:52Z,2015-09-21T09:50:03Z,closed,True,9,0,0,9,3,0,3,0,0,0,0,2152.0844444444447
+plone/plone.app.collection,21,Update tabular_view.pt,kitesurfer1404,2014-11-12T19:23:42Z,,closed,False,5,0,0,5,3,0,2,0,0,0,0,5206.587777777778
+plone/plone.app.collection,24,This package does not depend on plone.app.form,tomgross,2015-06-02T11:58:41Z,2015-06-03T03:09:51Z,closed,True,2,1,0,3,3,0,2,0,0,0,0,1.2152777777777777
+plone/plone.app.collection,23,Add DAV support for collections,MatthewWilkes,2015-02-04T02:07:54Z,2015-02-12T00:17:31Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.formwidget.querystring,7,Change javascript to work on ``form-widgets-ICollection`` fields.,mauritsvanrees,2013-11-11T15:27:18Z,2013-11-12T09:23:30Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.form,7,"Update strings to be unicode strings linke u""string"" so it could use uni...",terapyon,2014-11-01T16:10:03Z,2014-11-02T06:33:28Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,14.420555555555556
+plone/plone.app.form,5,Remove DL's from portal message in templates.,khink,2014-02-11T08:45:55Z,2014-09-25T15:37:07Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,5430.847222222223
+plone/plone.app.form,10,Issue 8 localization,keul,2015-04-17T13:16:21Z,2015-04-26T18:41:23Z,closed,True,8,0,0,8,3,0,3,0,0,0,0,176.6563888888889
+plone/plone.app.form,9,Issue 8 localization,keul,2015-04-17T13:14:15Z,,closed,False,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.form,12,remove CMFDefault dependency,tomgross,2015-05-29T09:39:20Z,2015-05-30T11:38:54Z,closed,True,2,0,0,2,3,0,2,0,0,0,0,1.448611111111111
+plone/Products.Marshall,3,cleanups reported by frosted,tomgross,2015-01-22T10:25:13Z,2015-09-23T10:55:01Z,closed,True,4,0,0,4,2,0,2,0,0,0,0,2834.9777777777776
+plone/Products.Marshall,2,Ported to plone.app.testing,tomgross,2015-01-22T09:37:08Z,2015-01-22T09:46:16Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.recipe.alltests,4,Do not fail if path for a package can not be found.,tisto,2015-03-10T06:13:53Z,2015-03-10T06:33:23Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.11472222222222223
+plone/plone.app.controlpanel,30,Barceloneta,bloodbare,2014-10-09T11:46:38Z,2014-10-09T11:58:26Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.controlpanel,50,Remove formlib dependency.,tisto,2015-06-01T09:56:10Z,,closed,False,5,0,0,5,1,0,1,0,0,0,0,
+plone/plone.app.controlpanel,19,be able to disable html filtering,vangheem,2014-02-03T22:23:50Z,,closed,False,2,0,0,2,2,0,2,0,0,0,0,2417.0652777777777
+plone/plone.app.controlpanel,29,"Revert ""Plip10359 - Comment out security related configuration""",tisto,2014-08-30T05:23:53Z,2014-08-30T05:24:45Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.controlpanel,61,Remove ConfigurationChangedEvent.,tisto,2015-06-02T17:13:12Z,2015-06-02T19:00:48Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.controlpanel,60,Remove zope.cachedescriptors dependency.,tisto,2015-06-02T10:00:38Z,2015-06-02T16:28:30Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.controlpanel,59,Remove some more unused dependencies.,tisto,2015-06-02T08:57:57Z,2015-06-02T09:58:46Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.controlpanel,58,Remove some unused zope.* dependencies.,tisto,2015-06-02T07:52:11Z,2015-06-02T08:56:28Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.controlpanel,57,Remove zope.formlib and zope.testing dependencies.,tisto,2015-06-02T06:45:37Z,2015-06-02T07:50:16Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.controlpanel,56,Remove Products.* dependencies.,tisto,2015-06-02T05:34:11Z,2015-06-02T06:35:16Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.controlpanel,55,Remove plone.* dependencies.,tisto,2015-06-02T05:15:06Z,2015-06-02T06:24:41Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.controlpanel,54,Tisto cleanup 4,tisto,2015-06-01T19:32:35Z,2015-06-02T05:14:14Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.controlpanel,53,Remove form.py/widget.py.,tisto,2015-06-01T19:30:36Z,2015-06-01T22:12:20Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.controlpanel,52,Replace filter and language control panel with bbb imports.,tisto,2015-06-01T16:21:53Z,2015-06-01T19:26:29Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.controlpanel,51,Remove RAM/skins control panel.,tisto,2015-06-01T15:34:44Z,2015-06-01T19:24:20Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.controlpanel,46,"Revert ""Revert ""Ported to plone.app.testing""""",jensens,2015-01-27T22:23:21Z,,closed,False,2,0,0,2,3,0,2,0,0,0,0,2338.7722222222224
+plone/plone.app.controlpanel,48,removed CMFDefault dependency,tomgross,2015-04-20T16:46:18Z,2015-04-25T09:06:39Z,closed,True,3,0,0,3,4,0,3,0,0,0,0,4.568333333333333
+plone/plone.app.controlpanel,25,Disable language control panel because it has been moved to z3c.form/p.a...,tisto,2014-08-03T09:40:38Z,2015-03-25T20:35:47Z,closed,True,3,0,0,3,3,0,3,0,0,0,0,1.3480555555555556
+plone/plone.app.controlpanel,47,Plip10359 filter controlpanel autoform,tisto,2015-03-20T18:47:52Z,2015-03-21T16:16:50Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.controlpanel,45,"Revert ""Ported to plone.app.testing""",jensens,2015-01-27T22:21:17Z,2015-01-27T22:21:50Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.controlpanel,40,Ported to plone.app.testing,tomgross,2015-01-06T14:43:05Z,2015-01-27T16:55:29Z,closed,True,5,0,0,5,2,0,2,0,0,0,0,0.2569444444444444
+plone/plone.app.controlpanel,44,Remove security.py (moved to CMFPlone),khink,2015-01-23T13:16:12Z,,closed,False,1,0,0,1,2,0,1,0,0,0,0,5.353611111111111
+plone/plone.app.controlpanel,41,Plip10359 remove unused code,khink,2015-01-22T14:03:11Z,2015-01-22T15:28:06Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.controlpanel,42,"Revert ""Plip10359 remove unused code""",tisto,2015-01-22T17:39:50Z,2015-01-22T17:39:55Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.controlpanel,43,"Revert ""Revert ""Plip10359 remove unused code""""",tisto,2015-01-22T19:52:58Z,2015-01-22T19:53:03Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/archetypes.referencebrowserwidget,30,Do not fail if a level of the path we are adding the object using the ReferenceBrowser widget is not accessible by the current user.,gbastien,2015-11-25T10:09:39Z,2015-11-27T12:18:43Z,closed,True,17,0,0,17,5,0,5,0,0,0,0,2.0652777777777778
+plone/archetypes.referencebrowserwidget,22,"take allowed_types into account, but also allow users to browse",frisi,2015-02-26T21:48:42Z,2015-03-09T10:33:12Z,closed,True,0,1,0,1,1,0,1,0,0,0,0,
+plone/archetypes.referencebrowserwidget,29,"Show elements that the reader has no access to as ""Undisclosed""",pbauer,2015-09-28T14:50:42Z,2015-09-29T15:11:35Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,1.9247222222222222
+plone/archetypes.referencebrowserwidget,27,"fix for isNotSelf(), which was throwing KeyError",tkimnguyen,2015-09-18T23:02:12Z,2015-09-21T07:21:35Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/archetypes.referencebrowserwidget,17,Add a label in the popup widget for the image preview.,mitakas,2014-11-27T10:11:17Z,2015-04-09T23:18:55Z,closed,True,11,1,0,12,4,0,4,0,0,0,0,2194.373888888889
+plone/archetypes.referencebrowserwidget,24,This is a proposal for new feature widget.use_wildcard_search,gbastien,2015-03-19T10:14:26Z,2015-03-23T18:01:55Z,closed,True,2,8,0,10,2,0,2,0,0,0,0,8.720555555555556
+plone/archetypes.referencebrowserwidget,21,Issue16 allowed types,frisi,2015-02-23T23:00:48Z,,closed,False,1,0,0,1,1,0,1,0,0,0,0,
+plone/archetypes.referencebrowserwidget,20,Fix sorting referenced items,keul,2015-02-23T16:01:08Z,2015-02-26T20:49:21Z,closed,True,2,0,0,2,3,0,2,0,0,0,0,0.3302777777777778
+plone/plone.formwidget.contenttree,21,Fix csrf protection encoding,gaudenz,2015-10-20T16:31:16Z,2015-12-01T16:02:25Z,closed,True,9,0,0,9,3,0,3,0,0,0,0,351.93555555555554
+plone/plone.formwidget.contenttree,18,housekeeping,rnixx,2014-10-25T08:06:20Z,2014-11-05T22:43:29Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.formwidget.contenttree,6,Added check in tree generation if it allready exists ,phgross,2012-11-12T08:50:58Z,2012-11-17T20:46:07Z,closed,True,2,0,0,2,3,0,2,0,0,0,0,30.98777777777778
+plone/plone.formwidget.contenttree,5,Translation fix,phgross,2012-09-04T19:29:45Z,2012-09-07T07:05:34Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.formwidget.contenttree,3,"Fix url in display templates, so that it uses absolute urls.",phgross,2012-07-25T14:11:26Z,2012-08-07T11:57:56Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.formwidget.contenttree,20,Remove egg_info,gforcada,2015-09-12T14:28:45Z,2015-09-13T20:28:43Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.login,27,Use IPageTemplate adapters for form templates,saily,2014-10-19T17:04:44Z,2014-10-22T13:40:13Z,closed,True,8,0,0,8,4,0,4,0,0,0,0,34.25805555555556
+plone/plone.formwidget.datetime,15,Add defaultvalue for hour and minute for z3cform Datetime widget.,elioschmutz,2015-10-12T15:10:33Z,2015-10-27T16:58:44Z,closed,True,6,0,0,6,4,0,4,0,0,0,0,3.893611111111111
+plone/plone.app.openid,5,simplify plugin creation,tomgross,2015-03-06T06:13:57Z,2015-03-06T09:04:08Z,closed,True,3,0,0,3,3,0,2,0,0,0,0,0.06333333333333334
+plone/plone.app.openid,4,Plip 10359 - Security Control Panel migration,jcerjak,2015-01-27T00:49:30Z,2015-02-27T08:53:13Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.themepreview,2,Update Travis-CI -build,datakurre,2015-08-16T18:47:04Z,2015-08-16T18:47:10Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.jenkins_server,17,Define PATH on nodes,gforcada,2015-05-03T19:49:37Z,2015-05-26T20:36:07Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.jenkins_server,11,Add views,gforcada,2015-02-13T20:48:25Z,2015-02-22T06:11:38Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,201.3972222222222
