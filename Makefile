@@ -1,4 +1,4 @@
-.PHONY: help install clean run-stats run-stats-2025 run-stats-2024 run-stats-2023 run-stats-2022 run-stats-2021 run-stats-2020 run-stats-2019 run-stats-2018 run-stats-2017 run-stats-2016 run-stats-2015 run-stats-2014 run-stats-2013 run-stats-2012 run-stats-2011 run-stats-2010 run-stats-2009 run-stats-2008 run-stats-2007 run-stats-2006 run-stats-2005 run-stats-2004 run-stats-2003 run-stats-2002 run-stats-2001 run-stats-2000 run-stats-custom run-contributors run-organisations run-organisation-stats run-organisation-stats-2025 run-organisation-stats-2024 run-organisation-stats-2023 run-organisation-stats-2022 run-organisation-stats-2021 run-organisation-stats-2020 run-organisation-stats-2019 run-organisation-stats-2018 run-organisation-stats-2017 run-organisation-stats-2016 run-organisation-stats-2015 run-organisation-stats-2014 run-organisation-stats-2013 run-organisation-stats-2012 run-organisation-stats-2011 run-organisation-stats-2010 run-organisation-stats-2009 run-organisation-stats-2008 run-organisation-stats-2007 run-organisation-stats-2006 run-organisation-stats-2005 run-organisation-stats-2004 run-organisation-stats-2003 run-organisation-stats-2002 run-organisation-stats-2001 run-organisation-stats-2000 run-plips run-plip-organisations analyze-independent three-year-summary ten-year-summary flourish-graph-organisation-contributors-csv-file flourish-graph-individual-contributors-csv-file generate-report setup dev-setup lint format check test
+.PHONY: help install clean run-stats run-stats-2025 run-stats-2024 run-stats-2023 run-stats-2022 run-stats-2021 run-stats-2020 run-stats-2019 run-stats-2018 run-stats-2017 run-stats-2016 run-stats-2015 run-stats-2014 run-stats-2013 run-stats-2012 run-stats-2011 run-stats-2010 run-stats-2009 run-stats-2008 run-stats-2007 run-stats-2006 run-stats-2005 run-stats-2004 run-stats-2003 run-stats-2002 run-stats-2001 run-stats-2000 run-stats-custom run-contributors run-organisations run-organisation-stats run-organisation-stats-2025 run-organisation-stats-2024 run-organisation-stats-2023 run-organisation-stats-2022 run-organisation-stats-2021 run-organisation-stats-2020 run-organisation-stats-2019 run-organisation-stats-2018 run-organisation-stats-2017 run-organisation-stats-2016 run-organisation-stats-2015 run-organisation-stats-2014 run-organisation-stats-2013 run-organisation-stats-2012 run-organisation-stats-2011 run-organisation-stats-2010 run-organisation-stats-2009 run-organisation-stats-2008 run-organisation-stats-2007 run-organisation-stats-2006 run-organisation-stats-2005 run-organisation-stats-2004 run-organisation-stats-2003 run-organisation-stats-2002 run-organisation-stats-2001 run-organisation-stats-2000 run-plips run-plip-organisations analyze-independent three-year-summary ten-year-summary flourish-graph-organisation-contributors-csv-file flourish-graph-individual-contributors-csv-file generate-report pr-interactions pr-interactions-2025 pr-interactions-2024 pr-interactions-2023 pr-interactions-2022 pr-interactions-2021 pr-interactions-2020 pr-interactions-2019 pr-interactions-2018 pr-interactions-2017 pr-interactions-2016 pr-interactions-2015 pr-interactions-2014 pr-interactions-2013 pr-interactions-2012 pr-interactions-2011 pr-interactions-2010 pr-interactions-2009 pr-interactions-2008 pr-interactions-2007 pr-interactions-2006 pr-interactions-2005 setup dev-setup lint format check test
 
 # Default target
 help:
@@ -78,6 +78,28 @@ help:
 	@echo "  flourish-graph-organisation-contributors-csv-file Generate organization CSV for Flourish visualization"
 	@echo "  flourish-graph-individual-contributors-csv-file Generate individual contributors CSV for Flourish visualization"
 	@echo "  generate-report   Generate comprehensive contributor and organization report"
+	@echo "  pr-interactions   Extract pull request comments and interactions from GitHub"
+	@echo "  pr-interactions-2025 Extract pull request comments and interactions for 2025"
+	@echo "  pr-interactions-2024 Extract pull request comments and interactions for 2024"
+	@echo "  pr-interactions-2023 Extract pull request comments and interactions for 2023"
+	@echo "  pr-interactions-2022 Extract pull request comments and interactions for 2022"
+	@echo "  pr-interactions-2021 Extract pull request comments and interactions for 2021"
+	@echo "  pr-interactions-2020 Extract pull request comments and interactions for 2020"
+	@echo "  pr-interactions-2019 Extract pull request comments and interactions for 2019"
+	@echo "  pr-interactions-2018 Extract pull request comments and interactions for 2018"
+	@echo "  pr-interactions-2017 Extract pull request comments and interactions for 2017"
+	@echo "  pr-interactions-2016 Extract pull request comments and interactions for 2016"
+	@echo "  pr-interactions-2015 Extract pull request comments and interactions for 2015"
+	@echo "  pr-interactions-2014 Extract pull request comments and interactions for 2014"
+	@echo "  pr-interactions-2013 Extract pull request comments and interactions for 2013"
+	@echo "  pr-interactions-2012 Extract pull request comments and interactions for 2012"
+	@echo "  pr-interactions-2011 Extract pull request comments and interactions for 2011"
+	@echo "  pr-interactions-2010 Extract pull request comments and interactions for 2010"
+	@echo "  pr-interactions-2009 Extract pull request comments and interactions for 2009"
+	@echo "  pr-interactions-2008 Extract pull request comments and interactions for 2008"
+	@echo "  pr-interactions-2007 Extract pull request comments and interactions for 2007"
+	@echo "  pr-interactions-2006 Extract pull request comments and interactions for 2006"
+	@echo "  pr-interactions-2005 Extract pull request comments and interactions for 2005"
 	@echo "  clean             Clean up generated files"
 	@echo "  lint              Run code linting"
 	@echo "  format            Format Python code"
@@ -345,6 +367,94 @@ flourish-graph-individual-contributors-csv-file:
 # Generate comprehensive contributor and organization report
 generate-report:
 	python generate_contributor_report.py
+
+# Extract pull request comments and interactions from GitHub
+pr-interactions:
+	python plone_pr_interactions.py
+
+# Extract pull request comments and interactions for 2025
+pr-interactions-2025:
+	python plone_pr_interactions.py --year 2025
+
+# Extract pull request comments and interactions for 2024
+pr-interactions-2024:
+	python plone_pr_interactions.py --year 2024
+
+# Extract pull request comments and interactions for 2023
+pr-interactions-2023:
+	python plone_pr_interactions.py --year 2023
+
+# Extract pull request comments and interactions for 2022
+pr-interactions-2022:
+	python plone_pr_interactions.py --year 2022
+
+# Extract pull request comments and interactions for 2021
+pr-interactions-2021:
+	python plone_pr_interactions.py --year 2021
+
+# Extract pull request comments and interactions for 2020
+pr-interactions-2020:
+	python plone_pr_interactions.py --year 2020
+
+# Extract pull request comments and interactions for 2019
+pr-interactions-2019:
+	python plone_pr_interactions.py --year 2019
+
+# Extract pull request comments and interactions for 2018
+pr-interactions-2018:
+	python plone_pr_interactions.py --year 2018
+
+# Extract pull request comments and interactions for 2017
+pr-interactions-2017:
+	python plone_pr_interactions.py --year 2017
+
+# Extract pull request comments and interactions for 2016
+pr-interactions-2016:
+	python plone_pr_interactions.py --year 2016
+
+# Extract pull request comments and interactions for 2015
+pr-interactions-2015:
+	python plone_pr_interactions.py --year 2015
+
+# Extract pull request comments and interactions for 2014
+pr-interactions-2014:
+	python plone_pr_interactions.py --year 2014
+
+# Extract pull request comments and interactions for 2013
+pr-interactions-2013:
+	python plone_pr_interactions.py --year 2013
+
+# Extract pull request comments and interactions for 2012
+pr-interactions-2012:
+	python plone_pr_interactions.py --year 2012
+
+# Extract pull request comments and interactions for 2011
+pr-interactions-2011:
+	python plone_pr_interactions.py --year 2011
+
+# Extract pull request comments and interactions for 2010
+pr-interactions-2010:
+	python plone_pr_interactions.py --year 2010
+
+# Extract pull request comments and interactions for 2009
+pr-interactions-2009:
+	python plone_pr_interactions.py --year 2009
+
+# Extract pull request comments and interactions for 2008
+pr-interactions-2008:
+	python plone_pr_interactions.py --year 2008
+
+# Extract pull request comments and interactions for 2007
+pr-interactions-2007:
+	python plone_pr_interactions.py --year 2007
+
+# Extract pull request comments and interactions for 2006
+pr-interactions-2006:
+	python plone_pr_interactions.py --year 2006
+
+# Extract pull request comments and interactions for 2005
+pr-interactions-2005:
+	python plone_pr_interactions.py --year 2005
 
 # Clean generated files
 clean:

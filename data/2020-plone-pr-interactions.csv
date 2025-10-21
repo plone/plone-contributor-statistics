@@ -1,0 +1,468 @@
+repo,pr_number,title,author,created_at,merged_at,state,merged,issue_comments_count,review_comments_count,reviews_count,total_comments,participants_count,reviewers_count,commenters_count,approved_reviews,changes_requested_reviews,comment_reviews,reactions_total,first_response_time
+plone/plone.schemaeditor,79,Avoid a deprecation warning,gforcada,2020-08-10T19:28:15Z,,closed,False,5,0,0,5,3,0,3,0,0,0,2,0.0016666666666666668
+plone/plone.schemaeditor,80,Fixed deprecation warning for ObjectEvent.,mauritsvanrees,2020-08-24T22:47:35Z,2020-08-25T07:22:02Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.schemaeditor,77,Fixes #76 - Restapi Fields vocabulary,avoinea,2020-05-27T17:52:46Z,2020-06-19T13:07:56Z,closed,True,7,0,1,7,3,1,3,1,0,0,0,0.001388888888888889
+plone/plone.schemaeditor,78,Restapi fields vocabulary 2.x,avoinea,2020-05-27T17:56:26Z,2020-06-19T13:08:13Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.schemaeditor,75,make work with zope.interface >= 5,jensens,2020-03-20T13:49:49Z,2020-03-20T22:24:55Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.0016666666666666668
+plone/plone.schemaeditor,67,Default to a 4K x 4K browser window in Robot tests,Rotonen,2019-05-14T09:24:45Z,2020-03-18T11:26:00Z,closed,True,5,0,0,5,4,0,4,0,0,0,0,0.0019444444444444444
+plone/plone.schemaeditor,51,remove unnecessary test layer,davisagli,2017-02-17T06:37:41Z,,closed,False,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.schemaeditor,60,Python3,pbauer,2018-06-14T21:57:49Z,2018-09-19T11:30:22Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.schemaeditor,74,Fix broken import from p.a.z3cform and remove BBB,jensens,2020-03-16T18:18:17Z,2020-03-17T09:46:22Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,0.0016666666666666668
+plone/plone.recipe.zope2instance,159,WSGI: use NullHandler when access-log = 'disable',tschorr,2020-09-29T14:39:22Z,2020-10-29T15:31:01Z,closed,True,3,0,1,3,3,1,3,1,0,0,1,0.001388888888888889
+plone/plone.recipe.zope2instance,114,Fix disabling the access-log when using wsgi,pbauer,2019-05-21T13:41:32Z,,closed,False,2,0,1,2,4,1,2,0,0,1,0,0.0016666666666666668
+plone/plone.recipe.zope2instance,156,Add `max_request_body_size` option,mpeeters,2020-09-17T15:15:14Z,2020-09-21T09:54:32Z,closed,True,5,1,3,6,4,2,4,2,0,1,0,0.001388888888888889
+plone/plone.recipe.zope2instance,154,"Added option clear-untrusted-proxy-headers, with default false.",mauritsvanrees,2020-09-16T22:00:03Z,2020-09-17T07:24:06Z,closed,True,3,0,1,3,4,1,3,1,0,0,0,0.001388888888888889
+plone/plone.recipe.zope2instance,153,Fix typo in change log entry,icemac,2020-09-04T06:26:31Z,2020-09-04T07:15:24Z,closed,True,1,0,1,1,3,1,1,1,0,0,0,0.001388888888888889
+plone/plone.recipe.zope2instance,150,Add Github Actions Testing on Linux/Windows - fix tests for Windows,jensens,2020-08-10T10:10:50Z,2020-08-18T12:23:24Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.0016666666666666668
+plone/plone.recipe.zope2instance,151,first quick shot to improve the windows install ,jensens,2020-08-14T08:10:46Z,2020-08-16T11:15:29Z,closed,True,3,2,1,5,3,1,3,1,0,0,0,0.0016666666666666668
+plone/plone.recipe.zope2instance,149,WSGI instances do not fail to start when http-address is equal to a l…,ale-rt,2020-08-04T22:55:58Z,2020-08-05T08:16:10Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.0016666666666666668
+plone/plone.recipe.zope2instance,147,fast-listen support multiple addresses,ale-rt,2020-08-03T13:22:57Z,2020-08-03T22:37:43Z,closed,True,3,0,1,3,4,1,3,1,0,0,0,0.0016666666666666668
+plone/plone.recipe.zope2instance,145,Generate raw strings in order to allow windows backslashes in paths,jensens,2020-07-31T14:34:53Z,2020-07-31T18:55:25Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.001388888888888889
+plone/plone.recipe.zope2instance,143,Set the default for the http-fast-listen to on to match the documentation,ale-rt,2020-07-28T09:00:41Z,2020-07-28T18:29:07Z,closed,True,9,0,2,9,3,1,3,1,1,0,0,0.001388888888888889
+plone/plone.recipe.zope2instance,140,Fix flake8,ale-rt,2020-06-26T14:03:08Z,2020-06-27T09:46:40Z,closed,True,2,2,3,4,3,2,3,1,1,1,0,0.001388888888888889
+plone/plone.recipe.zope2instance,137,Test Python 3.8 on Travis.,mauritsvanrees,2020-04-04T18:26:42Z,2020-04-06T06:11:08Z,closed,True,1,0,1,1,3,1,1,1,0,0,0,0.001388888888888889
+plone/plone.recipe.zope2instance,136,Fix formatting,jugmac00,2020-03-23T12:46:40Z,2020-03-23T17:27:26Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.001388888888888889
+plone/plone.recipe.zope2instance,132,relstorage w/ sqlite support,mamico,2020-01-28T13:35:28Z,2020-02-24T14:46:39Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.0019444444444444444
+plone/plone.recipe.zope2instance,135,New zope options,dataflake,2020-02-17T15:25:36Z,2020-02-18T09:03:33Z,closed,True,6,0,1,6,3,1,3,1,0,0,0,0.0016666666666666668
+plone/plone.app.standardtiles,107,Allow to use collection query parameters from context.,agitator,2020-05-08T11:50:30Z,2020-05-19T12:50:38Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.caching,66,cache plone.restapi and introduce a terse dynamic content short time cache,jensens,2020-10-09T11:20:49Z,2020-12-03T15:07:36Z,closed,True,11,1,2,12,4,2,4,1,0,1,2,0.0011111111111111111
+plone/plone.app.caching,68,Remove traces of Archetypes,pbauer,2020-11-22T18:44:42Z,2020-11-28T13:20:15Z,closed,True,3,0,0,3,3,0,3,0,0,0,0,0.001388888888888889
+plone/plone.app.caching,59,Do not assume request URL is a string. It might be None.,jensens,2020-08-28T09:23:11Z,2020-10-09T11:16:17Z,closed,True,8,0,1,8,4,1,3,1,0,0,0,0.0011111111111111111
+plone/plone.app.caching,49,Fix controlpanel for Python 3,petschki,2019-04-01T22:19:11Z,2019-04-05T07:19:24Z,closed,True,13,0,1,13,4,1,3,1,0,0,1,0.001388888888888889
+plone/plone.app.caching,40,Imports are Python3 compatible.,b4oshany,2017-10-22T14:17:24Z,2018-01-27T09:03:07Z,closed,True,0,0,2,0,3,2,0,1,0,0,0,0.8966666666666666
+plone/plone.app.caching,64,Remove hopelessly outdated proxy config examples,jensens,2020-10-07T12:47:18Z,2020-10-07T12:51:25Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.001388888888888889
+plone/plone.app.caching,62,Fixed invalid escape sequences.,mauritsvanrees,2020-09-10T16:01:24Z,2020-09-11T06:47:14Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.app.caching,60,Improved installation documentation.,mauritsvanrees,2020-09-01T15:54:28Z,2020-09-04T10:37:30Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.001388888888888889
+plone/plone.app.caching,58,If range support,mamico,2020-05-20T03:04:03Z,2020-06-24T07:22:28Z,closed,True,2,0,2,2,4,2,2,2,0,0,0,0.0011111111111111111
+plone/plone.app.caching,55,Purging image scales of behavior fields,ksuess,2020-01-07T12:35:26Z,2020-01-23T09:58:26Z,closed,True,6,4,4,10,5,3,5,0,0,4,2,0.0019444444444444444
+plone/plone.scale,36, New ``mode`` argument replacing ``direction``,thet,2020-02-10T10:34:21Z,,closed,False,6,19,16,25,4,3,4,3,0,13,0,0.0016666666666666668
+plone/plone.scale,39,"New ``mode`` argument replacing ``direction``, Calculate scaled dimensions",thet,2020-02-17T11:41:17Z,2020-02-17T16:59:25Z,closed,True,6,1,2,7,3,2,3,0,0,2,3,0.001388888888888889
+plone/plone.scale,37,Calculate scaled dimensions,fschulze,2020-02-12T09:33:03Z,,closed,False,6,5,2,11,3,2,3,0,0,2,0,0.0022222222222222222
+plone/plone.scale,29,New ``mode`` argument replacing ``direction``,fschulze,2017-09-19T10:48:10Z,,closed,False,12,0,0,12,3,0,3,0,0,0,0,384.1227777777778
+plone/plone.app.relationfield,31,Refs #30 - Fix tests to match plone.dexterity dynamic schema name,avoinea,2020-10-07T20:28:43Z,2020-10-08T09:40:40Z,closed,True,3,0,1,3,3,1,3,1,0,0,0,0.0011111111111111111
+plone/plone.app.z3cform,119,Make radio buttons use Bootstrap 4 markup,balavec,2020-10-28T15:00:35Z,2020-10-28T15:04:00Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,0.055
+plone/plone.app.z3cform,118,Prettify rst docs,balavec,2020-10-28T12:43:10Z,2020-10-28T13:34:32Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,0.8536111111111111
+plone/plone.app.z3cform,117,Fixed repeat syntax in multi input to also work in Zope 4.5.,mauritsvanrees,2020-08-21T10:09:33Z,2020-08-21T14:02:18Z,closed,True,4,0,0,4,4,0,4,0,0,0,0,0.001388888888888889
+plone/plone.app.z3cform,96,Fix tests,pbauer,2018-10-14T10:00:41Z,2018-10-14T11:54:02Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.z3cform,115,Fix message type like Error not translated in add form,vincentfretin,2020-06-29T13:11:59Z,2020-06-29T15:00:02Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.app.z3cform,112,add test for new displaytemplate for relationfields,pbauer,2020-03-24T08:24:46Z,2020-03-24T12:05:23Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.app.z3cform,111,Add template to display related items,pbauer,2020-03-21T09:36:12Z,2020-03-24T08:17:05Z,closed,True,3,6,7,9,3,2,3,1,0,6,0,0.001388888888888889
+plone/plone.rest,111,make update,tisto,2020-09-25T23:15:56Z,,closed,False,1,0,0,1,2,0,1,0,0,0,0,0.0011111111111111111
+plone/plone.rest,114,Gh actions,tisto,2020-12-20T08:37:02Z,2020-12-20T12:28:02Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.001388888888888889
+plone/plone.rest,108,Improvement to docs: includes example of how to access a payload from an HTTP POST,pigeonflight,2020-09-25T19:07:17Z,,closed,False,1,0,0,1,2,0,1,0,0,0,0,0.0016666666666666668
+plone/plone.rest,72,failing test to simulate themeFileUpload issue #59,djay,2018-02-16T09:13:59Z,,closed,False,4,0,0,4,2,0,2,0,0,0,0,5123.497777777778
+plone/plone.rest,102,CORS preflight should happen for all error codes,sneridagh,2020-03-22T16:20:09Z,2020-03-22T20:02:19Z,closed,True,5,0,1,5,3,1,2,1,0,0,0,0.001388888888888889
+plone/plone.rest,103,Fix Travis build,tisto,2020-03-22T19:00:59Z,2020-03-22T19:50:55Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.0016666666666666668
+plone/plone.namedfile,94,Backport #86 range support to Plone 5.1,fredvd,2020-05-25T14:47:59Z,2020-08-04T22:38:42Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,0.0016666666666666668
+plone/plone.namedfile,86,Range Support,mamico,2020-01-07T17:24:14Z,2020-05-23T14:35:17Z,closed,True,15,0,1,15,6,1,5,0,1,0,2,0.0016666666666666668
+plone/plone.namedfile,92,Fix image scaling to return the originals when no scaling is required,datakurre,2020-04-23T18:33:20Z,2020-04-30T08:51:40Z,closed,True,32,0,3,32,6,3,6,3,0,0,4,0.001388888888888889
+plone/plone.namedfile,91,Change to use field value _p_mtime instead of context object _p_mtime…,datakurre,2020-04-20T19:26:09Z,2020-04-21T13:43:58Z,closed,True,7,0,2,7,6,2,5,2,0,0,1,0.001388888888888889
+plone/plone.namedfile,90,Removed Travis files.,mauritsvanrees,2020-04-16T23:58:40Z,2020-04-19T18:12:48Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.001388888888888889
+plone/plone.namedfile,88,Fix unclosed file error,tisto,2020-04-05T21:14:57Z,2020-04-14T01:30:13Z,closed,True,4,3,4,7,3,2,3,1,0,3,0,0.0011111111111111111
+plone/plone.namedfile,87,"Implement the handling of SVG files before passing it to Pillow, fixe…",sneridagh,2020-03-10T12:24:09Z,2020-03-13T15:05:49Z,closed,True,8,6,7,14,3,2,3,2,0,5,1,0.0019444444444444444
+plone/plone.app.iterate,80,Fixed deprecation warning for IObjectEvent.,mauritsvanrees,2020-09-03T20:09:41Z,2020-09-04T10:25:17Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.0011111111111111111
+plone/plone.app.iterate,78,Make sure relationship between baseline and wc is removed when wc is removed,frapell,2020-07-29T19:02:42Z,2020-09-02T16:18:42Z,closed,True,9,0,1,9,5,1,4,1,0,0,0,0.001388888888888889
+plone/plone.app.iterate,79,Fix startup warnings,mauritsvanrees,2020-08-25T16:07:49Z,2020-08-26T08:20:28Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.app.iterate,76,Backport PR #55 to 3.2.x branch,instification,2020-02-12T14:41:26Z,2020-02-14T14:57:49Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,46.87611111111111
+plone/Plone,19,Update README.rst,fulv,2020-08-20T01:10:35Z,2020-08-20T13:03:46Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,11.884166666666667
+plone/Products.CMFPlacefulWorkflow,34,Fix deprecation warning at startup for setDefaultRoles.,mauritsvanrees,2020-08-22T08:45:06Z,2020-08-24T20:09:13Z,closed,True,6,0,0,6,3,0,3,0,0,0,0,0.0011111111111111111
+plone/Products.CMFPlacefulWorkflow,32,Fixed ModuleNotFoundError: No module named 'App.class_init' in Zope 5.,mauritsvanrees,2020-02-12T10:41:57Z,2020-02-14T13:26:38Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.0025
+plone/Products.CMFPlacefulWorkflow,30,Remove test of plone.app.discussion workflows. ,ksuess,2019-12-09T12:01:18Z,,closed,False,3,0,0,3,2,0,2,0,0,0,0,0.0022222222222222222
+plone/Products.PortalTransforms,42,Fixed invalid escape sequences.,mauritsvanrees,2020-09-10T15:39:09Z,2020-09-10T20:06:37Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.01888888888888889
+plone/Products.PortalTransforms,41,Fixed deprecation warning for DocumentTemplate.DT_Util.html_quote.,mauritsvanrees,2020-08-22T08:55:30Z,2020-08-24T09:15:04Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.0011111111111111111
+plone/Products.PortalTransforms,30,Move configuration of markdown in PortalTransforms from ZMI to registry,pabo3000,2018-03-23T12:10:04Z,2020-04-09T11:16:01Z,closed,True,4,0,1,4,3,1,1,1,0,0,0,17927.84888888889
+plone/Products.MimetypesRegistry,18,Fixed invalid escape sequences.,mauritsvanrees,2020-09-09T21:15:13Z,2020-09-10T08:54:11Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/Products.CMFDiffTool,38,Fixed invalid escape sequences.,mauritsvanrees,2020-09-10T16:21:29Z,2020-09-10T20:06:47Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.0011111111111111111
+plone/Products.isurlinportal,3,Support Python 3.8,tschorr,2020-08-18T10:45:00Z,2020-08-18T14:08:42Z,closed,True,5,3,4,8,2,2,2,1,1,2,0,1.3322222222222222
+plone/plone.alterego,6,Unify Python versions in setup.py and Travis.,mauritsvanrees,2020-04-16T23:13:56Z,2020-04-19T18:09:40Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.001388888888888889
+plone/plone.app.content,215,Remove compatibility code for Archetypes and older Pythons and Plones,mauritsvanrees,2020-09-30T14:52:12Z,2020-09-30T16:08:19Z,closed,True,1,0,1,1,2,1,1,1,0,0,0,1.2663888888888888
+plone/plone.app.content,213,Add folder_publish browser view.,mauritsvanrees,2020-09-26T01:15:35Z,2020-09-28T16:04:25Z,closed,True,1,0,1,1,2,1,1,1,0,0,0,62.79972222222222
+plone/plone.app.content,210,Avoid a deprecation warning,gforcada,2020-08-10T19:15:33Z,,closed,False,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.app.content,211,Fixed deprecation warning for IFieldPermissionChecker.,mauritsvanrees,2020-08-24T22:40:39Z,2020-08-25T09:35:52Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.app.content,208,Pass default_page_types to allow respecting that in folder_contents,pbauer,2020-07-30T11:11:33Z,2020-07-31T13:59:01Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.0011111111111111111
+plone/plone.app.content,209,backport https://github.com/plone/plone.app.content/pull/208,pbauer,2020-08-06T07:38:30Z,2020-08-06T11:44:49Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.0011111111111111111
+plone/plone.app.content,207,Expose the actual workflow state's title properly localized.,erral,2020-07-08T12:54:05Z,,open,False,1,0,0,1,2,0,1,0,0,0,0,0.0016666666666666668
+plone/plone.app.content,206,Expose pickadate pattern options in property editing template,erral,2020-07-06T10:22:51Z,2020-07-06T15:46:12Z,closed,True,3,1,2,4,3,1,3,1,1,0,0,0.001388888888888889
+plone/plone.app.content,205,Pass messages from translate method to get them translated in JSON results used later by folder_contents view,erral,2020-07-03T08:46:04Z,2020-07-03T10:59:39Z,closed,True,7,1,2,8,3,1,3,2,0,0,2,0.0016666666666666668
+plone/plone.app.content,203,consume the metadatafields vocabulary for translated columns,vincentfretin,2020-06-29T18:22:51Z,2020-06-30T14:28:02Z,closed,True,3,6,7,9,2,2,2,1,0,6,0,13.189166666666667
+plone/plone.app.content,202,Fix i18n of Save and Cancel buttons and the constrain types select values,vincentfretin,2020-06-29T11:30:53Z,2020-06-29T13:08:49Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.0030555555555555557
+plone/plone.app.content,199,Do not break with unknown MIME types,ale-rt,2020-05-25T13:01:48Z,2020-05-26T12:13:42Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.app.content,195,Integrate Plone20200121 hotfix: prevent XSS in title. [3.5.x],mauritsvanrees,2020-03-03T21:04:07Z,2020-03-04T07:08:39Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.0016666666666666668
+plone/plone.app.content,193,Integrate Plone20200121 hotfix: prevent XSS in title. [master],mauritsvanrees,2020-02-11T15:54:40Z,2020-02-27T15:51:52Z,closed,True,5,0,0,5,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.app.content,192,Fix UnicodeError when there are non ascii chars in workflow state title.,busykoala,2020-01-14T12:41:25Z,2020-01-16T09:02:42Z,closed,True,9,0,0,9,4,0,4,0,0,0,0,0.0019444444444444444
+plone/plone.app.content,191,Fix unicode error.,busykoala,2020-01-07T13:16:15Z,2020-01-16T09:00:51Z,closed,True,5,0,0,5,3,0,3,0,0,0,0,164.30583333333334
+plone/plone.app.contentrules,61,Add the proper towncrier extension,ale-rt,2020-12-12T14:10:42Z,2020-12-15T22:27:16Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.0011111111111111111
+plone/plone.app.contentrules,60,Simplify test setup by using the MOCK_MAILHOST_FIXTURE,ale-rt,2020-12-11T16:48:41Z,2020-12-11T22:41:24Z,closed,True,4,0,2,4,4,2,3,2,0,0,0,0.001388888888888889
+plone/plone.app.contentrules,56,Fixed test failures on Python 3 with Products.MailHost 4.10.,mauritsvanrees,2020-09-18T12:49:06Z,2020-09-25T14:41:20Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.001388888888888889
+plone/plone.app.contentrules,57,"Backport ""fix genericsetup export with complex properties"" to 4.0",JeffersonBledsoe,2020-09-21T20:25:10Z,2020-09-23T08:13:10Z,closed,True,11,0,0,11,4,0,4,0,0,0,1,0.001388888888888889
+plone/plone.app.contentrules,55,Fix deprecation warnings for zope.site.hooks and IObjectEvent,mauritsvanrees,2020-09-03T20:31:54Z,2020-09-04T10:25:43Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.app.contentrules,54,Fixed deprecation warning for ComponentLookupError.,mauritsvanrees,2020-08-26T22:00:27Z,2020-08-26T23:41:25Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.0011111111111111111
+plone/plone.app.contentlisting,32,Add CI,gotcha,2019-12-10T11:53:31Z,2019-12-10T11:57:44Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,6264.314722222222
+plone/plone.app.contentlisting,35,Fixed deprecation warning for LazyCat/LazyMap.,mauritsvanrees,2020-08-27T00:39:10Z,2020-08-27T11:53:15Z,closed,True,3,0,1,3,3,1,3,1,0,0,0,0.0011111111111111111
+plone/plone.app.contentmenu,29,fix state icon position in toolbar when no permission,vincentfretin,2020-07-08T14:00:50Z,2020-07-09T08:17:32Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.app.contentmenu,28,Removed spaces around pipes in templates.,mauritsvanrees,2020-03-27T13:43:50Z,,closed,False,4,0,0,4,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.app.dexterity,320,Fix the constraint types mode calculation,ale-rt,2020-12-12T09:48:32Z,2020-12-12T14:55:37Z,closed,True,7,0,2,7,4,2,4,1,0,1,1,0.0011111111111111111
+plone/plone.app.dexterity,317,"Modeleditor: do not resolve entities, to avoid xml vulnerabilities",mauritsvanrees,2020-11-16T10:45:53Z,2020-11-16T20:17:36Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.0016666666666666668
+plone/plone.app.dexterity,316,Fix schema tests by waiting longer so the schema is invalidated.,mauritsvanrees,2020-10-12T20:07:28Z,2020-10-13T06:58:38Z,closed,True,4,0,0,4,2,0,2,0,0,0,0,0.0016666666666666668
+plone/plone.app.dexterity,315,2.0.x - Fix tests to match plone.dexterity dynamic schema name,avoinea,2020-10-09T13:18:35Z,2020-10-09T17:21:45Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.app.dexterity,314,Refs #313 - Fix tests to match plone.dexterity dynamic schema name,avoinea,2020-10-05T12:05:28Z,2020-10-05T14:17:38Z,closed,True,3,1,3,4,3,1,3,2,0,1,0,0.001388888888888889
+plone/plone.app.dexterity,311,Let creatorsDefault return None for anonymous user (fixes plone/plone.app.vocabularies/issues/59),fulv,2020-08-06T03:47:52Z,,open,False,3,0,0,3,4,0,3,0,0,0,0,0.0016666666666666668
+plone/plone.app.dexterity,312,Do not require nextPreviousEnabled.,pbauer,2020-09-08T13:40:28Z,2020-09-08T14:59:21Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.app.dexterity,309,Make sure getNextItem/getPreviousItem return None if position can not…,tisto,2020-04-15T06:21:10Z,2020-04-15T15:59:21Z,closed,True,9,4,6,13,4,3,3,2,0,4,1,0.0011111111111111111
+plone/plone.app.discussion,172,Fix tests with Products.MailHost 4.10.,mauritsvanrees,2020-09-23T13:30:16Z,2020-09-25T14:41:30Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.0011111111111111111
+plone/plone.app.discussion,171,close input tag in moderation.pt,vincentfretin,2020-06-28T12:10:35Z,2020-06-29T08:58:05Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.0011111111111111111
+plone/plone.app.discussion,170,use label_save instead of edit_comment_form_button for the Save button,vincentfretin,2020-06-18T09:49:11Z,2020-06-18T11:05:33Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.0016666666666666668
+plone/plone.app.discussion,168,Fix test for Plone > 5,tschorr,2020-02-11T17:51:25Z,2020-02-12T13:18:44Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.005277777777777778
+plone/plone.app.discussion,165,"Comments moderation: Additional workflow with states pending, approved, rejected and spam",ksuess,2019-12-05T21:04:16Z,,closed,False,7,3,3,10,4,2,4,0,0,3,0,0.0016666666666666668
+plone/five.intid,18,support for zope.interface >= 5.1,jensens,2020-04-26T17:06:00Z,2020-04-27T06:22:44Z,closed,True,3,0,1,3,3,1,2,1,0,0,0,0.001388888888888889
+plone/five.intid,16,Fixed ModuleNotFoundError: No module named 'App.class_init' on Zope 5.,mauritsvanrees,2020-02-12T10:56:11Z,2020-02-14T13:27:12Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.0016666666666666668
+plone/plone.app.portlets,130,fix review portlet when show on the portal-root,pbauer,2019-08-11T07:40:50Z,2019-11-28T09:44:48Z,closed,True,2,0,1,2,4,1,2,1,0,0,0,0.001388888888888889
+plone/plone.app.portlets,129,Fixes for exception raised in navigation portlet by File with unknown content-type in mime registry,zopyx,2019-06-09T06:57:59Z,2020-09-15T13:52:45Z,closed,True,5,0,0,5,4,0,4,0,0,0,0,0.0016666666666666668
+plone/plone.app.portlets,140,Fixed deprecation warning for zope.component IComponentRegistry,mauritsvanrees,2020-08-28T08:41:40Z,2020-08-28T11:16:59Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.001388888888888889
+plone/plone.app.textfield,43,Fixed deprecation warning for ComponentLookupError,mauritsvanrees,2020-08-22T09:24:16Z,2020-08-24T10:30:22Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.app.textfield,39,isort code,thet,2020-01-15T10:18:15Z,2020-01-16T07:54:45Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.0022222222222222222
+plone/plone.app.theming,193,Fail when trying file protocol access in diazo rules,mauritsvanrees,2020-11-16T10:36:55Z,2020-11-16T20:17:19Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.001388888888888889
+plone/plone.app.theming,192,Fixed WrongContainedType for hostnameBlackList on Zope 5.,mauritsvanrees,2020-09-23T22:11:34Z,2020-09-24T07:45:18Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.0016666666666666668
+plone/plone.app.theming,191,Fixed deprecation warning for ConfigParser.readfp.,mauritsvanrees,2020-08-24T23:03:43Z,2020-08-25T07:21:33Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.0011111111111111111
+plone/plone.app.theming,189,Fix a missing import,ale-rt,2020-08-01T13:25:07Z,2020-08-01T14:19:09Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.app.theming,188,Fix 187,jensens,2020-07-21T22:46:40Z,2020-07-22T11:24:33Z,closed,True,8,0,2,8,3,1,3,1,1,0,1,0.001388888888888889
+plone/plone.app.theming,186,Internationalized the Custom CSS placeholder,vincentfretin,2020-07-01T13:52:36Z,2020-07-01T15:17:47Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.app.theming,185,I18n fixes,vincentfretin,2020-06-18T09:31:55Z,2020-06-18T11:06:46Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.app.theming,184,"Call processInputs when available, fixing WrongType",mauritsvanrees,2020-06-10T21:41:20Z,2020-06-11T18:31:42Z,closed,True,4,0,2,4,2,1,2,1,0,1,1,0.245
+plone/plone.app.theming,178,Custom css view,MrTango,2020-04-23T07:52:59Z,2020-04-23T15:32:32Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.0016666666666666668
+plone/plone.app.theming,181,Fix #173,petri,2020-05-21T14:27:12Z,2020-05-25T15:53:55Z,closed,True,5,0,0,5,3,0,3,0,0,0,0,0.0011111111111111111
+plone/plone.app.theming,180,Fix error on Py 3 with nonascii subrequest.,mauritsvanrees,2020-04-23T19:40:56Z,2020-05-04T14:04:06Z,closed,True,6,0,1,6,4,1,3,1,0,0,0,0.0016666666666666668
+plone/plone.app.theming,146,Fix creating a new theme in Python 3,pbauer,2018-09-21T13:20:21Z,2018-09-30T22:16:42Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,216.16972222222222
+plone/plone.app.theming,177,Allow diazo bundle without rules,santonelli,2020-04-22T14:30:05Z,2020-04-23T07:45:08Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.0019444444444444444
+plone/plone.app.theming,174,Removed Travis.,mauritsvanrees,2020-04-16T23:27:57Z,2020-04-17T09:25:12Z,closed,True,1,0,1,1,3,1,1,1,0,0,0,0.001388888888888889
+plone/plone.app.theming,172,Do not call processInputs.,mauritsvanrees,2020-02-12T11:32:13Z,2020-02-14T13:30:08Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.0016666666666666668
+plone/plone.app.workflow,9,sharing view speedup with ldap,chaoflow,2016-04-14T08:36:29Z,,closed,False,4,0,0,4,3,0,3,0,0,0,2,16623.361944444445
+plone/plone.app.workflow,23,Fixed deprecation warning for zope.site.hooks.,mauritsvanrees,2020-09-03T20:49:46Z,2020-09-04T07:19:13Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.0011111111111111111
+plone/plone.app.workflow,22,Fixed deprecation warning for zope.component IComponentRegistry,mauritsvanrees,2020-08-28T08:44:38Z,2020-08-28T09:38:23Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.app.versioningbehavior,52,Avoid traceback when transforming links on content type with no primary field,laulaz,2020-07-21T11:46:04Z,2020-07-22T12:13:30Z,closed,True,2,3,3,5,3,2,3,0,0,3,0,0.001388888888888889
+plone/plone.app.versioningbehavior,50,Change to use filecmp.cmp(shallow=False) instead comparing blobs line by line,datakurre,2020-04-24T19:31:54Z,2020-04-26T23:00:22Z,closed,True,6,0,1,6,3,1,3,1,0,0,0,0.001388888888888889
+plone/plone.app.versioningbehavior,49,Update the documentation,ale-rt,2020-04-01T14:34:50Z,2020-04-09T11:23:28Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.browserlayer,9,Fixed deprecation warning for zope.component IComponentRegistry,mauritsvanrees,2020-08-28T08:36:09Z,2020-08-28T10:38:27Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.001388888888888889
+plone/plone.contentrules,10,Fixed deprecation warning for (I)ObjectEvent from zope.component,mauritsvanrees,2020-09-03T20:25:47Z,2020-09-04T10:25:28Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.event,12,"Unify Python versions in setup.py, tox and Travis.",mauritsvanrees,2020-04-16T23:54:01Z,2020-04-19T18:10:29Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.001388888888888889
+plone/plone.autoform,39,support for zope.interface >= 5,jensens,2020-03-17T16:49:25Z,2020-03-18T07:41:47Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.autoform,38,"Decrease the loglevel of ""Field move to non-existing: ...""",ale-rt,2020-03-03T09:32:42Z,2020-03-03T14:47:51Z,closed,True,5,0,0,5,3,0,3,0,0,0,0,0.0016666666666666668
+plone/plone.folder,15,optimize loop in moveObjectsByDelta,jensens,2020-05-19T12:38:55Z,2020-05-19T18:24:05Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.app.querystring,98,Issue #97 i.e. allow for MultiPath Queries,gogobd,2020-07-01T07:58:16Z,2020-07-14T13:46:32Z,closed,True,11,0,1,11,3,1,3,1,0,0,0,0.0016666666666666668
+plone/plone.app.vocabularies,63,Fixed deprecation warning for zope.site.hooks.,mauritsvanrees,2020-09-03T20:37:13Z,2020-09-04T10:25:52Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.0011111111111111111
+plone/plone.app.vocabularies,62,Add new plone.app.vocabularies.MetadataFields vocabulary,vincentfretin,2020-06-30T08:37:55Z,2020-06-30T11:28:19Z,closed,True,5,0,1,5,3,1,2,1,0,0,1,0.0016666666666666668
+plone/plone.dexterity,143,2.2.x - Refs #136 - Update dynamic schema on all ZEO clients on change,avoinea,2020-10-08T13:58:08Z,2020-10-13T13:21:02Z,closed,True,5,0,1,5,3,1,3,1,0,0,1,0.001388888888888889
+plone/plone.dexterity,142,Restore webdav support when the webdav library is importable,ale-rt,2020-10-05T16:03:58Z,2020-10-06T08:27:00Z,closed,True,4,0,1,4,3,1,2,1,0,0,0,0.0016666666666666668
+plone/plone.dexterity,139,DefaultReadFile properly implements the IStreamIterator interface,ale-rt,2020-10-02T13:18:00Z,2020-10-05T14:31:51Z,closed,True,5,0,1,5,3,1,2,1,0,0,0,0.001388888888888889
+plone/plone.dexterity,107,WIP: Fix lineage recursion,ale-rt,2019-07-05T11:13:05Z,,closed,False,3,0,0,3,2,0,2,0,0,0,0,0.0016666666666666668
+plone/plone.dexterity,140,Use mock from unittest on Python 3,ale-rt,2020-10-05T09:45:51Z,2020-10-05T12:37:58Z,closed,True,3,0,1,3,3,1,2,1,0,0,1,0.0016666666666666668
+plone/plone.dexterity,135,fix to use with fixed zope.interface,jensens,2020-09-30T14:39:08Z,2020-09-30T19:05:29Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.0011111111111111111
+plone/plone.dexterity,132,Removed call of listing macro in content-core view for containers.,mauritsvanrees,2020-09-16T11:56:48Z,2020-09-25T17:33:42Z,closed,True,5,0,0,5,2,0,2,0,0,0,0,0.0011111111111111111
+plone/plone.dexterity,134,Fixed missing ISiteRoot utility when running tests with Zope 5.,mauritsvanrees,2020-09-23T22:34:28Z,2020-09-24T07:52:11Z,closed,True,3,0,0,3,3,0,3,0,0,0,0,0.0011111111111111111
+plone/plone.dexterity,133,Removed zope.interface pin from buildout.cfg.,mauritsvanrees,2020-09-16T12:19:55Z,2020-09-16T12:28:04Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.dexterity,129,Travis: test on Python 3.8.,mauritsvanrees,2020-04-02T22:13:01Z,2020-04-03T09:12:41Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.dexterity,128,Fixed package install error with Python 3.6 without system locale.,mauritsvanrees,2020-03-10T10:40:49Z,2020-03-10T14:12:24Z,closed,True,1,0,1,1,3,1,1,1,0,0,0,0.0019444444444444444
+plone/plone.dexterity,108,WIP: Fix lineage recursion (another attempt),ale-rt,2019-07-05T14:43:15Z,,closed,False,16,0,0,16,7,0,7,0,0,0,3,0.001388888888888889
+plone/plone.dexterity,121,Threadsafe recursion detection backport,pbauer,2019-12-23T09:41:36Z,2020-02-03T14:47:00Z,closed,True,7,0,0,7,4,0,4,0,0,0,0,0.0019444444444444444
+plone/plone.keyring,6,Fixed deprecation warning for zope.component.interfaces.IComponentReg…,mauritsvanrees,2020-08-27T01:14:04Z,2020-08-27T02:26:03Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.memoize,23,isort and other small cleanups,thet,2020-04-19T09:56:48Z,2020-04-19T15:30:36Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.001388888888888889
+plone/plone.memoize,22,Use the global request,ale-rt,2020-04-10T16:11:16Z,2020-04-11T21:16:21Z,closed,True,3,0,1,3,3,1,2,1,0,0,0,0.001388888888888889
+plone/plone.memoize,20,Improve speed when getting resources from the cache,ale-rt,2020-04-10T15:26:08Z,2020-04-11T08:54:25Z,closed,True,5,2,2,7,3,2,3,0,0,2,0,0.001388888888888889
+plone/plone.memoize,18,Make code black,ale-rt,2020-04-10T14:37:13Z,2020-04-11T08:46:54Z,closed,True,3,0,1,3,3,1,2,1,0,0,2,0.001388888888888889
+plone/plone.memoize,16,"Drop 3.4 support, add 3.7, 3.8, PyPy, PyPy3 support.",mauritsvanrees,2020-04-04T17:15:11Z,2020-04-09T11:34:29Z,closed,True,1,0,1,1,3,1,1,1,0,0,0,0.001388888888888889
+plone/plone.intelligenttext,9,"Travis: drop 2.6, add 3.7 and 3.8.",mauritsvanrees,2020-04-02T22:16:01Z,2020-04-04T17:02:37Z,closed,True,1,3,3,4,3,2,3,0,0,3,0,0.001388888888888889
+plone/plone.portlet.static,19,Removed Plone 4 compatibility code.,mauritsvanrees,2020-09-09T21:30:21Z,2020-09-10T10:49:01Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.portlet.static,18,Fixed invalid escape sequence,mauritsvanrees,2020-09-09T21:21:25Z,2020-09-10T08:53:05Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.portlet.static,17,Fixed startup warning for setDefaultRoles.,mauritsvanrees,2020-08-22T09:31:22Z,2020-08-24T10:30:49Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.0011111111111111111
+plone/plone.app.redirector,22,Fix http status of the response,ale-rt,2020-01-08T09:13:28Z,2020-02-26T22:04:48Z,closed,True,14,2,3,16,6,2,6,2,0,1,5,0.0019444444444444444
+plone/plone.behavior,22,Fixed deprecation warning for ComponentLookupError.,mauritsvanrees,2020-08-27T00:27:19Z,2020-08-27T11:56:50Z,closed,True,4,0,1,4,3,1,3,1,0,0,1,0.001388888888888889
+plone/plone.behavior,21,"Unify Python versions in setup.py, tox and Travis.",mauritsvanrees,2020-04-16T23:44:32Z,2020-04-19T18:10:03Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.001388888888888889
+plone/plone.app.registry,41,Fix: Make interface list visible.,jensens,2020-08-26T13:33:19Z,2020-08-26T15:25:38Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.formwidget.namedfile,44,range support,mamico,2020-05-20T02:45:37Z,2020-06-24T09:55:13Z,closed,True,5,0,2,5,4,2,4,2,0,0,0,0.001388888888888889
+plone/plone.resource,30,Fix various warnings,mauritsvanrees,2020-09-16T21:03:29Z,2020-09-18T07:40:17Z,closed,True,3,0,1,3,3,1,2,1,0,0,0,0.001388888888888889
+plone/plone.recipe.zeoserver,44,Fix 42: Removing zodb3 variable,fazalsulaiman,2020-08-13T14:30:36Z,,closed,False,4,0,1,4,3,1,3,0,1,0,0,0.001388888888888889
+plone/plone.recipe.zeoserver,43,"Fix for ""ValueError: Attempted relative import in non-package"" - In windows system",fazalsulaiman,2020-08-13T02:52:26Z,2020-08-13T08:43:03Z,closed,True,9,0,2,9,5,2,5,2,0,0,2,0.001388888888888889
+plone/plone.recipe.zeoserver,41,Removing ZODB3_HOME from runzeo.bat and zeoservice.py.in files,fazalsulaiman,2020-08-07T10:09:07Z,2020-08-13T02:25:08Z,closed,True,10,0,1,10,4,1,3,0,0,1,0,0.0011111111111111111
+plone/plone.recipe.zeoserver,39,Removing ZODB3_HOME from runzeo.bat file,fazalsulaiman,2020-08-07T09:34:49Z,,closed,False,2,0,0,2,2,0,1,0,0,0,0,0.0011111111111111111
+plone/plone.recipe.zeoserver,40,Removed ZODB3 from zeoservice.py.in,fazalsulaiman,2020-08-07T09:38:55Z,,closed,False,2,0,0,2,2,0,1,0,0,0,0,0.0011111111111111111
+plone/plone.recipe.zeoserver,38,Test Python 3.8 on Travis.,mauritsvanrees,2020-04-04T18:24:06Z,2020-04-16T22:19:17Z,closed,True,3,0,1,3,3,1,3,0,0,0,0,0.001388888888888889
+plone/plone.resourceeditor,28,Fixed invalid escape sequences.,mauritsvanrees,2020-09-11T16:10:23Z,2020-09-15T12:49:03Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.001388888888888889
+plone/plone.resourceeditor,27,Do not call processInputs.,mauritsvanrees,2020-02-12T11:24:57Z,2020-02-14T13:27:59Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.0019444444444444444
+plone/plone.app.uuid,9,Fix use case where UID to object is failing,rodfersou,2020-02-02T14:13:07Z,2020-02-04T22:42:16Z,closed,True,8,0,1,8,4,1,4,1,0,0,0,0.0011111111111111111
+plone/plone.app.testing,73,Double check plone.app.folder,ale-rt,2020-10-30T16:08:33Z,2020-11-03T11:20:51Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.app.testing,71,Removed backwards compatibility code for old quickinstaller.,mauritsvanrees,2020-10-02T14:38:11Z,2020-10-02T20:09:24Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.001388888888888889
+plone/plone.app.testing,70,Fixed test failure on Python 3 with Products.MailHost 4.10.,mauritsvanrees,2020-09-18T12:06:34Z,2020-09-25T14:41:02Z,closed,True,4,0,1,4,3,1,2,1,0,0,1,0.001388888888888889
+plone/plone.app.testing,69,there are no Products.ResourceRegistries anymore,jensens,2020-02-22T10:40:58Z,2020-03-09T12:04:02Z,closed,True,4,0,1,4,4,1,3,1,0,0,0,0.001388888888888889
+plone/plone.app.testing,68,fixes for Zope 4.2.1,jensens,2020-02-12T13:16:22Z,2020-02-14T16:39:29Z,closed,True,3,0,1,3,4,1,3,1,0,0,0,0.001388888888888889
+plone/plone.app.testing,67,MockMailHostLayer: clean up the registry on test tear down,ale-rt,2020-02-09T11:50:24Z,2020-02-11T18:18:33Z,closed,True,5,0,1,5,4,1,4,1,0,0,0,0.001388888888888889
+plone/plone.app.testing,64,Fix some test isolation issues,ale-rt,2020-02-04T17:30:37Z,2020-02-07T11:03:24Z,closed,True,8,2,2,10,4,2,4,1,0,1,0,0.001388888888888889
+plone/plone.app.testing,65,Fix travis,ale-rt,2020-02-04T17:39:24Z,2020-02-04T21:32:15Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.001388888888888889
+plone/plone.i18n,21,update to unidecode 1.0.22 and use its features,jensens,2018-01-29T13:41:40Z,,closed,False,2,0,1,2,2,1,1,1,0,0,0,3.0411111111111113
+plone/plone.protect,92,Fixed deprecation warning for webdav.Lockable.LockableItem.,mauritsvanrees,2020-08-27T01:02:04Z,2020-08-27T11:41:57Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.001388888888888889
+plone/plone.protect,91,Remove deprecation warnings,ale-rt,2020-02-15T13:19:12Z,2020-02-15T19:58:48Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.outputfilters,38,Image caption support in Plone 5.1.x,tuticapi,2020-05-22T03:06:09Z,,closed,False,9,0,1,9,3,1,3,0,1,0,1,0.0011111111111111111
+plone/plone.outputfilters,42,Fixed deprecation warning for html_quote.,mauritsvanrees,2020-08-25T16:17:11Z,2020-08-26T08:20:45Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.0011111111111111111
+plone/plone.outputfilters,41,Check for -a- tag in captioned image.,flipmcf,2020-08-13T20:50:35Z,2020-08-19T09:21:34Z,closed,True,3,0,1,3,3,1,3,1,0,0,0,0.0016666666666666668
+plone/plone.outputfilters,36,Image caption support in Plone 5,thet,2019-06-21T13:34:29Z,2020-02-17T14:07:35Z,closed,True,3,2,2,5,4,2,4,0,1,1,0,0.001388888888888889
+plone/plone.subrequest,24,Fixed deprecation warning for zope.site.hooks,mauritsvanrees,2020-08-22T09:15:40Z,2020-08-24T09:15:21Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.app.robotframework,122,Removed backwards compatibility code for old quickinstaller.,mauritsvanrees,2020-10-02T14:42:30Z,2020-10-02T20:09:45Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.001388888888888889
+plone/plone.app.robotframework,121,"Fixed error ""Variable '${CMFPLONE_SELECTORS}' not found"" on Plone 6.",mauritsvanrees,2020-09-23T21:26:11Z,2020-09-24T07:50:32Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.app.robotframework,120,Fixed DeprecationWarning: invalid escape sequence.,mauritsvanrees,2020-09-15T19:48:12Z,2020-09-16T06:59:06Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.0011111111111111111
+plone/plone.app.robotframework,119,Fixed package install error with Python 3.6 without locale.,mauritsvanrees,2020-03-10T16:03:42Z,2020-03-10T17:15:17Z,closed,True,1,0,1,1,3,1,1,1,0,0,0,0.001388888888888889
+plone/plone.testing,76,update `isort` configuration for version 5 of `isort`,jugmac00,2020-07-20T14:28:18Z,2020-07-31T12:41:52Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.001388888888888889
+plone/plone.testing,73,Fix `E902 FileNotFoundError`,jugmac00,2020-05-26T21:32:22Z,2020-06-15T13:09:34Z,closed,True,4,0,1,4,4,1,3,1,0,0,0,0.0011111111111111111
+plone/plone.testing,72,fixes for Zope 4.2.1,jensens,2020-02-12T13:17:22Z,2020-02-14T12:45:45Z,closed,True,2,2,3,4,3,2,3,1,0,2,0,45.09444444444444
+plone/plone.stringinterp,14,Avoid a deprecation warning,gforcada,2020-08-10T19:22:49Z,2020-09-02T16:20:39Z,closed,True,4,0,0,4,4,0,4,0,0,0,0,0.001388888888888889
+plone/plone.supermodel,40,"In the xml parser do not resolve entities, and remove processing instructions.",mauritsvanrees,2020-11-16T10:53:09Z,2020-11-16T20:17:51Z,closed,True,3,0,1,3,3,1,3,1,0,0,0,0.001388888888888889
+plone/plone.supermodel,39,Fix a deprecation warning on a regular expression,ale-rt,2020-05-17T22:06:20Z,2020-05-18T07:26:56Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.supermodel,37,Fix test for Decimal field to be more robust,jensens,2020-04-24T18:30:05Z,2020-04-25T06:52:24Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.supermodel,33,support zope.interface 5.x+ with deferred _v_attrs dict creation,jensens,2020-01-28T15:33:11Z,2020-02-16T23:02:08Z,closed,True,4,0,0,4,2,0,2,0,0,0,0,0.0019444444444444444
+plone/plone.supermodel,36,fixes #34: zope.interface 4.7 support,jensens,2020-02-11T21:21:32Z,2020-02-14T08:37:07Z,closed,True,4,0,1,4,3,1,3,1,0,0,0,0.001388888888888889
+plone/plone.session,21,Only setup a session when the current user is the requested user.,mauritsvanrees,2020-06-17T14:08:22Z,2020-06-19T11:11:36Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.0016666666666666668
+plone/plone.session,20,fix dependency indirection to CMFPlone,jensens,2020-04-17T08:03:45Z,2020-06-17T13:12:45Z,closed,True,6,0,1,6,5,1,4,1,0,0,0,0.0011111111111111111
+plone/plone.schema,8,Refs #7 - Fix JSONField with default values saved to  XML,avoinea,2020-03-16T13:35:12Z,2020-04-02T16:26:23Z,closed,True,12,1,4,13,4,2,3,2,1,1,3,0.0016666666666666668
+plone/guillotina_elasticsearch,77,- Add query options search_type and preference,gitcarbs,2020-10-22T17:47:06Z,2020-10-23T18:49:11Z,closed,True,1,0,1,1,2,1,1,1,0,0,0,25.03361111111111
+plone/guillotina_elasticsearch,76,Changed es_requester fixture to only cleanup indices that match 'index_name_prefix',masipcat,2020-07-09T16:35:29Z,2020-07-10T11:38:10Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,0.03027777777777778
+plone/guillotina_elasticsearch,72,Add setting 'refresh',masipcat,2020-04-21T12:44:27Z,2020-04-24T13:10:08Z,closed,True,1,1,4,2,5,4,2,3,0,1,0,0.07916666666666666
+plone/guillotina_elasticsearch,75,Support both es6 and es7,lferran,2020-05-11T16:20:16Z,2020-05-12T14:47:51Z,closed,True,3,1,3,4,3,2,3,3,0,0,0,0.065
+plone/guillotina_elasticsearch,74,GitHub actions,lferran,2020-05-11T15:03:24Z,2020-05-11T15:19:34Z,closed,True,0,0,2,0,3,2,0,2,0,0,0,0.17027777777777778
+plone/guillotina_elasticsearch,73,"actions, black and isort",lferran,2020-05-11T13:42:48Z,,closed,False,0,0,0,0,1,0,0,0,0,0,0,
+plone/guillotina_elasticsearch,71,"Check code format (black, isort, flake8)",acatlla,2020-03-25T16:38:45Z,2020-03-30T08:53:16Z,closed,True,1,0,1,1,3,1,1,1,0,0,0,0.8219444444444445
+plone/guillotina_elasticsearch,69,Move default settings definition to function `default_settings()`,masipcat,2020-03-19T16:42:24Z,2020-03-25T15:02:52Z,closed,True,2,0,4,2,4,3,1,3,1,0,0,15.330277777777777
+plone/guillotina_elasticsearch,66,Support Elasticsearch 7.0 and Guillotina 6,masipcat,2020-02-27T18:16:33Z,2020-03-12T16:37:42Z,closed,True,1,9,14,10,6,5,5,4,0,10,0,19.81972222222222
+plone/guillotina_elasticsearch,65,Small fixes and improvements,masipcat,2020-02-12T11:11:28Z,2020-02-12T11:50:48Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,0.5833333333333334
+plone/guillotina_elasticsearch,68,Github actions,acatlla,2020-03-03T15:36:54Z,,closed,False,0,0,0,0,1,0,0,0,0,0,0,
+plone/guillotina_elasticsearch,70,Be able to only close indexes on elastic cleanup,lferran,2020-03-20T13:11:13Z,,closed,False,1,0,1,1,3,1,1,1,0,0,0,1.5475
+plone/guillotina_elasticsearch,59,[master] Changed 'query.bool.filter' to use a list instead of a single object,masipcat,2019-09-09T11:11:21Z,,closed,False,0,0,0,0,1,0,0,0,0,0,0,
+plone/guillotina_elasticsearch,67,Move to GitHub actions,acatlla,2020-03-03T14:39:09Z,,closed,False,3,0,0,3,2,0,1,0,0,0,0,0.0016666666666666668
+plone/guillotina_elasticsearch,63,backport parser from master to 3.3.x,jordic,2020-01-17T15:15:51Z,,closed,False,0,7,7,7,4,4,4,0,0,7,0,0.7391666666666666
+plone/plone.api,443,Fixed test failures on Python 3 with Products.MailHost 4.10.,mauritsvanrees,2020-09-18T12:23:41Z,2020-09-25T14:41:11Z,closed,True,5,0,0,5,3,0,3,0,0,0,0,0.001388888888888889
+plone/plone.api,441,Fixed deprecation warning for CMFPlone.interfaces.ILanguageSchema.,mauritsvanrees,2020-09-02T12:54:13Z,2020-09-02T16:08:52Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.api,436,"In tests, use stronger password.",mauritsvanrees,2020-02-13T23:48:57Z,2020-02-18T15:40:59Z,closed,True,6,2,3,8,4,3,4,1,0,2,0,0.0016666666666666668
+plone/plone.docker,146,Sprint2020 update docs,svx,2020-12-12T15:27:56Z,2020-12-12T16:48:22Z,closed,True,2,0,1,2,2,1,2,1,0,0,1,0.07555555555555556
+plone/plone.docker,144,Add find-links and sources parts to custom buildout,pnicolli,2020-11-19T18:06:01Z,2020-12-06T09:39:32Z,closed,True,5,0,2,5,2,1,2,2,0,0,1,89.61916666666667
+plone/plone.docker,137,Enable use in addons,rodfersou,2020-06-30T09:35:47Z,,closed,False,14,2,2,16,3,1,3,0,0,2,9,0.42055555555555557
+plone/plone.docker,136,Fix interaction between plonesite recipe and zeo setup,pnicolli,2020-05-27T21:53:40Z,2020-06-02T13:52:23Z,closed,True,10,0,2,10,2,1,2,1,0,1,2,11.460277777777778
+plone/plone.patternslib,46,register pat-datetime-picker,thet,2020-08-05T11:43:29Z,2020-08-06T12:34:19Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,24.845555555555556
+plone/plone.patternslib,38,Bump lodash from 4.17.11 to 4.17.15 in /src/plone/patternslib/static/components/leaflet.locatecontrol,dependabot[bot],2020-02-27T11:18:00Z,,closed,False,2,0,0,2,2,0,2,0,0,0,0,0.0016666666666666668
+plone/plone.app.upgrade,223,Make sure plone.staticresources is installed,pbauer,2019-12-14T09:35:49Z,2019-12-16T01:34:48Z,closed,True,1,0,1,1,3,1,1,1,0,0,0,0.0016666666666666668
+plone/plone.app.upgrade,211,add empty upgrade-steo to run core-addon upgrades when upgrading,pbauer,2019-06-27T18:25:20Z,,closed,False,3,0,0,3,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.app.upgrade,172,[Do not merge] Require plone.app.imaging because an upgrade profile depends on it,ale-rt,2018-09-22T13:43:40Z,,closed,False,3,0,0,3,1,0,1,0,0,0,0,
+plone/plone.app.upgrade,156,Temporarily removed 5113 profile upgrade step.,mauritsvanrees,2018-04-10T09:47:52Z,,closed,False,3,0,0,3,3,0,3,0,0,0,0,0.3547222222222222
+plone/plone.app.upgrade,138,use safe_unicode,pbauer,2017-09-16T10:35:55Z,2017-09-18T06:33:34Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.upgrade,137,5.1 Upgrade + Fixes,thet,2017-09-13T08:09:46Z,2017-09-16T09:38:19Z,closed,True,0,3,4,3,4,4,3,1,0,3,0,49.589444444444446
+plone/plone.app.upgrade,139,Remove portal_css and portal_js,pbauer,2017-09-18T07:42:46Z,,closed,False,7,0,0,7,5,0,5,0,0,0,0,55.85444444444445
+plone/plone.app.upgrade,74,Add 5.1a2 profile to allow upgrades from Plone 5.1a1,bsuttor,2016-04-22T12:45:06Z,,closed,False,1,0,0,1,2,0,1,0,0,0,0,11853.057222222222
+plone/plone.app.upgrade,242,"Replaced import of plone.api, which should not be used by core.",mauritsvanrees,2020-09-11T12:54:01Z,2020-09-12T18:01:21Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.001388888888888889
+plone/plone.app.upgrade,243,Fixed invalid escape sequence.,mauritsvanrees,2020-09-11T16:23:46Z,2020-09-12T17:59:49Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.001388888888888889
+plone/plone.app.upgrade,250,Improved upgrade step for site_logo from ASCII to Bytes.,mauritsvanrees,2020-11-24T18:11:29Z,2020-11-25T07:16:12Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.0016666666666666668
+plone/plone.app.upgrade,240,Migrate the plone.site_logo field from ASCII (native string) to Bytes.,mauritsvanrees,2020-09-10T21:12:07Z,2020-09-12T17:57:12Z,closed,True,5,0,1,5,4,1,3,1,0,0,3,0.001388888888888889
+plone/plone.app.upgrade,249,Fulv redirect on response,fulv,2020-10-14T07:59:56Z,,open,False,1,0,0,1,2,0,1,0,0,0,0,0.0019444444444444444
+plone/plone.app.upgrade,248,Plone 6: remove quick installer code,mauritsvanrees,2020-10-02T14:44:59Z,2020-10-02T20:10:05Z,closed,True,3,0,1,3,3,1,2,1,0,0,0,0.001388888888888889
+plone/plone.app.upgrade,247,Fix specific issue when upgrading to 4.3.20,frapell,2020-09-22T20:18:30Z,2020-09-23T08:14:21Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.0033333333333333335
+plone/plone.app.upgrade,244,"fix edge case, where relations attributes are missing in catalog",jensens,2020-09-21T15:25:37Z,2020-09-21T20:03:29Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.0011111111111111111
+plone/plone.app.upgrade,239,Plone 5.1.7: Update resource registry last_compilation date.,mauritsvanrees,2020-09-08T07:41:30Z,2020-09-11T12:39:46Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.0011111111111111111
+plone/plone.app.upgrade,238,Fixed deprecation warning for zope.site.hooks.,mauritsvanrees,2020-09-03T20:46:22Z,2020-09-04T07:19:01Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.0011111111111111111
+plone/plone.app.upgrade,237,Catch deprecation warnings for LockItem and ILanguageSchema,mauritsvanrees,2020-08-28T09:39:26Z,2020-08-28T12:18:24Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.0011111111111111111
+plone/plone.app.upgrade,236,Update last_compilation to deliver new bundles (Plone 5.1.7),vincentfretin,2020-08-03T11:23:38Z,2020-08-04T13:47:24Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.001388888888888889
+plone/plone.app.upgrade,235,Fix move dotted to named behaviors,pbauer,2020-06-30T13:16:39Z,2020-06-30T16:06:58Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.app.upgrade,232,Add Upgrade step for Plone 5.1.x,tuticapi,2020-05-22T03:08:51Z,,closed,False,10,6,8,16,4,3,4,3,3,2,0,0.001388888888888889
+plone/plone.app.upgrade,234,Upgrade steps for HTMLFilter defaults,petschki,2020-05-26T13:38:52Z,2020-05-27T05:57:03Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.001388888888888889
+plone/plone.app.upgrade,230,"Add upgrade profiles for v60, including a upgrade step for #3086",MrTango,2020-04-23T11:03:00Z,2020-04-23T15:39:01Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.0019444444444444444
+plone/plone.app.upgrade,229,Add upgrade step for 5.2.2 to migrate markdown transform settings.,thomasmassmann,2020-04-09T04:04:32Z,2020-04-09T11:15:38Z,closed,True,3,0,2,3,4,2,3,2,0,0,0,0.0016666666666666668
+plone/plone.app.upgrade,224,Run upgrade step of plone.app.discussion to apply review workflow changes,ksuess,2020-01-21T17:54:41Z,,closed,False,1,0,1,1,3,1,1,0,1,0,0,0.0030555555555555557
+plone/plone.app.upgrade,226,Add Upgrade step for Plone 5.2.2. Move accidentially merged upgrade s…,thet,2020-02-17T14:32:29Z,2020-02-17T17:08:04Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,0.0016666666666666668
+plone/plone.app.upgrade,209,Allow ``figcaption`` in rich text editor as a valid tag.,thet,2019-06-19T01:04:05Z,2020-02-17T14:14:27Z,closed,True,5,0,0,5,3,0,3,0,0,0,1,0.001388888888888889
+plone/plone.app.upgrade,225,fix problem in remove_interface_indexes_from_relations_catalog ,jensens,2020-02-06T15:42:09Z,2020-02-11T17:45:30Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.0019444444444444444
+plone/plone.app.linkintegrity,78,Fixed deprecation warning for ComponentLookupError.,mauritsvanrees,2020-08-26T22:04:42Z,2020-08-27T09:00:55Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.0011111111111111111
+plone/plone.app.tiles,41,Fixed ModuleNotFoundError: No module named 'App.class_init' on Zope 5.,agitator,2020-09-25T15:55:10Z,2020-09-25T16:49:23Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.tiles,39,Modernize and fix Travis config,mauritsvanrees,2020-08-19T19:49:54Z,2020-08-21T07:57:42Z,closed,True,4,0,0,4,2,0,2,0,0,0,2,1.0422222222222222
+plone/plone.app.tiles,40,Fix losing an image on edit when it is not changed.,mauritsvanrees,2020-08-20T19:54:47Z,2020-08-21T07:59:15Z,closed,True,2,0,0,2,3,0,2,0,0,0,1,0.13833333333333334
+plone/plone.app.tiles,38,Fix for losing not changed data when editing tiles,lyralemos,2020-05-15T14:40:56Z,,closed,False,3,0,1,3,4,1,3,0,1,0,0,0.15
+plone/plone.tiles,32,Fixed deprecation warning for ComponentLookupError.,mauritsvanrees,2020-08-26T23:42:03Z,2020-08-27T12:41:29Z,closed,True,6,0,1,6,4,1,3,1,0,0,0,0.001388888888888889
+plone/plone.tiles,31,Fix Travis,mauritsvanrees,2020-04-17T10:30:36Z,2020-04-19T18:13:49Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,0.0016666666666666668
+plone/plone.z3cform,14,Zope 5 compatibility,ale-rt,2020-05-20T20:15:18Z,2020-05-21T21:37:27Z,closed,True,3,0,1,3,3,1,2,1,0,0,0,0.001388888888888889
+plone/plone.z3cform,11,Travis: test on Python 3.8 as well.,mauritsvanrees,2020-04-17T11:53:42Z,2020-04-17T12:07:43Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.001388888888888889
+plone/plone.z3cform,10,use button lists in crud-table.pt,erral,2020-03-24T15:13:18Z,2020-03-27T08:16:18Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.app.users,95,"Fix setting ""Use site default"" for wysiwyg_editor",pbauer,2020-11-19T16:04:32Z,2020-11-20T06:58:38Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.app.users,94,"Remove unneeded arrow next to Site Setup button in ""Edit Member Form Fields"" controlpanel",vincentfretin,2020-07-06T12:44:49Z,2020-07-06T15:51:08Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.app.users,92,generalize markup in doctest,petschki,2020-04-22T13:38:54Z,2020-04-22T20:39:16Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.001388888888888889
+plone/plone.releaser,37,Support env var to not offer pushing to buildout.coredev,mauritsvanrees,2020-06-24T07:53:56Z,2020-06-24T12:43:10Z,closed,True,3,0,1,3,3,1,2,1,0,0,0,0.001388888888888889
+plone/plone.releaser,33,Ask before pushing an updated version when running 'report'.,mauritsvanrees,2020-03-04T17:22:47Z,2020-03-05T00:34:34Z,closed,True,1,0,2,1,4,2,1,2,0,0,0,0.001388888888888889
+plone/plone.releaser,31,Fixed adding a package to checkouts.cfg.,mauritsvanrees,2020-03-04T13:40:12Z,2020-03-04T15:09:44Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.0022222222222222222
+plone/plone.app.event,322,Give validation error in ical importer when a file:// URL is used.,mauritsvanrees,2020-11-16T16:00:02Z,2020-11-16T20:18:04Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.0016666666666666668
+plone/plone.app.event,320,Fix deprecation warnings in tests: use plone.testing.zope and named behaviors.,mauritsvanrees,2020-09-10T16:48:30Z,2020-09-11T06:47:26Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.0016666666666666668
+plone/plone.app.event,318,Avoid a deprecation warning,gforcada,2020-08-10T19:02:35Z,,closed,False,4,0,0,4,3,0,3,0,0,0,0,0.001388888888888889
+plone/plone.app.event,319,Fixed deprecation warning for setDefaultRoles.,mauritsvanrees,2020-09-01T20:03:18Z,2020-09-02T09:40:46Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone-vs-snippets,11,Add RadioFieldWidget to the available widgets list,erral,2020-03-18T07:41:21Z,2020-03-29T16:40:21Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone-vs-snippets,10,provide examples on how to use checkboxes and radio buttons for multi…,erral,2020-03-16T15:48:22Z,,closed,False,1,0,0,1,1,0,1,0,0,0,0,
+plone/mr.roboto,77,Version bumps,gforcada,2020-01-25T22:12:21Z,2020-01-25T22:53:06Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/mr.roboto,76,feat: use github token authentication,gforcada,2020-01-25T21:17:51Z,2020-01-25T21:25:27Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plonecli,65,"Add virtualenv alias, improve commands filtering",MrTango,2020-11-20T16:48:55Z,2020-11-20T17:06:25Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plonecli,64,Mrtango 2.x,MrTango,2020-11-18T19:48:03Z,2020-11-19T16:52:36Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.formwidget.recaptcha,27,"Format code according to Plone standards: black, isort, zpretty.",thet,2020-04-01T11:07:02Z,2020-04-02T17:23:11Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/diazo,78,"Travis: test on 3.8, not 3.8-dev. Drop 3.4",mauritsvanrees,2020-03-31T09:13:02Z,2020-04-02T21:45:29Z,closed,True,1,0,1,1,3,1,1,1,0,0,0,0.0019444444444444444
+plone/jenkins.plone.org,277,dx-siteroot should use coredev 6.0,jaroel,2020-09-26T16:12:16Z,2020-09-26T19:10:18Z,closed,True,2,0,0,2,1,0,1,0,0,0,0,
+plone/jenkins.plone.org,272,Bump ansible from 2.7.12 to 2.7.16,dependabot[bot],2020-02-26T19:55:33Z,2020-02-27T18:47:46Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.0011111111111111111
+plone/plone.app.widgets,207,Robot tests: Replace deprecated jQuery.size with generic JavaScript.,thet,2020-10-17T07:04:33Z,2020-10-17T19:09:27Z,closed,True,4,0,0,4,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.app.widgets,196,Default to a 4K x 4K browser window in Robot tests,Rotonen,2019-05-14T09:04:35Z,2019-06-19T14:34:58Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.0016666666666666668
+plone/plone.app.widgets,147,WIP: Cleanup options and remove unused ones.,thet,2016-10-06T15:19:33Z,,closed,False,1,0,0,1,2,0,1,0,0,0,0,20815.227777777778
+plone/plone.app.widgets,117,There is no profile to be registered,fulv,2015-10-28T17:31:24Z,,closed,False,5,0,0,5,5,0,4,0,0,0,0,1.0383333333333333
+plone/plone.portlet.collection,23,Fix various warnings,mauritsvanrees,2020-09-16T19:32:36Z,2020-09-16T21:59:33Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.0011111111111111111
+plone/plone.portlet.collection,22,Fixed deprecation warning for setDefaultRoles.,mauritsvanrees,2020-09-01T20:07:31Z,2020-09-02T07:29:45Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/Products.validation,7,fixes #6 - InitializeClass import for Zope 5,jensens,2020-04-24T21:22:11Z,2020-04-25T06:48:40Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.0016666666666666668
+plone/Products.Archetypes,112,Made the bbb_at imports conditional.,mauritsvanrees,2018-09-28T09:26:02Z,2018-09-30T05:19:40Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,35.01444444444444
+plone/Products.Archetypes,99,Remove condition which leads to selected=selected on every option,dhavlik,2017-09-28T07:33:46Z,,closed,False,2,0,0,2,3,0,2,0,0,0,0,2798.9572222222223
+plone/Products.Archetypes,86,fix issue when vocabulary key is utf8 encoded string,gotcha,2017-05-23T14:12:49Z,2017-05-23T14:38:07Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.Archetypes,87,1.9 travis support,gotcha,2017-05-23T14:19:32Z,2017-05-23T14:47:30Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.Archetypes,85,Travis support,gotcha,2017-05-23T13:21:13Z,2017-05-23T14:21:31Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.Archetypes,84,1.10 travis support,gotcha,2017-05-23T13:06:53Z,2017-05-23T14:24:30Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,136,Certbot support using certbot nginx plugin,smcmahon,2020-03-18T22:18:01Z,,open,False,14,9,6,23,4,2,4,0,0,6,1,0.3038888888888889
+plone/ansible-playbook,140,sensible defaults for Python 3,tkimnguyen,2020-05-17T17:36:27Z,2020-05-24T22:13:36Z,closed,True,4,0,0,4,3,0,2,0,0,0,1,3.915277777777778
+plone/ansible-playbook,139,Issue 138,fulv,2020-05-08T00:57:04Z,2020-05-24T22:12:42Z,closed,True,5,0,1,5,3,1,3,1,0,0,0,92.145
+plone/ansible-playbook,124,#123 - haproxy healthcheck update,jid,2019-11-08T09:12:06Z,,closed,False,2,0,0,2,3,0,2,0,0,0,0,0.0016666666666666668
+plone/ansible-playbook,137,Add 'tcp-check connect' to status check in haproxy. Fixes #123,smcmahon,2020-03-23T18:39:29Z,2020-03-23T18:39:49Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,134,Varnish syntax prefers double to single quote marks,stevepiercy,2020-01-24T08:28:37Z,2020-02-03T21:10:07Z,closed,True,4,1,3,5,2,1,2,2,0,1,0,18.87
+plone/Installers-UnifiedInstaller,109,More flexibility for Python interpreter creation,tobiasherp,2020-09-17T09:47:41Z,,open,False,3,1,1,4,3,1,2,0,0,1,0,27.63861111111111
+plone/Installers-UnifiedInstaller,108,Add versions spec of Zope 4.5.1,tobiasherp,2020-09-17T08:39:38Z,2020-09-17T10:57:10Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,7.592222222222222
+plone/Installers-UnifiedInstaller,106,some optimizations in order to make life easier,jensens,2020-07-28T16:09:03Z,2020-07-29T12:30:54Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,1108.8297222222222
+plone/Installers-UnifiedInstaller,103,Final py2.7,tobiasherp,2020-07-21T17:24:27Z,2020-07-21T21:07:08Z,closed,True,4,0,0,4,3,0,3,0,0,0,0,3.710277777777778
+plone/Installers-UnifiedInstaller,105,Win10 py3,nilshofer,2020-07-28T13:32:28Z,2020-07-28T15:36:11Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Installers-UnifiedInstaller,91,Build python3; test against centos/7,smcmahon,2019-08-01T21:49:48Z,2019-08-01T21:50:06Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Installers-UnifiedInstaller,60,Fixed link to community,sgrepos,2017-04-18T19:13:56Z,,closed,False,1,0,0,1,2,0,1,0,0,0,0,17.586666666666666
+plone/Installers-UnifiedInstaller,80,Small tweak to Windows installation process: Windows Defender prompt,jean,2018-11-10T06:08:27Z,2020-07-28T13:18:07Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Installers-UnifiedInstaller,104,Update Python 2.7 from .13 to .18,tobiasherp,2020-07-21T18:20:13Z,2020-07-21T21:05:06Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Installers-UnifiedInstaller,94,Typo fixed,dbitouze,2019-09-12T19:32:51Z,,closed,False,5,0,0,5,5,0,5,0,0,0,0,0.001388888888888889
+plone/pastanaga-icons,1,Bump handlebars from 4.0.11 to 4.5.3 in /ngx-icons,dependabot[bot],2019-12-28T03:44:55Z,,closed,False,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/training.plone.org,39,Use GitHub actions instead of Travis CI,ericof,2020-12-15T15:14:18Z,2020-12-15T15:21:18Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/training.plone.org,38,add volto add-ons training,pbauer,2020-11-30T14:50:43Z,2020-12-02T14:52:50Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/training.plone.org,37,fix: adjust changed github name,thomasmassmann,2020-05-25T15:13:26Z,2020-05-25T20:18:14Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,5.0725
+plone/plone.jsonserializer,11,Remove deprecation warning,ale-rt,2020-12-17T23:39:11Z,2020-12-21T06:41:40Z,closed,True,1,0,1,1,2,1,1,1,0,0,0,79.03666666666666
+plone/plone.jsonserializer,9,Fix for adapter registration with zope.interface >= 5.0,petschki,2020-07-01T09:42:07Z,2020-07-01T13:19:09Z,closed,True,0,3,3,3,3,2,2,1,0,2,0,0.16777777777777778
+plone/plone.jsonserializer,7,Python 3 compatibility,cdw9,2020-01-28T17:59:27Z,2020-01-29T08:26:23Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.blocks,54,Fix issue: configuring tiles with accented tags,albertduran,2017-04-24T11:47:27Z,,closed,False,8,0,0,8,2,0,2,0,0,0,0,0.88
+plone/plone.app.blocks,58,Fix issue where primary rich text field could not be saved into layout aware tile data storage,datakurre,2017-10-20T11:05:19Z,2017-10-20T11:28:14Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible.plone_server,149,Don't try to restart memmon unless we're using superlance.,smcmahon,2020-07-10T22:46:26Z,2020-07-27T22:16:10Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible.plone_server,147,default to Python 3.7 and disable TCP checks,tkimnguyen,2020-05-24T22:38:16Z,,open,False,2,0,0,2,3,0,2,0,0,0,0,11.226666666666667
+plone/ansible.plone_server,146,Fixes plone/ansible-playbook#138,fulv,2020-05-08T00:43:13Z,2020-07-06T00:45:44Z,closed,True,4,1,2,5,3,1,3,1,1,0,0,0.9186111111111112
+plone/ansible.plone_server,145,Fixes issue plone/ansible-playbook#135,fulv,2020-02-20T01:43:15Z,2020-05-08T00:30:48Z,closed,True,1,0,1,1,2,1,1,1,0,0,0,0.8944444444444445
+plone/ansible.plone_server,144,Preserve file modes when copying buildout extra dir.,smcmahon,2020-02-16T23:26:18Z,2020-02-20T12:59:44Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible.plone_server,143,Bump PloneHotfix20200121 to v1.1,stevepiercy,2020-02-12T09:32:33Z,2020-02-15T18:02:28Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible.plone_server,142,Normalize and sort hotfixes across eggs and versions sections,stevepiercy,2020-02-02T13:32:19Z,2020-02-02T18:52:46Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible.plone_server,130,Fixes #129,fulv,2018-12-28T16:00:13Z,2019-11-15T23:09:20Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,7659.858611111111
+plone/zodbverify,9,Fix typo,jugmac00,2020-07-23T09:08:57Z,2020-07-23T09:29:58Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,0.3447222222222222
+plone/zodbverify,7,fix support for python 2,pbauer,2020-03-25T19:11:13Z,2020-03-26T09:14:35Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,14.054166666666667
+plone/zodbverify,6,Get more information about oids that create errors,pbauer,2020-03-13T19:15:55Z,2020-03-17T11:11:39Z,closed,True,1,2,4,3,4,2,3,2,0,2,0,61.13388888888889
+plone/zodbverify,4,Fix link,jugmac00,2020-01-09T10:19:51Z,2020-01-09T10:21:23Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,0.022222222222222223
+plone/Products.ATContentTypes,66,Drop use of test() in templates ,pbauer,2020-09-10T14:50:23Z,2020-09-11T07:48:45Z,closed,True,2,2,3,4,3,2,3,1,1,1,0,0.0011111111111111111
+plone/Products.ATContentTypes,65,Updated tests to work on Zope 4.2.1,jensens,2020-03-22T12:51:08Z,2020-03-25T22:35:22Z,closed,True,1,0,1,1,3,1,1,1,0,0,0,0.001388888888888889
+plone/Products.ATContentTypes,57,use http from ZServer that has WebDAV,pbauer,2018-10-03T21:47:17Z,,closed,False,1,0,0,1,2,0,1,0,0,0,0,3359.969722222222
+plone/plone.app.multilingualindexes,11,Issue 9 i.e. Allow for MultiPath Queries,gogobd,2020-07-03T07:12:40Z,,closed,False,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.multilingualindexes,10,Issue 9,gogobd,2020-07-01T13:27:46Z,,closed,False,1,0,0,1,1,0,1,0,0,0,0,
+plone/Products.CMFQuickInstallerTool,23,Fix test failing with Zope 4.2.1,tschorr,2020-02-12T12:14:59Z,2020-03-05T12:51:51Z,closed,True,10,0,1,10,4,1,4,0,0,1,2,0.0019444444444444444
+plone/plone.app.folder,25,Removed migration code for upgrading folders from Plone 3 to 4,mauritsvanrees,2020-10-08T20:56:48Z,2020-10-09T10:49:34Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.001388888888888889
+plone/Products.CMFFormController,26,Tests: set request method to POST in a way that works on Plone 6 too,mauritsvanrees,2020-09-28T12:52:54Z,2020-09-28T16:06:17Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,0.001388888888888889
+plone/Products.CMFFormController,25,Fix warnings for module 'imp' and regular expressions,mauritsvanrees,2020-09-09T19:58:31Z,2020-09-10T10:48:33Z,closed,True,3,0,1,3,4,1,3,1,0,0,0,0.0011111111111111111
+plone/Products.CMFFormController,24,Removed security declaration for nonexistent method,mauritsvanrees,2020-09-02T21:36:04Z,2020-09-02T23:14:41Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/Products.CMFFormController,23,Fixed Zope 5 and Python 3 compatibility,mauritsvanrees,2020-02-12T10:18:50Z,2020-02-14T13:25:51Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,0.0016666666666666668
+plone/Products.ExtendedPathIndex,16,Fix broken build,jugmac00,2020-06-03T16:05:34Z,2020-09-17T09:36:36Z,closed,True,3,0,1,3,3,1,2,1,0,0,0,0.001388888888888889
+plone/Products.ExtendedPathIndex,15,try to fix in order to run with latst zope.interface RO fixes,jensens,2020-03-13T18:13:20Z,2020-03-16T16:30:46Z,closed,True,5,0,0,5,2,0,2,0,0,0,0,0.0016666666666666668
+plone/Products.ResourceRegistries,27,Change imports in __init__.py,1letter,2020-07-23T13:10:31Z,2020-07-28T13:37:43Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,90.13638888888889
+plone/guillotina_gcloudstorage,28,5.x Use IFileNameGenerator adapter to generate file name,Qiwn,2020-09-09T21:49:00Z,2020-09-10T11:39:53Z,closed,True,1,0,1,1,2,1,1,1,0,0,1,13.846666666666666
+plone/guillotina_gcloudstorage,26,Fix isort black checks,Qiwn,2020-09-09T20:18:16Z,2020-09-10T00:30:18Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,4.198888888888889
+plone/guillotina_gcloudstorage,27,5.x Use IFileNameGenerator adapter to generate file name,Qiwn,2020-09-09T21:46:57Z,,closed,False,0,0,0,0,1,0,0,0,0,0,0,
+plone/guillotina_gcloudstorage,25,Use IFileNameGenerator adapter to generate file name,Qiwn,2020-09-09T15:14:47Z,2020-09-09T15:21:49Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,0.11416666666666667
+plone/guillotina_gcloudstorage,24,Move to G6 + Github actions + linting,lferran,2020-07-29T12:33:42Z,2020-07-29T14:54:44Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,2.332222222222222
+plone/guillotina_gcloudstorage,23,handle conflict error creating bucket,vangheem,2020-06-08T16:13:59Z,2020-06-08T18:56:21Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,1.2777777777777777
+plone/guillotina_gcloudstorage,22,Do not update bucket labels if they have not changed and be able to set uniform bucket policy,vangheem,2020-02-19T20:47:07Z,2020-02-20T12:26:14Z,closed,True,1,0,2,1,3,2,1,2,0,0,0,11.852777777777778
+plone/guillotina_gcloudstorage,21,Add range support,vangheem,2019-12-30T16:30:12Z,2020-01-02T15:13:51Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,4.175
+plone/plone.restapi-angular,99,new Update README.md,ranjeetrai07,2020-10-01T13:51:14Z,,open,False,1,0,0,1,2,0,1,0,0,0,0,0.001388888888888889
+plone/plone.restapi-angular,89,Bump lodash from 4.17.11 to 4.17.15,dependabot[bot],2019-11-01T15:19:54Z,,closed,False,2,0,0,2,2,0,2,0,0,0,0,0.001388888888888889
+plone/plone.app.ldap,39,Improved uninstall from component registry.,mauritsvanrees,2020-10-14T11:30:22Z,2020-10-15T13:56:56Z,closed,True,2,0,0,2,2,0,2,0,0,0,1,0.0011111111111111111
+plone/Products.PluggableAuthService,1,"Major cleanup (such as PEP8 et al, see details in CHANGES.rst)",jensens,2015-10-21T13:01:06Z,,closed,False,5,0,0,5,2,0,2,0,0,0,0,4.639166666666667
+plone/generator-volto,22,Tweak some wording on mrs-developer in generated readme,tiberiuichim,2020-12-20T12:08:10Z,2020-12-24T18:35:34Z,closed,True,0,0,2,0,3,2,0,2,0,0,0,97.50333333333333
+plone/generator-volto,18,Add update notifier to app and addon generators,tiberiuichim,2020-12-01T20:40:28Z,2020-12-24T18:34:37Z,closed,True,5,0,3,5,3,2,2,3,0,0,0,0.2783333333333333
+plone/generator-volto,15,Remove Razzle plugin patch,sneridagh,2020-11-26T15:22:51Z,2020-11-26T15:38:30Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,0.017777777777777778
+plone/generator-volto,12,Add recommended browserlist,sneridagh,2020-11-15T17:06:44Z,2020-11-16T11:48:48Z,closed,True,0,0,2,0,3,2,0,2,0,0,0,2.7980555555555555
+plone/generator-volto,11,Proper yarnlock,sneridagh,2020-11-15T15:00:24Z,2020-11-15T15:18:21Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/generator-volto,4,Add-on generator,avoinea,2020-10-21T20:51:29Z,2020-11-15T12:08:34Z,closed,True,1,0,1,1,2,1,1,1,0,0,0,545.7572222222223
+plone/generator-volto,10,Use ghactions,sneridagh,2020-11-15T11:34:41Z,2020-11-15T12:07:34Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/generator-volto,9,Upgrade to Volto 9,sneridagh,2020-11-15T11:12:32Z,2020-11-15T12:07:25Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/generator-volto,6,add addons routes and reducers path,nileshgulia1,2020-10-26T17:51:24Z,2020-11-08T08:47:43Z,closed,True,2,0,3,2,4,3,2,3,0,0,0,0.12055555555555555
+plone/generator-volto,8,Support Node 14,sneridagh,2020-11-04T13:31:09Z,2020-11-04T14:03:05Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/generator-volto,3,Add interactive and workspace options,avoinea,2020-10-19T13:41:17Z,2020-10-20T18:34:53Z,closed,True,4,0,2,4,3,2,3,2,0,0,1,1.0091666666666668
+plone/generator-volto,2,Improve eslint and create-sentry-release.sh,sneridagh,2020-10-14T20:46:16Z,2020-10-14T21:19:43Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/generator-volto,1,Add load volto addons config to jest,sneridagh,2020-10-14T20:29:28Z,2020-10-14T20:42:38Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/create-volto-app,43,Bump ini from 1.3.5 to 1.3.7,dependabot[bot],2020-12-11T02:33:43Z,,open,False,1,0,0,1,2,0,1,0,0,0,0,0.001388888888888889
+plone/create-volto-app,42,fix typo in readme,jackahl,2020-12-05T20:01:08Z,2020-12-06T11:53:41Z,closed,True,0,0,2,0,3,2,0,2,0,0,0,0.14583333333333334
+plone/create-volto-app,41,Remove patch,sneridagh,2020-12-04T18:51:44Z,2020-12-04T19:46:54Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,0.0763888888888889
+plone/create-volto-app,40,Add recommended browserlist,sneridagh,2020-11-15T17:07:39Z,2020-11-16T11:48:31Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,3.9677777777777776
+plone/create-volto-app,39,Bump dot-prop from 4.2.0 to 4.2.1,dependabot[bot],2020-11-15T16:34:35Z,,open,False,1,0,0,1,2,0,1,0,0,0,0,0.0011111111111111111
+plone/create-volto-app,38,Volto9,sneridagh,2020-11-15T14:50:17Z,2020-11-15T16:34:05Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/create-volto-app,37,Support Node 14,sneridagh,2020-11-04T13:29:16Z,2020-11-04T14:03:09Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/create-volto-app,30,"Even better eslintrc, now reuses addon-registry.js from Volto",tiberiuichim,2020-08-02T03:29:49Z,2020-10-14T20:49:52Z,closed,True,0,0,2,0,2,1,0,2,0,0,0,27.28388888888889
+plone/create-volto-app,31,Alias load-volto-addons to dummy jest addons loader,tiberiuichim,2020-08-06T04:40:34Z,2020-10-14T20:25:27Z,closed,True,3,0,1,3,4,1,2,1,0,0,0,7.198611111111111
+plone/create-volto-app,26,create-volto-app reimplemented as Yeoman generator,tiberiuichim,2020-06-21T16:16:21Z,,closed,False,9,0,1,9,4,1,3,0,0,1,0,39.44861111111111
+plone/create-volto-app,35,"Update to latest Volto, add @babel/core dep to avoid hoisting problem…",sneridagh,2020-10-14T09:52:56Z,2020-10-14T11:17:32Z,closed,True,0,0,3,0,3,2,0,3,0,0,0,0.5661111111111111
+plone/create-volto-app,34,Add required create-sentry-release script used by Sentry,avoinea,2020-10-14T09:47:05Z,,closed,False,1,0,0,1,1,0,1,0,0,0,0,
+plone/create-volto-app,32,Bump node-fetch from 2.3.0 to 2.6.1,dependabot[bot],2020-09-11T10:27:28Z,,open,False,0,0,0,0,1,0,0,0,0,0,0,
+plone/create-volto-app,29,Updating volto-starter-kit to 7.5.1,iFlameing,2020-07-31T10:57:33Z,2020-08-05T06:05:19Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,67.83416666666666
+plone/create-volto-app,27,Better integration by default with addons,tiberiuichim,2020-07-25T09:35:49Z,2020-07-29T11:43:58Z,closed,True,0,0,2,0,3,2,0,2,0,0,0,0.10472222222222222
+plone/create-volto-app,28,Improve eslintrc in volto-starter-kit to cover more editor integration scenarios,tiberiuichim,2020-07-28T07:01:20Z,2020-07-28T09:23:11Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,0.07361111111111111
+plone/create-volto-app,25,Removing submodule,iFlameing,2020-06-19T09:21:04Z,2020-06-19T09:51:04Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/create-volto-app,24,Removing git submodules,iFlameing,2020-06-19T08:38:22Z,,closed,False,0,0,0,0,1,0,0,0,0,0,0,
+plone/create-volto-app,16,Bump lodash from 4.17.11 to 4.17.15,dependabot[bot],2019-11-01T10:17:33Z,2020-05-09T21:05:19Z,closed,True,4,0,0,4,3,0,2,0,0,0,1,0.0016666666666666668
+plone/create-volto-app,22,Add fix for issue while running tests with a built Plone local enviro…,sneridagh,2020-04-17T08:41:32Z,2020-04-17T10:32:33Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/create-volto-app,20,Fixtestpassing,sneridagh,2020-01-23T10:22:43Z,2020-01-23T10:22:59Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/volto-starter-kit,17,Bump ini from 1.3.5 to 1.3.7,dependabot[bot],2020-12-11T14:31:52Z,,open,False,1,0,0,1,2,0,1,0,0,0,0,0.0011111111111111111
+plone/volto-starter-kit,16,Bump http-proxy from 1.18.0 to 1.18.1,dependabot[bot],2020-09-10T00:49:15Z,,open,False,1,0,0,1,2,0,1,0,0,0,0,0.0011111111111111111
+plone/volto-starter-kit,14,updating version,iFlameing,2020-06-16T15:47:40Z,2020-06-16T15:49:27Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/volto-starter-kit,13,Updating to adapt the volto 6.2.0,iFlameing,2020-06-16T10:28:21Z,2020-06-16T11:27:26Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,0.9830555555555556
+plone/volto-starter-kit,12,Bump websocket-extensions from 0.1.3 to 0.1.4,dependabot[bot],2020-06-06T23:43:46Z,,open,False,1,0,0,1,2,0,1,0,0,0,0,0.0011111111111111111
+plone/volto-starter-kit,10,Bump jquery from 3.4.1 to 3.5.0,dependabot[bot],2020-04-30T07:48:37Z,,closed,False,2,0,0,2,2,0,2,0,0,0,0,0.0011111111111111111
+plone/volto-starter-kit,11,Improve ESlint config for auto detect Volto addons,sneridagh,2020-05-03T16:18:47Z,2020-05-08T14:36:36Z,closed,True,1,0,1,1,2,1,1,1,0,0,0,84.77333333333333
+plone/volto-starter-kit,9,Bump acorn from 5.7.3 to 5.7.4,dependabot[bot],2020-03-16T07:26:56Z,,open,False,2,0,0,2,2,0,1,0,0,0,0,0.0016666666666666668
+plone/volto-reference-backend,5,Bump handlebars from 4.0.12 to 4.5.3,dependabot[bot],2019-12-29T07:27:43Z,,closed,False,2,0,0,2,2,0,2,0,0,0,0,0.0016666666666666668
+plone/volto-reference-backend,8,Bump bcrypt from 3.0.2 to 5.0.0,dependabot[bot],2020-08-20T15:55:20Z,2020-08-20T19:45:26Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.0022222222222222222
+plone/volto-addon-ci,1,Add jest extender to the image and build commands,sneridagh,2020-12-14T18:48:17Z,2020-12-17T10:41:25Z,closed,True,0,7,6,7,2,2,2,1,1,4,0,37.949444444444445
+plone/ploneconf2016.policy,2,Added serializer to expose instructors urls to the API,duchenean,2020-05-26T21:05:28Z,,closed,False,2,0,0,2,2,0,2,0,0,0,0,0.0011111111111111111
+plone/ploneconf2016.policy,1,"updated for Plone 5.2, Python 3.7",tkimnguyen,2020-01-11T22:16:13Z,2020-01-11T22:16:23Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/guillotina_s3storage,3,Update guillotina and aiohttp,lferran,2018-09-19T07:34:04Z,,closed,False,7,0,0,7,3,0,3,0,0,0,0,4.790555555555556
+plone/guillotina_s3storage,16,Cast max pool connections,pfreixes,2020-06-25T22:23:14Z,2020-06-26T00:03:38Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.03138888888888889
+plone/guillotina_s3storage,15,Cast max pool connections,pfreixes,2020-06-25T22:21:04Z,,closed,False,1,0,0,1,1,0,1,0,0,0,0,
+plone/guillotina_s3storage,14,Supports max_pool_connections settings as an string value,pfreixes,2020-06-25T15:49:04Z,,closed,False,1,10,9,11,5,4,5,0,1,8,0,0.029722222222222223
+plone/guillotina_s3storage,13,Add range support,vangheem,2019-12-30T16:45:16Z,2020-01-02T15:13:31Z,closed,True,1,0,1,1,3,1,1,1,0,0,0,1.2433333333333334
+plone/guillotina_prometheus,3,Merge pull request #3 from vinissimus/master,masipcat,2020-01-20T16:12:36Z,2020-01-21T12:58:55Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,20.76972222222222
+plone/executioner,19,Bump handlebars from 4.1.2 to 4.5.3,dependabot[bot],2019-12-27T08:43:17Z,,closed,False,1,0,0,1,1,0,1,0,0,0,0,
+plone/executioner,20,Bump acorn from 5.7.3 to 5.7.4,dependabot[bot],2020-03-13T22:26:45Z,2020-03-13T23:07:30Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.com-static,33,Update homepage with 2021 conference,fulv,2020-12-14T13:54:39Z,,open,False,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.com-static,32,add Zest,tkimnguyen,2020-12-02T14:15:41Z,2020-12-02T14:15:58Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.com-static,31,operun updates,tkimnguyen,2020-12-02T04:32:17Z,2020-12-02T04:33:46Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.com-static,30,updates to operun,tkimnguyen,2020-12-02T04:26:21Z,2020-12-02T04:26:31Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.com-static,29,add UWD to basic listing,tkimnguyen,2020-12-02T02:26:38Z,2020-12-02T02:26:48Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.com-static,28,"fix sitemap, fixes https://github.com/plone/sponsorships/issues/20",tkimnguyen,2020-12-02T02:21:41Z,2020-12-02T02:21:55Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.com-static,27,add Mooball listing,tkimnguyen,2020-12-02T02:04:28Z,2020-12-02T02:05:20Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.com-static,25,"fix links to Middle East region, Egypt",tkimnguyen,2020-11-27T18:09:51Z,2020-11-27T18:16:23Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.com-static,24,"add UWD provider listing, Middle East region, Egypt",tkimnguyen,2020-11-27T17:58:54Z,2020-11-27T17:59:07Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.com-static,23,"add to Europe list, fix number of search results for CodeSyntax",tkimnguyen,2020-11-27T16:18:00Z,2020-11-27T16:18:15Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.com-static,22,"fix number of search results in North America, Jamaica for Alteroo",tkimnguyen,2020-11-27T15:03:20Z,2020-11-27T15:03:35Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.com-static,21,add CodeSyntax SL provider listing,tkimnguyen,2020-11-27T14:50:16Z,2020-11-27T14:53:27Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.com-static,20,update front page for ploneconf2020,tkimnguyen,2020-11-26T17:58:32Z,2020-11-26T18:01:39Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,0.04972222222222222
+plone/plone.com-static,19,add Alteroo,tkimnguyen,2020-11-26T17:32:55Z,2020-11-26T17:49:07Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,0.2683333333333333
+plone/plone.com-static,14,Update sitemap.html,aashimgarg,2020-01-11T07:53:56Z,,closed,False,3,0,0,3,2,0,2,0,0,0,0,105.4811111111111
+plone/plone.com-static,15,Removed form ,aashimgarg,2020-01-11T15:05:52Z,2020-01-15T17:22:25Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,98.27388888888889
+plone/docs-guide,4,chore(deps): bump elliptic from 6.4.1 to 6.5.3,dependabot[bot],2020-07-30T17:32:41Z,2020-07-30T19:54:38Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/docs-guide,3,chore(deps): bump acorn from 6.1.1 to 6.4.1,dependabot[bot],2020-03-15T04:29:33Z,2020-07-30T19:48:25Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.recipe.codeanalysis,230, Support multi-processing on python3.8,janjaapdriessen,2020-11-03T11:58:17Z,2020-11-04T10:11:45Z,closed,True,7,3,3,10,3,3,3,1,0,2,1,3.743333333333333
+plone/plone.recipe.codeanalysis,229,Python3.8 multiprocessing support,janjaapdriessen,2020-09-18T14:18:30Z,,closed,False,9,0,0,9,3,0,3,0,0,0,0,0.0011111111111111111
+plone/sphinxtheme.plone,74,fix css for algolia search,polyester,2020-04-23T12:49:25Z,2020-04-23T14:48:44Z,closed,True,3,0,1,3,2,1,2,1,0,0,1,1.9844444444444445
+plone/archetypes.querywidget,16,Also strip `/base_edit` or `/atct_edit` when fetching query results,witsch,2020-09-04T15:55:43Z,2020-09-07T10:34:07Z,closed,True,2,0,1,2,3,1,2,1,0,0,1,0.0011111111111111111
+plone/plone.app.blob,55,Fixed deprecation warning for MimeTypeException [5.1],mauritsvanrees,2020-09-04T13:55:45Z,2020-09-04T14:57:50Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.0011111111111111111
+plone/plone.app.blob,46,Add plone.namedfile storage utility for TemporaryFileWrapper.,frapell,2017-11-14T14:09:30Z,,closed,False,4,0,0,4,2,0,2,0,0,0,0,13279.410555555556
+plone/plone.app.blob,53,Zope 4.2.1,jensens,2020-02-21T10:31:04Z,2020-02-21T12:21:58Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.0019444444444444444
+plone/planet.plone.org,70,Updated feed URL for line34,reinhardt,2020-04-24T20:49:44Z,2020-04-26T23:01:22Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.recipe.haproxy,4,fix boolean check,petschki,2020-05-18T10:57:08Z,2020-05-18T12:14:09Z,closed,True,0,1,2,1,2,1,1,1,0,1,0,1.2808333333333333
+plone/plone.recipe.haproxy,3,Python3,petschki,2020-05-18T10:11:21Z,2020-05-18T10:17:09Z,closed,True,1,2,2,3,2,2,2,0,0,2,1,0.4891666666666667
+plone/Products.LinguaPlone,28,Do not uninstall by hand when running the uninstall-step since uninst…,pbauer,2020-09-10T12:45:30Z,2020-09-10T12:45:41Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.001388888888888889
+plone/plone.synchronize,3,"Use unitttest discover, fix deprecation warnings in tests",mauritsvanrees,2020-04-16T22:13:20Z,2020-04-19T18:06:55Z,closed,True,1,3,3,4,3,2,3,1,0,2,0,0.0016666666666666668
+plone/plone.synchronize,2,"Drop Py 2.6 support, support 2.7, 3.5-3.8, PyPy2/3. Add tox.",mauritsvanrees,2020-04-04T19:04:21Z,2020-04-16T21:56:18Z,closed,True,3,2,2,5,3,2,3,0,0,2,0,0.0011111111111111111
