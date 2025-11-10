@@ -1,0 +1,2 @@
+repo,pr_number,title,author,created_at,merged_at,state,merged,issue_comments_count,review_comments_count,reviews_count,total_comments,participants_count,reviewers_count,commenters_count,approved_reviews,changes_requested_reviews,comment_reviews,reactions_total,first_response_time
+plone/plone.gallery,19,fix sportlight right arrow when toolbar is present,MrTango,2025-08-05T16:19:20Z,,open,False,0,0,0,0,1,0,0,0,0,0,0,

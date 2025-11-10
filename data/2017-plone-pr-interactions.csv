@@ -1,0 +1,640 @@
+repo,pr_number,title,author,created_at,merged_at,state,merged,issue_comments_count,review_comments_count,reviews_count,total_comments,participants_count,reviewers_count,commenters_count,approved_reviews,changes_requested_reviews,comment_reviews,reactions_total,first_response_time
+plone/plone.schemaeditor,57,Fix getting vocabulary for multichoice fields,tomgross,2017-11-28T14:26:58Z,2017-11-29T21:59:43Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.schemaeditor,56,"Field reorderable, missing delete confirmation",thet,2017-08-27T21:21:55Z,2017-08-28T19:11:10Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,21.819166666666668
+plone/plone.schemaeditor,54,fix schemaeditor fields editing UI,thet,2017-05-01T23:15:51Z,2017-05-09T13:41:34Z,closed,True,2,1,1,3,3,1,3,0,0,1,0,1001.7430555555555
+plone/plone.schemaeditor,53,"Manage simple ""vocabularies"" in the values field",tomgross,2017-03-22T07:02:23Z,2017-05-11T09:18:07Z,closed,True,1,4,4,5,2,2,2,1,1,2,0,50.54527777777778
+plone/plone.schemaeditor,50,use plone.testing testbrowser,davisagli,2017-02-11T20:10:33Z,2017-02-11T21:15:19Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.schemaeditor,47,Fix setting default values in schemaeditor,tomgross,2017-01-30T21:13:22Z,2017-02-06T23:04:16Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.schemaeditor,49,"fix parent lookup, test setup",davisagli,2017-02-01T15:24:43Z,2017-02-01T18:17:44Z,closed,True,0,2,2,2,2,2,2,0,0,2,0,4.463611111111111
+plone/plone.schemaeditor,48,update testbrowser import,davisagli,2017-02-01T00:05:54Z,2017-02-01T08:45:36Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.schemaeditor,46,Fix URL for reordering fields,tomgross,2017-01-20T13:54:52Z,2017-01-26T13:57:36Z,closed,True,2,0,0,2,1,0,1,0,0,0,0,
+plone/plone.app.standardtiles,82,Imports are Python3 compatible,b4oshany,2017-10-22T13:15:03Z,2017-10-22T13:25:35Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,0.1725
+plone/plone.app.standardtiles,69,Fix noembed endpoint url to get valid JSON response.,thomasmassmann,2017-06-07T17:34:56Z,2017-06-09T16:55:40Z,closed,True,5,0,0,5,3,0,3,0,0,0,0,0.22166666666666668
+plone/plone.app.standardtiles,67,"Improve descriptions for usability, as described on https://github.co…",cguardia,2017-05-08T17:39:43Z,2017-05-08T17:52:47Z,closed,True,3,0,0,3,3,0,2,0,0,0,0,0.06027777777777778
+plone/plone.app.standardtiles,72,Changed title of existing content tile from h1 to h2,agitator,2017-06-15T17:23:44Z,2017-06-16T09:40:22Z,closed,True,3,2,2,5,3,2,3,0,1,1,0,2.181388888888889
+plone/plone.app.standardtiles,71,Fix issue where image field tile template registration for fieldset fields,datakurre,2017-06-13T08:37:39Z,2017-06-16T08:53:52Z,closed,True,2,0,0,2,2,0,1,0,0,0,0,0.24
+plone/plone.app.standardtiles,68,Improve existing content with some additional fields,cekk,2017-05-19T14:56:37Z,2017-05-21T11:17:50Z,closed,True,4,0,0,4,3,0,3,0,0,0,0,0.24472222222222223
+plone/plone.app.standardtiles,66,Don't let HTML tile fail on non ascii content,tomgross,2017-04-18T06:31:32Z,2017-04-19T07:57:37Z,closed,True,5,0,0,5,3,0,3,0,0,0,0,0.22305555555555556
+plone/plone.app.standardtiles,64,Added title and description fields with option to show on tile,agitator,2017-02-20T18:05:04Z,2017-02-22T12:01:06Z,closed,True,9,4,4,13,4,2,4,0,0,4,0,0.04472222222222222
+plone/plone.app.standardtiles,63,Add lead image tile; Fix discussion tile on ESI; Fix viewletmanagers on ESI,datakurre,2017-02-09T12:53:10Z,2017-02-09T17:52:31Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.04416666666666667
+plone/plone.app.standardtiles,62,Fix issue where viewletmanagers were rendered in parent context,datakurre,2017-02-08T11:16:27Z,2017-02-08T11:17:01Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.04388888888888889
+plone/plone.app.standardtiles,61,Fix import for _ in portlet add view in 1.x line.,MatthewWilkes,2017-02-04T12:42:05Z,2017-02-05T19:11:45Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,30.495
+plone/plone.app.standardtiles,60,Fix issue where tile rendering failed with failing view lookup,datakurre,2017-01-15T22:14:23Z,2017-01-15T22:14:29Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.caching,39,Purging all image scale paths and file paths in custom dexterity cont…,karalics,2017-10-17T22:49:30Z,2017-10-31T10:44:47Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,323.9186111111111
+plone/plone.app.caching,36,Fixed blank edit forms of the per ruleset parameters.,mauritsvanrees,2017-04-05T21:07:17Z,2017-04-06T08:32:05Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.caching,35,Fix title/description of max age in strong caching rule for resources,mauritsvanrees,2017-03-31T14:52:07Z,2017-03-31T17:50:16Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.caching,34,Fix: Do not break Plone if there is no Archetypes available,jensens,2017-03-21T11:54:56Z,2017-03-22T06:56:24Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.caching,32,Remove dependency on unittest2,hvelarde,2017-01-12T16:18:34Z,2017-01-12T20:21:52Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,4.051944444444445
+plone/plone.app.caching,31,Fix tests with ZODB 4,davisagli,2017-01-08T06:16:01Z,2017-01-09T00:59:53Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.scale,28,"Handle alpha channels, which fixes a test failure introduced with Pillow 4.2.0",fschulze,2017-09-19T10:20:18Z,2017-09-19T16:13:38Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,5.862222222222222
+plone/plone.scale,27,Restore scale down behaviour from 1.x series without the huge memory usage.,fschulze,2017-08-18T08:02:27Z,2017-09-19T10:02:36Z,closed,True,11,2,2,13,4,2,4,0,1,1,0,599.8044444444445
+plone/plone.scale,25,python 3 compatibility,dhavlik,2017-05-04T12:39:50Z,,closed,False,1,0,0,1,2,0,1,0,0,0,0,1099.4541666666667
+plone/plone.scale,22,Remove Persistence,gforcada,2016-11-27T23:57:01Z,2017-04-19T08:58:11Z,closed,True,4,0,0,4,3,0,3,0,0,0,1,13.514722222222222
+plone/plone.scale,24,Only convert JPEG to greyscale if they actually are and not when the image has less than 256 colors.,fschulze,2017-03-15T14:58:27Z,2017-03-15T19:17:38Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.scale,13,Image mode optimization,ghost,2016-09-12T10:26:21Z,2016-09-12T17:15:37Z,closed,True,1,2,2,3,3,1,2,0,0,2,0,3.9411111111111112
+plone/plone.scale,23,Preserve color profile in scaled images,fschulze,2017-02-28T14:25:53Z,2017-02-28T16:43:32Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.relationfield,19,Make doctests work with new testbrowser in Zope4,pbauer,2017-02-03T11:40:40Z,2017-10-21T11:16:06Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.18916666666666668
+plone/plone.app.relationfield,20,remove unittest2 dependency,kakshay21,2017-05-31T22:14:19Z,2017-06-01T09:43:35Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.rest,65,Travis buildout fix,tisto,2017-05-14T13:53:05Z,2017-05-14T15:31:45Z,closed,True,0,1,1,1,2,1,1,0,0,1,0,4.979166666666667
+plone/plone.rest,64,Do not render service in preflight requests when no CORS policy was d…,buchi,2017-05-14T10:41:12Z,2017-05-14T15:57:51Z,closed,True,1,0,1,1,2,1,1,1,0,0,0,4.889166666666667
+plone/plone.namedfile,55,Remove mention of retina,tkimnguyen,2017-08-31T20:07:13Z,2017-10-10T13:09:19Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.namedfile,60,Imports are Python3 compatible,ale-rt,2017-10-21T09:37:22Z,2017-10-24T22:16:19Z,closed,True,2,0,2,2,3,1,2,1,1,0,1,53.61055555555556
+plone/plone.namedfile,35,Add support for range requests on blob files,vangheem,2016-09-15T00:58:30Z,,closed,False,0,2,1,2,2,1,1,0,1,0,0,5362.695555555556
+plone/plone.namedfile,34,Add support for range requests on blob files(3.0.x),vangheem,2016-09-15T00:58:11Z,,closed,False,0,0,1,0,2,1,0,0,1,0,0,5362.8163888888885
+plone/plone.namedfile,57,Fixes #56,jensens,2017-09-08T15:46:46Z,2017-09-08T20:43:44Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,4.948055555555555
+plone/plone.namedfile,39,SVG support,tomgross,2016-12-23T14:00:56Z,2017-01-03T16:42:57Z,closed,True,3,0,0,3,3,0,3,0,0,0,1,0.8833333333333333
+plone/plone.namedfile,54,different caching keys for different domains,mamico,2017-06-26T16:18:53Z,2017-06-27T12:03:18Z,closed,True,1,0,0,1,2,0,1,0,0,0,1,0.5469444444444445
+plone/plone.namedfile,53,"Dont't break DefaultImageScalingFactory, if for any reason the fieldn…",thet,2017-06-12T16:48:11Z,2017-06-13T08:13:35Z,closed,True,2,9,7,11,2,2,2,1,1,5,0,2.6061111111111113
+plone/plone.namedfile,51,Re added Compatibility for Plone 4,loechel,2017-05-29T14:57:02Z,2017-05-30T14:31:40Z,closed,True,2,5,3,7,3,2,3,1,2,0,0,18.795277777777777
+plone/plone.namedfile,50,reduce logging level,jensens,2017-05-19T09:06:36Z,2017-05-19T12:13:30Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.namedfile,49,fix assertIsInstance not available in Python 2.6,thet,2017-04-26T10:41:13Z,2017-04-26T12:14:44Z,closed,True,1,0,1,1,2,1,1,1,0,0,1,0.6397222222222222
+plone/plone.namedfile,48,apply @loechels comments for fix for #46,thet,2017-04-26T10:28:45Z,2017-04-26T11:19:55Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,0.6402777777777777
+plone/plone.namedfile,47,"Fix #46, when tiff_utils.process_tiff failed and a width referenced b…",thet,2017-04-25T22:56:07Z,2017-04-25T23:36:44Z,closed,True,1,6,4,7,2,2,2,0,0,4,0,10.891666666666667
+plone/plone.namedfile,45,Issue 38 master,thet,2017-04-25T22:32:48Z,2017-04-25T23:30:50Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.namedfile,41,Issue 38 - Scales create NamedBlobImage with wrong contentType field,rodfersou,2017-01-03T13:45:13Z,2017-04-25T22:24:49Z,closed,True,8,1,1,9,3,1,3,0,0,1,0,0.33916666666666667
+plone/plone.namedfile,44,fix Bug #2008.,loechel,2017-04-14T15:22:13Z,2017-04-14T20:42:45Z,closed,True,1,0,1,1,2,1,1,1,0,0,0,0.6841666666666667
+plone/plone.namedfile,25,Plip 1483 retina image scales,ghost,2016-05-31T10:18:42Z,2017-03-21T21:16:03Z,closed,True,0,4,3,4,3,2,2,0,0,3,0,2786.5844444444447
+plone/plone.namedfile,43,update test that (ab)uses testbrowser to make a HEAD request,jensens,2017-02-04T14:29:58Z,,closed,False,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.namedfile,42,Drop removed __of__ from BrowserViews,pbauer,2017-01-31T15:30:04Z,2017-01-31T17:43:30Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.namedfile,21,feat: add SVG support,Gagaro,2016-03-21T16:03:34Z,,closed,False,3,0,0,3,3,0,3,0,0,0,0,6646.394444444444
+plone/plone.namedfile,40,Issue 38 - Scales create NamedBlobImage with wrong contentType field,rodfersou,2017-01-03T13:25:39Z,,closed,False,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.iterate,53, Revert changing checkout_workflow_policy to ASCIILine,thet,2017-09-05T20:38:54Z,,closed,False,3,1,2,4,2,1,1,1,0,1,0,9.815555555555555
+plone/plone.app.iterate,55,Fixes 54: Cancelling a check out from the original deletes the original.,jensens,2017-11-16T09:28:30Z,2017-11-16T10:59:09Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.iterate,52,Don't depend on AT (part 3),tomgross,2017-08-28T20:25:35Z,2017-09-07T06:47:01Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,62.618611111111115
+plone/plone.app.iterate,47,Revert changing checkout_workflow_policy to ASCIILine,pbauer,2017-06-22T09:25:38Z,,closed,False,2,0,0,2,2,0,1,0,0,0,0,1809.9252777777779
+plone/plone.app.iterate,49,Remove AT as hard dependency and ZODB3 version pin,tomgross,2017-07-31T20:39:27Z,2017-08-01T09:11:17Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.iterate,46,kakshay21 unittest,kakshay21,2017-05-19T07:51:09Z,,closed,False,2,0,0,2,2,0,2,0,0,0,1,121.48861111111111
+plone/plone.app.iterate,45,Prevent using queryUtility with name=None,pbauer,2017-05-05T09:32:39Z,2017-05-05T10:43:41Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.iterate,44,removed change portal event,kakshay21,2017-04-11T20:17:18Z,2017-04-18T19:55:24Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,0.18722222222222223
+plone/plone.app.iterate,40,Products.CMFPlacefulWorkflow requires workflow policy id to be byteststring,tiberiuichim,2017-02-16T09:47:05Z,2017-03-07T10:04:34Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,456.2947222222222
+plone/plone.app.iterate,41,Minor aesthetic changes for the diff view,frapell,2017-02-20T21:47:18Z,2017-02-21T06:21:51Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.iterate,39,Fix setting checkbox in testbrowser,davisagli,2017-02-11T19:50:45Z,2017-02-11T20:35:51Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Plone,8,Add link to Plone.com and tweak intro,tkimnguyen,2017-04-14T13:24:39Z,2017-04-14T20:01:06Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.CMFPlacefulWorkflow,17,Removed Plone 5.0 installer code from tests.,mauritsvanrees,2017-03-08T15:19:34Z,2017-03-09T05:15:24Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.CMFPlacefulWorkflow,16,Fixed reinstall. [1.6.x],mauritsvanrees,2017-03-08T14:53:36Z,2017-03-08T17:42:14Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/Products.CMFPlacefulWorkflow,15,Fixed reinstall. [1.5.x],mauritsvanrees,2017-03-08T10:52:09Z,2017-03-08T12:18:40Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,1.4408333333333334
+plone/Products.CMFPlacefulWorkflow,13,"Fixed workflow tests for new comment_one_state_workflow. [1.5, Plone 4.3]",mauritsvanrees,2017-01-14T19:43:42Z,2017-01-16T15:43:42Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.CMFPlacefulWorkflow,12,"Fixed workflow tests for new comment_one_state_workflow. [1.6, plone 5.0]",mauritsvanrees,2017-01-14T19:34:27Z,2017-01-16T15:39:43Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.CMFPlacefulWorkflow,11,Fixed workflow tests for new comment_one_state_workflow. [master],mauritsvanrees,2017-01-14T19:20:50Z,2017-01-16T15:40:09Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.PortalTransforms,22,fixes Old safe_html config still visible after upgrade to Plone 5.1,jensens,2017-11-01T20:17:30Z,2017-11-02T06:29:08Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/Products.PortalTransforms,20,Midsummersprint fix transforms,MrTango,2017-07-06T09:40:25Z,2017-07-28T11:26:43Z,closed,True,3,2,3,5,4,2,2,1,0,2,0,0.09333333333333334
+plone/Products.PortalTransforms,14,Use lxml cleaner for safe HTML transforms,tomgross,2016-05-29T18:58:51Z,2017-02-23T11:02:16Z,closed,True,19,11,11,30,5,4,5,0,0,11,0,68.14222222222222
+plone/Products.PortalTransforms,18,Add the possibility to switch on markdown extension through the zmi.,pabo3000,2017-02-12T16:47:46Z,2017-02-17T13:25:01Z,closed,True,1,4,2,5,2,1,1,1,1,0,0,96.44583333333334
+plone/Products.MimetypesRegistry,9,Fix MimeTypeException deprecation warnings,ale-rt,2017-06-10T11:04:07Z,2017-06-10T20:50:24Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.CMFDiffTool,27,Fixed AttributeError: 'NoneType' if the object doesn't have the expec…,rristow,2017-02-27T16:10:41Z,2017-03-06T14:30:11Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,166.32166666666666
+plone/Products.CMFDiffTool,26,Fixed AttributeError: 'NoneType' ,rristow,2017-02-27T15:06:58Z,,closed,False,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.CMFDiffTool,23,Fixed error if field was empty (None) in ListDiff (Message: 'NoneType' object has no attribute...),rristow,2017-02-13T13:02:56Z,,closed,False,3,0,0,3,2,0,2,0,0,0,0,76.39611111111111
+plone/Products.CMFDiffTool,25,Generate a diff using the referenced objects instead of the reference object,frapell,2017-02-20T22:01:21Z,2017-02-21T16:04:55Z,closed,True,3,0,0,3,2,0,2,0,0,0,1,8.864166666666666
+plone/Products.CMFDiffTool,22,Fixed AttributeError: 'NoneType' object has no attribute x,rristow,2017-02-08T16:02:51Z,,closed,False,1,0,0,1,2,0,1,0,0,0,0,15.032777777777778
+plone/Products.CMFDiffTool,21,Fixed AttributeError: 'NoneType' object has no attribute x,rristow,2017-02-08T10:56:10Z,,closed,False,1,0,0,1,1,0,1,0,0,0,0,
+plone/Products.CMFDynamicViewFTI,10,Look up view using lower-level API to check for existence,malthe,2017-02-03T10:24:03Z,2017-02-03T14:05:01Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.CMFEditions,37,Merge collective indexing,gforcada,2016-05-20T14:10:20Z,2017-02-21T20:58:42Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.CMFEditions,45,make tests run in Zope 4,jensens,2017-02-06T06:06:37Z,2017-02-06T21:46:28Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.statusmessages,7,"Fix TypeError: Struct() argument 1 must be string, not unicode",datakurre,2017-10-04T09:48:41Z,2017-10-10T07:21:07Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.statusmessages,6,Cleanup flake8 errors,gforcada,2017-07-22T16:15:50Z,2017-07-22T19:44:05Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.statusmessages,5,Python 3,tomgross,2017-07-19T08:36:02Z,2017-07-21T16:30:22Z,closed,True,5,0,0,5,3,0,3,0,0,0,1,12.969166666666666
+plone/Products.statusmessages,4,fix deprecated import,pbauer,2017-01-31T12:42:09Z,2017-01-31T15:48:29Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.contentrules,34,fix test,davisagli,2017-10-21T22:13:06Z,2017-10-22T09:56:04Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.contentrules,33,Fix UnicodeEncodeError if portal from name contains Umlauts,agitator,2017-07-15T15:28:57Z,2017-07-15T22:08:09Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,6.652222222222222
+plone/plone.app.contentrules,31,Fix action edit form,malthe,2017-04-25T11:39:44Z,2017-05-11T21:45:26Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,384.72277777777776
+plone/plone.app.contentrules,29,Ensure error message is an unicode object and not utf-8 bytestring,gforcada,2017-04-14T22:45:06Z,2017-04-14T23:48:26Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,35.96527777777778
+plone/plone.app.contentrules,30,QA cleanup,gforcada,2017-04-15T19:55:05Z,2017-04-15T21:07:24Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.contentrules,28,Jens cleanup,gforcada,2017-04-14T22:43:54Z,2017-04-15T12:22:08Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,8.068888888888889
+plone/plone.app.contentrules,26,Ensure error message is an unicode object and not utf-8 bytestring,mtrebron,2017-03-29T12:07:49Z,,closed,False,2,1,1,3,2,1,1,0,1,0,0,391.835
+plone/plone.app.contentrules,27,Fix issue where content rules edit form for a rules with assigned locations was broken because of move of getIcon,datakurre,2017-03-30T07:46:42Z,2017-03-31T09:27:48Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,15.343055555555555
+plone/Products.PlonePAS,28,Report home_page as empty when it is suspicious. [5.x],mauritsvanrees,2017-11-30T22:45:07Z,2017-12-01T10:36:04Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.PlonePAS,29,Report home_page as empty when it is suspicious. [master],mauritsvanrees,2017-11-30T22:53:11Z,2017-11-30T23:43:26Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.PlonePAS,26,Fix imports for py3,pbauer,2017-10-21T11:19:35Z,2017-11-17T10:58:02Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.PlonePAS,25,Adapt to changes of MemberData in CMFCore,pbauer,2017-09-28T09:35:16Z,2017-10-21T13:15:49Z,closed,True,2,2,2,4,2,2,2,1,0,1,0,84.6525
+plone/Products.PlonePAS,23,Remove WarningInterceptor,jensens,2017-05-05T14:45:02Z,2017-05-08T07:32:52Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.contentlisting,27,Removed unittest2 from tests. [1.3.x],mauritsvanrees,2017-12-21T22:25:32Z,2017-12-22T11:00:51Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.contentlisting,26,fixed review state with no workflow (1.0.x),tdesvenain,2017-10-26T10:07:29Z,2017-11-01T16:15:01Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.contentlisting,25,Remove Python2.6 support,ale-rt,2017-10-24T19:27:06Z,2017-10-27T13:53:37Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.contentlisting,24,It seems that in zope4 brains can not longer acquire the REQUEST.,pbauer,2017-09-19T12:38:36Z,2017-09-19T16:07:14Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,3.4747222222222223
+plone/plone.app.contentlisting,22,fix problem on looking up a workflow state on related items,loechel,2017-08-03T22:25:20Z,2017-08-07T20:54:19Z,closed,True,5,2,4,7,3,3,3,2,1,1,0,22.13722222222222
+plone/plone.app.contentlisting,23,code conventions,loechel,2017-08-03T22:53:12Z,2017-08-04T20:26:57Z,closed,True,1,1,1,2,2,1,2,1,0,0,0,21.534444444444443
+plone/plone.app.contentlisting,19,Plip1734thumbs,fgrcon,2016-10-03T13:03:08Z,2017-06-01T12:13:05Z,closed,True,6,0,1,6,3,1,2,1,0,0,0,7.911944444444444
+plone/plone.app.contentlisting,21,Remove hasattr,ivanteoh,2017-04-04T03:19:58Z,2017-04-05T06:14:57Z,closed,True,0,3,3,3,2,2,2,0,0,3,0,2.870833333333333
+plone/plone.app.contentmenu,21,Fix portlets menu title,gforcada,2017-01-10T14:20:20Z,2017-01-10T23:43:33Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,9.385833333333334
+plone/plone.app.customerize,14,fix tests,davisagli,2017-02-02T16:02:14Z,2017-02-02T17:35:25Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.intid,6,remove unittest2 dependency,kakshay21,2017-05-18T18:29:22Z,2017-05-24T08:47:33Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.portlets,103,"Fix tests, no more acquisition for renderer",davisagli,2017-10-21T15:12:29Z,2017-10-21T21:10:10Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.portlets,92,OFS.traversable cannot do unicode,thet,2016-12-07T07:07:06Z,2016-12-09T09:43:07Z,closed,True,4,0,0,4,3,0,3,0,0,0,0,0.33916666666666667
+plone/plone.app.portlets,101,Fgrcon fix 2077,fgrcon,2017-06-17T10:01:46Z,2017-06-17T21:39:43Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.portlets,100,further fixes for plip 1734-attribute-renames,fgrcon,2017-06-16T09:31:47Z,2017-06-17T20:57:53Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.portlets,99,Cleanup of PLIP #1734,thet,2017-06-12T16:44:20Z,2017-06-14T12:41:51Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.portlets,85,"navigation-, news-, recent-,review-portlets: add options to supress i…",fgrcon,2016-09-01T12:29:26Z,2017-06-01T12:13:32Z,closed,True,0,4,5,4,4,3,3,1,0,4,0,6527.708333333333
+plone/plone.app.portlets,98,remove unittest2 dependency,kakshay21,2017-05-31T20:20:05Z,2017-06-02T07:39:58Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.portlets,72,Plip 1483 retina image scales,ghost,2016-05-31T10:27:31Z,2017-03-21T21:15:52Z,closed,True,2,0,0,2,2,0,1,0,0,0,0,6255.018888888889
+plone/plone.app.textfield,23,Made sure the new textarea template is not used for rich text widgets,mauritsvanrees,2017-07-12T14:45:02Z,2017-07-17T12:29:30Z,closed,True,1,0,1,1,2,1,1,1,0,0,0,117.73777777777778
+plone/plone.app.textfield,20,Enable the RichText field to work together with a simple ITextAreaWidget,jensens,2017-01-26T13:06:59Z,2017-01-26T20:15:23Z,closed,True,0,6,4,6,2,2,2,0,0,4,0,1.1422222222222222
+plone/plone.app.textfield,19,Cleanup ,jensens,2017-01-25T16:32:24Z,2017-01-25T17:24:44Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.theming,138,remove mention of non-existent Example theme,tkimnguyen,2017-11-27T13:35:27Z,2017-12-09T21:31:13Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.theming,131,kakshay21 unittest,kakshay21,2017-05-31T22:31:18Z,2017-06-01T10:33:42Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.theming,128,Update thememapper bundle.,thet,2017-04-25T10:05:08Z,2017-04-25T11:41:54Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.theming,124,Let the pattern configuration of the thememapper be in JSON format.,thet,2017-03-18T21:59:53Z,2017-04-06T08:51:55Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.theming,121,Fix imports from Globals that was removed in Zope4,jensens,2017-01-31T14:18:02Z,2017-02-05T22:06:10Z,closed,True,4,0,0,4,2,0,2,0,0,0,0,1177.8502777777778
+plone/plone.app.theming,123,Reduce log level,jensens,2017-03-02T12:34:56Z,2017-03-02T13:46:07Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.theming,122,"Improve: Docs, follow styleguide",svx,2017-02-10T12:25:10Z,2017-02-11T12:46:43Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.workflow,15,Zope4: Don't define cmf.ChangeLocalRoles ,pbauer,2017-09-18T16:46:43Z,2017-10-21T09:31:13Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,206.39388888888888
+plone/plone.app.workflow,13,Remove usage of 'Change portal events' permission,gforcada,2017-04-18T12:57:37Z,2017-04-18T19:55:02Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.workflow,12,Update est_one_state_workflow.py,kakshay21,2017-04-11T17:14:26Z,2017-04-11T22:50:11Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.workflow,11,"Fixed test failure for LookupError, having extra 'available items'.",jensens,2017-02-06T07:44:10Z,2017-02-06T12:36:59Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.versioningbehavior,34,Add a missing TTW edit form,Rotonen,2017-06-02T12:32:26Z,2017-06-06T09:41:31Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.browserlayer,6,Fixed test when using Zope 4.,jensens,2017-02-04T15:05:42Z,2017-02-06T06:00:07Z,closed,True,2,0,0,2,1,0,1,0,0,0,0,
+plone/plone.event,10,fix test to work with newer pytz,jensens,2017-07-24T13:24:22Z,2017-07-24T14:07:57Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.autoform,30,Allow fieldset configuration via field-less schema,thet,2017-11-22T10:43:19Z,2017-11-22T20:38:26Z,closed,True,1,0,1,1,2,1,1,1,0,0,0,3.0436111111111113
+plone/plone.autoform,29,Add handler registration for text input widgets to support e.g. 'placeholder' parameter in parametrized widgets,datakurre,2017-10-09T16:17:37Z,2017-10-10T07:19:34Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.autoform,27,Reduce field move failure logging from error to warning,jensens,2017-05-17T10:11:12Z,2017-05-17T10:19:29Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.autoform,28,Removed unittest2 dependency,kakshay21,2017-05-31T22:52:59Z,2017-06-01T09:40:14Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.autoform,26,Clean up code analysis warnings,gforcada,2017-05-03T21:52:36Z,2017-05-03T22:38:53Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.4666666666666667
+plone/plone.autoform,25,Fix updateFieldsFromSchemata for schemaless forms,davisagli,2017-05-03T18:51:19Z,2017-05-03T21:44:10Z,closed,True,0,2,2,2,2,2,2,0,0,2,0,0.8233333333333334
+plone/plone.autoform,23,Verbose tracebacks of plone.autoform.widgets.ParameterizedWidget ,jensens,2017-02-22T16:06:07Z,2017-02-22T16:26:09Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.9330555555555555
+plone/plone.autoform,22,avoid mixing in acquisition to WidgetsView,davisagli,2017-02-01T13:23:23Z,2017-02-01T14:27:43Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.querystring,83,Fix querybuilder if SearchableText is a dict,tomgross,2017-11-09T08:48:09Z,2017-11-09T10:59:49Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,2.3319444444444444
+plone/plone.app.querystring,82,Filter query string from bad term and operator [technicalmanager@gmai…,nngu6036,2017-09-07T15:52:27Z,2017-09-08T19:03:04Z,closed,True,4,0,0,4,3,0,3,0,0,0,0,20.14666666666667
+plone/plone.app.querystring,80,Filter query string from bad term and operator,nngu6036,2017-08-13T23:44:00Z,,closed,False,6,0,1,6,3,1,2,0,0,1,0,206.96555555555557
+plone/plone.app.querystring,78,remove unittest2 dependency,kakshay21,2017-05-31T20:41:58Z,2017-05-31T22:03:53Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.querystring,76,Do not fail on empty empty or not existing querystrings while upgrading,agitator,2017-04-05T16:03:06Z,2017-04-05T16:50:47Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,0.23916666666666667
+plone/plone.app.querystring,74,Fix QueryBuilder with empty queries to return a Batch when requested.,thet,2017-02-08T14:39:53Z,2017-02-08T17:10:32Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.querystring,73,Make integer query operators accept unicode values.,lzdych,2017-02-01T17:13:12Z,2017-02-04T10:35:09Z,closed,True,5,0,0,5,2,0,2,0,0,0,0,41.60194444444444
+plone/plone.app.querystring,71,RelativeDate index modifier fix,thet,2017-01-10T01:22:32Z,2017-01-10T11:08:54Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,9.770833333333334
+plone/plone.app.querystring,70,WIP: Cache querystring indexes,tomgross,2017-01-04T07:21:29Z,,closed,False,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.vocabularies,50,Let ``plone.app.vocabularies.SupportedContentLanguages`` return the l…,thet,2017-06-23T10:19:59Z,2017-06-27T08:43:57Z,closed,True,1,0,2,1,3,2,1,1,0,1,0,32.72361111111111
+plone/plone.app.vocabularies,47,	return empty vocabulary when no imagescales defined,fgrcon,2017-03-31T11:14:26Z,2017-04-09T21:44:51Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,226.49388888888888
+plone/plone.app.vocabularies,46,Permissive vocabulary fixes two GenericSetup import issues for add-ons,seanupton,2017-02-28T00:22:24Z,2017-03-01T08:26:08Z,closed,True,1,10,7,11,3,3,3,1,1,5,0,7.750277777777778
+plone/plone.app.vocabularies,45,Fix problem in ParseError fallback introduced in 4.0,jensens,2017-01-09T13:40:57Z,2017-01-09T16:10:28Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.memoize,5,Keep docstrings intact in decorators,pgrunewald,2017-06-21T15:56:47Z,2017-06-28T06:57:54Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,18.051944444444445
+plone/plone.memoize,6,Update travis,pgrunewald,2017-06-27T15:18:11Z,2017-06-28T06:54:52Z,closed,True,4,2,2,6,2,1,2,0,0,2,0,0.22805555555555557
+plone/plone.intelligenttext,7,Simplify Travis definition,Rotonen,2017-11-30T00:41:41Z,2017-12-20T09:23:05Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.intelligenttext,5,Recognize URLs at the end of sentences,ghost,2017-08-03T13:00:31Z,2017-08-04T18:30:24Z,closed,True,2,0,1,2,2,1,2,1,0,0,0,24.1175
+plone/plone.intelligenttext,6,Bump travis python envs,Rotonen,2017-08-03T14:19:54Z,2017-08-04T13:05:48Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,22.76361111111111
+plone/plone.portlet.static,14,Remove unittest2 dependency,kakshay21,2017-06-11T18:29:50Z,2017-06-13T11:51:41Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,39.305
+plone/plone.app.redirector,7,remove unittest2 dependency,kakshay21,2017-05-31T21:54:03Z,2017-06-01T10:34:36Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.redirector,6,Fix test for ZODB 4,davisagli,2017-01-08T06:40:41Z,2017-01-09T12:02:17Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,27.53611111111111
+plone/plone.behavior,15,Fix import dotted path in example,fulv,2017-03-21T15:40:36Z,2017-10-01T22:49:08Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.behavior,13,"in zcml, if a marker is given, but no for, use marker as for.",jensens,2017-03-14T15:01:48Z,2017-03-14T16:00:20Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.registry,15,Various registry improvements,vangheem,2016-02-27T05:16:47Z,2017-03-24T09:25:10Z,closed,True,21,0,1,21,7,1,7,1,0,0,3,8.90611111111111
+plone/plone.app.registry,27,remove unittest2 dependency,kakshay21,2017-05-31T22:05:40Z,2017-06-01T10:34:01Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.registry,25,Backport PLIP 1406 for plone.app.registry 1.2.x,datakurre,2017-02-21T10:22:28Z,2017-02-21T16:04:17Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.formwidget.namedfile,31,Don't show options to keep or replace the file when the file referenc…,thet,2017-12-14T14:33:26Z,,closed,False,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.formwidget.namedfile,28,Remove mention of retina,tkimnguyen,2017-08-31T20:07:32Z,2017-10-10T13:09:41Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.formwidget.namedfile,29,Fixing potential UnicodeError,karalics,2017-09-01T15:31:46Z,2017-09-04T09:55:39Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.formwidget.namedfile,27,Fix issue where display widget failed to render fields on fieldsets,datakurre,2017-06-09T06:49:02Z,2017-06-09T09:25:06Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.resource,20,Fixed ValueError in FilesystemResourceDirectory repr [1.x],mauritsvanrees,2017-12-21T17:35:01Z,2017-12-22T14:16:59Z,closed,True,2,0,0,2,1,0,1,0,0,0,0,
+plone/plone.resource,21,Fixed ValueError in FilesystemResourceDirectory repr [master],mauritsvanrees,2017-12-21T17:42:29Z,2017-12-22T14:16:19Z,closed,True,2,0,1,2,2,1,1,1,0,0,0,20.5625
+plone/plone.resource,19,Require unittest2 only if we use Python < 2.7,ale-rt,2017-10-22T14:43:46Z,2017-10-27T15:22:34Z,closed,True,8,0,0,8,3,0,3,0,0,0,1,4.331111111111111
+plone/plone.recipe.zeoserver,25,wait for zeo connection (backport from ZEO's pack script),mamico,2017-12-17T23:09:28Z,2017-12-18T17:33:02Z,closed,True,4,0,1,4,2,1,2,1,0,0,0,9.383055555555556
+plone/plone.recipe.zeoserver,26,Fixed Travis tests by installing the `hyperlink` package.,mauritsvanrees,2017-12-18T09:30:33Z,2017-12-18T09:37:23Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.recipe.zeoserver,24,fix #19: Not compatible with zope.mkzeoinstance 4.0,jensens,2017-05-23T09:49:43Z,2017-05-23T10:14:38Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.recipe.zeoserver,23,fix #19: Not compatible with zope.mkzeoinstance 4.0,jensens,2017-05-23T09:29:20Z,,closed,False,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.recipe.zeoserver,21,Fix tests …,icemac,2017-04-05T06:21:27Z,2017-04-05T08:07:25Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,0.8233333333333334
+plone/plone.recipe.zeoserver,18,Add support for log rotation,hvelarde,2017-02-13T17:09:12Z,2017-02-14T20:23:38Z,closed,True,8,0,3,8,4,3,3,3,0,0,2,3.235
+plone/plone.resourceeditor,19,Add the move API endpoint to the FileManagerActions class,b4oshany,2017-06-20T10:59:01Z,2017-07-13T21:08:24Z,closed,True,3,9,9,12,3,3,3,0,1,7,1,18.8925
+plone/plone.resourceeditor,18,Remove unittest2 dependency,kakshay21,2017-06-11T18:55:22Z,2017-06-11T20:13:52Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.uuid,4,Remove unittest2 dependency,kakshay21,2017-05-31T22:38:23Z,2017-06-01T09:39:37Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.uuid,3,Fix test for 404 response (Zope4),jensens,2017-02-06T07:40:51Z,2017-02-08T15:27:43Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.testing,42,Remove unittest2 dependency,kakshay21,2017-05-31T22:23:44Z,2017-06-01T13:36:22Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.testing,40,remove loading of SecureMailHost for plone4.3.x,frisi,2017-04-13T07:39:55Z,2017-04-13T15:04:36Z,closed,True,7,0,1,7,2,1,2,1,0,0,0,4.365833333333334
+plone/plone.i18n,18,Add missing dependencies to setup.py,dhavlik,2017-05-03T09:14:10Z,2017-05-10T08:01:45Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,170.7722222222222
+plone/plone.i18n,16,Serbian changes,digitalnaSRB,2017-05-01T14:39:22Z,,closed,False,1,0,0,1,2,0,1,0,0,0,0,2.0469444444444442
+plone/plone.protect,68,README wording tweaks,tkimnguyen,2017-08-10T17:06:44Z,2017-08-15T09:57:27Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,112.83777777777777
+plone/plone.protect,67,Log the actual forbidden URL,gforcada,2017-08-07T22:03:31Z,2017-08-08T11:48:02Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,13.740555555555556
+plone/plone.protect,65,Catch AttributeError on transform,hvelarde,2017-08-02T20:42:24Z,2017-08-03T08:08:13Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,11.418333333333333
+plone/plone.protect,63,Fix logging to no longer write to stdout.,jone,2017-07-03T17:14:16Z,2017-07-08T17:30:38Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,119.89333333333333
+plone/plone.protect,62,note on fixing test failures due to unprotected form submission when …,thet,2017-06-23T07:06:33Z,2017-06-26T09:45:49Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,74.65222222222222
+plone/plone.protect,61,Remove unittest2 dependency,kakshay21,2017-06-11T18:44:43Z,2017-06-12T13:58:36Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.outputfilters,25,Update tests to reflect changes in PortalTransforms,MrTango,2017-07-07T07:10:22Z,2017-07-28T11:26:36Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,157.9038888888889
+plone/plone.outputfilters,24,Remove unittest2 dependency,kakshay21,2017-05-31T23:00:25Z,2017-06-01T15:02:59Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.subrequest,15,Add support for zope.publisher exception views,datakurre,2017-08-28T10:25:34Z,2017-09-06T13:01:07Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,218.5211111111111
+plone/plone.subrequest,13,Update __init__.py (remove virtual-url-parts from path),awello,2017-07-05T11:39:10Z,2017-07-06T08:55:13Z,closed,True,3,0,0,3,3,0,2,0,0,0,1,21.41027777777778
+plone/plone.subrequest,12,Remove unittest2 dependency,kakshay21,2017-06-11T19:05:57Z,2017-06-13T13:15:29Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.robotframework,57,Do not use run_on_failure from Selenium2Library.,mauritsvanrees,2016-06-29T14:56:25Z,2016-06-29T18:55:40Z,closed,True,7,0,0,7,3,0,3,0,0,0,1,1.9341666666666666
+plone/plone.app.robotframework,69,Update links to external documentation,jensens,2017-06-14T05:34:19Z,2017-06-14T08:14:44Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.robotframework,66,"Manage RelationList field using ""references"" field type in ""set field…",sgeulette,2017-03-16T09:45:14Z,2017-03-16T15:52:07Z,closed,True,3,0,1,3,2,1,2,1,0,0,0,0.44027777777777777
+plone/plone.app.robotframework,65,"Manage datetime and date field types in ""set field value"" keyword",sgeulette,2017-03-14T14:20:11Z,2017-03-14T14:30:09Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.1736111111111111
+plone/plone.transformchain,6,Remove unittest dependency,kakshay21,2017-06-11T19:17:12Z,2017-06-11T21:14:59Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.testing,24,remove more BBB code,thet,2016-05-25T08:15:58Z,2017-10-21T14:00:30Z,closed,True,6,1,1,7,2,1,2,0,0,1,1,14.289444444444445
+plone/plone.testing,37,Make compatible with the upcoming Zope 4.0b2.,icemac,2017-10-09T09:05:19Z,2017-10-15T20:19:00Z,closed,True,1,0,1,1,3,1,1,1,0,0,0,82.4563888888889
+plone/plone.testing,35,Update code to follow Plone styleguide,gforcada,2017-04-19T14:22:50Z,2017-04-21T06:07:06Z,closed,True,0,7,7,7,2,2,2,0,0,7,0,15.569722222222222
+plone/plone.testing,34,Do not break on import of plone.testing.z2,icemac,2017-04-19T08:06:59Z,2017-04-19T09:10:59Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,5.6130555555555555
+plone/plone.testing,32,Make sure the development version is actually tested.,icemac,2017-04-11T13:39:11Z,2017-04-11T20:30:48Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.testing,30,Fix for ZODB 5: Abort transaction before DB close.,jensens,2017-04-05T21:52:07Z,2017-04-07T09:11:08Z,closed,True,6,5,4,11,3,2,3,1,1,2,0,8.213611111111112
+plone/plone.testing,31,Fix for ZODB 5: Abort transaction before DB close (4.3.x backport),jensens,2017-04-07T10:07:54Z,2017-04-07T12:32:26Z,closed,True,0,1,1,1,1,1,1,0,0,1,0,
+plone/plone.testing,28,Replace `ZServer.PubCore` handler with a threadless version.,witsch,2017-03-03T16:33:21Z,2017-03-05T08:16:57Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,39.725833333333334
+plone/plone.testing,29,Testing fixes,witsch,2017-03-03T17:13:14Z,2017-03-04T17:11:34Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,23.840833333333332
+plone/plone.theme,6,remove unittest2 dependency,kakshay21,2017-06-13T12:47:25Z,2017-06-13T16:50:39Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.theme,5,Fixed test when using Zope 4.,jensens,2017-02-04T11:52:34Z,2017-02-04T14:30:34Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.supermodel,24,Python3 compatibility with sixer,ale-rt,2017-10-24T20:44:07Z,2017-10-27T11:37:53Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.supermodel,17,Fixed #16.,iham,2016-10-14T05:29:51Z,2017-06-01T10:15:25Z,closed,True,13,0,0,13,4,0,4,0,0,0,1,7.243888888888889
+plone/plone.supermodel,20,"Remove temporary fix regarding test failures on Zope 4, as it's alrea…",jensens,2017-01-31T11:41:05Z,2017-01-31T13:08:52Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.supermodel,19,Fix issue where choice parser failed to parse vocabulary values with separate keys and display titles,datakurre,2017-01-25T09:21:40Z,2017-01-26T13:55:22Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.session,9,Hardening BSI recommendation,jensens,2017-11-25T11:04:47Z,2017-11-27T23:13:09Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,54.346944444444446
+plone/plone.registry,14,Fix endless recursion on 1.0.x,mauritsvanrees,2017-02-10T11:55:53Z,2017-02-11T13:01:13Z,closed,True,2,0,0,2,2,0,1,0,0,0,0,25.095
+plone/plone.docker,74,add prerequisite of installing & running Docker,tkimnguyen,2017-07-28T20:28:42Z,2017-07-31T07:08:37Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.docker,70,Trying to clarify README in Midsummer Sprint,ju55i,2017-07-03T12:07:28Z,2017-07-03T12:08:48Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.025
+plone/plone.docker,66,"Replace curl with wget, remove apt-mark showauto for Plone 5",svx,2017-06-06T11:58:04Z,2017-06-06T13:09:29Z,closed,True,5,0,0,5,2,0,2,0,0,0,0,0.3388888888888889
+plone/plone.docker,65,"Bye Curl, hello wget",svx,2017-05-29T09:43:29Z,2017-06-06T09:03:14Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,191.32777777777778
+plone/plone.docker,62,Add missing Pillow dependencies to support openjpg and tiff scaling.,jladage,2017-04-14T06:55:33Z,2017-04-20T12:19:49Z,closed,True,5,0,0,5,3,0,3,0,0,0,0,13.168611111111112
+plone/plone.docker,63,Add -m -d /home options to useradd command to create home folder,jladage,2017-04-20T11:01:01Z,2017-04-20T11:56:27Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.docker,61,Follow best practices,svx,2017-04-06T13:02:45Z,,closed,False,3,4,5,7,3,3,2,1,0,4,0,0.17583333333333334
+plone/plone.docker,60,Feature: Reduce size of image,svx,2017-03-30T09:00:36Z,2017-04-06T12:46:35Z,closed,True,3,3,3,6,2,2,2,0,0,3,0,0.3511111111111111
+plone/plone.docker,57,Update: Dockerfile,svx,2017-03-23T12:21:22Z,2017-03-23T12:41:55Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.patternslib,22,depend on patternslib 2.1.x + update,thet,2017-09-17T23:28:30Z,2017-09-17T23:29:48Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,8.279166666666667
+plone/plone.patternslib,19,Register ``pat-date-picker``.,thet,2017-07-14T10:18:06Z,2017-07-24T07:53:46Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.patternslib,18,Thet upds,thet,2017-06-10T12:23:39Z,2017-06-10T12:23:49Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.patternslib,12,update to latest Patterns,thet,2016-11-09T06:20:20Z,2017-02-28T00:33:53Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.patternslib,8,Replace npmcdn.com with unpkg.com,npmcdn-to-unpkg-bot,2016-08-31T11:35:08Z,,closed,False,1,0,0,1,2,0,1,0,0,0,0,4247.063055555555
+plone/plone.app.linkintegrity,63,Optimize migration of old Archetypes references,davisagli,2017-12-13T15:24:46Z,2017-12-13T18:21:46Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,2.517777777777778
+plone/plone.app.linkintegrity,58,Fix a missing tal condition in delete_confirmation_info.pt,arsenico13,2017-09-25T13:40:26Z,2017-09-26T23:41:05Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.linkintegrity,57,Remove undeclared/hard dependency on Archetypes,tomgross,2017-08-01T21:42:41Z,2017-08-07T09:50:25Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.linkintegrity,55,removed unittest2 dependency,kakshay21,2017-05-24T11:14:17Z,2017-05-27T08:44:47Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.linkintegrity,54,Update code to follow Plone styleguide,gforcada,2017-04-19T14:01:22Z,2017-04-21T12:15:29Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,50.18861111111111
+plone/plone.app.linkintegrity,53,update docs for feature of searching breaches for any relation,thet,2017-04-05T11:57:10Z,2017-04-06T09:18:57Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,0.06194444444444445
+plone/plone.app.linkintegrity,52,check any reference in delete confirmation dialog,thet,2017-04-04T12:33:34Z,2017-04-04T21:25:40Z,closed,True,3,0,1,3,3,1,2,1,0,0,0,2.3894444444444445
+plone/plone.app.linkintegrity,51,pep8,thet,2017-03-31T16:29:18Z,2017-04-04T09:14:49Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.linkintegrity,49,Don't check if dexterity is present ,fredvd,2017-03-03T20:53:02Z,2017-03-03T23:10:11Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.linkintegrity,39,Use plone.namedfile for testing images,ghost,2016-06-21T11:39:15Z,2017-02-23T11:11:33Z,closed,True,2,1,0,3,3,0,3,0,0,0,0,0.07916666666666666
+plone/plone.app.linkintegrity,46,Don't fail on inconsistent catalog,tomgross,2017-01-11T07:33:34Z,2017-02-16T17:32:24Z,closed,True,1,3,3,4,3,3,3,0,0,3,0,0.3491666666666667
+plone/plone.app.linkintegrity,47,Plone on Zope4,jensens,2017-02-05T20:48:43Z,2017-02-06T05:58:58Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.tiles,26,Add to ensure that querystring en-/decoder skips primary fields,datakurre,2017-08-21T20:41:05Z,2017-08-21T21:22:36Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.13444444444444445
+plone/plone.tiles,23,Do not swallow AttributeError inside index() on template rendering,hvelarde,2017-03-17T04:52:08Z,2017-03-20T18:20:42Z,closed,True,9,1,1,10,6,1,6,0,0,1,0,13.505833333333333
+plone/plone.tiles,24,Do not swallow AttributeError inside index() on template rendering,hvelarde,2017-03-17T04:54:32Z,2017-03-20T18:21:06Z,closed,True,3,0,0,3,3,0,3,0,0,0,0,43.19694444444445
+plone/plone.tiles,25,Use single quotes,gforcada,2017-03-18T23:52:04Z,2017-03-19T00:04:19Z,closed,True,3,0,0,3,2,0,1,0,0,0,0,0.059722222222222225
+plone/plone.tiles,20,Change datamanager getter to fallback to persistent storage,tomgross,2017-01-28T13:55:39Z,,closed,False,2,0,0,2,2,0,2,0,0,0,0,3.8561111111111113
+plone/plone.tiles,19,Fix issue where transient tile was unable to encode data with list of unicode strings,datakurre,2017-01-09T21:17:11Z,2017-01-09T22:19:06Z,closed,True,3,0,0,3,2,0,1,0,0,0,0,0.03833333333333333
+plone/plone.app.users,63,Bind views always to Portal,thet,2017-04-24T22:12:16Z,2017-05-23T10:20:37Z,closed,True,0,5,5,5,3,3,3,0,0,5,0,0.2225
+plone/plone.app.users,62,avoid using testbrowser internals,jensens,2017-02-05T22:03:23Z,,closed,False,1,0,0,1,1,0,1,0,0,0,0,
+plone/mr.roboto,45,fixed some typos,jensens,2017-10-22T09:12:03Z,2017-10-22T20:39:46Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,11.465
+plone/mr.roboto,44,Add an extra blank line,gforcada,2017-07-19T21:58:17Z,2017-07-19T22:03:23Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.06722222222222222
+plone/mr.roboto,40,Encode commit message,gforcada,2017-07-05T14:16:57Z,2017-07-05T14:37:07Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.32611111111111113
+plone/mr.roboto,41,Bump versions,gforcada,2017-07-05T14:24:28Z,2017-07-05T14:32:08Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.12444444444444444
+plone/plonecli,12,Improve reST and accessibility of README and docs ,svx,2017-12-21T18:30:18Z,2017-12-21T18:50:55Z,closed,True,4,0,0,4,2,0,2,0,0,0,1,0.04416666666666667
+plone/plonecli,7,Modernize setup to no use easy_install but pip,jensens,2017-12-04T11:17:26Z,2017-12-05T14:18:43Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plonecli,6,updated the cli logo to align with Plone logo usage guidelines,pigeonflight,2017-11-06T03:29:53Z,2017-12-04T10:22:20Z,closed,True,2,0,0,2,1,0,1,0,0,0,0,
+plone/plonecli,5,Added logo to docs and front page,pigeonflight,2017-11-01T13:57:39Z,2017-11-04T12:02:24Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,70.0775
+plone/plonecli,4,Add docu for tab completion,Gomez,2017-10-21T14:36:11Z,2017-10-21T14:37:46Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plonecli,3,Remove not needed cli file,Gomez,2017-10-21T12:37:57Z,2017-10-21T12:38:04Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plonecli,2,Docu will be at docs.plone.org,Gomez,2017-10-21T09:46:10Z,2017-10-21T09:46:17Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plonecli,1,Add developer guide & requirements,Gomez,2017-10-21T09:22:21Z,2017-10-21T09:42:01Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.formwidget.recaptcha,7,Add a dummy widget display view which renders empty.,thet,2017-09-05T10:48:56Z,2017-09-19T21:30:28Z,closed,True,6,0,2,6,4,2,3,2,0,0,0,20.868055555555557
+plone/collective.monkeypatcher,7,document problems with patching module functions,frisi,2017-09-07T19:15:30Z,2017-09-11T17:11:21Z,closed,True,1,0,2,1,3,2,1,2,0,0,0,11.157777777777778
+plone/diazo,71,Fix problem with release of egg,loechel,2017-08-28T08:34:26Z,,closed,False,2,2,2,4,3,2,3,0,0,2,0,0.5755555555555556
+plone/diazo,70,cleanup - code conventions,loechel,2017-08-10T21:10:48Z,2017-08-26T17:57:41Z,closed,True,4,12,9,16,3,2,3,1,0,8,0,224.35222222222222
+plone/diazo,50,Include content refactor,lrowe,2015-10-22T23:41:25Z,2015-10-28T13:21:39Z,closed,True,7,0,0,7,3,0,3,0,0,0,0,37.79972222222222
+plone/diazo,68,"fix test with webob 1.7, which doesn't keep the Content-Type on responses with no body",davisagli,2017-02-11T20:58:48Z,2017-02-11T21:15:41Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/jenkins.plone.org,198,Color blindness support,LeviBroadnax,2017-03-07T00:11:41Z,,closed,False,9,0,0,9,5,0,4,0,0,0,1,6.4927777777777775
+plone/jenkins.plone.org,211,Plone 5.2,gforcada,2017-10-21T10:03:52Z,2017-10-21T10:03:59Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/jenkins.plone.org,210,Virtualenv,gforcada,2017-08-01T22:52:53Z,2017-08-22T09:56:32Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,14.793611111111112
+plone/jenkins.plone.org,208,Remove zope/CMF related jobs,gforcada,2017-07-31T21:35:46Z,2017-08-01T20:43:43Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/jenkins.plone.org,206,New structure,gforcada,2017-06-28T21:13:23Z,2017-07-22T21:30:03Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/jenkins.plone.org,204,Added missing newline for PKGS if COREDEV=1.,mauritsvanrees,2017-05-03T12:13:42Z,2017-05-03T12:47:42Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.5658333333333333
+plone/jenkins.plone.org,203,Add-on job,gforcada,2017-04-30T09:46:54Z,2017-05-01T17:27:55Z,closed,True,2,0,0,2,1,0,1,0,0,0,0,
+plone/jenkins.plone.org,199,added plip-1734-icons-and-thumbs to jobs.yml  ,fgrcon,2017-03-12T11:12:40Z,,closed,False,1,0,0,1,2,0,1,0,0,0,0,25.788055555555555
+plone/plonetheme.sunburst,17,* Add data-base-url attribute in body tag closes #2051,rodfersou,2017-07-08T03:30:09Z,2017-07-29T21:31:09Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,13.313611111111111
+plone/plone.locking,14,All LockingOperations method can optionally redirect to the context view,ale-rt,2017-05-16T15:51:41Z,2017-05-16T22:22:58Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,1.568888888888889
+plone/plone.app.lockingbehavior,8,"Unskip test for Zope 4, as isolation problems are already fixed.",jensens,2017-02-04T11:21:04Z,2017-02-06T07:53:05Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.widgets,176,Make z3c.relationfield a soft dependency.,thet,2017-11-29T09:56:42Z,2017-11-29T11:10:20Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.1913888888888889
+plone/plone.app.widgets,116,Solve issue https://github.com/plone/plone.app.widgets/issues/115,andreesg,2015-10-21T17:15:50Z,,closed,False,2,0,0,2,3,0,2,0,0,0,0,0.11388888888888889
+plone/plone.app.widgets,173,QueryString widget: parameters for subwidgets,thet,2017-08-22T10:37:11Z,2017-09-04T00:01:06Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.widgets,171,Allow related items options to work on non OFS Simple Item objects.,thet,2017-07-27T22:03:27Z,2017-08-03T22:23:16Z,closed,True,0,0,2,0,3,2,0,2,0,0,0,118.74
+plone/plone.app.widgets,170,Thet requirejs unset improve,thet,2017-06-27T11:44:55Z,2017-06-28T11:53:39Z,closed,True,2,0,2,2,3,1,2,2,0,0,0,1.843611111111111
+plone/plone.app.widgets,168,"Support for field types relation list, relation choice and choice ...",thet,2017-06-19T16:06:28Z,2017-06-27T11:14:40Z,closed,True,7,0,1,7,3,1,2,1,0,0,0,0.11305555555555556
+plone/plone.app.widgets,169,Failsafe requirejs unset/reset,petschki,2017-06-23T06:39:45Z,2017-06-23T10:02:09Z,closed,True,7,3,3,10,3,2,3,0,0,3,1,0.16
+plone/plone.app.widgets,167,Unset and reset ``define`` and ``require``,thet,2017-06-19T12:17:39Z,2017-06-19T13:08:48Z,closed,True,4,0,2,4,3,1,3,1,1,0,0,0.07722222222222222
+plone/plone.app.widgets,166,Deprecate *_bbb and pep8,thet,2017-06-19T11:14:08Z,2017-06-19T12:41:29Z,closed,True,2,0,1,2,3,1,2,1,0,0,0,0.5775
+plone/plone.app.widgets,165,Cleanup and convenience,petschki,2017-06-08T16:35:57Z,2017-06-19T09:57:07Z,closed,True,3,4,4,7,3,2,3,0,1,3,0,0.04861111111111111
+plone/plone.app.widgets,160,fix tinymce options with non-contentish contexts,thet,2017-05-29T16:52:59Z,2017-06-08T08:26:30Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,22.23361111111111
+plone/plone.app.widgets,163,Fix RichTextWidget for non-contentish context,petschki,2017-06-01T14:42:23Z,2017-06-07T11:33:38Z,closed,True,6,0,1,6,4,1,4,0,0,1,0,0.9133333333333333
+plone/plone.app.widgets,158,Fix RelatedItemsWidget calling self.items for Plone > 4.3.11,fredvd,2017-05-17T11:52:44Z,,closed,False,7,0,0,7,3,0,3,0,0,0,0,40.795
+plone/plone.app.widgets,159,Related items widget options changes,thet,2017-05-19T16:04:52Z,2017-05-23T11:06:50Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.widgets,144,"Numerous Mockup 2 compatibility fixes for 1.x branch, plus semver and TinyMCE fixes",seanupton,2016-08-11T05:03:43Z,2016-09-26T05:53:50Z,closed,True,25,0,0,25,7,0,7,0,0,0,0,176.89777777777778
+plone/plone.app.widgets,154,Change options today and clear to reflect changes in mockup 2.4.,thet,2017-02-09T21:32:49Z,2017-02-10T10:03:54Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.portlet.collection,19,Fix collection selection for Plone 5.1,agitator,2017-10-17T15:45:38Z,2017-10-18T17:22:39Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.portlet.collection,18,fixing https://github.com/plone/Products.CMFPlone/issues/2077,fgrcon,2017-06-17T10:13:20Z,2017-06-17T21:39:40Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.portlet.collection,17,Cleanup of PLIP #1734,thet,2017-06-12T16:44:13Z,2017-06-14T12:41:44Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.portlet.collection,16,Remove unittest dependency,kakshay21,2017-06-11T18:37:41Z,2017-06-13T11:51:50Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,39.20055555555555
+plone/plone.portlet.collection,15,option to override thumb /icon behavior individually for portlet (sup…,fgrcon,2016-09-01T03:31:30Z,2017-06-01T12:14:45Z,closed,True,0,2,3,2,3,2,1,1,0,2,0,5299.426666666666
+plone/collective.indexing,12,Add deprecation warning,gforcada,2016-05-20T14:17:21Z,2017-02-21T20:55:16Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.validation,3,Remove AT dependency and PY3 compatibility,tomgross,2017-07-30T20:26:40Z,2017-08-01T09:10:31Z,closed,True,4,0,0,4,4,0,4,0,0,0,2,9.171944444444444
+plone/Products.Archetypes,100,Have @@kss_field_decorator_view return itself when called.,pbauer,2017-10-16T21:56:24Z,,closed,False,6,0,1,6,3,1,3,1,0,0,0,18.753333333333334
+plone/Products.Archetypes,96,Update Field::getAccessor() doc to reflect fallback behavior,zemm,2017-08-29T08:03:17Z,2017-08-29T18:41:32Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.Archetypes,98,Test fixes for changes in plone.app.widgets querystring options.,thet,2017-08-30T14:33:46Z,2017-09-04T00:01:44Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.Archetypes,95,Remove Plone distribution dependency,gforcada,2017-07-13T22:50:46Z,2017-07-14T10:20:50Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.Archetypes,93,Fix bugs with old jquery version and textlimit alert,vkarppinen,2017-07-04T09:32:02Z,2017-07-10T10:37:11Z,closed,True,1,7,4,8,2,2,2,0,0,4,0,23.851944444444445
+plone/Products.Archetypes,91,Prevent AttributeError on deleting a Reference ,pbauer,2017-06-22T09:23:50Z,2017-07-04T15:49:40Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.Archetypes,77,Look up view using lower-level API to check for existence,malthe,2017-02-03T10:17:02Z,2017-05-30T15:21:55Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.Archetypes,88,Small white space fix to test Travis.,mauritsvanrees,2017-05-29T15:18:58Z,2017-05-30T12:51:53Z,closed,True,6,0,0,6,2,0,2,0,0,0,0,17.808611111111112
+plone/Products.Archetypes,90,test travis on branch 1.10.x,gotcha,2017-05-30T09:33:09Z,2017-05-30T11:00:05Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.Archetypes,89,test travis on 1.9.x branch,gotcha,2017-05-30T09:32:22Z,2017-05-30T10:02:53Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.Archetypes,83,1.9 add Travis support,gotcha,2017-05-23T12:41:28Z,,closed,False,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.Archetypes,82,Fix related items widget tests to reflect latest plone.app.widgets ch…,thet,2017-05-22T22:24:55Z,2017-05-23T11:06:30Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.Archetypes,81,Fix bug with Widget's postback attribute,pgrunewald,2017-04-19T09:48:49Z,2017-04-19T13:55:27Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.Archetypes,80,Fix bug with Widget's postback attribute [Plone 4.3],pgrunewald,2017-04-18T14:40:19Z,2017-04-19T09:00:59Z,closed,True,3,0,1,3,2,1,2,1,0,0,0,17.320833333333333
+plone/Products.Archetypes,79,Use $ instead of jq in textcount.js. [Plone 4.3],mauritsvanrees,2017-04-06T15:29:33Z,2017-04-06T16:05:34Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.Archetypes,57,Merge collective indexing,gforcada,2016-05-20T13:56:31Z,2017-02-21T21:31:32Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.Archetypes,78,Fix tests to work with latest plone.app.widgets 2.1.,thet,2017-02-10T00:07:03Z,2017-02-10T10:03:37Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.Archetypes,76,Fixed tests to accept HTTP/1...,gogobd,2017-02-01T16:35:49Z,2017-02-03T10:11:03Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,28.26361111111111
+plone/Products.Archetypes,75,manage_reindexIndex requires index names,jensens,2017-01-31T16:25:46Z,2017-01-31T17:37:40Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.Archetypes,74,PTS is no longer used in Archetypes,jensens,2017-01-31T14:51:15Z,2017-01-31T16:11:49Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,104,Format another command,stevepiercy,2017-08-28T01:38:48Z,2017-08-28T01:39:29Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,103,Properly format command for RST.,fulv,2017-08-28T01:08:02Z,2017-08-28T01:08:14Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,102,Fix vcl < 4,smcmahon,2017-06-27T20:37:34Z,2017-06-27T20:37:55Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,101,Haproxy cleanup,smcmahon,2017-06-27T17:43:07Z,2017-06-27T17:43:12Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,100,Fix fail2ban role for older versions of jail.conf.,smcmahon,2017-06-27T15:43:46Z,2017-06-27T15:43:59Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,99,Audit module would fail if no instance name was set.,smcmahon,2017-06-26T21:53:45Z,2017-06-26T21:54:08Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,95,"Add a default filter to the template, when plone_instance_name is not…",ramiroluz,2017-06-02T16:23:39Z,2017-06-16T09:12:42Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,87,Add Digital Ocean requirements,stevepiercy,2017-05-22T20:47:24Z,2017-06-07T07:38:10Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,18.915555555555557
+plone/ansible-playbook,97,clarify certificate files process,stevepiercy,2017-06-05T17:17:34Z,2017-06-07T07:35:27Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,93,Audit role,smcmahon,2017-05-30T16:25:16Z,2017-05-30T16:25:48Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,91,Bump to 507,stevepiercy,2017-05-24T23:56:19Z,2017-05-25T15:46:49Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,84,change heading to next lower level so that it is not at the same leve…,stevepiercy,2017-05-22T20:11:29Z,,closed,False,1,0,0,1,1,0,1,0,0,0,0,
+plone/ansible-playbook,89,Add proxy_cache_vcl_extra,smcmahon,2017-05-23T21:12:05Z,2017-05-23T21:12:23Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,90,client_max_body_size global,smcmahon,2017-05-23T21:22:21Z,2017-05-23T21:22:35Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,86,fix heading underline length,stevepiercy,2017-05-22T20:21:41Z,2017-05-23T11:23:43Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,85,add xenial,stevepiercy,2017-05-22T20:17:37Z,2017-05-22T21:21:47Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,88,Hot restart options,smcmahon,2017-05-22T21:09:40Z,2017-05-22T21:11:09Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,81,Document and enhance restart script,smcmahon,2017-05-09T20:38:42Z,2017-05-09T20:39:12Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,80,Logwatch: update notify check was too specific. Fixed.,smcmahon,2017-04-26T17:04:09Z,2017-04-26T17:04:25Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,77,Fix reST underline for plone_var_path,stevepiercy,2017-04-24T06:42:10Z,2017-04-24T21:51:19Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,15.26388888888889
+plone/ansible-playbook,75,Use correct phrase,stevepiercy,2017-04-24T05:02:09Z,2017-04-24T21:50:12Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,79,Make update notify work in logwatch on Xenial,smcmahon,2017-04-24T20:17:40Z,2017-04-24T20:17:54Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,72,Change heading level to be less than title,stevepiercy,2017-04-21T10:12:07Z,2017-04-21T22:44:56Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,74,MOTD cleanup,smcmahon,2017-04-21T22:43:43Z,2017-04-21T22:44:03Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,70,Munin node improvements,smcmahon,2017-04-19T22:47:26Z,2017-04-19T22:47:42Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,69,Add logwatch_ignore variable,smcmahon,2017-04-19T21:50:43Z,2017-04-19T21:51:04Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,67,changed virtualenv-2.7 to virtualenv -p python2.7,pigeonflight,2017-04-14T07:32:07Z,2017-04-18T22:13:11Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,12.605277777777777
+plone/ansible-playbook,68,Fail2ban role,smcmahon,2017-04-17T15:54:57Z,2017-04-17T15:55:14Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,65,Munin node plonezoperss plugin,smcmahon,2017-04-07T23:07:05Z,2017-04-07T23:07:26Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,64,Clean up restart script,smcmahon,2017-04-07T22:15:38Z,2017-04-07T22:16:13Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,63,Varnish fixes,smcmahon,2017-04-07T17:54:26Z,2017-04-07T17:55:59Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,62,VCL fix for multiple plones/hostnames,smcmahon,2017-04-07T17:47:47Z,,closed,False,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,58,motd fixes,smcmahon,2017-01-20T21:29:39Z,2017-01-20T21:30:08Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,57,Remove j2 truncate,smcmahon,2017-01-19T23:26:10Z,2017-01-19T23:26:21Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,56,Truncate exorcism,smcmahon,2017-01-19T20:55:14Z,,closed,False,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible-playbook,55,Add SSL configuration mechanisms.,smcmahon,2017-01-15T23:45:31Z,2017-01-15T23:45:49Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.versioncheck,23,WIP for fixing #20,ale-rt,2016-03-05T00:06:53Z,,closed,False,3,0,0,3,3,0,3,0,0,0,1,13822.447777777777
+plone/plone.versioncheck,44,fix relative path problem,loechel,2017-05-29T12:08:35Z,2017-05-30T10:04:32Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.versioncheck,41,make package names and versions links,loechel,2017-05-04T12:32:59Z,2017-05-04T12:34:46Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.versioncheck,39,Fix regessions,loechel,2017-04-07T12:44:37Z,2017-04-07T12:58:40Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.versioncheck,38,Fix Bug #36,loechel,2017-04-07T10:30:39Z,2017-04-07T11:25:11Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.versioncheck,37,Update PyPI checks to get release dates for all packages,loechel,2017-04-07T10:00:44Z,2017-04-07T10:49:21Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.versioncheck,35,Add CLI options for output and release-date.,loechel,2017-04-07T06:23:43Z,2017-04-07T07:09:27Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.8286111111111111
+plone/plone.versioncheck,32,Rewrite Parser to use zc.buildout parser functionality,loechel,2017-04-06T06:58:54Z,2017-04-06T15:40:48Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.versioncheck,33,add functionality to get release date from PyPI,loechel,2017-04-06T13:49:10Z,2017-04-06T15:36:14Z,closed,True,2,0,0,2,2,0,1,0,0,0,0,1.7797222222222222
+plone/plone.versioncheck,31,Fix an IndexError: string index out of range error with empty states …,thet,2017-02-23T11:53:05Z,2017-02-23T17:15:39Z,closed,True,0,1,1,1,1,1,1,0,0,1,0,
+plone/plone.versioncheck,30,Add tests to package,loechel,2017-01-23T15:21:40Z,2017-01-23T23:25:48Z,closed,True,2,1,2,3,2,1,2,1,1,0,0,0.8541666666666666
+plone/plone.versioncheck,29,fixes version compare problem #28,loechel,2017-01-23T10:22:42Z,2017-01-23T13:46:19Z,closed,True,2,0,0,2,3,0,2,0,0,0,0,3.397777777777778
+plone/Installers-UnifiedInstaller,58,debian zlibg name changed to zlib1g,gnafou,2017-03-24T12:15:01Z,2017-07-19T06:50:01Z,closed,True,5,0,1,5,3,1,3,0,0,1,0,0.33111111111111113
+plone/Installers-UnifiedInstaller,56,Remove Hotfixes,loechel,2017-03-20T15:10:36Z,2017-04-09T21:41:48Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,0.19333333333333333
+plone/simple-plone-buildout,6,Update README.rst,tkimnguyen,2017-03-19T16:16:47Z,2017-03-19T17:53:50Z,closed,True,5,1,1,6,2,1,2,1,0,0,0,0.9730555555555556
+plone/simple-plone-buildout,5,"Improve docs, this PR also includes improvements from 4d55a97",svx,2017-03-19T15:49:57Z,2017-03-19T15:55:33Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/simple-plone-buildout,4,"Feat: Improve docs, follow style guide",svx,2017-03-19T14:56:57Z,,closed,False,1,0,0,1,2,0,1,0,0,0,0,0.25805555555555554
+plone/simple-plone-buildout,2,Update README.rst,mohsini172,2017-03-04T18:24:04Z,,closed,False,3,0,0,3,2,0,1,0,0,0,0,340.18416666666667
+plone/plonedev.vagrant,22,No puppet,smcmahon,2017-10-23T15:58:26Z,2017-10-23T15:58:35Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plonedev.vagrant,20,"Fixes relatives paths for ""Program Files"" to use environement variables",Bad-Request,2017-01-23T09:18:32Z,,closed,False,0,0,0,0,1,0,0,0,0,0,0,
+plone/pastanaga,27,Add very basic top-level navigation.,tisto,2017-07-07T13:30:19Z,2017-07-16T18:09:48Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/pastanaga,26,Content fetching,tisto,2017-07-06T13:26:08Z,2017-07-06T18:33:30Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/pastanaga,25,Add better logo and header styles,sneridagh,2017-07-06T12:55:45Z,2017-07-06T12:59:17Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,0.056666666666666664
+plone/pastanaga,22,Add new simple Alert component,sneridagh,2017-07-06T09:21:13Z,2017-07-06T12:25:31Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/pastanaga,8,"Revert ""Merge branch 'master' into bundlesize""",tisto,2017-07-06T05:20:22Z,2017-07-06T07:08:38Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/pastanaga,12,Add new documentation route and component,sneridagh,2017-07-06T08:45:48Z,2017-07-06T08:52:47Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/pastanaga,7,Pass id prop to InputText component.,tisto,2017-07-06T04:34:40Z,2017-07-06T08:52:20Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,4.29
+plone/pastanaga,11,Add docs folder.,tisto,2017-07-06T08:41:48Z,2017-07-06T08:42:10Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/pastanaga,10,Add Sass support,sneridagh,2017-07-06T08:35:18Z,2017-07-06T08:41:14Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/pastanaga,9,"Revert ""Merge branch 'master' into bundlesize""",tisto,2017-07-06T07:03:22Z,2017-07-06T07:08:37Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/pastanaga,2,Add bundlesize check.,tisto,2017-07-05T12:13:28Z,2017-07-05T13:22:09Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/pastanaga,6,Add new documentation route and component,sneridagh,2017-07-05T13:10:00Z,2017-07-05T13:14:11Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/pastanaga,5,Add Sass support,sneridagh,2017-07-05T13:01:34Z,2017-07-05T13:06:15Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/pastanaga,1,Add basic routing with react-router-redux (next).,tisto,2017-07-05T09:57:21Z,2017-07-05T12:02:29Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.jquerytools,19,add quotes in url to prevent syntax error with pyscss,tdesvenain,2017-11-14T12:02:26Z,2017-11-14T20:43:38Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,125.42722222222223
+plone/plone.app.jquerytools,18,Disable overlays.css to match upgradestep,jaroel,2017-10-10T13:20:23Z,2017-10-11T15:50:29Z,closed,True,4,0,0,4,2,0,2,0,0,0,0,26.301388888888887
+plone/plone.app.jquerytools,16,Docs/grunt update,thet,2017-05-29T12:22:12Z,2017-05-29T12:22:22Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.jquerytools,15,Use latest versions of jquery.form and jquery.tools,msom,2017-01-30T09:05:04Z,2017-03-20T10:06:15Z,closed,True,10,4,4,14,4,1,4,1,1,2,0,180.80027777777778
+plone/plone.app.jquerytools,14,Fix initalization of minimum and maximum dates in DateInput,msom,2017-01-09T14:34:38Z,,closed,False,1,0,0,1,1,0,1,0,0,0,0,
+plone/training.plone.org,22,Fix order of trainers,thomasmassmann,2017-11-02T15:48:32Z,2017-11-03T08:15:39Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,16.927777777777777
+plone/training.plone.org,19,Add tmassman as a trainer.,thomasmassmann,2017-11-01T16:42:25Z,2017-11-01T18:08:15Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,1.4213888888888888
+plone/training.plone.org,16,"add angular, workflow and js trainings",pbauer,2017-10-06T08:54:29Z,2017-10-06T13:43:14Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,4.960555555555556
+plone/training.plone.org,15,"issue #14 fix testimonials, job title cropped at the bottom",acsr,2017-03-24T06:02:41Z,2017-03-24T06:10:49Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.15361111111111111
+plone/ploneorg.addonlisting,22,Views,ghost,2017-07-26T17:06:48Z,2017-08-14T19:59:07Z,closed,True,1,0,1,1,2,1,1,1,0,0,0,3.015277777777778
+plone/ploneorg.addonlisting,23,code convention fixed,loechel,2017-08-02T19:59:48Z,2017-08-03T04:23:45Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,8.394722222222223
+plone/Products.TinyMCE,154,Add missing import in the DX anchor view module.,maethu,2017-04-05T08:50:06Z,2017-04-05T17:07:22Z,closed,True,3,0,0,3,3,0,3,0,0,0,0,8.286388888888888
+plone/Products.TinyMCE,153,Add missing import in the DX anchor view module.,mbaechtold,2017-03-22T10:03:28Z,2017-04-05T08:34:27Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.TinyMCE,152,improve item-listing in link dialog,frisi,2017-02-24T15:04:02Z,2017-02-27T08:05:13Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.app.modernizr,2,Update MANIFEST.in,mamico,2017-03-31T10:34:50Z,2017-04-06T16:16:36Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ploneorg.releasesecurityinfo,10,Docs,ghost,2017-08-29T02:16:08Z,2017-08-29T05:47:47Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,3.526111111111111
+plone/ploneorg.releasesecurityinfo,9,added usage.rst,ghost,2017-08-27T13:37:20Z,2017-08-27T17:53:31Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,4.266111111111111
+plone/ploneorg.releasesecurityinfo,5,json-view,ghost,2017-08-02T16:03:49Z,2017-08-27T17:52:19Z,closed,True,7,0,1,7,2,1,2,1,0,0,0,331.19055555555553
+plone/ploneorg.releasesecurityinfo,8,added usage.rst,ghost,2017-08-27T13:24:57Z,,closed,False,0,0,0,0,1,0,0,0,0,0,0,
+plone/ploneorg.releasesecurityinfo,7,Cli script,ghost,2017-08-09T16:45:35Z,2017-08-14T20:01:53Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,123.27
+plone/ploneorg.releasesecurityinfo,6,fix code convention errors/warings,loechel,2017-08-02T18:29:23Z,2017-08-03T04:25:26Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,9.924166666666666
+plone/ploneorg.releasesecurityinfo,4,[wip]json-view,ghost,2017-08-02T14:30:37Z,,closed,False,0,0,0,0,1,0,0,0,0,0,0,
+plone/ploneorg.releasesecurityinfo,3,schema changes,ghost,2017-07-15T20:14:21Z,2017-07-24T21:27:07Z,closed,True,3,10,3,13,2,1,2,1,2,0,0,24.39027777777778
+plone/Products.i18ntestcase,1,Imports are compatibile with Python3,b4oshany,2017-10-21T15:03:26Z,2017-10-23T13:13:51Z,closed,True,1,0,1,1,3,1,1,1,0,0,2,19.329166666666666
+plone/plone.server,70,Fix memory leak in get_current_request,vangheem,2017-05-04T16:11:12Z,2017-05-04T16:15:06Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.server,69,The asyncio.gather param should be unpacked arg list instead of a list.,dmanchon,2017-03-01T11:33:16Z,,closed,False,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.server,68,"Rename ""address"" option to ""port"" and add ""host"" option",vangheem,2017-02-28T03:47:44Z,,closed,False,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.server,67,Fix static file configuration,vangheem,2017-02-27T18:21:29Z,2017-02-27T18:32:44Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.server,66,HTML renderer can now handle html responses correctly,vangheem,2017-02-22T17:27:01Z,2017-02-23T13:25:19Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.server,64,Respond the query and then wait for tasks,bloodbare,2017-02-15T11:39:33Z,2017-02-15T13:33:56Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,1.905
+plone/plone.server,63,Security refactor,bloodbare,2017-02-02T20:14:52Z,2017-02-08T19:40:17Z,closed,True,0,2,1,2,2,1,1,1,0,0,0,0.7166666666666667
+plone/plone.server,62,Optimization,bloodbare,2017-02-01T22:23:33Z,2017-02-02T15:19:05Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.server,61,Fix issue where correct aiohttp response would not be generated always,vangheem,2017-01-31T19:07:15Z,2017-01-31T22:26:32Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,0.02277777777777778
+plone/plone.server,60,reorganize factory module,vangheem,2017-01-30T15:20:16Z,2017-01-30T21:46:37Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.server,58,fix plone newt support,vangheem,2017-01-28T10:45:11Z,2017-01-28T11:13:23Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.server,57,Newt support,bloodbare,2017-01-27T19:57:06Z,2017-01-27T20:01:50Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.server,56,handle async addon functions,vangheem,2017-01-25T19:20:02Z,2017-01-25T19:33:29Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,0.021111111111111112
+plone/plone.server,55,No more zcml in core,vangheem,2017-01-20T11:12:33Z,2017-01-25T15:30:15Z,closed,True,5,0,0,5,3,0,3,0,0,0,1,126.34194444444445
+plone/plone.server,54,remove zcml from json de?serialize module,vangheem,2017-01-20T02:24:27Z,2017-01-20T03:17:23Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.server,53,move security zcml to configure syntax,vangheem,2017-01-19T23:26:27Z,2017-01-19T23:35:27Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.server,52,"Adding better logging centralization to plone.server namespace, again…",bloodbare,2017-01-19T14:08:37Z,2017-01-19T15:01:32Z,closed,True,1,2,1,3,2,1,1,0,1,0,0,0.38472222222222224
+plone/plone.server,51,"be able to define adapters, subscribers, permissions, roles, grant with NO zcml",vangheem,2017-01-18T23:25:51Z,2017-01-19T13:04:07Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,13.636111111111111
+plone/plone.server,50,be able to provide content types and behaviors with decorators,vangheem,2017-01-13T09:06:34Z,2017-01-18T13:53:41Z,closed,True,3,0,0,3,2,0,2,0,0,0,1,119.49583333333334
+plone/plone.server,49,be able to define services with decorators,vangheem,2016-12-29T21:57:00Z,2017-01-09T18:55:35Z,closed,True,11,1,1,12,5,1,5,0,0,1,0,21.654444444444444
+plone/Products.MasterSelectWidget,4,Fix for @@masterselect-jsonvalue-vocabulary not outputting labels.,mitakas,2016-06-01T14:46:25Z,2017-01-30T08:39:26Z,closed,True,2,0,0,2,2,0,2,0,0,0,1,5825.885
+plone/plone.directives.form,5,remove unused and add a missing import on example,brunobbbs,2016-04-08T14:30:05Z,2017-04-26T15:16:55Z,closed,True,1,0,0,1,2,0,1,0,0,0,1,1.6691666666666667
+plone/heroku-buildpack-plone,24,Update default value for BOOTSTRAP_PY_URL,alorence,2017-12-01T15:07:12Z,2017-12-01T19:29:07Z,closed,True,1,0,1,1,2,1,1,1,0,0,0,4.363611111111111
+plone/heroku-buildpack-plone,22,Update the download link for bootstrap.py file.,b4oshany,2017-08-24T01:01:16Z,2017-08-25T05:42:03Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,28.67388888888889
+plone/heroku-buildpack-plone,21,Add support for HTTPS,zupo,2017-03-07T16:00:11Z,2017-03-07T16:36:55Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/heroku-buildpack-plone,20,Support for rewriting all URLs to HTTPS,zupo,2017-03-07T15:40:34Z,,closed,False,0,0,0,0,1,0,0,0,0,0,0,
+plone/ploneorg.core,232,Workflow fixes,cdw9,2017-09-19T02:30:25Z,2017-11-02T11:51:35Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ploneorg.core,231,Workflow fixes,cdw9,2017-09-14T03:08:25Z,2017-09-16T20:49:36Z,closed,True,0,7,8,7,2,2,2,1,0,7,0,65.58638888888889
+plone/ploneorg.core,226,Fix release naming (cleanup),esteele,2017-04-27T16:47:13Z,2017-04-28T05:32:18Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ploneorg.core,221,Add custom url normalizer for plonerelease types,esteele,2017-04-20T08:44:30Z,2017-04-26T14:31:42Z,closed,True,1,3,4,4,4,2,3,1,0,3,0,12.52361111111111
+plone/plone.app.blocks,61, Fix issue where resolving layout url with ajax_load parameter caused fail on direct resolve directory lookup,datakurre,2017-11-03T12:32:09Z,2017-11-03T12:36:44Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.07027777777777777
+plone/plone.app.blocks,60,Fix issue where failed resource lookup into filesystem resource directory raised IOError,datakurre,2017-10-26T07:20:45Z,2017-10-26T07:25:15Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.07305555555555555
+plone/plone.app.blocks,59,fix deprecated import Globals,petschki,2017-10-21T12:39:57Z,2017-10-21T13:03:42Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.09527777777777778
+plone/plone.app.blocks,57,Fix cache key to require less memory by using hexdigest,datakurre,2017-08-17T12:15:18Z,2017-08-17T12:20:33Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.06444444444444444
+plone/plone.app.blocks,53,Add 'permission' key for content layout manifest,datakurre,2017-02-22T13:11:28Z,2017-02-22T18:24:10Z,closed,True,3,0,0,3,4,0,3,0,0,0,0,0.04055555555555555
+plone/plone.app.blocks,52,Fix issue where layout field could have been acquired,datakurre,2017-02-09T12:25:58Z,2017-02-09T12:34:52Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.08361111111111111
+plone/plone.app.blocks,51,Add new header 'X-Esi: 1' when ESI transform has happened,datakurre,2017-02-08T08:21:10Z,2017-02-09T12:25:38Z,closed,True,3,0,0,3,3,0,2,0,0,0,0,0.052222222222222225
+plone/plone.app.blocks,50,Fix issue where page site layout could have been acquired even it never should,datakurre,2017-02-08T08:20:23Z,2017-02-08T08:23:43Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.03972222222222222
+plone/plone.app.blocks,49,Fix transforms to comply with plone.transformchain's ITransform interface,datakurre,2017-02-02T07:56:00Z,2017-02-03T06:31:56Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.05555555555555555
+plone/plone.app.blocks,48,Fix a couple of edge cases in resolveResource,datakurre,2017-01-14T22:54:43Z,2017-01-15T20:53:17Z,closed,True,1,0,1,1,3,1,1,1,0,0,0,0.051666666666666666
+plone/ansible.plone_server,120,Change wv rpm URL for Centos7,l00ptr,2017-10-31T09:29:46Z,2017-11-02T14:33:16Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,300.74333333333334
+plone/ansible.plone_server,121,"Revert ""Change wv rpm URL for Centos7""",l00ptr,2017-11-02T14:34:12Z,,closed,False,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible.plone_server,118,Add missing instance_config to some vars,Gomez,2017-10-26T11:53:28Z,2017-10-27T11:39:18Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible.plone_server,102,"Add var plone_buildout_cfg, to set the name the generated buildout file",MrTango,2017-03-10T15:46:35Z,2017-09-08T15:23:24Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible.plone_server,108,new tasks to install centos7 virtualenv buildout requirement,cjsteel,2017-04-20T23:48:23Z,,closed,False,2,0,0,2,2,0,2,0,0,0,0,1558.3536111111111
+plone/ansible.plone_server,115,Fix custom backup paths.,smcmahon,2017-06-25T21:58:34Z,2017-06-25T22:15:24Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible.plone_server,110,Fix,thyarles,2017-05-31T04:27:00Z,,closed,False,1,0,0,1,2,0,1,0,0,0,0,594.2169444444445
+plone/ansible.plone_server,114,Fix superlance use tests for RedHat,smcmahon,2017-06-24T21:52:57Z,2017-06-24T21:53:15Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible.plone_server,94,Add options to specify buildout and setuptools versions,djowett,2016-07-28T15:47:00Z,,closed,False,1,0,0,1,2,0,1,0,0,0,0,7949.121388888889
+plone/ansible.plone_server,113,Fix 'post' backup test,smcmahon,2017-06-24T20:51:18Z,2017-06-24T20:52:14Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible.plone_server,112,Removal of bootstrap.py,smcmahon,2017-06-22T16:01:27Z,2017-06-24T16:23:37Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible.plone_server,109,Superlance option,smcmahon,2017-05-11T17:22:24Z,2017-05-11T17:22:41Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible.plone_server,107,Setuptools fix,smcmahon,2017-04-19T21:12:17Z,2017-04-19T21:12:34Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible.plone_server,105,Add plone_timeserver variable.,smcmahon,2017-04-07T18:17:35Z,2017-04-07T18:17:45Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible.plone_server,104,Set backup directory correctly when building multiple Plones.,smcmahon,2017-03-21T21:56:11Z,2017-03-21T22:07:10Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible.plone_server,101,Update source for wv on cento7,smcmahon,2017-02-02T22:45:51Z,2017-02-05T20:44:05Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible.plone_server,100,Work around Ansible long output bug,smcmahon,2017-02-01T23:20:05Z,2017-02-01T23:56:01Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ansible.plone_server,99,Remove instances of j2 truncate,smcmahon,2017-01-18T23:55:52Z,2017-01-19T00:51:06Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.drafts,6,Ensure that draft target is acquisition wrapped,datakurre,2017-07-03T13:08:37Z,2017-07-03T20:07:20Z,closed,True,5,0,0,5,2,0,1,0,0,0,0,0.37777777777777777
+plone/Products.ATContentTypes,50,fix test with zope4,pbauer,2017-09-18T10:31:22Z,2017-10-21T12:54:59Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,794.3836111111111
+plone/Products.ATContentTypes,51,verbose gs profiles,jensens,2017-10-12T23:01:55Z,2017-10-13T09:56:09Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.ATContentTypes,49,Fix MimeTypeException deprecation warnings,ale-rt,2017-06-10T11:14:56Z,2017-06-10T20:14:53Z,closed,True,0,1,1,1,1,1,1,0,0,1,0,
+plone/Products.ATContentTypes,48,removed change portal events,gforcada,2017-04-18T14:11:34Z,2017-04-18T19:55:34Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.ATContentTypes,47,removed change portal events,gforcada,2017-04-18T10:23:00Z,2017-04-18T19:55:29Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.ATContentTypes,45,removed change portal events,kakshay21,2017-04-11T10:07:28Z,,closed,False,8,0,0,8,3,0,3,0,0,0,0,0.37194444444444447
+plone/Products.ATContentTypes,46,Add a fallback for processQueue,gforcada,2017-04-18T09:42:27Z,2017-04-18T10:20:44Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.ATContentTypes,43,Update permission.py,kakshay21,2017-03-23T03:10:47Z,,closed,False,6,0,0,6,3,0,3,0,0,0,0,349.22444444444443
+plone/Products.ATContentTypes,34,Merge collective indexing,gforcada,2016-05-20T14:11:51Z,2017-02-21T21:16:30Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.ATContentTypes,41,Fix doctest,pbauer,2017-02-04T20:41:00Z,2017-02-05T19:43:13Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.ATContentTypes,40,Changes to support Zope 4,davisagli,2017-02-04T11:12:54Z,2017-02-04T12:31:41Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.ATContentTypes,39,Move folder views from Products.CMFPlone,gforcada,2016-11-20T22:04:59Z,2017-01-17T16:18:57Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.CMFQuickInstallerTool,16,Fix imports since Globals was removed in Zope4,jensens,2017-01-31T14:13:31Z,2017-01-31T15:01:17Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.folder,13,Fix import location for Products.ATContentTypes.interfaces.,thet,2017-02-24T09:31:34Z,2017-02-24T23:10:41Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.folder,12,make test run with ZODB 5,pbauer,2017-02-01T18:10:29Z,2017-02-03T17:29:28Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.CMFFormController,14,Migrate breaking tests to plone.app.testing,pbauer,2017-11-09T16:20:24Z,2017-11-09T20:37:50Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.CMFFormController,12,deprecate confusing and hide unnecessary profiles.,jensens,2017-10-12T21:34:38Z,2017-10-13T10:00:03Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.CMFFormController,11,Unconfuse profiles,jensens,2017-10-12T21:32:01Z,,closed,False,1,0,0,1,1,0,1,0,0,0,0,
+plone/Products.CMFFormController,10,Globals is removed in Zope4,jensens,2017-01-31T14:04:42Z,2017-01-31T14:56:14Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.ExtendedPathIndex,3,Compatibility with BTrees 4,davisagli,2016-11-19T05:14:35Z,,closed,False,4,0,0,4,2,0,2,0,0,0,0,60.29083333333333
+plone/Products.ResourceRegistries,24,Removed assertion for response status 200 for inline resources.,mauritsvanrees,2017-03-08T14:26:56Z,2017-03-08T15:41:21Z,closed,True,1,0,0,1,1,0,1,0,0,0,0,
+plone/Products.PlacelessTranslationService,2,fix more imports from Globals,pbauer,2017-01-31T10:24:36Z,2017-01-31T23:23:04Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,5.454166666666667
+plone/Products.CMFUid,2,Remove eggtestinfo,gforcada,2016-02-28T01:06:46Z,,closed,False,2,0,0,2,2,0,2,0,0,0,0,10166.148611111112
+plone/Products.CMFUid,3,Merge collective indexing,gforcada,2016-05-20T14:14:50Z,2017-02-21T21:04:51Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.restapi-angular,60,vocabularies are permissive,tdesvenain,2017-12-12T17:09:13Z,2017-12-12T17:17:23Z,closed,True,1,0,1,1,3,1,1,1,0,0,0,0.04027777777777778
+plone/plone.restapi-angular,46,Angular 5 compliancy,ebrehault,2017-11-04T21:37:53Z,2017-11-08T07:59:29Z,closed,True,2,0,0,2,3,0,2,0,0,0,0,0.25305555555555553
+plone/plone.restapi-angular,49,Move from @components plone.restapi endpoint to @navigation and @brea…,sunew,2017-11-07T21:16:24Z,2017-11-08T07:58:12Z,closed,True,3,0,1,3,4,1,3,1,0,0,0,0.058611111111111114
+plone/plone.restapi-angular,61,set Prefer return=representation by default on patch requests,tdesvenain,2017-12-17T22:05:15Z,2017-12-18T15:50:37Z,closed,True,1,1,2,2,4,2,2,1,0,1,0,0.14972222222222223
+plone/plone.restapi-angular,57,Improve workflow,tdesvenain,2017-11-23T00:17:03Z,2017-11-29T11:29:31Z,closed,True,7,0,2,7,3,1,3,2,0,0,0,0.07055555555555555
+plone/plone.restapi-angular,55,No unused locals,tdesvenain,2017-11-17T08:41:14Z,2017-11-17T10:09:32Z,closed,True,1,0,2,1,4,2,1,2,0,0,0,0.029166666666666667
+plone/plone.restapi-angular,48,Error handling,tdesvenain,2017-11-07T17:07:17Z,2017-11-07T17:26:13Z,closed,True,2,0,1,2,4,1,2,1,0,0,0,0.06472222222222222
+plone/plone.restapi-angular,50,Vocabularies,tdesvenain,2017-11-09T13:55:07Z,2017-11-09T15:12:09Z,closed,True,2,1,1,3,3,1,2,1,0,0,0,1.1730555555555555
+plone/plone.restapi-angular,52,Observable login and better error handling,tdesvenain,2017-11-10T10:40:25Z,2017-11-11T15:15:44Z,closed,True,5,1,2,6,3,1,3,1,0,1,0,0.49083333333333334
+plone/plone.restapi-angular,54,Add username property to authenticated status,tdesvenain,2017-11-16T22:27:53Z,2017-11-16T22:54:45Z,closed,True,1,0,1,1,3,1,1,1,0,0,0,0.058611111111111114
+plone/plone.restapi-angular,45,Move all services to services folder,tdesvenain,2017-10-22T17:53:14Z,2017-10-23T16:00:53Z,closed,True,6,0,0,6,4,0,3,0,0,0,0,0.05416666666666667
+plone/plone.restapi-angular,40,[WIP] Testing global nav,sunew,2017-10-21T13:01:44Z,,closed,False,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.restapi-angular,43,Subpath list comparison,shentonfreude,2017-10-22T15:58:45Z,2017-10-22T16:25:48Z,closed,True,2,0,0,2,3,0,2,0,0,0,0,0.06138888888888889
+plone/plone.restapi-angular,44,Simple initial tests of the api.service; extend tests of the loading.…,sunew,2017-10-22T16:20:41Z,2017-10-22T18:29:04Z,closed,True,2,0,0,2,3,0,2,0,0,0,0,0.26416666666666666
+plone/plone.restapi-angular,34,Loading status service,tdesvenain,2017-10-18T08:52:32Z,2017-10-19T08:36:48Z,closed,True,6,7,8,13,4,2,3,1,0,7,2,0.06388888888888888
+plone/plone.restapi-angular,41,test isLoading is updated by the interceptor,sunew,2017-10-22T12:19:32Z,2017-10-22T12:26:01Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.05416666666666667
+plone/plone.restapi-angular,42,"Test data was wrong, add onTraverse",sunew,2017-10-22T12:47:26Z,2017-10-22T13:01:35Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.19083333333333333
+plone/plone.restapi-angular,37,typo,lellex,2017-10-21T08:41:38Z,2017-10-22T10:49:06Z,closed,True,2,0,0,2,3,0,2,0,0,0,0,0.0575
+plone/plone.restapi-angular,39,[WIP] Tests for global nav,sunew,2017-10-21T12:46:25Z,,closed,False,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.restapi-angular,38,[WIP] setup karma to be able to debug tests; tests for global navigation (s…,sunew,2017-10-21T09:18:48Z,,closed,False,1,0,0,1,1,0,1,0,0,0,0,
+plone/plone.restapi-angular,36,Add support for filtering by review_state,mattss,2017-10-19T08:24:00Z,2017-10-19T15:13:15Z,closed,True,1,0,1,1,3,1,1,1,0,0,0,0.059166666666666666
+plone/plone.restapi-angular,24,fix error handle with http/common,tdesvenain,2017-09-29T14:32:34Z,2017-09-29T14:53:29Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.restapi-angular,25,expose more interfaces,tdesvenain,2017-10-07T14:38:00Z,2017-10-09T07:06:52Z,closed,True,4,0,0,4,3,0,3,0,0,0,0,0.059444444444444446
+plone/plone.restapi-angular,26,Added download directive,tdesvenain,2017-10-09T09:19:18Z,2017-10-09T11:37:17Z,closed,True,2,1,2,3,3,1,2,1,1,0,0,0.07166666666666667
+plone/plone.restapi-angular,32,linting with tslint,sunew,2017-10-10T20:42:58Z,2017-10-11T05:06:19Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.33194444444444443
+plone/plone.restapi-angular,27,"Use tsconfig path mapping to configure module-name-> location, to be …",sunew,2017-10-09T21:25:10Z,2017-10-10T05:56:35Z,closed,True,3,0,1,3,4,1,3,1,0,0,0,0.0661111111111111
+plone/plone.restapi-angular,30,unify naming (refreshNavigation) in global.navigation.ts and navigati…,sunew,2017-10-10T09:18:52Z,2017-10-10T11:57:49Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.07222222222222222
+plone/plone.restapi-angular,29,"Fix missing active links in global navigation, bug introduced in 516f3d9",sunew,2017-10-09T22:28:56Z,2017-10-10T06:03:52Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.058611111111111114
+plone/plone.restapi-angular,28,Document possible library development workflow,sunew,2017-10-09T21:27:44Z,2017-10-10T05:59:09Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,0.058611111111111114
+plone/plone.restapi-angular,17,Typing,tdesvenain,2017-09-24T12:45:15Z,2017-09-24T13:17:14Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.06527777777777778
+plone/plone.restapi-angular,16,Migrate @angular/http to @angular/common/http,fulv,2017-09-24T10:23:55Z,2017-09-24T11:24:57Z,closed,True,3,0,0,3,2,0,1,0,0,0,0,0.059722222222222225
+plone/plone.restapi-angular,23,type search results,tdesvenain,2017-09-29T07:35:02Z,2017-09-29T07:45:47Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.07444444444444444
+plone/plone.restapi-angular,22,travis: test build,tdesvenain,2017-09-28T12:00:26Z,2017-09-28T14:27:05Z,closed,True,2,0,0,2,2,0,1,0,0,0,0,0.17722222222222223
+plone/plone.restapi-angular,20,Make local and global nav reactive,tdesvenain,2017-09-27T14:15:32Z,2017-09-28T08:01:12Z,closed,True,3,4,2,7,4,2,4,0,0,2,0,0.06527777777777778
+plone/plone.restapi-angular,19,move to yarn. upgrade doc and package.json,tdesvenain,2017-09-24T18:08:14Z,2017-09-24T19:24:03Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.11472222222222223
+plone/plone.restapi-angular,18,Caching,tdesvenain,2017-09-24T15:03:53Z,2017-09-24T19:23:07Z,closed,True,5,5,5,10,4,2,4,0,0,5,0,0.06222222222222222
+plone/plone.restapi-angular,21,Add password reset feature,tdesvenain,2017-09-28T10:36:07Z,2017-09-28T11:44:32Z,closed,True,1,2,1,3,3,1,2,0,0,1,0,0.47444444444444445
+plone/plone.restapi-angular,13,rst syntax.,fulv,2017-05-14T21:38:53Z,2017-05-15T07:17:50Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.06555555555555556
+plone/plone.restapi-angular,12,Complete the custom view example.,fulv,2017-05-01T06:16:52Z,2017-05-01T09:23:03Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.06777777777777778
+plone/plone.restapi-angular,11,Fix .md to .rst conversion.,fulv,2017-04-26T20:22:40Z,2017-04-26T20:46:00Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.06305555555555556
+plone/plone.restapi-angular,9,Reworked component customization example,fulv,2017-04-24T20:53:47Z,2017-04-24T21:47:46Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.20472222222222222
+plone/plone.restapi-angular,8,Update README.md,fulv,2017-04-20T21:40:42Z,2017-04-21T08:35:25Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.06166666666666667
+plone/plone.restapi-angular,7,Update README.md - Customize Components,fulv,2017-04-20T21:11:24Z,2017-04-21T08:34:59Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.07027777777777777
+plone/plone.restapi-angular,6,Small fixes,fulv,2017-04-20T15:59:48Z,2017-04-21T08:34:23Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.065
+plone/plone.restapi-angular,2,Fix replace regex in ViewView,simon-previdente,2017-04-07T09:51:24Z,2017-04-15T13:06:32Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.06444444444444444
+plone/plone.app.ldap,33,Imports are Python3 compatible,ale-rt,2017-10-22T10:39:23Z,2017-10-24T22:18:34Z,closed,True,3,0,1,3,4,1,3,1,0,0,0,59.13333333333333
+plone/plonetheme.classic,6,* Add data-base-url attribute in body tag closes #2051,rodfersou,2017-07-08T03:29:58Z,2017-07-29T21:30:44Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,13.327777777777778
+plone/ploneorg.theme,11,Update: Links to https,svx,2017-04-26T12:19:02Z,2017-04-26T14:32:29Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/ploneorg.theme,3,Color change of .btn-secondary buttons on front page,janga1997,2016-05-13T18:40:42Z,,closed,False,2,0,0,2,2,0,1,0,0,0,0,18.84777777777778
+plone/plone.app.workflowmanager,60,Remove plone.app.jquerytools dependency.,tisto,2017-10-10T15:17:19Z,,closed,False,5,0,0,5,2,0,2,0,0,0,0,0.45666666666666667
+plone/plone.app.workflowmanager,54,Fix failing test in Plone 4.3. Add Plone 5.0/5.1 Buildout. Add Travis configuration.,tisto,2017-09-27T15:58:08Z,2017-10-04T11:47:46Z,closed,True,2,7,8,9,3,3,2,1,0,7,0,162.05583333333334
+plone/plone.recipe.codeanalysis,208,Run tests only once,gforcada,2017-08-21T11:21:27Z,2017-08-21T11:32:37Z,closed,True,3,0,0,3,3,0,3,0,0,0,0,0.1675
+plone/plone.recipe.codeanalysis,206,Fix code analysis,gforcada,2017-08-05T21:50:17Z,2017-08-22T10:00:19Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,37.541666666666664
+plone/plone.recipe.codeanalysis,205,Remove flake8_strict,gforcada,2017-08-05T21:40:29Z,2017-08-22T09:50:01Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.recipe.codeanalysis,209,Remove bootstrap.py,gforcada,2017-08-21T11:45:17Z,2017-08-21T12:06:17Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.09166666666666666
+plone/plone.recipe.codeanalysis,207,Fix CI,gforcada,2017-08-21T11:11:03Z,2017-08-21T11:20:52Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.14083333333333334
+plone/plone.recipe.codeanalysis,199,New extra: plone,gforcada,2016-12-07T15:35:09Z,,closed,False,9,0,0,9,7,0,6,0,0,0,4,0.1075
+plone/plone.recipe.codeanalysis,162,zest.releaser plugin,gforcada,2015-09-21T08:05:43Z,,closed,False,12,3,0,15,4,0,4,0,0,0,0,11.993055555555555
+plone/sphinxtheme.plone,66,update bootstrap to 3.3.7,loechel,2017-07-05T13:27:46Z,2017-07-05T14:57:57Z,closed,True,2,0,1,2,3,1,1,1,0,0,0,1.2044444444444444
+plone/sphinxtheme.plone,65,style changes for Search,loechel,2017-07-04T06:46:03Z,2017-07-04T07:09:24Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,0.03388888888888889
+plone/sphinxtheme.plone,64,Test travis build,loechel,2017-07-03T19:26:21Z,2017-07-03T19:26:39Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/sphinxtheme.plone,63,Test Travis-CI parallel Build pipeline,loechel,2017-07-03T14:51:02Z,2017-07-03T19:25:38Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/sphinxtheme.plone,62,"Revert ""test Travis parallel build techniques""",loechel,2017-07-03T14:45:03Z,2017-07-03T14:45:10Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/sphinxtheme.plone,61,test Travis parallel build techniques,loechel,2017-07-03T14:00:18Z,2017-07-03T14:31:02Z,closed,True,1,0,1,1,2,1,1,1,0,0,0,0.10888888888888888
+plone/sphinxtheme.plone,60,redo the adjustments for ploneorg5 theme,loechel,2017-07-03T08:37:12Z,2017-07-03T10:12:33Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/sphinxtheme.plone,49,Ploneorg5 adjustments,loechel,2017-03-02T22:48:50Z,,closed,False,6,0,0,6,2,0,2,0,0,0,0,14.8725
+plone/sphinxtheme.plone,59,rename package,loechel,2017-05-28T13:46:09Z,2017-07-03T07:22:41Z,closed,True,20,24,3,44,4,2,4,1,0,2,0,18.909166666666668
+plone/sphinxtheme.plone,57,Ammondation color,loechel,2017-05-28T13:27:10Z,2017-05-30T13:16:25Z,closed,True,4,0,0,4,2,0,2,0,0,0,0,46.24305555555556
+plone/sphinxtheme.plone,56,remove the aside toggle,loechel,2017-05-28T13:13:35Z,2017-05-30T09:30:42Z,closed,True,3,0,1,3,2,1,2,1,0,0,0,21.739166666666666
+plone/sphinxtheme.plone,58,ammodation_color adjustments for new theme,loechel,2017-05-28T13:34:09Z,2017-05-30T08:10:53Z,closed,True,3,0,2,3,3,2,1,1,0,1,0,19.086666666666666
+plone/sphinxtheme.plone,52,Fix Accessibility issues with title element.,loechel,2017-03-28T10:00:38Z,2017-03-28T14:18:11Z,closed,True,8,0,2,8,3,2,2,2,0,0,0,0.26944444444444443
+plone/sphinxtheme.plone,50,Add gitter chat button,loechel,2017-03-03T21:09:30Z,2017-03-05T06:35:47Z,closed,True,6,0,0,6,3,0,3,0,0,0,0,33.44916666666666
+plone/sphinxtheme.plone,33,Include feedback widget,svx,2016-03-10T16:05:35Z,2016-03-10T22:51:02Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/sphinxtheme.plone,48,fix dobble topbar,loechel,2017-03-02T22:22:25Z,2017-03-03T14:33:20Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,15.348055555555556
+plone/sphinxtheme.plone,46,Add Header bar,svx,2017-03-01T10:02:51Z,2017-03-01T16:23:07Z,closed,True,4,0,0,4,2,0,2,0,0,0,0,13.394166666666667
+plone/sphinxtheme.plone,45,Update: Change colors of links #44,svx,2017-02-09T14:02:59Z,2017-02-09T14:25:19Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.blob,47,Fix regression introduced by #26,MatthewWilkes,2017-11-16T19:25:53Z,2017-11-28T18:52:09Z,closed,True,1,3,3,4,2,2,2,0,0,3,0,0.03944444444444444
+plone/plone.app.blob,44,Adapt test to added charset in Zope4 (ZPublisher.HTTPResponse.setHeader),pbauer,2017-10-28T07:46:31Z,2017-10-28T08:37:52Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.blob,42,Handle ValueError exceptions when doing a range request.,batlock666,2017-06-26T08:01:33Z,2017-06-29T08:13:52Z,closed,True,4,0,0,4,4,0,3,0,0,0,0,99.41
+plone/plone.app.blob,41,Handle ValueError exceptions when doing a range request. (Fixes issue #39),batlock666,2017-05-23T08:11:23Z,2017-05-29T08:05:05Z,closed,True,3,0,0,3,2,0,2,0,0,0,0,86.54055555555556
+plone/plone.app.blob,40,Handle ValueError exceptions when doing a range request. Fixes issue #39,batlock666,2017-05-22T14:55:50Z,,closed,False,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.blob,38,Do not use imports from Products.ATContentTypes.interface deprecated …,jensens,2017-05-12T17:00:41Z,2017-05-12T17:53:16Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.blob,27,Merge collective indexing,gforcada,2016-05-20T14:15:53Z,2017-02-21T21:15:56Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,2001.088888888889
+plone/plone.app.blob,35,Make sure core permissions are defined.,mauritsvanrees,2017-02-16T22:59:07Z,2017-02-17T11:30:37Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.blob,34,Make doctests work with new zope.testbrowser based on Webtest,pbauer,2017-02-03T11:02:40Z,2017-02-04T11:26:10Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.debugtoolbar,16,Fix imports from Globals that was removed in Zope4,pbauer,2017-01-31T07:06:11Z,2017-01-31T11:48:52Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/papyrus,145,Cleaning out old stuff,svx,2017-11-03T10:07:06Z,2017-11-03T10:11:00Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/papyrus,139,Small docs updates,svx,2017-07-07T13:11:57Z,2017-07-07T13:12:04Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/papyrus,138,Remove more old dash stuff,svx,2017-07-07T12:54:44Z,2017-07-07T12:54:51Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/papyrus,137,More general cleanup,svx,2017-07-07T06:49:20Z,2017-07-07T06:49:27Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/papyrus,136,fix build and make html,thet,2017-06-29T10:45:12Z,2017-07-03T10:22:03Z,closed,True,6,0,1,6,2,1,2,1,0,0,1,92.18
+plone/papyrus,89,Include all *.rst files for external repositories,thet,2015-12-15T19:47:04Z,,closed,False,8,0,0,8,3,0,3,0,0,0,0,9.714722222222223
+plone/papyrus,131,Pin plone.app.robotframework = 1.0.2 [fixes #129],datakurre,2017-02-22T20:12:10Z,2017-03-01T06:49:38Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,154.6197222222222
+plone/plone.app.referenceablebehavior,11,make tests pass with ZCatalog 4,pbauer,2017-02-02T22:38:07Z,2017-02-04T12:40:01Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/archetypes.multilingual,22,kakshay21 unittest,kakshay21,2017-04-30T10:01:00Z,2017-04-30T12:56:30Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,1.8625
+plone/archetypes.schemaextender,3,Fix import location for Products.ATContentTypes.interfaces.,thet,2017-02-24T09:31:13Z,2017-02-24T23:10:14Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.contentmigration,15,Unpack brains to be able to log broken catalog-records during migration,pbauer,2017-08-29T16:52:59Z,2017-08-31T01:17:15Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,32.40138888888889
+plone/Products.contentmigration,13,Fix import location for Products.ATContentTypes.interfaces.,thet,2017-02-24T09:31:28Z,2017-02-24T23:10:24Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.contentmigration,12,errors have been dropped from OFS.CopySupport,pbauer,2016-10-23T21:46:00Z,2017-02-03T13:16:08Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.collection,48,Hide uninstall from install screens,jensens,2017-10-12T22:33:51Z,2017-10-13T10:01:59Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.collection,46,kakshay21 remove unittest,kakshay21,2017-04-30T15:11:07Z,2017-04-30T20:07:40Z,closed,True,0,1,2,1,2,1,1,0,1,1,0,0.7736111111111111
+plone/plone.app.collection,45,reverting changes,kakshay21,2017-04-30T13:26:31Z,2017-04-30T13:54:08Z,closed,True,5,0,0,5,2,0,2,0,0,0,2,0.3825
+plone/plone.app.collection,44,kakshay21 unittest2,kakshay21,2017-04-30T13:08:29Z,2017-04-30T13:15:31Z,closed,True,6,0,0,6,3,0,3,0,0,0,1,0.155
+plone/plone.formwidget.querystring,18,fix calculation of the baseUrl in queryresults,fredvd,2017-08-09T14:26:36Z,2017-08-09T15:09:54Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.formwidget.querystring,17,"Translate ""Remove line""",hanirok,2017-04-06T15:25:19Z,2017-04-26T16:21:22Z,closed,True,3,0,0,3,3,0,2,0,0,0,2,26.736944444444443
+plone/Products.LinguaPlone,25,fix translation menu for combined language codes,frisi,2017-03-29T08:20:13Z,2017-04-03T09:45:54Z,closed,True,3,0,1,3,2,1,2,1,0,0,0,121.42333333333333
+plone/Products.LinguaPlone,24,"Show native language name in ""Translate into..."" menu",erral,2017-02-27T16:30:53Z,2017-02-28T16:46:00Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.LinguaPlone,23,Fix import location for Products.ATContentTypes.interfaces.,thet,2017-02-24T09:31:48Z,2017-02-24T21:29:50Z,closed,True,2,0,0,2,2,0,1,0,0,0,0,11.903055555555556
+plone/Products.LinguaPlone,22,"Don't fail while uninstalling, if LinguaPlone is already uninstalled.",thet,2017-02-16T02:03:53Z,2017-02-16T17:27:59Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/Products.LinguaPlone,21,Added tests for sitemap,djowett,2016-12-02T18:30:03Z,2017-01-10T14:34:54Z,closed,True,6,0,1,6,4,1,3,1,0,0,1,28.9875
+plone/archetypes.referencebrowserwidget,36,Drop dependency on plone.app.form for Plone 5.1 compatibility.,MatthewWilkes,2017-11-28T13:16:43Z,2017-11-29T22:01:18Z,closed,True,0,1,1,1,2,1,1,0,0,1,0,57.975
+plone/archetypes.referencebrowserwidget,34,Fix import location for Products.ATContentTypes.interfaces.,thet,2017-02-24T09:32:07Z,2017-02-24T23:10:33Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.formwidget.contenttree,31,Speedup listing content in fetch-contenttree,fredvd,2017-10-27T14:43:31Z,2017-11-01T16:16:29Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.github,3,add some more docs,loechel,2017-06-06T12:28:30Z,2017-06-06T13:20:13Z,closed,True,1,1,1,2,3,1,2,0,0,1,0,0.8658333333333333
+plone/plone.login,41,remove complete profile,pbauer,2017-07-06T13:01:48Z,2017-07-06T14:22:40Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.07194444444444445
+plone/plone.login,40,Cleanup templates,pbauer,2017-07-06T12:42:38Z,2017-07-06T14:21:56Z,closed,True,1,0,0,1,2,0,1,0,0,0,0,0.07416666666666667
+plone/plone.formwidget.datetime,21,add quotes in url to prevent syntax error with pyscss,tdesvenain,2017-11-14T12:02:16Z,2017-11-22T20:39:40Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.app.openid,12,Imports are Python3 compatible.,b4oshany,2017-10-22T13:21:28Z,2017-10-22T13:23:17Z,closed,True,0,0,1,0,2,1,0,1,0,0,0,0.028888888888888888
+plone/plone.app.openid,11,"Removing unittest2 (Revert ""Revert ""Removing unittest2"""")",jensens,2017-03-15T14:01:45Z,2017-03-17T09:11:36Z,closed,True,2,0,0,2,2,0,2,0,0,0,0,53.71472222222222
+plone/plone.app.openid,9,Removing unittest2,CaffeinatedStud,2017-03-15T07:52:42Z,2017-03-15T11:59:01Z,closed,True,6,0,0,6,3,0,3,0,0,0,3,4.145833333333333
+plone/plone.app.openid,10,"Revert ""Removing unittest2""",jensens,2017-03-15T13:58:49Z,2017-03-15T13:58:56Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.jenkins_server,21,New structure,gforcada,2017-06-28T21:21:25Z,2017-07-22T21:27:50Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
+plone/plone.jenkins_server,20,Update role,gforcada,2016-06-16T14:12:13Z,,closed,False,2,0,0,2,1,0,1,0,0,0,0,
+plone/archive.plone.org,1,Add: paragon.plone.org to index,svx,2017-11-24T13:56:46Z,2017-11-24T13:56:54Z,closed,True,0,0,0,0,1,0,0,0,0,0,0,
