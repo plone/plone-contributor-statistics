@@ -1,0 +1,255 @@
+================================================================================
+PLONE CONTRIBUTOR LEVELS: PR vs PLIP COMPARISON
+================================================================================
+
+CURRENT MISALIGNMENT
+--------------------------------------------------------------------------------
+PLIP Levels (5-tier):          PR Levels (no formal system):
+  Level 1: 20+ PLIPs              200+ PRs: 2 people (1.2%)
+  Level 2: 10-19 PLIPs            100-199 PRs: 2 people (1.2%)
+  Level 3: 5-9 PLIPs              50-99 PRs: 5 people (2.9%)
+  Level 4: 2-4 PLIPs              20-49 PRs: 8 people (4.7%)
+  Level 5: 1 PLIP                 1-19 PRs: 153 people (90%)
+
+PROBLEM: No consistent equivalence ratio exists!
+  - 1 PLIP ≠ X PRs (tested 3.9, 20, 50 - all fail)
+  - Different distributions (normal vs power law)
+  - Different pool sizes (63 vs 382 contributors)
+
+================================================================================
+RECOMMENDED SOLUTION: HARMONIZED 3-TIER SYSTEM
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 🏆 PLATINUM TIER - Core Leaders                                             │
+├──────────────────────────────┬──────────────────────────────────────────────┤
+│ 🎯 Strategic Track           │ ⚙️ Implementation Track                      │
+│                              │                                              │
+│ 10+ PLIPs (all-time)         │ 300+ PRs (3-year rolling)                   │
+│                              │                                              │
+│ 8 contributors (12.7%)       │ 12 contributors (3.1%)                      │
+│ 183 PLIPs (60.4%)            │ 5,447 PRs (76.6%)                           │
+│                              │                                              │
+│ Examples:                    │ Examples:                                    │
+│ • tisto (61 PLIPs)           │ • stevepiercy (680 PRs)                     │
+│ • bloodbare (20 PLIPs)       │ • petschki (484 PRs)                        │
+│ • thet (17 PLIPs)            │ • davisagli (282 PRs)                       │
+│                              │                                              │
+│ 🌟 Both Tracks (All-Rounder): sneridagh, mauritsvanrees, jensens, gforcada │
+└──────────────────────────────┴──────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ ⭐ GOLD TIER - Active Contributors                                          │
+├──────────────────────────────┬──────────────────────────────────────────────┤
+│ 🎯 Strategic Track           │ ⚙️ Implementation Track                      │
+│                              │                                              │
+│ 3-9 PLIPs (all-time)         │ 100-299 PRs (3-year rolling)                │
+│                              │                                              │
+│ 22 contributors (34.9%)      │ 17 contributors (4.5%)                      │
+│ 87 PLIPs (28.7%)             │ 1,107 PRs (15.6%)                           │
+│                              │                                              │
+│ Examples:                    │ Examples:                                    │
+│ • loechel (8 PLIPs)          │ • ericof (169 PRs)                          │
+│ • robgietema (6 PLIPs)       │ • ksuess (177 PRs)                          │
+│ • pbauer (4 PLIPs)           │ • MrTango (91 PRs)                          │
+│                              │                                              │
+│ 🌟 Both Tracks: pbauer, petschki, stevepiercy, gforcada (and 3 others)     │
+└──────────────────────────────┴──────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 🌟 SILVER TIER - Emerging Contributors                                     │
+├──────────────────────────────┬──────────────────────────────────────────────┤
+│ 🎯 Strategic Track           │ ⚙️ Implementation Track                      │
+│                              │                                              │
+│ 1-2 PLIPs (all-time)         │ 1-99 PRs (3-year rolling)                   │
+│                              │                                              │
+│ 33 contributors (52.4%)      │ 353 contributors (92.4%)                    │
+│ 33 PLIPs (10.9%)             │ 558 PRs (7.8%)                              │
+│                              │                                              │
+│ All newcomers and emerging contributors welcomed                            │
+└──────────────────────────────┴──────────────────────────────────────────────┘
+
+================================================================================
+KEY PRINCIPLES
+================================================================================
+
+✅ DIFFERENT THRESHOLDS FOR DIFFERENT CONTRIBUTION TYPES
+   - Strategic (PLIPs): 10 / 3-9 / 1-2
+   - Implementation (PRs): 300 / 100-299 / 1-99
+   - No arithmetic equivalence needed
+
+✅ SAME TIER = SAME PRESTIGE
+   - Platinum Strategic = Platinum Implementation (both are core leaders)
+   - Different paths, equal recognition
+
+✅ ROLE-BASED, NOT ARITHMETIC
+   - "What defines a core leader?" not "What equals X PLIPs?"
+   - Thresholds create similar-sized leadership groups
+
+✅ SIMILAR ABSOLUTE NUMBERS AT EACH TIER
+   - Platinum: 8 strategic + 12 implementation = ~20 core leaders
+   - Gold: 22 strategic + 17 implementation = ~40 active contributors
+   - Goal achieved: manageable tier sizes
+
+✅ PERCENTAGE DIFFERENCES ARE OK
+   - Different pool sizes (63 vs 382)
+   - Different barriers to entry
+   - Strategic work more specialized, PR work more accessible
+
+================================================================================
+WHY THIS WORKS
+================================================================================
+
+Problem: "How many PRs equal one PLIP?"
+Answer: Wrong question. Ask instead: "What defines leadership in each domain?"
+
+Strategic Leadership (PLIPs):
+  • 10+ PLIPs over years = proven architectural vision
+  • Requires: strategic thinking, community consensus, long-term planning
+  • Pool: 63 people (specialized skill)
+
+Implementation Leadership (PRs):
+  • 300+ PRs over 3 years = proven execution excellence
+  • Requires: code quality, maintenance, continuous delivery
+  • Pool: 382 people (broader accessibility)
+
+Result: Different thresholds, equivalent community impact
+
+================================================================================
+MIGRATION FROM CURRENT SYSTEM
+================================================================================
+
+PLIP Levels (5 → 3):                   PR Levels (none → 3):
+  Level 1 (20+)   ┐                      
+  Level 2 (10-19) ├─→ Platinum (10+)    → Platinum (300+)
+                  ┘                      
+  Level 3 (5-9)   ┐                      
+  Level 4 (2-4)   ├─→ Gold (3-9)        → Gold (100-299)
+                  ┘                      
+  Level 5 (1)     ──→ Silver (1-2)      → Silver (1-99)
+
+Changes:
+  • Level 1+2 merge → Platinum (8 people, more prestigious)
+  • Level 3+4 merge → Gold (22 people, clearer mid-tier)
+  • Level 5 slight expansion → Silver (1-2 PLIPs, welcoming entry)
+
+Benefits:
+  • Simpler system (3 vs 5 levels)
+  • Better recognition (larger Platinum tier)
+  • PRs finally have formal system
+  • Both tracks get equal treatment
+
+================================================================================
+CONTRIBUTOR EXAMPLES BY PROFILE
+================================================================================
+
+Profile A: Strategic Specialist
+  Example: tisto (61 PLIPs, ~38 PRs/3yr)
+  Tier: 🏆 Platinum Strategic 🎯
+  Role: Architectural visionary, guides implementation by others
+
+Profile B: Implementation Specialist  
+  Example: stevepiercy (3 PLIPs, 680 PRs/3yr)
+  Tier: 🏆 Platinum Implementation ⚙️ + ⭐ Gold Strategic 🎯
+  Role: Prolific maintainer, documentation champion
+
+Profile C: All-Rounder
+  Example: sneridagh (30 PLIPs, 1046 PRs/3yr)
+  Tier: 🏆 Platinum Both 🌟 (highest prestige)
+  Role: Complete ownership from vision to execution
+
+Profile D: Balanced Contributor
+  Example: pbauer (4 PLIPs, 67 PRs/2024)
+  Tier: ⭐ Gold Both 🌟
+  Role: Well-rounded contributor across planning and implementation
+
+Profile E: Rising Star
+  Example: New contributor (0 PLIPs, 150 PRs/year)
+  Tier: ⭐ Gold Implementation ⚙️ (after 1 year)
+  Role: High-velocity newcomer, future leader
+
+================================================================================
+PROGRESSION PATHS
+================================================================================
+
+Path 1: Strategic → Implementation
+  Silver 🎯 → Gold 🎯 → Platinum 🎯 → add PR work → Platinum 🌟
+
+Path 2: Implementation → Strategic
+  Silver ⚙️ → Gold ⚙️ → Platinum ⚙️ → add PLIPs → Platinum 🌟
+
+Path 3: Balanced Growth
+  Silver (both) → Gold 🌟 → Platinum 🌟 (ideal path)
+
+Clear Targets:
+  • "Submit 1 more PLIP to reach Gold"
+  • "Maintain 100 PRs/year to reach Gold"
+  • "10 PLIPs total for Platinum Strategic"
+  • "300 PRs over 3 years for Platinum Implementation"
+
+================================================================================
+TIMELINE
+================================================================================
+
+Month 1: Approval & Communication
+  Week 1: Framework Team review
+  Week 2: Foundation Board sign-off
+  Week 3: Communication plan
+  Week 4: Blog post announcement
+
+Month 2: Technical Implementation
+  Week 5-6: Calculate all contributor tiers
+  Week 7: Design tier/track badges
+  Week 8: Update plone.org
+
+Month 3: Recognition Launch
+  Week 9: Email all contributors with tiers
+  Week 10: Blog series featuring Platinum/Gold
+  Week 11: Conference announcements
+  Week 12: Launch tier benefits
+
+Month 4+: Programs
+  Platinum advisory committee
+  Gold mentorship program
+  Silver onboarding workshops
+  Quarterly tier reviews
+
+================================================================================
+APPROVAL CHECKLIST
+================================================================================
+
+Required Decisions:
+  [ ] Approve 3-tier system (Platinum/Gold/Silver)
+  [ ] Approve Strategic track thresholds (10+ / 3-9 / 1-2 PLIPs)
+  [ ] Approve Implementation track thresholds (300+ / 100-299 / 1-99 PRs)
+  [ ] Approve 3-year rolling window for PRs
+  [ ] Approve multi-track recognition
+  [ ] Assign implementation owner
+  [ ] Set launch date: Q___ 2025
+
+Optional Enhancements:
+  [ ] Add Diamond tier (20+ PLIPs, 1000+ PRs)
+  [ ] Add Community track (documentation, support)
+  [ ] Create Emeritus status
+  [ ] Add organization-level tiers
+
+================================================================================
+SUPPORTING DATA
+================================================================================
+
+Data Sources:
+  • plone-plips.csv: 303 PLIPs, 63 contributors (2013-2025)
+  • 2024-plone-contributors.csv: 2,003 PRs, 170 contributors
+  • 2023-plone-contributors.csv: 2,578 PRs, 277 contributors  
+  • 2022-plone-contributors.csv: 2,531 PRs, 281 contributors
+  • Total 3-year: 7,112 PRs, 382 unique contributors
+
+Detailed Analysis:
+  • ANALYSIS-level-harmonization.md (complete statistical analysis)
+  • PROPOSAL-combined-contributor-levels.md (full proposal)
+  • RECOMMENDATION-harmonized-levels.md (executive summary)
+
+Conclusion:
+  Different thresholds, equivalent recognition, unified community.
+
+================================================================================

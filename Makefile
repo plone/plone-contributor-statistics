@@ -67,6 +67,7 @@ help:
 	@echo "  run-organisation-stats-2000 Generate organisation statistics for 2000"
 	@echo "  run-plips         Extract PLIP statistics from all repositories"
 	@echo "  run-plip-organisations Generate PLIP organisation statistics using organisation mapping"
+	@echo "  analyze-plip-levels Analyze PLIP contributor levels and generate report"
 	@echo "  analyze-independent Analyze Independent contributors for potential organisation mappings"
 	@echo "  three-year-summary Generate combined statistics summary for 2022-2024"
 	@echo "  five-year-summary Generate combined statistics summary for 2020-2024"
@@ -323,6 +324,10 @@ run-plips:
 # Generate PLIP organisation statistics
 run-plip-organisations:
 	python plip_organisation_stats.py
+
+# Analyze PLIP contributor levels and generate report
+analyze-plip-levels:
+	python analyze_plip_contributor_levels.py
 
 # Analyze Independent contributors for potential organisation mappings
 analyze-independent:
