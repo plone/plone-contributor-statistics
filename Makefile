@@ -350,7 +350,7 @@ yearly-activity:
 	python yearly_activity_analysis.py
 
 # Generate visual graphs from yearly activity data
-yearly-graphs:
+yearly-graphs: yearly-activity
 	python generate_yearly_graphs.py
 
 # Analyze NPM packages published by Plone organizations
