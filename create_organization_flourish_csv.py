@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 
+import argparse
 import csv
 import os
 from collections import defaultdict
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--output-dir', default='.', help='Output directory for CSV file')
+args = parser.parse_args()
 
 # Years to analyze
 years = range(2015, 2026)  # 2015-2025
@@ -81,7 +86,8 @@ def normalise_org_name(org):
 
 
 # Create Flourish CSV
-output_file = 'plone-organizations-bar-chart-race-flourish.csv'
+os.makedirs(args.output_dir, exist_ok=True)
+output_file = os.path.join(args.output_dir, 'plone-organizations-bar-chart-race-flourish.csv')
 with open(output_file, 'w', newline='') as f:
     writer = csv.writer(f)
 

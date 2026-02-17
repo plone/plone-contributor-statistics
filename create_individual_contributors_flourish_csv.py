@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 
+import argparse
 import csv
 import os
 from collections import defaultdict
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--output-dir', default='.', help='Output directory for CSV file')
+args = parser.parse_args()
 
 # Years to analyze
 years = range(2015, 2026)  # Focus on 2015-2025 for better visualization
@@ -90,7 +95,9 @@ def get_contributor_region(username):
     return regions.get(username, 'Other')
 
 # Create Flourish CSV for individual contributors
-with open('plone-individual-contributors-flourish.csv', 'w', newline='') as f:
+os.makedirs(args.output_dir, exist_ok=True)
+output_file = os.path.join(args.output_dir, 'plone-individual-contributors-flourish.csv')
+with open(output_file, 'w', newline='') as f:
     writer = csv.writer(f)
     
     # Header
@@ -112,7 +119,7 @@ with open('plone-individual-contributors-flourish.csv', 'w', newline='') as f:
         
         writer.writerow(row)
 
-print(f"\nCreated plone-individual-contributors-flourish.csv with {len(sorted_contributors[:50])} contributors")
+print(f"\nCreated {output_file} with {len(sorted_contributors[:50])} contributors")
 print("Top contributors included:")
 for i, (username, data) in enumerate(sorted_contributors[:50], 1):
     print(f"{i:2d}. {username:25s} - {data['total_commits']:4d} commits")
