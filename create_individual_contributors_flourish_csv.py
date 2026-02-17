@@ -5,7 +5,7 @@ import os
 from collections import defaultdict
 
 # Years to analyze
-years = range(2015, 2025)  # Focus on 2015-2024 for better visualization
+years = range(2015, 2026)  # Focus on 2015-2025 for better visualization
 
 # Store all contributor data
 all_contributors = defaultdict(dict)
