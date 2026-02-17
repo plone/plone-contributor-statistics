@@ -303,7 +303,7 @@ def main():
     # Write report
     output_dir = Path("report")
     output_dir.mkdir(exist_ok=True)
-    output_file = output_dir / "github.md"
+    output_file = output_dir / "github-contributor-report.md"
 
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write('\n'.join(report))
