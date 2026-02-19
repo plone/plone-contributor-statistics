@@ -350,7 +350,7 @@ yearly-activity:
 	python yearly_activity_analysis.py
 
 # Generate visual graphs from yearly activity data
-yearly-graphs:
+yearly-graphs: yearly-activity
 	python generate_yearly_graphs.py
 
 # Analyze NPM packages published by Plone organizations
@@ -363,11 +363,11 @@ pypi-packages:
 
 # Generate organization CSV for Flourish visualization
 flourish-graph-organisation-contributors-csv-file:
-	python create_organization_flourish_csv.py
+	python create_organization_flourish_csv.py --output-dir data
 
 # Generate individual contributors CSV for Flourish visualization
 flourish-graph-individual-contributors-csv-file:
-	python create_individual_contributors_flourish_csv.py
+	python create_individual_contributors_flourish_csv.py --output-dir data
 
 # Generate comprehensive contributor and organization report
 generate-report:
