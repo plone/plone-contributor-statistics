@@ -19,6 +19,19 @@ This repository tracks and analyzes Plone community contributions through GitHub
 - Remove `Date` columns when not essential for the data analysis
 - Keep column names descriptive and consistent
 
+### Organisation Column Consistency
+- **Always check `organisations.csv`** when working with any CSV file that has an `Organisation` column
+- Ensure organisation names match exactly with entries in `organisations.csv`
+- Common consistency rules:
+  - Use `kitconcept GmbH` (not `kitconcept`)
+  - Use `RedTurtle` (not `Red Turtle`)
+  - Use `University of Jyväskylä` (not `Jyväskylä University` or `Uni. Jyväskylä`)
+  - Use `Klein & Partner KG` (not `Klein und Partner` or `Klein & Partner`)
+  - Use `CMS Communications Inc.` (not `CMS Communications`)
+  - Use `PY76` (not `Py76`)
+- When adding new organisations to CSV files, also add them to `organisations.csv`
+- Before completing any task involving Organisation columns, verify consistency across all files
+
 ### File Locations
 - Year-specific contributor data: Root directory (e.g., `2025-plone-contributors.csv`)
 - Event/conference data: Root directory (e.g., `2025-plone-conference-trainings.csv`, `2025-world-plone-day.csv`)
@@ -76,6 +89,7 @@ The `get_github_name.py` script uses GitHub token authentication from `.env` fil
 2. Apply multi-value separator convention (`;`)
 3. Remove unnecessary columns (`#`, `Date` if not needed)
 4. Place file in appropriate location (root vs `data/`)
+5. If the file has an `Organisation` column, verify all values against `organisations.csv` for consistency
 
 ### When Working with GitHub Data
 1. Check `mapping-github-username-to-fullname.csv` first
