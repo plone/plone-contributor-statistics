@@ -1,0 +1,7 @@
+Level,Min Points,Max Points,Description
+Bronze Contributor,1,5,1-5 points
+Silver Contributor,6,11,6-11 points
+Gold Contributor,12,23,12-23 points
+Platinum Contributor,24,49,24-49 points
+Diamond Contributor,50,74,50-74 points
+Titanium Contributor,75,,75+ points
