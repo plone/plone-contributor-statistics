@@ -434,6 +434,47 @@ def write_markdown_report(org_points, org_details, results, levels, output_file)
             f.write(f"| {i} | {row['Organisation']} | {row['Recognition Level']} | {row['Total Points']:.1f} |\n")
         f.write("\n")
 
+        # Code Contribution Highlights
+        f.write("## Code Contribution Highlights\n\n")
+
+        # PR Contributions
+        f.write("### Pull Request Contributors (Past 5 Years)\n\n")
+        pr_contributors = [(row['Organisation'], row['PR Contributions'], org_details[row['Organisation']].get('PR Contributions', []))
+                          for row in results if row['PR Contributions'] > 0]
+        pr_contributors.sort(key=lambda x: x[1], reverse=True)
+
+        if pr_contributors:
+            f.write("| Rank | Organization | Points | Level | PRs/Year |\n")
+            f.write("|------|--------------|-------:|:------|----------|\n")
+            for i, (org, points, details) in enumerate(pr_contributors, 1):
+                level_detail = details[0] if details else ""
+                # Extract PRs/year from detail string like "Lead Contributor (187.6 PRs/year)"
+                prs_year = ""
+                if "PRs/year)" in level_detail:
+                    prs_year = level_detail.split("(")[1].split(" PRs/year")[0]
+                level_name = level_detail.split(" (")[0] if level_detail else ""
+                f.write(f"| {i} | {org} | {points:.0f} | {level_name} | {prs_year} |\n")
+            f.write("\n")
+
+        # PLIP Contributions
+        f.write("### PLIP Contributors\n\n")
+        plip_contributors = [(row['Organisation'], row['PLIP Contributions'], org_details[row['Organisation']].get('PLIP Contributions', []))
+                            for row in results if row['PLIP Contributions'] > 0]
+        plip_contributors.sort(key=lambda x: x[1], reverse=True)
+
+        if plip_contributors:
+            f.write("| Rank | Organization | Points | Level | PLIPs |\n")
+            f.write("|------|--------------|-------:|:------|-------|\n")
+            for i, (org, points, details) in enumerate(plip_contributors, 1):
+                level_detail = details[0] if details else ""
+                # Extract PLIP count from detail string like "Core Leaders (71 PLIPs)"
+                plip_count = ""
+                if "PLIPs)" in level_detail:
+                    plip_count = level_detail.split("(")[1].split(" PLIPs")[0]
+                level_name = level_detail.split(" (")[0] if level_detail else ""
+                f.write(f"| {i} | {org} | {points:.0f} | {level_name} | {plip_count} |\n")
+            f.write("\n")
+
         # Detailed Breakdown
         f.write("## Detailed Breakdown by Organization\n\n")
 

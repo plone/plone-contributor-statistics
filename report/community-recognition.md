@@ -1,6 +1,6 @@
 # Plone Community Recognition Program 2025
 
-*Generated: 2026-03-07 22:19:29*
+*Generated: 2026-03-07 22:28:41*
 
 ## Executive Summary
 
@@ -109,6 +109,58 @@
 | 51 | Università di Macerata | Bronze Contributor | 1.0 |
 | 52 | eCityclic | Bronze Contributor | 1.0 |
 | 53 | iMio | Bronze Contributor | 1.0 |
+
+## Code Contribution Highlights
+
+### Pull Request Contributors (Past 5 Years)
+
+| Rank | Organization | Points | Level | PRs/Year |
+|------|--------------|-------:|:------|----------|
+| 1 | Eau de Web | 20 | Lead Contributor | 114.2 |
+| 2 | Independent | 20 | Lead Contributor | 261.2 |
+| 3 | Kombinat | 20 | Lead Contributor | 113.8 |
+| 4 | PY76 | 20 | Lead Contributor | 187.6 |
+| 5 | Steve Piercy | 20 | Lead Contributor | 139.8 |
+| 6 | kitconcept GmbH | 20 | Lead Contributor | 555.4 |
+| 7 | CodeSyntax | 10 | Core Member | 57.8 |
+| 8 | Freitag | 10 | Core Member | 97.2 |
+| 9 | Klein & Partner KG | 10 | Core Member | 66.0 |
+| 10 | Nuclia | 10 | Core Member | 94.0 |
+| 11 | RedTurtle | 10 | Core Member | 93.2 |
+| 12 | Rohberg | 10 | Core Member | 53.4 |
+| 13 | Syslab | 10 | Core Member | 86.4 |
+| 14 | Agitator | 4 | Active Member | 27.2 |
+| 15 | Derico | 4 | Active Member | 27.0 |
+| 16 | Iskra | 4 | Active Member | 26.6 |
+| 17 | SERPRO | 4 | Active Member | 31.4 |
+| 18 | Starzel | 4 | Active Member | 32.6 |
+| 19 | Pretaweb | 2 | Contributor | 14.2 |
+| 20 | University Hospital Dresden | 2 | Contributor | 16.6 |
+| 21 | Vangheem | 2 | Contributor | 14.6 |
+| 22 | affinitic | 2 | Contributor | 10.2 |
+| 23 | frapell | 2 | Contributor | 10.6 |
+
+### PLIP Contributors
+
+| Rank | Organization | Points | Level | PLIPs |
+|------|--------------|-------:|:------|-------|
+| 1 | Independent | 15 | Core Leaders | 25 |
+| 2 | Nuclia | 15 | Core Leaders | 37 |
+| 3 | PY76 | 15 | Core Leaders | 10 |
+| 4 | Syslab | 15 | Core Leaders | 16 |
+| 5 | kitconcept GmbH | 15 | Core Leaders | 71 |
+| 6 | Freitag | 9 | Active Core Contributor | 6 |
+| 7 | Klein & Partner KG | 9 | Active Core Contributor | 9 |
+| 8 | Vangheem | 9 | Active Core Contributor | 6 |
+| 9 | Agitator | 3 | Emerging Core Contributor | 3 |
+| 10 | DBA Informatica Notariaal | 3 | Emerging Core Contributor | 2 |
+| 11 | Derico | 3 | Emerging Core Contributor | 2 |
+| 12 | Eau de Web | 3 | Emerging Core Contributor | 4 |
+| 13 | IHAM | 3 | Emerging Core Contributor | 5 |
+| 14 | Kim Nguyen | 3 | Emerging Core Contributor | 5 |
+| 15 | RedTurtle | 3 | Emerging Core Contributor | 2 |
+| 16 | Starzel | 3 | Emerging Core Contributor | 4 |
+| 17 | ZOPYX | 3 | Emerging Core Contributor | 3 |
 
 ## Detailed Breakdown by Organization
 
