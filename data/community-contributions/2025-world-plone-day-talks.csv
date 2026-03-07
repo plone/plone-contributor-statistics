@@ -1,5 +1,5 @@
 Video Title,Speaker(s),Organisation,Event / Location,Type,YouTube ID
-World Plone Day: Brasília; Brazil,PloneGov-BR team,PloneGov-BR / Senado Federal,Brazil (Brasília),Full stream,kdxefYmiIvM
+World Plone Day: Brasília; Brazil,PloneGov-BR team,PloneGov-BR;Senado Federal,Brazil (Brasília),Full stream,kdxefYmiIvM
 Plone Hands On: Customize your site theme through the web with Volto!,David Ichim;Victor Fernández de Alba,kitconcept GmbH,Online,Talk,in6Qz3oWbao
 Mão na Massa: Começando um projeto com Plone 6.1,PloneGov-BR community,PloneGov-BR,Brazil (Brasília),Talk,x7QX9tQxEBc
 I've tried more than 200 CMS's and Plone is still the best!,Alexander Loechel;Astrid Beyers,LMU;Juizi,Online,Talk,wDmj38OOG1Y
@@ -9,7 +9,7 @@ Click less; do more - save time with Plone content rules,Karel Calitz;Astrid Bey
 Plone and Google Summer of Code 2025,Eric Brehault,Nuclia,Online,Talk,w4AYKTwiAok
 Love Story: When Designers Meet GitHub Actions,,iMio,Online,Talk,qwI2UL8zuZc
 Teaser trailer from South Africa for World Plone Day 2025,,,Online,Teaser,UzBwfVuoCDE
-An external to internal Plone support love story,Alex (Juizi);Talya (IRR),Juizi / IRR,Online,Talk,NlNFCyGwEMc
+An external to internal Plone support love story,Alex (Juizi);Talya (IRR),Juizi;IRR,Online,Talk,NlNFCyGwEMc
 Deploy Cookieplone Based Projects With GitLab CI/CD,Mikel Larreategi,Codesyntax,Online,Talk,7d1KQSXpodY
 Volto Bootstrap Theme,CodeSyntax team,Codesyntax,Online,Talk,IlcJgU5p0jo
 Select user widget feature in Volto,Teodor Voicu,Eau de Web,Online,Talk,jAlwtcNyzH0
@@ -34,9 +34,9 @@ Vibe Coding Plone Live at GitHub Codespaces,Asko Soukka,University of Jyväskyl�
 Plone Hands On: Creating a new Plone project,Victor Fernández de Alba,kitconcept GmbH,Online,Talk,cMJOBrfZGe4
 Vibe Coding Plone Live at GitHub Codespaces (duplicate),Asko Soukka,University of Jyväskylä,Online,Duplicate,HR4w6Ecjcsk
 AMA with David Glick; Plone core developer,David Glick,Plone Foundation,Online,Talk,_688wq-TwJ4
-World Plone Day: Brasília; Brazil (duplicate),PloneGov-BR team,PloneGov-BR / Senado Federal,Brazil (Brasília),Duplicate,kdxefYmiIvM
+World Plone Day: Brasília; Brazil (duplicate),PloneGov-BR team,PloneGov-BR;Senado Federal,Brazil (Brasília),Duplicate,kdxefYmiIvM
 Exploring the Power of Plone: How Out-of-the-Box Features Simplify Content Management (duplicate),Plone JP / CMS Communications Inc.,CMS Communications Inc.,Online,Duplicate,oZYtTu1Ckdo
-Triple D: Documentation Driven Development - A Panel Discussion,Steve McMahon;Ujjwal (last name TBC),Independent / Plone Foundation,Online,Talk,eu7ypPPKZCg
+Triple D: Documentation Driven Development - A Panel Discussion,Steve McMahon;Ujjwal (last name TBC),Independent;Plone Foundation,Online,Talk,eu7ypPPKZCg
 Plone Distributions; the right way,Érico Andrei,Simples Consultoria,Online,Talk,W0gDKhuIXPk
 I valori dell'Open Source - il punto di vista della Rete Italiana Open Source - WPD 2025 Italia,Valentina Del Prete,RIOS (Rete Italiana Open Source),Italy (Bologna),Talk,HKlRhSpgT4Q
 Plone & PWA: il caso Lignano Sabbiadoro - WPD2025 Italia,Omar Aleotti,RedTurtle,Italy (Bologna),Talk,KW5YDe801TQ
