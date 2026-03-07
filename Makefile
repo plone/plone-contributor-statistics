@@ -107,8 +107,8 @@ help:
 	@echo "  check             Check code quality and dependencies"
 	@echo ""
 	@echo "Date range examples:"
-	@echo "  python plone_stats.py --year 2024"
-	@echo "  python plone_stats.py --start-date 2024-01-01 --end-date 2024-06-30"
+	@echo "  python plone_contributors.py --year 2024"
+	@echo "  python plone_contributors.py --start-date 2024-01-01 --end-date 2024-06-30"
 
 # Install dependencies
 install:
@@ -130,93 +130,93 @@ dev-setup: setup
 
 # Run main statistics extraction (current year)
 run-stats:
-	python plone_stats.py
+	python plone_contributors.py
 
 # Run statistics for specific years
 run-stats-2025:
-	python plone_stats.py --year 2025
+	python plone_contributors.py --year 2025
 
 run-stats-2024:
-	python plone_stats.py --year 2024
+	python plone_contributors.py --year 2024
 
 run-stats-2023:
-	python plone_stats.py --year 2023
+	python plone_contributors.py --year 2023
 
 run-stats-2022:
-	python plone_stats.py --year 2022
+	python plone_contributors.py --year 2022
 
 run-stats-2021:
-	python plone_stats.py --year 2021
+	python plone_contributors.py --year 2021
 
 run-stats-2020:
-	python plone_stats.py --year 2020
+	python plone_contributors.py --year 2020
 
 run-stats-2019:
-	python plone_stats.py --year 2019
+	python plone_contributors.py --year 2019
 
 run-stats-2018:
-	python plone_stats.py --year 2018
+	python plone_contributors.py --year 2018
 
 run-stats-2017:
-	python plone_stats.py --year 2017
+	python plone_contributors.py --year 2017
 
 run-stats-2016:
-	python plone_stats.py --year 2016
+	python plone_contributors.py --year 2016
 
 run-stats-2015:
-	python plone_stats.py --year 2015
+	python plone_contributors.py --year 2015
 
 run-stats-2014:
-	python plone_stats.py --year 2014
+	python plone_contributors.py --year 2014
 
 run-stats-2013:
-	python plone_stats.py --year 2013
+	python plone_contributors.py --year 2013
 
 run-stats-2012:
-	python plone_stats.py --year 2012
+	python plone_contributors.py --year 2012
 
 run-stats-2011:
-	python plone_stats.py --year 2011
+	python plone_contributors.py --year 2011
 
 run-stats-2010:
-	python plone_stats.py --year 2010
+	python plone_contributors.py --year 2010
 
 run-stats-2009:
-	python plone_stats.py --year 2009
+	python plone_contributors.py --year 2009
 
 run-stats-2008:
-	python plone_stats.py --year 2008
+	python plone_contributors.py --year 2008
 
 run-stats-2007:
-	python plone_stats.py --year 2007
+	python plone_contributors.py --year 2007
 
 run-stats-2006:
-	python plone_stats.py --year 2006
+	python plone_contributors.py --year 2006
 
 run-stats-2005:
-	python plone_stats.py --year 2005
+	python plone_contributors.py --year 2005
 
 run-stats-2004:
-	python plone_stats.py --year 2004
+	python plone_contributors.py --year 2004
 
 run-stats-2003:
-	python plone_stats.py --year 2003
+	python plone_contributors.py --year 2003
 
 run-stats-2002:
-	python plone_stats.py --year 2002
+	python plone_contributors.py --year 2002
 
 run-stats-2001:
-	python plone_stats.py --year 2001
+	python plone_contributors.py --year 2001
 
 run-stats-2000:
-	python plone_stats.py --year 2000
+	python plone_contributors.py --year 2000
 
 # Run statistics with custom date range
 run-stats-custom:
 	@echo "Usage examples:"
-	@echo "  python plone_stats.py --year 2023"
-	@echo "  python plone_stats.py --start-date 2024-01-01 --end-date 2024-12-31"
-	@echo "  python plone_stats.py --start-date 2023-01-01 --end-date 2024-12-31"
+	@echo "  python plone_contributors.py --year 2023"
+	@echo "  python plone_contributors.py --start-date 2024-01-01 --end-date 2024-12-31"
+	@echo "  python plone_contributors.py --start-date 2023-01-01 --end-date 2024-12-31"
 
 # Run contributor statistics
 run-contributors:

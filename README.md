@@ -57,7 +57,7 @@ make run-stats-2022
 # ... (all years 2005-2025)
 
 # Custom date range
-python plone_stats.py --start-date 2024-01-01 --end-date 2024-06-30
+python plone_contributors.py --start-date 2024-01-01 --end-date 2024-06-30
 ```
 
 ### Volto Team Member Statistics

@@ -293,7 +293,7 @@ class PloneStatsExtractor:
             filename = 'plone-contributors'
         
         # Save to CSV
-        csv_file = f'{filename}.csv'
+        csv_file = f'data/{filename}.csv'
         df.to_csv(csv_file, index=False)
         print(f"Report saved to {csv_file}")
         
