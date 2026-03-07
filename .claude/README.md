@@ -25,10 +25,12 @@ This repository tracks and analyzes Plone community contributions through GitHub
 - Common consistency rules:
   - Use `kitconcept GmbH` (not `kitconcept`)
   - Use `RedTurtle` (not `Red Turtle`)
-  - Use `University of Jyväskylä` (not `Jyväskylä University` or `Uni. Jyväskylä`)
+  - Use `University of Jyväskylä` (not `Jyväskylä University`, `Uni. Jyväskylä`, or `Uni. Jyvaskylä`)
   - Use `Klein & Partner KG` (not `Klein und Partner` or `Klein & Partner`)
   - Use `CMS Communications Inc.` (not `CMS Communications`)
+  - Use `Codesyntax` (not `CodeSyntax`)
   - Use `PY76` (not `Py76`)
+  - Use `Simples Consultoria` (not `SimplesConsultorias`)
 - When adding new organisations to CSV files, also add them to `organisations.csv`
 - Before completing any task involving Organisation columns, verify consistency across all files
 
