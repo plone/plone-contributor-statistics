@@ -444,7 +444,17 @@ def write_markdown_report(org_points, org_details, results, levels, output_file)
         f.write("### Pull Request Contributors (Past 5 Years)\n\n")
         pr_contributors = [(row['Organisation'], row['PR Contributions'], org_details[row['Organisation']].get('PR Contributions', []))
                           for row in results if row['PR Contributions'] > 0]
-        pr_contributors.sort(key=lambda x: x[1], reverse=True)
+
+        # Sort by PRs/year (extracted from detail string)
+        def extract_prs_year(contributor):
+            details = contributor[2]
+            if details and "PRs/year)" in details[0]:
+                try:
+                    return float(details[0].split("(")[1].split(" PRs/year")[0])
+                except:
+                    return 0
+            return 0
+        pr_contributors.sort(key=extract_prs_year, reverse=True)
 
         if pr_contributors:
             f.write("| Rank | Organization | Points | Level | PRs/Year |\n")
@@ -463,7 +473,17 @@ def write_markdown_report(org_points, org_details, results, levels, output_file)
         f.write("### PLIP Contributors\n\n")
         plip_contributors = [(row['Organisation'], row['PLIP Contributions'], org_details[row['Organisation']].get('PLIP Contributions', []))
                             for row in results if row['PLIP Contributions'] > 0]
-        plip_contributors.sort(key=lambda x: x[1], reverse=True)
+
+        # Sort by PLIP count (extracted from detail string)
+        def extract_plip_count(contributor):
+            details = contributor[2]
+            if details and "PLIPs)" in details[0]:
+                try:
+                    return int(details[0].split("(")[1].split(" PLIPs")[0])
+                except:
+                    return 0
+            return 0
+        plip_contributors.sort(key=extract_plip_count, reverse=True)
 
         if plip_contributors:
             f.write("| Rank | Organization | Points | Level | PLIPs |\n")
