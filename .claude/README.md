@@ -14,6 +14,12 @@ This repository tracks and analyzes Plone community contributions through GitHub
 - **Do NOT use `&`** for separating values
 - Rationale: Semicolons are standard for multi-value CSV fields and easy to parse with `.split(';')`
 
+### Quoting Values with Commas
+- **Use double quotes (`"`)** around values that contain commas
+- Example: `"Big Corp, Inc."` or `"Federal Senate (Interlegis Program)"`
+- This ensures proper CSV parsing and prevents values from being split into multiple columns
+- Apply quotes only when necessary (when the value contains a comma)
+
 ### Column Guidelines
 - Remove unnecessary columns like `#` (row numbers) unless specifically needed
 - Remove `Date` columns when not essential for the data analysis
