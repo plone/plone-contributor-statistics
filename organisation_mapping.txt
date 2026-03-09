@@ -4,7 +4,7 @@ Academy of FA Vienna:gogobd,iham
 Affinitic:laulaz,mpeeters
 Agitator:agitator
 bearstach:encolpe
-CMS Communications:terapyon
+CMS Communications Inc.:terapyon
 Codesyntax:erral,ionlizarazu,libargutxi
 Cosent:gyst
 Derico:MrTango
@@ -13,13 +13,13 @@ Enfold:sidnei,jcameroncooper
 FHNW:adrianschulz,tomschall,tomgross
 der Freitag:gforcada
 Soliton Consulting:fulv
-IMIO:gotcha,bsuttor,gbastien,sverbois,sgeulette
+iMio:gotcha,bsuttor,gbastien,sverbois,sgeulette
 Interaktiv:mliebischer
 Iskra:rboixaderg,nilbacardit26,masipcat
 IT Sprit:thomasmassmann
 Jarn:tomster,hannosch,witsch,MatthewWilkes,fschulze,stefanholek,baekholt,limi,lrowe,stefanholek
 kitconcept GmbH:tisto,sneridagh,ericof,fredvd,davisagli,iFlameing,iRohitSingh,robgietema,kittauri,danalvrz,Tishasoumya-02,reebalazs,jnptk,jackahl,steffenri,jaroel,ThomasKindermann
-Klein & Partner:jensens
+Klein & Partner KG:jensens
 Kombinat:petschki
 KU Leuven:spereverde
 minddistrict:icemac
@@ -41,12 +41,13 @@ Starzel:pbauer,tlotze,gomez,Gomez
 Syslab:ale-rt,pilz,thet,reinhardt,svx
 Makina Corpus:tdesvenain
 Uni. Hospital Dresden:1letter
-Uni. Jyvaskylä:datakurre
+University of Jyväskylä:datakurre
 TU Dresden:pgrunewald
-TU München:loechel
+Ludwig Maximilian University Munich:loechel
 Wildcard Corp:vangheem:vangheem
 Ecréall:vincentfretin
 Webmeisterei:frisi
 Simplon:wichert
 Zest Software:jladage,rockyburt
 Zopyx:zopyx
+eCityclic:

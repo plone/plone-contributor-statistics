@@ -549,7 +549,7 @@ def main():
     levels = load_recognition_levels()
 
     # Write CSV report
-    csv_output = 'data/community-contributions/2025-community-recognition-points.csv'
+    csv_output = 'data/community-contributions/2025-community-recognition-report.csv'
     results = write_csv_report(org_points, levels, csv_output)
     print(f"CSV report written to: {csv_output}")
 
