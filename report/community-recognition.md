@@ -1,6 +1,6 @@
 # Plone Community Recognition Program 2025
 
-*Generated: 2026-03-09 09:30:59*
+*Generated: 2026-03-09 09:47:50*
 
 ## Executive Summary
 
@@ -14,8 +14,8 @@
 |-------|--------------|---------------:|
 | Titanium Contributor | 75+ | 1 |
 | Diamond Contributor | 50-74 | 1 |
-| Platinum Contributor | 24-49 | 8 |
-| Gold Contributor | 12-23 | 6 |
+| Platinum Contributor | 24-49 | 9 |
+| Gold Contributor | 12-23 | 5 |
 | Silver Contributor | 6-11 | 8 |
 | Bronze Contributor | 1-5 | 28 |
 
@@ -58,15 +58,15 @@
 |------|--------------|-------------------|-------------:|
 | 1 | kitconcept GmbH | Titanium Contributor | 105.0 |
 | 2 | PY76 | Diamond Contributor | 53.0 |
-| 3 | Independent | Platinum Contributor | 48.0 |
+| 3 | Independent | Platinum Contributor | 42.0 |
 | 4 | University of Jyväskylä | Platinum Contributor | 42.0 |
 | 5 | Eau de Web | Platinum Contributor | 38.0 |
 | 6 | RedTurtle | Platinum Contributor | 36.0 |
 | 7 | Klein & Partner KG | Platinum Contributor | 32.0 |
 | 8 | Nuclia | Platinum Contributor | 32.0 |
 | 9 | Kombinat | Platinum Contributor | 26.0 |
-| 10 | Syslab | Platinum Contributor | 25.0 |
-| 11 | Steve Piercy | Gold Contributor | 20.0 |
+| 10 | Steve Piercy | Platinum Contributor | 26.0 |
+| 11 | Syslab | Platinum Contributor | 25.0 |
 | 12 | Freitag | Gold Contributor | 19.0 |
 | 13 | Juizi | Gold Contributor | 19.0 |
 | 14 | UNAM | Gold Contributor | 18.0 |
@@ -192,11 +192,11 @@
 
 ### Independent
 
-**Total Points: 48.0**
+**Total Points: 42.0**
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| Board Member | 12.0 | • Brian Davis<br>• Steve Piercy |
+| Board Member | 6.0 | • Brian Davis |
 | WPD Talk | 1.0 | • Triple D: Documentation Driven Development - A Panel Discussion |
 | PR Contributions | 20.0 | • Lead (261.2 PRs/year) |
 | PLIP Contributions | 15.0 | • Significant PLIP Contributor (25 PLIPs) |
@@ -269,6 +269,15 @@
 | Team Leader | 6.0 | • Peter Mathis (ClassicUI Team) |
 | PR Contributions | 20.0 | • Lead (113.8 PRs/year) |
 
+### Steve Piercy
+
+**Total Points: 26.0**
+
+| Category | Points | Details |
+|----------|-------:|:--------|
+| Board Member | 6.0 | • Steve Piercy |
+| PR Contributions | 20.0 | • Lead (139.8 PRs/year) |
+
 ### Syslab
 
 **Total Points: 25.0**
@@ -277,14 +286,6 @@
 |----------|-------:|:--------|
 | PR Contributions | 10.0 | • Core Member (86.4 PRs/year) |
 | PLIP Contributions | 15.0 | • Significant PLIP Contributor (16 PLIPs) |
-
-### Steve Piercy
-
-**Total Points: 20.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| PR Contributions | 20.0 | • Lead (139.8 PRs/year) |
 
 ### Freitag
 
@@ -634,7 +635,7 @@
 | Strategic Sprint | 5 | 60.0 |
 | Release Manager | 2 | 36.0 |
 | Team Leader | 5 | 24.0 |
-| Board Member | 7 | 48.0 |
+| Board Member | 8 | 48.0 |
 | Podcast Host | 2 | 6.0 |
 | WPD Event | 5 | 15.0 |
 | WPD Talk | 26 | 42.0 |
