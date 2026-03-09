@@ -1,6 +1,6 @@
 # Plone Community Recognition Program 2025
 
-*Generated: 2026-03-09 08:51:39*
+*Generated: 2026-03-09 09:30:59*
 
 ## Executive Summary
 
@@ -44,13 +44,13 @@
 
 | Category | Points | Description |
 |----------|--------|-------------|
-| Lead Contributor (PR) | 20 | 100+ PRs/year average |
+| Lead (PR) | 20 | 100+ PRs/year average |
 | Core Member (PR) | 10 | 50-99 PRs/year average |
 | Active Member (PR) | 4 | 20-49 PRs/year average |
-| Contributor (PR) | 2 | 10-19 PRs/year average |
-| Core Leaders (PLIP) | 15 | 10+ PLIPs merged and released |
-| Active Core Contributor (PLIP) | 9 | 6+ PLIPs merged and released |
-| Emerging Core Contributor (PLIP) | 3 | 2+ PLIPs merged and released |
+| Team Member (PR) | 2 | 10-19 PRs/year average |
+| Significant PLIP Contributor | 15 | 10+ PLIPs merged and released |
+| Regular PLIP Contributor | 9 | 6+ PLIPs merged and released |
+| Occasional PLIP Contributor | 3 | 2+ PLIPs merged and released |
 
 ## Recognition Leaderboard
 
@@ -115,12 +115,12 @@
 
 | Rank | Organization | Points | Level | PRs/Year |
 |------|--------------|-------:|:------|----------|
-| 1 | kitconcept GmbH | 20 | Lead Contributor | 555.4 |
-| 2 | Independent | 20 | Lead Contributor | 261.2 |
-| 3 | PY76 | 20 | Lead Contributor | 187.6 |
-| 4 | Steve Piercy | 20 | Lead Contributor | 139.8 |
-| 5 | Eau de Web | 20 | Lead Contributor | 114.2 |
-| 6 | Kombinat | 20 | Lead Contributor | 113.8 |
+| 1 | kitconcept GmbH | 20 | Lead | 555.4 |
+| 2 | Independent | 20 | Lead | 261.2 |
+| 3 | PY76 | 20 | Lead | 187.6 |
+| 4 | Steve Piercy | 20 | Lead | 139.8 |
+| 5 | Eau de Web | 20 | Lead | 114.2 |
+| 6 | Kombinat | 20 | Lead | 113.8 |
 | 7 | Freitag | 10 | Core Member | 97.2 |
 | 8 | Nuclia | 10 | Core Member | 94.0 |
 | 9 | RedTurtle | 10 | Core Member | 93.2 |
@@ -133,33 +133,33 @@
 | 16 | Agitator | 4 | Active Member | 27.2 |
 | 17 | Derico | 4 | Active Member | 27.0 |
 | 18 | Iskra | 4 | Active Member | 26.6 |
-| 19 | University Hospital Dresden | 2 | Contributor | 16.6 |
-| 20 | Vangheem | 2 | Contributor | 14.6 |
-| 21 | Pretaweb | 2 | Contributor | 14.2 |
-| 22 | frapell | 2 | Contributor | 10.6 |
-| 23 | affinitic | 2 | Contributor | 10.2 |
+| 19 | University Hospital Dresden | 2 | Team Member | 16.6 |
+| 20 | Vangheem | 2 | Team Member | 14.6 |
+| 21 | Pretaweb | 2 | Team Member | 14.2 |
+| 22 | frapell | 2 | Team Member | 10.6 |
+| 23 | affinitic | 2 | Team Member | 10.2 |
 
 ### PLIP Contributors
 
 | Rank | Organization | Points | Level | PLIPs |
 |------|--------------|-------:|:------|-------|
-| 1 | kitconcept GmbH | 15 | Core Leaders | 71 |
-| 2 | Nuclia | 15 | Core Leaders | 37 |
-| 3 | Independent | 15 | Core Leaders | 25 |
-| 4 | Syslab | 15 | Core Leaders | 16 |
-| 5 | PY76 | 15 | Core Leaders | 10 |
-| 6 | Klein & Partner KG | 9 | Active Core Contributor | 9 |
-| 7 | Freitag | 9 | Active Core Contributor | 6 |
-| 8 | Vangheem | 9 | Active Core Contributor | 6 |
-| 9 | IHAM | 3 | Emerging Core Contributor | 5 |
-| 10 | Kim Nguyen | 3 | Emerging Core Contributor | 5 |
-| 11 | Eau de Web | 3 | Emerging Core Contributor | 4 |
-| 12 | Starzel | 3 | Emerging Core Contributor | 4 |
-| 13 | Agitator | 3 | Emerging Core Contributor | 3 |
-| 14 | ZOPYX | 3 | Emerging Core Contributor | 3 |
-| 15 | DBA Informatica Notariaal | 3 | Emerging Core Contributor | 2 |
-| 16 | Derico | 3 | Emerging Core Contributor | 2 |
-| 17 | RedTurtle | 3 | Emerging Core Contributor | 2 |
+| 1 | kitconcept GmbH | 15 | Significant PLIP Contributor | 71 |
+| 2 | Nuclia | 15 | Significant PLIP Contributor | 37 |
+| 3 | Independent | 15 | Significant PLIP Contributor | 25 |
+| 4 | Syslab | 15 | Significant PLIP Contributor | 16 |
+| 5 | PY76 | 15 | Significant PLIP Contributor | 10 |
+| 6 | Klein & Partner KG | 9 | Regular PLIP Contributor | 9 |
+| 7 | Freitag | 9 | Regular PLIP Contributor | 6 |
+| 8 | Vangheem | 9 | Regular PLIP Contributor | 6 |
+| 9 | IHAM | 3 | Occasional PLIP Contributor | 5 |
+| 10 | Kim Nguyen | 3 | Occasional PLIP Contributor | 5 |
+| 11 | Eau de Web | 3 | Occasional PLIP Contributor | 4 |
+| 12 | Starzel | 3 | Occasional PLIP Contributor | 4 |
+| 13 | Agitator | 3 | Occasional PLIP Contributor | 3 |
+| 14 | ZOPYX | 3 | Occasional PLIP Contributor | 3 |
+| 15 | DBA Informatica Notariaal | 3 | Occasional PLIP Contributor | 2 |
+| 16 | Derico | 3 | Occasional PLIP Contributor | 2 |
+| 17 | RedTurtle | 3 | Occasional PLIP Contributor | 2 |
 
 ## Detailed Breakdown by Organization
 
@@ -176,8 +176,8 @@
 | WPD Event | 3.0 | • Organized WPD Event |
 | WPD Talk | 4.0 | • Plone Hands On: Customize your site theme through the web with Volto!<br>• Tailwind CSS and Plone<br>• Codename Seven - Sneak Peek to the Successor of Volto<br>• Plone Hands On: Creating a new Plone project |
 | Training Session | 21.0 | • Plone 6 Volto Customization for JavaScript Beginners<br>• Plone Seven: Fundamentals<br>• Installing and Deploying Plone<br>• Customizing the Volto Light Theme |
-| PR Contributions | 20.0 | • Lead Contributor (555.4 PRs/year) |
-| PLIP Contributions | 15.0 | • Core Leaders (71 PLIPs) |
+| PR Contributions | 20.0 | • Lead (555.4 PRs/year) |
+| PLIP Contributions | 15.0 | • Significant PLIP Contributor (71 PLIPs) |
 
 ### PY76
 
@@ -187,8 +187,8 @@
 |----------|-------:|:--------|
 | Release Manager | 12.0 | • Maurits van Rees |
 | Team Leader | 6.0 | • Maurits van Rees (Security Team) |
-| PR Contributions | 20.0 | • Lead Contributor (187.6 PRs/year) |
-| PLIP Contributions | 15.0 | • Core Leaders (10 PLIPs) |
+| PR Contributions | 20.0 | • Lead (187.6 PRs/year) |
+| PLIP Contributions | 15.0 | • Significant PLIP Contributor (10 PLIPs) |
 
 ### Independent
 
@@ -198,8 +198,8 @@
 |----------|-------:|:--------|
 | Board Member | 12.0 | • Brian Davis<br>• Steve Piercy |
 | WPD Talk | 1.0 | • Triple D: Documentation Driven Development - A Panel Discussion |
-| PR Contributions | 20.0 | • Lead Contributor (261.2 PRs/year) |
-| PLIP Contributions | 15.0 | • Core Leaders (25 PLIPs) |
+| PR Contributions | 20.0 | • Lead (261.2 PRs/year) |
+| PLIP Contributions | 15.0 | • Significant PLIP Contributor (25 PLIPs) |
 
 ### University of Jyväskylä
 
@@ -221,8 +221,8 @@
 |----------|-------:|:--------|
 | Strategic Sprint | 12.0 | • Bucharest Sprint |
 | WPD Talk | 3.0 | • Select user widget feature in Volto<br>• Volto block style: Start customizing your site through the web<br>• Dynamic Vocabulary Based on Context in Plone |
-| PR Contributions | 20.0 | • Lead Contributor (114.2 PRs/year) |
-| PLIP Contributions | 3.0 | • Emerging Core Contributor (4 PLIPs) |
+| PR Contributions | 20.0 | • Lead (114.2 PRs/year) |
+| PLIP Contributions | 3.0 | • Occasional PLIP Contributor (4 PLIPs) |
 
 ### RedTurtle
 
@@ -236,7 +236,7 @@
 | WPD Talk | 2.0 | • Plone & PWA: il caso Lignano Sabbiadoro - WPD2025 Italia<br>• AUSL Ferrara - uno dei primi siti conformi al modello ASL di Designers Italia - WPD 2025 Italia |
 | Training Session | 3.0 | • Plone Seven: Fundamentals |
 | PR Contributions | 10.0 | • Core Member (93.2 PRs/year) |
-| PLIP Contributions | 3.0 | • Emerging Core Contributor (2 PLIPs) |
+| PLIP Contributions | 3.0 | • Occasional PLIP Contributor (2 PLIPs) |
 
 ### Klein & Partner KG
 
@@ -247,7 +247,7 @@
 | Strategic Sprint | 12.0 | • Alpine City Sprint |
 | WPD Talk | 1.0 | • Mxmake - an opinionated way to use make for development and deployment on Python projects |
 | PR Contributions | 10.0 | • Core Member (66.0 PRs/year) |
-| PLIP Contributions | 9.0 | • Active Core Contributor (9 PLIPs) |
+| PLIP Contributions | 9.0 | • Regular PLIP Contributor (9 PLIPs) |
 
 ### Nuclia
 
@@ -258,7 +258,7 @@
 | Board Member | 6.0 | • Éric Bréhault |
 | WPD Talk | 1.0 | • Plone and Google Summer of Code 2025 |
 | PR Contributions | 10.0 | • Core Member (94.0 PRs/year) |
-| PLIP Contributions | 15.0 | • Core Leaders (37 PLIPs) |
+| PLIP Contributions | 15.0 | • Significant PLIP Contributor (37 PLIPs) |
 
 ### Kombinat
 
@@ -267,7 +267,7 @@
 | Category | Points | Details |
 |----------|-------:|:--------|
 | Team Leader | 6.0 | • Peter Mathis (ClassicUI Team) |
-| PR Contributions | 20.0 | • Lead Contributor (113.8 PRs/year) |
+| PR Contributions | 20.0 | • Lead (113.8 PRs/year) |
 
 ### Syslab
 
@@ -276,7 +276,7 @@
 | Category | Points | Details |
 |----------|-------:|:--------|
 | PR Contributions | 10.0 | • Core Member (86.4 PRs/year) |
-| PLIP Contributions | 15.0 | • Core Leaders (16 PLIPs) |
+| PLIP Contributions | 15.0 | • Significant PLIP Contributor (16 PLIPs) |
 
 ### Steve Piercy
 
@@ -284,7 +284,7 @@
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| PR Contributions | 20.0 | • Lead Contributor (139.8 PRs/year) |
+| PR Contributions | 20.0 | • Lead (139.8 PRs/year) |
 
 ### Freitag
 
@@ -293,7 +293,7 @@
 | Category | Points | Details |
 |----------|-------:|:--------|
 | PR Contributions | 10.0 | • Core Member (97.2 PRs/year) |
-| PLIP Contributions | 9.0 | • Active Core Contributor (6 PLIPs) |
+| PLIP Contributions | 9.0 | • Regular PLIP Contributor (6 PLIPs) |
 
 ### Juizi
 
@@ -323,7 +323,7 @@
 | Podcast Host | 3.0 | • Philip Bauer |
 | Training Session | 6.0 | • Plone Migrations: Theory and Practice |
 | PR Contributions | 4.0 | • Active Member (32.6 PRs/year) |
-| PLIP Contributions | 3.0 | • Emerging Core Contributor (4 PLIPs) |
+| PLIP Contributions | 3.0 | • Occasional PLIP Contributor (4 PLIPs) |
 
 ### CodeSyntax
 
@@ -340,8 +340,8 @@
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| PR Contributions | 2.0 | • Contributor (14.6 PRs/year) |
-| PLIP Contributions | 9.0 | • Active Core Contributor (6 PLIPs) |
+| PR Contributions | 2.0 | • Team Member (14.6 PRs/year) |
+| PLIP Contributions | 9.0 | • Regular PLIP Contributor (6 PLIPs) |
 
 ### Rohberg
 
@@ -358,7 +358,7 @@
 | Category | Points | Details |
 |----------|-------:|:--------|
 | PR Contributions | 4.0 | • Active Member (27.2 PRs/year) |
-| PLIP Contributions | 3.0 | • Emerging Core Contributor (3 PLIPs) |
+| PLIP Contributions | 3.0 | • Occasional PLIP Contributor (3 PLIPs) |
 
 ### Derico
 
@@ -367,7 +367,7 @@
 | Category | Points | Details |
 |----------|-------:|:--------|
 | PR Contributions | 4.0 | • Active Member (27.0 PRs/year) |
-| PLIP Contributions | 3.0 | • Emerging Core Contributor (2 PLIPs) |
+| PLIP Contributions | 3.0 | • Occasional PLIP Contributor (2 PLIPs) |
 
 ### Affinitic
 
@@ -457,7 +457,7 @@
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| PLIP Contributions | 3.0 | • Emerging Core Contributor (2 PLIPs) |
+| PLIP Contributions | 3.0 | • Occasional PLIP Contributor (2 PLIPs) |
 
 ### IHAM
 
@@ -465,7 +465,7 @@
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| PLIP Contributions | 3.0 | • Emerging Core Contributor (5 PLIPs) |
+| PLIP Contributions | 3.0 | • Occasional PLIP Contributor (5 PLIPs) |
 
 ### Kim Nguyen
 
@@ -473,7 +473,7 @@
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| PLIP Contributions | 3.0 | • Emerging Core Contributor (5 PLIPs) |
+| PLIP Contributions | 3.0 | • Occasional PLIP Contributor (5 PLIPs) |
 
 ### ZOPYX
 
@@ -481,7 +481,7 @@
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| PLIP Contributions | 3.0 | • Emerging Core Contributor (3 PLIPs) |
+| PLIP Contributions | 3.0 | • Occasional PLIP Contributor (3 PLIPs) |
 
 ### PloneGov-BR
 
@@ -497,7 +497,7 @@
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| PR Contributions | 2.0 | • Contributor (14.2 PRs/year) |
+| PR Contributions | 2.0 | • Team Member (14.2 PRs/year) |
 
 ### University Hospital Dresden
 
@@ -505,7 +505,7 @@
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| PR Contributions | 2.0 | • Contributor (16.6 PRs/year) |
+| PR Contributions | 2.0 | • Team Member (16.6 PRs/year) |
 
 ### affinitic
 
@@ -513,7 +513,7 @@
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| PR Contributions | 2.0 | • Contributor (10.2 PRs/year) |
+| PR Contributions | 2.0 | • Team Member (10.2 PRs/year) |
 
 ### frapell
 
@@ -521,7 +521,7 @@
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| PR Contributions | 2.0 | • Contributor (10.6 PRs/year) |
+| PR Contributions | 2.0 | • Team Member (10.6 PRs/year) |
 
 ### AUSL Romagna
 

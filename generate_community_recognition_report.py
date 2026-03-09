@@ -278,12 +278,12 @@ def calculate_community_recognition_points():
         print("Warning: 2025-plone-conference-trainings.csv not found")
 
     # 10. Pull Request Contributions - Based on 5-year average
-    # Criteria: Lead (100+/yr=20pts), Core (50-99/yr=10pts), Active (20-49/yr=4pts), Contributor (10-19/yr=2pts)
+    # Criteria: Lead (100+/yr=20pts), Core Member (50-99/yr=10pts), Active Member (20-49/yr=4pts), Team Member (10-19/yr=2pts)
     for org, data in pr_data.items():
         avg_prs = data['avg_per_year']
         if avg_prs >= 100:
             points = 20
-            level = 'Lead Contributor'
+            level = 'Lead'
         elif avg_prs >= 50:
             points = 10
             level = 'Core Member'
@@ -292,7 +292,7 @@ def calculate_community_recognition_points():
             level = 'Active Member'
         elif avg_prs >= 10:
             points = 2
-            level = 'Contributor'
+            level = 'Team Member'
         else:
             continue  # Less than 10 PRs/year, no points
 
@@ -300,18 +300,18 @@ def calculate_community_recognition_points():
         org_details[org]['PR Contributions'].append(f"{level} ({avg_prs:.1f} PRs/year)")
 
     # 11. PLIP Contributions - Based on total PLIPs (all-time, ideally would be 5 years)
-    # Criteria: Core Leaders (10+=15pts), Active Core (6+=9pts), Emerging (2+=3pts)
+    # Criteria: Significant PLIP Contributor (10+=15pts), Regular PLIP Contributor (6+=9pts), Occasional PLIP Contributor (2+=3pts)
     for org, data in plip_data.items():
         total_plips = data['closed_plips']  # Using closed PLIPs as "merged and released"
         if total_plips >= 10:
             points = 15
-            level = 'Core Leaders'
+            level = 'Significant PLIP Contributor'
         elif total_plips >= 6:
             points = 9
-            level = 'Active Core Contributor'
+            level = 'Regular PLIP Contributor'
         elif total_plips >= 2:
             points = 3
-            level = 'Emerging Core Contributor'
+            level = 'Occasional PLIP Contributor'
         else:
             continue  # Less than 2 PLIPs, no points
 
@@ -421,13 +421,13 @@ def write_markdown_report(org_points, org_details, results, levels, output_file)
         f.write("### Code Contributions (Past 5 Years)\n\n")
         f.write("| Category | Points | Description |\n")
         f.write("|----------|--------|-------------|\n")
-        f.write("| Lead Contributor (PR) | 20 | 100+ PRs/year average |\n")
+        f.write("| Lead (PR) | 20 | 100+ PRs/year average |\n")
         f.write("| Core Member (PR) | 10 | 50-99 PRs/year average |\n")
         f.write("| Active Member (PR) | 4 | 20-49 PRs/year average |\n")
-        f.write("| Contributor (PR) | 2 | 10-19 PRs/year average |\n")
-        f.write("| Core Leaders (PLIP) | 15 | 10+ PLIPs merged and released |\n")
-        f.write("| Active Core Contributor (PLIP) | 9 | 6+ PLIPs merged and released |\n")
-        f.write("| Emerging Core Contributor (PLIP) | 3 | 2+ PLIPs merged and released |\n\n")
+        f.write("| Team Member (PR) | 2 | 10-19 PRs/year average |\n")
+        f.write("| Significant PLIP Contributor | 15 | 10+ PLIPs merged and released |\n")
+        f.write("| Regular PLIP Contributor | 9 | 6+ PLIPs merged and released |\n")
+        f.write("| Occasional PLIP Contributor | 3 | 2+ PLIPs merged and released |\n\n")
 
         # Leaderboard
         f.write("## Recognition Leaderboard\n\n")
