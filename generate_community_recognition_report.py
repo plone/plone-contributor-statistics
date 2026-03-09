@@ -390,7 +390,8 @@ def write_markdown_report(org_points, org_details, results, levels, output_file)
         for row in results:
             level_counts[row['Recognition Level']] += 1
 
-        for level in levels:
+        # Display levels from highest to lowest
+        for level in reversed(levels):
             level_name = level['name']
             if level['max_points'] == float('inf'):
                 points_range = f"{level['min_points']}+"

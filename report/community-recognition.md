@@ -1,6 +1,6 @@
 # Plone Community Recognition Program 2025
 
-*Generated: 2026-03-09 08:41:32*
+*Generated: 2026-03-09 08:47:14*
 
 ## Executive Summary
 
@@ -12,12 +12,12 @@
 
 | Level | Points Range | Organizations |
 |-------|--------------|---------------:|
-| Bronze Contributor | 1-5 | 28 |
-| Silver Contributor | 6-11 | 8 |
-| Gold Contributor | 12-23 | 6 |
-| Platinum Contributor | 24-49 | 8 |
-| Diamond Contributor | 50-74 | 1 |
 | Titanium Contributor | 75+ | 1 |
+| Diamond Contributor | 50-74 | 1 |
+| Platinum Contributor | 24-49 | 8 |
+| Gold Contributor | 12-23 | 6 |
+| Silver Contributor | 6-11 | 8 |
+| Bronze Contributor | 1-5 | 28 |
 
 ## Recognition Categories
 
