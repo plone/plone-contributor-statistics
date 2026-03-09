@@ -68,7 +68,7 @@ def normalize_organization_name(org_name):
         'pretaweb': 'Pretaweb',
         'zopyx': 'ZOPYX',
         'tkimnguyen': 'Kim Nguyen',
-        'stevepiercy': 'Steve Piercy',
+        'stevepiercy': 'Steve Piercy - Website Builder',
         'independent': 'Independent',
         'mathematics institute unam': 'UNAM',
         'mathematics institute at unam': 'UNAM',
