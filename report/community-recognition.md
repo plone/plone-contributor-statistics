@@ -1,19 +1,19 @@
 # Plone Community Recognition Program 2025
 
-*Generated: 2026-03-08 13:21:35*
+*Generated: 2026-03-09 08:41:32*
 
 ## Executive Summary
 
-- **Total Organizations**: 53
+- **Total Organizations**: 52
 - **Total Points Awarded**: 658.0
-- **Average Points per Organization**: 12.4
+- **Average Points per Organization**: 12.7
 
 ## Recognition Levels
 
 | Level | Points Range | Organizations |
 |-------|--------------|---------------:|
 | Bronze Contributor | 1-5 | 28 |
-| Silver Contributor | 6-11 | 9 |
+| Silver Contributor | 6-11 | 8 |
 | Gold Contributor | 12-23 | 6 |
 | Platinum Contributor | 24-49 | 8 |
 | Diamond Contributor | 50-74 | 1 |
@@ -69,9 +69,9 @@
 | 11 | Steve Piercy | Gold Contributor | 20.0 |
 | 12 | Freitag | Gold Contributor | 19.0 |
 | 13 | Juizi | Gold Contributor | 19.0 |
-| 14 | Starzel | Gold Contributor | 16.0 |
-| 15 | CodeSyntax | Gold Contributor | 12.0 |
-| 16 | UNAM | Gold Contributor | 12.0 |
+| 14 | UNAM | Gold Contributor | 18.0 |
+| 15 | Starzel | Gold Contributor | 16.0 |
+| 16 | CodeSyntax | Gold Contributor | 12.0 |
 | 17 | Vangheem | Silver Contributor | 11.0 |
 | 18 | Rohberg | Silver Contributor | 10.0 |
 | 19 | Agitator | Silver Contributor | 7.0 |
@@ -80,35 +80,34 @@
 | 22 | Federal Senate (Interlegis Program) | Silver Contributor | 6.0 |
 | 23 | Interlegis Program (Federal Senate) | Silver Contributor | 6.0 |
 | 24 | KU Leuven | Silver Contributor | 6.0 |
-| 25 | Mathematics Institute UNAM | Silver Contributor | 6.0 |
-| 26 | CMS Communications Inc. | Bronze Contributor | 4.0 |
-| 27 | Iskra | Bronze Contributor | 4.0 |
-| 28 | Plone Foundation | Bronze Contributor | 4.0 |
-| 29 | SERPRO | Bronze Contributor | 4.0 |
-| 30 | Simples Consultoria | Bronze Contributor | 4.0 |
-| 31 | CCC | Bronze Contributor | 3.0 |
-| 32 | DBA Informatica Notariaal | Bronze Contributor | 3.0 |
-| 33 | IHAM | Bronze Contributor | 3.0 |
-| 34 | Kim Nguyen | Bronze Contributor | 3.0 |
-| 35 | ZOPYX | Bronze Contributor | 3.0 |
-| 36 | PloneGov-BR | Bronze Contributor | 2.0 |
-| 37 | Pretaweb | Bronze Contributor | 2.0 |
-| 38 | University Hospital Dresden | Bronze Contributor | 2.0 |
-| 39 | affinitic | Bronze Contributor | 2.0 |
-| 40 | frapell | Bronze Contributor | 2.0 |
-| 41 | AUSL Romagna | Bronze Contributor | 1.0 |
-| 42 | Er.GO | Bronze Contributor | 1.0 |
-| 43 | Giallocobalto | Bronze Contributor | 1.0 |
-| 44 | IRR | Bronze Contributor | 1.0 |
-| 45 | LMU | Bronze Contributor | 1.0 |
-| 46 | Plone Foundation (community volunteer) | Bronze Contributor | 1.0 |
-| 47 | Quaive | Bronze Contributor | 1.0 |
-| 48 | RIOS (Rete Italiana Open Source) | Bronze Contributor | 1.0 |
-| 49 | Regione Emilia-Romagna | Bronze Contributor | 1.0 |
-| 50 | Senado Federal | Bronze Contributor | 1.0 |
-| 51 | Università di Macerata | Bronze Contributor | 1.0 |
-| 52 | eCityclic | Bronze Contributor | 1.0 |
-| 53 | iMio | Bronze Contributor | 1.0 |
+| 25 | CMS Communications Inc. | Bronze Contributor | 4.0 |
+| 26 | Iskra | Bronze Contributor | 4.0 |
+| 27 | Plone Foundation | Bronze Contributor | 4.0 |
+| 28 | SERPRO | Bronze Contributor | 4.0 |
+| 29 | Simples Consultoria | Bronze Contributor | 4.0 |
+| 30 | CCC | Bronze Contributor | 3.0 |
+| 31 | DBA Informatica Notariaal | Bronze Contributor | 3.0 |
+| 32 | IHAM | Bronze Contributor | 3.0 |
+| 33 | Kim Nguyen | Bronze Contributor | 3.0 |
+| 34 | ZOPYX | Bronze Contributor | 3.0 |
+| 35 | PloneGov-BR | Bronze Contributor | 2.0 |
+| 36 | Pretaweb | Bronze Contributor | 2.0 |
+| 37 | University Hospital Dresden | Bronze Contributor | 2.0 |
+| 38 | affinitic | Bronze Contributor | 2.0 |
+| 39 | frapell | Bronze Contributor | 2.0 |
+| 40 | AUSL Romagna | Bronze Contributor | 1.0 |
+| 41 | Er.GO | Bronze Contributor | 1.0 |
+| 42 | Giallocobalto | Bronze Contributor | 1.0 |
+| 43 | IRR | Bronze Contributor | 1.0 |
+| 44 | LMU | Bronze Contributor | 1.0 |
+| 45 | Plone Foundation (community volunteer) | Bronze Contributor | 1.0 |
+| 46 | Quaive | Bronze Contributor | 1.0 |
+| 47 | RIOS (Rete Italiana Open Source) | Bronze Contributor | 1.0 |
+| 48 | Regione Emilia-Romagna | Bronze Contributor | 1.0 |
+| 49 | Senado Federal | Bronze Contributor | 1.0 |
+| 50 | Università di Macerata | Bronze Contributor | 1.0 |
+| 51 | eCityclic | Bronze Contributor | 1.0 |
+| 52 | iMio | Bronze Contributor | 1.0 |
 
 ## Code Contribution Highlights
 
@@ -306,6 +305,15 @@
 | WPD Talk | 4.0 | • I've tried more than 200 CMS's and Plone is still the best!<br>• Click less; do more - save time with Plone content rules<br>• An external to internal Plone support love story<br>• Plone Community Teams and How to Be Part of It |
 | Training Session | 9.0 | • Training for Content Editing<br>• Create your Customer Avatar: Do you know who you're coding for? |
 
+### UNAM
+
+**Total Points: 18.0**
+
+| Category | Points | Details |
+|----------|-------:|:--------|
+| Strategic Sprint | 12.0 | • Axolote Sprint |
+| Board Member | 6.0 | • Gildardo Bautista García Cano |
+
 ### Starzel
 
 **Total Points: 16.0**
@@ -325,14 +333,6 @@
 |----------|-------:|:--------|
 | WPD Talk | 2.0 | • Deploy Cookieplone Based Projects With GitLab CI/CD<br>• Volto Bootstrap Theme |
 | PR Contributions | 10.0 | • Core Member (57.8 PRs/year) |
-
-### UNAM
-
-**Total Points: 12.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| Strategic Sprint | 12.0 | • Axolote Sprint |
 
 ### Vangheem
 
@@ -400,14 +400,6 @@
 | Category | Points | Details |
 |----------|-------:|:--------|
 | Training Session | 6.0 | • Training for Content Editing<br>• Content Management for Larger Plone Sites |
-
-### Mathematics Institute UNAM
-
-**Total Points: 6.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| Board Member | 6.0 | • Gildardo Bautista García Cano |
 
 ### CMS Communications Inc.
 

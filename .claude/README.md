@@ -31,6 +31,7 @@ This repository tracks and analyzes Plone community contributions through GitHub
   - Use `Codesyntax` (not `CodeSyntax`)
   - Use `PY76` (not `Py76`)
   - Use `Simples Consultoria` (not `SimplesConsultorias`)
+  - Use `UNAM` (not `Mathematics Institute UNAM` or `Mathematics Institute at UNAM`)
 - When adding new organisations to CSV files, also add them to `organisations.csv`
 - Before completing any task involving Organisation columns, verify consistency across all files
 

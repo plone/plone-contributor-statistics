@@ -70,6 +70,8 @@ def normalize_organization_name(org_name):
         'tkimnguyen': 'Kim Nguyen',
         'stevepiercy': 'Steve Piercy',
         'independent': 'Independent',
+        'mathematics institute unam': 'UNAM',
+        'mathematics institute at unam': 'UNAM',
     }
 
     # Try to find a mapping, otherwise return the original name
