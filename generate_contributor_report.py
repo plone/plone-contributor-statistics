@@ -14,7 +14,7 @@ from datetime import datetime
 
 def load_contributor_file(year):
     """Load contributor statistics for a specific year."""
-    filepath = Path(f"{year}-plone-contributors.csv")
+    filepath = Path(f"data/{year}-plone-contributors.csv")
     if not filepath.exists():
         return None
     try:
@@ -27,7 +27,7 @@ def load_contributor_file(year):
 
 def load_organisation_file(year):
     """Load organisation statistics for a specific year."""
-    filepath = Path(f"{year}-plone-organisation-contributors.csv")
+    filepath = Path(f"data/{year}-plone-organisation-contributors.csv")
     if not filepath.exists():
         return None
     try:
@@ -179,7 +179,7 @@ def main():
 
     # Find all available years
     available_years = sorted(
-        [int(f.name.split('-')[0]) for f in Path('.').glob('[0-9][0-9][0-9][0-9]-plone-contributors.csv')],
+        [int(f.name.split('-')[0]) for f in Path('data').glob('[0-9][0-9][0-9][0-9]-plone-contributors.csv')],
         reverse=True
     )
 

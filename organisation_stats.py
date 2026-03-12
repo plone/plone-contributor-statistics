@@ -175,7 +175,7 @@ def save_organisation_report(df, filename=None, date_range=None):
             filename = 'plone-organisation-contributors'
     
     # Save to CSV
-    csv_file = f'{filename}.csv'
+    csv_file = f'data/{filename}.csv'
     df.to_csv(csv_file, index=False)
     print(f"Organisation report saved to {csv_file}")
     
