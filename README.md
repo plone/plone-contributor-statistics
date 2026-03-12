@@ -66,17 +66,17 @@ Extract statistics for Volto team members from the plone/volto repository:
 
 ```bash
 # Current year (defaults to 2025)
-python volto_team_stats.py
+python volto_stats.py
 
 # Specific year
-python volto_team_stats.py --year 2024
-python volto_team_stats.py --year 2023
+python volto_stats.py --year 2024
+python volto_stats.py --year 2023
 
 # Custom date range
-python volto_team_stats.py --start-date 2024-01-01 --end-date 2024-06-30
+python volto_stats.py --start-date 2024-01-01 --end-date 2024-06-30
 
 # Two year span
-python volto_team_stats.py --start-date 2023-01-01 --end-date 2024-12-31
+python volto_stats.py --start-date 2023-01-01 --end-date 2024-12-31
 ```
 
 The script:

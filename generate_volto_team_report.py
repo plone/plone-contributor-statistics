@@ -12,7 +12,7 @@ from datetime import datetime
 
 
 def load_year(year):
-    filepath = Path(f"data/{year}-volto-team-stats.csv")
+    filepath = Path(f"data/{year}-volto-stats.csv")
     if not filepath.exists():
         return None
     try:
@@ -99,12 +99,12 @@ def main():
     mapping = load_mapping()
 
     available_years = sorted(
-        [int(f.name.split('-')[0]) for f in Path('data').glob('[0-9][0-9][0-9][0-9]-volto-team-stats.csv')],
+        [int(f.name.split('-')[0]) for f in Path('data').glob('[0-9][0-9][0-9][0-9]-volto-stats.csv')],
         reverse=True
     )
 
     if not available_years:
-        print("No volto-team-stats CSV files found in data/!")
+        print("No volto-stats CSV files found in data/!")
         return 1
 
     last_full_year = now.year - 1
@@ -115,7 +115,7 @@ def main():
     all_years = available_years
 
     report = []
-    report.append("# Volto Team Statistics Report")
+    report.append("# Volto Statistics Report")
     report.append("")
     report.append(f"Generated on: {now.strftime('%Y-%m-%d %H:%M:%S')}")
     report.append("")
@@ -136,7 +136,7 @@ def main():
     for label, years in periods:
         df = combine(years)
         if df is not None:
-            report.append(f"## Volto Team Contributors ({label})")
+            report.append(f"## Volto Contributors ({label})")
             report.append("")
             report.append(table(df))
             report.append("")
