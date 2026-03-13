@@ -25,6 +25,11 @@ This repository tracks and analyzes Plone community contributions through GitHub
 - Remove `Date` columns when not essential for the data analysis
 - Keep column names descriptive and consistent
 
+### Manually Maintained Mapping Files
+
+- `organisation_mapping.txt` and `organisations.csv` are manually maintained and must always be kept **sorted alphabetically** (case-insensitive)
+- When adding or editing entries in either file, ensure the file remains sorted
+
 ### Organisation Column Consistency
 - **Always check `organisations.csv`** when working with any CSV file that has an `Organisation` column
 - Ensure organisation names match exactly with entries in `organisations.csv`
