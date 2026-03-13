@@ -60,6 +60,19 @@ make run-stats-2022
 python plone_contributors.py --start-date 2024-01-01 --end-date 2024-06-30
 ```
 
+### Organisation Statistics
+
+```bash
+# Current year organisation stats
+make run-organisation-stats
+
+# Specific years (2005-2025 available)
+make run-organisation-stats-2024
+make run-organisation-stats-2023
+make run-organisation-stats-2022
+# ... (all years 2005-2025)
+```
+
 ### Volto Statistics
 
 Extract contributor statistics from the plone/volto repository:
@@ -76,19 +89,6 @@ make run-volto-stats-2022
 
 # Generate Volto report
 make generate-volto-report
-```
-
-### Organisation Statistics
-
-```bash
-# Current year organisation stats
-make run-organisation-stats
-
-# Specific years (2005-2025 available)
-make run-organisation-stats-2024
-make run-organisation-stats-2023
-make run-organisation-stats-2022
-# ... (all years 2005-2025)
 ```
 
 ### PLIP (Plone Improvement Proposals) Analysis
@@ -123,16 +123,16 @@ make check
 - `YYYY-plone-contributors.csv` - Individual contributor stats by year
 - Raw data with commits, PRs, repositories, and date ranges per contributor
 
+### Organisation Statistics
+
+- `YYYY-plone-organisation-contributors.csv` - Organisation-aggregated stats
+- Shows total activity by organisation with contributor attribution
+
 ### Volto Statistics
 
 - `data/YYYY-volto-team-stats.csv` - Volto contributor statistics by year
 - Contains: `github_username`, `pull_requests`, `commits`
 - Sorted by pull requests (descending)
-
-### Organisation Statistics
-
-- `YYYY-plone-organisation-contributors.csv` - Organisation-aggregated stats
-- Shows total activity by organisation with contributor attribution
 
 ### PLIP Statistics
 
