@@ -135,18 +135,19 @@ def analyze_contribution_patterns(contributor_stats):
     
     return patterns
 
-def suggest_mappings(patterns, existing_mapping_file='organisation_mapping.txt'):
+def suggest_mappings(patterns, existing_mapping_file='organisations.csv'):
     """Suggest new mappings based on analysis patterns"""
-    
+    import csv
+
     # Load existing mappings to avoid duplicates
     existing_contributors = set()
     if os.path.exists(existing_mapping_file):
-        with open(existing_mapping_file, 'r') as f:
-            for line in f:
-                if ':' in line:
-                    _, contributors = line.split(':', 1)
-                    contributor_list = [c.strip() for c in contributors.split(',')]
-                    existing_contributors.update(contributor_list)
+        with open(existing_mapping_file, newline='', encoding='utf-8') as f:
+            for row in csv.DictReader(f):
+                for c in row['Team'].split(';'):
+                    c = c.strip()
+                    if c:
+                        existing_contributors.add(c)
     
     suggestions = []
     

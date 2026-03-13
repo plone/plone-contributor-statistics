@@ -23,17 +23,16 @@ def load_year(year):
         return None
 
 
-def load_mapping(mapping_file='organisation_mapping.txt'):
+def load_mapping(mapping_file='organisations.csv'):
+    import csv
     mapping = {}
-    with open(mapping_file) as f:
-        for line in f:
-            line = line.strip()
-            if ':' in line:
-                org, contributors = line.split(':', 1)
-                for c in contributors.split(','):
-                    c = c.strip()
-                    if c:
-                        mapping[c] = org
+    with open(mapping_file, newline='', encoding='utf-8') as f:
+        for row in csv.DictReader(f):
+            org = row['Organisation']
+            for c in row['Team'].split(';'):
+                c = c.strip()
+                if c:
+                    mapping[c] = org
     return mapping
 
 

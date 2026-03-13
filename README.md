@@ -148,8 +148,8 @@ make check
 
 ### Configuration
 
-- `organisation_mapping.txt` - Maps contributors to organisations
-- Format: `organisation:contributor1,contributor2,contributor3`
+- `organisations.csv` - Maps contributors to organisations
+- Columns: `Organisation`, `Team` (semicolon-separated GitHub usernames)
 
 ## Key Features
 

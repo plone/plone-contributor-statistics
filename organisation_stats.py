@@ -3,7 +3,7 @@
 Organisation Statistics Aggregator for Plone GitHub Statistics
 
 Reads the output from plone_stats.py and aggregates statistics by organisation
-using the mapping defined in organisation_mapping.txt
+using the mapping defined in organisations.csv
 """
 
 import pandas as pd
@@ -16,23 +16,23 @@ import sys
 import argparse
 
 
-def load_organisation_mapping(mapping_file='organisation_mapping.txt'):
-    """Load organisation mapping from text file."""
+def load_organisation_mapping(mapping_file='organisations.csv'):
+    """Load organisation mapping from CSV file."""
+    import csv
     organisation_mapping = {}
-    
+
     if not os.path.exists(mapping_file):
         print(f"Warning: {mapping_file} not found. All contributors will be marked as 'Independent'")
         return organisation_mapping
-    
-    with open(mapping_file, 'r') as f:
-        for line in f:
-            line = line.strip()
-            if ':' in line:
-                organisation, contributors = line.split(':', 1)
-                contributor_list = [c.strip() for c in contributors.split(',')]
-                for contributor in contributor_list:
+
+    with open(mapping_file, newline='', encoding='utf-8') as f:
+        for row in csv.DictReader(f):
+            organisation = row['Organisation']
+            for contributor in row['Team'].split(';'):
+                contributor = contributor.strip()
+                if contributor:
                     organisation_mapping[contributor] = organisation
-    
+
     print(f"Loaded mapping for {len(organisation_mapping)} contributors across {len(set(organisation_mapping.values()))} organisations")
     return organisation_mapping
 
