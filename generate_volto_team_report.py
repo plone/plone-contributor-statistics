@@ -45,6 +45,8 @@ def combine(years):
     combined = pd.concat(frames).groupby('github_username').agg(
         {'pull_requests': 'sum', 'commits': 'sum'}
     ).reset_index()
+    # Exclude contributors with 0 PRs and 0 commits
+    combined = combined[(combined['pull_requests'] > 0) | (combined['commits'] > 0)]
     return combined.sort_values('pull_requests', ascending=False)
 
 
@@ -60,6 +62,8 @@ def combine_orgs(years, mapping):
         Commits=('commits', 'sum'),
         Contributors=('github_username', 'nunique'),
     ).reset_index()
+    # Exclude organizations with 0 PRs and 0 commits
+    agg = agg[(agg['PRs'] > 0) | (agg['Commits'] > 0)]
     return agg.sort_values('PRs', ascending=False)
 
 
