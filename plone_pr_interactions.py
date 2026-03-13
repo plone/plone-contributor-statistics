@@ -453,8 +453,8 @@ class PlonePRInteractionExtractor:
         if not output_file:
             if year:
                 # Create report directory if it doesn't exist
-                os.makedirs('report', exist_ok=True)
-                output_file = f"report/github-pr-interactions-report-{year}.md"
+                os.makedirs('reports', exist_ok=True)
+                output_file = f"reports/github-pr-interactions-report-{year}.md"
             else:
                 output_file = "plone_pr_engagement_report.md"
         
@@ -668,7 +668,7 @@ Examples:
         
         logger.info("✅ PR interaction extraction completed successfully!")
         logger.info(f"CSV report saved to: {csv_file}")
-        logger.info(f"Markdown report saved to: report/github-pr-interactions-report-{year}.md")
+        logger.info(f"Markdown report saved to: reports/github-pr-interactions-report-{year}.md")
         
     except Exception as e:
         logger.error(f"❌ Extraction failed: {e}")

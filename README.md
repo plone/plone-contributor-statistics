@@ -6,7 +6,7 @@ Comprehensive GitHub statistics extraction and analysis system for the Plone eco
 
 - **Complete Repository Coverage**: Processes all 300+ repositories in the Plone organization
 - **Multi-Year Analysis**: Historical data extraction from 2005-2025
-- **Volto Team Tracking**: Dedicated statistics for 24 Volto team members from plone/volto repository
+- **Volto Statistics**: Dedicated contributor statistics for the plone/volto repository
 - **Organisation Mapping**: Attribution system mapping 109+ contributors to 54+ organisations
 - **PLIP Tracking**: Extract and analyze Plone Improvement Proposals across repositories
 - **Cross-Year Analysis**: Identify Independent contributors for organisation mapping
@@ -60,32 +60,6 @@ make run-stats-2022
 python plone_contributors.py --start-date 2024-01-01 --end-date 2024-06-30
 ```
 
-### Volto Team Member Statistics
-
-Extract statistics for Volto team members from the plone/volto repository:
-
-```bash
-# Current year (defaults to 2025)
-python volto_team_stats.py
-
-# Specific year
-python volto_team_stats.py --year 2024
-python volto_team_stats.py --year 2023
-
-# Custom date range
-python volto_team_stats.py --start-date 2024-01-01 --end-date 2024-06-30
-
-# Two year span
-python volto_team_stats.py --start-date 2023-01-01 --end-date 2024-12-31
-```
-
-The script:
-- Reads team member GitHub usernames from `team-volto.md`
-- Extracts PR and commit counts for each member
-- Generates sorted CSV output: `data/{year}-volto-team-stats.csv`
-- Columns: `github_username`, `pull_requests`, `commits`
-- Results sorted by pull requests (descending)
-
 ### Organisation Statistics
 
 ```bash
@@ -97,6 +71,24 @@ make run-organisation-stats-2024
 make run-organisation-stats-2023
 make run-organisation-stats-2022
 # ... (all years 2005-2025)
+```
+
+### Volto Statistics
+
+Extract contributor statistics from the plone/volto repository:
+
+```bash
+# Current year (defaults to 2025)
+make run-volto-stats
+
+# Specific years (2005-2025 available)
+make run-volto-stats-2024
+make run-volto-stats-2023
+make run-volto-stats-2022
+# ... (all years 2005-2025)
+
+# Generate Volto report
+make generate-volto-report
 ```
 
 ### PLIP (Plone Improvement Proposals) Analysis
@@ -128,20 +120,20 @@ make check
 
 ### Individual Statistics
 
-- `YYYY-plone-contributors.csv` - Individual contributor stats by year
+- `data/YYYY-plone-contributors.csv` - Individual contributor stats by year
 - Raw data with commits, PRs, repositories, and date ranges per contributor
-
-### Volto Team Statistics
-
-- `data/YYYY-volto-team-stats.csv` - Volto team member statistics by year
-- Contains: `github_username`, `pull_requests`, `commits`
-- Sorted by pull requests (descending)
-- Source: `team-volto.md` (24 team members)
 
 ### Organisation Statistics
 
-- `YYYY-plone-organisation-contributors.csv` - Organisation-aggregated stats
+- `data/YYYY-plone-organisation-contributors.csv` - Organisation-aggregated stats
 - Shows total activity by organisation with contributor attribution
+
+### Volto Statistics
+
+- `data/YYYY-volto-stats.csv` - Volto contributor statistics by year
+- Contains: `github_username`, `pull_requests`, `commits`
+- Sorted by pull requests (descending)
+- Report: `reports/volto.md`
 
 ### PLIP Statistics
 
@@ -174,7 +166,7 @@ The system maps 109+ contributors across 54+ organisations including:
 
 Extracts PLIPs from three main repositories:
 
-- **Products.CMFPlone**: Core Plone functionality (222 PLIPs)
+- **Products.CMFPlone**: Core Plone functionality (227 PLIPs)
 - **volto**: Modern frontend (75 PLIPs)
 - **plone.restapi**: REST API (6 PLIPs)
 
@@ -247,9 +239,9 @@ make run-organisation-stats-2022
 
 ### PLIP Statistics
 
-- **Total PLIPs**: 303 (87 open, 216 closed)
-- **Top PLIP Authors**: tisto (61), sneridagh (30), bloodbare (20)
-- **Repository Distribution**: Products.CMFPlone (73%), volto (25%), plone.restapi (2%)
+- **Total PLIPs**: 317 (71 open, 237 closed)
+- **Top PLIP Authors**: tisto (60), sneridagh (32), bloodbare (20)
+- **Repository Distribution**: Products.CMFPlone (73%), volto (24%), plone.restapi (2%)
 
 ## GitHub API Considerations
 

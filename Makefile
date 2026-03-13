@@ -79,7 +79,34 @@ help:
 	@echo "  flourish-graph-organisation-contributors-csv-file Generate organization CSV for Flourish visualization"
 	@echo "  flourish-graph-individual-contributors-csv-file Generate individual contributors CSV for Flourish visualization"
 	@echo "  generate-report   Generate comprehensive contributor and organization report"
-	@echo "  community-recognition Calculate community recognition points and generate report"
+	@echo "  generate-volto-report Generate Volto contributor and organization report"
+	@echo "  run-volto-stats   Run Volto repository statistics extraction (current year)"
+	@echo "  run-volto-stats-2025 Run Volto statistics for 2025"
+	@echo "  run-volto-stats-2024 Run Volto statistics for 2024"
+	@echo "  run-volto-stats-2023 Run Volto statistics for 2023"
+	@echo "  run-volto-stats-2022 Run Volto statistics for 2022"
+	@echo "  run-volto-stats-2021 Run Volto statistics for 2021"
+	@echo "  run-volto-stats-2020 Run Volto statistics for 2020"
+	@echo "  run-volto-stats-2019 Run Volto statistics for 2019"
+	@echo "  run-volto-stats-2018 Run Volto statistics for 2018"
+	@echo "  run-volto-stats-2017 Run Volto statistics for 2017"
+	@echo "  run-volto-stats-2016 Run Volto statistics for 2016"
+	@echo "  run-volto-stats-2015 Run Volto statistics for 2015"
+	@echo "  run-volto-stats-2014 Run Volto statistics for 2014"
+	@echo "  run-volto-stats-2013 Run Volto statistics for 2013"
+	@echo "  run-volto-stats-2012 Run Volto statistics for 2012"
+	@echo "  run-volto-stats-2011 Run Volto statistics for 2011"
+	@echo "  run-volto-stats-2010 Run Volto statistics for 2010"
+	@echo "  run-volto-stats-2009 Run Volto statistics for 2009"
+	@echo "  run-volto-stats-2008 Run Volto statistics for 2008"
+	@echo "  run-volto-stats-2007 Run Volto statistics for 2007"
+	@echo "  run-volto-stats-2006 Run Volto statistics for 2006"
+	@echo "  run-volto-stats-2005 Run Volto statistics for 2005"
+	@echo "  run-volto-stats-2004 Run Volto statistics for 2004"
+	@echo "  run-volto-stats-2003 Run Volto statistics for 2003"
+	@echo "  run-volto-stats-2002 Run Volto statistics for 2002"
+	@echo "  run-volto-stats-2001 Run Volto statistics for 2001"
+	@echo "  run-volto-stats-2000 Run Volto statistics for 2000"
 	@echo "  pr-interactions   Extract pull request comments and interactions from GitHub"
 	@echo "  pr-interactions-2025 Extract pull request comments and interactions for 2025"
 	@echo "  pr-interactions-2024 Extract pull request comments and interactions for 2024"
@@ -374,9 +401,14 @@ flourish-graph-individual-contributors-csv-file:
 generate-report:
 	python generate_contributor_report.py
 
+
 # Calculate community recognition points and generate report
 community-recognition:
 	python generate_community_recognition_report.py
+
+# Generate Volto report
+generate-volto-report:
+	python generate_volto_team_report.py
 
 # Extract pull request comments and interactions from GitHub
 pr-interactions:
@@ -465,6 +497,89 @@ pr-interactions-2006:
 # Extract pull request comments and interactions for 2005
 pr-interactions-2005:
 	python plone_pr_interactions.py --year 2005
+
+# Run Volto statistics extraction (current year)
+run-volto-stats:
+	python volto_stats.py
+
+# Run Volto statistics for specific years
+run-volto-stats-2025:
+	python volto_stats.py --year 2025
+
+run-volto-stats-2024:
+	python volto_stats.py --year 2024
+
+run-volto-stats-2023:
+	python volto_stats.py --year 2023
+
+run-volto-stats-2022:
+	python volto_stats.py --year 2022
+
+run-volto-stats-2021:
+	python volto_stats.py --year 2021
+
+run-volto-stats-2020:
+	python volto_stats.py --year 2020
+
+run-volto-stats-2019:
+	python volto_stats.py --year 2019
+
+run-volto-stats-2018:
+	python volto_stats.py --year 2018
+
+run-volto-stats-2017:
+	python volto_stats.py --year 2017
+
+run-volto-stats-2016:
+	python volto_stats.py --year 2016
+
+run-volto-stats-2015:
+	python volto_stats.py --year 2015
+
+run-volto-stats-2014:
+	python volto_stats.py --year 2014
+
+run-volto-stats-2013:
+	python volto_stats.py --year 2013
+
+run-volto-stats-2012:
+	python volto_stats.py --year 2012
+
+run-volto-stats-2011:
+	python volto_stats.py --year 2011
+
+run-volto-stats-2010:
+	python volto_stats.py --year 2010
+
+run-volto-stats-2009:
+	python volto_stats.py --year 2009
+
+run-volto-stats-2008:
+	python volto_stats.py --year 2008
+
+run-volto-stats-2007:
+	python volto_stats.py --year 2007
+
+run-volto-stats-2006:
+	python volto_stats.py --year 2006
+
+run-volto-stats-2005:
+	python volto_stats.py --year 2005
+
+run-volto-stats-2004:
+	python volto_stats.py --year 2004
+
+run-volto-stats-2003:
+	python volto_stats.py --year 2003
+
+run-volto-stats-2002:
+	python volto_stats.py --year 2002
+
+run-volto-stats-2001:
+	python volto_stats.py --year 2001
+
+run-volto-stats-2000:
+	python volto_stats.py --year 2000
 
 # Clean generated files
 clean:

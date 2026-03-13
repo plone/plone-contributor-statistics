@@ -1,0 +1,318 @@
+number,title,author,state,created_at,updated_at,closed_at,repository,html_url
+4273,PLIP: Make Products.CMFEditions a Core Add-on,jensens,open,2026-02-10,2026-02-14,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/4273
+4263,Plone UI Text Style Guide,mpalomaki,open,2026-01-23,2026-02-12,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/4263
+4259,PLIP: use `Vite` instead of `webpack`,petschki,open,2026-01-22,2026-01-22,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/4259
+4260,PLIP: Upgrade `jQuery` to v4,petschki,open,2026-01-21,2026-01-22,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/4260
+7789,Use `es-toolkit` as drop-in replacement of `lodash`,sneridagh,open,2026-01-14,2026-01-14,,plone/volto,https://github.com/plone/volto/issues/7789
+4250,Pre-PLIP: maintenance/recurrent/one-off scripts support,gforcada,open,2026-01-06,2026-02-02,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/4250
+4245,PLIP: Deprecate Accept-Header-Based REST API Routing in Favor of /++api++/ URLs,mamico,open,2025-12-14,2026-01-03,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/4245
+4244,PLIP: Provide a pluggable system to integrate external translation services in Plone,erral,open,2025-12-12,2025-12-19,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/4244
+7688,Backend for Frontend (BFF) for Seven using Nick as BFF,sneridagh,open,2025-12-10,2025-12-17,,plone/volto,https://github.com/plone/volto/issues/7688
+4261,PLIP: upgrade `pat-contentbrowser` to Svelte 5,petschki,open,2025-11-14,2026-01-22,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/4261
+4236,PLIP: Remove or fix getRawRelatedItems index,mauritsvanrees,open,2025-10-29,2025-10-29,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/4236
+4235,PLIP: Extend Rest API to support AI endpoints,robgietema,open,2025-10-28,2025-10-29,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/4235
+4220,Proto-PLIP: merge some plone.app and plone packages,mauritsvanrees,open,2025-09-16,2025-09-20,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/4220
+4213,Plone MCP (Model Context Protocol) Server,danalvrz,open,2025-08-25,2025-12-23,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/4213
+7253,Add form block to Volto Core,robgietema,open,2025-07-22,2025-11-23,,plone/volto,https://github.com/plone/volto/issues/7253
+4187,Enhanced Moderation and User Experience for `plone.app.discussion`,rohnsha0,open,2025-05-30,2025-09-13,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/4187
+7124,PLIP: Blocks Control Panel,jnptk,open,2025-05-27,2025-11-29,,plone/volto,https://github.com/plone/volto/issues/7124
+4146,Deprecate `pat-select2` and replace it with a more up-to-date library,petschki,open,2025-03-21,2025-04-01,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/4146
+4137,"PLIP: Turn portlets into a core add-on, and combine them",mauritsvanrees,open,2025-03-12,2026-02-13,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/4137
+4136,PLIP: Make plone.app.customerize a core add-on,mauritsvanrees,open,2025-03-12,2026-02-13,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/4136
+4126,PLIP Replace pkg_resources in normal code,mauritsvanrees,closed,2025-02-26,2025-11-14,2025-11-14,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/4126
+4119,Turn plone.app.contentrules in a core-addon,jensens,open,2025-02-19,2025-10-28,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/4119
+4114,Add native tag-based caching to Plone,pgrunewald,open,2025-02-14,2025-02-14,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/4114
+4110,"Refactor `plone.app.contentrules` to provide API methods, which `plone.restapi` can use",MrTango,open,2025-02-14,2025-10-24,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/4110
+4106,Form tabs improvements (Classic UI),ale-rt,open,2025-02-13,2025-10-24,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/4106
+6669,[Seven] i18n story,sneridagh,open,2025-02-05,2025-03-28,,plone/volto,https://github.com/plone/volto/issues/6669
+6643,[CMSUI] - Investigate Plate.js as a drop-in replacement for Slate block,sneridagh,open,2025-02-04,2025-11-03,,plone/volto,https://github.com/plone/volto/issues/6643
+4097,"PLIP: Plone 7 Documentation Layout, Structure, Theme, and Search to Improve Usability",stevepiercy,open,2025-02-03,2025-05-09,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/4097
+6638,Plone 7 frontend (Seven),sneridagh,open,2025-02-02,2025-09-27,,plone/volto,https://github.com/plone/volto/issues/6638
+6628,PLIP Process for User Interfacing Changing PLIPs,tisto,open,2025-01-28,2025-02-03,,plone/volto,https://github.com/plone/volto/issues/6628
+4088,Store blobs on S3,bsuttor,open,2025-01-09,2025-10-20,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/4088
+6569,"PLIP: Stacked container block settings so subschema blocks (slider, accordian etc) are easier/powerful by being containers",djay,closed,2025-01-08,2026-01-23,2026-01-23,plone/volto,https://github.com/plone/volto/issues/6569
+6559,PLIP: New feature hide and show Volto blocks,SaraBianchi,open,2024-12-27,2025-02-25,,plone/volto,https://github.com/plone/volto/issues/6559
+4071,Draft: Plone Multi Factor Authentication ,loechel,open,2024-12-01,2025-04-17,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/4071
+4070,Plone Mail Settings - Suport for multiple Authentication Schemata,loechel,open,2024-12-01,2025-09-13,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/4070
+4069,DRAFT: Replace Plone as a rest API with Nick,robgietema,open,2024-11-30,2025-02-19,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/4069
+6507,Remove any usage of barrel files from core,pnicolli,closed,2024-11-30,2025-02-25,2025-02-25,plone/volto,https://github.com/plone/volto/issues/6507
+4068,DRAFT: plone_sudo,loechel,open,2024-11-29,2025-02-18,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/4068
+4067,Reuse Volto components in Classic UI,mauritsvanrees,open,2024-11-29,2025-02-18,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/4067
+6505,Dominio diferente para subsite plone ,leandromontenegromachado,closed,2024-11-28,2024-11-30,2024-11-30,plone/volto,https://github.com/plone/volto/issues/6505
+6504,PLIP #6504: Make CMS-UI inclusive and accessible,Wagner3UB,open,2024-11-28,2025-09-13,,plone/volto,https://github.com/plone/volto/issues/6504
+6396,"Remove ""project"" configuration in Volto (`src/config.js`)",sneridagh,closed,2024-10-11,2025-11-24,2025-11-24,plone/volto,https://github.com/plone/volto/issues/6396
+6350,Deprecations issued in Volto 18,sneridagh,closed,2024-09-27,2025-10-27,2025-10-25,plone/volto,https://github.com/plone/volto/issues/6350
+6327,Library Upgrades for the next major (19).,tisto,open,2024-09-25,2025-02-04,,plone/volto,https://github.com/plone/volto/issues/6327
+6326,Vitest,tisto,closed,2024-09-25,2025-04-12,2025-04-12,plone/volto,https://github.com/plone/volto/issues/6326
+6325,`@plone/cmsui` - Seven CMSUI as a standalone app,tisto,open,2024-09-25,2025-02-04,,plone/volto,https://github.com/plone/volto/issues/6325
+6324,React Router 7,tisto,closed,2024-09-25,2025-09-16,2025-04-08,plone/volto,https://github.com/plone/volto/issues/6324
+6323,Complete removal of Semantic UI from Volto,tisto,closed,2024-09-25,2025-02-02,2025-02-02,plone/volto,https://github.com/plone/volto/issues/6323
+6322,Seven Theming System,tisto,open,2024-09-25,2025-02-03,,plone/volto,https://github.com/plone/volto/issues/6322
+6321,Remove Semantic UI from CMSUI,tisto,closed,2024-09-25,2025-02-03,2025-02-03,plone/volto,https://github.com/plone/volto/issues/6321
+6320,[Deprecated] Vite as Volto bundler,tisto,closed,2024-09-25,2025-02-02,2025-02-02,plone/volto,https://github.com/plone/volto/issues/6320
+6316,Improve block style preview in edit mode (Block Model 3),tisto,open,2024-09-24,2025-02-02,,plone/volto,https://github.com/plone/volto/issues/6316
+4010,Classic UI: Remove deprecated mockup patterns,petschki,open,2024-09-09,2025-10-24,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/4010
+6255,Enhanced Accessible Media Workflow,JeffersonBledsoe,open,2024-08-16,2025-12-10,,plone/volto,https://github.com/plone/volto/issues/6255
+3987,Create User Manual with screenshots and videos for Plone 6,stevepiercy,open,2024-07-06,2026-02-03,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/3987
+6023,Make teaser block dynamic,pbauer,closed,2024-05-16,2024-06-19,2024-06-19,plone/volto,https://github.com/plone/volto/issues/6023
+6021,Slots,sneridagh,closed,2024-05-16,2024-05-16,2024-05-16,plone/volto,https://github.com/plone/volto/issues/6021
+3958,PLIP: make plone.app.discussion a core add-on [6.1],mauritsvanrees,closed,2024-05-15,2024-10-02,2024-09-09,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/3958
+3956,PLIP: make plone.app.multilingual a core add-on [6.1],mauritsvanrees,closed,2024-05-15,2024-05-15,2024-05-15,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/3956
+3955,PLIP: Move all Classic UI code into core add-ons,tisto,open,2024-05-15,2025-10-24,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/3955
+3954,TinyMCE 7 in Classic UI,mauritsvanrees,closed,2024-05-15,2024-05-15,2024-05-15,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/3954
+3953,PLIP: Start separating Classic UI code from the core,tisto,open,2024-05-15,2025-12-12,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/3953
+6006,Image Cropping,tisto,open,2024-05-07,2025-09-13,,plone/volto,https://github.com/plone/volto/issues/6006
+5952,Users/Groups Control Panel Overhaul (GSoC),tisto,open,2024-04-09,2025-09-16,,plone/volto,https://github.com/plone/volto/issues/5952
+3931,Allow for managing third-party javascript integrations to be placed at the end of the head-section as well as the end of the page.,jladage,closed,2024-03-26,2024-04-23,2024-04-23,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/3931
+3928,PLIP: Switch to PEP 420 (Implicit namespace packages),mauritsvanrees,closed,2024-03-20,2026-02-13,2026-02-13,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/3928
+3926,PLIP: drop Python 3.8 and 3.9 in Plone 6.1,mauritsvanrees,closed,2024-03-13,2025-09-13,2024-12-16,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/3926
+3923,PLIP: Add option to disable parts of Classic UI,mauritsvanrees,open,2024-03-06,2025-10-24,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/3923
+3909,"User portrait, allow SVG images as a portrait. Allow site administrator to define dimensions of portrait.",rber474,open,2024-02-25,2025-10-24,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/3909
+5641,Upgrade to React 18,sneridagh,closed,2024-01-17,2024-03-08,2024-03-08,plone/volto,https://github.com/plone/volto/issues/5641
+5634,Add `pnpm` support for projects/add-ons,sneridagh,closed,2024-01-16,2025-03-08,2024-09-24,plone/volto,https://github.com/plone/volto/issues/5634
+4115,PLIP #4115: Enhance timezone support in UI for `plone.app.event` based types,stevepiercy,open,2024-01-16,2026-01-12,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/4115
+5627,Update i18n machinery to latest `react-intl`,sneridagh,open,2024-01-16,2025-09-13,,plone/volto,https://github.com/plone/volto/issues/5627
+5577,Improve Volto Generator,sneridagh,closed,2023-12-25,2024-11-25,2024-11-25,plone/volto,https://github.com/plone/volto/issues/5577
+5507,Get language/multilingual settings from the backend,erral,closed,2023-12-07,2025-09-17,2025-09-17,plone/volto,https://github.com/plone/volto/issues/5507
+5423,PLIP: TUS reliable large uploads with simpler file upload UI in volto and better feedback on slow connections,djay,open,2023-11-22,2025-09-13,,plone/volto,https://github.com/plone/volto/issues/5423
+5419,Javascript bundle optimization,pnicolli,open,2023-11-21,2025-09-13,,plone/volto,https://github.com/plone/volto/issues/5419
+5411,Adopt a full monorepo approach in the Volto repo,sneridagh,closed,2023-11-17,2023-12-16,2023-12-16,plone/volto,https://github.com/plone/volto/issues/5411
+3854,Support Distributions to be built on top of Plone,ericof,closed,2023-10-10,2025-03-10,2025-03-10,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/3854
+5300,PLIP: Keyword Manager,tisto,open,2023-10-08,2025-10-24,,plone/volto,https://github.com/plone/volto/issues/5300
+4779,Drag & Drop between Teaser/Grid Blocks,tisto,closed,2023-05-17,2025-03-08,2024-05-16,plone/volto,https://github.com/plone/volto/issues/4779
+4778,"PLIP: Add block index to zcatalog, expose in control panel",tisto,closed,2023-05-17,2025-03-08,2023-07-19,plone/volto,https://github.com/plone/volto/issues/4778
+4765,Listing/Search Block Variants for Page/News Item/Event/File,tisto,open,2023-05-15,2025-10-24,,plone/volto,https://github.com/plone/volto/issues/4765
+4757,Blocks Navigation Tab,sneridagh,closed,2023-05-12,2024-06-13,2024-06-13,plone/volto,https://github.com/plone/volto/issues/4757
+4756,`@plone/contents` - Enhance Contents View,sneridagh,open,2023-05-12,2025-09-16,,plone/volto,https://github.com/plone/volto/issues/4756
+3772,ClassicUI: Deprecate `plone.app.widgets`,petschki,closed,2023-04-17,2025-03-12,2025-03-12,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/3772
+4689,TypeScript Support in core,sneridagh,closed,2023-04-13,2023-12-16,2023-12-16,plone/volto,https://github.com/plone/volto/issues/4689
+4478,PLIP: I can easily switch back and forth a listing/row of teaser styles (repeater block with selectable source and manually added items),djay,open,2023-03-07,2025-09-16,,plone/volto,https://github.com/plone/volto/issues/4478
+4460,Refactor class components to functional components,sneridagh,open,2023-03-04,2025-12-10,,plone/volto,https://github.com/plone/volto/issues/4460
+3728,PLIP 3728: Speedup registry lookup,jensens,open,2023-03-01,2025-10-24,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/3728
+4352,`@plone/components` - Framework agnostic ReactJS CMS components,sneridagh,closed,2023-02-02,2025-09-23,2025-09-23,plone/volto,https://github.com/plone/volto/issues/4352
+4347,`@plone/client` - Modernize Data Fetching API,sneridagh,closed,2023-02-02,2025-09-23,2025-09-23,plone/volto,https://github.com/plone/volto/issues/4347
+4339,PLIP: Link Integrity View,tisto,closed,2023-01-30,2025-03-08,2024-08-05,plone/volto,https://github.com/plone/volto/issues/4339
+4332,Quanta,sneridagh,open,2023-01-28,2025-09-13,,plone/volto,https://github.com/plone/volto/issues/4332
+4303,Link Widget Improvement (add/select/modify),sneridagh,open,2023-01-24,2025-10-24,,plone/volto,https://github.com/plone/volto/issues/4303
+4298,Slug based linked headlines in volto-slate,nileshgulia1,closed,2023-01-22,2025-03-08,2023-06-28,plone/volto,https://github.com/plone/volto/issues/4298
+4290,Support for Subpath Domains,nileshgulia1,open,2023-01-21,2025-10-24,,plone/volto,https://github.com/plone/volto/issues/4290
+4286,Provide a simple ImageUploadWidget that can be reused in addons,tiberiuichim,closed,2023-01-20,2025-10-22,2025-02-11,plone/volto,https://github.com/plone/volto/issues/4286
+4208,PLIP: Teaser block in core (mark II),sneridagh,closed,2023-01-01,2024-12-02,2024-12-02,plone/volto,https://github.com/plone/volto/issues/4208
+4207,Grid Block in Core,sneridagh,closed,2023-01-01,2025-03-08,2023-06-28,plone/volto,https://github.com/plone/volto/issues/4207
+4206,Quanta Toolbar,sneridagh,open,2023-01-01,2025-09-13,,plone/volto,https://github.com/plone/volto/issues/4206
+4204,Improve drag & drop support in the blocks engine,sneridagh,open,2022-12-30,2024-11-05,,plone/volto,https://github.com/plone/volto/issues/4204
+4168,PLIP: Restore Unsaved Changes,tisto,open,2022-12-22,2025-10-12,,plone/volto,https://github.com/plone/volto/issues/4168
+1399,Provide needed image meta data for responsive images in listings / preview images,MrTango,closed,2022-05-04,2022-09-29,2022-09-29,plone/plone.restapi,https://github.com/plone/plone.restapi/issues/1399
+3425,<draft> PLIP: move resolveuid generation logic to plone.app.linkintegrity,Rudd-O,closed,2022-02-01,2024-07-01,2024-07-01,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/3425
+3395,PLIP 3395 `plone.base`: Untangles existing circular dependencies (imports/zcml) in Plone.,jensens,closed,2022-01-09,2022-08-25,2022-08-25,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/3395
+3383,Accessibility fixes for Plone Classic,thomasmassmann,open,2021-12-19,2025-12-22,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/3383
+3355,PLIP 3355: Merge into one repository where circular dependencies can not be resolved.,jensens,closed,2021-11-12,2022-01-09,2022-01-09,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/3355
+3339,PLIP: replace z3c.autoinclude with autoinclude,mauritsvanrees,closed,2021-10-20,2021-12-02,2021-12-02,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/3339
+3324,Create utility with meaningful name for initializing and managing wsgi based Plone sites (ploneinit and plonerun),pigeonflight,closed,2021-09-20,2025-09-13,2025-09-13,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/3324
+3302,add inline svg transform,iham,open,2021-08-16,2025-10-24,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/3302
+3279,Support for modern image scales (Plone 6),tisto,closed,2021-06-13,2022-04-11,2022-04-11,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/3279
+3231,Controlpanel for Relations,loechel,closed,2021-01-31,2021-08-18,2021-08-16,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/3231
+3229,"Plone 6: Drop Python 3.6 and 3.7, add support for Python 3.9",jensens,closed,2021-01-20,2021-12-14,2021-12-14,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/3229
+2049,Undo Control Panel,tisto,closed,2020-12-08,2024-12-12,2022-12-30,plone/volto,https://github.com/plone/volto/issues/2049
+3211,Mockup and resource registry redone,thet,closed,2020-11-11,2022-09-01,2022-09-01,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/3211
+3202,"PLIP: Remove plone.app.upgrade steps and code before ""to521""",jensens,closed,2020-10-27,2025-09-13,2022-08-25,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/3202
+3137,PLIP: Add methods to plone.api to deal with relations,pbauer,closed,2020-07-01,2021-08-30,2021-08-30,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/3137
+1550,Integrate react suspense in the UI components,tiberiuichim,closed,2020-05-28,2020-09-26,2020-09-26,plone/volto,https://github.com/plone/volto/issues/1550
+1478,"Proposal: have a list of ""smart fields"" in Volto blocks",tiberiuichim,open,2020-05-14,2025-09-13,,plone/volto,https://github.com/plone/volto/issues/1478
+3090,Asynchronous image scaling,datakurre,closed,2020-04-23,2025-09-13,2025-09-13,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/3090
+1290,DatagridField widget or alike,sneridagh,closed,2020-03-21,2020-12-08,2020-12-08,plone/volto,https://github.com/plone/volto/issues/1290
+1288,Locking support,sneridagh,closed,2020-03-21,2021-05-12,2021-05-12,plone/volto,https://github.com/plone/volto/issues/1288
+1287,Cache headers support (p.restapi),sneridagh,closed,2020-03-21,2023-03-28,2023-03-28,plone/volto,https://github.com/plone/volto/issues/1287
+1286,Improved related items UX (using the ObjectBrowser to choose objects),sneridagh,closed,2020-03-21,2020-05-20,2020-05-20,plone/volto,https://github.com/plone/volto/issues/1286
+1285,Control Panel: Dexterity content types,avoinea,closed,2020-03-19,2020-05-12,2020-05-12,plone/volto,https://github.com/plone/volto/issues/1285
+3061,Modernize Plone default theme aka Barceloneta LTS,agitator,closed,2020-03-02,2021-09-07,2021-09-07,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/3061
+3058,Use Zope 5 in Plone 6,ale-rt,closed,2020-02-27,2020-11-09,2020-11-09,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/3058
+3053,"Pre-PLIP: autoinclude zcml, new style",mauritsvanrees,closed,2020-02-24,2021-10-20,2021-10-20,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/3053
+1104,Table of Contents,tisto,closed,2020-01-12,2020-03-21,2020-01-31,plone/volto,https://github.com/plone/volto/issues/1104
+1095,plone.app.redirector support for Volto,tisto,closed,2020-01-08,2025-03-08,2022-10-02,plone/volto,https://github.com/plone/volto/issues/1095
+1094,add customStyleMap for DraftJs Editor,giuliaghisini,closed,2020-01-07,2020-01-24,2020-01-24,plone/volto,https://github.com/plone/volto/issues/1094
+2999,"PLIP: ""Save and add another"" button",tkimnguyen,closed,2019-12-05,2025-09-13,2025-09-13,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2999
+2979,PLIP: allow custom caption in relation behavior,mtrebron,closed,2019-11-10,2025-05-29,2025-05-29,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2979
+2977,PLIP: add image focal points support,tkimnguyen,open,2019-11-06,2025-10-24,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2977
+2975,"PLIP: backport the CastleCMS ""Add"" dialog",tkimnguyen,closed,2019-11-02,2025-09-13,2025-09-13,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2975
+2973,Remove moment.js from plone bundle,agitator,closed,2019-10-31,2022-03-30,2022-03-30,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2973
+2968,One File-Field (Type) to rules them all,loechel,open,2019-10-26,2025-10-24,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2968
+2967,Change Templates to Bootstrap Markup,santonelli,closed,2019-10-26,2022-03-24,2021-03-15,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2967
+2966,PLIP: implement deletion to a recycle bin that allows users to restore items,tkimnguyen,open,2019-10-25,2025-09-29,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2966
+2890,PLIP: Add support for Python 3.8,pbauer,closed,2019-06-20,2020-11-10,2020-11-09,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2890
+748,Working Copy Support (plone.app.iterate),tisto,closed,2019-05-24,2021-11-17,2021-10-22,plone/volto,https://github.com/plone/volto/issues/748
+2869,PLIP: Fix and Improve Metadata Behaviors,iham,closed,2019-05-20,2024-07-01,2024-07-01,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2869
+739,Form Builder,tisto,closed,2019-05-13,2024-01-12,2024-01-12,plone/volto,https://github.com/plone/volto/issues/739
+724,Multilingual support for Volto,tisto,closed,2019-05-10,2020-09-29,2020-09-29,plone/volto,https://github.com/plone/volto/issues/724
+2812,Drop Python 2 Support for Plone 6,tisto,closed,2019-03-20,2021-09-07,2021-09-07,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2812
+681,No metadata fields with GET on a folderish resource,zopyx,closed,2019-03-03,2019-06-30,2019-06-30,plone/plone.restapi,https://github.com/plone/plone.restapi/issues/681
+2780,PLIP: merge collective.dexteritytextindexer into core,staeff,closed,2019-02-28,2022-04-07,2022-04-07,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2780
+2775,PLIP: Archetypes End of Life,tisto,closed,2019-02-27,2021-11-22,2021-11-22,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2775
+2754,PLIP: use an autoformatter to keep our code base (a bit more) consistent,gforcada,closed,2019-02-17,2023-05-29,2023-05-29,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2754
+2740,PLIP: views or viewlets for title and description,iham,closed,2019-02-09,2019-03-05,2019-03-05,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2740
+2736,"mark special links ""opt in"" instead of ""opt out""",iham,closed,2019-02-08,2019-02-09,2019-02-09,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2736
+2705,Improving the theme editor experience,b4oshany,closed,2019-01-28,2022-02-15,2022-02-15,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2705
+2703,PLIP: Ship Plone with Volto,tisto,closed,2019-01-27,2023-03-12,2023-03-12,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2703
+641,Behaviors implementation,tisto,closed,2018-11-19,2025-09-13,2025-09-13,plone/plone.restapi,https://github.com/plone/plone.restapi/issues/641
+2516,New faster navigation with dropdown menus for Plone,agitator,closed,2018-09-14,2019-02-23,2019-02-06,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2516
+252,Full SEO support,sneridagh,closed,2018-08-22,2021-06-30,2021-06-30,plone/volto,https://github.com/plone/volto/issues/252
+2475,PLIP: drop Python 2.6 support for Plone 4.3.x series,gforcada,closed,2018-07-15,2019-02-05,2019-02-05,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2475
+2473,DRAFT: PLIP: Disallow implicit Acquisiton of properties,thet,closed,2018-07-11,2018-07-11,2018-07-11,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2473
+2454,PLIP: Using Dexterity for Plone Site,jaroel,closed,2018-06-24,2021-09-13,2021-09-11,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2454
+2448,PLIP: keep track of dependencies,gforcada,closed,2018-06-18,2025-09-13,2023-03-12,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2448
+2368,PLIP: Port Plone to Python 3,pbauer,closed,2018-03-30,2021-10-22,2019-02-23,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2368
+519,API for managing interfaces,zopyx,closed,2018-03-26,2018-03-26,2018-03-26,plone/plone.restapi,https://github.com/plone/plone.restapi/issues/519
+2253,PLIP: Use Web Components instead of Patterns for Mockup.,thet,closed,2018-01-04,2019-03-03,2019-03-03,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2253
+2248,PLIP: Better default options for markup mime types,thet,closed,2017-12-20,2025-09-13,2025-09-13,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2248
+2229,Allow more custom attributes in safe_html transform,thet,closed,2017-11-30,2025-09-13,2025-09-13,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2229
+2221,PLIP: bring back JS and CSS head slots,hvelarde,closed,2017-11-23,2018-10-24,2018-10-24,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2221
+427,Plone site root / folderish types,robgietema,closed,2017-11-08,2022-09-04,2022-09-04,plone/plone.restapi,https://github.com/plone/plone.restapi/issues/427
+2177,PLIP: Ship Plone with plone.restapi,tisto,closed,2017-10-17,2019-02-04,2019-02-04,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2177
+2150,PLIP: New datetime and date widgets,thet,closed,2017-09-19,2022-03-30,2022-03-30,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2150
+2092,PLIP: Replace portal_skins-based login with a browserview-based one,esteele,closed,2017-07-05,2018-06-19,2018-06-19,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2092
+374,Support for deserializing review_state,Shriyanshagro,closed,2017-06-28,2017-08-28,2017-08-28,plone/plone.restapi,https://github.com/plone/plone.restapi/issues/374
+2072,PLIP: TOX as new standard test invocation tool in Plone and Plone guidelines,loechel,closed,2017-06-13,2020-01-07,2020-01-07,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2072
+2056,return 'random' results from a collection,tkimnguyen,closed,2017-05-20,2017-10-18,2017-10-18,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2056
+29,Control panels,robgietema,open,2017-04-27,2025-09-13,,plone/volto,https://github.com/plone/volto/issues/29
+2035,support separate mail From: and To: addresses,tkimnguyen,closed,2017-04-25,2025-09-13,2025-09-13,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2035
+2031,remove available_timezones from plone.app.event,thet,closed,2017-04-24,2025-09-13,2025-09-13,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2031
+17,Make pages folderish and plone site pagish,robgietema,closed,2017-04-20,2019-06-13,2019-06-13,plone/volto,https://github.com/plone/volto/issues/17
+10,Content rules,robgietema,closed,2017-04-20,2022-12-26,2022-12-26,plone/volto,https://github.com/plone/volto/issues/10
+2012,add exclude_from_nav BooleanIndex,iham,closed,2017-04-12,2020-02-17,2020-02-17,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2012
+2011,add brain to topLevelTabs,iham,closed,2017-04-12,2024-06-30,2024-06-28,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2011
+2001,PLIP: get rid of bootstrap.py,gforcada,closed,2017-04-10,2019-05-21,2019-05-21,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/2001
+1979,PLIP: Add Transform to remove inline base64 coded content,loechel,closed,2017-03-25,2025-09-13,2025-09-13,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1979
+1973,Improving the theme editor experience,pigeonflight,closed,2017-03-21,2019-01-28,2019-01-28,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1973
+1955,PLIP: Resource registry improvements,thet,closed,2017-02-27,2022-04-11,2019-06-20,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1955
+1918,PLIP: (WIP) Feature flag to disable implicit enabled behavior attribute access on Dexterity objects ,datakurre,closed,2017-01-27,2025-09-13,2025-09-13,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1918
+1896,PLIP: Simplify the Resource Registry,hvelarde,closed,2017-01-06,2017-02-25,2017-02-08,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1896
+1894,PLIP: content quality check before publishing,tkimnguyen,closed,2017-01-03,2025-09-13,2025-09-13,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1894
+1808,PLIP: Bring collective.contentrules.mailtogroup into Plone core,fulv,closed,2016-10-22,2025-09-13,2025-09-13,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1808
+1804,Remove five.pt for Zope 4 compat (part of PLIP #1351 Zope 4),jensens,closed,2016-10-22,2017-02-01,2017-02-01,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1804
+1803,PLIP: Make use of JSON in GenericSetup,gogobd,open,2016-10-21,2025-10-24,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1803
+1775,PLIP: Remove portal_quickinstaller in Plone 6.0,mauritsvanrees,closed,2016-09-21,2020-10-03,2020-10-03,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1775
+1742,PLIP: remove support for old style resource registries in Plone 5.2,zopyx,closed,2016-09-02,2019-02-12,2019-02-12,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1742
+1734,PLIP:  Cleanup and enhance icon and thumb aspects,fgrcon,closed,2016-08-30,2017-06-02,2017-06-01,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1734
+1677,PLIP: Theme LESS variables management,ebrehault,closed,2016-07-13,2021-11-22,2021-11-22,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1677
+1673,PLIP: Auto-Rotation for Images,loechel,closed,2016-07-11,2016-12-15,2016-12-15,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1673
+1659,PLIP: Remove plone.app.openid from core,jensens,closed,2016-06-30,2017-07-12,2016-09-16,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1659
+1653,PLIP: Restructure CMFPlone static resources,thet,closed,2016-06-28,2022-04-11,2019-06-20,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1653
+1606,PLIP WIP: Have a Search field for Plone configuration fields,rodfersou,closed,2016-05-27,2025-09-13,2025-09-13,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1606
+1600,PLIP: Easily change default search order,rodfersou,closed,2016-05-24,2025-09-13,2016-10-07,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1600
+1534,PLIP (WIP) not much control over content type selection when uploading,djay,closed,2016-04-19,2025-09-13,2025-09-13,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1534
+1529,PLIP: Reset `define` in RequireJS after bundles loaded,vangheem,closed,2016-04-14,2019-05-21,2019-05-21,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1529
+1492,PLIP: Make It easier for site administrators to customize the toolbar (WIP),pigeonflight,closed,2016-03-25,2025-09-13,2025-09-13,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1492
+1489,PLIP: merge collective.emailconfirmationregistration into core,vangheem,open,2016-03-24,2025-10-24,,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1489
+1488,PLIP: New image widget,vangheem,closed,2016-03-24,2016-04-26,2016-04-12,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1488
+1487,PLIP(WIP): new modal implementation,vangheem,closed,2016-03-24,2022-02-03,2022-02-03,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1487
+1486,PLIP: Merge Products.RedirectionTool into core,vangheem,closed,2016-03-24,2019-06-07,2019-06-07,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1486
+1485,"PLIP: Approve use of React in core, deprecate backbone",vangheem,closed,2016-03-24,2022-02-03,2022-02-03,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1485
+1484,PLIP: Registry Improvements,vangheem,closed,2016-03-24,2017-03-30,2017-03-24,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1484
+1483,PLIP: Retina image scales,ghost,closed,2016-03-22,2017-11-18,2017-03-21,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1483
+1441,Use lxml cleaner for safehtml transforms,tomgross,closed,2016-03-06,2017-02-23,2017-02-23,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1441
+1434,PLIP (WIP) confusing where to delete an image,djay,closed,2016-03-03,2025-09-13,2025-09-13,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1434
+1424,PLIP: Adding Gloss Support to Plone Core,pigeonflight,closed,2016-02-28,2016-09-29,2016-09-20,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1424
+1406,PLIP: Add support for conditionally import registry records,hvelarde,closed,2016-02-24,2016-10-27,2016-10-27,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1406
+1386,PLIP: Content import/export,ebrehault,closed,2016-02-15,2017-03-01,2016-09-23,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1386
+1371,PLIP (WIP) navigating to add new content is tedious,djay,closed,2016-02-09,2025-09-13,2025-09-13,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1371
+1362,PLIP: Add Archetype-style getters and setters to all fields on default content types,hvelarde,closed,2016-02-04,2016-04-05,2016-02-17,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1362
+1351,PLIP: Update Zope Dependencies,thet,closed,2016-01-30,2018-09-27,2018-09-27,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1351
+1343,PLIP: assimilate collective.indexing,MrTango,closed,2016-01-27,2017-06-08,2017-06-08,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1343
+1342,PLIP: Portal actions control panel,ebrehault,closed,2016-01-27,2018-03-26,2016-09-23,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1342
+1340,PLIP: Get rid of portal_quickinstaller,mauritsvanrees,closed,2016-01-26,2018-06-22,2016-09-21,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1340
+1334,PLIP: Clean up PlonePAS patches and tools,jensens,closed,2016-01-25,2017-11-14,2017-11-14,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1334
+1323,PLIP: Upgrade warnings in changelog files,thet,closed,2016-01-20,2016-04-13,2016-02-25,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1323
+1310,PLIP: A direct link from a group name on Sharing tab to that group's member list,rioksane,closed,2016-01-08,2016-04-04,2016-04-04,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1310
+1277,PLIP: Meta bundles generation,ebrehault,closed,2015-12-03,2016-04-05,2016-02-21,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1277
+1276,let bin/instance accept a PORT argument,thet,closed,2015-12-02,2016-09-23,2016-09-23,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1276
+1263,PLIP: Handle Portraits using PAS and PropertySheets only,jensens,closed,2015-11-25,2025-09-13,2019-06-20,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1263
+1253,control panel for creation/editing/management of portal_actions,tkimnguyen,closed,2015-11-22,2016-02-02,2016-02-02,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1253
+1248,create /recently_modified portal_action/site_actions,tkimnguyen,closed,2015-11-18,2016-09-29,2016-09-23,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1248
+1198,RFC: Allow merging CHANGES.rst with union strategy in all core packages,mauritsvanrees,closed,2015-10-19,2015-10-27,2015-10-24,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1198
+1180,PLIP: new changelog format,gforcada,closed,2015-10-16,2015-10-31,2015-10-31,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1180
+1179,PLIP: CONTRIBUTING.rst on all repositories,gforcada,closed,2015-10-16,2015-11-14,2015-11-13,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/1179
+818,restore undo functionality,tkimnguyen,closed,2015-08-10,2016-04-22,2016-04-18,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/818
+698,Linkintegrity in Plone 5 ,bloodbare,closed,2015-07-16,2015-10-17,2015-08-25,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/698
+680,PLIP: REST API,bloodbare,closed,2015-07-15,2017-11-14,2017-11-14,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/680
+649,PLIP 13350: Define extra member properties TTW,tisto,closed,2015-06-24,2015-10-17,2015-07-17,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/649
+646,PLIP Enhance Contentlisting,thet,closed,2015-06-23,2015-10-17,2015-07-08,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/646
+637,Return HTTP errors in proper format,ebrehault,closed,2015-06-17,2016-02-29,2016-02-29,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/637
+633,PLIP: Be able to require SSL,tkimnguyen,closed,2015-06-16,2021-11-22,2021-11-22,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/633
+590,Refactor control panel base view/template from plone.app.registry into P.CMFPlone,tisto,closed,2015-05-31,2016-02-02,2016-02-02,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/590
+517,plip 20239 Dexterity API,jensens,closed,2015-05-13,2024-07-01,2024-06-29,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/517
+516,User schema page template,ebrehault,closed,2015-05-12,2015-10-17,2015-06-01,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/516
+515,Remove image from user profile,ebrehault,closed,2015-05-12,2015-10-17,2015-07-16,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/515
+514,Error with empty integer or float fields in user schema,ebrehault,closed,2015-05-12,2015-10-17,2015-05-13,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/514
+513,Block extra image addition in the user schema editor,ebrehault,closed,2015-05-12,2015-10-17,2015-05-13,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/513
+512,Do not allow rich text field in user schema editor,ebrehault,closed,2015-05-12,2015-10-17,2015-05-12,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/512
+511,Vocabularies not supported in user schema editor,ebrehault,closed,2015-05-12,2015-10-17,2015-05-13,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/511
+510,Blur default fields in user schema editor,ebrehault,closed,2015-05-12,2015-10-17,2015-06-02,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/510
+509,Missing documentation on how to export/import member schema,ebrehault,closed,2015-05-12,2015-10-17,2015-06-01,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/509
+508,CSRF warning when removing a field in user schema,ebrehault,closed,2015-05-12,2015-10-17,2015-05-12,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/508
+507,"""Save Defaults"" in user schema editor",ebrehault,closed,2015-05-12,2015-10-17,2015-05-12,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/507
+506,plone.schemaeditor reordering,ebrehault,closed,2015-05-12,2015-10-17,2015-05-25,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/506
+505,Missing tests in plone.app.user PLIP 13350,ebrehault,closed,2015-05-12,2015-10-17,2015-06-03,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/505
+483,Folder contents visual issues (Firefox),jcerjak,closed,2015-05-03,2015-10-17,2015-05-08,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/483
+482,Toolbar: commonly used menu items too hard to get to or not where you expect,jcerjak,closed,2015-05-03,2016-04-10,2015-07-17,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/482
+481,Toolbar: Actions not accessible when in horizontal mode,jcerjak,closed,2015-05-03,2015-10-17,2015-07-13,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/481
+480,Toolbar: Issue in horizontal mode when browser window is narrow,jcerjak,closed,2015-05-03,2015-10-17,2015-05-03,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/480
+464,PLIP (WIP) Not obvious where to add non-global types,djay,closed,2015-04-29,2016-03-25,2016-03-25,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/464
+457,Refactor theming control panel to not depend on p.a.controlpanel.,tisto,closed,2015-04-27,2015-10-17,2015-05-02,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/457
+363,save + test error in mail control panel,thet,closed,2015-01-30,2015-10-17,2015-02-08,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/363
+361,Move RAMcache controlpanel into CMFPlone ,khink,closed,2015-01-25,2015-10-17,2015-02-13,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/361
+357,Move syndication doctest from p.a.controlpanel to P.CMFPlone.,tisto,closed,2015-01-23,2015-10-17,2015-03-21,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/357
+346,missing site_description and display_pub_date_in_byline in ISite controlpanel,thet,closed,2015-01-07,2015-10-17,2015-09-07,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/346
+345,use plone lock settings from editing-controlpanel,thet,closed,2015-01-07,2015-10-17,2015-09-07,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/345
+338,Move quickinstaller to CMFPlone,tisto,closed,2014-12-22,2015-10-17,2014-12-22,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/338
+337,Document author information not available to anonymous anymore?,jcerjak,closed,2014-12-20,2015-10-17,2015-07-16,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/337
+334,Control Panel Redesign,tisto,closed,2014-12-16,2015-10-17,2014-12-23,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/334
+292,Remove Products.ResourceRegistries as Plone core dependency,thet,closed,2014-11-05,2016-02-02,2016-02-02,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/292
+290,Move the control panel overview into Products.CMFPlone,khink,closed,2014-11-02,2015-10-17,2014-12-22,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/290
+221,Move usergroup control panel to z3c.form.,tisto,closed,2014-06-20,2015-10-17,2014-12-22,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/221
+220,Move markup control panel to z3c.form.,tisto,closed,2014-06-20,2015-10-17,2014-11-14,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/220
+219,Move maintenance control panel to z3c.form.,tisto,closed,2014-06-20,2015-10-17,2014-08-09,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/219
+218,Move language control panel to z3c.form.,tisto,closed,2014-06-20,2015-10-17,2015-03-26,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/218
+217,Move types control panel to z3c.form.,tisto,closed,2014-06-20,2015-10-17,2014-12-22,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/217
+216,Move security control panel to z3c.form.,tisto,closed,2014-06-20,2015-10-17,2015-03-19,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/216
+215,Move navigation control panel to z3c.form.,tisto,closed,2014-06-20,2015-10-17,2014-07-21,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/215
+214,Move mail control panel to z3c.form.,tisto,closed,2014-06-20,2015-10-17,2015-07-16,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/214
+213,Move editing control panel to z3c.form.,tisto,closed,2014-06-20,2015-10-17,2015-03-26,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/213
+212,Move userprefs control panel to z3c.form.,tisto,closed,2014-06-20,2015-10-17,2014-12-22,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/212
+211,Move filter control panel to z3c.form.,tisto,closed,2014-06-20,2015-10-17,2015-03-21,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/211
+207,ToDo list for Barceloneta Theme - PLOG2014,sneridagh,closed,2014-04-23,2015-10-17,2015-02-09,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/207
+183,Convert Add-ons control panel into a browser view,davisagli,closed,2014-02-25,2015-10-17,2015-02-12,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/183
+177,ordering of toolbar,polyester,closed,2014-02-12,2015-10-17,2015-07-17,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/177
+176,Live search view,bloodbare,closed,2014-02-11,2015-10-17,2015-02-08,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/176
+175,Breadcrumbs design,bloodbare,closed,2014-02-11,2015-10-17,2014-02-21,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/175
+173,Menu buttons available on all context,bloodbare,closed,2014-02-10,2015-10-17,2015-07-17,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/173
+172,Resource Registry - remove the js/css that some core components add into a default Plone site.,sneridagh,closed,2014-02-10,2015-10-17,2015-06-04,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/172
+171,Move search control panel to use z3c.form.,tisto,closed,2014-02-10,2015-10-17,2014-02-21,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/171
+170,Docs for barceloneta,svx,closed,2014-02-10,2016-02-02,2016-02-02,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/170
+169,Resource Registry - remove the js/css that is included on barcelona theme,bloodbare,closed,2014-02-10,2015-10-17,2014-02-25,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/169
+168,"Responsive theme ""testing"" with robot screenshots.",tisto,closed,2014-02-10,2015-10-17,2015-09-19,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/168
+167,Contact form / sitemap redesign,bloodbare,closed,2014-02-10,2017-03-23,2016-02-02,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/167
+166,Search View,bloodbare,closed,2014-02-10,2015-10-17,2015-02-09,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/166
+165,Logo Customization on control panel,bloodbare,closed,2014-02-10,2015-10-17,2015-01-22,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/165
+164,Integrate Viewlet configuration on CMFPlone viewlet,bloodbare,closed,2014-02-10,2015-10-17,2014-04-24,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/164
+163,Portlet Design ,bloodbare,closed,2014-02-10,2015-10-17,2015-07-17,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/163
+162,Widgets Modal Design,bloodbare,closed,2014-02-10,2015-10-17,2015-07-17,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/162
+161,plone.app.contenttypes design,bloodbare,closed,2014-02-10,2015-10-17,2015-07-17,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/161
+160,Control panel design,bloodbare,closed,2014-02-10,2015-10-17,2015-07-17,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/160
+158,Footer - settings - LRF - portlet ( testing performance ),bloodbare,closed,2014-02-10,2015-10-17,2014-02-25,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/158
+157,Topbar design /  responsive,bloodbare,closed,2014-02-10,2015-10-17,2015-07-17,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/157
+156,Topbar template based on toolbar template concept,bloodbare,closed,2014-02-10,2015-10-17,2014-02-21,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/156
+155,Global Status messages unification ( using bootstrap syntax on all pt ),bloodbare,closed,2014-02-10,2015-10-17,2014-10-31,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/155
+154,Hero Viewlet customisation on controlpanel,bloodbare,closed,2014-02-10,2015-10-17,2014-02-21,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/154
+153,DT/DL/DD removal on all plone templates,bloodbare,closed,2014-02-10,2015-10-17,2014-10-31,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/153
+146,Theming control panel fails: could not adapt to ISkinsSchema,mauritsvanrees,closed,2013-11-13,2015-10-17,2013-11-13,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/146
+145,p.a.controlpanel migration doesn't copy p.a.multilingual settings yet,fredvd,closed,2013-11-13,2016-02-02,2016-02-02,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/145
+144,Move all doctests in p.a.controlpanel to regular functional tests.,tisto,closed,2013-11-13,2015-10-17,2014-12-22,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/144
+130,Remove portal_calendar Tool.,tisto,closed,2013-11-07,2015-10-17,2013-11-15,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/130
+129,Remove plone_utils Tool.,tisto,closed,2013-11-07,2016-04-05,2016-02-02,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/129
+128,Remove portal_migration tool.,tisto,closed,2013-11-07,2016-04-05,2016-02-02,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/128
+127,Remove portal_password_reset Tool.,tisto,closed,2013-11-07,2016-04-05,2016-02-02,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/127
+126,Remove portal_registration Tool.,tisto,closed,2013-11-07,2016-04-05,2016-02-02,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/126
+124,Refactor Archetypes/ATContentTypes related portal tools into AT/ATContentTypes.,tisto,closed,2013-11-07,2015-10-17,2015-07-17,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/124
+123,Remove portal_url Tool.,tisto,closed,2013-11-07,2016-04-05,2016-02-02,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/123
+122,Remove portal_interface Tool,tisto,closed,2013-11-07,2015-10-17,2013-11-12,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/122
+121,Remove portal_actionitems Tool,tisto,closed,2013-11-07,2015-10-17,2013-11-07,plone/Products.CMFPlone,https://github.com/plone/Products.CMFPlone/issues/121
