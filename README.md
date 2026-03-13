@@ -6,7 +6,7 @@ Comprehensive GitHub statistics extraction and analysis system for the Plone eco
 
 - **Complete Repository Coverage**: Processes all 300+ repositories in the Plone organization
 - **Multi-Year Analysis**: Historical data extraction from 2005-2025
-- **Volto Team Tracking**: Dedicated statistics for 24 Volto team members from plone/volto repository
+- **Volto Statistics**: Dedicated contributor statistics for the plone/volto repository
 - **Organisation Mapping**: Attribution system mapping 109+ contributors to 54+ organisations
 - **PLIP Tracking**: Extract and analyze Plone Improvement Proposals across repositories
 - **Cross-Year Analysis**: Identify Independent contributors for organisation mapping
@@ -60,31 +60,23 @@ make run-stats-2022
 python plone_contributors.py --start-date 2024-01-01 --end-date 2024-06-30
 ```
 
-### Volto Team Member Statistics
+### Volto Statistics
 
-Extract statistics for Volto team members from the plone/volto repository:
+Extract contributor statistics from the plone/volto repository:
 
 ```bash
 # Current year (defaults to 2025)
-python volto_stats.py
+make run-volto-stats
 
-# Specific year
-python volto_stats.py --year 2024
-python volto_stats.py --year 2023
+# Specific years (2005-2025 available)
+make run-volto-stats-2024
+make run-volto-stats-2023
+make run-volto-stats-2022
+# ... (all years 2005-2025)
 
-# Custom date range
-python volto_stats.py --start-date 2024-01-01 --end-date 2024-06-30
-
-# Two year span
-python volto_stats.py --start-date 2023-01-01 --end-date 2024-12-31
+# Generate Volto report
+make generate-volto-report
 ```
-
-The script:
-- Reads team member GitHub usernames from `team-volto.md`
-- Extracts PR and commit counts for each member
-- Generates sorted CSV output: `data/{year}-volto-team-stats.csv`
-- Columns: `github_username`, `pull_requests`, `commits`
-- Results sorted by pull requests (descending)
 
 ### Organisation Statistics
 
@@ -131,12 +123,11 @@ make check
 - `YYYY-plone-contributors.csv` - Individual contributor stats by year
 - Raw data with commits, PRs, repositories, and date ranges per contributor
 
-### Volto Team Statistics
+### Volto Statistics
 
-- `data/YYYY-volto-team-stats.csv` - Volto team member statistics by year
+- `data/YYYY-volto-team-stats.csv` - Volto contributor statistics by year
 - Contains: `github_username`, `pull_requests`, `commits`
 - Sorted by pull requests (descending)
-- Source: `team-volto.md` (24 team members)
 
 ### Organisation Statistics
 
