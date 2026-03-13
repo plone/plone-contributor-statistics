@@ -120,11 +120,12 @@ def generate_statistics(session, start_date, end_date):
         commit_count = get_commits(session, username, start_date, end_date)
         time.sleep(1)  # Rate limiting
 
-        statistics.append({
-            'github_username': username,
-            'pull_requests': pr_count,
-            'commits': commit_count
-        })
+        if pr_count > 0 or commit_count > 0:
+            statistics.append({
+                'github_username': username,
+                'pull_requests': pr_count,
+                'commits': commit_count
+            })
 
         print(f"  PRs: {pr_count}, Commits: {commit_count}\n")
 
