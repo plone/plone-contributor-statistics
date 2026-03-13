@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Generate contributor statistics for Volto team members.
-Fetches data from GitHub API for plone/volto repository.
+Generate contributor statistics for the plone/volto repository.
+Fetches data from GitHub API for all contributors.
 """
 
 import requests
@@ -25,11 +25,25 @@ REPO_NAME = 'volto'
 # API endpoints
 BASE_URL = 'https://api.github.com'
 
-def read_team_members(filename='team-volto.md'):
-    """Read team member GitHub usernames from file."""
-    with open(filename, 'r') as f:
-        usernames = [line.strip() for line in f if line.strip()]
-    return usernames
+def get_all_contributors(session):
+    """Get all contributors to the repository."""
+    contributors = []
+    page = 1
+    while True:
+        response = session.get(
+            f'{BASE_URL}/repos/{REPO_OWNER}/{REPO_NAME}/contributors',
+            params={'per_page': 100, 'page': page}
+        )
+        response.raise_for_status()
+        data = response.json()
+        if not data:
+            break
+        # Exclude bots
+        contributors.extend(c['login'] for c in data if c['type'] == 'User')
+        if len(data) < 100:
+            break
+        page += 1
+    return contributors
 
 def get_pull_requests(session, username, start_date, end_date):
     """Get number of PRs for a user in the specified date range."""
@@ -89,16 +103,16 @@ def get_commits(session, username, start_date, end_date):
         return 0
 
 def generate_statistics(session, start_date, end_date):
-    """Generate statistics for all team members."""
-    team_members = read_team_members()
+    """Generate statistics for all contributors."""
+    contributors = get_all_contributors(session)
     statistics = []
 
-    print(f"Fetching statistics for {len(team_members)} team members...")
+    print(f"Fetching statistics for {len(contributors)} contributors...")
     print(f"Repository: {REPO_OWNER}/{REPO_NAME}")
     print(f"Date range: {start_date} to {end_date}\n")
 
-    for i, username in enumerate(team_members, 1):
-        print(f"[{i}/{len(team_members)}] Processing {username}...")
+    for i, username in enumerate(contributors, 1):
+        print(f"[{i}/{len(contributors)}] Processing {username}...")
 
         pr_count = get_pull_requests(session, username, start_date, end_date)
         time.sleep(1)  # Rate limiting
@@ -106,11 +120,12 @@ def generate_statistics(session, start_date, end_date):
         commit_count = get_commits(session, username, start_date, end_date)
         time.sleep(1)  # Rate limiting
 
-        statistics.append({
-            'github_username': username,
-            'pull_requests': pr_count,
-            'commits': commit_count
-        })
+        if pr_count > 0 or commit_count > 0:
+            statistics.append({
+                'github_username': username,
+                'pull_requests': pr_count,
+                'commits': commit_count
+            })
 
         print(f"  PRs: {pr_count}, Commits: {commit_count}\n")
 
@@ -137,10 +152,10 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python volto_team_stats.py                    # Current year (default)
-  python volto_team_stats.py --year 2024       # All of 2024
-  python volto_team_stats.py --start-date 2024-01-01 --end-date 2024-06-30  # First half of 2024
-  python volto_team_stats.py --start-date 2023-01-01 --end-date 2024-12-31  # Two year span
+  python volto_stats.py                    # Current year (default)
+  python volto_stats.py --year 2024       # All of 2024
+  python volto_stats.py --start-date 2024-01-01 --end-date 2024-06-30  # First half of 2024
+  python volto_stats.py --start-date 2023-01-01 --end-date 2024-12-31  # Two year span
         """
     )
 
@@ -184,9 +199,9 @@ Examples:
     data_dir = 'data'
     os.makedirs(data_dir, exist_ok=True)
 
-    filename = os.path.join(data_dir, f'{year_label}-volto-team-stats.csv')
+    filename = os.path.join(data_dir, f'{year_label}-volto-stats.csv')
 
-    print("Volto Team Statistics Extractor")
+    print("Volto Statistics Extractor")
     print("=" * 60)
 
     # Get token
