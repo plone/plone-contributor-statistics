@@ -24,7 +24,25 @@ def load_year(year):
 
 
 def load_mapping(mapping_file='organisations.csv'):
+    """
+    Load organisation mapping from CSV file.
+
+    The mapping file should have columns: Organisation, Team
+    where Team contains semicolon-separated GitHub usernames.
+
+    Args:
+        mapping_file: Path to the organisations.csv file
+
+    Returns:
+        dict: Mapping of github_username -> organisation name
+    """
     import csv
+    from pathlib import Path
+
+    if not Path(mapping_file).exists():
+        print(f"Warning: {mapping_file} not found. All contributors will be marked as Independent.")
+        return {}
+
     mapping = {}
     with open(mapping_file, newline='', encoding='utf-8') as f:
         for row in csv.DictReader(f):
@@ -33,6 +51,8 @@ def load_mapping(mapping_file='organisations.csv'):
                 c = c.strip()
                 if c:
                     mapping[c] = org
+
+    print(f"Loaded organisation mapping: {len(mapping)} users mapped to organisations")
     return mapping
 
 
@@ -50,12 +70,30 @@ def combine(years):
 
 
 def combine_orgs(years, mapping):
+    """
+    Combine organisation statistics across multiple years.
+
+    Args:
+        years: List of years to include
+        mapping: dict mapping github_username -> organisation name
+
+    Returns:
+        DataFrame with columns: organisation, PRs, Commits, Contributors
+    """
     frames = [load_year(y) for y in years]
     frames = [f for f in frames if f is not None]
     if not frames:
         return None
     df = pd.concat(frames)
+
+    # Apply organisation mapping - unmapped users become "Independent"
     df['organisation'] = df['github_username'].map(mapping).fillna('Independent')
+
+    # Show mapping statistics
+    total_users = df['github_username'].nunique()
+    mapped_users = df[df['organisation'] != 'Independent']['github_username'].nunique()
+    print(f"  Organisation mapping: {mapped_users}/{total_users} unique contributors mapped to organisations")
+
     agg = df.groupby('organisation').agg(
         PRs=('pull_requests', 'sum'),
         Commits=('commits', 'sum'),
@@ -99,7 +137,15 @@ def org_table(df):
 
 def main():
     now = datetime.now()
+
+    print("=" * 60)
+    print("Volto Team Report Generator")
+    print("=" * 60)
+    print()
+
+    # Load organisation mapping from organisations.csv
     mapping = load_mapping()
+    print()
 
     available_years = sorted(
         [int(f.name.split('-')[0]) for f in Path('data').glob('[0-9][0-9][0-9][0-9]-volto-stats.csv')],
@@ -107,7 +153,8 @@ def main():
     )
 
     if not available_years:
-        print("No volto-stats CSV files found in data/!")
+        print("ERROR: No volto-stats CSV files found in data/!")
+        print("Please run volto_stats.py first to generate the data files.")
         return 1
 
     last_full_year = now.year - 1
@@ -136,9 +183,11 @@ def main():
         (f"All Time: {min(all_years)}-{max(all_years)}", all_years),
     ]
 
+    print("Generating contributor statistics...")
     for label, years in periods:
         df = combine(years)
         if df is not None:
+            print(f"  ✓ {label}: {len(df)} contributors")
             report.append(f"## Volto Contributors ({label})")
             report.append("")
             report.append(table(df))
@@ -150,9 +199,12 @@ def main():
     report.append("## Organisations")
     report.append("")
 
+    print()
+    print("Generating organisation statistics...")
     for label, years in periods:
         df = combine_orgs(years, mapping)
         if df is not None:
+            print(f"  ✓ {label}: {len(df)} organisations")
             report.append(f"### Organisations ({label})")
             report.append("")
             report.append(org_table(df))
@@ -172,7 +224,11 @@ def main():
     out = Path("reports/volto.md")
     out.parent.mkdir(exist_ok=True)
     out.write_text('\n'.join(report))
-    print(f"Report saved to {out}")
+
+    print()
+    print("=" * 60)
+    print(f"✓ Report saved to {out}")
+    print("=" * 60)
     return 0
 
 
