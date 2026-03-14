@@ -144,32 +144,28 @@ class PyPIPackageDownloader:
 class PyPIPackageAnalyzer:
     """Analyzes downloaded package metadata."""
     
-    def __init__(self, organization_mapping_file="organisation_mapping.txt"):
+    def __init__(self, organization_mapping_file="organisations.csv"):
         self.organization_mapping = self.load_organization_mapping(organization_mapping_file)
-    
+
     def load_organization_mapping(self, mapping_file):
-        """Load organization mapping from file."""
+        """Load organization mapping from CSV file."""
+        import csv
         org_mapping = {}
-        
+
         try:
-            with open(mapping_file, 'r', encoding='utf-8') as f:
-                for line in f:
-                    line = line.strip()
-                    if line and ':' in line:
-                        org_name, contributors = line.split(':', 1)
-                        # Create mapping of contributor names to organization
-                        contributor_list = [name.strip().lower() for name in contributors.split(',')]
-                        org_mapping[org_name.strip().lower()] = contributor_list
-                        
-                        # Also create reverse mapping (contributor -> org)
-                        for contributor in contributor_list:
-                            org_mapping[contributor] = org_name.strip().lower()
-            
-            print(f"📋 Loaded organization mapping for {len([k for k in org_mapping.keys() if ':' not in str(k)])} contributors")
-            
+            with open(mapping_file, newline='', encoding='utf-8') as f:
+                for row in csv.DictReader(f):
+                    org_name = row['Organisation'].strip().lower()
+                    contributor_list = [c.strip().lower() for c in row['Team'].split(';') if c.strip()]
+                    org_mapping[org_name] = contributor_list
+                    for contributor in contributor_list:
+                        org_mapping[contributor] = org_name
+
+            print(f"📋 Loaded organization mapping for {len([k for k in org_mapping.keys() if k not in {row['Organisation'].strip().lower() for row in []}])} contributors")
+
         except FileNotFoundError:
             print(f"⚠️  Organization mapping file not found: {mapping_file}")
-        
+
         return org_mapping
     
     def truncate_description(self, description, max_length=500):
