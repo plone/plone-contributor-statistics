@@ -1,6 +1,6 @@
 # Plone Contributor Statistics Report
 
-Generated on: 2026-03-12 11:03:39
+Generated on: 2026-03-14 19:31:39
 
 This report shows the top contributors and organizations in the Plone ecosystem across different time periods.
 
@@ -19,48 +19,48 @@ This report shows the top contributors and organizations in the Plone ecosystem 
 
 | Rank | Contributor | Commits | PRs | Total | Repositories |
 |------|-------------|---------|-----|-------|-------------|
-| 1 | mauritsvanrees | 1,325 | 226 | 1,551 | 90 |
-| 2 | gforcada | 630 | 291 | 921 | 115 |
-| 3 | petschki | 345 | 156 | 501 | 31 |
-| 4 | davisagli | 280 | 116 | 396 | 43 |
-| 5 | stevepiercy | 240 | 190 | 430 | 20 |
-| 6 | erral | 149 | 94 | 243 | 24 |
-| 7 | MrTango | 145 | 18 | 163 | 14 |
-| 8 | mister-roboto | 118 | 0 | 118 | 1 |
-| 9 | fredvd | 105 | 20 | 125 | 10 |
-| 10 | thet | 99 | 69 | 168 | 22 |
+| 1 | mauritsvanrees | 1,584 | 214 | 1,798 | 106 |
+| 2 | gforcada | 969 | 274 | 1,243 | 116 |
+| 3 | davisagli | 475 | 110 | 585 | 59 |
+| 4 | stevepiercy | 413 | 185 | 598 | 21 |
+| 5 | petschki | 360 | 139 | 499 | 31 |
+| 6 | fredvd | 181 | 18 | 199 | 12 |
+| 7 | ericof | 147 | 66 | 213 | 15 |
+| 8 | erral | 138 | 72 | 210 | 22 |
+| 9 | MrTango | 135 | 9 | 144 | 7 |
+| 10 | thet | 120 | 57 | 177 | 20 |
 
 
 ### Top 10 Individual Contributors (Past 3 Years: 2023-2025)
 
 | Rank | Contributor | Commits | PRs | Total | Repositories |
 |------|-------------|---------|-----|-------|-------------|
-| 1 | mauritsvanrees | 4,237 | 575 | 4,812 | 133 |
-| 2 | gforcada | 3,014 | 737 | 3,751 | 126 |
-| 3 | stevepiercy | 1,776 | 687 | 2,463 | 35 |
-| 4 | petschki | 1,581 | 467 | 2,048 | 55 |
-| 5 | sneridagh | 1,052 | 1,034 | 2,086 | 23 |
-| 6 | davisagli | 1,034 | 311 | 1,345 | 64 |
-| 7 | ericof | 652 | 190 | 842 | 37 |
-| 8 | jensens | 637 | 110 | 747 | 52 |
-| 9 | fredvd | 458 | 60 | 518 | 17 |
-| 10 | tisto | 419 | 51 | 470 | 14 |
+| 1 | mauritsvanrees | 4,010 | 531 | 4,541 | 135 |
+| 2 | gforcada | 2,913 | 679 | 3,592 | 126 |
+| 3 | stevepiercy | 1,935 | 655 | 2,590 | 34 |
+| 4 | petschki | 1,575 | 436 | 2,011 | 55 |
+| 5 | davisagli | 1,120 | 296 | 1,416 | 75 |
+| 6 | sneridagh | 717 | 964 | 1,681 | 21 |
+| 7 | jensens | 689 | 96 | 785 | 50 |
+| 8 | ericof | 683 | 183 | 866 | 35 |
+| 9 | fredvd | 529 | 50 | 579 | 19 |
+| 10 | MrTango | 393 | 32 | 425 | 15 |
 
 
 ### Top 10 Individual Contributors (Past 10 Years: 2016-2025)
 
 | Rank | Contributor | Commits | PRs | Total | Repositories |
 |------|-------------|---------|-----|-------|-------------|
-| 1 | mauritsvanrees | 14,475 | 1,665 | 16,140 | 177 |
-| 2 | gforcada | 5,781 | 1,297 | 7,078 | 169 |
-| 3 | jensens | 4,866 | 831 | 5,697 | 150 |
-| 4 | sneridagh | 4,258 | 2,048 | 6,306 | 61 |
-| 5 | tisto | 3,423 | 488 | 3,911 | 50 |
-| 6 | stevepiercy | 3,141 | 957 | 4,098 | 41 |
-| 7 | vangheem | 2,977 | 657 | 3,634 | 42 |
-| 8 | petschki | 2,974 | 808 | 3,782 | 87 |
-| 9 | pbauer | 2,663 | 556 | 3,219 | 135 |
-| 10 | thet | 2,630 | 787 | 3,417 | 105 |
+| 1 | mauritsvanrees | 14,415 | 1,540 | 15,955 | 178 |
+| 2 | gforcada | 5,766 | 1,138 | 6,904 | 167 |
+| 3 | jensens | 4,943 | 715 | 5,658 | 146 |
+| 4 | sneridagh | 4,239 | 1,904 | 6,143 | 57 |
+| 5 | stevepiercy | 3,292 | 906 | 4,198 | 38 |
+| 6 | tisto | 3,220 | 380 | 3,600 | 50 |
+| 7 | vangheem | 3,078 | 612 | 3,690 | 41 |
+| 8 | petschki | 2,977 | 755 | 3,732 | 86 |
+| 9 | thet | 2,721 | 688 | 3,409 | 99 |
+| 10 | pbauer | 2,702 | 505 | 3,207 | 134 |
 
 
 ---
@@ -94,8 +94,8 @@ This report shows the top contributors and organizations in the Plone ecosystem 
 | 5 | Kombinat | 1,581 | 467 | 2,048 | 1 | 55 |
 | 6 | Klein & Partner | 637 | 110 | 747 | 1 | 52 |
 | 7 | Codesyntax | 452 | 216 | 668 | 3 | 37 |
-| 8 | Derico | 381 | 47 | 428 | 1 | 25 |
-| 9 | Syslab | 381 | 224 | 605 | 5 | 50 |
+| 8 | Syslab | 381 | 224 | 605 | 5 | 50 |
+| 9 | Derico | 381 | 47 | 428 | 1 | 25 |
 | 10 | Eau de Web | 290 | 148 | 438 | 8 | 13 |
 
 
@@ -123,48 +123,48 @@ This report shows the top contributors and organizations in the Plone ecosystem 
 
 | Rank | Contributor | PRs | Commits | Total | Repositories |
 |------|-------------|-----|---------|-------|-------------|
-| 1 | sneridagh | 341 | 8 | 349 | 13 |
-| 2 | gforcada | 291 | 630 | 921 | 115 |
-| 3 | mauritsvanrees | 226 | 1,325 | 1,551 | 90 |
-| 4 | stevepiercy | 190 | 240 | 430 | 20 |
-| 5 | petschki | 156 | 345 | 501 | 31 |
-| 6 | wesleybl | 127 | 8 | 135 | 12 |
-| 7 | davisagli | 116 | 280 | 396 | 43 |
-| 8 | erral | 94 | 149 | 243 | 24 |
-| 9 | ericof | 70 | 91 | 161 | 16 |
-| 10 | thet | 69 | 99 | 168 | 22 |
+| 1 | sneridagh | 306 | 88 | 394 | 13 |
+| 2 | gforcada | 274 | 969 | 1,243 | 116 |
+| 3 | mauritsvanrees | 214 | 1,584 | 1,798 | 106 |
+| 4 | stevepiercy | 185 | 413 | 598 | 21 |
+| 5 | petschki | 139 | 360 | 499 | 31 |
+| 6 | wesleybl | 117 | 27 | 144 | 11 |
+| 7 | davisagli | 110 | 475 | 585 | 59 |
+| 8 | erral | 72 | 138 | 210 | 22 |
+| 9 | ericof | 66 | 147 | 213 | 15 |
+| 10 | thet | 57 | 120 | 177 | 20 |
 
 
 ### Top 10 Pull Request Contributors (Past 3 Years: 2023-2025)
 
 | Rank | Contributor | PRs | Commits | Total | Repositories |
 |------|-------------|-----|---------|-------|-------------|
-| 1 | sneridagh | 1,034 | 1,052 | 2,086 | 23 |
-| 2 | gforcada | 737 | 3,014 | 3,751 | 126 |
-| 3 | stevepiercy | 687 | 1,776 | 2,463 | 35 |
-| 4 | mauritsvanrees | 575 | 4,237 | 4,812 | 133 |
-| 5 | petschki | 467 | 1,581 | 2,048 | 55 |
-| 6 | davisagli | 311 | 1,034 | 1,345 | 64 |
-| 7 | wesleybl | 209 | 111 | 320 | 21 |
-| 8 | ericof | 190 | 652 | 842 | 37 |
-| 9 | erral | 182 | 332 | 514 | 36 |
-| 10 | thet | 152 | 253 | 405 | 35 |
+| 1 | sneridagh | 964 | 717 | 1,681 | 21 |
+| 2 | gforcada | 679 | 2,913 | 3,592 | 126 |
+| 3 | stevepiercy | 655 | 1,935 | 2,590 | 34 |
+| 4 | mauritsvanrees | 531 | 4,010 | 4,541 | 135 |
+| 5 | petschki | 436 | 1,575 | 2,011 | 55 |
+| 6 | davisagli | 296 | 1,120 | 1,416 | 75 |
+| 7 | wesleybl | 184 | 97 | 281 | 18 |
+| 8 | ericof | 183 | 683 | 866 | 35 |
+| 9 | erral | 136 | 295 | 431 | 35 |
+| 10 | thet | 126 | 307 | 433 | 29 |
 
 
 ### Top 10 Pull Request Contributors (Past 10 Years: 2016-2025)
 
 | Rank | Contributor | PRs | Commits | Total | Repositories |
 |------|-------------|-----|---------|-------|-------------|
-| 1 | sneridagh | 2,048 | 4,258 | 6,306 | 61 |
-| 2 | mauritsvanrees | 1,665 | 14,475 | 16,140 | 177 |
-| 3 | gforcada | 1,297 | 5,781 | 7,078 | 169 |
-| 4 | stevepiercy | 957 | 3,141 | 4,098 | 41 |
-| 5 | jensens | 831 | 4,866 | 5,697 | 150 |
-| 6 | petschki | 808 | 2,974 | 3,782 | 87 |
-| 7 | thet | 787 | 2,630 | 3,417 | 105 |
-| 8 | vangheem | 657 | 2,977 | 3,634 | 42 |
-| 9 | pbauer | 556 | 2,663 | 3,219 | 135 |
-| 10 | davisagli | 512 | 1,726 | 2,238 | 107 |
+| 1 | sneridagh | 1,904 | 4,239 | 6,143 | 57 |
+| 2 | mauritsvanrees | 1,540 | 14,415 | 15,955 | 178 |
+| 3 | gforcada | 1,138 | 5,766 | 6,904 | 167 |
+| 4 | stevepiercy | 906 | 3,292 | 4,198 | 38 |
+| 5 | petschki | 755 | 2,977 | 3,732 | 86 |
+| 6 | jensens | 715 | 4,943 | 5,658 | 146 |
+| 7 | thet | 688 | 2,721 | 3,409 | 99 |
+| 8 | vangheem | 612 | 3,078 | 3,690 | 41 |
+| 9 | pbauer | 505 | 2,702 | 3,207 | 134 |
+| 10 | davisagli | 488 | 1,830 | 2,318 | 113 |
 
 
 ### Organizations by Pull Requests
