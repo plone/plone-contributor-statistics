@@ -249,3 +249,23 @@ make run-organisation-stats-2022
 - **Without token**: 60 requests per hour (not recommended)
 - Built-in rate limiting and retry logic
 - Handles pagination for large datasets
+
+## Data Collection Methodology
+
+### Pull Request Counting
+
+**All contributor statistics count only merged pull requests**, excluding:
+- Open PRs (still under review)
+- Closed but not merged PRs (rejected/abandoned)
+
+This ensures statistics reflect actual contributions to the codebase.
+
+**Exception**: PR interaction statistics (`plone_pr_interactions.py`) count all interactions (comments, reviews) on any PR, regardless of merge status, to capture community engagement accurately.
+
+### Commit Counting
+
+Commits are counted from the main/default branch only, which automatically includes:
+- Direct commits to the main branch
+- Commits from merged pull requests
+
+This excludes commits on unmerged branches or rejected PRs.

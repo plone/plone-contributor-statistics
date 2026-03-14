@@ -5,7 +5,7 @@ Plone GitHub Statistics Extractor
 Extracts commit and pull request statistics from the Plone GitHub organization.
 Aggregates data per contributor including:
 - Number of commits per person
-- Number of pull requests per person  
+- Number of merged pull requests per person (excludes open or closed/rejected PRs)
 - Repository contributions
 """
 
@@ -129,16 +129,16 @@ class PloneStatsExtractor:
         return []
     
     def get_repository_pull_requests(self, repo_name: str) -> List[Dict[str, Any]]:
-        """Get all pull requests for a repository."""
-        print(f"Fetching pull requests for {repo_name}...")
-        
+        """Get merged pull requests for a repository."""
+        print(f"Fetching merged pull requests for {repo_name}...")
+
         prs = []
         page = 1
-        
+
         while True:
             url = f'https://api.github.com/repos/{self.org}/{repo_name}/pulls'
             params = {
-                'state': 'all',
+                'state': 'closed',  # Fetch closed PRs (includes both merged and rejected)
                 'page': page,
                 'per_page': 100,
                 'sort': 'updated',
@@ -225,12 +225,20 @@ class PloneStatsExtractor:
                     self.contributors_data[username]['last_contribution'] = last_contribution
     
     def process_pull_requests(self, repo_name: str, prs: List[Dict[str, Any]]):
-        """Process pull request statistics for a repository."""
+        """Process merged pull request statistics for a repository."""
+        merged_count = 0
         for pr in prs:
+            # Only count merged PRs (filter out closed but not merged PRs)
+            if pr.get('merged_at') is None:
+                continue
+
             if pr['user'] and pr['user']['type'] != 'Bot':
                 username = pr['user']['login']
                 self.contributors_data[username]['pull_requests'] += 1
                 self.contributors_data[username]['repositories'].add(repo_name)
+                merged_count += 1
+
+        print(f"Processed {merged_count} merged PRs for {repo_name}")
     
     def extract_all_stats(self, max_repos: int = None):
         """Extract statistics from all repositories in the organization."""
