@@ -4,49 +4,52 @@ Academy of FA Vienna:gogobd,iham
 Affinitic:laulaz,mpeeters
 Agitator:agitator
 bearstach:encolpe
-CMS Communications:terapyon
+CCC:polyester
+CMS Communications Inc.:terapyon
 Codesyntax:erral,ionlizarazu,libargutxi
 Cosent:gyst
+Deloitte Digital:optilude
+der Freitag:gforcada
 Derico:MrTango
 Eau de Web:avoinea,ichim-david,tiberiuichim,claudiaifrim,nileshgulia1,ana-oprea,dobri1408,Petchesi-Iulian
-Enfold:sidnei,jcameroncooper
+eCityclic:
+Ecréall:vincentfretin
+Enfold:sidnei,jcameroncooper,frapell
 FHNW:adrianschulz,tomschall,tomgross
-der Freitag:gforcada
-Soliton Consulting:fulv
-IMIO:gotcha,bsuttor,gbastien,sverbois,sgeulette
+iMio:gotcha,bsuttor,gbastien,sverbois,sgeulette
 Interaktiv:mliebischer
+Interlegis Program (Senado Federal):jhgouveia,rafahela
 Iskra:rboixaderg,nilbacardit26,masipcat
 IT Sprit:thomasmassmann
 Jarn:tomster,hannosch,witsch,MatthewWilkes,fschulze,stefanholek,baekholt,limi,lrowe,stefanholek
 kitconcept GmbH:tisto,sneridagh,ericof,fredvd,davisagli,iFlameing,iRohitSingh,robgietema,kittauri,danalvrz,Tishasoumya-02,reebalazs,jnptk,jackahl,steffenri,jaroel,ThomasKindermann
-Klein & Partner:jensens
+Klein & Partner KG:jensens
 Kombinat:petschki
 KU Leuven:spereverde
+Ludwig Maximilian University Munich:loechel
+Makina Corpus:tdesvenain
 minddistrict:icemac
 Nelen-Schuurmans:reinout
 Nuclia:bloodbare,ebrehault,mpellerin42
-Deloitte Digital:optilude
-CCC:polyester
 Pretaweb:djowett,JeffersonBledsoe,djay,instification
 PY76:mauritsvanrees
 Radio Free Asia:flipmcf
 RedTurtle:mamico,cekk,pnicolli,giuliaghisini,Wagner3UB,folix-01,yurj,nzambello
+Reid-McMahon:smcmahon
 Rohberg:ksuess
-Royal Belgium Institute of National Science:davconvent
+Royal Belgium Institute of Natural Sciences:davconvent
 Salesforce:dextermilo,esteele
 Serpro:wesleybl
-Sixfeetup:cdw9,rpatterson,tkimnguyen
-Reid-McMahon:smcmahon
-Starzel:pbauer,tlotze,gomez,Gomez
-Syslab:ale-rt,pilz,thet,reinhardt,svx
-Makina Corpus:tdesvenain
-Uni. Hospital Dresden:1letter
-Uni. Jyvaskylä:datakurre
-TU Dresden:pgrunewald
-TU München:loechel
-Wildcard Corp:vangheem:vangheem
-Ecréall:vincentfretin
-Webmeisterei:frisi
 Simplon:wichert
+Sixfeetup:cdw9,rpatterson,tkimnguyen
+Soliton Consulting:fulv
+Starzel:pbauer,tlotze,gomez,Gomez
+Steve Piercy - Website Builder:stevepiercy
+Syslab:ale-rt,pilz,thet,reinhardt,svx
+TU Dresden:pgrunewald
+Uni. Hospital Dresden:1letter
+University of Jyväskylä:datakurre
+Webmeisterei:frisi
+Wildcard Corp:vangheem:vangheem
 Zest Software:jladage,rockyburt
 Zopyx:zopyx

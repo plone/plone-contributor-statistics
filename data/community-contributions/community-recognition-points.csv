@@ -1,0 +1,18 @@
+Category,Criteria,Comment,Period,Number of points
+Community,Organize / host a strategic sprint,"The organizing entities of an event collectively receive 12 points, split equally amongst the entities. Each entity may receive points for no more than one event per calendar year.",1 year,12
+Community,Organize / host a community sprint,"The organizing entities of an event collectively receive 12 points, split equally amongst the entities. Each entity may receive points for no more than one event per calendar year.",1 year,6
+Community,Serve as a release manager,Per release manager as recognized by the Foundation Board,1 year,12
+Community,Lead a Community team,"Per Leader, limited to 1 Leader per Team. This requires that the Team meets regularly (at least once per month), and that it publishes its minutes (or a link to them) at community.plone.org. Security Team and Membership Committee, because of their nature, are not required to publish their minutes.",1 year,6
+Community,Serve on the Foundation Board,Per member,1 year,6
+Marketing,Host a Plone-related podcast / live event,"Points are awarded per series, split equally among hosts. A series must have at least five episodes in the last year.",1 year,6
+Marketing,World Plone Day (WPD): Organize an in-person event,"Points are awarded per event, split equally among organizing entities.",1 year,3
+Marketing,WPD: Give an online talk,Limited to 4 per organization,1 year,1
+Community,Organize the previous edition,Split evenly among organizing entities.,1 year,24
+Community,Host a training session,4 points per training for instructors.,1 year,4
+Code,Lead Contributor (PR),+100 PRs/year in the past five years.,5 years,20
+Code,Core Member (PR),50-99 PRs/year in the past five years.,5 years,10
+Code,Active Member (PR),20-49 PRs/year in the past five years.,5 years,4
+Code,Contributor (PR),10-19 PRs/year in the past five years.,5 years,2
+Code,Core Leaders (PLIP),+10 PLIPs merged and released in the past five years.,5 years,15
+Code,Active Core Contributor (PLIP),+6 PLIPs merged and released in the past five years.,5 years,9
+Code,Emerging Core Contributor (PLIP),+2 PLIPs merged and released in the past five years.,5 years,3
