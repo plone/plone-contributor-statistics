@@ -261,7 +261,7 @@ The counts exclude the following pull request statuses.
 
 This ensures statistics reflect actual contributions to the codebase.
 
-**Exception**: PR interaction statistics (`plone_pr_interactions.py`) count all interactions (comments, reviews) on any PR, regardless of merge status, to capture community engagement accurately.
+**Exception**: PR interaction statistics (`plone_pr_interactions.py`) count all interactions (comments, reviews) on any PR, regardless of merge status, to accurately capture community engagement.
 
 ### Commit Counting
 
