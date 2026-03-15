@@ -1,6 +1,6 @@
 # Plone Core Contributor Statistics Report
 
-Generated on: 2026-03-15 09:17:51
+Generated on: 2026-03-15 16:03:16
 
 This report shows the top contributors and organizations in the Plone ecosystem across different time periods.
 
@@ -19,48 +19,48 @@ This report shows the top contributors and organizations in the Plone ecosystem 
 
 | Rank | Contributor | PRs | Commits | Repositories |
 |------|-------------|-----|---------|-------------|
-| 1 | sneridagh | 306 | 88 | 13 |
-| 2 | gforcada | 274 | 969 | 116 |
-| 3 | mauritsvanrees | 214 | 1,584 | 106 |
-| 4 | stevepiercy | 185 | 413 | 21 |
-| 5 | petschki | 139 | 360 | 31 |
-| 6 | wesleybl | 117 | 27 | 11 |
-| 7 | davisagli | 110 | 475 | 59 |
-| 8 | erral | 72 | 138 | 22 |
-| 9 | ericof | 66 | 147 | 15 |
-| 10 | thet | 57 | 120 | 20 |
+| 1 | sneridagh | 307 | 360 | 14 |
+| 2 | gforcada | 273 | 2,468 | 122 |
+| 3 | mauritsvanrees | 214 | 2,552 | 127 |
+| 4 | stevepiercy | 185 | 679 | 21 |
+| 5 | petschki | 139 | 797 | 30 |
+| 6 | wesleybl | 118 | 108 | 13 |
+| 7 | davisagli | 109 | 710 | 98 |
+| 8 | erral | 74 | 357 | 23 |
+| 9 | ericof | 67 | 213 | 19 |
+| 10 | thet | 59 | 179 | 21 |
 
 
 ### Top 10 Contributors (Past 3 Years: 2023-2025)
 
 | Rank | Contributor | PRs | Commits | Repositories |
 |------|-------------|-----|---------|-------------|
-| 1 | sneridagh | 964 | 717 | 21 |
-| 2 | gforcada | 679 | 2,913 | 126 |
-| 3 | stevepiercy | 655 | 1,935 | 34 |
-| 4 | mauritsvanrees | 531 | 4,010 | 135 |
-| 5 | petschki | 436 | 1,575 | 55 |
-| 6 | davisagli | 296 | 1,120 | 75 |
-| 7 | wesleybl | 184 | 97 | 18 |
-| 8 | ericof | 183 | 683 | 35 |
-| 9 | erral | 136 | 295 | 35 |
-| 10 | thet | 126 | 307 | 29 |
+| 1 | sneridagh | 965 | 989 | 21 |
+| 2 | gforcada | 678 | 4,412 | 127 |
+| 3 | stevepiercy | 655 | 2,201 | 34 |
+| 4 | mauritsvanrees | 531 | 4,978 | 137 |
+| 5 | petschki | 436 | 2,012 | 54 |
+| 6 | davisagli | 295 | 1,355 | 102 |
+| 7 | wesleybl | 185 | 178 | 19 |
+| 8 | ericof | 184 | 749 | 38 |
+| 9 | erral | 138 | 514 | 36 |
+| 10 | thet | 128 | 366 | 30 |
 
 
 ### Top 10 Contributors (Past 10 Years: 2016-2025)
 
 | Rank | Contributor | PRs | Commits | Repositories |
 |------|-------------|-----|---------|-------------|
-| 1 | sneridagh | 1,904 | 4,239 | 57 |
-| 2 | mauritsvanrees | 1,540 | 14,415 | 178 |
-| 3 | gforcada | 1,138 | 5,766 | 167 |
-| 4 | stevepiercy | 906 | 3,292 | 38 |
-| 5 | petschki | 755 | 2,977 | 86 |
-| 6 | jensens | 715 | 4,943 | 146 |
-| 7 | thet | 688 | 2,721 | 99 |
+| 1 | sneridagh | 1,905 | 4,511 | 57 |
+| 2 | mauritsvanrees | 1,540 | 15,383 | 178 |
+| 3 | gforcada | 1,137 | 7,265 | 167 |
+| 4 | stevepiercy | 906 | 3,558 | 39 |
+| 5 | petschki | 755 | 3,414 | 85 |
+| 6 | jensens | 717 | 4,970 | 147 |
+| 7 | thet | 690 | 2,780 | 99 |
 | 8 | vangheem | 612 | 3,078 | 41 |
-| 9 | pbauer | 505 | 2,702 | 134 |
-| 10 | davisagli | 488 | 1,830 | 113 |
+| 9 | pbauer | 505 | 2,720 | 134 |
+| 10 | davisagli | 487 | 2,065 | 127 |
 
 
 ---

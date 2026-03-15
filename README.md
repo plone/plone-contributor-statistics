@@ -254,18 +254,19 @@ make run-organisation-stats-2022
 
 ### Pull Request Counting
 
-**All contributor statistics count only merged pull requests**, excluding:
+All contributor statistics count only **merged** pull requests.
+The counts exclude the following pull request statuses.
 - Open PRs (still under review)
 - Closed but not merged PRs (rejected/abandoned)
 
 This ensures statistics reflect actual contributions to the codebase.
 
-**Exception**: PR interaction statistics (`plone_pr_interactions.py`) count all interactions (comments, reviews) on any PR, regardless of merge status, to capture community engagement accurately.
+**Exception**: PR interaction statistics (`plone_pr_interactions.py`) count all interactions (comments, reviews) on any PR, regardless of merge status, to accurately capture community engagement.
 
 ### Commit Counting
 
-Commits are counted from the main/default branch only, which automatically includes:
-- Direct commits to the main branch
+Commits are counted from the default branch only, which automatically includes:
+- Direct commits to the default branch
 - Commits from merged pull requests
 
-This excludes commits on unmerged branches or rejected PRs.
+This excludes commits on unmerged branches or rejected pull requests.

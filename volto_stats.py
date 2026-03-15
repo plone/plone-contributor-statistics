@@ -4,20 +4,23 @@ Generate contributor statistics for the plone/volto repository.
 Fetches data from GitHub API for all contributors.
 
 Statistics include:
+
 - Merged pull requests (not including open or closed/rejected PRs)
 - Commits to the main branch (includes direct commits and commits merged via PRs)
 
 Note: Only commits on the main branch are counted. Commits on feature branches
 that were never merged are excluded.
+
 """
 
-import requests
-import csv
-import time
 import argparse
-from datetime import datetime
-from collections import defaultdict
+import csv
 import os
+import time
+from collections import defaultdict
+from datetime import datetime
+
+import requests
 from dotenv import load_dotenv
 
 # Force reload environment
