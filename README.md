@@ -254,7 +254,8 @@ make run-organisation-stats-2022
 
 ### Pull Request Counting
 
-**All contributor statistics count only merged pull requests**, excluding:
+All contributor statistics count only **merged** pull requests.
+The counts exclude the following pull request statuses.
 - Open PRs (still under review)
 - Closed but not merged PRs (rejected/abandoned)
 
