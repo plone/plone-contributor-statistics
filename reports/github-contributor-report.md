@@ -1,6 +1,6 @@
 # Plone Core Contributor Statistics Report
 
-Generated on: 2026-03-15 16:03:16
+Generated on: 2026-03-15 17:59:12
 
 This report shows the top contributors and organizations in the Plone ecosystem across different time periods.
 
@@ -35,32 +35,32 @@ This report shows the top contributors and organizations in the Plone ecosystem 
 
 | Rank | Contributor | PRs | Commits | Repositories |
 |------|-------------|-----|---------|-------------|
-| 1 | sneridagh | 965 | 989 | 21 |
-| 2 | gforcada | 678 | 4,412 | 127 |
-| 3 | stevepiercy | 655 | 2,201 | 34 |
-| 4 | mauritsvanrees | 531 | 4,978 | 137 |
-| 5 | petschki | 436 | 2,012 | 54 |
-| 6 | davisagli | 295 | 1,355 | 102 |
-| 7 | wesleybl | 185 | 178 | 19 |
-| 8 | ericof | 184 | 749 | 38 |
-| 9 | erral | 138 | 514 | 36 |
-| 10 | thet | 128 | 366 | 30 |
+| 1 | sneridagh | 967 | 1,415 | 21 |
+| 2 | gforcada | 684 | 5,182 | 127 |
+| 3 | stevepiercy | 655 | 2,469 | 30 |
+| 4 | mauritsvanrees | 531 | 5,354 | 137 |
+| 5 | petschki | 440 | 2,239 | 55 |
+| 6 | davisagli | 295 | 1,474 | 106 |
+| 7 | wesleybl | 187 | 208 | 19 |
+| 8 | ericof | 185 | 769 | 39 |
+| 9 | erral | 139 | 543 | 36 |
+| 10 | thet | 132 | 401 | 30 |
 
 
 ### Top 10 Contributors (Past 10 Years: 2016-2025)
 
 | Rank | Contributor | PRs | Commits | Repositories |
 |------|-------------|-----|---------|-------------|
-| 1 | sneridagh | 1,905 | 4,511 | 57 |
-| 2 | mauritsvanrees | 1,540 | 15,383 | 178 |
-| 3 | gforcada | 1,137 | 7,265 | 167 |
-| 4 | stevepiercy | 906 | 3,558 | 39 |
-| 5 | petschki | 755 | 3,414 | 85 |
-| 6 | jensens | 717 | 4,970 | 147 |
-| 7 | thet | 690 | 2,780 | 99 |
+| 1 | sneridagh | 1,907 | 4,937 | 57 |
+| 2 | mauritsvanrees | 1,540 | 15,759 | 178 |
+| 3 | gforcada | 1,143 | 8,035 | 167 |
+| 4 | stevepiercy | 906 | 3,826 | 36 |
+| 5 | petschki | 759 | 3,641 | 85 |
+| 6 | jensens | 724 | 5,167 | 151 |
+| 7 | thet | 694 | 2,815 | 99 |
 | 8 | vangheem | 612 | 3,078 | 41 |
-| 9 | pbauer | 505 | 2,720 | 134 |
-| 10 | davisagli | 487 | 2,065 | 127 |
+| 9 | pbauer | 507 | 2,729 | 134 |
+| 10 | davisagli | 487 | 2,184 | 130 |
 
 
 ---
