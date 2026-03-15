@@ -265,7 +265,7 @@ This ensures statistics reflect actual contributions to the codebase.
 
 ### Commit Counting
 
-Commits are counted from the main/default branch only, which automatically includes:
+Commits are counted from the default branch only, which automatically includes:
 - Direct commits to the main branch
 - Commits from merged pull requests
 
