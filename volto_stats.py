@@ -4,7 +4,7 @@ Generate contributor statistics for the plone/volto repository.
 Fetches data from GitHub API for all contributors.
 
 Statistics include:
-- Merged pull requests (not including open or closed/rejected PRs)
+- Merged pull requests (excluding open or closed or rejected pull requests)
 - Direct commits to the repository
 """
 
