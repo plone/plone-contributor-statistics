@@ -1,6 +1,6 @@
 # Volto Statistics Report
 
-Generated on: 2026-03-14 06:48:46
+Generated on: 2026-03-14 19:30:36
 
 - **Available years**: 2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016
 - **Last full year**: 2025
@@ -13,364 +13,355 @@ Generated on: 2026-03-14 06:48:46
 
 | Rank | Contributor | PRs | Commits |
 |------|-------------|-----|---------|
-| 1 | sneridagh | 302 | 227 |
-| 2 | wesleybl | 98 | 45 |
-| 3 | stevepiercy | 64 | 59 |
-| 4 | pnicolli | 38 | 8 |
-| 5 | Wagner3UB | 27 | 7 |
-| 6 | davisagli | 24 | 18 |
-| 7 | alexandreIFB | 21 | 7 |
-| 8 | ksuess | 16 | 10 |
-| 9 | iFlameing | 15 | 6 |
-| 10 | Abhishek-17h | 15 | 8 |
-| 11 | Shyam-Raghuwanshi | 13 | 4 |
-| 12 | erral | 13 | 8 |
-| 13 | Manik-Khajuria-5 | 13 | 1 |
-| 14 | nileshgulia1 | 12 | 6 |
-| 15 | aryan7081 | 12 | 4 |
-| 16 | Tishasoumya-02 | 11 | 5 |
-| 17 | giuliaghisini | 10 | 5 |
-| 18 | silviubogan | 10 | 3 |
-| 19 | ionlizarazu | 9 | 3 |
-| 20 | rboixaderg | 9 | 2 |
-| 21 | tedw87 | 8 | 1 |
-| 22 | reebalazs | 7 | 3 |
-| 23 | calinvladth | 7 | 1 |
-| 24 | dobri1408 | 7 | 1 |
-| 25 | pratyush07-hub | 6 | 3 |
-| 26 | iRohitSingh | 4 | 3 |
-| 27 | sabrina-bongiovanni | 4 | 1 |
-| 28 | kittauri | 4 | 3 |
-| 29 | jnptk | 4 | 2 |
-| 30 | ericof | 4 | 3 |
-| 31 | mauritsvanrees | 3 | 2 |
-| 32 | avoinea | 3 | 1 |
-| 33 | fredvd | 3 | 3 |
-| 34 | tomschall | 3 | 2 |
-| 35 | boss6825 | 3 | 1 |
-| 36 | JeffersonBledsoe | 3 | 2 |
-| 37 | Manas-Kenge | 3 | 1 |
-| 38 | ebrehault | 3 | 0 |
-| 39 | Narcis2005 | 2 | 2 |
-| 40 | robgietema | 2 | 4 |
-| 41 | terapyon | 2 | 0 |
-| 42 | Shauryan0207 | 2 | 0 |
-| 43 | ompharate | 2 | 1 |
-| 44 | macagua | 2 | 0 |
-| 45 | thet | 1 | 0 |
-| 46 | tiberiuichim | 1 | 0 |
-| 47 | toropok | 1 | 1 |
-| 48 | alecghica | 1 | 0 |
-| 49 | cekk | 1 | 0 |
-| 50 | TechSubham | 1 | 2 |
-| 51 | ana-oprea | 1 | 0 |
-| 52 | danalvrz | 1 | 0 |
-| 53 | SaraBianchi | 1 | 0 |
-| 54 | acsr | 1 | 1 |
-| 55 | ichim-david | 1 | 0 |
-| 56 | gummybearansh | 1 | 0 |
-| 57 | kreafox | 0 | 1 |
+| 1 | sneridagh | 274 | 227 |
+| 2 | wesleybl | 93 | 45 |
+| 3 | stevepiercy | 62 | 59 |
+| 4 | pnicolli | 34 | 8 |
+| 5 | davisagli | 20 | 18 |
+| 6 | Wagner3UB | 15 | 7 |
+| 7 | alexandreIFB | 14 | 7 |
+| 8 | ksuess | 13 | 10 |
+| 9 | nileshgulia1 | 11 | 6 |
+| 10 | iFlameing | 11 | 6 |
+| 11 | erral | 11 | 8 |
+| 12 | Abhishek-17h | 10 | 8 |
+| 13 | giuliaghisini | 8 | 5 |
+| 14 | Tishasoumya-02 | 8 | 5 |
+| 15 | Shyam-Raghuwanshi | 7 | 4 |
+| 16 | aryan7081 | 7 | 4 |
+| 17 | ionlizarazu | 7 | 3 |
+| 18 | rboixaderg | 5 | 2 |
+| 19 | tedw87 | 4 | 1 |
+| 20 | silviubogan | 4 | 3 |
+| 21 | reebalazs | 4 | 3 |
+| 22 | pratyush07-hub | 4 | 3 |
+| 23 | kittauri | 4 | 3 |
+| 24 | ericof | 4 | 3 |
+| 25 | avoinea | 3 | 1 |
+| 26 | jnptk | 3 | 2 |
+| 27 | dobri1408 | 3 | 1 |
+| 28 | mauritsvanrees | 3 | 2 |
+| 29 | Manik-Khajuria-5 | 3 | 1 |
+| 30 | calinvladth | 3 | 1 |
+| 31 | iRohitSingh | 3 | 3 |
+| 32 | ebrehault | 2 | 0 |
+| 33 | robgietema | 2 | 4 |
+| 34 | tomschall | 2 | 2 |
+| 35 | ompharate | 2 | 1 |
+| 36 | fredvd | 2 | 3 |
+| 37 | sabrina-bongiovanni | 2 | 1 |
+| 38 | Narcis2005 | 2 | 2 |
+| 39 | terapyon | 1 | 0 |
+| 40 | boss6825 | 1 | 1 |
+| 41 | toropok | 1 | 1 |
+| 42 | acsr | 1 | 1 |
+| 43 | danalvrz | 1 | 0 |
+| 44 | SaraBianchi | 1 | 0 |
+| 45 | Shauryan0207 | 1 | 0 |
+| 46 | ana-oprea | 1 | 0 |
+| 47 | gummybearansh | 1 | 0 |
+| 48 | JeffersonBledsoe | 1 | 2 |
+| 49 | Manas-Kenge | 0 | 1 |
+| 50 | kreafox | 0 | 1 |
+| 51 | TechSubham | 0 | 2 |
 
 
 ## Volto Contributors (Past 3 Years: 2023-2025)
 
 | Rank | Contributor | PRs | Commits |
 |------|-------------|-----|---------|
-| 1 | sneridagh | 899 | 935 |
-| 2 | stevepiercy | 219 | 197 |
-| 3 | wesleybl | 129 | 69 |
-| 4 | davisagli | 98 | 79 |
-| 5 | Tishasoumya-02 | 87 | 56 |
-| 6 | pnicolli | 71 | 29 |
-| 7 | ksuess | 45 | 29 |
-| 8 | iFlameing | 43 | 25 |
-| 9 | ichim-david | 40 | 25 |
-| 10 | erral | 38 | 23 |
-| 11 | Wagner3UB | 36 | 10 |
-| 12 | dobri1408 | 35 | 21 |
-| 13 | giuliaghisini | 29 | 18 |
-| 14 | robgietema | 26 | 19 |
-| 15 | tedw87 | 22 | 8 |
-| 16 | alexandreIFB | 21 | 7 |
-| 17 | JeffersonBledsoe | 20 | 11 |
-| 18 | tiberiuichim | 19 | 10 |
-| 19 | nileshgulia1 | 19 | 12 |
-| 20 | iRohitSingh | 18 | 12 |
-| 21 | Abhishek-17h | 17 | 9 |
-| 22 | aryan7081 | 13 | 5 |
-| 23 | Manik-Khajuria-5 | 13 | 1 |
-| 24 | Shyam-Raghuwanshi | 13 | 4 |
-| 25 | ionlizarazu | 12 | 6 |
-| 26 | reebalazs | 12 | 7 |
-| 27 | fredvd | 11 | 8 |
-| 28 | sabrina-bongiovanni | 11 | 6 |
-| 29 | silviubogan | 10 | 3 |
-| 30 | rboixaderg | 10 | 3 |
-| 31 | mamico | 10 | 5 |
-| 32 | razvanMiu | 9 | 4 |
-| 33 | danalvrz | 9 | 5 |
-| 34 | ericof | 9 | 9 |
-| 35 | cekk | 8 | 5 |
-| 36 | ujjwaleee26 | 8 | 2 |
-| 37 | suman9893 | 7 | 3 |
-| 38 | lord2anil | 7 | 2 |
-| 39 | calinvladth | 7 | 1 |
-| 40 | avoinea | 6 | 4 |
-| 41 | pratyush07-hub | 6 | 3 |
-| 42 | tomschall | 6 | 5 |
-| 43 | MAX-786 | 6 | 5 |
-| 44 | SaiRev0 | 6 | 2 |
-| 45 | Manas-Kenge | 6 | 1 |
-| 46 | TechSubham | 6 | 2 |
-| 47 | Hrittik20 | 6 | 2 |
-| 48 | mehedikhan72 | 5 | 1 |
-| 49 | macagua | 5 | 3 |
-| 50 | jnptk | 5 | 2 |
-| 51 | Faakhir30 | 5 | 4 |
-| 52 | SaraBianchi | 5 | 2 |
-| 53 | akshatgarg12 | 5 | 3 |
-| 54 | pbauer | 5 | 5 |
-| 55 | mauritsvanrees | 5 | 4 |
-| 56 | sudhanshu1309 | 5 | 2 |
-| 57 | Molochem | 4 | 3 |
-| 58 | Raman-Luhach | 4 | 1 |
-| 59 | instification | 4 | 3 |
-| 60 | jackahl | 4 | 3 |
-| 61 | Noobham | 4 | 1 |
-| 62 | ebrehault | 4 | 1 |
-| 63 | kittauri | 4 | 3 |
-| 64 | Gomez | 4 | 4 |
-| 65 | aadityaforwork | 4 | 1 |
-| 66 | kHAPPY2004 | 3 | 2 |
-| 67 | ana-oprea | 3 | 1 |
-| 68 | steffenri | 3 | 2 |
-| 69 | nilootpal | 3 | 1 |
-| 70 | Prince0906 | 3 | 1 |
-| 71 | Ravi-kumar9347 | 3 | 2 |
-| 72 | victorchrollo14 | 3 | 1 |
-| 73 | satyam4p | 3 | 1 |
-| 74 | MostafaMagdyy | 3 | 1 |
-| 75 | gianniftp | 3 | 1 |
-| 76 | boss6825 | 3 | 1 |
-| 77 | FritzHoing | 2 | 1 |
-| 78 | Kaku-g | 2 | 1 |
-| 79 | IshaanDasgupta | 2 | 1 |
-| 80 | kreafox | 2 | 2 |
-| 81 | tisto | 2 | 2 |
-| 82 | jensens | 2 | 2 |
-| 83 | jaroel | 2 | 1 |
-| 84 | MihaelaCretu11 | 2 | 2 |
-| 85 | Narcis2005 | 2 | 2 |
-| 86 | Shauryan0207 | 2 | 0 |
-| 87 | curiousyuvi | 2 | 1 |
-| 88 | Shibbu264 | 2 | 1 |
-| 89 | terapyon | 2 | 0 |
-| 90 | yahya-cloud | 2 | 1 |
-| 91 | ZubairImtiaz3 | 2 | 1 |
-| 92 | BhardwajAditya-github | 2 | 1 |
-| 93 | Akshat2Jain | 2 | 1 |
-| 94 | animus888 | 2 | 1 |
-| 95 | ompharate | 2 | 1 |
-| 96 | utkkkarshhh | 1 | 1 |
-| 97 | tschorr | 1 | 1 |
-| 98 | thet | 1 | 0 |
-| 99 | toropok | 1 | 1 |
-| 100 | Aarav238 | 1 | 1 |
-| 101 | folix-01 | 1 | 1 |
-| 102 | pigeonflight | 1 | 0 |
-| 103 | pgrunewald | 1 | 1 |
-| 104 | BhuvaneshPatil | 1 | 1 |
-| 105 | EshaanAgg | 1 | 1 |
-| 106 | Junko-Takeguchi | 1 | 1 |
-| 107 | Manice18 | 1 | 1 |
-| 108 | MrTango | 1 | 1 |
-| 109 | Vivek-04022001 | 1 | 1 |
-| 110 | acsr | 1 | 1 |
-| 111 | agan-k | 1 | 1 |
-| 112 | alecghica | 1 | 0 |
-| 113 | andreiggr | 1 | 1 |
-| 114 | cguardia | 1 | 1 |
-| 115 | chirayu-humar | 1 | 1 |
-| 116 | claudiaifrim | 1 | 1 |
-| 117 | claytonc | 1 | 1 |
-| 118 | gummybearansh | 1 | 0 |
-| 119 | jhgouveia | 1 | 1 |
-| 120 | libargutxi | 1 | 1 |
-| 121 | lorstenoplo | 1 | 1 |
-| 122 | luxcas | 1 | 1 |
-| 123 | mikejmets | 1 | 1 |
-| 124 | nzambello | 1 | 1 |
-| 125 | yurj | 1 | 1 |
-| 126 | bipoza | 0 | 2 |
+| 1 | sneridagh | 847 | 935 |
+| 2 | stevepiercy | 205 | 197 |
+| 3 | wesleybl | 121 | 69 |
+| 4 | davisagli | 91 | 79 |
+| 5 | pnicolli | 61 | 29 |
+| 6 | Tishasoumya-02 | 60 | 56 |
+| 7 | ichim-david | 39 | 25 |
+| 8 | ksuess | 33 | 29 |
+| 9 | iFlameing | 32 | 25 |
+| 10 | dobri1408 | 27 | 21 |
+| 11 | erral | 26 | 23 |
+| 12 | giuliaghisini | 24 | 18 |
+| 13 | robgietema | 23 | 19 |
+| 14 | nileshgulia1 | 18 | 12 |
+| 15 | Wagner3UB | 17 | 10 |
+| 16 | tedw87 | 14 | 8 |
+| 17 | alexandreIFB | 14 | 7 |
+| 18 | iRohitSingh | 12 | 12 |
+| 19 | tiberiuichim | 11 | 10 |
+| 20 | Abhishek-17h | 11 | 9 |
+| 21 | JeffersonBledsoe | 9 | 11 |
+| 22 | ionlizarazu | 9 | 6 |
+| 23 | sabrina-bongiovanni | 9 | 6 |
+| 24 | ericof | 9 | 9 |
+| 25 | aryan7081 | 8 | 5 |
+| 26 | reebalazs | 8 | 7 |
+| 27 | fredvd | 8 | 8 |
+| 28 | danalvrz | 7 | 5 |
+| 29 | Shyam-Raghuwanshi | 7 | 4 |
+| 30 | avoinea | 6 | 4 |
+| 31 | rboixaderg | 6 | 3 |
+| 32 | pbauer | 5 | 5 |
+| 33 | razvanMiu | 5 | 4 |
+| 34 | cekk | 5 | 5 |
+| 35 | MAX-786 | 5 | 5 |
+| 36 | mauritsvanrees | 5 | 4 |
+| 37 | tomschall | 5 | 5 |
+| 38 | silviubogan | 4 | 3 |
+| 39 | Faakhir30 | 4 | 4 |
+| 40 | Gomez | 4 | 4 |
+| 41 | Hrittik20 | 4 | 2 |
+| 42 | mamico | 4 | 5 |
+| 43 | kittauri | 4 | 3 |
+| 44 | pratyush07-hub | 4 | 3 |
+| 45 | instification | 3 | 3 |
+| 46 | jackahl | 3 | 3 |
+| 47 | ebrehault | 3 | 1 |
+| 48 | jnptk | 3 | 2 |
+| 49 | macagua | 3 | 3 |
+| 50 | Manik-Khajuria-5 | 3 | 1 |
+| 51 | calinvladth | 3 | 1 |
+| 52 | Molochem | 3 | 3 |
+| 53 | suman9893 | 3 | 3 |
+| 54 | akshatgarg12 | 3 | 3 |
+| 55 | MihaelaCretu11 | 2 | 2 |
+| 56 | steffenri | 2 | 2 |
+| 57 | kreafox | 2 | 2 |
+| 58 | kHAPPY2004 | 2 | 2 |
+| 59 | Narcis2005 | 2 | 2 |
+| 60 | jensens | 2 | 2 |
+| 61 | sudhanshu1309 | 2 | 2 |
+| 62 | tisto | 2 | 2 |
+| 63 | Ravi-kumar9347 | 2 | 2 |
+| 64 | SaiRev0 | 2 | 2 |
+| 65 | SaraBianchi | 2 | 2 |
+| 66 | lord2anil | 2 | 2 |
+| 67 | ompharate | 2 | 1 |
+| 68 | TechSubham | 2 | 2 |
+| 69 | ujjwaleee26 | 2 | 2 |
+| 70 | ana-oprea | 2 | 1 |
+| 71 | pgrunewald | 1 | 1 |
+| 72 | tschorr | 1 | 1 |
+| 73 | yahya-cloud | 1 | 1 |
+| 74 | nzambello | 1 | 1 |
+| 75 | terapyon | 1 | 0 |
+| 76 | nilootpal | 1 | 1 |
+| 77 | luxcas | 1 | 1 |
+| 78 | utkkkarshhh | 1 | 1 |
+| 79 | satyam4p | 1 | 1 |
+| 80 | toropok | 1 | 1 |
+| 81 | victorchrollo14 | 1 | 1 |
+| 82 | mikejmets | 1 | 1 |
+| 83 | mehedikhan72 | 1 | 1 |
+| 84 | Aarav238 | 1 | 1 |
+| 85 | lorstenoplo | 1 | 1 |
+| 86 | Manas-Kenge | 1 | 1 |
+| 87 | Shauryan0207 | 1 | 0 |
+| 88 | Raman-Luhach | 1 | 1 |
+| 89 | Prince0906 | 1 | 1 |
+| 90 | Noobham | 1 | 1 |
+| 91 | MrTango | 1 | 1 |
+| 92 | MostafaMagdyy | 1 | 1 |
+| 93 | Manice18 | 1 | 1 |
+| 94 | Kaku-g | 1 | 1 |
+| 95 | Vivek-04022001 | 1 | 1 |
+| 96 | Junko-Takeguchi | 1 | 1 |
+| 97 | IshaanDasgupta | 1 | 1 |
+| 98 | FritzHoing | 1 | 1 |
+| 99 | EshaanAgg | 1 | 1 |
+| 100 | BhuvaneshPatil | 1 | 1 |
+| 101 | BhardwajAditya-github | 1 | 1 |
+| 102 | Akshat2Jain | 1 | 1 |
+| 103 | Shibbu264 | 1 | 1 |
+| 104 | ZubairImtiaz3 | 1 | 1 |
+| 105 | libargutxi | 1 | 1 |
+| 106 | claudiaifrim | 1 | 1 |
+| 107 | jhgouveia | 1 | 1 |
+| 108 | jaroel | 1 | 1 |
+| 109 | gummybearansh | 1 | 0 |
+| 110 | gianniftp | 1 | 1 |
+| 111 | folix-01 | 1 | 1 |
+| 112 | curiousyuvi | 1 | 1 |
+| 113 | claytonc | 1 | 1 |
+| 114 | chirayu-humar | 1 | 1 |
+| 115 | aadityaforwork | 1 | 1 |
+| 116 | cguardia | 1 | 1 |
+| 117 | boss6825 | 1 | 1 |
+| 118 | animus888 | 1 | 1 |
+| 119 | andreiggr | 1 | 1 |
+| 120 | agan-k | 1 | 1 |
+| 121 | acsr | 1 | 1 |
+| 122 | yurj | 1 | 1 |
+| 123 | bipoza | 0 | 2 |
 
 
 ## Volto Contributors (All Time: 2016-2025)
 
 | Rank | Contributor | PRs | Commits |
 |------|-------------|-----|---------|
-| 1 | sneridagh | 1,682 | 3,391 |
-| 2 | stevepiercy | 277 | 302 |
-| 3 | tiberiuichim | 258 | 244 |
-| 4 | iFlameing | 162 | 133 |
-| 5 | tisto | 156 | 693 |
-| 6 | giuliaghisini | 150 | 133 |
-| 7 | robgietema | 135 | 586 |
-| 8 | wesleybl | 134 | 73 |
-| 9 | davisagli | 125 | 108 |
-| 10 | ksuess | 110 | 98 |
-| 11 | nileshgulia1 | 108 | 104 |
-| 12 | pnicolli | 103 | 51 |
-| 13 | Tishasoumya-02 | 87 | 56 |
-| 14 | erral | 78 | 53 |
-| 15 | nzambello | 70 | 76 |
-| 16 | avoinea | 63 | 55 |
-| 17 | ichim-david | 46 | 32 |
-| 18 | iRohitSingh | 45 | 33 |
-| 19 | dobri1408 | 43 | 24 |
-| 20 | jackahl | 42 | 50 |
-| 21 | JeffersonBledsoe | 39 | 23 |
-| 22 | Wagner3UB | 37 | 10 |
-| 23 | ionlizarazu | 30 | 16 |
-| 24 | reebalazs | 29 | 20 |
-| 25 | ericof | 27 | 44 |
-| 26 | cekk | 25 | 36 |
-| 27 | fredvd | 24 | 23 |
-| 28 | tedw87 | 22 | 8 |
-| 29 | mamico | 22 | 16 |
-| 30 | steffenri | 21 | 18 |
-| 31 | alexandreIFB | 21 | 7 |
-| 32 | silviubogan | 20 | 6 |
-| 33 | razvanMiu | 18 | 11 |
-| 34 | Abhishek-17h | 17 | 9 |
-| 35 | terapyon | 17 | 18 |
-| 36 | MAX-786 | 15 | 8 |
-| 37 | aryan7081 | 13 | 5 |
-| 38 | Shyam-Raghuwanshi | 13 | 4 |
-| 39 | ThomasKindermann | 13 | 6 |
-| 40 | Manik-Khajuria-5 | 13 | 1 |
-| 41 | danalvrz | 12 | 8 |
-| 42 | bloodbare | 11 | 70 |
-| 43 | danielamormocea | 11 | 4 |
-| 44 | sabrina-bongiovanni | 11 | 6 |
-| 45 | rboixaderg | 10 | 3 |
-| 46 | mdsahiloss | 9 | 3 |
-| 47 | kreafox | 9 | 9 |
-| 48 | macagua | 9 | 32 |
-| 49 | instification | 8 | 6 |
-| 50 | ujjwaleee26 | 8 | 2 |
-| 51 | suman9893 | 7 | 3 |
-| 52 | csenger | 7 | 7 |
-| 53 | vangheem | 7 | 13 |
-| 54 | ktsrivastava29 | 7 | 47 |
-| 55 | lord2anil | 7 | 2 |
-| 56 | calinvladth | 7 | 1 |
-| 57 | rpatterson | 7 | 13 |
-| 58 | avimishra18 | 7 | 1 |
-| 59 | pbauer | 7 | 7 |
-| 60 | SaraBianchi | 7 | 3 |
-| 61 | tomschall | 6 | 5 |
-| 62 | pratyush07-hub | 6 | 3 |
-| 63 | Manas-Kenge | 6 | 1 |
-| 64 | SaiRev0 | 6 | 2 |
-| 65 | Hrittik20 | 6 | 2 |
-| 66 | TechSubham | 6 | 2 |
-| 67 | rodfersou | 6 | 6 |
-| 68 | Faakhir30 | 5 | 4 |
-| 69 | jnptk | 5 | 2 |
-| 70 | Gomez | 5 | 5 |
-| 71 | mehedikhan72 | 5 | 1 |
-| 72 | mihaislobozeanu | 5 | 3 |
-| 73 | akshatgarg12 | 5 | 3 |
-| 74 | thet | 5 | 2 |
-| 75 | mauritsvanrees | 5 | 4 |
-| 76 | sudhanshu1309 | 5 | 2 |
-| 77 | ebrehault | 4 | 1 |
-| 78 | jaroel | 4 | 7 |
-| 79 | aadityaforwork | 4 | 1 |
-| 80 | kittauri | 4 | 3 |
-| 81 | bipoza | 4 | 3 |
-| 82 | pgrunewald | 4 | 4 |
-| 83 | pigeonflight | 4 | 3 |
-| 84 | Raman-Luhach | 4 | 1 |
-| 85 | Noobham | 4 | 1 |
-| 86 | Molochem | 4 | 3 |
-| 87 | victorchrollo14 | 3 | 1 |
-| 88 | kHAPPY2004 | 3 | 2 |
-| 89 | mikejmets | 3 | 2 |
-| 90 | satyam4p | 3 | 1 |
-| 91 | nilootpal | 3 | 1 |
-| 92 | zotya | 3 | 3 |
-| 93 | Prince0906 | 3 | 1 |
-| 94 | esteele | 3 | 9 |
-| 95 | Ravi-kumar9347 | 3 | 2 |
-| 96 | ana-oprea | 3 | 1 |
-| 97 | alecghica | 3 | 2 |
-| 98 | MostafaMagdyy | 3 | 1 |
-| 99 | datakurre | 3 | 21 |
-| 100 | damiDev8 | 3 | 1 |
-| 101 | boss6825 | 3 | 1 |
-| 102 | andreiggr | 3 | 3 |
-| 103 | gianniftp | 3 | 1 |
-| 104 | Dnouv | 3 | 1 |
-| 105 | LeuAlmeida | 3 | 18 |
-| 106 | ZubairImtiaz3 | 2 | 1 |
-| 107 | ompharate | 2 | 1 |
-| 108 | Kaku-g | 2 | 1 |
-| 109 | MihaelaCretu11 | 2 | 2 |
-| 110 | sumukhah | 2 | 1 |
-| 111 | MarcoCouto | 2 | 1 |
-| 112 | VaysseB | 2 | 7 |
-| 113 | Shibbu264 | 2 | 1 |
-| 114 | Shauryan0207 | 2 | 0 |
-| 115 | IshaanDasgupta | 2 | 1 |
-| 116 | animus888 | 2 | 1 |
-| 117 | Narcis2005 | 2 | 2 |
-| 118 | AlexBueckig | 2 | 2 |
-| 119 | FritzHoing | 2 | 1 |
-| 120 | yahya-cloud | 2 | 1 |
-| 121 | jensens | 2 | 2 |
-| 122 | wolbernd | 2 | 5 |
-| 123 | jimbiscuit | 2 | 1 |
-| 124 | curiousyuvi | 2 | 1 |
-| 125 | Akshat2Jain | 2 | 1 |
-| 126 | arky | 2 | 1 |
-| 127 | BhardwajAditya-github | 2 | 1 |
-| 128 | yurj | 1 | 1 |
-| 129 | spereverde | 1 | 1 |
-| 130 | MrTango | 1 | 3 |
-| 131 | utkkkarshhh | 1 | 1 |
-| 132 | BhuvaneshPatil | 1 | 1 |
-| 133 | sverbois | 1 | 1 |
-| 134 | tschorr | 1 | 1 |
-| 135 | tareqalam | 1 | 1 |
-| 136 | toropok | 1 | 1 |
-| 137 | EshaanAgg | 1 | 1 |
-| 138 | Junko-Takeguchi | 1 | 1 |
-| 139 | Manice18 | 1 | 1 |
-| 140 | gummybearansh | 1 | 0 |
-| 141 | sboghy | 1 | 1 |
-| 142 | balavec | 1 | 2 |
-| 143 | folix-01 | 1 | 1 |
-| 144 | Aarav238 | 1 | 1 |
-| 145 | jhgouveia | 1 | 1 |
-| 146 | claytonc | 1 | 1 |
-| 147 | claudiaifrim | 1 | 1 |
-| 148 | chirayu-humar | 1 | 1 |
-| 149 | libargutxi | 1 | 1 |
-| 150 | cguardia | 1 | 1 |
-| 151 | lorstenoplo | 1 | 1 |
-| 152 | luxcas | 1 | 1 |
-| 153 | bsuttor | 1 | 1 |
-| 154 | aryamanpuri | 1 | 1 |
-| 155 | miziodel | 1 | 0 |
-| 156 | mpeeters | 1 | 1 |
-| 157 | ajayns | 1 | 9 |
-| 158 | agan-k | 1 | 1 |
-| 159 | adam139 | 1 | 1 |
-| 160 | acsr | 1 | 1 |
-| 161 | achimwilde | 1 | 1 |
-| 162 | Vivek-04022001 | 1 | 1 |
-| 163 | UnaiEtxaburu | 1 | 1 |
+| 1 | sneridagh | 1,571 | 3,391 |
+| 2 | stevepiercy | 259 | 302 |
+| 3 | tiberiuichim | 184 | 244 |
+| 4 | giuliaghisini | 136 | 133 |
+| 5 | iFlameing | 131 | 133 |
+| 6 | robgietema | 129 | 586 |
+| 7 | tisto | 128 | 693 |
+| 8 | wesleybl | 125 | 73 |
+| 9 | davisagli | 118 | 108 |
+| 10 | ksuess | 85 | 98 |
+| 11 | pnicolli | 85 | 51 |
+| 12 | nileshgulia1 | 75 | 104 |
+| 13 | nzambello | 63 | 76 |
+| 14 | Tishasoumya-02 | 60 | 56 |
+| 15 | erral | 58 | 53 |
+| 16 | avoinea | 58 | 55 |
+| 17 | ichim-david | 45 | 32 |
+| 18 | jackahl | 35 | 50 |
+| 19 | iRohitSingh | 31 | 33 |
+| 20 | dobri1408 | 31 | 24 |
+| 21 | ericof | 26 | 44 |
+| 22 | ionlizarazu | 24 | 16 |
+| 23 | JeffersonBledsoe | 23 | 23 |
+| 24 | reebalazs | 21 | 20 |
+| 25 | fredvd | 19 | 23 |
+| 26 | Wagner3UB | 18 | 10 |
+| 27 | cekk | 18 | 36 |
+| 28 | steffenri | 17 | 18 |
+| 29 | mamico | 16 | 16 |
+| 30 | terapyon | 16 | 18 |
+| 31 | tedw87 | 14 | 8 |
+| 32 | alexandreIFB | 14 | 7 |
+| 33 | razvanMiu | 12 | 11 |
+| 34 | Abhishek-17h | 11 | 9 |
+| 35 | danalvrz | 10 | 8 |
+| 36 | kreafox | 9 | 9 |
+| 37 | sabrina-bongiovanni | 9 | 6 |
+| 38 | aryan7081 | 8 | 5 |
+| 39 | MAX-786 | 8 | 8 |
+| 40 | bloodbare | 8 | 70 |
+| 41 | macagua | 7 | 32 |
+| 42 | pbauer | 7 | 7 |
+| 43 | Shyam-Raghuwanshi | 7 | 4 |
+| 44 | silviubogan | 7 | 6 |
+| 45 | csenger | 7 | 7 |
+| 46 | instification | 6 | 6 |
+| 47 | mdsahiloss | 6 | 3 |
+| 48 | rboixaderg | 6 | 3 |
+| 49 | ThomasKindermann | 6 | 6 |
+| 50 | Gomez | 5 | 5 |
+| 51 | rpatterson | 5 | 13 |
+| 52 | mauritsvanrees | 5 | 4 |
+| 53 | tomschall | 5 | 5 |
+| 54 | danielamormocea | 4 | 4 |
+| 55 | vangheem | 4 | 13 |
+| 56 | Faakhir30 | 4 | 4 |
+| 57 | pratyush07-hub | 4 | 3 |
+| 58 | Hrittik20 | 4 | 2 |
+| 59 | kittauri | 4 | 3 |
+| 60 | ktsrivastava29 | 4 | 47 |
+| 61 | SaraBianchi | 4 | 3 |
+| 62 | pgrunewald | 4 | 4 |
+| 63 | esteele | 3 | 9 |
+| 64 | suman9893 | 3 | 3 |
+| 65 | ebrehault | 3 | 1 |
+| 66 | jnptk | 3 | 2 |
+| 67 | datakurre | 3 | 21 |
+| 68 | rodfersou | 3 | 6 |
+| 69 | mihaislobozeanu | 3 | 3 |
+| 70 | zotya | 3 | 3 |
+| 71 | Molochem | 3 | 3 |
+| 72 | Manik-Khajuria-5 | 3 | 1 |
+| 73 | akshatgarg12 | 3 | 3 |
+| 74 | calinvladth | 3 | 1 |
+| 75 | bipoza | 3 | 3 |
+| 76 | andreiggr | 3 | 3 |
+| 77 | mikejmets | 2 | 2 |
+| 78 | jaroel | 2 | 7 |
+| 79 | TechSubham | 2 | 2 |
+| 80 | alecghica | 2 | 2 |
+| 81 | ana-oprea | 2 | 1 |
+| 82 | thet | 2 | 2 |
+| 83 | kHAPPY2004 | 2 | 2 |
+| 84 | MihaelaCretu11 | 2 | 2 |
+| 85 | jensens | 2 | 2 |
+| 86 | sudhanshu1309 | 2 | 2 |
+| 87 | ujjwaleee26 | 2 | 2 |
+| 88 | SaiRev0 | 2 | 2 |
+| 89 | AlexBueckig | 2 | 2 |
+| 90 | lord2anil | 2 | 2 |
+| 91 | Ravi-kumar9347 | 2 | 2 |
+| 92 | damiDev8 | 2 | 1 |
+| 93 | wolbernd | 2 | 5 |
+| 94 | Narcis2005 | 2 | 2 |
+| 95 | ompharate | 2 | 1 |
+| 96 | pigeonflight | 2 | 3 |
+| 97 | sboghy | 1 | 1 |
+| 98 | Manas-Kenge | 1 | 1 |
+| 99 | MarcoCouto | 1 | 1 |
+| 100 | satyam4p | 1 | 1 |
+| 101 | Manice18 | 1 | 1 |
+| 102 | spereverde | 1 | 1 |
+| 103 | MostafaMagdyy | 1 | 1 |
+| 104 | MrTango | 1 | 3 |
+| 105 | LeuAlmeida | 1 | 18 |
+| 106 | chirayu-humar | 1 | 1 |
+| 107 | Kaku-g | 1 | 1 |
+| 108 | BhardwajAditya-github | 1 | 1 |
+| 109 | yurj | 1 | 1 |
+| 110 | yahya-cloud | 1 | 1 |
+| 111 | Akshat2Jain | 1 | 1 |
+| 112 | victorchrollo14 | 1 | 1 |
+| 113 | utkkkarshhh | 1 | 1 |
+| 114 | tschorr | 1 | 1 |
+| 115 | toropok | 1 | 1 |
+| 116 | BhuvaneshPatil | 1 | 1 |
+| 117 | Junko-Takeguchi | 1 | 1 |
+| 118 | Dnouv | 1 | 1 |
+| 119 | EshaanAgg | 1 | 1 |
+| 120 | FritzHoing | 1 | 1 |
+| 121 | tareqalam | 1 | 1 |
+| 122 | sverbois | 1 | 1 |
+| 123 | sumukhah | 1 | 1 |
+| 124 | IshaanDasgupta | 1 | 1 |
+| 125 | Noobham | 1 | 1 |
+| 126 | mpeeters | 1 | 1 |
+| 127 | Prince0906 | 1 | 1 |
+| 128 | jimbiscuit | 1 | 1 |
+| 129 | adam139 | 1 | 1 |
+| 130 | agan-k | 1 | 1 |
+| 131 | ajayns | 1 | 9 |
+| 132 | gummybearansh | 1 | 0 |
+| 133 | gianniftp | 1 | 1 |
+| 134 | animus888 | 1 | 1 |
+| 135 | folix-01 | 1 | 1 |
+| 136 | arky | 1 | 1 |
+| 137 | Aarav238 | 1 | 1 |
+| 138 | aryamanpuri | 1 | 1 |
+| 139 | avimishra18 | 1 | 1 |
+| 140 | balavec | 1 | 2 |
+| 141 | boss6825 | 1 | 1 |
+| 142 | bsuttor | 1 | 1 |
+| 143 | curiousyuvi | 1 | 1 |
+| 144 | cguardia | 1 | 1 |
+| 145 | claytonc | 1 | 1 |
+| 146 | jhgouveia | 1 | 1 |
+| 147 | acsr | 1 | 1 |
+| 148 | Raman-Luhach | 1 | 1 |
+| 149 | UnaiEtxaburu | 1 | 1 |
+| 150 | nilootpal | 1 | 1 |
+| 151 | claudiaifrim | 1 | 1 |
+| 152 | miziodel | 1 | 0 |
+| 153 | Shauryan0207 | 1 | 0 |
+| 154 | mehedikhan72 | 1 | 1 |
+| 155 | achimwilde | 1 | 1 |
+| 156 | Shibbu264 | 1 | 1 |
+| 157 | VaysseB | 1 | 7 |
+| 158 | luxcas | 1 | 1 |
+| 159 | lorstenoplo | 1 | 1 |
+| 160 | libargutxi | 1 | 1 |
+| 161 | Vivek-04022001 | 1 | 1 |
+| 162 | ZubairImtiaz3 | 1 | 1 |
+| 163 | aadityaforwork | 1 | 1 |
 | 164 | 1bsilver | 1 | 3 |
 | 165 | robdayz | 0 | 1 |
 | 166 | obct537 | 0 | 1 |
@@ -385,81 +376,79 @@ Generated on: 2026-03-14 06:48:46
 
 | Rank | Organisation | PRs | Commits | Contributors |
 |------|-------------|-----|---------|--------------|
-| 1 | kitconcept GmbH | 381 | 277 | 12 |
-| 2 | Independent | 129 | 43 | 23 |
-| 3 | Serpro | 98 | 45 | 1 |
-| 4 | RedTurtle | 76 | 20 | 4 |
-| 5 | Steve Piercy - Website Builder | 64 | 59 | 1 |
-| 6 | Eau de Web | 25 | 8 | 6 |
-| 7 | Codesyntax | 22 | 11 | 2 |
-| 8 | Rohberg | 16 | 10 | 1 |
-| 9 | Iskra | 9 | 2 | 1 |
-| 10 | FHNW | 3 | 2 | 1 |
-| 11 | Nuclia | 3 | 0 | 1 |
-| 12 | PY76 | 3 | 2 | 1 |
-| 13 | Pretaweb | 3 | 2 | 1 |
-| 14 | CMS Communications Inc. | 2 | 0 | 1 |
-| 15 | Syslab | 1 | 0 | 1 |
+| 1 | kitconcept GmbH | 336 | 277 | 12 |
+| 2 | Serpro | 93 | 45 | 1 |
+| 3 | Independent | 68 | 43 | 21 |
+| 4 | Steve Piercy - Website Builder | 62 | 59 | 1 |
+| 5 | RedTurtle | 57 | 20 | 3 |
+| 6 | Codesyntax | 18 | 11 | 2 |
+| 7 | Eau de Web | 18 | 8 | 4 |
+| 8 | Rohberg | 13 | 10 | 1 |
+| 9 | Iskra | 5 | 2 | 1 |
+| 10 | PY76 | 3 | 2 | 1 |
+| 11 | FHNW | 2 | 2 | 1 |
+| 12 | Nuclia | 2 | 0 | 1 |
+| 13 | CMS Communications Inc. | 1 | 0 | 1 |
+| 14 | Pretaweb | 1 | 2 | 1 |
 
 
 ### Organisations (Past 3 Years: 2023-2025)
 
 | Rank | Organisation | PRs | Commits | Contributors |
 |------|-------------|-----|---------|--------------|
-| 1 | kitconcept GmbH | 1,232 | 1,168 | 16 |
-| 2 | Independent | 315 | 138 | 74 |
-| 3 | Steve Piercy - Website Builder | 219 | 197 | 1 |
-| 4 | RedTurtle | 157 | 70 | 8 |
-| 5 | Serpro | 129 | 69 | 1 |
-| 6 | Eau de Web | 123 | 74 | 7 |
-| 7 | Codesyntax | 51 | 30 | 3 |
-| 8 | Rohberg | 45 | 29 | 1 |
-| 9 | Pretaweb | 24 | 14 | 2 |
-| 10 | Iskra | 10 | 3 | 1 |
-| 11 | Starzel | 9 | 9 | 2 |
-| 12 | FHNW | 6 | 5 | 1 |
+| 1 | kitconcept GmbH | 1,112 | 1,168 | 16 |
+| 2 | Steve Piercy - Website Builder | 205 | 197 | 1 |
+| 3 | Independent | 172 | 138 | 72 |
+| 4 | Serpro | 121 | 69 | 1 |
+| 5 | RedTurtle | 114 | 70 | 8 |
+| 6 | Eau de Web | 104 | 74 | 7 |
+| 7 | Codesyntax | 36 | 30 | 3 |
+| 8 | Rohberg | 33 | 29 | 1 |
+| 9 | Pretaweb | 12 | 14 | 2 |
+| 10 | Starzel | 9 | 9 | 2 |
+| 11 | Iskra | 6 | 3 | 1 |
+| 12 | FHNW | 5 | 5 | 1 |
 | 13 | PY76 | 5 | 4 | 1 |
-| 14 | Nuclia | 4 | 1 | 1 |
-| 15 | Abstract IT | 3 | 1 | 1 |
-| 16 | CMS Communications Inc. | 2 | 0 | 1 |
-| 17 | Klein & Partner KG | 2 | 2 | 1 |
-| 18 | Interlegis Program (Senado Federal) | 1 | 1 | 1 |
-| 19 | Derico | 1 | 1 | 1 |
-| 20 | Syslab | 1 | 0 | 1 |
-| 21 | TU Dresden | 1 | 1 | 1 |
+| 14 | Nuclia | 3 | 1 | 1 |
+| 15 | Klein & Partner KG | 2 | 2 | 1 |
+| 16 | CMS Communications Inc. | 1 | 0 | 1 |
+| 17 | Interlegis Program (Senado Federal) | 1 | 1 | 1 |
+| 18 | Derico | 1 | 1 | 1 |
+| 19 | TU Dresden | 1 | 1 | 1 |
+| 20 | Abstract IT | 1 | 1 | 1 |
 
 
 ### Organisations (All Time: 2016-2025)
 
 | Rank | Organisation | PRs | Commits | Contributors |
 |------|-------------|-----|---------|--------------|
-| 1 | kitconcept GmbH | 2,573 | 5,181 | 17 |
-| 2 | Eau de Web | 522 | 461 | 7 |
-| 3 | Independent | 464 | 344 | 105 |
-| 4 | RedTurtle | 409 | 324 | 8 |
-| 5 | Steve Piercy - Website Builder | 277 | 302 | 1 |
-| 6 | Serpro | 134 | 73 | 1 |
-| 7 | Rohberg | 110 | 98 | 1 |
-| 8 | Codesyntax | 109 | 70 | 3 |
-| 9 | Pretaweb | 47 | 29 | 2 |
-| 10 | CMS Communications Inc. | 17 | 18 | 1 |
-| 11 | Nuclia | 15 | 71 | 2 |
-| 12 | Starzel | 12 | 12 | 2 |
-| 13 | Iskra | 10 | 3 | 1 |
-| 14 | Sixfeetup | 7 | 13 | 1 |
-| 15 | FHNW | 6 | 5 | 1 |
-| 16 | Syslab | 5 | 2 | 1 |
-| 17 | PY76 | 5 | 4 | 1 |
-| 18 | TU Dresden | 4 | 4 | 1 |
-| 19 | Salesforce | 3 | 9 | 1 |
-| 20 | University of Jyväskylä | 3 | 21 | 1 |
-| 21 | Abstract IT | 3 | 1 | 1 |
-| 22 | Klein & Partner KG | 2 | 2 | 1 |
-| 23 | iMio | 2 | 2 | 2 |
-| 24 | Affinitic | 1 | 1 | 1 |
-| 25 | KU Leuven | 1 | 1 | 1 |
-| 26 | Interlegis Program (Senado Federal) | 1 | 1 | 1 |
-| 27 | Derico | 1 | 3 | 1 |
+| 1 | kitconcept GmbH | 2,311 | 5,181 | 17 |
+| 2 | Eau de Web | 396 | 461 | 7 |
+| 3 | RedTurtle | 338 | 324 | 8 |
+| 4 | Independent | 266 | 344 | 105 |
+| 5 | Steve Piercy - Website Builder | 259 | 302 | 1 |
+| 6 | Serpro | 125 | 73 | 1 |
+| 7 | Rohberg | 85 | 98 | 1 |
+| 8 | Codesyntax | 83 | 70 | 3 |
+| 9 | Pretaweb | 29 | 29 | 2 |
+| 10 | CMS Communications Inc. | 16 | 18 | 1 |
+| 11 | Starzel | 12 | 12 | 2 |
+| 12 | Nuclia | 11 | 71 | 2 |
+| 13 | Iskra | 6 | 3 | 1 |
+| 14 | Sixfeetup | 5 | 13 | 1 |
+| 15 | PY76 | 5 | 4 | 1 |
+| 16 | FHNW | 5 | 5 | 1 |
+| 17 | TU Dresden | 4 | 4 | 1 |
+| 18 | Salesforce | 3 | 9 | 1 |
+| 19 | University of Jyväskylä | 3 | 21 | 1 |
+| 20 | Klein & Partner KG | 2 | 2 | 1 |
+| 21 | Syslab | 2 | 2 | 1 |
+| 22 | iMio | 2 | 2 | 2 |
+| 23 | Affinitic | 1 | 1 | 1 |
+| 24 | KU Leuven | 1 | 1 | 1 |
+| 25 | Interlegis Program (Senado Federal) | 1 | 1 | 1 |
+| 26 | Derico | 1 | 3 | 1 |
+| 27 | Abstract IT | 1 | 1 | 1 |
 | 28 | CCC | 0 | 10 | 1 |
 
 
@@ -467,7 +456,7 @@ Generated on: 2026-03-14 06:48:46
 
 ## Notes
 
-- **PRs**: Pull requests submitted to plone/volto
+- **PRs**: Merged pull requests to plone/volto (does not include open or closed/rejected PRs)
 - **Commits**: Direct commits to plone/volto
 - **Contributors**: Number of team members from this organisation
 

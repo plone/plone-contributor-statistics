@@ -116,57 +116,33 @@ def format_number(n):
     return f"{int(n):,}"
 
 
-def top_contributors_table(df, n=10, sort_by='total_commits'):
-    """Generate markdown table for top contributors."""
-    df_sorted = df.sort_values(sort_by, ascending=False).head(n)
+def top_contributors_table(df, n=10):
+    """Generate markdown table for top contributors, sorted by PRs."""
+    df_sorted = df.sort_values('total_pull_requests', ascending=False).head(n)
     lines = []
-    if sort_by == 'total_pull_requests':
-        lines.append("| Rank | Contributor | PRs | Commits | Total | Repositories |")
-        lines.append("|------|-------------|-----|---------|-------|-------------|")
-        for i, (_, row) in enumerate(df_sorted.iterrows(), 1):
-            total = int(row['total_commits']) + int(row['total_pull_requests'])
-            lines.append(
-                f"| {i} | {row['username']} | {format_number(row['total_pull_requests'])} "
-                f"| {format_number(row['total_commits'])} | {format_number(total)} "
-                f"| {int(row['repositories_count'])} |"
-            )
-    else:
-        lines.append("| Rank | Contributor | Commits | PRs | Total | Repositories |")
-        lines.append("|------|-------------|---------|-----|-------|-------------|")
-        for i, (_, row) in enumerate(df_sorted.iterrows(), 1):
-            total = int(row['total_commits']) + int(row['total_pull_requests'])
-            lines.append(
-                f"| {i} | {row['username']} | {format_number(row['total_commits'])} "
-                f"| {format_number(row['total_pull_requests'])} | {format_number(total)} "
-                f"| {int(row['repositories_count'])} |"
-            )
+    lines.append("| Rank | Contributor | PRs | Commits | Repositories |")
+    lines.append("|------|-------------|-----|---------|-------------|")
+    for i, (_, row) in enumerate(df_sorted.iterrows(), 1):
+        lines.append(
+            f"| {i} | {row['username']} | {format_number(row['total_pull_requests'])} "
+            f"| {format_number(row['total_commits'])} "
+            f"| {int(row['repositories_count'])} |"
+        )
     return '\n'.join(lines)
 
 
-def top_organisations_table(df, n=10, sort_by='total_commits'):
-    """Generate markdown table for top organisations."""
-    df_sorted = df.sort_values(sort_by, ascending=False).head(n)
+def top_organisations_table(df, n=10):
+    """Generate markdown table for top organisations, sorted by PRs."""
+    df_sorted = df.sort_values('total_pull_requests', ascending=False).head(n)
     lines = []
-    if sort_by == 'total_pull_requests':
-        lines.append("| Rank | Organization | PRs | Commits | Total | Contributors |")
-        lines.append("|------|-------------|-----|---------|-------|-------------|")
-        for i, (_, row) in enumerate(df_sorted.iterrows(), 1):
-            total = int(row['total_commits']) + int(row['total_pull_requests'])
-            lines.append(
-                f"| {i} | {row['organisation']} | {format_number(row['total_pull_requests'])} "
-                f"| {format_number(row['total_commits'])} | {format_number(total)} "
-                f"| {int(row['contributors_count'])} |"
-            )
-    else:
-        lines.append("| Rank | Organization | Commits | PRs | Total | Contributors | Repositories |")
-        lines.append("|------|-------------|---------|-----|-------|---------------|-------------|")
-        for i, (_, row) in enumerate(df_sorted.iterrows(), 1):
-            total = int(row['total_commits']) + int(row['total_pull_requests'])
-            lines.append(
-                f"| {i} | {row['organisation']} | {format_number(row['total_commits'])} "
-                f"| {format_number(row['total_pull_requests'])} | {format_number(total)} "
-                f"| {int(row['contributors_count'])} | {int(row['repositories_count'])} |"
-            )
+    lines.append("| Rank | Organization | PRs | Commits | Contributors | Repositories |")
+    lines.append("|------|-------------|-----|---------|---------------|-------------|")
+    for i, (_, row) in enumerate(df_sorted.iterrows(), 1):
+        lines.append(
+            f"| {i} | {row['organisation']} | {format_number(row['total_pull_requests'])} "
+            f"| {format_number(row['total_commits'])} "
+            f"| {int(row['contributors_count'])} | {int(row['repositories_count'])} |"
+        )
     return '\n'.join(lines)
 
 
@@ -200,7 +176,7 @@ def main():
     ten_year = [y for y in range(last_full_year - 9, last_full_year + 1) if y in available_years]
 
     report = []
-    report.append("# Plone Contributor Statistics Report")
+    report.append("# Plone Core Contributor Statistics Report")
     report.append("")
     report.append(f"Generated on: {now.strftime('%Y-%m-%d %H:%M:%S')}")
     report.append("")
@@ -226,8 +202,8 @@ def main():
 
     periods = []
     if current_year_data:
-        periods.append((f"Current Year - {current_year}", [current_year]))
-    periods.append((f"Last Full Year - {last_full_year}", [last_full_year]))
+        periods.append((f"Current Year: {current_year}", [current_year]))
+    periods.append((f"Last Full Year: {last_full_year}", [last_full_year]))
     if len(three_year) >= 2:
         periods.append((f"Past 3 Years: {three_year[0]}-{three_year[-1]}", three_year))
     if len(ten_year) >= 5:
@@ -237,9 +213,9 @@ def main():
         print(f"Processing contributors for {label}...")
         df = combine_contributor_data(years)
         if df is not None and len(df) > 0:
-            report.append(f"### Top 10 Individual Contributors ({label})")
+            report.append(f"### Top 10 Contributors ({label})")
             report.append("")
-            report.append(top_contributors_table(df, 10, 'total_commits'))
+            report.append(top_contributors_table(df, 10))
             report.append("")
             report.append("")
 
@@ -247,44 +223,16 @@ def main():
     report.append("")
 
     # --- Organizations ---
-    report.append("## Organizations")
+    report.append("## Organisation Contributors")
     report.append("")
 
     for label, years in periods:
         print(f"Processing organisations for {label}...")
         df = combine_organisation_data(years)
         if df is not None and len(df) > 0:
-            report.append(f"### Top 10 Organizations ({label})")
+            report.append(f"### Top 10 Organisation Contributors ({label})")
             report.append("")
-            report.append(top_organisations_table(df, 10, 'total_commits'))
-            report.append("")
-            report.append("")
-
-    report.append("---")
-    report.append("")
-
-    # --- PR Leaders ---
-    report.append("## Pull Request Leaders")
-    report.append("")
-
-    for label, years in periods:
-        df = combine_contributor_data(years)
-        if df is not None and len(df) > 0:
-            report.append(f"### Top 10 Pull Request Contributors ({label})")
-            report.append("")
-            report.append(top_contributors_table(df, 10, 'total_pull_requests'))
-            report.append("")
-            report.append("")
-
-    report.append("### Organizations by Pull Requests")
-    report.append("")
-
-    for label, years in periods:
-        df = combine_organisation_data(years)
-        if df is not None and len(df) > 0:
-            report.append(f"#### Top 10 Organizations by Pull Requests ({label})")
-            report.append("")
-            report.append(top_organisations_table(df, 10, 'total_pull_requests'))
+            report.append(top_organisations_table(df, 10))
             report.append("")
             report.append("")
 
@@ -292,11 +240,18 @@ def main():
     report.append("")
     report.append("## Notes")
     report.append("")
+    report.append("- All tables are sorted by number of PRs (descending)")
+    report.append("- **PRs**: Merged pull requests only (excludes open or closed/rejected PRs)")
     report.append("- **Commits**: Direct code commits to repositories")
-    report.append("- **PRs**: Pull requests submitted (includes both merged and unmerged)")
-    report.append("- **Total**: Sum of commits and pull requests")
     report.append("- **Contributors**: Number of individual contributors (for organizations)")
     report.append("- **Repositories**: Number of different repositories contributed to")
+    report.append("")
+    report.append("### Organisation Mapping")
+    report.append("")
+    report.append("The mapping from individual contributors to organisations is maintained in the `organisations.csv` file, ")
+    report.append("which is publicly available for all Plone community members. This makes the mapping transparent and ")
+    report.append("traceable for anyone who is interested. If you believe that this mapping does not reflect your actual ")
+    report.append("affiliation with an organisation, please create a pull request and we will update the statistics accordingly.")
     report.append("")
     report.append("Generated by Plone Contributor Statistics Tool")
 

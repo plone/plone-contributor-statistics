@@ -215,7 +215,7 @@ def main():
     report.append("")
     report.append("## Notes")
     report.append("")
-    report.append("- **PRs**: Pull requests submitted to plone/volto")
+    report.append("- **PRs**: Merged pull requests to plone/volto (does not include open or closed/rejected PRs)")
     report.append("- **Commits**: Direct commits to plone/volto")
     report.append("- **Contributors**: Number of team members from this organisation")
     report.append("")
