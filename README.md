@@ -269,4 +269,4 @@ Commits are counted from the default branch only, which automatically includes:
 - Direct commits to the main branch
 - Commits from merged pull requests
 
-This excludes commits on unmerged branches or rejected PRs.
+This excludes commits on unmerged branches or rejected pull requests.
