@@ -5,7 +5,10 @@ Fetches data from GitHub API for all contributors.
 
 Statistics include:
 - Merged pull requests (not including open or closed/rejected PRs)
-- Direct commits to the repository
+- Commits to the main branch (includes direct commits and commits merged via PRs)
+
+Note: Only commits on the main branch are counted. Commits on feature branches
+that were never merged are excluded.
 """
 
 import requests
@@ -69,11 +72,12 @@ def get_pull_requests(session, username, start_date, end_date):
         return 0
 
 def get_commits(session, username, start_date, end_date):
-    """Get number of commits for a user in the specified date range."""
+    """Get number of commits for a user in the specified date range on the main branch."""
     url = f'{BASE_URL}/repos/{REPO_OWNER}/{REPO_NAME}/commits'
 
     params = {
         'author': username,
+        'sha': 'main',  # Only count commits on main branch
         'since': f'{start_date}T00:00:00Z',
         'until': f'{end_date}T23:59:59Z',
         'per_page': 100
