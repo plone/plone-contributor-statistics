@@ -256,8 +256,8 @@ make run-organisation-stats-2022
 
 All contributor statistics count only **merged** pull requests.
 The counts exclude the following pull request statuses.
-- Open PRs (still under review)
-- Closed but not merged PRs (rejected/abandoned)
+- Open pull requests (still under review)
+- Closed but not merged pull requests (rejected)
 
 This ensures statistics reflect actual contributions to the codebase.
 
