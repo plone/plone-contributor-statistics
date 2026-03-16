@@ -1,6 +1,6 @@
 # Plone Core Contributor Statistics Report
 
-Generated on: 2026-03-15 17:59:12
+Generated on: 2026-03-16 08:18:37
 
 This report shows the top contributors and organizations in the Plone ecosystem across different time periods.
 
@@ -35,32 +35,32 @@ This report shows the top contributors and organizations in the Plone ecosystem 
 
 | Rank | Contributor | PRs | Commits | Repositories |
 |------|-------------|-----|---------|-------------|
-| 1 | sneridagh | 967 | 1,415 | 21 |
-| 2 | gforcada | 684 | 5,182 | 127 |
-| 3 | stevepiercy | 655 | 2,469 | 30 |
-| 4 | mauritsvanrees | 531 | 5,354 | 137 |
-| 5 | petschki | 440 | 2,239 | 55 |
-| 6 | davisagli | 295 | 1,474 | 106 |
-| 7 | wesleybl | 187 | 208 | 19 |
-| 8 | ericof | 185 | 769 | 39 |
-| 9 | erral | 139 | 543 | 36 |
-| 10 | thet | 132 | 401 | 30 |
+| 1 | sneridagh | 973 | 1,370 | 22 |
+| 2 | gforcada | 678 | 6,426 | 127 |
+| 3 | stevepiercy | 655 | 2,560 | 29 |
+| 4 | mauritsvanrees | 530 | 5,900 | 138 |
+| 5 | petschki | 444 | 2,409 | 55 |
+| 6 | davisagli | 297 | 1,516 | 108 |
+| 7 | ericof | 183 | 817 | 40 |
+| 8 | wesleybl | 182 | 215 | 21 |
+| 9 | erral | 139 | 549 | 36 |
+| 10 | thet | 129 | 426 | 30 |
 
 
 ### Top 10 Contributors (Past 10 Years: 2016-2025)
 
 | Rank | Contributor | PRs | Commits | Repositories |
 |------|-------------|-----|---------|-------------|
-| 1 | sneridagh | 1,907 | 4,937 | 57 |
-| 2 | mauritsvanrees | 1,540 | 15,759 | 178 |
-| 3 | gforcada | 1,143 | 8,035 | 167 |
-| 4 | stevepiercy | 906 | 3,826 | 36 |
-| 5 | petschki | 759 | 3,641 | 85 |
-| 6 | jensens | 724 | 5,167 | 151 |
-| 7 | thet | 694 | 2,815 | 99 |
-| 8 | vangheem | 612 | 3,078 | 41 |
-| 9 | pbauer | 507 | 2,729 | 134 |
-| 10 | davisagli | 487 | 2,184 | 130 |
+| 1 | sneridagh | 1,907 | 4,815 | 59 |
+| 2 | mauritsvanrees | 1,543 | 16,752 | 178 |
+| 3 | gforcada | 1,137 | 9,327 | 167 |
+| 4 | stevepiercy | 906 | 3,869 | 34 |
+| 5 | petschki | 755 | 3,938 | 87 |
+| 6 | jensens | 720 | 5,849 | 169 |
+| 7 | thet | 690 | 2,935 | 99 |
+| 8 | vangheem | 613 | 3,080 | 41 |
+| 9 | pbauer | 508 | 2,829 | 135 |
+| 10 | davisagli | 487 | 2,241 | 131 |
 
 
 ---
@@ -71,48 +71,48 @@ This report shows the top contributors and organizations in the Plone ecosystem 
 
 | Rank | Organization | PRs | Commits | Contributors | Repositories |
 |------|-------------|-----|---------|---------------|-------------|
-| 1 | kitconcept GmbH | 638 | 627 | 13 | 55 |
-| 2 | Independent | 603 | 412 | 111 | 49 |
-| 3 | der Freitag | 291 | 630 | 1 | 115 |
-| 4 | PY76 | 226 | 1,325 | 1 | 90 |
-| 5 | Kombinat | 156 | 345 | 1 | 31 |
-| 6 | Serpro | 127 | 8 | 1 | 12 |
-| 7 | Syslab | 107 | 147 | 3 | 31 |
-| 8 | Codesyntax | 105 | 149 | 2 | 24 |
-| 9 | RedTurtle | 88 | 11 | 6 | 10 |
-| 10 | Eau de Web | 35 | 0 | 6 | 7 |
+| 1 | kitconcept GmbH | 571 | 1,828 | 13 | 110 |
+| 2 | der Freitag | 273 | 2,468 | 1 | 122 |
+| 3 | PY76 | 214 | 2,552 | 1 | 127 |
+| 4 | Independent | 186 | 948 | 72 | 34 |
+| 5 | Steve Piercy - Website Builder | 185 | 679 | 1 | 21 |
+| 6 | Kombinat | 139 | 797 | 1 | 30 |
+| 7 | Serpro | 118 | 108 | 1 | 13 |
+| 8 | Syslab | 89 | 267 | 3 | 32 |
+| 9 | Codesyntax | 82 | 360 | 2 | 23 |
+| 10 | RedTurtle | 67 | 53 | 6 | 9 |
 
 
 ### Top 10 Organisation Contributors (Past 3 Years: 2023-2025)
 
 | Rank | Organization | PRs | Commits | Contributors | Repositories |
 |------|-------------|-----|---------|---------------|-------------|
-| 1 | kitconcept GmbH | 1,927 | 4,089 | 16 | 89 |
-| 2 | Independent | 1,704 | 2,418 | 321 | 81 |
-| 3 | der Freitag | 737 | 3,014 | 1 | 126 |
-| 4 | PY76 | 575 | 4,237 | 1 | 133 |
-| 5 | Kombinat | 467 | 1,581 | 1 | 55 |
-| 6 | RedTurtle | 228 | 186 | 8 | 28 |
-| 7 | Syslab | 224 | 381 | 5 | 50 |
-| 8 | Codesyntax | 216 | 452 | 3 | 37 |
-| 9 | Serpro | 209 | 111 | 1 | 21 |
-| 10 | Eau de Web | 148 | 290 | 8 | 13 |
+| 1 | kitconcept GmbH | 1,747 | 5,430 | 16 | 132 |
+| 2 | der Freitag | 678 | 6,426 | 1 | 127 |
+| 3 | Steve Piercy - Website Builder | 655 | 2,560 | 1 | 29 |
+| 4 | PY76 | 530 | 5,900 | 1 | 138 |
+| 5 | Independent | 448 | 9,761 | 342 | 60 |
+| 6 | Kombinat | 444 | 2,409 | 1 | 55 |
+| 7 | Syslab | 188 | 616 | 5 | 50 |
+| 8 | Serpro | 182 | 215 | 1 | 21 |
+| 9 | RedTurtle | 174 | 277 | 8 | 27 |
+| 10 | Codesyntax | 169 | 684 | 3 | 37 |
 
 
 ### Top 10 Organisation Contributors (Past 10 Years: 2016-2025)
 
 | Rank | Organization | PRs | Commits | Contributors | Repositories |
 |------|-------------|-----|---------|---------------|-------------|
-| 1 | Independent | 5,088 | 10,490 | 648 | 205 |
-| 2 | kitconcept GmbH | 4,224 | 13,303 | 17 | 166 |
-| 3 | PY76 | 1,665 | 14,475 | 1 | 177 |
-| 4 | Syslab | 1,401 | 3,510 | 5 | 150 |
-| 5 | der Freitag | 1,297 | 5,781 | 1 | 169 |
-| 6 | Klein & Partner | 831 | 4,866 | 1 | 150 |
-| 7 | Kombinat | 808 | 2,974 | 1 | 87 |
-| 8 | Nuclia | 725 | 1,501 | 3 | 36 |
-| 9 | Eau de Web | 673 | 1,245 | 8 | 41 |
-| 10 | RedTurtle | 631 | 795 | 8 | 52 |
+| 1 | kitconcept GmbH | 3,764 | 14,869 | 17 | 182 |
+| 2 | Independent | 2,674 | 26,714 | 699 | 192 |
+| 3 | PY76 | 1,543 | 16,752 | 1 | 178 |
+| 4 | Syslab | 1,230 | 3,941 | 5 | 148 |
+| 5 | der Freitag | 1,137 | 9,327 | 1 | 167 |
+| 6 | Steve Piercy - Website Builder | 906 | 3,869 | 1 | 34 |
+| 7 | Kombinat | 755 | 3,938 | 1 | 87 |
+| 8 | Klein & Partner KG | 720 | 5,849 | 1 | 169 |
+| 9 | Nuclia | 694 | 1,702 | 3 | 34 |
+| 10 | Starzel | 539 | 2,886 | 3 | 138 |
 
 
 ---
