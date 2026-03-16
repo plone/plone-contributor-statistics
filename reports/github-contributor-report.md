@@ -1,6 +1,6 @@
-# Plone Contributor Statistics Report
+# Plone Core Contributor Statistics Report
 
-Generated on: 2026-03-12 11:03:39
+Generated on: 2026-03-16 08:18:37
 
 This report shows the top contributors and organizations in the Plone ecosystem across different time periods.
 
@@ -15,216 +15,121 @@ This report shows the top contributors and organizations in the Plone ecosystem 
 
 ## Individual Contributors
 
-### Top 10 Individual Contributors (Last Full Year - 2025)
+### Top 10 Contributors (Last Full Year: 2025)
 
-| Rank | Contributor | Commits | PRs | Total | Repositories |
-|------|-------------|---------|-----|-------|-------------|
-| 1 | mauritsvanrees | 1,325 | 226 | 1,551 | 90 |
-| 2 | gforcada | 630 | 291 | 921 | 115 |
-| 3 | petschki | 345 | 156 | 501 | 31 |
-| 4 | davisagli | 280 | 116 | 396 | 43 |
-| 5 | stevepiercy | 240 | 190 | 430 | 20 |
-| 6 | erral | 149 | 94 | 243 | 24 |
-| 7 | MrTango | 145 | 18 | 163 | 14 |
-| 8 | mister-roboto | 118 | 0 | 118 | 1 |
-| 9 | fredvd | 105 | 20 | 125 | 10 |
-| 10 | thet | 99 | 69 | 168 | 22 |
-
-
-### Top 10 Individual Contributors (Past 3 Years: 2023-2025)
-
-| Rank | Contributor | Commits | PRs | Total | Repositories |
-|------|-------------|---------|-----|-------|-------------|
-| 1 | mauritsvanrees | 4,237 | 575 | 4,812 | 133 |
-| 2 | gforcada | 3,014 | 737 | 3,751 | 126 |
-| 3 | stevepiercy | 1,776 | 687 | 2,463 | 35 |
-| 4 | petschki | 1,581 | 467 | 2,048 | 55 |
-| 5 | sneridagh | 1,052 | 1,034 | 2,086 | 23 |
-| 6 | davisagli | 1,034 | 311 | 1,345 | 64 |
-| 7 | ericof | 652 | 190 | 842 | 37 |
-| 8 | jensens | 637 | 110 | 747 | 52 |
-| 9 | fredvd | 458 | 60 | 518 | 17 |
-| 10 | tisto | 419 | 51 | 470 | 14 |
+| Rank | Contributor | PRs | Commits | Repositories |
+|------|-------------|-----|---------|-------------|
+| 1 | sneridagh | 307 | 360 | 14 |
+| 2 | gforcada | 273 | 2,468 | 122 |
+| 3 | mauritsvanrees | 214 | 2,552 | 127 |
+| 4 | stevepiercy | 185 | 679 | 21 |
+| 5 | petschki | 139 | 797 | 30 |
+| 6 | wesleybl | 118 | 108 | 13 |
+| 7 | davisagli | 109 | 710 | 98 |
+| 8 | erral | 74 | 357 | 23 |
+| 9 | ericof | 67 | 213 | 19 |
+| 10 | thet | 59 | 179 | 21 |
 
 
-### Top 10 Individual Contributors (Past 10 Years: 2016-2025)
+### Top 10 Contributors (Past 3 Years: 2023-2025)
 
-| Rank | Contributor | Commits | PRs | Total | Repositories |
-|------|-------------|---------|-----|-------|-------------|
-| 1 | mauritsvanrees | 14,475 | 1,665 | 16,140 | 177 |
-| 2 | gforcada | 5,781 | 1,297 | 7,078 | 169 |
-| 3 | jensens | 4,866 | 831 | 5,697 | 150 |
-| 4 | sneridagh | 4,258 | 2,048 | 6,306 | 61 |
-| 5 | tisto | 3,423 | 488 | 3,911 | 50 |
-| 6 | stevepiercy | 3,141 | 957 | 4,098 | 41 |
-| 7 | vangheem | 2,977 | 657 | 3,634 | 42 |
-| 8 | petschki | 2,974 | 808 | 3,782 | 87 |
-| 9 | pbauer | 2,663 | 556 | 3,219 | 135 |
-| 10 | thet | 2,630 | 787 | 3,417 | 105 |
-
-
----
-
-## Organizations
-
-### Top 10 Organizations (Last Full Year - 2025)
-
-| Rank | Organization | Commits | PRs | Total | Contributors | Repositories |
-|------|-------------|---------|-----|-------|---------------|-------------|
-| 1 | PY76 | 1,325 | 226 | 1,551 | 1 | 90 |
-| 2 | der Freitag | 630 | 291 | 921 | 1 | 115 |
-| 3 | kitconcept GmbH | 627 | 638 | 1,265 | 13 | 55 |
-| 4 | Independent | 412 | 603 | 1,015 | 111 | 49 |
-| 5 | Kombinat | 345 | 156 | 501 | 1 | 31 |
-| 6 | Codesyntax | 149 | 105 | 254 | 2 | 24 |
-| 7 | Syslab | 147 | 107 | 254 | 3 | 31 |
-| 8 | Derico | 145 | 18 | 163 | 1 | 14 |
-| 9 | Klein & Partner | 39 | 6 | 45 | 1 | 6 |
-| 10 | Uni. Hospital Dresden | 15 | 22 | 37 | 1 | 11 |
+| Rank | Contributor | PRs | Commits | Repositories |
+|------|-------------|-----|---------|-------------|
+| 1 | sneridagh | 973 | 1,370 | 22 |
+| 2 | gforcada | 678 | 6,426 | 127 |
+| 3 | stevepiercy | 655 | 2,560 | 29 |
+| 4 | mauritsvanrees | 530 | 5,900 | 138 |
+| 5 | petschki | 444 | 2,409 | 55 |
+| 6 | davisagli | 297 | 1,516 | 108 |
+| 7 | ericof | 183 | 817 | 40 |
+| 8 | wesleybl | 182 | 215 | 21 |
+| 9 | erral | 139 | 549 | 36 |
+| 10 | thet | 129 | 426 | 30 |
 
 
-### Top 10 Organizations (Past 3 Years: 2023-2025)
+### Top 10 Contributors (Past 10 Years: 2016-2025)
 
-| Rank | Organization | Commits | PRs | Total | Contributors | Repositories |
-|------|-------------|---------|-----|-------|---------------|-------------|
-| 1 | PY76 | 4,237 | 575 | 4,812 | 1 | 133 |
-| 2 | kitconcept GmbH | 4,089 | 1,927 | 6,016 | 16 | 89 |
-| 3 | der Freitag | 3,014 | 737 | 3,751 | 1 | 126 |
-| 4 | Independent | 2,418 | 1,704 | 4,122 | 321 | 81 |
-| 5 | Kombinat | 1,581 | 467 | 2,048 | 1 | 55 |
-| 6 | Klein & Partner | 637 | 110 | 747 | 1 | 52 |
-| 7 | Codesyntax | 452 | 216 | 668 | 3 | 37 |
-| 8 | Derico | 381 | 47 | 428 | 1 | 25 |
-| 9 | Syslab | 381 | 224 | 605 | 5 | 50 |
-| 10 | Eau de Web | 290 | 148 | 438 | 8 | 13 |
-
-
-### Top 10 Organizations (Past 10 Years: 2016-2025)
-
-| Rank | Organization | Commits | PRs | Total | Contributors | Repositories |
-|------|-------------|---------|-----|-------|---------------|-------------|
-| 1 | PY76 | 14,475 | 1,665 | 16,140 | 1 | 177 |
-| 2 | kitconcept GmbH | 13,303 | 4,224 | 17,527 | 17 | 166 |
-| 3 | Independent | 10,490 | 5,088 | 15,578 | 648 | 205 |
-| 4 | der Freitag | 5,781 | 1,297 | 7,078 | 1 | 169 |
-| 5 | Klein & Partner | 4,866 | 831 | 5,697 | 1 | 150 |
-| 6 | Syslab | 3,510 | 1,401 | 4,911 | 5 | 150 |
-| 7 | Kombinat | 2,974 | 808 | 3,782 | 1 | 87 |
-| 8 | Starzel | 2,715 | 598 | 3,313 | 3 | 138 |
-| 9 | Salesforce | 2,456 | 15 | 2,471 | 1 | 124 |
-| 10 | Derico | 2,017 | 223 | 2,240 | 1 | 54 |
+| Rank | Contributor | PRs | Commits | Repositories |
+|------|-------------|-----|---------|-------------|
+| 1 | sneridagh | 1,907 | 4,815 | 59 |
+| 2 | mauritsvanrees | 1,543 | 16,752 | 178 |
+| 3 | gforcada | 1,137 | 9,327 | 167 |
+| 4 | stevepiercy | 906 | 3,869 | 34 |
+| 5 | petschki | 755 | 3,938 | 87 |
+| 6 | jensens | 720 | 5,849 | 169 |
+| 7 | thet | 690 | 2,935 | 99 |
+| 8 | vangheem | 613 | 3,080 | 41 |
+| 9 | pbauer | 508 | 2,829 | 135 |
+| 10 | davisagli | 487 | 2,241 | 131 |
 
 
 ---
 
-## Pull Request Leaders
+## Organisation Contributors
 
-### Top 10 Pull Request Contributors (Last Full Year - 2025)
+### Top 10 Organisation Contributors (Last Full Year: 2025)
 
-| Rank | Contributor | PRs | Commits | Total | Repositories |
-|------|-------------|-----|---------|-------|-------------|
-| 1 | sneridagh | 341 | 8 | 349 | 13 |
-| 2 | gforcada | 291 | 630 | 921 | 115 |
-| 3 | mauritsvanrees | 226 | 1,325 | 1,551 | 90 |
-| 4 | stevepiercy | 190 | 240 | 430 | 20 |
-| 5 | petschki | 156 | 345 | 501 | 31 |
-| 6 | wesleybl | 127 | 8 | 135 | 12 |
-| 7 | davisagli | 116 | 280 | 396 | 43 |
-| 8 | erral | 94 | 149 | 243 | 24 |
-| 9 | ericof | 70 | 91 | 161 | 16 |
-| 10 | thet | 69 | 99 | 168 | 22 |
-
-
-### Top 10 Pull Request Contributors (Past 3 Years: 2023-2025)
-
-| Rank | Contributor | PRs | Commits | Total | Repositories |
-|------|-------------|-----|---------|-------|-------------|
-| 1 | sneridagh | 1,034 | 1,052 | 2,086 | 23 |
-| 2 | gforcada | 737 | 3,014 | 3,751 | 126 |
-| 3 | stevepiercy | 687 | 1,776 | 2,463 | 35 |
-| 4 | mauritsvanrees | 575 | 4,237 | 4,812 | 133 |
-| 5 | petschki | 467 | 1,581 | 2,048 | 55 |
-| 6 | davisagli | 311 | 1,034 | 1,345 | 64 |
-| 7 | wesleybl | 209 | 111 | 320 | 21 |
-| 8 | ericof | 190 | 652 | 842 | 37 |
-| 9 | erral | 182 | 332 | 514 | 36 |
-| 10 | thet | 152 | 253 | 405 | 35 |
+| Rank | Organization | PRs | Commits | Contributors | Repositories |
+|------|-------------|-----|---------|---------------|-------------|
+| 1 | kitconcept GmbH | 571 | 1,828 | 13 | 110 |
+| 2 | der Freitag | 273 | 2,468 | 1 | 122 |
+| 3 | PY76 | 214 | 2,552 | 1 | 127 |
+| 4 | Independent | 186 | 948 | 72 | 34 |
+| 5 | Steve Piercy - Website Builder | 185 | 679 | 1 | 21 |
+| 6 | Kombinat | 139 | 797 | 1 | 30 |
+| 7 | Serpro | 118 | 108 | 1 | 13 |
+| 8 | Syslab | 89 | 267 | 3 | 32 |
+| 9 | Codesyntax | 82 | 360 | 2 | 23 |
+| 10 | RedTurtle | 67 | 53 | 6 | 9 |
 
 
-### Top 10 Pull Request Contributors (Past 10 Years: 2016-2025)
+### Top 10 Organisation Contributors (Past 3 Years: 2023-2025)
 
-| Rank | Contributor | PRs | Commits | Total | Repositories |
-|------|-------------|-----|---------|-------|-------------|
-| 1 | sneridagh | 2,048 | 4,258 | 6,306 | 61 |
-| 2 | mauritsvanrees | 1,665 | 14,475 | 16,140 | 177 |
-| 3 | gforcada | 1,297 | 5,781 | 7,078 | 169 |
-| 4 | stevepiercy | 957 | 3,141 | 4,098 | 41 |
-| 5 | jensens | 831 | 4,866 | 5,697 | 150 |
-| 6 | petschki | 808 | 2,974 | 3,782 | 87 |
-| 7 | thet | 787 | 2,630 | 3,417 | 105 |
-| 8 | vangheem | 657 | 2,977 | 3,634 | 42 |
-| 9 | pbauer | 556 | 2,663 | 3,219 | 135 |
-| 10 | davisagli | 512 | 1,726 | 2,238 | 107 |
-
-
-### Organizations by Pull Requests
-
-#### Top 10 Organizations by Pull Requests (Last Full Year - 2025)
-
-| Rank | Organization | PRs | Commits | Total | Contributors |
-|------|-------------|-----|---------|-------|-------------|
-| 1 | kitconcept GmbH | 638 | 627 | 1,265 | 13 |
-| 2 | Independent | 603 | 412 | 1,015 | 111 |
-| 3 | der Freitag | 291 | 630 | 921 | 1 |
-| 4 | PY76 | 226 | 1,325 | 1,551 | 1 |
-| 5 | Kombinat | 156 | 345 | 501 | 1 |
-| 6 | Serpro | 127 | 8 | 135 | 1 |
-| 7 | Syslab | 107 | 147 | 254 | 3 |
-| 8 | Codesyntax | 105 | 149 | 254 | 2 |
-| 9 | RedTurtle | 88 | 11 | 99 | 6 |
-| 10 | Eau de Web | 35 | 0 | 35 | 6 |
+| Rank | Organization | PRs | Commits | Contributors | Repositories |
+|------|-------------|-----|---------|---------------|-------------|
+| 1 | kitconcept GmbH | 1,747 | 5,430 | 16 | 132 |
+| 2 | der Freitag | 678 | 6,426 | 1 | 127 |
+| 3 | Steve Piercy - Website Builder | 655 | 2,560 | 1 | 29 |
+| 4 | PY76 | 530 | 5,900 | 1 | 138 |
+| 5 | Independent | 448 | 9,761 | 342 | 60 |
+| 6 | Kombinat | 444 | 2,409 | 1 | 55 |
+| 7 | Syslab | 188 | 616 | 5 | 50 |
+| 8 | Serpro | 182 | 215 | 1 | 21 |
+| 9 | RedTurtle | 174 | 277 | 8 | 27 |
+| 10 | Codesyntax | 169 | 684 | 3 | 37 |
 
 
-#### Top 10 Organizations by Pull Requests (Past 3 Years: 2023-2025)
+### Top 10 Organisation Contributors (Past 10 Years: 2016-2025)
 
-| Rank | Organization | PRs | Commits | Total | Contributors |
-|------|-------------|-----|---------|-------|-------------|
-| 1 | kitconcept GmbH | 1,927 | 4,089 | 6,016 | 16 |
-| 2 | Independent | 1,704 | 2,418 | 4,122 | 321 |
-| 3 | der Freitag | 737 | 3,014 | 3,751 | 1 |
-| 4 | PY76 | 575 | 4,237 | 4,812 | 1 |
-| 5 | Kombinat | 467 | 1,581 | 2,048 | 1 |
-| 6 | RedTurtle | 228 | 186 | 414 | 8 |
-| 7 | Syslab | 224 | 381 | 605 | 5 |
-| 8 | Codesyntax | 216 | 452 | 668 | 3 |
-| 9 | Serpro | 209 | 111 | 320 | 1 |
-| 10 | Eau de Web | 148 | 290 | 438 | 8 |
-
-
-#### Top 10 Organizations by Pull Requests (Past 10 Years: 2016-2025)
-
-| Rank | Organization | PRs | Commits | Total | Contributors |
-|------|-------------|-----|---------|-------|-------------|
-| 1 | Independent | 5,088 | 10,490 | 15,578 | 648 |
-| 2 | kitconcept GmbH | 4,224 | 13,303 | 17,527 | 17 |
-| 3 | PY76 | 1,665 | 14,475 | 16,140 | 1 |
-| 4 | Syslab | 1,401 | 3,510 | 4,911 | 5 |
-| 5 | der Freitag | 1,297 | 5,781 | 7,078 | 1 |
-| 6 | Klein & Partner | 831 | 4,866 | 5,697 | 1 |
-| 7 | Kombinat | 808 | 2,974 | 3,782 | 1 |
-| 8 | Nuclia | 725 | 1,501 | 2,226 | 3 |
-| 9 | Eau de Web | 673 | 1,245 | 1,918 | 8 |
-| 10 | RedTurtle | 631 | 795 | 1,426 | 8 |
+| Rank | Organization | PRs | Commits | Contributors | Repositories |
+|------|-------------|-----|---------|---------------|-------------|
+| 1 | kitconcept GmbH | 3,764 | 14,869 | 17 | 182 |
+| 2 | Independent | 2,674 | 26,714 | 699 | 192 |
+| 3 | PY76 | 1,543 | 16,752 | 1 | 178 |
+| 4 | Syslab | 1,230 | 3,941 | 5 | 148 |
+| 5 | der Freitag | 1,137 | 9,327 | 1 | 167 |
+| 6 | Steve Piercy - Website Builder | 906 | 3,869 | 1 | 34 |
+| 7 | Kombinat | 755 | 3,938 | 1 | 87 |
+| 8 | Klein & Partner KG | 720 | 5,849 | 1 | 169 |
+| 9 | Nuclia | 694 | 1,702 | 3 | 34 |
+| 10 | Starzel | 539 | 2,886 | 3 | 138 |
 
 
 ---
 
 ## Notes
 
+- All tables are sorted by number of PRs (descending)
+- **PRs**: Merged pull requests only (excludes open or closed/rejected PRs)
 - **Commits**: Direct code commits to repositories
-- **PRs**: Pull requests submitted (includes both merged and unmerged)
-- **Total**: Sum of commits and pull requests
 - **Contributors**: Number of individual contributors (for organizations)
 - **Repositories**: Number of different repositories contributed to
+
+### Organisation Mapping
+
+The mapping from individual contributors to organisations is maintained in the `organisations.csv` file, 
+which is publicly available for all Plone community members. This makes the mapping transparent and 
+traceable for anyone who is interested. If you believe that this mapping does not reflect your actual 
+affiliation with an organisation, please create a pull request and we will update the statistics accordingly.
 
 Generated by Plone Contributor Statistics Tool

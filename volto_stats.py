@@ -2,15 +2,25 @@
 """
 Generate contributor statistics for the plone/volto repository.
 Fetches data from GitHub API for all contributors.
+
+Statistics include:
+
+- Merged pull requests (not including open or closed/rejected PRs)
+- Commits to the main branch (includes direct commits and commits merged via PRs)
+
+Note: Only commits on the main branch are counted. Commits on feature branches
+that were never merged are excluded.
+
 """
 
-import requests
-import csv
-import time
 import argparse
-from datetime import datetime
-from collections import defaultdict
+import csv
 import os
+import time
+from collections import defaultdict
+from datetime import datetime
+
+import requests
 from dotenv import load_dotenv
 
 # Force reload environment
@@ -46,9 +56,9 @@ def get_all_contributors(session):
     return contributors
 
 def get_pull_requests(session, username, start_date, end_date):
-    """Get number of PRs for a user in the specified date range."""
+    """Get number of merged PRs for a user in the specified date range."""
     url = f'{BASE_URL}/search/issues'
-    query = f'repo:{REPO_OWNER}/{REPO_NAME} author:{username} type:pr created:{start_date}..{end_date}'
+    query = f'repo:{REPO_OWNER}/{REPO_NAME} author:{username} type:pr is:merged created:{start_date}..{end_date}'
 
     params = {
         'q': query,
@@ -65,11 +75,12 @@ def get_pull_requests(session, username, start_date, end_date):
         return 0
 
 def get_commits(session, username, start_date, end_date):
-    """Get number of commits for a user in the specified date range."""
+    """Get number of commits for a user in the specified date range on the main branch."""
     url = f'{BASE_URL}/repos/{REPO_OWNER}/{REPO_NAME}/commits'
 
     params = {
         'author': username,
+        'sha': 'main',  # Only count commits on main branch
         'since': f'{start_date}T00:00:00Z',
         'until': f'{end_date}T23:59:59Z',
         'per_page': 100
@@ -127,7 +138,7 @@ def generate_statistics(session, start_date, end_date):
                 'commits': commit_count
             })
 
-        print(f"  PRs: {pr_count}, Commits: {commit_count}\n")
+        print(f"  Merged PRs: {pr_count}, Commits: {commit_count}\n")
 
     return statistics
 
@@ -238,9 +249,9 @@ Examples:
     print("="*60)
     total_prs = sum(s['pull_requests'] for s in statistics)
     total_commits = sum(s['commits'] for s in statistics)
-    print(f"Total PRs: {total_prs}")
+    print(f"Total Merged PRs: {total_prs}")
     print(f"Total Commits: {total_commits}")
-    print(f"Active contributors (with PRs or commits): {sum(1 for s in statistics if s['pull_requests'] > 0 or s['commits'] > 0)}")
+    print(f"Active contributors (with merged PRs or commits): {sum(1 for s in statistics if s['pull_requests'] > 0 or s['commits'] > 0)}")
 
 if __name__ == '__main__':
     main()
