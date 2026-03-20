@@ -30,6 +30,9 @@ This repository tracks and analyzes Plone community contributions through GitHub
 - `organisations.csv` is the single source of truth for mapping contributors to organisations
 - It is manually maintained and must always be kept **sorted alphabetically** (case-insensitive)
 - When adding or editing entries, ensure the file remains sorted
+- For the rare case (~1%) where a contributor belonged to a different organisation in a specific year, add an entry to `organisation_mapping_overrides.csv` instead of modifying `organisations.csv`
+- `organisations.csv` always reflects the **current** affiliation; overrides capture **historical** exceptions
+- Override format: `github_username,organisation,from_year,to_year` (to_year can be empty = up to present)
 
 ### Organisation Column Consistency
 - **Always check `organisations.csv`** when working with any CSV file that has an `Organisation` column

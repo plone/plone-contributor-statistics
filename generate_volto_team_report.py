@@ -25,20 +25,8 @@ def load_year(year):
 
 
 def load_mapping(mapping_file='organisations.csv'):
-    """
-    Load organisation mapping from CSV file.
-
-    The mapping file should have columns: Organisation, Team
-    where Team contains semicolon-separated GitHub usernames.
-
-    Args:
-        mapping_file: Path to the organisations.csv file
-
-    Returns:
-        dict: Mapping of github_username -> organisation name
-    """
+    """Load organisation mapping from CSV. Returns dict: github_username -> organisation."""
     import csv
-    from pathlib import Path
 
     if not Path(mapping_file).exists():
         print(f"Warning: {mapping_file} not found. All contributors will be marked as Independent.")
@@ -57,6 +45,37 @@ def load_mapping(mapping_file='organisations.csv'):
     return mapping
 
 
+def load_overrides(overrides_file='organisation_mapping_overrides.csv'):
+    """Load year-specific organisation overrides. Returns list of override dicts."""
+    import csv
+
+    if not Path(overrides_file).exists():
+        return []
+
+    overrides = []
+    with open(overrides_file, newline='', encoding='utf-8') as f:
+        for row in csv.DictReader(f):
+            overrides.append({
+                'github_username': row['github_username'],
+                'organisation': row['organisation'],
+                'from_year': int(row['from_year']) if row['from_year'] else None,
+                'to_year': int(row['to_year']) if row['to_year'] else None,
+            })
+    return overrides
+
+
+def resolve_org(username, year, mapping, overrides):
+    """Resolve organisation for a username in a given year, applying overrides."""
+    for override in overrides:
+        if override['github_username'] != username:
+            continue
+        from_year = override['from_year']
+        to_year = override['to_year']
+        if from_year and from_year <= year and (not to_year or year <= to_year):
+            return override['organisation']
+    return mapping.get(username, 'Independent')
+
+
 def combine(years):
     frames = [load_year(y) for y in years]
     frames = [f for f in frames if f is not None]
@@ -70,13 +89,14 @@ def combine(years):
     return combined.sort_values('pull_requests', ascending=False)
 
 
-def combine_orgs(years, mapping):
+def combine_orgs(years, mapping, overrides=None):
     """
     Combine organisation statistics across multiple years.
 
     Args:
         years: List of years to include
         mapping: dict mapping github_username -> organisation name
+        overrides: list of year-specific override dicts (from load_overrides)
 
     Returns:
         DataFrame with columns: organisation, PRs, Commits, Contributors
@@ -87,8 +107,13 @@ def combine_orgs(years, mapping):
         return None
     df = pd.concat(frames)
 
-    # Apply organisation mapping - unmapped users become "Independent"
-    df['organisation'] = df['github_username'].map(mapping).fillna('Independent')
+    # Apply organisation mapping per row, respecting year-specific overrides
+    if overrides:
+        df['organisation'] = df.apply(
+            lambda r: resolve_org(r['github_username'], r['year'], mapping, overrides), axis=1
+        )
+    else:
+        df['organisation'] = df['github_username'].map(mapping).fillna('Independent')
 
     # Show mapping statistics
     total_users = df['github_username'].nunique()
@@ -146,6 +171,9 @@ def main():
 
     # Load organisation mapping from organisations.csv
     mapping = load_mapping()
+    overrides = load_overrides()
+    if overrides:
+        print(f"Loaded {len(overrides)} year-specific override(s)")
     print()
 
     available_years = sorted(
@@ -203,7 +231,7 @@ def main():
     print()
     print("Generating organisation statistics...")
     for label, years in periods:
-        df = combine_orgs(years, mapping)
+        df = combine_orgs(years, mapping, overrides)
         if df is not None:
             print(f"  ✓ {label}: {len(df)} organisations")
             report.append(f"### Organisations ({label})")

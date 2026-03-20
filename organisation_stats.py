@@ -16,8 +16,8 @@ import sys
 import argparse
 
 
-def load_organisation_mapping(mapping_file='organisations.csv'):
-    """Load organisation mapping from CSV file."""
+def load_organisation_mapping(mapping_file='organisations.csv', overrides_file='organisation_mapping_overrides.csv', year=None):
+    """Load organisation mapping from CSV file, with optional year-specific overrides."""
     import csv
     organisation_mapping = {}
 
@@ -32,6 +32,18 @@ def load_organisation_mapping(mapping_file='organisations.csv'):
                 contributor = contributor.strip()
                 if contributor:
                     organisation_mapping[contributor] = organisation
+
+    if year and os.path.exists(overrides_file):
+        overrides = 0
+        with open(overrides_file, newline='', encoding='utf-8') as f:
+            for row in csv.DictReader(f):
+                from_year = int(row['from_year']) if row['from_year'] else None
+                to_year = int(row['to_year']) if row['to_year'] else None
+                if from_year and from_year <= year and (not to_year or year <= to_year):
+                    organisation_mapping[row['github_username']] = row['organisation']
+                    overrides += 1
+        if overrides:
+            print(f"Applied {overrides} year-specific override(s) for {year}")
 
     print(f"Loaded mapping for {len(organisation_mapping)} contributors across {len(set(organisation_mapping.values()))} organisations")
     return organisation_mapping
@@ -197,7 +209,7 @@ def main():
     args = parse_arguments()
     
     # Load organisation mapping
-    organisation_mapping = load_organisation_mapping()
+    organisation_mapping = load_organisation_mapping(year=args.year)
     
     # Find and load stats file (specific year or latest)
     stats_file = get_stats_file(args.year)
