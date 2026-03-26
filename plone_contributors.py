@@ -178,7 +178,7 @@ class PloneStatsExtractor:
 
         page = 1
         total_commits = 0
-        contributors_found = 0
+        repo_contributors: set = set()
 
         while True:
             params['page'] = page
@@ -218,10 +218,9 @@ class PloneStatsExtractor:
                     ).replace(tzinfo=None)
 
                 data = self.contributors_data[username]
-                if data['commits'] == 0:
-                    contributors_found += 1
                 data['commits'] += 1
                 data['repositories'].add(repo_name)
+                repo_contributors.add(username)
 
                 if commit_date:
                     if data['first_contribution'] is None or commit_date < data['first_contribution']:
@@ -238,7 +237,7 @@ class PloneStatsExtractor:
             time.sleep(0.1)
 
         if total_commits:
-            print(f"  {total_commits} commits from {contributors_found} contributors")
+            print(f"  {total_commits} commits from {len(repo_contributors)} contributors")
     
     def get_repository_pull_requests(self, repo_name: str) -> List[Dict[str, Any]]:
         """Get merged pull requests for a repository."""
