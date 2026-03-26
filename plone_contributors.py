@@ -160,129 +160,85 @@ class PloneStatsExtractor:
         print(f"Total repositories found: {len(repos)}")
         return repos
     
-    def get_repository_contributors_list(self, repo_name: str) -> List[str]:
-        """Get list of contributor usernames for a specific repository."""
-        print(f"Fetching contributors list for {repo_name}...")
+    def collect_repo_commits(self, repo_name: str, default_branch: str):
+        """Fetch all commits for a repo in one paginated sweep and tally by author.
 
-        contributors = []
+        Replaces the old two-step approach (contributors list → per-user commit
+        queries) with a single pass through all commits on the default branch.
+        The GitHub API returns a top-level 'author' object with a GitHub login on
+        each commit, so no email-to-username mapping is needed.
+        """
+        url = f'https://api.github.com/repos/{self.org}/{repo_name}/commits'
+        params = {
+            'sha': default_branch,
+            'since': self.start_date.strftime('%Y-%m-%dT%H:%M:%SZ'),
+            'until': self.end_date.strftime('%Y-%m-%dT%H:%M:%SZ'),
+            'per_page': 100,
+        }
+
         page = 1
+        total_commits = 0
+        contributors_found = 0
 
         while True:
-            url = f'https://api.github.com/repos/{self.org}/{repo_name}/contributors'
-            params = {'page': page, 'per_page': 100}
-
+            params['page'] = page
             response = self._safe_request('GET', url, params=params)
 
             if response is None:
-                print(f"Failed to fetch contributors for {repo_name} after retries")
+                print(f"  Failed to fetch commits page {page} for {repo_name}")
+                break
+
+            if response.status_code == 409:  # empty repo
                 break
 
             if response.status_code != 200:
-                print(f"Error fetching contributors for {repo_name}: {response.status_code}")
+                print(f"  Error {response.status_code} fetching commits for {repo_name}")
                 break
 
-            data = response.json()
-            if not data:
+            commits = response.json()
+            if not commits:
                 break
 
-            # Exclude bots and extract usernames
-            for contributor in data:
-                if contributor.get('type') == 'User':
-                    contributors.append(contributor['login'])
+            for commit in commits:
+                # 'author' is the GitHub user object; may be None when the commit
+                # email doesn't match any GitHub account.
+                author = commit.get('author')
+                if not author or author.get('type') == 'Bot':
+                    continue
 
-            if len(data) < 100:
+                username = author.get('login')
+                if not username:
+                    continue
+
+                commit_date_str = commit.get('commit', {}).get('author', {}).get('date')
+                commit_date = None
+                if commit_date_str:
+                    commit_date = datetime.fromisoformat(
+                        commit_date_str.replace('Z', '+00:00')
+                    ).replace(tzinfo=None)
+
+                data = self.contributors_data[username]
+                if data['commits'] == 0:
+                    contributors_found += 1
+                data['commits'] += 1
+                data['repositories'].add(repo_name)
+
+                if commit_date:
+                    if data['first_contribution'] is None or commit_date < data['first_contribution']:
+                        data['first_contribution'] = commit_date
+                    if data['last_contribution'] is None or commit_date > data['last_contribution']:
+                        data['last_contribution'] = commit_date
+
+                total_commits += 1
+
+            if len(commits) < 100:
                 break
 
             page += 1
-            time.sleep(0.5)  # Rate limiting
+            time.sleep(0.1)
 
-        print(f"Found {len(contributors)} contributors for {repo_name}")
-        return contributors
-
-    def get_repository_default_branch(self, repo_name: str) -> str:
-        """Get the default branch for a repository."""
-        url = f'https://api.github.com/repos/{self.org}/{repo_name}'
-
-        try:
-            response = self.session.get(url)
-            if response.status_code == 200:
-                repo_data = response.json()
-                return repo_data.get('default_branch', 'main')
-        except Exception as e:
-            print(f"Error getting default branch for {repo_name}: {e}")
-
-        return 'main'  # Default fallback
-
-    def get_commits_for_user(self, repo_name: str, username: str, default_branch: str) -> int:
-        """Get number of commits for a user in the specified date range on the default branch only."""
-        url = f'https://api.github.com/repos/{self.org}/{repo_name}/commits'
-
-        params = {
-            'author': username,
-            'sha': default_branch,  # Only count commits on default branch (main/master)
-            'since': self.start_date.strftime('%Y-%m-%dT%H:%M:%SZ'),
-            'until': self.end_date.strftime('%Y-%m-%dT%H:%M:%SZ'),
-            'per_page': 100
-        }
-
-        total_commits = 0
-        page = 1
-        first_commit_date = None
-        last_commit_date = None
-
-        try:
-            while True:
-                params['page'] = page
-                response = self._safe_request('GET', url, params=params)
-
-                if response is None:
-                    print(f"  Failed to fetch commits for {username} after retries")
-                    break
-
-                if response.status_code != 200:
-                    break
-
-                commits = response.json()
-                if not commits:
-                    break
-
-                total_commits += len(commits)
-
-                # Track first and last commit dates
-                for commit in commits:
-                    if commit.get('commit', {}).get('author', {}).get('date'):
-                        commit_date = datetime.fromisoformat(
-                            commit['commit']['author']['date'].replace('Z', '+00:00')
-                        ).replace(tzinfo=None)
-
-                        if first_commit_date is None or commit_date < first_commit_date:
-                            first_commit_date = commit_date
-                        if last_commit_date is None or commit_date > last_commit_date:
-                            last_commit_date = commit_date
-
-                # Check if there are more pages
-                if 'Link' not in response.headers or 'rel="next"' not in response.headers['Link']:
-                    break
-
-                page += 1
-                time.sleep(0.5)  # Rate limiting
-
-            # Update contributor data if commits found
-            if total_commits > 0:
-                if first_commit_date:
-                    if (self.contributors_data[username]['first_contribution'] is None or
-                        first_commit_date < self.contributors_data[username]['first_contribution']):
-                        self.contributors_data[username]['first_contribution'] = first_commit_date
-
-                if last_commit_date:
-                    if (self.contributors_data[username]['last_contribution'] is None or
-                        last_commit_date > self.contributors_data[username]['last_contribution']):
-                        self.contributors_data[username]['last_contribution'] = last_commit_date
-
-            return total_commits
-        except Exception as e:
-            print(f"Error fetching commits for {username} in {repo_name}: {e}")
-            return 0
+        if total_commits:
+            print(f"  {total_commits} commits from {contributors_found} contributors")
     
     def get_repository_pull_requests(self, repo_name: str) -> List[Dict[str, Any]]:
         """Get merged pull requests for a repository."""
@@ -339,28 +295,6 @@ class PloneStatsExtractor:
         print(f"Fetched {len(prs)} pull requests for {repo_name}")
         return prs
     
-    def process_commits(self, repo_name: str, contributors: List[str], default_branch: str):
-        """Process commit statistics for contributors in a repository."""
-        print(f"Processing commits for {len(contributors)} contributors in {repo_name} (branch: {default_branch})...")
-
-        processed = 0
-        for i, username in enumerate(contributors, 1):
-            commit_count = self.get_commits_for_user(repo_name, username, default_branch)
-
-            if commit_count > 0:
-                self.contributors_data[username]['commits'] += commit_count
-                self.contributors_data[username]['repositories'].add(repo_name)
-                processed += 1
-                if processed % 5 == 0 or commit_count > 10:
-                    print(f"  [{i}/{len(contributors)}] {username}: {commit_count} commits")
-
-            # Show progress every 10 contributors
-            if i % 10 == 0:
-                print(f"  Progress: {i}/{len(contributors)} contributors checked")
-
-            time.sleep(0.3)  # Rate limiting
-
-        print(f"  Completed: {processed} contributors with commits on {default_branch} branch in date range")
     
     def process_pull_requests(self, repo_name: str, prs: List[Dict[str, Any]]):
         """Process merged pull request statistics for a repository."""
@@ -410,14 +344,12 @@ class PloneStatsExtractor:
                     print(f"Skipping archived repository: {repo_name}")
                     continue
 
-                # Get default branch for this repository
+                # Default branch is already in the repo metadata from get_organization_repos()
                 default_branch = repo.get('default_branch', 'main')
                 print(f"Default branch: {default_branch}")
 
-                # Get list of contributors
-                contributors = self.get_repository_contributors_list(repo_name)
-                if contributors:
-                    self.process_commits(repo_name, contributors, default_branch)
+                # Single-sweep commit collection (one paginated pass, all authors)
+                self.collect_repo_commits(repo_name, default_branch)
 
                 # Get pull requests
                 prs = self.get_repository_pull_requests(repo_name)
@@ -433,8 +365,7 @@ class PloneStatsExtractor:
                 print(f"\n*** Saving checkpoint at repository {i}/{len(repos)} ***")
                 self.save_progress(f"data/{self.start_date.year}-plone-contributors")
 
-            # Rate limiting - be nice to GitHub API
-            time.sleep(1)
+            time.sleep(0.2)
     
     def generate_report(self) -> pd.DataFrame:
         """Generate a comprehensive report of the statistics."""
