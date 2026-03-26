@@ -14,38 +14,60 @@ Important: Only commits that made it to the default branch are counted. This inc
 
 Commits on feature branches that were never merged are NOT counted.
 
-Note: This script uses the direct GitHub commits API (/repos/{org}/{repo}/commits)
-with the 'sha' parameter set to the default branch, rather than the statistics API,
-to ensure accurate and up-to-date commit counts without caching issues.
+Modes:
+  API mode (default): fetches commits from the GitHub API in a single sweep per repo.
+    As a side effect, builds a persistent email→GitHub-login cache in
+    data/email-to-github-login.json so future local-mode runs are fast.
+
+  Local mode (--local): clones/fetches all repos as bare git clones under repos/
+    and uses git log for commit data. Much faster on repeat runs since git log
+    is nearly instant. Only cache misses (new contributors) trigger API calls.
+    Pull request data still comes from the API as it is not in git history.
 """
 
-import os
-import time
 import json
+import os
+import subprocess
+import time
 import requests
 import argparse
 from datetime import datetime
+from pathlib import Path
 from collections import defaultdict
-from typing import Dict, List, Any
+from typing import Any, Dict, List, Optional
 import pandas as pd
 from dotenv import load_dotenv
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
 
+
+EMAIL_CACHE_FILE = Path('data/email-to-github-login.json')
+
+
 class PloneStatsExtractor:
-    def __init__(self, token: str = None, start_date: datetime = None, end_date: datetime = None):
-        # Force load from .env file directly
+    def __init__(
+        self,
+        token: str = None,
+        start_date: datetime = None,
+        end_date: datetime = None,
+        repos_dir: Path = Path('repos'),
+    ):
+        # Load token from .env if not provided
         if token is None:
-            with open('.env', 'r') as f:
-                for line in f:
-                    if line.startswith('GITHUB_TOKEN='):
-                        token = line.split('=', 1)[1].strip()
-                        break
+            try:
+                with open('.env', 'r') as f:
+                    for line in f:
+                        if line.startswith('GITHUB_TOKEN='):
+                            token = line.split('=', 1)[1].strip()
+                            break
+            except FileNotFoundError:
+                pass
 
         load_dotenv(override=True)
 
         self.token = token
         self.org = 'plone'
+        self.repos_dir = Path(repos_dir)
         self.session = self._create_session_with_retries()
         if self.token:
             self.session.headers.update({'Authorization': f'token {self.token}'})
@@ -53,38 +75,40 @@ class PloneStatsExtractor:
         else:
             print("No GitHub token found!")
 
-        # Set date range - default to current year if not provided
         current_year = datetime.now().year
         self.start_date = start_date or datetime(current_year, 1, 1)
         self.end_date = end_date or datetime(current_year, 12, 31, 23, 59, 59)
-
         print(f"Date range: {self.start_date.strftime('%Y-%m-%d')} to {self.end_date.strftime('%Y-%m-%d')}")
 
-        self.repositories = []
-        self.contributors_data = defaultdict(lambda: {
+        self.repositories: List[Dict] = []
+        self.contributors_data: Dict = defaultdict(lambda: {
             'commits': 0,
             'pull_requests': 0,
             'repositories': set(),
             'first_contribution': None,
-            'last_contribution': None
+            'last_contribution': None,
         })
+
+        # Persistent email → GitHub login cache (None = unlinked/bot, not looked up again)
+        self.email_cache: Dict[str, Optional[str]] = self._load_email_cache()
+        self._email_cache_dirty = False
+
+    # ------------------------------------------------------------------
+    # HTTP helpers
+    # ------------------------------------------------------------------
 
     def _create_session_with_retries(self):
         """Create a requests session with automatic retry logic."""
         session = requests.Session()
-
-        # Configure retry strategy
         retry_strategy = Retry(
-            total=5,  # Total number of retries
-            backoff_factor=2,  # Wait 1, 2, 4, 8, 16 seconds between retries
-            status_forcelist=[429, 500, 502, 503, 504],  # Retry on these HTTP status codes
-            allowed_methods=["HEAD", "GET", "OPTIONS"]  # Only retry safe methods
+            total=5,
+            backoff_factor=2,
+            status_forcelist=[429, 500, 502, 503, 504],
+            allowed_methods=["HEAD", "GET", "OPTIONS"]
         )
-
         adapter = HTTPAdapter(max_retries=retry_strategy)
         session.mount("http://", adapter)
         session.mount("https://", adapter)
-
         return session
 
     def _safe_request(self, method, url, params=None, max_retries=3):
@@ -96,7 +120,7 @@ class PloneStatsExtractor:
             except (requests.exceptions.ConnectionError,
                     requests.exceptions.Timeout,
                     requests.exceptions.ChunkedEncodingError) as e:
-                wait_time = 2 ** attempt  # Exponential backoff: 1, 2, 4 seconds
+                wait_time = 2 ** attempt
                 if attempt < max_retries - 1:
                     print(f"  Connection error (attempt {attempt + 1}/{max_retries}): {type(e).__name__}")
                     print(f"  Waiting {wait_time} seconds before retry...")
@@ -108,7 +132,74 @@ class PloneStatsExtractor:
                 print(f"  Unexpected error: {e}")
                 return None
         return None
-        
+
+    # ------------------------------------------------------------------
+    # Email → GitHub login cache
+    # ------------------------------------------------------------------
+
+    def _load_email_cache(self) -> Dict[str, Optional[str]]:
+        """Load the persistent email→login cache from disk."""
+        if EMAIL_CACHE_FILE.exists():
+            try:
+                with open(EMAIL_CACHE_FILE, 'r', encoding='utf-8') as f:
+                    cache = json.load(f)
+                print(f"Loaded email cache: {len(cache):,} entries from {EMAIL_CACHE_FILE}")
+                return cache
+            except Exception as e:
+                print(f"Warning: could not load email cache ({e}), starting fresh.")
+        return {}
+
+    def _save_email_cache(self):
+        """Atomically save the email→login cache to disk."""
+        if not self._email_cache_dirty:
+            return
+        EMAIL_CACHE_FILE.parent.mkdir(parents=True, exist_ok=True)
+        tmp = EMAIL_CACHE_FILE.with_suffix('.json.tmp')
+        try:
+            with open(tmp, 'w', encoding='utf-8') as f:
+                json.dump(self.email_cache, f, indent=2, sort_keys=True)
+            tmp.replace(EMAIL_CACHE_FILE)
+            self._email_cache_dirty = False
+            print(f"  Email cache saved: {len(self.email_cache):,} entries")
+        except Exception as e:
+            print(f"Warning: could not save email cache: {e}")
+
+    def _resolve_email_to_login(self, email: str, repo_name: str, sha: str) -> Optional[str]:
+        """Resolve an unknown email to a GitHub login via a single commit API call.
+
+        Stores the result in the cache (including None for unlinked accounts)
+        so the same email is never looked up twice.
+        """
+        url = f'https://api.github.com/repos/{self.org}/{repo_name}/commits/{sha}'
+        response = self._safe_request('GET', url)
+        login = None
+        if response is not None and response.status_code == 200:
+            author = response.json().get('author')
+            if author and author.get('type') != 'Bot':
+                login = author.get('login')
+        self.email_cache[email] = login
+        self._email_cache_dirty = True
+        return login
+
+    # ------------------------------------------------------------------
+    # Shared commit recorder
+    # ------------------------------------------------------------------
+
+    def _record_commit(self, username: str, repo_name: str, commit_date: Optional[datetime]):
+        """Tally one commit for a contributor."""
+        data = self.contributors_data[username]
+        data['commits'] += 1
+        data['repositories'].add(repo_name)
+        if commit_date:
+            if data['first_contribution'] is None or commit_date < data['first_contribution']:
+                data['first_contribution'] = commit_date
+            if data['last_contribution'] is None or commit_date > data['last_contribution']:
+                data['last_contribution'] = commit_date
+
+    # ------------------------------------------------------------------
+    # Repository list
+    # ------------------------------------------------------------------
+
     def get_organization_repos(self) -> List[Dict[str, Any]]:
         """Fetch all repositories from the Plone organization."""
         print(f"Fetching repositories from {self.org} organization...")
@@ -118,55 +209,49 @@ class PloneStatsExtractor:
         while True:
             url = f'https://api.github.com/orgs/{self.org}/repos'
             params = {'page': page, 'per_page': 100, 'sort': 'updated'}
-
             response = self._safe_request('GET', url, params=params)
+
             if response is None:
                 print(f"Failed to fetch repositories page {page}")
                 break
-            
             if response.status_code == 401:
-                print(f"Authentication failed (401). GitHub token is required for organization data.")
-                print(f"Get a token at: https://github.com/settings/tokens")
-                print(f"Add it to .env file as: GITHUB_TOKEN=your_token")
+                print("Authentication failed (401). GitHub token is required.")
                 return []
             elif response.status_code == 403:
-                print(f"Access forbidden (403). Token may lack 'read:org' scope or org is private.")
-                print(f"For public repos only, trying individual repo access...")
-                # Try to get some popular Plone repos directly
+                print("Access forbidden (403). Token may lack 'read:org' scope.")
                 popular_repos = ['Plone', 'plone.api', 'Products.CMFPlone', 'plone.app.contenttypes', 'plone.restapi']
-                repos = []
                 for repo_name in popular_repos:
                     repo_url = f'https://api.github.com/repos/{self.org}/{repo_name}'
                     repo_resp = self.session.get(repo_url)
                     if repo_resp.status_code == 200:
                         repos.append(repo_resp.json())
                         print(f"  Added repository: {repo_name}")
-                    else:
-                        print(f"  Could not access: {repo_name} ({repo_resp.status_code})")
                 return repos
             elif response.status_code != 200:
                 print(f"Error fetching repos: {response.status_code}")
                 break
-                
+
             data = response.json()
             if not data:
                 break
-                
             repos.extend(data)
             print(f"Fetched {len(data)} repositories (page {page})")
             page += 1
-            
+
         self.repositories = repos
         print(f"Total repositories found: {len(repos)}")
         return repos
-    
-    def collect_repo_commits(self, repo_name: str, default_branch: str):
-        """Fetch all commits for a repo in one paginated sweep and tally by author.
 
-        Replaces the old two-step approach (contributors list → per-user commit
-        queries) with a single pass through all commits on the default branch.
-        The GitHub API returns a top-level 'author' object with a GitHub login on
-        each commit, so no email-to-username mapping is needed.
+    # ------------------------------------------------------------------
+    # Commit collection — API mode
+    # ------------------------------------------------------------------
+
+    def collect_repo_commits(self, repo_name: str, default_branch: str):
+        """Fetch all commits for a repo in one paginated API sweep.
+
+        Tallies authors from the GitHub user object on each commit (no
+        email mapping needed). As a side effect, populates the email cache
+        so subsequent local-mode runs avoid API calls for known contributors.
         """
         url = f'https://api.github.com/repos/{self.org}/{repo_name}/commits'
         params = {
@@ -187,10 +272,8 @@ class PloneStatsExtractor:
             if response is None:
                 print(f"  Failed to fetch commits page {page} for {repo_name}")
                 break
-
             if response.status_code == 409:  # empty repo
                 break
-
             if response.status_code != 200:
                 print(f"  Error {response.status_code} fetching commits for {repo_name}")
                 break
@@ -200,34 +283,33 @@ class PloneStatsExtractor:
                 break
 
             for commit in commits:
-                # 'author' is the GitHub user object; may be None when the commit
-                # email doesn't match any GitHub account.
-                author = commit.get('author')
+                author = commit.get('author')  # GitHub user object, may be None
+                git_author = commit.get('commit', {}).get('author', {})
+                email = git_author.get('email', '').lower()
+
+                # Populate email cache as a free side effect of the API response
+                if email and email not in self.email_cache:
+                    if author and author.get('type') != 'Bot':
+                        self.email_cache[email] = author.get('login')
+                    else:
+                        self.email_cache[email] = None
+                    self._email_cache_dirty = True
+
                 if not author or author.get('type') == 'Bot':
                     continue
-
                 username = author.get('login')
                 if not username:
                     continue
 
-                commit_date_str = commit.get('commit', {}).get('author', {}).get('date')
+                commit_date_str = git_author.get('date')
                 commit_date = None
                 if commit_date_str:
                     commit_date = datetime.fromisoformat(
                         commit_date_str.replace('Z', '+00:00')
                     ).replace(tzinfo=None)
 
-                data = self.contributors_data[username]
-                data['commits'] += 1
-                data['repositories'].add(repo_name)
+                self._record_commit(username, repo_name, commit_date)
                 repo_contributors.add(username)
-
-                if commit_date:
-                    if data['first_contribution'] is None or commit_date < data['first_contribution']:
-                        data['first_contribution'] = commit_date
-                    if data['last_contribution'] is None or commit_date > data['last_contribution']:
-                        data['last_contribution'] = commit_date
-
                 total_commits += 1
 
             if len(commits) < 100:
@@ -238,9 +320,109 @@ class PloneStatsExtractor:
 
         if total_commits:
             print(f"  {total_commits} commits from {len(repo_contributors)} contributors")
-    
+
+    # ------------------------------------------------------------------
+    # Commit collection — local git mode
+    # ------------------------------------------------------------------
+
+    def clone_or_fetch_repo(self, repo_name: str, clone_url: str) -> Optional[Path]:
+        """Ensure a bare clone of the repo exists locally and is up to date.
+
+        Returns the path to the bare repo directory, or None on failure.
+        """
+        repo_path = self.repos_dir / f'{repo_name}.git'
+
+        if repo_path.exists():
+            result = subprocess.run(
+                ['git', '-C', str(repo_path), 'fetch', '--quiet', 'origin'],
+                capture_output=True, text=True
+            )
+            if result.returncode != 0:
+                print(f"  Warning: git fetch failed for {repo_name}: {result.stderr.strip()}")
+        else:
+            self.repos_dir.mkdir(parents=True, exist_ok=True)
+            print(f"  Cloning {repo_name}...")
+            result = subprocess.run(
+                ['git', 'clone', '--bare', '--quiet', clone_url, str(repo_path)],
+                capture_output=True, text=True
+            )
+            if result.returncode != 0:
+                print(f"  Warning: git clone failed for {repo_name}: {result.stderr.strip()}")
+                return None
+
+        return repo_path
+
+    def collect_repo_commits_local(self, repo_name: str, default_branch: str, repo_path: Path):
+        """Collect commits from a local bare clone using git log.
+
+        Resolves git author emails to GitHub logins via the email cache.
+        Falls back to one API call per unknown email and caches the result,
+        so each email is only ever resolved once across all runs.
+        """
+        after = self.start_date.strftime('%Y-%m-%d')
+        # git --before is exclusive of midnight, so add one day buffer via the time component
+        before = self.end_date.strftime('%Y-%m-%dT%H:%M:%S')
+
+        # Format: hash TAB author-email TAB ISO-date
+        result = subprocess.run(
+            [
+                'git', '-C', str(repo_path), 'log',
+                default_branch,
+                f'--after={after}',
+                f'--before={before}',
+                '--format=%H\t%ae\t%aI',
+            ],
+            capture_output=True, text=True
+        )
+
+        if result.returncode != 0:
+            print(f"  Warning: git log failed for {repo_name}: {result.stderr.strip()}")
+            return
+
+        lines = [ln for ln in result.stdout.splitlines() if ln.strip()]
+        if not lines:
+            return
+
+        total_commits = 0
+        repo_contributors: set = set()
+        api_lookups = 0
+
+        for line in lines:
+            parts = line.split('\t', 2)
+            if len(parts) != 3:
+                continue
+            sha, email, date_str = parts
+            email = email.lower()
+
+            if email not in self.email_cache:
+                login = self._resolve_email_to_login(email, repo_name, sha)
+                api_lookups += 1
+                time.sleep(0.1)  # gentle rate limit for cache-miss calls only
+            else:
+                login = self.email_cache[email]
+
+            if not login:  # unlinked account or bot
+                continue
+
+            try:
+                commit_date = datetime.fromisoformat(date_str).replace(tzinfo=None)
+            except ValueError:
+                commit_date = None
+
+            self._record_commit(login, repo_name, commit_date)
+            repo_contributors.add(login)
+            total_commits += 1
+
+        if total_commits:
+            lookup_note = f", {api_lookups} API cache-miss lookups" if api_lookups else ""
+            print(f"  {total_commits} commits from {len(repo_contributors)} contributors{lookup_note}")
+
+    # ------------------------------------------------------------------
+    # Pull requests (always via API — not in git history)
+    # ------------------------------------------------------------------
+
     def get_repository_pull_requests(self, repo_name: str) -> List[Dict[str, Any]]:
-        """Get merged pull requests for a repository."""
+        """Get merged pull requests for a repository within the date range."""
         print(f"Fetching merged pull requests for {repo_name}...")
 
         prs = []
@@ -249,81 +431,85 @@ class PloneStatsExtractor:
         while True:
             url = f'https://api.github.com/repos/{self.org}/{repo_name}/pulls'
             params = {
-                'state': 'closed',  # Fetch closed PRs (includes both merged and rejected)
+                'state': 'closed',
                 'page': page,
                 'per_page': 100,
                 'sort': 'updated',
-                'direction': 'desc'
+                'direction': 'desc',
             }
-
             response = self._safe_request('GET', url, params=params)
 
             if response is None:
                 print(f"Failed to fetch PRs for {repo_name} after retries")
                 break
-
             if response.status_code != 200:
                 print(f"Error fetching PRs for {repo_name}: {response.status_code}")
                 break
-                
+
             data = response.json()
             if not data:
                 break
-            
-            # Filter PRs by date range (using merged_at date for consistency with commit counting)
-            filtered_prs = []
+
             for pr in data:
-                # Only consider merged PRs and filter by merge date
                 if pr.get('merged_at'):
-                    merged_date = datetime.fromisoformat(pr['merged_at'].replace('Z', '+00:00')).replace(tzinfo=None)
+                    merged_date = datetime.fromisoformat(
+                        pr['merged_at'].replace('Z', '+00:00')
+                    ).replace(tzinfo=None)
                     if self.start_date <= merged_date <= self.end_date:
-                        filtered_prs.append(pr)
-            
-            prs.extend(filtered_prs)
+                        prs.append(pr)
+
             page += 1
 
-            # If we're getting PRs with merge dates older than our date range, we can stop
-            # Check merged PRs only
-            merged_prs_in_page = [pr for pr in data if pr.get('merged_at')]
-            if merged_prs_in_page and all(
-                datetime.fromisoformat(pr.get('merged_at', '1970-01-01T00:00:00Z').replace('Z', '+00:00')).replace(tzinfo=None) < self.start_date
-                for pr in merged_prs_in_page
+            # Stop paging once all merged PRs in the page predate our window
+            merged_in_page = [pr for pr in data if pr.get('merged_at')]
+            if merged_in_page and all(
+                datetime.fromisoformat(
+                    pr['merged_at'].replace('Z', '+00:00')
+                ).replace(tzinfo=None) < self.start_date
+                for pr in merged_in_page
             ):
                 break
-                
+
         print(f"Fetched {len(prs)} pull requests for {repo_name}")
         return prs
-    
-    
+
     def process_pull_requests(self, repo_name: str, prs: List[Dict[str, Any]]):
-        """Process merged pull request statistics for a repository."""
+        """Tally merged pull requests per contributor."""
         try:
             merged_count = 0
             for pr in prs:
-                # Only count merged PRs (filter out closed but not merged PRs)
                 if pr.get('merged_at') is None:
                     continue
-
                 if pr['user'] and pr['user']['type'] != 'Bot':
                     username = pr['user']['login']
                     self.contributors_data[username]['pull_requests'] += 1
                     self.contributors_data[username]['repositories'].add(repo_name)
                     merged_count += 1
-
             print(f"Processed {merged_count} merged PRs for {repo_name}")
         except Exception as e:
             print(f"Error processing PRs for {repo_name}: {e}")
-    
+
+    # ------------------------------------------------------------------
+    # Main extraction loop
+    # ------------------------------------------------------------------
+
     def save_progress(self, filename: str):
-        """Save current progress to a checkpoint file."""
+        """Save current progress to a checkpoint CSV and flush the email cache."""
         df = self.generate_report()
         checkpoint_file = f"{filename}_checkpoint.csv"
         df.to_csv(checkpoint_file, index=False)
         print(f"Progress saved to {checkpoint_file}")
+        self._save_email_cache()
 
-    def extract_all_stats(self, max_repos: int = None, save_every: int = 50):
-        """Extract statistics from all repositories in the organization."""
-        print("Starting statistics extraction...")
+    def extract_all_stats(self, max_repos: int = None, save_every: int = 50, local: bool = False):
+        """Extract statistics from all repositories in the organization.
+
+        Args:
+            local:      Use local bare git clones for commit data.
+            save_every: Save a checkpoint CSV every N repositories.
+        """
+        mode = "local git + email cache" if local else "GitHub API"
+        print(f"Starting statistics extraction (mode: {mode})...")
 
         repos = self.get_organization_repos()
 
@@ -338,38 +524,48 @@ class PloneStatsExtractor:
             print(f"{'='*60}")
 
             try:
-                # Skip archived repositories
                 if repo.get('archived', False):
                     print(f"Skipping archived repository: {repo_name}")
                     continue
 
-                # Default branch is already in the repo metadata from get_organization_repos()
                 default_branch = repo.get('default_branch', 'main')
                 print(f"Default branch: {default_branch}")
 
-                # Single-sweep commit collection (one paginated pass, all authors)
-                self.collect_repo_commits(repo_name, default_branch)
+                if local:
+                    clone_url = repo.get('clone_url') or \
+                        f'https://github.com/{self.org}/{repo_name}.git'
+                    repo_path = self.clone_or_fetch_repo(repo_name, clone_url)
+                    if repo_path:
+                        self.collect_repo_commits_local(repo_name, default_branch, repo_path)
+                    else:
+                        print(f"  Falling back to API for {repo_name}")
+                        self.collect_repo_commits(repo_name, default_branch)
+                else:
+                    self.collect_repo_commits(repo_name, default_branch)
 
-                # Get pull requests
                 prs = self.get_repository_pull_requests(repo_name)
                 if prs:
                     self.process_pull_requests(repo_name, prs)
 
             except Exception as e:
                 print(f"ERROR: Failed to process repository {repo_name}: {e}")
-                print(f"Continuing with next repository...")
+                print("Continuing with next repository...")
 
-            # Save progress checkpoint every N repositories
             if save_every and i % save_every == 0:
                 print(f"\n*** Saving checkpoint at repository {i}/{len(repos)} ***")
                 self.save_progress(f"data/{self.start_date.year}-plone-contributors")
 
             time.sleep(0.2)
-    
+
+        self._save_email_cache()
+
+    # ------------------------------------------------------------------
+    # Report
+    # ------------------------------------------------------------------
+
     def generate_report(self) -> pd.DataFrame:
-        """Generate a comprehensive report of the statistics."""
+        """Generate a DataFrame of contributor statistics."""
         data = []
-        
         for username, stats in self.contributors_data.items():
             data.append({
                 'username': username,
@@ -377,155 +573,140 @@ class PloneStatsExtractor:
                 'total_pull_requests': stats['pull_requests'],
                 'repositories_count': len(stats['repositories']),
                 'repositories': ', '.join(sorted(stats['repositories'])),
-                'first_contribution': stats['first_contribution'].strftime('%Y-%m-%d') if stats['first_contribution'] else None,
-                'last_contribution': stats['last_contribution'].strftime('%Y-%m-%d') if stats['last_contribution'] else None
+                'first_contribution': (
+                    stats['first_contribution'].strftime('%Y-%m-%d')
+                    if stats['first_contribution'] else None
+                ),
+                'last_contribution': (
+                    stats['last_contribution'].strftime('%Y-%m-%d')
+                    if stats['last_contribution'] else None
+                ),
             })
-        
+
         if not data:
             print("No data collected. Creating empty report.")
-            df = pd.DataFrame(columns=['username', 'total_commits', 'total_pull_requests', 'repositories_count', 'repositories', 'first_contribution', 'last_contribution'])
-        else:
-            df = pd.DataFrame(data)
-            df = df.sort_values('total_commits', ascending=False)
-        return df
-    
+            return pd.DataFrame(columns=[
+                'username', 'total_commits', 'total_pull_requests',
+                'repositories_count', 'repositories',
+                'first_contribution', 'last_contribution',
+            ])
+
+        df = pd.DataFrame(data)
+        return df.sort_values('total_commits', ascending=False)
+
     def save_report(self, df: pd.DataFrame, filename: str = None):
-        """Save the report to CSV file."""
+        """Save the report to a CSV file under data/."""
         if filename is None:
             filename = 'plone-contributors'
-        
-        # Save to CSV
         csv_file = f'data/{filename}.csv'
         df.to_csv(csv_file, index=False)
         print(f"Report saved to {csv_file}")
-        
         return csv_file
 
+
+# ------------------------------------------------------------------
+# CLI
+# ------------------------------------------------------------------
+
 def parse_arguments():
-    """Parse command line arguments for date range configuration."""
     parser = argparse.ArgumentParser(
         description="Extract GitHub statistics from the Plone organization",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python plone_stats.py                    # Current year (default)
-  python plone_stats.py --year 2024       # All of 2024
-  python plone_stats.py --start-date 2024-01-01 --end-date 2024-06-30  # First half of 2024
-  python plone_stats.py --start-date 2023-01-01 --end-date 2024-12-31  # Two year span
-        """
+  python plone_contributors.py                          # current year, API mode
+  python plone_contributors.py --year 2024             # all of 2024, API mode
+  python plone_contributors.py --year 2024 --local     # all of 2024, local git mode
+  python plone_contributors.py --start-date 2024-01-01 --end-date 2024-06-30
+        """,
     )
-    
+    parser.add_argument('--year', type=int, help='Extract stats for a specific year (e.g., 2024)')
+    parser.add_argument('--start-date', type=str, help='Start date YYYY-MM-DD')
+    parser.add_argument('--end-date', type=str, help='End date YYYY-MM-DD')
+    parser.add_argument('--token', type=str, help='GitHub token (overrides .env)')
     parser.add_argument(
-        '--year', 
-        type=int, 
-        help='Extract stats for a specific year (e.g., 2024)'
+        '--local',
+        action='store_true',
+        help='Use local bare git clones instead of the GitHub commits API',
     )
-    
     parser.add_argument(
-        '--start-date', 
-        type=str, 
-        help='Start date in YYYY-MM-DD format (e.g., 2024-01-01)'
-    )
-    
-    parser.add_argument(
-        '--end-date', 
-        type=str, 
-        help='End date in YYYY-MM-DD format (e.g., 2024-12-31)'
-    )
-    
-    parser.add_argument(
-        '--token',
+        '--repos-dir',
         type=str,
-        help='GitHub token (if not using .env file)'
+        default='repos',
+        help='Directory for bare git clones used in --local mode (default: repos/)',
     )
-    
     return parser.parse_args()
 
 
 def validate_and_parse_dates(args):
-    """Validate and parse date arguments."""
     start_date = None
     end_date = None
-    
+
     if args.year:
-        # Use specified year
         start_date = datetime(args.year, 1, 1)
         end_date = datetime(args.year, 12, 31, 23, 59, 59)
         print(f"Using year: {args.year}")
     elif args.start_date or args.end_date:
-        # Use custom date range
         if args.start_date:
             try:
                 start_date = datetime.strptime(args.start_date, '%Y-%m-%d')
             except ValueError:
-                raise ValueError(f"Invalid start date format: {args.start_date}. Use YYYY-MM-DD")
-        
+                raise ValueError(f"Invalid start date: {args.start_date}. Use YYYY-MM-DD")
         if args.end_date:
             try:
                 end_date = datetime.strptime(args.end_date, '%Y-%m-%d')
-                end_date = end_date.replace(hour=23, minute=59, second=59)  # End of day
+                end_date = end_date.replace(hour=23, minute=59, second=59)
             except ValueError:
-                raise ValueError(f"Invalid end date format: {args.end_date}. Use YYYY-MM-DD")
-        
-        # Validate date range
+                raise ValueError(f"Invalid end date: {args.end_date}. Use YYYY-MM-DD")
         if start_date and end_date and start_date > end_date:
             raise ValueError("Start date must be before end date")
     else:
-        # Default to current year
         current_year = datetime.now().year
         start_date = datetime(current_year, 1, 1)
         end_date = datetime(current_year, 12, 31, 23, 59, 59)
         print(f"Using default year: {current_year}")
-    
+
     return start_date, end_date
 
 
 def main():
-    """Main function to run the statistics extraction."""
     print("Plone GitHub Statistics Extractor")
     print("=" * 40)
-    
-    # Parse command line arguments
+
     args = parse_arguments()
-    
+
     try:
-        # Parse and validate dates
         start_date, end_date = validate_and_parse_dates(args)
-        
-        # Create extractor with specified date range
+
         extractor = PloneStatsExtractor(
             token=args.token,
             start_date=start_date,
-            end_date=end_date
+            end_date=end_date,
+            repos_dir=Path(args.repos_dir),
         )
 
-        # Generate filename with date range
-        if start_date and end_date:
-            if start_date.year == end_date.year:
-                filename = f'{start_date.year}-plone-contributors'
-            else:
-                filename = f'{start_date.year}-{end_date.year}-plone-contributors'
+        if start_date.year == end_date.year:
+            filename = f'{start_date.year}-plone-contributors'
         else:
-            filename = None  # Use default filename
+            filename = f'{start_date.year}-{end_date.year}-plone-contributors'
 
         try:
-            # Extract statistics from all repositories
-            extractor.extract_all_stats()
-
+            extractor.extract_all_stats(local=args.local)
         except KeyboardInterrupt:
             print("\n\nExtraction interrupted by user. Saving progress...")
         except Exception as e:
             print(f"\n\nUnexpected error during extraction: {e}")
             print("Saving current progress...")
 
-        # Always generate and save report (even if extraction was interrupted)
         df = extractor.generate_report()
 
         print("\n" + "=" * 50)
         print("TOP 10 CONTRIBUTORS BY PRs:")
-        print(df.sort_values('total_pull_requests', ascending=False).head(10)[['username', 'total_commits', 'total_pull_requests', 'repositories_count']])
+        print(df.sort_values('total_pull_requests', ascending=False).head(10)[
+            ['username', 'total_commits', 'total_pull_requests', 'repositories_count']
+        ])
 
-        csv_file = extractor.save_report(df, filename)
+        extractor.save_report(df, filename)
 
         print(f"\nStatistics extraction completed!")
         print(f"Total repositories found: {len(extractor.repositories)}")
@@ -539,8 +720,9 @@ def main():
         import traceback
         traceback.print_exc()
         return 1
-    
+
     return 0
+
 
 if __name__ == "__main__":
     main()
