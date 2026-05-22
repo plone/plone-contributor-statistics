@@ -577,7 +577,7 @@ def main():
     print(f"CSV report written to: {csv_output}")
 
     # Write Markdown report
-    md_output = 'report/community-recognition.md'
+    md_output = 'reports/community-recognition.md'
     write_markdown_report(org_points, org_details, results, levels, md_output)
 
     # Print summary
