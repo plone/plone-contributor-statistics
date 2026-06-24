@@ -191,6 +191,7 @@ def main():
         last_full_year = available_years[0]
 
     three_years = [y for y in available_years if y >= last_full_year - 2]
+    five_years = [y for y in available_years if y >= last_full_year - 4]
     all_years = available_years
 
     report = []
@@ -201,6 +202,7 @@ def main():
     report.append(f"- **Available years**: {', '.join(map(str, available_years))}")
     report.append(f"- **Last full year**: {last_full_year}")
     report.append(f"- **3-year period**: {min(three_years)}-{max(three_years)}")
+    report.append(f"- **5-year period**: {min(five_years)}-{max(five_years)}")
     report.append(f"- **All time**: {min(all_years)}-{max(all_years)}")
     report.append("")
     report.append("---")
@@ -209,6 +211,7 @@ def main():
     periods = [
         (f"Last Full Year - {last_full_year}", [last_full_year]),
         (f"Past 3 Years: {min(three_years)}-{max(three_years)}", three_years),
+        (f"Past 5 Years: {min(five_years)}-{max(five_years)}", five_years),
         (f"All Time: {min(all_years)}-{max(all_years)}", all_years),
     ]
 
