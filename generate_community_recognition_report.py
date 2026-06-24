@@ -2,8 +2,20 @@
 """
 Generate Community Recognition Report
 
-This script calculates community recognition points based on various contribution
+This script calculates community recognition points based on non-code contribution
 categories and generates both a CSV file and a detailed markdown report.
+
+Contribution categories covered:
+  - Strategic sprints
+  - Release managers
+  - Team leaders
+  - Board of directors
+  - Podcasts / live events
+  - World Plone Day events and talks
+  - Conference organisation
+  - Training sessions
+
+For code contribution recognition (PRs, PLIPs) see generate_code_recognition_report.py.
 """
 
 import csv
@@ -42,7 +54,6 @@ def get_recognition_level(points, levels):
 
 def normalize_organization_name(org_name):
     """Normalize organization names to handle different naming conventions."""
-    # Mapping of variations to canonical names
     org_mapping = {
         'kitconcept': 'kitconcept GmbH',
         'py76': 'PY76',
@@ -74,69 +85,17 @@ def normalize_organization_name(org_name):
         'mathematics institute at unam': 'UNAM',
     }
 
-    # Try to find a mapping, otherwise return the original name
     normalized = org_mapping.get(org_name.lower(), org_name)
     return normalized
-
-
-def load_pr_data():
-    """Load PR statistics from past 5 years summary."""
-    pr_stats = {}
-    try:
-        with open('summary-past-five-years-2020-2024.csv', 'r') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                org = normalize_organization_name(row['organisation'].strip())
-                total_prs = int(row['total_pull_requests'])
-                avg_prs_per_year = total_prs / 5  # 5 years
-                pr_stats[org] = {
-                    'total_prs': total_prs,
-                    'avg_per_year': avg_prs_per_year
-                }
-    except FileNotFoundError:
-        print("Warning: summary-past-five-years-2020-2024.csv not found")
-    except Exception as e:
-        print(f"Warning: Error loading PR data: {e}")
-
-    return pr_stats
-
-
-def load_plip_data():
-    """Load PLIP statistics."""
-    plip_stats = {}
-    try:
-        with open('plone-plip-organisations.csv', 'r') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                org = normalize_organization_name(row['organisation'].strip())
-                # Note: Using total_plips as all-time count
-                # Ideally we'd filter to past 5 years, but data doesn't have dates
-                total_plips = int(row['total_plips'])
-                closed_plips = int(row['closed_plips'])
-                plip_stats[org] = {
-                    'total_plips': total_plips,
-                    'closed_plips': closed_plips
-                }
-    except FileNotFoundError:
-        print("Warning: plone-plip-organisations.csv not found")
-    except Exception as e:
-        print(f"Warning: Error loading PLIP data: {e}")
-
-    return plip_stats
 
 
 def calculate_community_recognition_points():
     """Calculate community recognition points from all contribution data."""
 
-    # Initialize points tracking
     org_points = defaultdict(lambda: defaultdict(float))
     org_details = defaultdict(lambda: defaultdict(list))
 
     data_dir = 'data/community-contributions'
-
-    # Load code contribution data (PRs and PLIPs)
-    pr_data = load_pr_data()
-    plip_data = load_plip_data()
 
     # 1. Strategic Sprints - 12 points per organization
     try:
@@ -232,7 +191,6 @@ def calculate_community_recognition_points():
                 video_type = row.get('Type', '').strip()
                 video_title = row['Video Title'].strip()
 
-                # Skip duplicates, teasers, announcements, welcomes, recaps
                 if video_type in ['Duplicate', 'Teaser', 'Announcement', 'Welcome', 'Recap']:
                     continue
 
@@ -277,54 +235,12 @@ def calculate_community_recognition_points():
     except FileNotFoundError:
         print("Warning: 2025-plone-conference-trainings.csv not found")
 
-    # 10. Pull Request Contributions - Based on 5-year average
-    # Criteria: Lead (100+/yr=20pts), Core Member (50-99/yr=10pts), Active Member (20-49/yr=4pts), Team Member (10-19/yr=2pts)
-    for org, data in pr_data.items():
-        avg_prs = data['avg_per_year']
-        if avg_prs >= 100:
-            points = 20
-            level = 'Lead'
-        elif avg_prs >= 50:
-            points = 10
-            level = 'Core Member'
-        elif avg_prs >= 20:
-            points = 4
-            level = 'Active Member'
-        elif avg_prs >= 10:
-            points = 2
-            level = 'Team Member'
-        else:
-            continue  # Less than 10 PRs/year, no points
-
-        org_points[org]['PR Contributions'] += points
-        org_details[org]['PR Contributions'].append(f"{level} ({avg_prs:.1f} PRs/year)")
-
-    # 11. PLIP Contributions - Based on total PLIPs (all-time, ideally would be 5 years)
-    # Criteria: Significant PLIP Contributor (10+=15pts), Regular PLIP Contributor (6+=9pts), Occasional PLIP Contributor (2+=3pts)
-    for org, data in plip_data.items():
-        total_plips = data['closed_plips']  # Using closed PLIPs as "merged and released"
-        if total_plips >= 10:
-            points = 15
-            level = 'Significant PLIP Contributor'
-        elif total_plips >= 6:
-            points = 9
-            level = 'Regular PLIP Contributor'
-        elif total_plips >= 2:
-            points = 3
-            level = 'Occasional PLIP Contributor'
-        else:
-            continue  # Less than 2 PLIPs, no points
-
-        org_points[org]['PLIP Contributions'] += points
-        org_details[org]['PLIP Contributions'].append(f"{level} ({total_plips} PLIPs)")
-
     return org_points, org_details
 
 
 def write_csv_report(org_points, levels, output_file):
     """Write the community recognition points to a CSV file."""
 
-    # Calculate totals and create output
     results = []
     for org in sorted(org_points.keys()):
         categories = org_points[org]
@@ -343,16 +259,13 @@ def write_csv_report(org_points, levels, output_file):
             'WPD Talk': categories.get('WPD Talk', 0),
             'Conference Organization': categories.get('Conference Organization', 0),
             'Training Session': categories.get('Training Session', 0),
-            'PR Contributions': categories.get('PR Contributions', 0),
-            'PLIP Contributions': categories.get('PLIP Contributions', 0),
             'Total Points': total
         }
         results.append(row)
 
-    # Write to CSV
-    fieldnames = ['Organisation', 'Recognition Level', 'Strategic Sprint', 'Release Manager', 'Team Leader',
-                  'Board Member', 'Podcast Host', 'WPD Event', 'WPD Talk',
-                  'Conference Organization', 'Training Session', 'PR Contributions', 'PLIP Contributions', 'Total Points']
+    fieldnames = ['Organisation', 'Recognition Level', 'Strategic Sprint', 'Release Manager',
+                  'Team Leader', 'Board Member', 'Podcast Host', 'WPD Event', 'WPD Talk',
+                  'Conference Organization', 'Training Session', 'Total Points']
 
     with open(output_file, 'w', newline='') as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
@@ -369,28 +282,23 @@ def write_markdown_report(org_points, org_details, results, levels, output_file)
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
 
     with open(output_file, 'w') as f:
-        # Header
         f.write("# Plone Community Recognition Program 2025\n\n")
         f.write(f"*Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}*\n\n")
 
-        # Executive Summary
         f.write("## Executive Summary\n\n")
         f.write(f"- **Total Organizations**: {len(results)}\n")
         total_points = sum(r['Total Points'] for r in results)
         f.write(f"- **Total Points Awarded**: {total_points:.1f}\n")
         f.write(f"- **Average Points per Organization**: {total_points/len(results):.1f}\n\n")
 
-        # Recognition Levels
         f.write("## Recognition Levels\n\n")
         f.write("| Level | Points Range | Organizations |\n")
         f.write("|-------|--------------|---------------:|\n")
 
-        # Count organizations by level
         level_counts = defaultdict(int)
         for row in results:
             level_counts[row['Recognition Level']] += 1
 
-        # Display levels from highest to lowest
         for level in reversed(levels):
             level_name = level['name']
             if level['max_points'] == float('inf'):
@@ -401,7 +309,6 @@ def write_markdown_report(org_points, org_details, results, levels, output_file)
             f.write(f"| {level_name} | {points_range} | {count} |\n")
         f.write("\n")
 
-        # Point Categories
         f.write("## Recognition Categories\n\n")
         f.write("### Community Contributions\n\n")
         f.write("| Category | Points | Description |\n")
@@ -418,18 +325,8 @@ def write_markdown_report(org_points, org_details, results, levels, output_file)
         f.write("| Podcast Host | 6 | Host Plone podcast/live event (split among hosts) |\n")
         f.write("| WPD Event | 3 | Organize World Plone Day event |\n")
         f.write("| WPD Talk | 1 | Give World Plone Day talk (max 4 per org) |\n\n")
-        f.write("### Code Contributions (Past 5 Years)\n\n")
-        f.write("| Category | Points | Description |\n")
-        f.write("|----------|--------|-------------|\n")
-        f.write("| Lead (PR) | 20 | 100+ PRs/year average |\n")
-        f.write("| Core Member (PR) | 10 | 50-99 PRs/year average |\n")
-        f.write("| Active Member (PR) | 4 | 20-49 PRs/year average |\n")
-        f.write("| Team Member (PR) | 2 | 10-19 PRs/year average |\n")
-        f.write("| Significant PLIP Contributor | 15 | 10+ PLIPs merged and released |\n")
-        f.write("| Regular PLIP Contributor | 9 | 6+ PLIPs merged and released |\n")
-        f.write("| Occasional PLIP Contributor | 3 | 2+ PLIPs merged and released |\n\n")
+        f.write("> For code contribution recognition (PRs, PLIPs) see `reports/code-recognition.md`.\n\n")
 
-        # Leaderboard
         f.write("## Recognition Leaderboard\n\n")
         f.write("| Rank | Organization | Recognition Level | Total Points |\n")
         f.write("|------|--------------|-------------------|-------------:|\n")
@@ -437,69 +334,11 @@ def write_markdown_report(org_points, org_details, results, levels, output_file)
             f.write(f"| {i} | {row['Organisation']} | {row['Recognition Level']} | {row['Total Points']:.1f} |\n")
         f.write("\n")
 
-        # Code Contribution Highlights
-        f.write("## Code Contribution Highlights\n\n")
-
-        # PR Contributions
-        f.write("### Pull Request Contributors (Past 5 Years)\n\n")
-        pr_contributors = [(row['Organisation'], row['PR Contributions'], org_details[row['Organisation']].get('PR Contributions', []))
-                          for row in results if row['PR Contributions'] > 0]
-
-        # Sort by PRs/year (extracted from detail string)
-        def extract_prs_year(contributor):
-            details = contributor[2]
-            if details and "PRs/year)" in details[0]:
-                try:
-                    return float(details[0].split("(")[1].split(" PRs/year")[0])
-                except:
-                    return 0
-            return 0
-        pr_contributors.sort(key=extract_prs_year, reverse=True)
-
-        if pr_contributors:
-            f.write("| Rank | Organization | Points | Level | PRs/Year |\n")
-            f.write("|------|--------------|-------:|:------|----------|\n")
-            for i, (org, points, details) in enumerate(pr_contributors, 1):
-                level_detail = details[0] if details else ""
-                # Extract PRs/year from detail string like "Lead Contributor (187.6 PRs/year)"
-                prs_year = ""
-                if "PRs/year)" in level_detail:
-                    prs_year = level_detail.split("(")[1].split(" PRs/year")[0]
-                level_name = level_detail.split(" (")[0] if level_detail else ""
-                f.write(f"| {i} | {org} | {points:.0f} | {level_name} | {prs_year} |\n")
-            f.write("\n")
-
-        # PLIP Contributions
-        f.write("### PLIP Contributors\n\n")
-        plip_contributors = [(row['Organisation'], row['PLIP Contributions'], org_details[row['Organisation']].get('PLIP Contributions', []))
-                            for row in results if row['PLIP Contributions'] > 0]
-
-        # Sort by PLIP count (extracted from detail string)
-        def extract_plip_count(contributor):
-            details = contributor[2]
-            if details and "PLIPs)" in details[0]:
-                try:
-                    return int(details[0].split("(")[1].split(" PLIPs")[0])
-                except:
-                    return 0
-            return 0
-        plip_contributors.sort(key=extract_plip_count, reverse=True)
-
-        if plip_contributors:
-            f.write("| Rank | Organization | Points | Level | PLIPs |\n")
-            f.write("|------|--------------|-------:|:------|-------|\n")
-            for i, (org, points, details) in enumerate(plip_contributors, 1):
-                level_detail = details[0] if details else ""
-                # Extract PLIP count from detail string like "Core Leaders (71 PLIPs)"
-                plip_count = ""
-                if "PLIPs)" in level_detail:
-                    plip_count = level_detail.split("(")[1].split(" PLIPs")[0]
-                level_name = level_detail.split(" (")[0] if level_detail else ""
-                f.write(f"| {i} | {org} | {points:.0f} | {level_name} | {plip_count} |\n")
-            f.write("\n")
-
-        # Detailed Breakdown
         f.write("## Detailed Breakdown by Organization\n\n")
+
+        categories = ['Strategic Sprint', 'Release Manager', 'Team Leader', 'Board Member',
+                      'Podcast Host', 'WPD Event', 'WPD Talk', 'Conference Organization',
+                      'Training Session']
 
         for row in sorted(results, key=lambda x: x['Total Points'], reverse=True):
             org = row['Organisation']
@@ -508,13 +347,7 @@ def write_markdown_report(org_points, org_details, results, levels, output_file)
             f.write(f"### {org}\n\n")
             f.write(f"**Total Points: {total:.1f}**\n\n")
 
-            # Create category breakdown table
-            categories_with_points = []
-            for cat in ['Strategic Sprint', 'Release Manager', 'Team Leader', 'Board Member',
-                       'Podcast Host', 'WPD Event', 'WPD Talk', 'Conference Organization',
-                       'Training Session', 'PR Contributions', 'PLIP Contributions']:
-                if row[cat] > 0:
-                    categories_with_points.append((cat, row[cat]))
+            categories_with_points = [(cat, row[cat]) for cat in categories if row[cat] > 0]
 
             if categories_with_points:
                 f.write("| Category | Points | Details |\n")
@@ -531,28 +364,22 @@ def write_markdown_report(org_points, org_details, results, levels, output_file)
                     f.write(f"| {cat} | {points:.1f} | {detail_str} |\n")
                 f.write("\n")
 
-        # Category Statistics
         f.write("## Statistics by Category\n\n")
 
         category_stats = defaultdict(lambda: {'orgs': 0, 'total_points': 0})
         for row in results:
-            for cat in ['Strategic Sprint', 'Release Manager', 'Team Leader', 'Board Member',
-                       'Podcast Host', 'WPD Event', 'WPD Talk', 'Conference Organization',
-                       'Training Session', 'PR Contributions', 'PLIP Contributions']:
+            for cat in categories:
                 if row[cat] > 0:
                     category_stats[cat]['orgs'] += 1
                     category_stats[cat]['total_points'] += row[cat]
 
         f.write("| Category | Organizations | Total Points Awarded |\n")
         f.write("|----------|---------------:|---------------------:|\n")
-        for cat in ['Strategic Sprint', 'Release Manager', 'Team Leader', 'Board Member',
-                   'Podcast Host', 'WPD Event', 'WPD Talk', 'Conference Organization',
-                   'Training Session', 'PR Contributions', 'PLIP Contributions']:
+        for cat in categories:
             stats = category_stats[cat]
             f.write(f"| {cat} | {stats['orgs']} | {stats['total_points']:.1f} |\n")
         f.write("\n")
 
-        # Footer
         f.write("---\n\n")
         f.write("*This report was automatically generated from community contribution data.*\n")
 
@@ -567,20 +394,16 @@ def main():
 
     print(f"Found {len(org_points)} organizations")
 
-    # Load recognition levels
     print("Loading recognition levels...")
     levels = load_recognition_levels()
 
-    # Write CSV report
     csv_output = 'data/community-contributions/2025-community-recognition-report.csv'
     results = write_csv_report(org_points, levels, csv_output)
     print(f"CSV report written to: {csv_output}")
 
-    # Write Markdown report
-    md_output = 'report/community-recognition.md'
+    md_output = 'reports/community-recognition.md'
     write_markdown_report(org_points, org_details, results, levels, md_output)
 
-    # Print summary
     print(f"\nTop 10 Organizations:")
     print(f"{'Rank':<6} {'Organisation':<40} {'Level':<25} {'Points':>10}")
     print("=" * 83)

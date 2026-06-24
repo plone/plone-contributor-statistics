@@ -1,0 +1,8 @@
+Category,Criteria,Threshold,Period,Number of points
+Code,Lead Author (PR),100+ PRs/year average,5 years,20
+Code,Core Author (PR),50-99 PRs/year average,5 years,10
+Code,Active Author (PR),20-49 PRs/year average,5 years,4
+Code,Author (PR),10-19 PRs/year average,5 years,2
+Code,Lead Architect (PLIP),10+ PLIPs merged and released,all-time,15
+Code,Core Architect (PLIP),6-9 PLIPs merged and released,all-time,9
+Code,Architect (PLIP),2-5 PLIPs merged and released,all-time,3
