@@ -1,6 +1,6 @@
 # Plone PLIP Statistics Report
 
-Generated on: 2026-03-15 19:07:30
+Generated on: 2026-06-24 22:57:59
 
 This report shows the top PLIP (Plone Improvement Proposal) contributors and organizations in the Plone ecosystem across different time periods.
 
@@ -9,6 +9,7 @@ This report shows the top PLIP (Plone Improvement Proposal) contributors and org
 - **Available years**: 2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013
 - **Last full year**: 2025
 - **3-year period**: 2023, 2024, 2025
+- **5-year period**: 2021, 2022, 2023, 2024, 2025
 - **10-year period**: 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025
 
 ## About PLIPs
@@ -53,6 +54,22 @@ They are tracked as GitHub issues with the label '03 type: feature (plip)' in th
 | 7 | robgietema | 3 | 3 | 0 | 2 |
 | 8 | loechel | 3 | 3 | 0 | 1 |
 | 9 | jensens | 2 | 2 | 0 | 1 |
+| 10 | nileshgulia1 | 2 | 1 | 1 | 1 |
+
+
+### Top 10 Contributors (Past 5 Years: 2021-2025)
+
+| Rank | Contributor | Total PLIPs | Open | Closed | Repositories |
+|------|-------------|-------------|------|--------|-------------|
+| 1 | sneridagh | 24 | 11 | 13 | 1 |
+| 2 | tisto | 21 | 12 | 9 | 2 |
+| 3 | mauritsvanrees | 13 | 6 | 7 | 1 |
+| 4 | jensens | 5 | 2 | 3 | 1 |
+| 5 | petschki | 4 | 3 | 1 | 1 |
+| 6 | loechel | 4 | 3 | 1 | 1 |
+| 7 | djay | 3 | 2 | 1 | 1 |
+| 8 | stevepiercy | 3 | 3 | 0 | 1 |
+| 9 | robgietema | 3 | 3 | 0 | 2 |
 | 10 | nileshgulia1 | 2 | 1 | 1 | 1 |
 
 
@@ -106,6 +123,22 @@ They are tracked as GitHub issues with the label '03 type: feature (plip)' in th
 | 8 | Eau de Web | 3 | 1 | 2 | 2 | 1 |
 | 9 | Steve Piercy - Website Builder | 3 | 3 | 0 | 1 | 1 |
 | 10 | Klein & Partner KG | 2 | 2 | 0 | 1 | 1 |
+
+
+### Top 10 Organisation Contributors (Past 5 Years: 2021-2025)
+
+| Rank | Organization | Total PLIPs | Open | Closed | Contributors | Repositories |
+|------|-------------|-------------|------|--------|--------------|-------------|
+| 1 | kitconcept GmbH | 51 | 28 | 23 | 6 | 2 |
+| 2 | PY76 | 13 | 6 | 7 | 1 | 1 |
+| 3 | Independent | 6 | 3 | 3 | 6 | 2 |
+| 4 | Klein & Partner KG | 5 | 2 | 3 | 1 | 1 |
+| 5 | Pretaweb | 4 | 3 | 1 | 2 | 1 |
+| 6 | Kombinat | 4 | 3 | 1 | 1 | 1 |
+| 7 | Ludwig Maximilian University Munich | 4 | 3 | 1 | 1 | 1 |
+| 8 | RedTurtle | 4 | 3 | 1 | 3 | 2 |
+| 9 | Eau de Web | 3 | 1 | 2 | 2 | 1 |
+| 10 | Steve Piercy - Website Builder | 3 | 3 | 0 | 1 | 1 |
 
 
 ### Top 10 Organisation Contributors (Past 10 Years: 2016-2025)
