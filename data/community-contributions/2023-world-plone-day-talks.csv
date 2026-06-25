@@ -1,4 +1,55 @@
 Video Title,Speaker(s),Organisation,Event / Location,Type,YouTube ID
-The Plone Foundation info,Érico Andrei,kitconcept GmbH,Online,Talk,hZy4fkc7ZoM
-A bit of Plone history,Alex Limi; Luciano Ramalho,Independent; Thoughtworks,Online,Talk,frZANL9_uWY
-Releasing Plone 6.0.4,Maurits van Rees,PY76,Online,Talk,Th0omaGks1s
+The Plone Foundation,,Independent,Online,Talk,hZy4fkc7ZoM
+The Plone Newsroom Sonderausgabe - Episode #15 D,Episode #15 D,Independent,Online,Talk,eN_no-jULLk
+Join the Plone Foundation,,Independent,Online,Talk,AAYhP5uDDn0
+Hosting a Sprint,,Independent,Online,Talk,ADdTBalAZSk
+Creating a new Plone project with cookiecutter-plone-starter,,Independent,Online,Talk,9HmbhxkICT4
+Plone Podcast with Jean Jordaan,Jean Jordaan,Independent,Online,Talk,AuSwvRdGGAk
+Beethoven Sprint 2023,,Independent,Online,Talk,TA6q2inMnoY
+Caipirinha Sprint 2023,,Independent,Online,Talk,hU4k70nyBg4
+Volto Social Blocks,,Independent,Online,Talk,zVriHif6EJs
+"Volto: Past, Present and Future",,Independent,Online,Talk,ZcZ83zO7Z2Y
+Moniviestin 20 vuotta,,Independent,Online,Talk,C8op3H_CUSI
+Integrate Plone and Slack with contentrules.slack,,Independent,Online,Talk,MdkZHO3A8U0
+Copy and Paste for Blocks in Volto,,Independent,Online,Talk,cFdkkM6TzEo
+A Calendar Alternative in Volto,,Independent,Online,Talk,hqMgE_D9D1M
+A shiny Volto site for a film festival,,Independent,Online,Talk,uyS7zLJoRkg
+Plone Midsummer Sprint 2023,,Independent,Online,Talk,hHz0HYWHYyA
+Novo projeto Plone com o cookiecutter-plone-starter,,Independent,Online,Talk,x9ciuW3FjkE
+Welcome to Plone Conference 2023!,,Independent,Online,Talk,wtehvnPlRzw
+Building a website for the African Continental Qualifications Framework - a success story,a success story,Independent,Online,Talk,jItQKENMG14
+AI Meets Plone,,Independent,Online,Talk,yqzSsDF9Uvo
+Plone Intranet Case Study,,Independent,Online,Talk,HpCY_TgvfcU
+"""Building Galactic CMS for Empire Insider"" with Plone 6 Classic, Camunda 7 and ChatGPT",,Independent,Online,Talk,IXOI2XhuhJQ
+The State of Quaive,,Independent,Online,Talk,UYG7zN_HJGw
+Caipirinha Sprint,,Independent,Online,Talk,41mCBnaziUc
+"Plone.org built on Plone 6, a demo",,Independent,Online,Talk,ZHFX4dMc3f4
+180 Días con Plone,,Independent,Online,Talk,wmHV30QVs8I
+Making a carousel with React in Volto/Design custom carousel,,Independent,Online,Talk,c_sDB2clUxY
+Belgium Loves Plone,,Independent,Online,Talk,2H6alUM1b3U
+World Plone Day: Plone Foundation Board Meeting,,Independent,Online,Talk,YxFybGmEAWU
+Bibliographies in Plone,,Independent,Online,Talk,SCGzaqTLNZM
+Releasing Plone 6.0.4,,Independent,Online,Talk,Th0omaGks1s
+Components Customization,,Independent,Online,Talk,JuiNEkCSQp8
+The Steering Circle,,Independent,Online,Talk,RbLrPybbRwQ
+How to Declare a Theme Add-On in Volto 16,,Independent,Online,Talk,LBDaLTOXnP8
+How to Deploy a Plone Cookiecutter Project,,Independent,Online,Talk,Jqyl7tAUnGE
+"The Plone Newsroom - Episode #15, WPD Edition","Episode #15, WPD Edition",Independent,Online,Talk,kk5T-303Gus
+"Asking Mr. Fujita, the CMS specialist about technical stack of the latest Plone (in Japanese)",,Independent,Online,Talk,k2ljO2FK-SY
+Google Summer of Code 2023 and Plone vs ContentStack,,Independent,Online,Talk,_DR0BI_wZl8
+Modelli di business open source al centro dell'innovazione - World Plone Day 2023 Italia,World Plone Day 2023 Italia,Independent,Online,Talk,sD8RjmyM2Nw
+L'esperienza del cittadino nei servizi pubblici - World Plone Day 2023 Italia,World Plone Day 2023 Italia,Independent,Online,Talk,INI2a5FQg_Q
+Plone e la misura 1.4.1: cittadino informato e cittadino attivo - World Plone Day 2023 Italia,World Plone Day 2023 Italia,Independent,Online,Talk,kPdF9viYRfY
+Co-progettare i servizi nell'era del PNRR - World Plone Day 2023 Italia,World Plone Day 2023 Italia,Independent,Online,Talk,xTtk6BlHJYo
+Fare rete offrendo servizi e promuovendo migliaia di documenti - World Plone Day 2023 Italia,World Plone Day 2023 Italia,Independent,Online,Talk,3A_AscJjEyk
+Il nuovo portale della sanità piacentina al servizio dei cittadini - World Plone Day 2023 Italia,World Plone Day 2023 Italia,Independent,Online,Talk,DjBq6aiL3w8
+Plone per i giovani della Regione Emilia Romagna - World Plone Day 2023 Italia,World Plone Day 2023 Italia,Independent,Online,Talk,bcw4dzBUfPU
+Realizzare un portale per bisogni informativi e servizi per le imprese - World Plone Day 2023 Italia,World Plone Day 2023 Italia,Independent,Online,Talk,79N0CJ1xS7I
+Progettazione e realizzazione del portale istituzionale di Rai Way - World Plone Day 2023 Italia,World Plone Day 2023 Italia,Independent,Online,Talk,-5GukJ27Oig
+Lo stato dell'arte di Plone: il nuovo Plone 6 - World Plone Day 2023 Italia,World Plone Day 2023 Italia,Independent,Online,Talk,He06LqzMDLg
+Comunidade PloneGov-BR - World Plone Day Brasília,World Plone Day Brasília,Independent,Online,Talk,YfH2qitVneU
+A bit of Plone History - World Plone Day Brasília,World Plone Day Brasília,Independent,Online,Talk,frZANL9_uWY
+Caso de Uso: Plone nos Correios - World Plone Day Brasília,World Plone Day Brasília,Independent,Online,Talk,Ru9MB31S9bU
+Caso de Uso: Plone na EBC - World Plone Day Brasília,World Plone Day Brasília,Independent,Online,Talk,wm5abq3RpWY
+Caso de Uso: gov.br - World Plone Day Brasília,World Plone Day Brasília,Independent,Online,Talk,eLxC4m03iHo
+Plone vs ContentStack,,Independent,Online,Talk,tenyLBKHUnA
