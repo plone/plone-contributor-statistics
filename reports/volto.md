@@ -1,10 +1,11 @@
 # Volto Statistics Report
 
-Generated on: 2026-03-14 19:30:36
+Generated on: 2026-06-24 23:00:38
 
 - **Available years**: 2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016
 - **Last full year**: 2025
 - **3-year period**: 2023-2025
+- **5-year period**: 2021-2025
 - **All time**: 2016-2025
 
 ---
@@ -193,6 +194,160 @@ Generated on: 2026-03-14 19:30:36
 | 121 | acsr | 1 | 1 |
 | 122 | yurj | 1 | 1 |
 | 123 | bipoza | 0 | 2 |
+
+
+## Volto Contributors (Past 5 Years: 2021-2025)
+
+| Rank | Contributor | PRs | Commits |
+|------|-------------|-----|---------|
+| 1 | sneridagh | 1,263 | 2,209 |
+| 2 | stevepiercy | 259 | 302 |
+| 3 | wesleybl | 125 | 73 |
+| 4 | tiberiuichim | 116 | 130 |
+| 5 | davisagli | 114 | 104 |
+| 6 | giuliaghisini | 96 | 95 |
+| 7 | ksuess | 74 | 77 |
+| 8 | pnicolli | 73 | 38 |
+| 9 | iFlameing | 72 | 73 |
+| 10 | Tishasoumya-02 | 60 | 56 |
+| 11 | erral | 57 | 52 |
+| 12 | robgietema | 52 | 68 |
+| 13 | ichim-david | 44 | 31 |
+| 14 | avoinea | 41 | 39 |
+| 15 | nileshgulia1 | 38 | 36 |
+| 16 | nzambello | 35 | 46 |
+| 17 | dobri1408 | 31 | 24 |
+| 18 | iRohitSingh | 31 | 33 |
+| 19 | ericof | 26 | 44 |
+| 20 | ionlizarazu | 24 | 16 |
+| 21 | tisto | 22 | 31 |
+| 22 | JeffersonBledsoe | 21 | 21 |
+| 23 | reebalazs | 21 | 20 |
+| 24 | Wagner3UB | 18 | 10 |
+| 25 | mamico | 16 | 16 |
+| 26 | fredvd | 14 | 18 |
+| 27 | alexandreIFB | 14 | 7 |
+| 28 | tedw87 | 14 | 8 |
+| 29 | Abhishek-17h | 11 | 9 |
+| 30 | cekk | 11 | 10 |
+| 31 | razvanMiu | 10 | 9 |
+| 32 | danalvrz | 10 | 8 |
+| 33 | kreafox | 9 | 9 |
+| 34 | sabrina-bongiovanni | 9 | 6 |
+| 35 | MAX-786 | 8 | 8 |
+| 36 | aryan7081 | 8 | 5 |
+| 37 | Shyam-Raghuwanshi | 7 | 4 |
+| 38 | jackahl | 6 | 6 |
+| 39 | instification | 6 | 6 |
+| 40 | rboixaderg | 6 | 3 |
+| 41 | mdsahiloss | 6 | 3 |
+| 42 | ThomasKindermann | 6 | 6 |
+| 43 | steffenri | 6 | 6 |
+| 44 | silviubogan | 5 | 4 |
+| 45 | rpatterson | 5 | 13 |
+| 46 | macagua | 5 | 20 |
+| 47 | mauritsvanrees | 5 | 4 |
+| 48 | tomschall | 5 | 5 |
+| 49 | pbauer | 5 | 5 |
+| 50 | pratyush07-hub | 4 | 3 |
+| 51 | Faakhir30 | 4 | 4 |
+| 52 | danielamormocea | 4 | 4 |
+| 53 | Gomez | 4 | 4 |
+| 54 | Hrittik20 | 4 | 2 |
+| 55 | ktsrivastava29 | 4 | 47 |
+| 56 | SaraBianchi | 4 | 3 |
+| 57 | kittauri | 4 | 3 |
+| 58 | andreiggr | 3 | 3 |
+| 59 | Manik-Khajuria-5 | 3 | 1 |
+| 60 | suman9893 | 3 | 3 |
+| 61 | mihaislobozeanu | 3 | 3 |
+| 62 | Molochem | 3 | 3 |
+| 63 | jnptk | 3 | 2 |
+| 64 | terapyon | 3 | 2 |
+| 65 | akshatgarg12 | 3 | 3 |
+| 66 | calinvladth | 3 | 1 |
+| 67 | ebrehault | 3 | 1 |
+| 68 | bipoza | 3 | 3 |
+| 69 | ujjwaleee26 | 2 | 2 |
+| 70 | kHAPPY2004 | 2 | 2 |
+| 71 | wolbernd | 2 | 5 |
+| 72 | jensens | 2 | 2 |
+| 73 | sudhanshu1309 | 2 | 2 |
+| 74 | Ravi-kumar9347 | 2 | 2 |
+| 75 | SaiRev0 | 2 | 2 |
+| 76 | TechSubham | 2 | 2 |
+| 77 | ompharate | 2 | 1 |
+| 78 | Narcis2005 | 2 | 2 |
+| 79 | MihaelaCretu11 | 2 | 2 |
+| 80 | lord2anil | 2 | 2 |
+| 81 | ana-oprea | 2 | 1 |
+| 82 | toropok | 1 | 1 |
+| 83 | yahya-cloud | 1 | 1 |
+| 84 | spereverde | 1 | 1 |
+| 85 | sboghy | 1 | 1 |
+| 86 | satyam4p | 1 | 1 |
+| 87 | luxcas | 1 | 1 |
+| 88 | thet | 1 | 1 |
+| 89 | mikejmets | 1 | 1 |
+| 90 | pigeonflight | 1 | 1 |
+| 91 | victorchrollo14 | 1 | 1 |
+| 92 | utkkkarshhh | 1 | 1 |
+| 93 | pgrunewald | 1 | 1 |
+| 94 | nilootpal | 1 | 1 |
+| 95 | tschorr | 1 | 1 |
+| 96 | mehedikhan72 | 1 | 1 |
+| 97 | mpeeters | 1 | 1 |
+| 98 | lorstenoplo | 1 | 1 |
+| 99 | 1bsilver | 1 | 3 |
+| 100 | libargutxi | 1 | 1 |
+| 101 | ZubairImtiaz3 | 1 | 1 |
+| 102 | UnaiEtxaburu | 1 | 1 |
+| 103 | Shibbu264 | 1 | 1 |
+| 104 | Shauryan0207 | 1 | 0 |
+| 105 | Raman-Luhach | 1 | 1 |
+| 106 | Prince0906 | 1 | 1 |
+| 107 | Noobham | 1 | 1 |
+| 108 | MrTango | 1 | 2 |
+| 109 | MostafaMagdyy | 1 | 1 |
+| 110 | MarcoCouto | 1 | 1 |
+| 111 | Manice18 | 1 | 1 |
+| 112 | Manas-Kenge | 1 | 1 |
+| 113 | Kaku-g | 1 | 1 |
+| 114 | Junko-Takeguchi | 1 | 1 |
+| 115 | IshaanDasgupta | 1 | 1 |
+| 116 | FritzHoing | 1 | 1 |
+| 117 | EshaanAgg | 1 | 1 |
+| 118 | Dnouv | 1 | 1 |
+| 119 | BhuvaneshPatil | 1 | 1 |
+| 120 | BhardwajAditya-github | 1 | 1 |
+| 121 | AlexBueckig | 1 | 1 |
+| 122 | Akshat2Jain | 1 | 1 |
+| 123 | Vivek-04022001 | 1 | 1 |
+| 124 | aadityaforwork | 1 | 1 |
+| 125 | jimbiscuit | 1 | 1 |
+| 126 | acsr | 1 | 1 |
+| 127 | jhgouveia | 1 | 1 |
+| 128 | jaroel | 1 | 1 |
+| 129 | gummybearansh | 1 | 0 |
+| 130 | gianniftp | 1 | 1 |
+| 131 | folix-01 | 1 | 1 |
+| 132 | esteele | 1 | 6 |
+| 133 | Aarav238 | 1 | 1 |
+| 134 | damiDev8 | 1 | 1 |
+| 135 | curiousyuvi | 1 | 1 |
+| 136 | claytonc | 1 | 1 |
+| 137 | claudiaifrim | 1 | 1 |
+| 138 | chirayu-humar | 1 | 1 |
+| 139 | cguardia | 1 | 1 |
+| 140 | boss6825 | 1 | 1 |
+| 141 | avimishra18 | 1 | 1 |
+| 142 | arky | 1 | 1 |
+| 143 | animus888 | 1 | 1 |
+| 144 | alecghica | 1 | 1 |
+| 145 | agan-k | 1 | 1 |
+| 146 | adam139 | 1 | 1 |
+| 147 | yurj | 1 | 1 |
+| 148 | csenger | 0 | 1 |
 
 
 ## Volto Contributors (All Time: 2016-2025)
@@ -418,6 +573,37 @@ Generated on: 2026-03-14 19:30:36
 | 20 | Abstract IT | 1 | 1 | 1 |
 
 
+### Organisations (Past 5 Years: 2021-2025)
+
+| Rank | Organisation | PRs | Commits | Contributors |
+|------|-------------|-----|---------|--------------|
+| 1 | kitconcept GmbH | 1,711 | 2,688 | 17 |
+| 2 | Eau de Web | 273 | 262 | 7 |
+| 3 | Steve Piercy - Website Builder | 259 | 302 | 1 |
+| 4 | RedTurtle | 251 | 217 | 8 |
+| 5 | Independent | 229 | 253 | 91 |
+| 6 | Serpro | 125 | 73 | 1 |
+| 7 | Codesyntax | 82 | 69 | 3 |
+| 8 | Rohberg | 74 | 77 | 1 |
+| 9 | Pretaweb | 27 | 27 | 2 |
+| 10 | Starzel | 9 | 9 | 2 |
+| 11 | Iskra | 6 | 3 | 1 |
+| 12 | FHNW | 5 | 5 | 1 |
+| 13 | Sixfeetup | 5 | 13 | 1 |
+| 14 | PY76 | 5 | 4 | 1 |
+| 15 | Nuclia | 3 | 1 | 1 |
+| 16 | CMS Communications Inc. | 3 | 2 | 1 |
+| 17 | Klein & Partner KG | 2 | 2 | 1 |
+| 18 | Affinitic | 1 | 1 | 1 |
+| 19 | Salesforce | 1 | 6 | 1 |
+| 20 | KU Leuven | 1 | 1 | 1 |
+| 21 | Interlegis Program (Senado Federal) | 1 | 1 | 1 |
+| 22 | Derico | 1 | 2 | 1 |
+| 23 | Syslab | 1 | 1 | 1 |
+| 24 | TU Dresden | 1 | 1 | 1 |
+| 25 | Abstract IT | 1 | 1 | 1 |
+
+
 ### Organisations (All Time: 2016-2025)
 
 | Rank | Organisation | PRs | Commits | Contributors |
@@ -456,8 +642,8 @@ Generated on: 2026-03-14 19:30:36
 
 ## Notes
 
-- **PRs**: Merged pull requests to plone/volto (does not include open or closed/rejected PRs)
-- **Commits**: Direct commits to plone/volto
+- **PRs**: Merged pull requests to github.com/plone/volto (does not include open or closed/rejected PRs)
+- **Commits**: Direct commits to github.com/plone/volto
 - **Contributors**: Number of team members from this organisation
 
 Generated by Plone Contributor Statistics Tool

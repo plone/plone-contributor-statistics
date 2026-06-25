@@ -1,6 +1,6 @@
 # Plone Core Contributor Statistics Report
 
-Generated on: 2026-03-16 08:18:37
+Generated on: 2026-06-24 22:56:19
 
 This report shows the top contributors and organizations in the Plone ecosystem across different time periods.
 
@@ -9,6 +9,7 @@ This report shows the top contributors and organizations in the Plone ecosystem 
 - **Available years**: 2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2010, 2009, 2008, 2007, 2006, 2005, 2004, 2003
 - **Last full year**: 2025
 - **3-year period**: 2023, 2024, 2025
+- **5-year period**: 2021, 2022, 2023, 2024, 2025
 - **10-year period**: 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025
 
 ---
@@ -45,6 +46,22 @@ This report shows the top contributors and organizations in the Plone ecosystem 
 | 8 | wesleybl | 182 | 215 | 21 |
 | 9 | erral | 139 | 549 | 36 |
 | 10 | thet | 129 | 426 | 30 |
+
+
+### Top 10 Contributors (Past 5 Years: 2021-2025)
+
+| Rank | Contributor | PRs | Commits | Repositories |
+|------|-------------|-----|---------|-------------|
+| 1 | sneridagh | 1,519 | 3,465 | 47 |
+| 2 | mauritsvanrees | 891 | 9,788 | 150 |
+| 3 | stevepiercy | 842 | 3,781 | 32 |
+| 4 | gforcada | 701 | 6,690 | 128 |
+| 5 | petschki | 653 | 3,543 | 76 |
+| 6 | davisagli | 378 | 1,803 | 113 |
+| 7 | ericof | 287 | 1,974 | 59 |
+| 8 | erral | 241 | 757 | 47 |
+| 9 | jensens | 239 | 2,707 | 149 |
+| 10 | wesleybl | 236 | 275 | 28 |
 
 
 ### Top 10 Contributors (Past 10 Years: 2016-2025)
@@ -97,6 +114,22 @@ This report shows the top contributors and organizations in the Plone ecosystem 
 | 8 | Serpro | 182 | 215 | 1 | 21 |
 | 9 | RedTurtle | 174 | 277 | 8 | 27 |
 | 10 | Codesyntax | 169 | 684 | 3 | 37 |
+
+
+### Top 10 Organisation Contributors (Past 5 Years: 2021-2025)
+
+| Rank | Organization | PRs | Commits | Contributors | Repositories |
+|------|-------------|-----|---------|---------------|-------------|
+| 1 | kitconcept GmbH | 2,722 | 10,224 | 17 | 148 |
+| 2 | PY76 | 891 | 9,788 | 1 | 150 |
+| 3 | Steve Piercy - Website Builder | 842 | 3,781 | 1 | 32 |
+| 4 | Independent | 742 | 21,164 | 521 | 101 |
+| 5 | der Freitag | 701 | 6,690 | 1 | 128 |
+| 6 | Kombinat | 653 | 3,543 | 1 | 76 |
+| 7 | RedTurtle | 375 | 785 | 8 | 37 |
+| 8 | Syslab | 369 | 1,902 | 5 | 76 |
+| 9 | Eau de Web | 350 | 725 | 8 | 21 |
+| 10 | Nuclia | 293 | 582 | 3 | 9 |
 
 
 ### Top 10 Organisation Contributors (Past 10 Years: 2016-2025)

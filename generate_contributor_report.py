@@ -173,6 +173,7 @@ def main():
     # Define periods
     current_year_data = current_year if current_year in available_years else None
     three_year = [y for y in range(last_full_year - 2, last_full_year + 1) if y in available_years]
+    five_year = [y for y in range(last_full_year - 4, last_full_year + 1) if y in available_years]
     ten_year = [y for y in range(last_full_year - 9, last_full_year + 1) if y in available_years]
 
     report = []
@@ -190,6 +191,8 @@ def main():
     report.append(f"- **Last full year**: {last_full_year}")
     if three_year:
         report.append(f"- **3-year period**: {', '.join(map(str, three_year))}")
+    if five_year:
+        report.append(f"- **5-year period**: {', '.join(map(str, five_year))}")
     if ten_year:
         report.append(f"- **10-year period**: {', '.join(map(str, ten_year))}")
     report.append("")
@@ -206,6 +209,8 @@ def main():
     periods.append((f"Last Full Year: {last_full_year}", [last_full_year]))
     if len(three_year) >= 2:
         periods.append((f"Past 3 Years: {three_year[0]}-{three_year[-1]}", three_year))
+    if len(five_year) >= 2:
+        periods.append((f"Past 5 Years: {five_year[0]}-{five_year[-1]}", five_year))
     if len(ten_year) >= 5:
         periods.append((f"Past 10 Years: {ten_year[0]}-{ten_year[-1]}", ten_year))
 
