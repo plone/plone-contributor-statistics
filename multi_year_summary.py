@@ -175,21 +175,27 @@ def save_summary(df, years):
     txt_content.append(f"- {df['contributors_count'].sum()} unique contributors across all organisations")
     txt_content.append(f"- File generated: {csv_filename}")
     
-    # Add top individual contributors dynamically
-    top_contributors_lines = get_top_contributors(years)
-    if top_contributors_lines:
-        txt_content.append("")
-        txt_content.append(f"## Top 10 contributors by pull requests ({year_range})")
-        txt_content.append("")
-        txt_content.extend(top_contributors_lines)
-    
+    # Add top individual contributors
+    contributors = get_contributor_totals(years)
+    if contributors is not None:
+        for column, unit in [('total_pull_requests', 'PRs'), ('total_commits', 'commits')]:
+            title = 'pull requests' if unit == 'PRs' else unit
+            txt_content.append("")
+            txt_content.append(f"## Top 10 contributors by {title} ({year_range})")
+            txt_content.append("")
+            top = contributors.sort_values(column, ascending=False).head(10)
+            for i, (username, row) in enumerate(top.iterrows(), 1):
+                txt_content.append(f"{i}. {username} - {row[column]:,} {unit}")
+
     # Add top organisations
-    txt_content.append("")
-    txt_content.append(f"## Top 10 organisations by pull requests ({year_range})")
-    txt_content.append("")
-    top_orgs = df.head(10)
-    for i, row in top_orgs.iterrows():
-        txt_content.append(f"{i+1}. {row['organisation']}: {row['total_pull_requests']:,} PRs ({row['total_commits']:,} commits)")
+    for column, unit in [('total_pull_requests', 'PRs'), ('total_commits', 'commits')]:
+        title = 'pull requests' if unit == 'PRs' else unit
+        txt_content.append("")
+        txt_content.append(f"## Top 10 organisations by {title} ({year_range})")
+        txt_content.append("")
+        top_orgs = df.sort_values(column, ascending=False).head(10)
+        for i, (_, row) in enumerate(top_orgs.iterrows(), 1):
+            txt_content.append(f"{i}. {row['organisation']}: {row[column]:,} {unit}")
     
     # Write to TXT file
     with open(txt_filename, 'w', encoding='utf-8') as f:
@@ -205,22 +211,17 @@ def save_summary(df, years):
     return csv_filename, txt_filename
 
 
-def get_top_contributors(years):
-    """Get the top 10 individual contributors by pull requests across the given years."""
+def get_contributor_totals(years):
+    """Sum pull requests and commits per contributor across the given years."""
     frames = []
     for year in years:
         filepath = Path(f"data/{year}-plone-contributors.csv")
         if filepath.exists():
             frames.append(pd.read_csv(filepath))
     if not frames:
-        return ["Individual contributor analysis not available"]
+        return None
 
-    totals = pd.concat(frames, ignore_index=True).groupby('username')[['total_pull_requests', 'total_commits']].sum()
-    top = totals.sort_values('total_pull_requests', ascending=False).head(10)
-    return [
-        f"{i}. {username} - {row['total_pull_requests']:,} PRs ({row['total_commits']:,} commits)"
-        for i, (username, row) in enumerate(top.iterrows(), 1)
-    ]
+    return pd.concat(frames, ignore_index=True).groupby('username')[['total_pull_requests', 'total_commits']].sum()
 
 
 def parse_arguments():
