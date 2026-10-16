@@ -10,13 +10,12 @@ Supports any combination of years and generates both CSV and TXT outputs.
 import pandas as pd
 import argparse
 import sys
-import subprocess
 from pathlib import Path
 
 
 def load_organisation_file(year):
     """Load organisation statistics file for a specific year."""
-    filename = f"{year}-plone-organisation-contributors.csv"
+    filename = f"data/{year}-plone-organisation-contributors.csv"
     filepath = Path(filename)
     
     if not filepath.exists():
@@ -177,7 +176,7 @@ def save_summary(df, years):
     txt_content.append(f"- File generated: {csv_filename}")
     
     # Add top individual contributors dynamically
-    top_contributors_lines = get_top_contributors(years, year_range)
+    top_contributors_lines = get_top_contributors(years)
     if top_contributors_lines:
         txt_content.append("")
         txt_content.append(f"## Top 10 contributors by pull requests ({year_range})")
@@ -206,62 +205,22 @@ def save_summary(df, years):
     return csv_filename, txt_filename
 
 
-def get_top_contributors(years, year_range):
-    """Get top contributors dynamically by running the analysis."""
-    try:
-        # Try to run the top contributors analysis dynamically
-        import tempfile
-        import os
-        
-        # Create a temporary script to run the top contributors analysis
-        temp_script = f"""
-import sys
-import os
-sys.path.append('.')
-
-# Suppress the verbose output from analyze_top_contributors
-original_stdout = sys.stdout
-sys.stdout = open(os.devnull, 'w')
-
-from top_contributors_summary import analyze_top_contributors
-
-years = {list(years)}
-result_df = analyze_top_contributors(years, 10, 'total_pull_requests')
-
-# Restore stdout and print only our desired format
-sys.stdout.close()
-sys.stdout = original_stdout
-
-if result_df is not None:
-    for i in range(min(10, len(result_df))):
-        row = result_df.iloc[i]
-        print(f"{{i+1}}. {{row['username']}} - {{row['total_pull_requests']:,}} PRs ({{row['total_commits']:,}} commits)")
-"""
-        
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.py', delete=False) as f:
-            f.write(temp_script)
-            temp_file = f.name
-        
-        try:
-            result = subprocess.run([sys.executable, temp_file], 
-                                  capture_output=True, text=True, timeout=30)
-            if result.returncode == 0:
-                # Parse the captured output (which contains the formatted list)
-                lines = result.stdout.strip().split('\n')
-                contributor_lines = []
-                printed_count = 0
-                for line in lines:
-                    if line.strip() and (line.strip().startswith(tuple(f"{i}." for i in range(1, 11)))) and printed_count < 10:
-                        contributor_lines.append(line.strip())
-                        printed_count += 1
-                return contributor_lines
-            else:
-                return ["Individual contributor analysis not available"]
-        finally:
-            os.unlink(temp_file)
-            
-    except Exception:
+def get_top_contributors(years):
+    """Get the top 10 individual contributors by pull requests across the given years."""
+    frames = []
+    for year in years:
+        filepath = Path(f"data/{year}-plone-contributors.csv")
+        if filepath.exists():
+            frames.append(pd.read_csv(filepath))
+    if not frames:
         return ["Individual contributor analysis not available"]
+
+    totals = pd.concat(frames, ignore_index=True).groupby('username')[['total_pull_requests', 'total_commits']].sum()
+    top = totals.sort_values('total_pull_requests', ascending=False).head(10)
+    return [
+        f"{i}. {username} - {row['total_pull_requests']:,} PRs ({row['total_commits']:,} commits)"
+        for i, (username, row) in enumerate(top.iterrows(), 1)
+    ]
 
 
 def parse_arguments():

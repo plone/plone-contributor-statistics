@@ -259,9 +259,9 @@ run-organisations:
 # Generate organisation statistics from individual contributor stats (all available years)
 run-organisation-stats:
 	@echo "Running organisation statistics for all available years..."
-	@for year_file in *-plone-contributors.csv; do \
+	@for year_file in data/*-plone-contributors.csv; do \
 		if [ -f "$$year_file" ]; then \
-			year=$$(echo $$year_file | sed 's/-plone-contributors.csv//'); \
+			year=$$(basename $$year_file | sed 's/-plone-contributors.csv//'); \
 			echo "Processing $$year..."; \
 			python organisation_stats.py --year $$year; \
 		fi \

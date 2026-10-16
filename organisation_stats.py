@@ -53,22 +53,20 @@ def get_stats_file(year=None):
     """Find the plone contributors CSV file for a specific year or the latest one."""
     if year:
         # Look for specific year file
-        year_file = f'{year}-plone-contributors.csv'
+        year_file = f'data/{year}-plone-contributors.csv'
         if os.path.exists(year_file):
             print(f"Using stats file: {year_file}")
             return year_file
         else:
             print(f"File {year_file} not found")
             return None
-    
+
     # Look for new format (year-first) and legacy format
-    csv_files = glob.glob('????-plone-contributors.csv')  # New format: 2024-plone-contributors.csv
-    csv_files.extend(glob.glob('????-????-plone-contributors.csv'))  # New format: 2023-2024-plone-contributors.csv
-    csv_files.extend(glob.glob('plone_contributors_*.csv'))  # Legacy format
-    if 'plone-contributors.csv' in glob.glob('plone-contributors.csv'):
-        csv_files.append('plone-contributors.csv')
-    if 'plone_contributors.csv' in glob.glob('plone_contributors.csv'):
-        csv_files.append('plone_contributors.csv')
+    csv_files = glob.glob('data/????-plone-contributors.csv')  # New format: 2024-plone-contributors.csv
+    csv_files.extend(glob.glob('data/????-????-plone-contributors.csv'))  # New format: 2023-2024-plone-contributors.csv
+    csv_files.extend(glob.glob('data/plone_contributors_*.csv'))  # Legacy format
+    csv_files.extend(glob.glob('data/plone-contributors.csv'))
+    csv_files.extend(glob.glob('data/plone_contributors.csv'))
     
     if not csv_files:
         print("No plone contributors CSV files found. Run 'python plone_stats.py' first.")

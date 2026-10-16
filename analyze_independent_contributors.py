@@ -14,12 +14,12 @@ import re
 
 def load_organisation_files():
     """Load all organisation CSV files"""
-    files = glob.glob('*-plone-organisation-contributors.csv')
+    files = glob.glob('data/*-plone-organisation-contributors.csv')
     files.sort()
-    
+
     data = {}
     for file in files:
-        year = file.split('-')[0]
+        year = os.path.basename(file).split('-')[0]
         df = pd.read_csv(file)
         data[year] = df
         print(f"Loaded {file}: {len(df)} organisations")
