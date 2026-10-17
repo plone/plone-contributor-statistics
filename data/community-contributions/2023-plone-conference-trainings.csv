@@ -1,8 +1,8 @@
-Title,Trainer(s),Organisation
-Mastering Plone development,Kim Nguyen,Six Feet Up
-Installing Plone 6,Érico Andrei,kitconcept GmbH
-Plone 6 Volto and React,"Alok Kumar, Jakob Kahl",kitconcept GmbH
-"Learn Plone 6, for Content Editors and Managers","Paul Roeland, Kim Nguyen",Clean Clothes Campaign;Six Feet Up
-Effective Plone 6 Volto,"Tiberiu Ichim, Victor Fernandez de Alba",Eau de Web; kitconcept GmbH
-Plone 6 Volto Customization for JavaScript Beginners,"Philip Bauer, Nilesh Gulia, Claudia Ifrim",Starzel; Eau de Web
-Plone 6 Migration,Philip Bauer,Starzel
+Title,Trainer(s),GitHub Handle(s),Organisation,Source
+Mastering Plone development,Katja Süss,ksuess,Rohberg,https://2023.ploneconf.org/training/mastering-plone-6
+Installing Plone 6,Érico Andrei,ericof,kitconcept GmbH,https://2023.ploneconf.org/training/installing-plone
+Plone 6 Volto and React,Alok Kumar;Jakob Kahl,iFlameing;jackahl,kitconcept GmbH;kitconcept GmbH,https://2023.ploneconf.org/training/volto-and-react
+"Learn Plone 6, for Content Editors and Managers",Paul Roeland;T. Kim Nguyen,polyester;tkimnguyen,CCC;Sixfeetup,https://2023.ploneconf.org/training/learn-plone-for-content-editors-and-managers
+Effective Plone 6 Volto,Tiberiu Ichim;Víctor Fernández de Alba,tiberiuichim;sneridagh,Eau de Web;kitconcept GmbH,https://2023.ploneconf.org/training/effective-volto
+Plone 6 Volto Customization for JavaScript Beginners,Philip Bauer;Nilesh Gulia;Claudia Ifrim,pbauer;nileshgulia1;claudiaifrim,Starzel;Eau de Web;Eau de Web,https://2023.ploneconf.org/training/volto-customization-for-javascript-beginners
+Plone 6 Migration,Philip Bauer,pbauer,Starzel,https://2023.ploneconf.org/training/plone-migration

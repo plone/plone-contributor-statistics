@@ -1,9 +1,9 @@
-Title,Trainer(s),Organisation
-Mastering Plone 6,Philip Bauer; Katja Süss,Starzel; Rohberg
-Plone 6 Classic UI Theming,Maik Derstappen; Stefan Antonelli,Derico; Kombinat
-Installing Plone,Érico Andrei; Jens Klein,kitconcept GmbH; Klein & Partner KG
-Volto and React,Alok Kumar; Jakob Kahl,kitconcept GmbH; kitconcept GmbH
-"Learn Plone, for Content Editors and Managers",Kim Nguyen; Kim Paulissen,Six Feet Up; KU Leuven
-"Use, Integrate and develop Patterns for Plone 6 Classic",Johannes Raggam,Independent
-Effective Volto,Tiberiu Ichim; Victor Fernandez de Alba,Eau de Web; kitconcept GmbH
-Migration training,Philip Bauer,Starzel
+Title,Trainer(s),GitHub Handle(s),Organisation,Source
+Mastering Plone 6,Philip Bauer;Katja Süss;Fred van Dijk,pbauer;ksuess;fredvd,Starzel;Rohberg;Zest Software,https://2022.ploneconf.org/schedule/training/mastering-plone-6.html
+Plone 6 Classic UI Theming,Maik Derstappen;Stefan Antonelli,MrTango;santonelli,Derico;operun,https://2022.ploneconf.org/schedule/training/plone-6-classic-ui-theming.html
+Installing Plone,Érico Andrei;Jens Klein,ericof;jensens,kitconcept GmbH;Klein & Partner KG,https://2022.ploneconf.org/schedule/training/installing-plone.html
+Volto and React,Alok Kumar;Jakob Kahl,iFlameing;jackahl,kitconcept GmbH;kitconcept GmbH,https://2022.ploneconf.org/schedule/training/volto-and-react.html
+"Learn Plone, for Content Editors and Managers",T. Kim Nguyen;Kim Paulissen,tkimnguyen;spereverde,Sixfeetup;KU Leuven,https://2022.ploneconf.org/schedule/training/learn-plone-for-content-editors-and-managers.html
+"Use, Integrate and develop Patterns for Plone 6 Classic",Johannes Raggam,thet,Syslab,https://2022.ploneconf.org/schedule/training/use-integrate-and-develop-patterns.html
+Effective Volto,Tiberiu Ichim;Víctor Fernández de Alba,tiberiuichim;sneridagh,Eau de Web;kitconcept GmbH,https://2022.ploneconf.org/schedule/training/effective-volto.html
+Migration training,Philip Bauer,pbauer,Starzel,https://2022.ploneconf.org/schedule/training/migration-training.html

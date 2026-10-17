@@ -1,7 +1,7 @@
-Title,Trainer(s),Organisation
-Mastering Plone 6,Katja Süss; Philip Bauer,Rohberg; Starzel
-Volto Addons,Tiberiu Ichim; Victor Fernandez de Alba,Eau de Web; kitconcept GmbH
-React and Volto,Alok Kumar; Jakob Kahl,kitconcept GmbH; kitconcept GmbH
-Pyramid,Steve Piercy,Steve Piercy - Website Builder
-Getting started with your Plone site,Kim Nguyen,Six Feet Up
-Guillotina,Nathan Van Gheem,Wildcard
+Title,Trainer(s),GitHub Handle(s),Organisation,Source
+Mastering Plone 6,Katja Süss;Philip Bauer,ksuess;pbauer,Rohberg;Starzel,https://2020.ploneconf.org/trainings/mastering-plone-6-part-1.html
+Volto Addons,Tiberiu Ichim;Víctor Fernández de Alba,tiberiuichim;sneridagh,Eau de Web;kitconcept GmbH,https://2020.ploneconf.org/trainings/volto-addons-part-1.html
+React and Volto,Alok Kumar;Jakob Kahl,iFlameing;jackahl,kitconcept GmbH;kitconcept GmbH,https://2020.ploneconf.org/trainings/react-and-volto-part-1-react.html
+Pyramid,Steve Piercy,stevepiercy,Steve Piercy - Website Builder,https://2020.ploneconf.org/trainings/pyramid.html
+Getting started with your Plone site,David Bain,pigeonflight,Unmapped,https://2020.ploneconf.org/trainings/getting-started-with-your-plone-site.html
+Guillotina,Jordi Masip,masipcat,Iskra,https://2020.ploneconf.org/trainings/guillotina.html
