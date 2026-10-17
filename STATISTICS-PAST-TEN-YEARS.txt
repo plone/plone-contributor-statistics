@@ -1,58 +1,62 @@
 # Ten-Year Summary Results (2015-2024)
 
-- 54 total organisations tracked across the decade
-- 83,111 total commits and 20,615 pull requests
-- 740 unique contributors across all organisations
+- 69 total organisations tracked across the decade
+- 95,237 total commits and 17,852 pull requests
+- 592 unique contributors across all organisations
 - File generated: summary-past-ten-years-2015-2024.csv
 
 ## Top 10 contributors by pull requests (2015-2024)
 
-1. sneridagh - 1,715 PRs
-2. mauritsvanrees - 1,499 PRs
-3. gforcada - 1,149 PRs
-4. jensens - 877 PRs
-5. thet - 803 PRs
-6. vangheem - 782 PRs
-7. stevepiercy - 767 PRs
-8. petschki - 663 PRs
-9. pbauer - 627 PRs
-10. tisto - 585 PRs
+1. sneridagh - 1,674 PRs
+2. mauritsvanrees - 1,386 PRs
+3. gforcada - 992 PRs
+4. vangheem - 774 PRs
+5. jensens - 759 PRs
+6. stevepiercy - 722 PRs
+7. thet - 706 PRs
+8. petschki - 624 PRs
+9. pbauer - 582 PRs
+10. tisto - 460 PRs
 
 ## Top 10 contributors by commits (2015-2024)
 
-1. mauritsvanrees - 14,812 commits
-2. gforcada - 5,946 commits
-3. jensens - 5,333 commits
-4. tisto - 5,241 commits
-5. vangheem - 4,650 commits
-6. sneridagh - 4,389 commits
-7. esteele - 3,470 commits
-8. pbauer - 3,352 commits
-9. thet - 3,077 commits
-10. stevepiercy - 2,901 commits
+1. mauritsvanrees - 15,508 commits
+2. sneridagh - 8,344 commits
+3. gforcada - 6,244 commits
+4. tisto - 5,806 commits
+5. jensens - 5,284 commits
+6. vangheem - 5,061 commits
+7. esteele - 3,642 commits
+8. pbauer - 3,441 commits
+9. thet - 3,211 commits
+10. petschki - 2,776 commits
 
 ## Top 10 organisations by pull requests (2015-2024)
 
-1. Independent: 3,979 PRs
-2. kitconcept: 3,750 PRs
-3. py76: 1,499 PRs
-4. syslab: 1,464 PRs
-5. freitag: 1,149 PRs
-6. kleinundpartner: 877 PRs
-7. vangheem: 782 PRs
-8. stevepiercy: 767 PRs
-9. nuclia: 765 PRs
-10. kombinat: 663 PRs
+1. kitconcept GmbH: 3,351 PRs
+2. Zest Software: 1,330 PRs
+3. Syslab: 1,064 PRs
+4. der Freitag: 992 PRs
+5. Wildcard Corp: 776 PRs
+6. Klein & Partner KG: 766 PRs
+7. Nuclia: 763 PRs
+8. Steve Piercy - Website Builder: 722 PRs
+9. Kombinat: 624 PRs
+10. Starzel: 611 PRs
+
+Not mapped to an organisation: 2,365 PRs
 
 ## Top 10 organisations by commits (2015-2024)
 
-1. kitconcept: 14,937 commits
-2. py76: 14,812 commits
-3. Independent: 6,874 commits
-4. freitag: 5,946 commits
-5. kleinundpartner: 5,333 commits
-6. vangheem: 4,650 commits
-7. syslab: 3,923 commits
-8. stevepiercy: 2,901 commits
-9. kombinat: 2,647 commits
-10. nuclia: 1,924 commits
+1. kitconcept GmbH: 20,460 commits
+2. Zest Software: 14,739 commits
+3. der Freitag: 6,244 commits
+4. Klein & Partner KG: 5,302 commits
+5. Wildcard Corp: 5,064 commits
+6. Syslab: 4,100 commits
+7. Salesforce: 3,642 commits
+8. Starzel: 3,501 commits
+9. Kombinat: 2,776 commits
+10. Steve Piercy - Website Builder: 2,705 commits
+
+Not mapped to an organisation: 5,319 commits

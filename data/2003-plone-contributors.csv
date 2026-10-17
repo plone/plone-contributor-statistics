@@ -1,3 +1,16 @@
 username,total_commits,total_pull_requests,repositories_count,repositories,first_contribution,last_contribution
-baekholt,32,0,1,Products.PloneLanguageTool,2003-09-07,2003-10-26
-jodok,2,0,1,Products.PloneLanguageTool,2003-09-07,2003-09-07
+sidnei,326,0,3,"Products.Archetypes, Products.CMFQuickInstallerTool, Products.PlacelessTranslationService",2003-01-03,2003-12-27
+tiran,32,0,4,"Products.Archetypes, Products.CMFQuickInstallerTool, Products.PlacelessTranslationService, Products.PloneLanguageTool",2003-10-20,2003-12-22
+baekholt,32,0,1,Products.PloneLanguageTool,2003-09-13,2003-10-26
+geoff-davis,28,0,1,Products.Archetypes,2003-04-05,2003-12-02
+xiru,13,0,1,Products.Archetypes,2003-03-07,2003-07-30
+jensens,12,0,1,Products.Archetypes,2003-11-06,2003-12-17
+gotcha,11,0,1,Products.Archetypes,2003-03-19,2003-04-04
+jcameroncooper,10,0,1,Products.PasswordResetTool,2003-09-30,2003-10-08
+stefanholek,9,0,1,Products.CMFTestCase,2003-11-17,2003-12-28
+bobdobbs666,5,0,2,"Products.Archetypes, Products.CMFQuickInstallerTool",2003-03-17,2003-10-30
+mrtopf,4,0,1,Products.Archetypes,2003-05-19,2003-07-20
+joelburton,4,0,1,Products.Archetypes,2003-07-25,2003-12-16
+jodok,2,0,1,Products.PloneLanguageTool,2003-09-13,2003-09-13
+limi,1,0,1,Products.CMFQuickInstallerTool,2003-09-14,2003-09-14
+mcdonc,1,0,1,Products.Archetypes,2003-11-04,2003-11-04
