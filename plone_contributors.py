@@ -134,15 +134,10 @@ def _new_stats():
 class PloneStatsExtractor:
     def __init__(self, token: str = None, start_date: datetime = None, end_date: datetime = None,
                  periods: List[Period] = None):
-        # Force load from .env file directly
-        if token is None:
-            with open('.env', 'r') as f:
-                for line in f:
-                    if line.startswith('GITHUB_TOKEN='):
-                        token = line.split('=', 1)[1].strip()
-                        break
-
-        load_dotenv(override=True)
+        # The token comes from --token, the environment, or the .env file.
+        # The environment is better than --token, which shows up in the process list.
+        load_dotenv()
+        token = token or os.getenv('GITHUB_TOKEN')
 
         self.token = token
         self.org = 'plone'
@@ -505,7 +500,7 @@ Examples:
     parser.add_argument(
         '--token',
         type=str,
-        help='GitHub token (if not using .env file)'
+        help='GitHub token. Better use GITHUB_TOKEN or the .env file: --token shows up in the process list.'
     )
 
     return parser.parse_args()
