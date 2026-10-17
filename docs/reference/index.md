@@ -15,4 +15,10 @@ They describe what exists, not why.
 
 ```{toctree}
 :maxdepth: 1
+
+data-sources
+data-files
+mapping-files
+recognition-files
+make-targets
 ```

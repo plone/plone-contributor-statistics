@@ -21,6 +21,8 @@ myst_enable_extensions = [
     "substitution",
 ]
 myst_heading_anchors = 3
+# Only links with a scheme: package names like plone.app.contenttypes are no domains
+myst_linkify_fuzzy_links = False
 
 exclude_patterns = ["_build"]
 

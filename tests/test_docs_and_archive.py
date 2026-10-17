@@ -56,7 +56,11 @@ DOCS = ROOT / 'docs'
 
 # Files and Make targets the docs name on purpose although they don't
 # exist: they are broken or missing, see docs/explanation/known-limitations.md
-KNOWN_MISSING = set()
+KNOWN_MISSING = {
+    'generate_plip_report.py',  # make generate-plip-report
+    'plip_organisation_stats.py',  # make run-plip-organisations
+    'pypi_package_stats.py',  # make pypi-packages, the script is pypi_package_statistics.py
+}
 
 
 def docs_pages():
