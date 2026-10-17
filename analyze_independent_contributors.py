@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Independent Contributors Analysis Script
+Unmapped Contributors Analysis Script
 
-Analyzes Independent contributors across all organisation CSV files to identify
+Analyzes unmapped contributors (formerly "Independent") across all organisation CSV files to identify
 patterns and potential mappings based on their contributions and commit patterns.
 """
 
@@ -34,7 +34,7 @@ def extract_independent_contributors(data):
     
     for year, df in data.items():
         # Find the Independent row
-        independent_rows = df[df['organisation'] == 'Independent']
+        independent_rows = df[df['organisation'].isin(['Unmapped', 'Independent'])]
         
         if len(independent_rows) > 0:
             independent_row = independent_rows.iloc[0]

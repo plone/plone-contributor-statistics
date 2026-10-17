@@ -24,7 +24,7 @@ def load_known_organisations():
 def extract_org_from_bio(bio, known_orgs):
     """Heuristic to extract organisation from bio text."""
     if not bio:
-        return "Independent"
+        return "Unmapped"
         
     # Try to find known organisations first
     for org in known_orgs:
@@ -48,7 +48,7 @@ def extract_org_from_bio(bio, known_orgs):
             if len(extracted) > 2:
                 return extracted
             
-    return "Independent"
+    return "Unmapped"
 
 def fetch_board_year(slug, known_orgs):
     api_url = f"https://plone.org/++api++/foundation/board/{slug}"
@@ -196,13 +196,13 @@ def main():
         "Paul Roeland": "CCC",
         "Jens Klein": "Klein & Partner KG",
         "Andy Leeb": "Onna",
-        "William Fennie": "Independent",
+        "William Fennie": "William Fennie (independent)",
         "T. Kim Nguyen": "Six Feet Up",
         "Kim Nguyen": "Six Feet Up",
         "Filip Heplo": "Abstract IT",
         "Mikel Larreategi": "CodeSyntax",
         "Fulvio Casali": "Soliton Consulting",
-        "Lucie Lejard": "Independent",
+        "Lucie Lejard": "Unmapped",
         "Alexander Loechel": "Ludwig Maximilian University",
         "Carol Ganz": "Six Feet Up",
         "Maurizio Delmonte": "Abstract IT"
