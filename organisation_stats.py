@@ -15,6 +15,13 @@ import os
 import sys
 import argparse
 
+from plone_contributors import load_bot_accounts
+
+# Contributors who are not mapped to an organisation. This is not an
+# organisation: it gets no recognition points or level (#53). Self-employed
+# people and volunteers have their own entry, e.g. "Name (independent)".
+UNMAPPED = 'Unmapped'
+
 
 def load_organisation_mapping(mapping_file='organisations.csv', overrides_file='organisation_mapping_overrides.csv', year=None):
     """Load organisation mapping from CSV file, with optional year-specific overrides."""
@@ -22,7 +29,7 @@ def load_organisation_mapping(mapping_file='organisations.csv', overrides_file='
     organisation_mapping = {}
 
     if not os.path.exists(mapping_file):
-        print(f"Warning: {mapping_file} not found. All contributors will be marked as 'Independent'")
+        print(f"Warning: {mapping_file} not found. All contributors will be marked as '{UNMAPPED}'")
         return organisation_mapping
 
     with open(mapping_file, newline='', encoding='utf-8') as f:
@@ -113,8 +120,12 @@ def extract_date_range_from_filename(filename):
     return None
 
 
-def aggregate_organisation_stats(stats_df, organisation_mapping):
-    """Aggregate individual contributor stats by organisation."""
+def aggregate_organisation_stats(stats_df, organisation_mapping, bots=None):
+    """Aggregate individual contributor stats by organisation.
+
+    Bot accounts are left out; unmapped contributors go to UNMAPPED.
+    """
+    bots = load_bot_accounts() if bots is None else bots
     organisation_stats = defaultdict(lambda: {
         'total_commits': 0,
         'total_pull_requests': 0,
@@ -126,7 +137,9 @@ def aggregate_organisation_stats(stats_df, organisation_mapping):
     
     for _, row in stats_df.iterrows():
         username = row['username']
-        organisation = organisation_mapping.get(username, 'Independent')
+        if username in bots:
+            continue
+        organisation = organisation_mapping.get(username, UNMAPPED)
         
         # Aggregate stats
         organisation_stats[organisation]['total_commits'] += row['total_commits']

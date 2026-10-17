@@ -164,7 +164,14 @@ The system maps 109+ contributors across 54+ organisations including:
 - **kitconcept**: Leading contributor with comprehensive Plone development
 - **nuclia**: Significant PLIP contributions and core development
 - **syslab**: Multi-year contributor across various repositories
-- **Independent**: Unmapped individual contributors
+- **Unmapped**: contributors not (yet) mapped to an organisation
+
+Rules for the mapping (`organisations.csv`, yearly overrides in `organisation_mapping_overrides.csv`):
+
+- Contributions are attributed to the organisation that **sponsors the contributor's time on Plone**, in the year of the contribution.
+- **Private engagement** and volunteers are attributed to the person: `Name (independent)`. Self-employed people with a company name use the company name.
+- **Unmapped** is not an organisation: it gets no recognition points or level, and is shown separately. A mapping needs a source or a confirmation; when in doubt, a contributor stays unmapped.
+- Bot accounts that the GitHub API lists as users are listed in `bot_accounts.csv` and not counted.
 
 ### PLIP Tracking
 
@@ -177,7 +184,7 @@ Extracts PLIPs from three main repositories:
 ### Cross-Year Analysis
 
 - Track contributor activity patterns across years
-- Identify Independent contributors for potential organisation mapping
+- Identify unmapped contributors for potential organisation mapping
 - Generate comprehensive statistics from 2005-2025
 
 ## Setup

@@ -53,7 +53,7 @@ def get_org_type(org):
         'Uni. Jyvaskylä', 'TU Dresden', 'Uni. Hospital Dresden',
         'Academy of FA Vienna', 'FHNW', 'TU Munich',
     ]
-    individual = ['Independent', 'PY76']
+    individual = ['Unmapped', 'PY76']
     community = []
 
     if org in academic:

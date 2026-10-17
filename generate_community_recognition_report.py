@@ -12,6 +12,9 @@ from collections import defaultdict
 from datetime import datetime
 
 
+# Contributors not mapped to an organisation, see organisation_stats.UNMAPPED (#53)
+UNMAPPED = 'Unmapped'
+
 def load_recognition_levels():
     """Load recognition levels from CSV file."""
     levels = []
@@ -69,7 +72,9 @@ def normalize_organization_name(org_name):
         'zopyx': 'ZOPYX',
         'tkimnguyen': 'Kim Nguyen',
         'stevepiercy': 'Steve Piercy - Website Builder',
-        'independent': 'Independent',
+        # Unmapped contributors are not an organisation (#53)
+        'independent': UNMAPPED,
+        'unmapped': UNMAPPED,
         'mathematics institute unam': 'UNAM',
         'mathematics institute at unam': 'UNAM',
     }
@@ -318,7 +323,12 @@ def calculate_community_recognition_points():
         org_points[org]['PLIP Contributions'] += points
         org_details[org]['PLIP Contributions'].append(f"{level} ({total_plips} PLIPs)")
 
-    return org_points, org_details
+    return exclude_unmapped(org_points), exclude_unmapped(org_details)
+
+
+def exclude_unmapped(by_organisation):
+    """Unmapped contributors are not an organisation: no points, no level (#53)."""
+    return {org: value for org, value in by_organisation.items() if org and org != UNMAPPED}
 
 
 def write_csv_report(org_points, levels, output_file):
