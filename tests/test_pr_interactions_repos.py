@@ -28,7 +28,8 @@ def test_organization_repos_skip_excluded_and_keep_archived(monkeypatch, tmp_pat
         [],
     ]
     extractor = PlonePRInteractionExtractor(github_token='test-token')
-    monkeypatch.setattr(extractor.session, 'get', lambda url, params=None: FakeResponse(pages[params['page'] - 1]))
+    monkeypatch.setattr(extractor.session, 'get',
+                        lambda url, params=None, timeout=None: FakeResponse(pages[params['page'] - 1]))
 
     extractor.get_organization_repos()
 
