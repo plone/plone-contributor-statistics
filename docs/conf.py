@@ -42,3 +42,8 @@ html_theme_options = {
     "use_issues_button": True,
     "use_repository_button": True,
 }
+
+linkcheck_ignore = [
+    # This documentation itself, which exists only once it is published
+    r"https://plone\.github\.io/plone-contributor-statistics/.*",
+]
