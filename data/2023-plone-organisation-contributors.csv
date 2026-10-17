@@ -24,16 +24,16 @@ Enfold,16,10,1,frapell,7,"buildout.coredev, mockup, plone.app.event, plone.app.m
 Interlegis Program (Senado Federal),13,2,2,"fabiorauber, jhgouveia",3,"aurora, helm-charts, volto",2023-06-28,2023-11-30
 iMio,12,3,3,"alexnuttinck, gotcha, sverbois",5,"buildout.coredev, helm-charts, plone.app.contentmenu, plone.outputfilters, plonetheme.barceloneta",2021-06-07,2023-10-23
 University of Jyväskylä,10,0,1,datakurre,2,"buildout.coredev, plone.app.robotframework",2023-06-26,2023-07-02
-IMS Inc.,8,2,1,ewohnlich,3,"Products.CMFPlone, buildout.coredev, plone.locking",2023-04-11,2023-04-11
 Plone Venezuela,8,4,1,macagua,4,"aurora, form-block, plone.restapi, volto",2023-05-17,2023-09-20
+IMS Inc.,8,2,1,ewohnlich,3,"Products.CMFPlone, buildout.coredev, plone.locking",2023-04-11,2023-04-11
 Affinitic,7,5,1,laulaz,6,"buildout.coredev, plone.app.content, plone.app.event, plone.app.z3cform, plone.base, plone.gallery",2023-01-13,2023-09-22
 WebTide,5,2,1,mikejmets,3,"aurora, documentation, volto",2023-08-17,2023-11-23
 webcloud7 ag,5,3,1,maethu,3,"buildout.coredev, container-zeo, plone.namedfile",2023-04-26,2023-09-12
 Interaktiv,4,2,1,mliebischer,3,"buildout.coredev, plone.namedfile, training",2023-05-31,2023-08-28
 University of Koblenz,4,3,1,mbarde,2,"blocks-conversion-tool, form-block",2023-05-29,2023-11-03
 Zopyx,4,3,1,zopyx,4,"buildout.coredev, plone.api, plone.app.content, training",2023-10-10,2023-10-24
-TU Dresden,3,1,1,pgrunewald,3,"aurora, buildout.coredev, volto",2023-05-16,2023-07-16
 Malthe Borch (independent),3,2,1,malthe,1,Products.CMFPlone,2023-03-28,2023-03-29
+TU Dresden,3,1,1,pgrunewald,3,"aurora, buildout.coredev, volto",2023-05-16,2023-07-16
 Abstract IT,2,2,1,szakitibi,2,"Products.CMFPlone, plone.app.multilingual",2023-10-06,2023-10-06
 Agitator,2,2,1,agitator,2,"plone.formwidget.multifile, plonetheme.barceloneta",2023-01-26,2023-01-26
 Ludwig Maximilian University Munich,1,1,1,loechel,1,meta,2023-10-09,2023-10-09

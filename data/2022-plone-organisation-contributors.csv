@@ -32,14 +32,14 @@ Academy of FA Vienna,14,3,1,iham,9,"Products.CMFPlone, buildout.coredev, mockup,
 University of Jyväskylä,13,5,2,"datakurre, rioksane",3,"Products.CMFPlone, buildout.coredev, plone.app.robotframework",2022-02-18,2022-06-08
 operun,7,4,1,santonelli,5,"bobtemplates.plone, buildout.coredev, plone.app.viewletmanager, plonecli, training",2022-09-01,2022-10-09
 Wildcard Corp,6,1,1,vangheem,1,guillotina_s3storage,2022-03-08,2022-05-21
-IT Sprit,4,2,1,thomasmassmann,2,"buildout.coredev, plone.app.layout",2022-01-07,2022-01-09
 Ludwig Maximilian University Munich,4,2,1,loechel,1,training,2022-10-10,2022-11-07
+IT Sprit,4,2,1,thomasmassmann,2,"buildout.coredev, plone.app.layout",2022-01-07,2022-01-09
 infoCatch,3,1,1,mtrebron,2,"buildout.coredev, plone.app.z3cform",2022-08-14,2022-08-15
 BlueDynamics KG,3,1,1,zworkb,4,"plone.app.blocks, plone.app.contenttypes, plone.app.dexterity, plone.app.event",2022-03-21,2022-03-25
 Zopyx,2,1,1,zopyx,2,"buildout.coredev, plone.restapi",2022-04-30,2022-08-11
-CMS Communications Inc.,2,1,1,terapyon,2,"aurora, volto",2022-11-10,2022-11-10
-KU Leuven,2,1,1,spereverde,2,"aurora, volto",2022-10-12,2022-10-12
 Makina Corpus,2,0,1,Gagaro,1,plone.restapi-angular,2022-03-02,2022-03-02
+KU Leuven,2,1,1,spereverde,2,"aurora, volto",2022-10-12,2022-10-12
+CMS Communications Inc.,2,1,1,terapyon,2,"aurora, volto",2022-11-10,2022-11-10
 University of Koblenz,1,0,1,mbarde,1,form-block,2022-04-20,2022-04-20
 FHNW,1,1,1,rristow,1,Products.CMFEditions,2018-04-25,2018-04-25
 minddistrict,0,3,2,"icemac, janjaapdriessen",2,"plone.protect, plone.recipe.codeanalysis",,
