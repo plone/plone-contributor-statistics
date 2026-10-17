@@ -34,10 +34,17 @@ def load_recognition_levels():
 
 def get_recognition_level(points, levels):
     """Determine the recognition level for a given point total."""
+    selected_level = 'No Level'
+    # Assume levels are sorted by min_points in the CSV
     for level in levels:
-        if level['min_points'] <= points <= level['max_points']:
-            return level['name']
-    return 'No Level'
+        if points >= level['min_points']:
+            selected_level = level['name']
+    return selected_level
+
+
+def year_weight(year, reference=2025):
+    """Calculate weighting factor for a given year based on recency."""
+    return max(0, 1.0 - (reference - year) * 0.2)
 
 
 def normalize_organization_name(org_name):
@@ -133,149 +140,174 @@ def calculate_community_recognition_points():
     org_details = defaultdict(lambda: defaultdict(list))
 
     data_dir = 'data/community-contributions'
+    reference_year = 2025
+    years = range(2021, 2026)  # 2020 has 0 weight
 
     # Load code contribution data (PRs and PLIPs)
     pr_data = load_pr_data()
     plip_data = load_plip_data()
 
     # 1. Strategic Sprints - 12 points per organization
-    try:
-        with open(f'{data_dir}/2025-strategic-sprints.csv', 'r') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                org = normalize_organization_name(row['Organisation'].strip())
-                sprint = row['Sprint'].strip()
-                org_points[org]['Strategic Sprint'] += 12
-                org_details[org]['Strategic Sprint'].append(sprint)
-    except FileNotFoundError:
-        print("Warning: 2025-strategic-sprints.csv not found")
+    for year in years:
+        weight = year_weight(year, reference_year)
+        try:
+            with open(f'{data_dir}/{year}-strategic-sprints.csv', 'r') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    org = normalize_organization_name(row['Organisation'].strip())
+                    sprint = row['Sprint'].strip()
+                    points = 12 * weight
+                    org_points[org]['Strategic Sprint'] += round(points, 1)
+                    org_details[org]['Strategic Sprint'].append(f"{year}: {sprint} ({points:.1f} pts)")
+        except FileNotFoundError:
+            pass
 
     # 2. Release Managers - 12 points per person
-    try:
-        with open(f'{data_dir}/2025-release-managers.csv', 'r') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                org = normalize_organization_name(row['Organisation'].strip())
-                name = row['Name'].strip()
-                org_points[org]['Release Manager'] += 12
-                org_details[org]['Release Manager'].append(name)
-    except FileNotFoundError:
-        print("Warning: 2025-release-managers.csv not found")
+    for year in years:
+        weight = year_weight(year, reference_year)
+        try:
+            with open(f'{data_dir}/{year}-release-managers.csv', 'r') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    org = normalize_organization_name(row['Organisation'].strip())
+                    name = row['Name'].strip()
+                    points = round(12 * weight, 1)
+                    org_points[org]['Release Manager'] += points
+                    org_details[org]['Release Manager'].append(f"{year}: {name} ({points:.1f} pts)")
+        except FileNotFoundError:
+            pass
 
     # 3. Team Leaders - 6 points per team, split among leaders
-    try:
-        team_leaders = defaultdict(list)
-        with open(f'{data_dir}/2025-team-leaders.csv', 'r') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                team = row['Team'].strip()
-                org = normalize_organization_name(row['Organisation'].strip())
-                name = row['Name'].strip()
-                team_leaders[team].append((org, name))
+    for year in years:
+        weight = year_weight(year, reference_year)
+        try:
+            team_leaders = defaultdict(list)
+            with open(f'{data_dir}/{year}-team-leaders.csv', 'r') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    team = row['Team'].strip()
+                    org = normalize_organization_name(row['Organisation'].strip())
+                    name = row['Name'].strip()
+                    team_leaders[team].append((org, name))
 
-        for team, leaders in team_leaders.items():
-            points_per_leader = 6 / len(leaders)
-            for org, name in leaders:
-                org_points[org]['Team Leader'] += points_per_leader
-                org_details[org]['Team Leader'].append(f"{name} ({team})")
-    except FileNotFoundError:
-        print("Warning: 2025-team-leaders.csv not found")
+            for team, leaders in team_leaders.items():
+                points_per_leader = round((6 / len(leaders)) * weight, 1)
+                for org, name in leaders:
+                    org_points[org]['Team Leader'] += points_per_leader
+                    org_details[org]['Team Leader'].append(f"{year}: {name} ({team}) ({points_per_leader:.1f} pts)")
+        except FileNotFoundError:
+            pass
 
     # 4. Board of Directors - 6 points per member
-    try:
-        with open(f'{data_dir}/2025-board-of-directors.csv', 'r') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                org = normalize_organization_name(row['Organisation'].strip())
-                name = row['Name'].strip()
-                org_points[org]['Board Member'] += 6
-                org_details[org]['Board Member'].append(name)
-    except FileNotFoundError:
-        print("Warning: 2025-board-of-directors.csv not found")
+    for year in years:
+        weight = year_weight(year, reference_year)
+        try:
+            with open(f'{data_dir}/{year}-board-of-directors.csv', 'r') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    org = normalize_organization_name(row['Organisation'].strip())
+                    name = row['Name'].strip()
+                    points = round(6 * weight, 1)
+                    org_points[org]['Board Member'] += points
+                    org_details[org]['Board Member'].append(f"{year}: {name} ({points:.1f} pts)")
+        except FileNotFoundError:
+            pass
 
     # 5. Podcasts - 6 points per series, split among hosts
-    try:
-        with open(f'{data_dir}/2025-podcasts.csv', 'r') as f:
-            reader = csv.DictReader(f)
-            hosts = []
-            for row in reader:
-                org = normalize_organization_name(row['Organisation'].strip())
-                name = row['Name'].strip()
-                hosts.append((org, name))
+    for year in years:
+        weight = year_weight(year, reference_year)
+        try:
+            with open(f'{data_dir}/{year}-podcasts.csv', 'r') as f:
+                reader = csv.DictReader(f)
+                hosts = []
+                for row in reader:
+                    org = normalize_organization_name(row['Organisation'].strip())
+                    name = row['Name'].strip()
+                    hosts.append((org, name))
 
-            if hosts:
-                points_per_host = 6 / len(hosts)
-                for org, name in hosts:
-                    org_points[org]['Podcast Host'] += points_per_host
-                    org_details[org]['Podcast Host'].append(name)
-    except FileNotFoundError:
-        print("Warning: 2025-podcasts.csv not found")
+                if hosts:
+                    points_per_host = round((6 / len(hosts)) * weight, 1)
+                    for org, name in hosts:
+                        org_points[org]['Podcast Host'] += points_per_host
+                        org_details[org]['Podcast Host'].append(f"{year}: {name} ({points_per_host:.1f} pts)")
+        except FileNotFoundError:
+            pass
 
     # 6. World Plone Day Events - 3 points per event
-    try:
-        with open(f'{data_dir}/2025-world-plone-day-event.csv', 'r') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                org = normalize_organization_name(row['Organisation'].strip())
-                org_points[org]['WPD Event'] += 3
-                org_details[org]['WPD Event'].append('Organized WPD Event')
-    except FileNotFoundError:
-        print("Warning: 2025-world-plone-day-event.csv not found")
+    for year in years:
+        weight = year_weight(year, reference_year)
+        try:
+            with open(f'{data_dir}/{year}-world-plone-day-event.csv', 'r') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    org = normalize_organization_name(row['Organisation'].strip())
+                    points = round(3 * weight, 1)
+                    org_points[org]['WPD Event'] += points
+                    org_details[org]['WPD Event'].append(f"{year}: Organized WPD Event ({points:.1f} pts)")
+        except FileNotFoundError:
+            pass
 
-    # 7. World Plone Day Talks - 1 point per talk, max 4 per organization
-    try:
-        talk_count = defaultdict(int)
-        with open(f'{data_dir}/2025-world-plone-day-talks.csv', 'r') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                orgs_raw = row['Organisation'].strip()
-                video_type = row.get('Type', '').strip()
-                video_title = row['Video Title'].strip()
+    # 7. World Plone Day Talks - 1 point per talk, max 4 per organization per year
+    for year in years:
+        weight = year_weight(year, reference_year)
+        try:
+            talk_count_year = defaultdict(int)
+            with open(f'{data_dir}/{year}-world-plone-day-talks.csv', 'r') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    orgs_raw = row['Organisation'].strip()
+                    video_type = row.get('Type', '').strip()
+                    video_title = row['Video Title'].strip()
 
-                # Skip duplicates, teasers, announcements, welcomes, recaps
-                if video_type in ['Duplicate', 'Teaser', 'Announcement', 'Welcome', 'Recap']:
-                    continue
+                    # Skip duplicates, teasers, announcements, welcomes, recaps
+                    if video_type in ['Duplicate', 'Teaser', 'Announcement', 'Welcome', 'Recap']:
+                        continue
 
-                if not orgs_raw:
-                    continue
+                    if not orgs_raw:
+                        continue
 
-                orgs = [normalize_organization_name(o.strip()) for o in orgs_raw.split(';')]
-                for org in orgs:
-                    if talk_count[org] < 4:
-                        talk_count[org] += 1
-                        org_points[org]['WPD Talk'] += 1
-                        org_details[org]['WPD Talk'].append(video_title)
-    except FileNotFoundError:
-        print("Warning: 2025-world-plone-day-talks.csv not found")
+                    orgs = [normalize_organization_name(o.strip()) for o in orgs_raw.split(';')]
+                    for org in orgs:
+                        if talk_count_year[org] < 4:
+                            talk_count_year[org] += 1
+                            points = round(1 * weight, 1)
+                            org_points[org]['WPD Talk'] += points
+                            org_details[org]['WPD Talk'].append(f"{year}: {video_title} ({points:.1f} pts)")
+        except FileNotFoundError:
+            pass
 
     # 8. Conference Organization - 24 points split among organizers
-    try:
-        with open(f'{data_dir}/2025-plone-conference.csv', 'r') as f:
-            reader = csv.DictReader(f)
-            organizers = [normalize_organization_name(row['Organisation'].strip()) for row in reader]
+    for year in years:
+        weight = year_weight(year, reference_year)
+        try:
+            with open(f'{data_dir}/{year}-plone-conference.csv', 'r') as f:
+                reader = csv.DictReader(f)
+                organizers = [normalize_organization_name(row['Organisation'].strip()) for row in reader]
 
-            if organizers:
-                points_per_org = 24 / len(organizers)
-                for org in organizers:
-                    org_points[org]['Conference Organization'] += points_per_org
-                    org_details[org]['Conference Organization'].append('Organized Plone Conference 2025')
-    except FileNotFoundError:
-        print("Warning: 2025-plone-conference.csv not found")
+                if organizers:
+                    points_per_org = round((24 / len(organizers)) * weight, 1)
+                    for org in organizers:
+                        org_points[org]['Conference Organization'] += points_per_org
+                        org_details[org]['Conference Organization'].append(f"{year}: Organized Plone Conference ({points_per_org:.1f} pts)")
+        except FileNotFoundError:
+            pass
 
     # 9. Training Sessions - 6 points per session, split among co-trainers
-    try:
-        with open(f'{data_dir}/2025-plone-conference-trainings.csv', 'r') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                orgs_raw = row['Organisation'].strip()
-                title = row['Title'].strip()
-                orgs = [normalize_organization_name(o.strip()) for o in orgs_raw.split(';')]
-                points_per_org = 6 / len(orgs)
-                for org in orgs:
-                    org_points[org]['Training Session'] += points_per_org
-                    org_details[org]['Training Session'].append(title)
-    except FileNotFoundError:
-        print("Warning: 2025-plone-conference-trainings.csv not found")
+    for year in years:
+        weight = year_weight(year, reference_year)
+        try:
+            with open(f'{data_dir}/{year}-plone-conference-trainings.csv', 'r') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    orgs_raw = row['Organisation'].strip()
+                    title = row['Title'].strip()
+                    orgs = [normalize_organization_name(o.strip()) for o in orgs_raw.split(';')]
+                    points_per_org = round((6 / len(orgs)) * weight, 1)
+                    for org in orgs:
+                        org_points[org]['Training Session'] += points_per_org
+                        org_details[org]['Training Session'].append(f"{year}: {title} ({points_per_org:.1f} pts)")
+        except FileNotFoundError:
+            pass
 
     # 10. Pull Request Contributions - Based on 5-year average
     # Criteria: Lead (100+/yr=20pts), Core Member (50-99/yr=10pts), Active Member (20-49/yr=4pts), Team Member (10-19/yr=2pts)
@@ -328,23 +360,23 @@ def write_csv_report(org_points, levels, output_file):
     results = []
     for org in sorted(org_points.keys()):
         categories = org_points[org]
-        total = sum(categories.values())
+        total = round(sum(categories.values()), 1)
         level = get_recognition_level(total, levels)
 
         row = {
             'Organisation': org,
             'Recognition Level': level,
-            'Strategic Sprint': categories.get('Strategic Sprint', 0),
-            'Release Manager': categories.get('Release Manager', 0),
-            'Team Leader': categories.get('Team Leader', 0),
-            'Board Member': categories.get('Board Member', 0),
-            'Podcast Host': categories.get('Podcast Host', 0),
-            'WPD Event': categories.get('WPD Event', 0),
-            'WPD Talk': categories.get('WPD Talk', 0),
-            'Conference Organization': categories.get('Conference Organization', 0),
-            'Training Session': categories.get('Training Session', 0),
-            'PR Contributions': categories.get('PR Contributions', 0),
-            'PLIP Contributions': categories.get('PLIP Contributions', 0),
+            'Strategic Sprint': round(categories.get('Strategic Sprint', 0), 1),
+            'Release Manager': round(categories.get('Release Manager', 0), 1),
+            'Team Leader': round(categories.get('Team Leader', 0), 1),
+            'Board Member': round(categories.get('Board Member', 0), 1),
+            'Podcast Host': round(categories.get('Podcast Host', 0), 1),
+            'WPD Event': round(categories.get('WPD Event', 0), 1),
+            'WPD Talk': round(categories.get('WPD Talk', 0), 1),
+            'Conference Organization': round(categories.get('Conference Organization', 0), 1),
+            'Training Session': round(categories.get('Training Session', 0), 1),
+            'PR Contributions': round(categories.get('PR Contributions', 0), 1),
+            'PLIP Contributions': round(categories.get('PLIP Contributions', 0), 1),
             'Total Points': total
         }
         results.append(row)
@@ -403,6 +435,13 @@ def write_markdown_report(org_points, org_details, results, levels, output_file)
 
         # Point Categories
         f.write("## Recognition Categories\n\n")
+        f.write("Points for community and marketing contributions are weighted by recency:\n")
+        f.write("- **2025**: 100% (1.0 factor)\n")
+        f.write("- **2024**: 80% (0.8 factor)\n")
+        f.write("- **2023**: 60% (0.6 factor)\n")
+        f.write("- **2022**: 40% (0.4 factor)\n")
+        f.write("- **2021**: 20% (0.2 factor)\n\n")
+        
         f.write("### Community Contributions\n\n")
         f.write("| Category | Points | Description |\n")
         f.write("|----------|--------|-------------|\n")
