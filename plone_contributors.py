@@ -20,6 +20,7 @@ to ensure accurate and up-to-date commit counts without caching issues.
 """
 
 import os
+import sys
 import time
 import json
 import csv
@@ -32,6 +33,8 @@ import pandas as pd
 from dotenv import load_dotenv
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
+
+from github_api import GitHubAPIError, github_get
 
 
 EXCLUDED_REPOSITORIES_FILE = 'excluded_repositories.csv'
@@ -106,7 +109,7 @@ class PloneStatsExtractor:
         retry_strategy = Retry(
             total=5,  # Total number of retries
             backoff_factor=2,  # Wait 1, 2, 4, 8, 16 seconds between retries
-            status_forcelist=[429, 500, 502, 503, 504],  # Retry on these HTTP status codes
+            status_forcelist=[500, 502, 503, 504],  # Retry on server errors; rate limits are handled by github_get
             allowed_methods=["HEAD", "GET", "OPTIONS"]  # Only retry safe methods
         )
 
@@ -116,28 +119,10 @@ class PloneStatsExtractor:
 
         return session
 
-    def _safe_request(self, method, url, params=None, max_retries=3):
-        """Make a safe HTTP request with error handling and retries."""
-        for attempt in range(max_retries):
-            try:
-                response = self.session.request(method, url, params=params, timeout=30)
-                return response
-            except (requests.exceptions.ConnectionError,
-                    requests.exceptions.Timeout,
-                    requests.exceptions.ChunkedEncodingError) as e:
-                wait_time = 2 ** attempt  # Exponential backoff: 1, 2, 4 seconds
-                if attempt < max_retries - 1:
-                    print(f"  Connection error (attempt {attempt + 1}/{max_retries}): {type(e).__name__}")
-                    print(f"  Waiting {wait_time} seconds before retry...")
-                    time.sleep(wait_time)
-                else:
-                    print(f"  Failed after {max_retries} attempts: {e}")
-                    return None
-            except Exception as e:
-                print(f"  Unexpected error: {e}")
-                return None
-        return None
-        
+    def _get(self, url, params=None):
+        """GET from the GitHub API; waits for rate limits and raises GitHubAPIError on errors."""
+        return github_get(self.session, url, params=params)
+
     def get_organization_repos(self) -> List[Dict[str, Any]]:
         """Fetch all repositories from the Plone organization."""
         print(f"Fetching repositories from {self.org} organization...")
@@ -148,35 +133,8 @@ class PloneStatsExtractor:
             url = f'https://api.github.com/orgs/{self.org}/repos'
             params = {'page': page, 'per_page': 100, 'sort': 'updated'}
 
-            response = self._safe_request('GET', url, params=params)
-            if response is None:
-                print(f"Failed to fetch repositories page {page}")
-                break
-            
-            if response.status_code == 401:
-                print(f"Authentication failed (401). GitHub token is required for organization data.")
-                print(f"Get a token at: https://github.com/settings/tokens")
-                print(f"Add it to .env file as: GITHUB_TOKEN=your_token")
-                return []
-            elif response.status_code == 403:
-                print(f"Access forbidden (403). Token may lack 'read:org' scope or org is private.")
-                print(f"For public repos only, trying individual repo access...")
-                # Try to get some popular Plone repos directly
-                popular_repos = ['Plone', 'plone.api', 'Products.CMFPlone', 'plone.app.contenttypes', 'plone.restapi']
-                repos = []
-                for repo_name in popular_repos:
-                    repo_url = f'https://api.github.com/repos/{self.org}/{repo_name}'
-                    repo_resp = self.session.get(repo_url)
-                    if repo_resp.status_code == 200:
-                        repos.append(repo_resp.json())
-                        print(f"  Added repository: {repo_name}")
-                    else:
-                        print(f"  Could not access: {repo_name} ({repo_resp.status_code})")
-                return repos
-            elif response.status_code != 200:
-                print(f"Error fetching repos: {response.status_code}")
-                break
-                
+            response = self._get(url, params=params)
+
             data = response.json()
             if not data:
                 break
@@ -200,14 +158,9 @@ class PloneStatsExtractor:
             url = f'https://api.github.com/repos/{self.org}/{repo_name}/contributors'
             params = {'page': page, 'per_page': 100}
 
-            response = self._safe_request('GET', url, params=params)
+            response = self._get(url, params=params)
 
-            if response is None:
-                print(f"Failed to fetch contributors for {repo_name} after retries")
-                break
-
-            if response.status_code != 200:
-                print(f"Error fetching contributors for {repo_name}: {response.status_code}")
+            if response.status_code != 200:  # empty repository
                 break
 
             data = response.json()
@@ -228,20 +181,6 @@ class PloneStatsExtractor:
         print(f"Found {len(contributors)} contributors for {repo_name}")
         return contributors
 
-    def get_repository_default_branch(self, repo_name: str) -> str:
-        """Get the default branch for a repository."""
-        url = f'https://api.github.com/repos/{self.org}/{repo_name}'
-
-        try:
-            response = self.session.get(url)
-            if response.status_code == 200:
-                repo_data = response.json()
-                return repo_data.get('default_branch', 'main')
-        except Exception as e:
-            print(f"Error getting default branch for {repo_name}: {e}")
-
-        return 'main'  # Default fallback
-
     def get_commits_for_user(self, repo_name: str, username: str, default_branch: str) -> int:
         """Get number of commits for a user in the specified date range on the default branch only."""
         url = f'https://api.github.com/repos/{self.org}/{repo_name}/commits'
@@ -259,59 +198,51 @@ class PloneStatsExtractor:
         first_commit_date = None
         last_commit_date = None
 
-        try:
-            while True:
-                params['page'] = page
-                response = self._safe_request('GET', url, params=params)
+        while True:
+            params['page'] = page
+            response = self._get(url, params=params)
 
-                if response is None:
-                    print(f"  Failed to fetch commits for {username} after retries")
-                    break
+            if response.status_code != 200:  # empty repository
+                break
 
-                if response.status_code != 200:
-                    break
+            commits = response.json()
+            if not commits:
+                break
 
-                commits = response.json()
-                if not commits:
-                    break
+            total_commits += len(commits)
 
-                total_commits += len(commits)
+            # Track first and last commit dates
+            for commit in commits:
+                if commit.get('commit', {}).get('author', {}).get('date'):
+                    commit_date = datetime.fromisoformat(
+                        commit['commit']['author']['date'].replace('Z', '+00:00')
+                    ).replace(tzinfo=None)
 
-                # Track first and last commit dates
-                for commit in commits:
-                    if commit.get('commit', {}).get('author', {}).get('date'):
-                        commit_date = datetime.fromisoformat(
-                            commit['commit']['author']['date'].replace('Z', '+00:00')
-                        ).replace(tzinfo=None)
+                    if first_commit_date is None or commit_date < first_commit_date:
+                        first_commit_date = commit_date
+                    if last_commit_date is None or commit_date > last_commit_date:
+                        last_commit_date = commit_date
 
-                        if first_commit_date is None or commit_date < first_commit_date:
-                            first_commit_date = commit_date
-                        if last_commit_date is None or commit_date > last_commit_date:
-                            last_commit_date = commit_date
+            # Check if there are more pages
+            if 'Link' not in response.headers or 'rel="next"' not in response.headers['Link']:
+                break
 
-                # Check if there are more pages
-                if 'Link' not in response.headers or 'rel="next"' not in response.headers['Link']:
-                    break
+            page += 1
+            time.sleep(0.5)  # Rate limiting
 
-                page += 1
-                time.sleep(0.5)  # Rate limiting
+        # Update contributor data if commits found
+        if total_commits > 0:
+            if first_commit_date:
+                if (self.contributors_data[username]['first_contribution'] is None or
+                    first_commit_date < self.contributors_data[username]['first_contribution']):
+                    self.contributors_data[username]['first_contribution'] = first_commit_date
 
-            # Update contributor data if commits found
-            if total_commits > 0:
-                if first_commit_date:
-                    if (self.contributors_data[username]['first_contribution'] is None or
-                        first_commit_date < self.contributors_data[username]['first_contribution']):
-                        self.contributors_data[username]['first_contribution'] = first_commit_date
+            if last_commit_date:
+                if (self.contributors_data[username]['last_contribution'] is None or
+                    last_commit_date > self.contributors_data[username]['last_contribution']):
+                    self.contributors_data[username]['last_contribution'] = last_commit_date
 
-                if last_commit_date:
-                    if (self.contributors_data[username]['last_contribution'] is None or
-                        last_commit_date > self.contributors_data[username]['last_contribution']):
-                        self.contributors_data[username]['last_contribution'] = last_commit_date
-
-            return total_commits
-        except Exception as e:
-            print(f"Error fetching commits for {username} in {repo_name}: {e}")
-            return 0
+        return total_commits
     
     def get_repository_pull_requests(self, repo_name: str) -> List[Dict[str, Any]]:
         """Get merged pull requests for a repository."""
@@ -330,14 +261,9 @@ class PloneStatsExtractor:
                 'direction': 'desc'
             }
 
-            response = self._safe_request('GET', url, params=params)
+            response = self._get(url, params=params)
 
-            if response is None:
-                print(f"Failed to fetch PRs for {repo_name} after retries")
-                break
-
-            if response.status_code != 200:
-                print(f"Error fetching PRs for {repo_name}: {response.status_code}")
+            if response.status_code != 200:  # empty repository
                 break
                 
             data = response.json()
@@ -436,24 +362,20 @@ class PloneStatsExtractor:
             print(f"Processing repository {i}/{len(repos)}: {repo_name}")
             print(f"{'='*60}")
 
-            try:
-                # Get default branch for this repository
-                default_branch = repo.get('default_branch', 'main')
-                print(f"Default branch: {default_branch}")
+            # Errors are not skipped: a repository with missing data would make the
+            # whole year incomplete. They propagate, and main() keeps only a checkpoint.
+            default_branch = repo.get('default_branch', 'main')
+            print(f"Default branch: {default_branch}")
 
-                # Get list of contributors
-                contributors = self.get_repository_contributors_list(repo_name)
-                if contributors:
-                    self.process_commits(repo_name, contributors, default_branch)
+            # Get list of contributors
+            contributors = self.get_repository_contributors_list(repo_name)
+            if contributors:
+                self.process_commits(repo_name, contributors, default_branch)
 
-                # Get pull requests
-                prs = self.get_repository_pull_requests(repo_name)
-                if prs:
-                    self.process_pull_requests(repo_name, prs)
-
-            except Exception as e:
-                print(f"ERROR: Failed to process repository {repo_name}: {e}")
-                print(f"Continuing with next repository...")
+            # Get pull requests
+            prs = self.get_repository_pull_requests(repo_name)
+            if prs:
+                self.process_pull_requests(repo_name, prs)
 
             # Save progress checkpoint every N repositories
             if save_every and i % save_every == 0:
@@ -608,14 +530,14 @@ def main():
         try:
             # Extract statistics from all repositories
             extractor.extract_all_stats()
+        except (KeyboardInterrupt, GitHubAPIError, requests.exceptions.RequestException) as e:
+            # Never write incomplete data to the regular file, only a checkpoint
+            reason = 'interrupted by user' if isinstance(e, KeyboardInterrupt) else f'{type(e).__name__}: {e}'
+            print(f"\n\nExtraction stopped ({reason}).")
+            extractor.save_progress(f"data/{filename or 'plone-contributors'}")
+            print("The regular data file was not written, because the data is incomplete.")
+            return 1
 
-        except KeyboardInterrupt:
-            print("\n\nExtraction interrupted by user. Saving progress...")
-        except Exception as e:
-            print(f"\n\nUnexpected error during extraction: {e}")
-            print("Saving current progress...")
-
-        # Always generate and save report (even if extraction was interrupted)
         df = extractor.generate_report()
 
         print("\n" + "=" * 50)
@@ -640,4 +562,4 @@ def main():
     return 0
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

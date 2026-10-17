@@ -156,7 +156,7 @@ setup: install
 
 # Development setup with additional tools
 dev-setup: setup
-	pip install black flake8 mypy pytest
+	pip install black flake8 mypy pytest pytest-timeout
 
 # Run main statistics extraction (current year)
 run-stats:
