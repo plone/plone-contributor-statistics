@@ -18,7 +18,7 @@ def main():
     rows = []
 
     # Find all yearly contributor CSV files
-    contributor_files = sorted(glob.glob("[0-9][0-9][0-9][0-9]-plone-contributors.csv"))
+    contributor_files = sorted(glob.glob("data/[0-9][0-9][0-9][0-9]-plone-contributors.csv"))
 
     if not contributor_files:
         print("No yearly contributor CSV files found!")
@@ -26,7 +26,7 @@ def main():
 
     for contrib_file in contributor_files:
         year = int(Path(contrib_file).name.split("-")[0])
-        org_file = f"{year}-plone-organisation-contributors.csv"
+        org_file = f"data/{year}-plone-organisation-contributors.csv"
 
         # Load contributor data
         try:
