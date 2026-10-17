@@ -12,23 +12,24 @@ Important: Only commits that made it to the default branch are counted. This inc
 - Direct commits to the default branch
 - Commits merged via pull requests
 
-Commits on feature branches that were never merged are NOT counted.
+Commits on feature branches that were never merged are NOT counted. Merge
+commits are not counted either (#39).
 
-Note: This script uses the direct GitHub commits API (/repos/{org}/{repo}/commits)
-with the 'sha' parameter set to the default branch, rather than the statistics API,
-to ensure accurate and up-to-date commit counts without caching issues.
+For each repository, the commits of the default branch and the closed pull
+requests are fetched once for the whole requested time range, and then
+assigned to the requested periods (usually years). One run can therefore
+produce the files for many years at once (--from-year/--to-year).
 """
 
 import os
 import sys
 import time
-import json
 import csv
 import requests
 import argparse
 from datetime import datetime
 from collections import defaultdict
-from typing import Dict, List, Any
+from typing import Dict, List, Any, Tuple
 import pandas as pd
 from dotenv import load_dotenv
 from requests.adapters import HTTPAdapter
@@ -38,6 +39,12 @@ from github_api import GitHubAPIError, github_get, is_merge_commit
 
 
 EXCLUDED_REPOSITORIES_FILE = 'excluded_repositories.csv'
+BOT_ACCOUNTS_FILE = 'bot_accounts.csv'
+REPORT_COLUMNS = ['username', 'total_commits', 'total_pull_requests', 'repositories_count',
+                  'repositories', 'first_contribution', 'last_contribution']
+
+# A period is (label, start, end); the label is the output file name without .csv
+Period = Tuple[str, datetime, datetime]
 
 
 def parse_timestamp(value: str) -> datetime:
@@ -51,6 +58,14 @@ def load_excluded_repositories(path: str = EXCLUDED_REPOSITORIES_FILE) -> Dict[s
         return {}
     with open(path, newline='', encoding='utf-8') as f:
         return {row['repository'].strip(): row['reason'].strip() for row in csv.DictReader(f)}
+
+
+def load_bot_accounts(path: str = BOT_ACCOUNTS_FILE) -> Dict[str, str]:
+    """Load bot accounts that the GitHub API lists as type User, mapped to a reason."""
+    if not os.path.exists(path):
+        return {}
+    with open(path, newline='', encoding='utf-8') as f:
+        return {row['login'].strip(): row['reason'].strip() for row in csv.DictReader(f)}
 
 
 def select_repositories(repos: List[Dict[str, Any]], excluded: Dict[str, str]):
@@ -69,8 +84,28 @@ def select_repositories(repos: List[Dict[str, Any]], excluded: Dict[str, str]):
             selected.append(repo)
     return selected, skipped
 
+
+def year_periods(from_year: int, to_year: int) -> List[Period]:
+    """One period per calendar year, labelled like the yearly data files."""
+    return [
+        (f'{year}-plone-contributors', datetime(year, 1, 1), datetime(year, 12, 31, 23, 59, 59))
+        for year in range(from_year, to_year + 1)
+    ]
+
+
+def _new_stats():
+    return {
+        'commits': 0,
+        'pull_requests': 0,
+        'repositories': set(),
+        'first_contribution': None,
+        'last_contribution': None,
+    }
+
+
 class PloneStatsExtractor:
-    def __init__(self, token: str = None, start_date: datetime = None, end_date: datetime = None):
+    def __init__(self, token: str = None, start_date: datetime = None, end_date: datetime = None,
+                 periods: List[Period] = None):
         # Force load from .env file directly
         if token is None:
             with open('.env', 'r') as f:
@@ -90,21 +125,26 @@ class PloneStatsExtractor:
         else:
             print("No GitHub token found!")
 
-        # Set date range - default to current year if not provided
-        current_year = datetime.now().year
-        self.start_date = start_date or datetime(current_year, 1, 1)
-        self.end_date = end_date or datetime(current_year, 12, 31, 23, 59, 59)
+        if periods is None:
+            # A single period - default to current year if not provided
+            current_year = datetime.now().year
+            start = start_date or datetime(current_year, 1, 1)
+            end = end_date or datetime(current_year, 12, 31, 23, 59, 59)
+            if start.year == end.year:
+                label = f'{start.year}-plone-contributors'
+            else:
+                label = f'{start.year}-{end.year}-plone-contributors'
+            periods = [(label, start, end)]
+        self.periods = periods
+        self.start_date = min(start for _, start, _ in periods)
+        self.end_date = max(end for _, _, end in periods)
 
-        print(f"Date range: {self.start_date.strftime('%Y-%m-%d')} to {self.end_date.strftime('%Y-%m-%d')}")
+        print(f"Date range: {self.start_date.strftime('%Y-%m-%d')} to {self.end_date.strftime('%Y-%m-%d')}"
+              f" ({len(periods)} period{'s' if len(periods) > 1 else ''})")
 
+        self.bots = load_bot_accounts()
         self.repositories = []
-        self.contributors_data = defaultdict(lambda: {
-            'commits': 0,
-            'pull_requests': 0,
-            'repositories': set(),
-            'first_contribution': None,
-            'last_contribution': None
-        })
+        self.contributors_data = {label: defaultdict(_new_stats) for label, _, _ in periods}
 
     def _create_session_with_retries(self):
         """Create a requests session with automatic retry logic."""
@@ -128,6 +168,17 @@ class PloneStatsExtractor:
         """GET from the GitHub API; waits for rate limits and raises GitHubAPIError on errors."""
         return github_get(self.session, url, params=params)
 
+    def _period_for(self, date: datetime):
+        """Return the label of the period that contains the date, or None."""
+        for label, start, end in self.periods:
+            if start <= date <= end:
+                return label
+        return None
+
+    def _is_person(self, user) -> bool:
+        """True for a GitHub user who is a person: not a bot account, not a deleted user."""
+        return bool(user) and user.get('type') == 'User' and user.get('login') not in self.bots
+
     def get_organization_repos(self) -> List[Dict[str, Any]]:
         """Fetch all repositories from the Plone organization."""
         print(f"Fetching repositories from {self.org} organization...")
@@ -143,26 +194,29 @@ class PloneStatsExtractor:
             data = response.json()
             if not data:
                 break
-                
+
             repos.extend(data)
             print(f"Fetched {len(data)} repositories (page {page})")
             page += 1
-            
+
         self.repositories = repos
         print(f"Total repositories found: {len(repos)}")
         return repos
-    
-    def get_repository_contributors_list(self, repo_name: str) -> List[str]:
-        """Get list of contributor usernames for a specific repository."""
-        print(f"Fetching contributors list for {repo_name}...")
 
-        contributors = []
+    def get_repository_commits(self, repo_name: str, default_branch: str) -> List[Dict[str, Any]]:
+        """Get all commits on the default branch in the whole date range, in one paginated request."""
+        url = f'https://api.github.com/repos/{self.org}/{repo_name}/commits'
+        params = {
+            'sha': default_branch,  # Only count commits on default branch (main/master)
+            'since': self.start_date.strftime('%Y-%m-%dT%H:%M:%SZ'),
+            'until': self.end_date.strftime('%Y-%m-%dT%H:%M:%SZ'),
+            'per_page': 100,
+        }
+
+        commits = []
         page = 1
-
         while True:
-            url = f'https://api.github.com/repos/{self.org}/{repo_name}/contributors'
-            params = {'page': page, 'per_page': 100}
-
+            params['page'] = page
             response = self._get(url, params=params)
 
             if response.status_code != 200:  # empty repository
@@ -171,88 +225,48 @@ class PloneStatsExtractor:
             data = response.json()
             if not data:
                 break
-
-            # Exclude bots and extract usernames
-            for contributor in data:
-                if contributor.get('type') == 'User':
-                    contributors.append(contributor['login'])
-
-            if len(data) < 100:
-                break
-
-            page += 1
-            time.sleep(0.5)  # Rate limiting
-
-        print(f"Found {len(contributors)} contributors for {repo_name}")
-        return contributors
-
-    def get_commits_for_user(self, repo_name: str, username: str, default_branch: str) -> int:
-        """Get number of commits for a user in the specified date range on the default branch only."""
-        url = f'https://api.github.com/repos/{self.org}/{repo_name}/commits'
-
-        params = {
-            'author': username,
-            'sha': default_branch,  # Only count commits on default branch (main/master)
-            'since': self.start_date.strftime('%Y-%m-%dT%H:%M:%SZ'),
-            'until': self.end_date.strftime('%Y-%m-%dT%H:%M:%SZ'),
-            'per_page': 100
-        }
-
-        total_commits = 0
-        page = 1
-        first_commit_date = None
-        last_commit_date = None
-
-        while True:
-            params['page'] = page
-            response = self._get(url, params=params)
-
-            if response.status_code != 200:  # empty repository
-                break
-
-            page_commits = response.json()
-            if not page_commits:
-                break
-
-            # Merge commits are not code creation (#39)
-            commits = [commit for commit in page_commits if not is_merge_commit(commit)]
-            total_commits += len(commits)
-
-            # Track first and last commit dates
-            for commit in commits:
-                if commit.get('commit', {}).get('author', {}).get('date'):
-                    commit_date = datetime.fromisoformat(
-                        commit['commit']['author']['date'].replace('Z', '+00:00')
-                    ).replace(tzinfo=None)
-
-                    if first_commit_date is None or commit_date < first_commit_date:
-                        first_commit_date = commit_date
-                    if last_commit_date is None or commit_date > last_commit_date:
-                        last_commit_date = commit_date
+            commits.extend(data)
 
             # Check if there are more pages
             if 'Link' not in response.headers or 'rel="next"' not in response.headers['Link']:
                 break
 
             page += 1
-            time.sleep(0.5)  # Rate limiting
+            time.sleep(0.1)  # Be nice to the GitHub API
 
-        # Update contributor data if commits found
-        if total_commits > 0:
-            if first_commit_date:
-                if (self.contributors_data[username]['first_contribution'] is None or
-                    first_commit_date < self.contributors_data[username]['first_contribution']):
-                    self.contributors_data[username]['first_contribution'] = first_commit_date
+        return commits
 
-            if last_commit_date:
-                if (self.contributors_data[username]['last_contribution'] is None or
-                    last_commit_date > self.contributors_data[username]['last_contribution']):
-                    self.contributors_data[username]['last_contribution'] = last_commit_date
+    def process_commits(self, repo_name: str, commits: List[Dict[str, Any]]):
+        """Count each commit for its author in the period of its commit date."""
+        counted = 0
+        for commit in commits:
+            # Merge commits are not code creation (#39)
+            if is_merge_commit(commit):
+                continue
+            # Skip bots and commits without a linked GitHub account
+            author = commit.get('author')
+            if not self._is_person(author):
+                continue
 
-        return total_commits
-    
+            label = self._period_for(parse_timestamp(commit['commit']['committer']['date']))
+            if label is None:
+                continue
+
+            stats = self.contributors_data[label][author['login']]
+            stats['commits'] += 1
+            stats['repositories'].add(repo_name)
+            counted += 1
+
+            authored = parse_timestamp(commit['commit']['author']['date'])
+            if stats['first_contribution'] is None or authored < stats['first_contribution']:
+                stats['first_contribution'] = authored
+            if stats['last_contribution'] is None or authored > stats['last_contribution']:
+                stats['last_contribution'] = authored
+
+        print(f"Counted {counted} of {len(commits)} commits for {repo_name}")
+
     def get_repository_pull_requests(self, repo_name: str) -> List[Dict[str, Any]]:
-        """Get merged pull requests for a repository."""
+        """Get the pull requests of a repository merged in the whole date range."""
         print(f"Fetching merged pull requests for {repo_name}...")
 
         prs = []
@@ -272,22 +286,19 @@ class PloneStatsExtractor:
 
             if response.status_code != 200:  # empty repository
                 break
-                
+
             data = response.json()
             if not data:
                 break
-            
+
             # Filter PRs by date range (using merged_at date for consistency with commit counting).
             # PRs to any base branch count, including backports to maintenance branches.
-            filtered_prs = []
             for pr in data:
-                # Only consider merged PRs and filter by merge date
                 if pr.get('merged_at'):
                     merged_date = parse_timestamp(pr['merged_at'])
                     if self.start_date <= merged_date <= self.end_date:
-                        filtered_prs.append(pr)
+                        prs.append(pr)
 
-            prs.extend(filtered_prs)
             page += 1
 
             # A short page is the last one
@@ -298,58 +309,35 @@ class PloneStatsExtractor:
             # before the range starts, no later page can match (#42).
             if all(parse_timestamp(pr['updated_at']) < self.start_date for pr in data):
                 break
-                
+
         print(f"Fetched {len(prs)} pull requests for {repo_name}")
         return prs
-    
-    def process_commits(self, repo_name: str, contributors: List[str], default_branch: str):
-        """Process commit statistics for contributors in a repository."""
-        print(f"Processing commits for {len(contributors)} contributors in {repo_name} (branch: {default_branch})...")
 
-        processed = 0
-        for i, username in enumerate(contributors, 1):
-            commit_count = self.get_commits_for_user(repo_name, username, default_branch)
-
-            if commit_count > 0:
-                self.contributors_data[username]['commits'] += commit_count
-                self.contributors_data[username]['repositories'].add(repo_name)
-                processed += 1
-                if processed % 5 == 0 or commit_count > 10:
-                    print(f"  [{i}/{len(contributors)}] {username}: {commit_count} commits")
-
-            # Show progress every 10 contributors
-            if i % 10 == 0:
-                print(f"  Progress: {i}/{len(contributors)} contributors checked")
-
-            time.sleep(0.3)  # Rate limiting
-
-        print(f"  Completed: {processed} contributors with commits on {default_branch} branch in date range")
-    
     def process_pull_requests(self, repo_name: str, prs: List[Dict[str, Any]]):
-        """Process merged pull request statistics for a repository."""
-        try:
-            merged_count = 0
-            for pr in prs:
-                # Only count merged PRs (filter out closed but not merged PRs)
-                if pr.get('merged_at') is None:
-                    continue
+        """Count each merged pull request for its author in the period of its merge date."""
+        merged_count = 0
+        for pr in prs:
+            # Only count merged PRs (filter out closed but not merged PRs)
+            if pr.get('merged_at') is None or not self._is_person(pr.get('user')):
+                continue
 
-                if pr['user'] and pr['user']['type'] != 'Bot':
-                    username = pr['user']['login']
-                    self.contributors_data[username]['pull_requests'] += 1
-                    self.contributors_data[username]['repositories'].add(repo_name)
-                    merged_count += 1
+            label = self._period_for(parse_timestamp(pr['merged_at']))
+            if label is None:
+                continue
 
-            print(f"Processed {merged_count} merged PRs for {repo_name}")
-        except Exception as e:
-            print(f"Error processing PRs for {repo_name}: {e}")
-    
-    def save_progress(self, filename: str):
-        """Save current progress to a checkpoint file."""
-        df = self.generate_report()
-        checkpoint_file = f"{filename}_checkpoint.csv"
-        df.to_csv(checkpoint_file, index=False)
-        print(f"Progress saved to {checkpoint_file}")
+            stats = self.contributors_data[label][pr['user']['login']]
+            stats['pull_requests'] += 1
+            stats['repositories'].add(repo_name)
+            merged_count += 1
+
+        print(f"Processed {merged_count} merged PRs for {repo_name}")
+
+    def save_progress(self):
+        """Save the current progress of every period to a checkpoint file."""
+        for label, _, _ in self.periods:
+            checkpoint_file = f"data/{label}_checkpoint.csv"
+            self.generate_report(label).to_csv(checkpoint_file, index=False)
+            print(f"Progress saved to {checkpoint_file}")
 
     def extract_all_stats(self, max_repos: int = None, save_every: int = 50):
         """Extract statistics from all repositories in the organization."""
@@ -375,29 +363,21 @@ class PloneStatsExtractor:
             default_branch = repo.get('default_branch', 'main')
             print(f"Default branch: {default_branch}")
 
-            # Get list of contributors
-            contributors = self.get_repository_contributors_list(repo_name)
-            if contributors:
-                self.process_commits(repo_name, contributors, default_branch)
-
-            # Get pull requests
-            prs = self.get_repository_pull_requests(repo_name)
-            if prs:
-                self.process_pull_requests(repo_name, prs)
+            self.process_commits(repo_name, self.get_repository_commits(repo_name, default_branch))
+            self.process_pull_requests(repo_name, self.get_repository_pull_requests(repo_name))
 
             # Save progress checkpoint every N repositories
             if save_every and i % save_every == 0:
                 print(f"\n*** Saving checkpoint at repository {i}/{len(repos)} ***")
-                self.save_progress(f"data/{self.start_date.year}-plone-contributors")
+                self.save_progress()
 
-            # Rate limiting - be nice to GitHub API
-            time.sleep(1)
-    
-    def generate_report(self) -> pd.DataFrame:
-        """Generate a comprehensive report of the statistics."""
+    def generate_report(self, label: str = None) -> pd.DataFrame:
+        """Generate the report for one period (the only period by default)."""
+        if label is None:
+            label = self.periods[0][0]
         data = []
-        
-        for username, stats in self.contributors_data.items():
+
+        for username, stats in self.contributors_data[label].items():
             data.append({
                 'username': username,
                 'total_commits': stats['commits'],
@@ -407,25 +387,22 @@ class PloneStatsExtractor:
                 'first_contribution': stats['first_contribution'].strftime('%Y-%m-%d') if stats['first_contribution'] else None,
                 'last_contribution': stats['last_contribution'].strftime('%Y-%m-%d') if stats['last_contribution'] else None
             })
-        
+
         if not data:
-            print("No data collected. Creating empty report.")
-            df = pd.DataFrame(columns=['username', 'total_commits', 'total_pull_requests', 'repositories_count', 'repositories', 'first_contribution', 'last_contribution'])
-        else:
-            df = pd.DataFrame(data)
-            df = df.sort_values('total_commits', ascending=False)
-        return df
-    
+            print(f"No data collected for {label}. Creating empty report.")
+            return pd.DataFrame(columns=REPORT_COLUMNS)
+        return pd.DataFrame(data).sort_values('total_commits', ascending=False)
+
     def save_report(self, df: pd.DataFrame, filename: str = None):
         """Save the report to CSV file."""
         if filename is None:
             filename = 'plone-contributors'
-        
+
         # Save to CSV
         csv_file = f'data/{filename}.csv'
         df.to_csv(csv_file, index=False)
         print(f"Report saved to {csv_file}")
-        
+
         return csv_file
 
 def parse_arguments():
@@ -435,37 +412,50 @@ def parse_arguments():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python plone_stats.py                    # Current year (default)
-  python plone_stats.py --year 2024       # All of 2024
-  python plone_stats.py --start-date 2024-01-01 --end-date 2024-06-30  # First half of 2024
-  python plone_stats.py --start-date 2023-01-01 --end-date 2024-12-31  # Two year span
+  python plone_contributors.py                    # Current year (default)
+  python plone_contributors.py --year 2024        # All of 2024
+  python plone_contributors.py --from-year 2003 --to-year 2025   # One file per year, in one run
+  python plone_contributors.py --start-date 2024-01-01 --end-date 2024-06-30  # First half of 2024
+  python plone_contributors.py --start-date 2023-01-01 --end-date 2024-12-31  # Two year span
         """
     )
-    
+
     parser.add_argument(
-        '--year', 
-        type=int, 
+        '--year',
+        type=int,
         help='Extract stats for a specific year (e.g., 2024)'
     )
-    
+
     parser.add_argument(
-        '--start-date', 
-        type=str, 
+        '--from-year',
+        type=int,
+        help='First year of a range; writes one file per year (use with --to-year)'
+    )
+
+    parser.add_argument(
+        '--to-year',
+        type=int,
+        help='Last year of a range (use with --from-year)'
+    )
+
+    parser.add_argument(
+        '--start-date',
+        type=str,
         help='Start date in YYYY-MM-DD format (e.g., 2024-01-01)'
     )
-    
+
     parser.add_argument(
-        '--end-date', 
-        type=str, 
+        '--end-date',
+        type=str,
         help='End date in YYYY-MM-DD format (e.g., 2024-12-31)'
     )
-    
+
     parser.add_argument(
         '--token',
         type=str,
         help='GitHub token (if not using .env file)'
     )
-    
+
     return parser.parse_args()
 
 
@@ -473,7 +463,7 @@ def validate_and_parse_dates(args):
     """Validate and parse date arguments."""
     start_date = None
     end_date = None
-    
+
     if args.year:
         # Use specified year
         start_date = datetime(args.year, 1, 1)
@@ -486,14 +476,14 @@ def validate_and_parse_dates(args):
                 start_date = datetime.strptime(args.start_date, '%Y-%m-%d')
             except ValueError:
                 raise ValueError(f"Invalid start date format: {args.start_date}. Use YYYY-MM-DD")
-        
+
         if args.end_date:
             try:
                 end_date = datetime.strptime(args.end_date, '%Y-%m-%d')
                 end_date = end_date.replace(hour=23, minute=59, second=59)  # End of day
             except ValueError:
                 raise ValueError(f"Invalid end date format: {args.end_date}. Use YYYY-MM-DD")
-        
+
         # Validate date range
         if start_date and end_date and start_date > end_date:
             raise ValueError("Start date must be before end date")
@@ -503,60 +493,57 @@ def validate_and_parse_dates(args):
         start_date = datetime(current_year, 1, 1)
         end_date = datetime(current_year, 12, 31, 23, 59, 59)
         print(f"Using default year: {current_year}")
-    
+
     return start_date, end_date
+
+
+def periods_from_arguments(args) -> List[Period]:
+    """Return the periods to collect: one per year for --from-year/--to-year, else a single one."""
+    if args.from_year or args.to_year:
+        if not (args.from_year and args.to_year):
+            raise ValueError("Use --from-year and --to-year together")
+        if args.from_year > args.to_year:
+            raise ValueError("--from-year must not be after --to-year")
+        return year_periods(args.from_year, args.to_year)
+
+    start_date, end_date = validate_and_parse_dates(args)
+    if start_date.year == end_date.year:
+        label = f'{start_date.year}-plone-contributors'
+    else:
+        label = f'{start_date.year}-{end_date.year}-plone-contributors'
+    return [(label, start_date, end_date)]
 
 
 def main():
     """Main function to run the statistics extraction."""
     print("Plone GitHub Statistics Extractor")
     print("=" * 40)
-    
+
     # Parse command line arguments
     args = parse_arguments()
-    
-    try:
-        # Parse and validate dates
-        start_date, end_date = validate_and_parse_dates(args)
-        
-        # Create extractor with specified date range
-        extractor = PloneStatsExtractor(
-            token=args.token,
-            start_date=start_date,
-            end_date=end_date
-        )
 
-        # Generate filename with date range
-        if start_date and end_date:
-            if start_date.year == end_date.year:
-                filename = f'{start_date.year}-plone-contributors'
-            else:
-                filename = f'{start_date.year}-{end_date.year}-plone-contributors'
-        else:
-            filename = None  # Use default filename
+    try:
+        periods = periods_from_arguments(args)
+        extractor = PloneStatsExtractor(token=args.token, periods=periods)
 
         try:
             # Extract statistics from all repositories
             extractor.extract_all_stats()
         except (KeyboardInterrupt, GitHubAPIError, requests.exceptions.RequestException) as e:
-            # Never write incomplete data to the regular file, only a checkpoint
+            # Never write incomplete data to the regular files, only checkpoints
             reason = 'interrupted by user' if isinstance(e, KeyboardInterrupt) else f'{type(e).__name__}: {e}'
             print(f"\n\nExtraction stopped ({reason}).")
-            extractor.save_progress(f"data/{filename or 'plone-contributors'}")
-            print("The regular data file was not written, because the data is incomplete.")
+            extractor.save_progress()
+            print("The regular data files were not written, because the data is incomplete.")
             return 1
 
-        df = extractor.generate_report()
-
-        print("\n" + "=" * 50)
-        print("TOP 10 CONTRIBUTORS BY PRs:")
-        print(df.sort_values('total_pull_requests', ascending=False).head(10)[['username', 'total_commits', 'total_pull_requests', 'repositories_count']])
-
-        csv_file = extractor.save_report(df, filename)
+        for label, _, _ in periods:
+            df = extractor.generate_report(label)
+            extractor.save_report(df, label)
+            print(f"{label}: {len(df)} contributors")
 
         print(f"\nStatistics extraction completed!")
         print(f"Total repositories found: {len(extractor.repositories)}")
-        print(f"Total contributors found: {len(df)}")
 
     except ValueError as e:
         print(f"Error: {e}")
@@ -566,7 +553,7 @@ def main():
         import traceback
         traceback.print_exc()
         return 1
-    
+
     return 0
 
 if __name__ == "__main__":

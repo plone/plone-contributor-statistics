@@ -56,6 +56,10 @@ make run-stats-2023
 make run-stats-2022
 # ... (all years 2005-2025)
 
+# All years in one run (one file per year)
+make run-stats-all-years
+python plone_contributors.py --from-year 2003 --to-year 2025
+
 # Custom date range
 python plone_contributors.py --start-date 2024-01-01 --end-date 2024-06-30
 ```
@@ -275,6 +279,10 @@ Commits are counted from the default branch only, which automatically includes:
 This excludes commits on unmerged branches or rejected pull requests.
 
 **Merge commits** (commits with more than one parent, e.g. from GitHub's merge button) are not counted: merging is not code creation. Review and merge work is discussed in #61.
+
+### Collection
+
+For each repository, the commits of the default branch and the closed pull requests are fetched **once** for the whole requested range, and then assigned to the years: commits by commit date, pull requests by merge date. A run over all years needs a few thousand API requests. Commits without a GitHub account linked to their email, and bot accounts (type `Bot`, or listed in `bot_accounts.csv`), are not counted.
 
 ### Repositories
 

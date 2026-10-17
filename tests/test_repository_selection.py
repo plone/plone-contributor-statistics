@@ -89,7 +89,7 @@ def test_extract_all_stats_processes_archived_and_skips_excluded(monkeypatch, tm
     monkeypatch.setattr(extractor, 'get_organization_repos', lambda: [
         repo('Products.CMFPlone'), repo('Products.TinyMCE', archived=True), repo('dockerhub-docs', fork=True),
     ])
-    monkeypatch.setattr(extractor, 'get_repository_contributors_list', lambda name: processed.append(name) or [])
+    monkeypatch.setattr(extractor, 'get_repository_commits', lambda name, branch: processed.append(name) or [])
     monkeypatch.setattr(extractor, 'get_repository_pull_requests', lambda name: [])
 
     extractor.extract_all_stats(save_every=0)
