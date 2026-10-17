@@ -255,7 +255,9 @@ class PloneStatsExtractor:
 
         for commit in commits:
             login = self.email_logins[commit['commit']['author']['email'].lower()]
-            commit['author'] = {'login': login, 'type': 'User'} if login else None
+            # GraphQL returns GitHub Apps such as pre-commit-ci[bot] as users; the REST API says Bot
+            user_type = 'Bot' if login and login.endswith('[bot]') else 'User'
+            commit['author'] = {'login': login, 'type': user_type} if login else None
 
     def process_commits(self, repo_name: str, commits: List[Dict[str, Any]]):
         """Count each commit for its author in the period of its commit date."""

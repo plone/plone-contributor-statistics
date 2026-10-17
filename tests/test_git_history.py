@@ -126,6 +126,19 @@ def test_link_authors_looks_up_each_email_once(extractor, monkeypatch):
     assert len(queries) == 2
 
 
+def test_github_apps_are_bots(extractor, monkeypatch):
+    def fake_graphql(session, query, variables=None, **kwargs):
+        return {'repository': {'c0': {'author': {'user': {'login': 'pre-commit-ci[bot]'}}}}}
+
+    monkeypatch.setattr(plone_contributors, 'github_graphql', fake_graphql)
+    commits = [local_commit('s1', '66853113+pre-commit-ci[bot]@users.noreply.github.com')]
+
+    extractor.link_authors('volto', commits)
+
+    assert commits[0]['author'] == {'login': 'pre-commit-ci[bot]', 'type': 'Bot'}
+    assert not extractor._is_person(commits[0]['author'])
+
+
 def test_link_authors_raises_on_api_errors(extractor, monkeypatch):
     def failing(session, query, variables=None, **kwargs):
         raise GitHubAPIError('HTTP 502')
