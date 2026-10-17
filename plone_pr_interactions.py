@@ -10,7 +10,7 @@ import os
 import json
 import time
 import requests
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 import csv
 import logging
@@ -159,46 +159,40 @@ class PlonePRInteractionExtractor:
         url = f"https://api.github.com/repos/{repo}/pulls"
         pull_requests = []
         page = 1
-        
+
+        # Compare in UTC, like the GitHub timestamps
+        if start_date and start_date.tzinfo is None:
+            start_date = start_date.replace(tzinfo=timezone.utc)
+        if end_date and end_date.tzinfo is None:
+            end_date = end_date.replace(tzinfo=timezone.utc)
+
+        def parse(timestamp):
+            return datetime.fromisoformat(timestamp.replace('Z', '+00:00'))
+
         while True:
             params['page'] = page
             data = self.make_request(url, params)
-            
+
             if not data:
                 break
-                
-            if not data:  # Empty page
+
+            # A PR belongs to the date range it was created in
+            for pr in data:
+                created = parse(pr['created_at'])
+                if start_date and created < start_date:
+                    continue
+                if end_date and created > end_date:
+                    continue
+                pull_requests.append(pr)
+
+            # PRs are sorted by last update, newest first. A PR created in the
+            # range was updated after its creation, so once a whole page was
+            # last updated before the range starts, no later page can match.
+            if len(data) < 100:
                 break
-                
-            # Filter by date range if specified
-            filtered_prs = data
-            if start_date or end_date:
-                filtered_prs = []
-                for pr in data:
-                    pr_date = datetime.fromisoformat(pr['updated_at'].replace('Z', '+00:00'))
-                    
-                    # Convert naive datetime to UTC for comparison
-                    if start_date and start_date.tzinfo is None:
-                        start_date = start_date.replace(tzinfo=pr_date.tzinfo)
-                    if end_date and end_date.tzinfo is None:
-                        end_date = end_date.replace(tzinfo=pr_date.tzinfo)
-                    
-                    # Check if PR falls within date range
-                    within_range = True
-                    if start_date and pr_date < start_date:
-                        within_range = False
-                    if end_date and pr_date > end_date:
-                        within_range = False
-                    
-                    if within_range:
-                        filtered_prs.append(pr)
-            
-            pull_requests.extend(filtered_prs)
-            
-            # Stop if we've reached the date limit or no more pages
-            if len(data) < 100 or ((start_date or end_date) and not filtered_prs):
+            if start_date and all(parse(pr['updated_at']) < start_date for pr in data):
                 break
-                
+
             page += 1
             
         logger.info(f"Found {len(pull_requests)} pull requests in {repo}")
