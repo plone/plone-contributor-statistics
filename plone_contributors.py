@@ -22,6 +22,7 @@ to ensure accurate and up-to-date commit counts without caching issues.
 import os
 import time
 import json
+import csv
 import requests
 import argparse
 from datetime import datetime
@@ -31,6 +32,34 @@ import pandas as pd
 from dotenv import load_dotenv
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
+
+
+EXCLUDED_REPOSITORIES_FILE = 'excluded_repositories.csv'
+
+
+def load_excluded_repositories(path: str = EXCLUDED_REPOSITORIES_FILE) -> Dict[str, str]:
+    """Load the repositories to skip, mapped to the reason for skipping them."""
+    if not os.path.exists(path):
+        return {}
+    with open(path, newline='', encoding='utf-8') as f:
+        return {row['repository'].strip(): row['reason'].strip() for row in csv.DictReader(f)}
+
+
+def select_repositories(repos: List[Dict[str, Any]], excluded: Dict[str, str]):
+    """Split repositories into the ones to process and the skipped ones.
+
+    Archived repositories are processed: their history belongs to the years
+    they were active in. Excluded repositories (e.g. forks with foreign
+    upstream history, or duplicate copies) are skipped with their reason.
+    """
+    selected = []
+    skipped = []
+    for repo in repos:
+        if repo['name'] in excluded:
+            skipped.append((repo['name'], excluded[repo['name']]))
+        else:
+            selected.append(repo)
+    return selected, skipped
 
 class PloneStatsExtractor:
     def __init__(self, token: str = None, start_date: datetime = None, end_date: datetime = None):
@@ -393,6 +422,9 @@ class PloneStatsExtractor:
         print("Starting statistics extraction...")
 
         repos = self.get_organization_repos()
+        repos, skipped = select_repositories(repos, load_excluded_repositories())
+        for repo_name, reason in skipped:
+            print(f"Skipping excluded repository {repo_name}: {reason}")
 
         if max_repos:
             repos = repos[:max_repos]
@@ -405,11 +437,6 @@ class PloneStatsExtractor:
             print(f"{'='*60}")
 
             try:
-                # Skip archived repositories
-                if repo.get('archived', False):
-                    print(f"Skipping archived repository: {repo_name}")
-                    continue
-
                 # Get default branch for this repository
                 default_branch = repo.get('default_branch', 'main')
                 print(f"Default branch: {default_branch}")
