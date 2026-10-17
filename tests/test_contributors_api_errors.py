@@ -37,19 +37,23 @@ def extractor(monkeypatch):
 
 
 def commit(date):
-    return {'commit': {'author': {'date': f'{date}T12:00:00Z'}}}
+    return {
+        'author': {'login': 'alice', 'type': 'User'},
+        'commit': {'author': {'date': f'{date}T12:00:00Z'}, 'committer': {'date': f'{date}T12:00:00Z'}},
+        'parents': [{'sha': '0'}],
+    }
 
 
-def test_counts_commits(extractor):
+def test_fetches_commits(extractor):
     extractor.session = FakeSession(FakeResponse(200, [commit('2015-03-01'), commit('2015-04-01')]))
 
-    assert extractor.get_commits_for_user('volto', 'alice', 'main') == 2
+    assert len(extractor.get_repository_commits('volto', 'main')) == 2
 
 
 def test_empty_repository_has_no_commits(extractor):
     extractor.session = FakeSession(FakeResponse(409, {'message': 'Git Repository is empty.'}))
 
-    assert extractor.get_commits_for_user('empty-repo', 'alice', 'main') == 0
+    assert extractor.get_repository_commits('empty-repo', 'main') == []
 
 
 def test_api_error_raises_instead_of_counting_zero(extractor):
@@ -57,7 +61,7 @@ def test_api_error_raises_instead_of_counting_zero(extractor):
     extractor.session = FakeSession(FakeResponse(500))
 
     with pytest.raises(GitHubAPIError):
-        extractor.get_commits_for_user('volto', 'alice', 'main')
+        extractor.get_repository_commits('volto', 'main')
 
 
 def test_rate_limit_is_waited_out(extractor, monkeypatch):
@@ -66,7 +70,7 @@ def test_rate_limit_is_waited_out(extractor, monkeypatch):
     limited = FakeResponse(403, headers={'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '9999999999'})
     extractor.session = FakeSession(limited, FakeResponse(200, [commit('2015-03-01')]))
 
-    assert extractor.get_commits_for_user('volto', 'alice', 'main') == 1
+    assert len(extractor.get_repository_commits('volto', 'main')) == 1
     assert len(waits) == 1
 
 
@@ -83,11 +87,11 @@ def test_failed_repository_stops_the_extraction(extractor, monkeypatch, tmp_path
     monkeypatch.setattr(extractor, 'get_organization_repos', lambda: [{'name': 'a'}, {'name': 'b'}])
     processed = []
 
-    def contributors(name):
+    def commits(name, branch):
         processed.append(name)
         raise GitHubAPIError('boom')
 
-    monkeypatch.setattr(extractor, 'get_repository_contributors_list', contributors)
+    monkeypatch.setattr(extractor, 'get_repository_commits', commits)
 
     with pytest.raises(GitHubAPIError):
         extractor.extract_all_stats(save_every=0)
@@ -100,7 +104,7 @@ def test_main_keeps_only_a_checkpoint_when_the_run_fails(monkeypatch, tmp_path):
     monkeypatch.setattr(sys, 'argv', ['plone_contributors.py', '--year', '2015', '--token', 'test-token'])
 
     def failing_run(self, *args, **kwargs):
-        self.contributors_data['alice']['commits'] = 3
+        self.contributors_data['2015-plone-contributors']['alice']['commits'] = 3
         raise GitHubAPIError('rate limit not recovered')
 
     monkeypatch.setattr(plone_contributors.PloneStatsExtractor, 'extract_all_stats', failing_run)

@@ -26,11 +26,19 @@ class FakeSession:
         return self.responses.pop(0)
 
 
-def commit(date, parents=1):
+def commit(date, parents=1, login='alice'):
     return {
-        'commit': {'author': {'date': f'{date}T12:00:00Z'}},
+        'author': {'login': login, 'type': 'User'},
+        'commit': {'author': {'date': f'{date}T12:00:00Z'}, 'committer': {'date': f'{date}T12:00:00Z'}},
         'parents': [{'sha': str(i)} for i in range(parents)],
     }
+
+
+def make_extractor(monkeypatch):
+    monkeypatch.setattr(plone_contributors.time, 'sleep', lambda seconds: None)
+    return plone_contributors.PloneStatsExtractor(
+        token='test-token', start_date=datetime(2015, 1, 1), end_date=datetime(2015, 12, 31, 23, 59, 59)
+    )
 
 
 def test_is_merge_commit():
@@ -41,32 +49,27 @@ def test_is_merge_commit():
 
 
 def test_contributors_skip_merge_commits_and_their_dates(monkeypatch):
-    monkeypatch.setattr(plone_contributors.time, 'sleep', lambda seconds: None)
-    extractor = plone_contributors.PloneStatsExtractor(
-        token='test-token', start_date=datetime(2015, 1, 1), end_date=datetime(2015, 12, 31, 23, 59, 59)
-    )
-    extractor.session = FakeSession(FakeResponse([
+    extractor = make_extractor(monkeypatch)
+
+    extractor.process_commits('Products.CMFPlone', [
         commit('2015-01-10', parents=2),  # merge via the merge button
         commit('2015-03-01'),
         commit('2015-06-01'),
         commit('2015-12-20', parents=2),
-    ]))
+    ])
 
-    assert extractor.get_commits_for_user('Products.CMFPlone', 'alice', 'master') == 2
-    data = extractor.contributors_data['alice']
+    data = extractor.contributors_data['2015-plone-contributors']['alice']
+    assert data['commits'] == 2
     assert data['first_contribution'] == datetime(2015, 3, 1, 12, 0)
     assert data['last_contribution'] == datetime(2015, 6, 1, 12, 0)
 
 
 def test_only_merge_commits_count_as_no_commits(monkeypatch):
-    monkeypatch.setattr(plone_contributors.time, 'sleep', lambda seconds: None)
-    extractor = plone_contributors.PloneStatsExtractor(
-        token='test-token', start_date=datetime(2015, 1, 1), end_date=datetime(2015, 12, 31, 23, 59, 59)
-    )
-    extractor.session = FakeSession(FakeResponse([commit('2015-01-10', parents=2)]))
+    extractor = make_extractor(monkeypatch)
 
-    assert extractor.get_commits_for_user('Products.CMFPlone', 'alice', 'master') == 0
-    assert extractor.contributors_data['alice']['first_contribution'] is None
+    extractor.process_commits('Products.CMFPlone', [commit('2015-01-10', parents=2)])
+
+    assert 'alice' not in extractor.contributors_data['2015-plone-contributors']
 
 
 def test_volto_skips_merge_commits(monkeypatch):
