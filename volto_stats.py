@@ -23,7 +23,7 @@ from datetime import datetime
 import requests
 from dotenv import load_dotenv
 
-from github_api import github_get
+from github_api import github_get, is_merge_commit
 
 # Force reload environment
 if 'GITHUB_TOKEN' in os.environ:
@@ -95,7 +95,8 @@ def get_commits(session, username, start_date, end_date):
         if not commits:
             break
 
-        total_commits += len(commits)
+        # Merge commits are not code creation (#39)
+        total_commits += sum(1 for commit in commits if not is_merge_commit(commit))
 
         # Check if there are more pages
         if 'Link' not in response.headers or 'rel="next"' not in response.headers['Link']:

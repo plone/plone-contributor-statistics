@@ -14,6 +14,15 @@ import requests
 EMPTY_STATUSES = (204, 409)
 
 
+def is_merge_commit(commit):
+    """True for a merge commit (more than one parent), e.g. from GitHub's merge button.
+
+    Merge commits are not code written by their author, so they are not
+    counted as commits (#39).
+    """
+    return len(commit.get('parents', [])) > 1
+
+
 class GitHubAPIError(Exception):
     """A GitHub API request failed and the data would be incomplete."""
 

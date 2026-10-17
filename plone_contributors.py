@@ -34,7 +34,7 @@ from dotenv import load_dotenv
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
 
-from github_api import GitHubAPIError, github_get
+from github_api import GitHubAPIError, github_get, is_merge_commit
 
 
 EXCLUDED_REPOSITORIES_FILE = 'excluded_repositories.csv'
@@ -205,10 +205,12 @@ class PloneStatsExtractor:
             if response.status_code != 200:  # empty repository
                 break
 
-            commits = response.json()
-            if not commits:
+            page_commits = response.json()
+            if not page_commits:
                 break
 
+            # Merge commits are not code creation (#39)
+            commits = [commit for commit in page_commits if not is_merge_commit(commit)]
             total_commits += len(commits)
 
             # Track first and last commit dates
