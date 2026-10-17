@@ -56,6 +56,10 @@ make run-stats-2023
 make run-stats-2022
 # ... (all years 2005-2025)
 
+# All years in one run (one file per year)
+make run-stats-all-years
+python plone_contributors.py --from-year 2003 --to-year 2025
+
 # Custom date range
 python plone_contributors.py --start-date 2024-01-01 --end-date 2024-06-30
 ```
@@ -160,7 +164,14 @@ The system maps 109+ contributors across 54+ organisations including:
 - **kitconcept**: Leading contributor with comprehensive Plone development
 - **nuclia**: Significant PLIP contributions and core development
 - **syslab**: Multi-year contributor across various repositories
-- **Independent**: Unmapped individual contributors
+- **Unmapped**: contributors not (yet) mapped to an organisation
+
+Rules for the mapping (`organisations.csv`, yearly overrides in `organisation_mapping_overrides.csv`):
+
+- Contributions are attributed to the organisation that **sponsors the contributor's time on Plone**, in the year of the contribution.
+- **Private engagement** and volunteers are attributed to the person: `Name (independent)`. Self-employed people with a company name use the company name.
+- **Unmapped** is not an organisation: it gets no recognition points or level, and is shown separately. A mapping needs a source or a confirmation; when in doubt, a contributor stays unmapped.
+- Bot accounts that the GitHub API lists as users are listed in `bot_accounts.csv` and not counted.
 
 ### PLIP Tracking
 
@@ -173,7 +184,7 @@ Extracts PLIPs from three main repositories:
 ### Cross-Year Analysis
 
 - Track contributor activity patterns across years
-- Identify Independent contributors for potential organisation mapping
+- Identify unmapped contributors for potential organisation mapping
 - Generate comprehensive statistics from 2005-2025
 
 ## Setup
@@ -247,7 +258,8 @@ make run-organisation-stats-2022
 
 - **With token**: 5,000 requests per hour
 - **Without token**: 60 requests per hour (not recommended)
-- Built-in rate limiting and retry logic
+- Waits for rate limits and retries (`github_api.py`)
+- Stops on any other API error instead of recording zero activity; an incomplete run only writes a checkpoint file
 - Handles pagination for large datasets
 
 ## Data Collection Methodology
@@ -261,6 +273,8 @@ The counts exclude the following pull request statuses.
 
 This ensures statistics reflect actual contributions to the codebase.
 
+A pull request belongs to the year it was **merged** in, both in the core and the Volto statistics. Pull requests to any base branch count, including backports to maintenance branches.
+
 **Exception**: PR interaction statistics (`plone_pr_interactions.py`) count all interactions (comments, reviews) on any PR, regardless of merge status, to accurately capture community engagement.
 
 ### Commit Counting
@@ -270,3 +284,13 @@ Commits are counted from the default branch only, which automatically includes:
 - Commits from merged pull requests
 
 This excludes commits on unmerged branches or rejected pull requests.
+
+**Merge commits** (commits with more than one parent, e.g. from GitHub's merge button) are not counted: merging is not code creation. Review and merge work is discussed in #61.
+
+### Collection
+
+For each repository, the commits of the default branch and the closed pull requests are fetched **once** for the whole requested range, and then assigned to the years: commits by commit date, pull requests by merge date. A run over all years needs a few thousand API requests. Commits without a GitHub account linked to their email, and bot accounts (type `Bot`, or listed in `bot_accounts.csv`), are not counted.
+
+### Repositories
+
+All repositories of the `plone` organisation are collected, including archived ones, except those listed in `excluded_repositories.csv` with a reason (e.g. forks with foreign upstream history, see #60 and #58).

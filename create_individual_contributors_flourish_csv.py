@@ -17,7 +17,7 @@ all_contributors = defaultdict(dict)
 
 # Read all individual contributor files
 for year in years:
-    filename = f"{year}-plone-contributors.csv"
+    filename = f"data/{year}-plone-contributors.csv"
     if os.path.exists(filename):
         print(f"Reading {filename}")
         with open(filename, 'r') as f:

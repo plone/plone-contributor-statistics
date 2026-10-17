@@ -29,7 +29,7 @@ def load_mapping(mapping_file='organisations.csv'):
     import csv
 
     if not Path(mapping_file).exists():
-        print(f"Warning: {mapping_file} not found. All contributors will be marked as Independent.")
+        print(f"Warning: {mapping_file} not found. All contributors will be marked as Unmapped.")
         return {}
 
     mapping = {}
@@ -73,7 +73,7 @@ def resolve_org(username, year, mapping, overrides):
         to_year = override['to_year']
         if from_year and from_year <= year and (not to_year or year <= to_year):
             return override['organisation']
-    return mapping.get(username, 'Independent')
+    return mapping.get(username, 'Unmapped')
 
 
 def combine(years):
@@ -113,11 +113,11 @@ def combine_orgs(years, mapping, overrides=None):
             lambda r: resolve_org(r['github_username'], r['year'], mapping, overrides), axis=1
         )
     else:
-        df['organisation'] = df['github_username'].map(mapping).fillna('Independent')
+        df['organisation'] = df['github_username'].map(mapping).fillna('Unmapped')
 
     # Show mapping statistics
     total_users = df['github_username'].nunique()
-    mapped_users = df[df['organisation'] != 'Independent']['github_username'].nunique()
+    mapped_users = df[df['organisation'] != 'Unmapped']['github_username'].nunique()
     print(f"  Organisation mapping: {mapped_users}/{total_users} unique contributors mapped to organisations")
 
     agg = df.groupby('organisation').agg(

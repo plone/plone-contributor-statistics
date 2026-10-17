@@ -1,6 +1,6 @@
 organisation,total_commits,total_pull_requests,contributors_count,contributors,repositories_count,repositories,first_contribution,last_contribution
-Enfold,124,0,1,sidnei,3,"Products.Archetypes, Products.CMFQuickInstallerTool, Products.PlacelessTranslationService",2004-01-11,2004-11-28
-Jarn,102,0,3,"baekholt, limi, stefanholek",4,"Products.Archetypes, Products.CMFQuickInstallerTool, Products.PlacelessTranslationService, Products.PloneLanguageTool",2004-01-04,2004-11-21
-Klein & Partner,79,0,1,jensens,2,"Products.Archetypes, Products.CMFQuickInstallerTool",2004-01-25,2004-12-26
-Independent,42,0,7,"bitranch, bobdobbs666, geoff-davis, jodok, joelburton, mcdonc, xiru",3,"Products.Archetypes, Products.PlacelessTranslationService, Products.PloneLanguageTool",2004-02-08,2004-10-17
-IMIO,8,0,1,gotcha,2,"Products.Archetypes, Products.PloneLanguageTool",2004-05-30,2004-12-19
+Unmapped,777,0,8,"bitranch, bobdobbs666, geoff-davis, jodok, joelburton, mcdonc, tiran, xiru",5,"Products.ATContentTypes, Products.Archetypes, Products.MimetypesRegistry, Products.PlacelessTranslationService, Products.PloneLanguageTool",2004-01-12,2004-12-15
+Enfold,157,0,1,sidnei,6,"Products.ATContentTypes, Products.Archetypes, Products.CMFQuickInstallerTool, Products.Marshall, Products.MimetypesRegistry, Products.PlacelessTranslationService",2004-01-17,2004-12-02
+Jarn,142,0,3,"baekholt, limi, stefanholek",6,"Products.ATContentTypes, Products.Archetypes, Products.CMFQuickInstallerTool, Products.CMFTestCase, Products.PlacelessTranslationService, Products.PloneLanguageTool",2004-01-09,2004-12-28
+Klein & Partner KG,95,0,1,jensens,4,"Products.ATContentTypes, Products.Archetypes, Products.CMFQuickInstallerTool, Products.MimetypesRegistry",2004-01-27,2004-12-30
+iMio,29,0,1,gotcha,3,"Products.ATContentTypes, Products.Archetypes, Products.PloneLanguageTool",2004-05-14,2004-12-21
