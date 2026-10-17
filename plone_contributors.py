@@ -34,10 +34,15 @@ from dotenv import load_dotenv
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
 
-from github_api import GitHubAPIError, github_get
+from github_api import GitHubAPIError, github_get, is_merge_commit
 
 
 EXCLUDED_REPOSITORIES_FILE = 'excluded_repositories.csv'
+
+
+def parse_timestamp(value: str) -> datetime:
+    """Parse a GitHub UTC timestamp into a naive datetime, like the date range."""
+    return datetime.fromisoformat(value.replace('Z', '+00:00')).replace(tzinfo=None)
 
 
 def load_excluded_repositories(path: str = EXCLUDED_REPOSITORIES_FILE) -> Dict[str, str]:
@@ -205,10 +210,12 @@ class PloneStatsExtractor:
             if response.status_code != 200:  # empty repository
                 break
 
-            commits = response.json()
-            if not commits:
+            page_commits = response.json()
+            if not page_commits:
                 break
 
+            # Merge commits are not code creation (#39)
+            commits = [commit for commit in page_commits if not is_merge_commit(commit)]
             total_commits += len(commits)
 
             # Track first and last commit dates
@@ -270,25 +277,26 @@ class PloneStatsExtractor:
             if not data:
                 break
             
-            # Filter PRs by date range (using merged_at date for consistency with commit counting)
+            # Filter PRs by date range (using merged_at date for consistency with commit counting).
+            # PRs to any base branch count, including backports to maintenance branches.
             filtered_prs = []
             for pr in data:
                 # Only consider merged PRs and filter by merge date
                 if pr.get('merged_at'):
-                    merged_date = datetime.fromisoformat(pr['merged_at'].replace('Z', '+00:00')).replace(tzinfo=None)
+                    merged_date = parse_timestamp(pr['merged_at'])
                     if self.start_date <= merged_date <= self.end_date:
                         filtered_prs.append(pr)
-            
+
             prs.extend(filtered_prs)
             page += 1
 
-            # If we're getting PRs with merge dates older than our date range, we can stop
-            # Check merged PRs only
-            merged_prs_in_page = [pr for pr in data if pr.get('merged_at')]
-            if merged_prs_in_page and all(
-                datetime.fromisoformat(pr.get('merged_at', '1970-01-01T00:00:00Z').replace('Z', '+00:00')).replace(tzinfo=None) < self.start_date
-                for pr in merged_prs_in_page
-            ):
+            # A short page is the last one
+            if len(data) < 100:
+                break
+            # PRs are sorted by last update, newest first. A PR merged in the range
+            # was updated after its merge, so once a whole page was last updated
+            # before the range starts, no later page can match (#42).
+            if all(parse_timestamp(pr['updated_at']) < self.start_date for pr in data):
                 break
                 
         print(f"Fetched {len(prs)} pull requests for {repo_name}")

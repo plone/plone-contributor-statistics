@@ -23,7 +23,7 @@ from datetime import datetime
 import requests
 from dotenv import load_dotenv
 
-from github_api import github_get
+from github_api import github_get, is_merge_commit
 
 # Force reload environment
 if 'GITHUB_TOKEN' in os.environ:
@@ -58,9 +58,12 @@ def get_all_contributors(session):
     return contributors
 
 def get_pull_requests(session, username, start_date, end_date):
-    """Get number of merged PRs for a user in the specified date range."""
+    """Get number of PRs by a user merged in the specified date range.
+
+    Like plone_contributors.py, PRs belong to the year they were merged in (#42).
+    """
     url = f'{BASE_URL}/search/issues'
-    query = f'repo:{REPO_OWNER}/{REPO_NAME} author:{username} type:pr is:merged created:{start_date}..{end_date}'
+    query = f'repo:{REPO_OWNER}/{REPO_NAME} author:{username} type:pr is:merged merged:{start_date}..{end_date}'
 
     params = {
         'q': query,
@@ -95,7 +98,8 @@ def get_commits(session, username, start_date, end_date):
         if not commits:
             break
 
-        total_commits += len(commits)
+        # Merge commits are not code creation (#39)
+        total_commits += sum(1 for commit in commits if not is_merge_commit(commit))
 
         # Check if there are more pages
         if 'Link' not in response.headers or 'rel="next"' not in response.headers['Link']:

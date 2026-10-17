@@ -247,7 +247,8 @@ make run-organisation-stats-2022
 
 - **With token**: 5,000 requests per hour
 - **Without token**: 60 requests per hour (not recommended)
-- Built-in rate limiting and retry logic
+- Waits for rate limits and retries (`github_api.py`)
+- Stops on any other API error instead of recording zero activity; an incomplete run only writes a checkpoint file
 - Handles pagination for large datasets
 
 ## Data Collection Methodology
@@ -261,6 +262,8 @@ The counts exclude the following pull request statuses.
 
 This ensures statistics reflect actual contributions to the codebase.
 
+A pull request belongs to the year it was **merged** in, both in the core and the Volto statistics. Pull requests to any base branch count, including backports to maintenance branches.
+
 **Exception**: PR interaction statistics (`plone_pr_interactions.py`) count all interactions (comments, reviews) on any PR, regardless of merge status, to accurately capture community engagement.
 
 ### Commit Counting
@@ -270,3 +273,9 @@ Commits are counted from the default branch only, which automatically includes:
 - Commits from merged pull requests
 
 This excludes commits on unmerged branches or rejected pull requests.
+
+**Merge commits** (commits with more than one parent, e.g. from GitHub's merge button) are not counted: merging is not code creation. Review and merge work is discussed in #61.
+
+### Repositories
+
+All repositories of the `plone` organisation are collected, including archived ones, except those listed in `excluded_repositories.csv` with a reason (e.g. forks with foreign upstream history, see #60 and #58).
