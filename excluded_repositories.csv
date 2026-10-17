@@ -1,0 +1,12 @@
+repository,reason
+dockerhub-docs,"Fork of docker-library/docs: upstream history of Docker images, not Plone work (#36)"
+dockerhub-official-images,"Fork of docker-library/official-images: upstream history of Docker images, not Plone work (#36)"
+Dash-User-Contributions,"Fork of Kapeli/Dash-User-Contributions: upstream history, not Plone work (#36)"
+Products.CMFUid,Archived fork of zopefoundation/Products.CMFUid: excluded until the handling of Zope is decided (#36)
+Products.GenericSetup,Archived fork of zopefoundation/Products.GenericSetup: excluded until the handling of Zope is decided (#36)
+Products.PluggableAuthService,Archived fork of zopefoundation/Products.PluggableAuthService: excluded until the handling of Zope is decided (#36)
+Products.PluginRegistry,Archived fork of zopefoundation/Products.PluginRegistry: excluded until the handling of Zope is decided (#36)
+Products.ZCatalog,Archived fork of zopefoundation/Products.ZCatalog: excluded until the handling of Zope is decided (#36)
+plone.app.async.renamedforrestore,Archived duplicate of plone.app.async (#36)
+plone.app.event.renamedforrestore,Archived duplicate of plone.app.event (#36)
+plone.app.linkintegrity.renamedforrestore,Archived duplicate of plone.app.linkintegrity (#36)
