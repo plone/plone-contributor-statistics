@@ -15,4 +15,14 @@ Read them to understand what a number means, and what it can't tell you.
 
 ```{toctree}
 :maxdepth: 1
+
+scope
+history-and-coverage
+counting-rules
+pr-interactions
+attribution
+curated-community-data
+community-recognition
+known-limitations
+method-history
 ```

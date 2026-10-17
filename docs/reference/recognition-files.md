@@ -5,6 +5,8 @@
 This page describes the files of the Community Recognition Program in the repository.
 They are in `data/community-contributions/`.
 
+See {doc}`/explanation/community-recognition` for what these files can and can't explain.
+
 ## `data/community-contributions/community-recognition-points.csv`
 
 The points per kind of contribution.

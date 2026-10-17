@@ -5,6 +5,8 @@
 This page describes the hand-maintained files that decide which repositories, accounts and organisations the statistics use.
 All of them are in the repository root.
 
+See {doc}`/explanation/attribution` for why the mapping works the way it does.
+
 ## `organisations.csv`
 
 The current organisation of each GitHub account.

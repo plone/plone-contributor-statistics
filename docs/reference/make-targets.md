@@ -6,6 +6,8 @@ This page lists the targets of the `Makefile`, grouped by purpose.
 `make help` prints the full list.
 Targets with `YYYY` exist once per year.
 
+See {doc}`/explanation/known-limitations` for the effect of the broken targets.
+
 ## Setup and maintenance
 
 | Target | Does | Status |

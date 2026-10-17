@@ -5,6 +5,8 @@
 This page lists every source of data in the repository, the years it covers, and the script and Make target that collect it.
 Years covered are the years for which files exist in the repository.
 
+See {doc}`/explanation/scope` for why these sources were chosen, and {doc}`/explanation/history-and-coverage` for what they cover in each era.
+
 ## Collected from APIs
 
 | Source | Origin | Years covered | Script | Output | Make target |

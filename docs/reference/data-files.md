@@ -5,6 +5,8 @@
 This page describes the committed data files: which script writes them, what one row is, and which columns they have.
 Each file pattern with `YYYY` exists once per year.
 
+See {doc}`/explanation/counting-rules` for why the files count the way they do.
+
 ## Collected data
 
 `data/YYYY-plone-contributors.csv`
