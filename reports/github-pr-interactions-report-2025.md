@@ -1,216 +1,231 @@
 # Plone Pull Request Engagement Report
 
-Generated on: 2025-08-26 01:00:36
+Generated on: 2026-10-18 01:08:14
 
 ## Overview
 
-- **Total Pull Requests Analyzed**: 2,375
-- **Merged Pull Requests**: 1,832 (77.1% merge rate)
-- **Total Comments**: 10,175
-- **Average Comments per PR**: 4.3
-- **Average First Response Time**: 54.8 hours
+- **Total Pull Requests Analyzed**: 2,565
+- **Merged Pull Requests**: 2,124 (82.8% merge rate)
+- **Total Comments**: 9,745
+- **Average Comments per PR**: 3.8
+- **Average First Response Time**: 206.3 hours
 
 ## Community Engagement
 
-- **Unique Participants**: 191
-- **Unique Reviewers**: 92
-- **Unique Commenters**: 143
+- **Unique Participants**: 184
+- **Unique Reviewers**: 93
+- **Unique Commenters**: 134
 
 ## Top 10 Most Active Participants
 
 | Rank | Participant | PRs Participated |
 |------|-------------|------------------|
-| 1 | stevepiercy | 614 |
-| 2 | davisagli | 535 |
-| 3 | gforcada | 526 |
-| 4 | sneridagh | 440 |
-| 5 | mauritsvanrees | 348 |
-| 6 | petschki | 212 |
-| 7 | erral | 124 |
-| 8 | pnicolli | 122 |
-| 9 | wesleybl | 100 |
-| 10 | ale-rt | 96 |
+| 1 | davisagli | 850 |
+| 2 | stevepiercy | 650 |
+| 3 | sneridagh | 622 |
+| 4 | mauritsvanrees | 590 |
+| 5 | gforcada | 413 |
+| 6 | wesleybl | 276 |
+| 7 | petschki | 272 |
+| 8 | pnicolli | 177 |
+| 9 | erral | 172 |
+| 10 | ericof | 136 |
 
 ## Top 10 Most Active Reviewers
 
 | Rank | Reviewer | PRs Reviewed |
 |------|----------|--------------|
-| 1 | gforcada | 451 |
-| 2 | davisagli | 402 |
-| 3 | stevepiercy | 335 |
-| 4 | sneridagh | 206 |
-| 5 | mauritsvanrees | 157 |
-| 6 | petschki | 84 |
-| 7 | pnicolli | 75 |
-| 8 | erral | 56 |
-| 9 | ale-rt | 56 |
-| 10 | jensens | 44 |
+| 1 | davisagli | 648 |
+| 2 | stevepiercy | 376 |
+| 3 | mauritsvanrees | 346 |
+| 4 | sneridagh | 263 |
+| 5 | wesleybl | 125 |
+| 6 | pnicolli | 123 |
+| 7 | gforcada | 121 |
+| 8 | petschki | 103 |
+| 9 | erral | 71 |
+| 10 | ericof | 57 |
 
 ## Repository Breakdown
 
 | Repository | PRs | Avg Comments | Avg Participants |
 |------------|-----|-------------|------------------|
-| plone/.github | 5 | 4.8 | 2.2 |
-| plone/2023.ploneconf.org | 2 | 1.0 | 2.0 |
-| plone/2025.ploneconf.org | 5 | 1.2 | 1.2 |
-| plone/Plone | 1 | 2.0 | 3.0 |
-| plone/Products.CMFDiffTool | 6 | 1.0 | 2.7 |
-| plone/Products.CMFDynamicViewFTI | 6 | 1.0 | 2.7 |
-| plone/Products.CMFEditions | 9 | 3.1 | 2.8 |
-| plone/Products.CMFPlacefulWorkflow | 7 | 2.6 | 2.9 |
-| plone/Products.CMFPlone | 69 | 8.3 | 3.4 |
-| plone/Products.MimetypesRegistry | 7 | 2.6 | 3.0 |
-| plone/Products.PlonePAS | 10 | 1.8 | 2.9 |
-| plone/Products.PortalTransforms | 7 | 1.0 | 2.7 |
-| plone/Products.isurlinportal | 7 | 1.0 | 2.7 |
-| plone/Products.statusmessages | 6 | 1.0 | 2.7 |
-| plone/Products.validation | 1 | 1.0 | 2.0 |
-| plone/bobtemplates.plone | 11 | 1.1 | 1.5 |
-| plone/borg.localrole | 6 | 1.0 | 2.7 |
-| plone/buildout.coredev | 50 | 1.3 | 1.8 |
+| plone/.github | 5 | 6.2 | 2.6 |
+| plone/2023.ploneconf.org | 1 | 0.0 | 1.0 |
+| plone/2024.ploneconf.org | 1 | 1.0 | 1.0 |
+| plone/2025.ploneconf.org | 22 | 0.6 | 1.2 |
+| plone/Plone | 1 | 1.0 | 2.0 |
+| plone/Products.CMFDiffTool | 2 | 0.0 | 2.5 |
+| plone/Products.CMFDynamicViewFTI | 2 | 0.0 | 2.5 |
+| plone/Products.CMFEditions | 4 | 2.0 | 2.5 |
+| plone/Products.CMFPlacefulWorkflow | 5 | 0.2 | 1.8 |
+| plone/Products.CMFPlone | 78 | 8.0 | 2.7 |
+| plone/Products.ExtendedPathIndex | 4 | 0.8 | 2.2 |
+| plone/Products.MimetypesRegistry | 2 | 2.0 | 2.0 |
+| plone/Products.PlonePAS | 2 | 0.0 | 2.5 |
+| plone/Products.PortalTransforms | 4 | 1.0 | 2.0 |
+| plone/Products.isurlinportal | 2 | 0.5 | 2.0 |
+| plone/Products.statusmessages | 2 | 1.0 | 2.5 |
+| plone/Products.validation | 3 | 0.7 | 1.3 |
+| plone/aiteam-cluster | 1 | 0.0 | 1.0 |
+| plone/bobtemplates.plone | 27 | 0.5 | 1.8 |
+| plone/borg.localrole | 3 | 1.3 | 2.0 |
+| plone/buildout.coredev | 78 | 1.9 | 1.9 |
 | plone/code-quality | 1 | 0.0 | 2.0 |
-| plone/collective.monkeypatcher | 2 | 2.5 | 2.5 |
-| plone/cookieplone | 28 | 2.8 | 2.1 |
-| plone/cookieplone-templates | 73 | 8.5 | 2.6 |
+| plone/collective.monkeypatcher | 3 | 1.0 | 2.3 |
+| plone/container-backend | 32 | 2.5 | 2.2 |
+| plone/container-frontend | 12 | 1.6 | 1.9 |
+| plone/container-zeo | 1 | 1.0 | 2.0 |
+| plone/cookieplone | 33 | 2.5 | 2.2 |
+| plone/cookieplone-templates | 109 | 6.6 | 2.4 |
 | plone/copier-zope-setup | 1 | 0.0 | 1.0 |
-| plone/demo.plone.org | 18 | 0.7 | 1.6 |
-| plone/diazo | 1 | 6.0 | 3.0 |
-| plone/documentation | 119 | 6.2 | 2.5 |
-| plone/five.intid | 10 | 2.1 | 3.0 |
-| plone/guillotina | 7 | 0.7 | 2.6 |
-| plone/guillotina-volto | 1 | 0.0 | 1.0 |
-| plone/guillotina_elasticsearch | 6 | 0.2 | 1.7 |
-| plone/jenkins.plone.org | 6 | 2.7 | 2.2 |
-| plone/meta | 28 | 6.3 | 2.0 |
-| plone/mockup | 59 | 2.5 | 1.9 |
-| plone/mr.roboto | 3 | 0.7 | 1.7 |
-| plone/pastanaga-angular | 19 | 0.0 | 2.0 |
-| plone/plone-backend | 33 | 2.5 | 2.3 |
-| plone/plone-contributor-statistics | 1 | 0.0 | 1.0 |
-| plone/plone-frontend | 3 | 2.0 | 2.0 |
-| plone/plone-sphinx-theme | 19 | 3.4 | 1.7 |
-| plone/plone-vs-snippets | 1 | 6.0 | 5.0 |
-| plone/plone-zeo | 1 | 1.0 | 2.0 |
-| plone/plone.alterego | 6 | 1.0 | 2.8 |
-| plone/plone.api | 31 | 13.6 | 3.8 |
-| plone/plone.app.caching | 7 | 4.3 | 3.7 |
-| plone/plone.app.content | 15 | 2.6 | 3.3 |
-| plone/plone.app.contentlisting | 6 | 1.0 | 2.8 |
-| plone/plone.app.contentmenu | 7 | 1.0 | 2.9 |
-| plone/plone.app.contentrules | 9 | 1.2 | 2.7 |
-| plone/plone.app.contenttypes | 11 | 1.2 | 2.6 |
-| plone/plone.app.customerize | 7 | 1.0 | 2.7 |
-| plone/plone.app.dexterity | 12 | 1.1 | 2.5 |
-| plone/plone.app.discussion | 21 | 4.4 | 3.0 |
-| plone/plone.app.event | 10 | 2.4 | 3.2 |
-| plone/plone.app.i18n | 6 | 1.0 | 2.7 |
-| plone/plone.app.intid | 6 | 1.0 | 2.8 |
-| plone/plone.app.iterate | 14 | 4.6 | 3.0 |
-| plone/plone.app.layout | 27 | 2.9 | 3.0 |
-| plone/plone.app.linkintegrity | 5 | 1.2 | 2.4 |
-| plone/plone.app.lockingbehavior | 1 | 1.0 | 3.0 |
-| plone/plone.app.mosaic | 30 | 1.2 | 1.7 |
-| plone/plone.app.multilingual | 25 | 2.6 | 2.8 |
-| plone/plone.app.portlets | 8 | 1.4 | 2.8 |
-| plone/plone.app.querystring | 8 | 1.0 | 2.8 |
-| plone/plone.app.redirector | 8 | 1.0 | 2.8 |
-| plone/plone.app.registry | 8 | 1.0 | 2.9 |
-| plone/plone.app.relationfield | 10 | 1.4 | 3.0 |
-| plone/plone.app.robotframework | 9 | 1.0 | 2.8 |
-| plone/plone.app.standardtiles | 13 | 1.2 | 1.9 |
-| plone/plone.app.testing | 8 | 1.0 | 2.9 |
-| plone/plone.app.textfield | 6 | 1.0 | 2.7 |
-| plone/plone.app.theming | 16 | 3.0 | 3.1 |
-| plone/plone.app.tiles | 4 | 3.0 | 1.8 |
-| plone/plone.app.upgrade | 11 | 3.5 | 3.0 |
-| plone/plone.app.users | 8 | 3.0 | 3.2 |
-| plone/plone.app.uuid | 7 | 1.0 | 2.9 |
-| plone/plone.app.versioningbehavior | 7 | 0.9 | 2.7 |
-| plone/plone.app.viewletmanager | 7 | 1.1 | 2.9 |
-| plone/plone.app.vocabularies | 8 | 1.1 | 2.9 |
-| plone/plone.app.widgets | 1 | 1.0 | 3.0 |
-| plone/plone.app.workflow | 8 | 1.2 | 2.6 |
-| plone/plone.app.z3cform | 18 | 2.8 | 3.2 |
-| plone/plone.autoform | 7 | 0.9 | 2.6 |
-| plone/plone.autoinclude | 10 | 4.4 | 3.6 |
-| plone/plone.base | 14 | 2.1 | 3.1 |
-| plone/plone.batching | 11 | 1.4 | 2.6 |
-| plone/plone.behavior | 7 | 1.0 | 2.7 |
-| plone/plone.browserlayer | 6 | 0.7 | 2.5 |
-| plone/plone.cachepurging | 6 | 1.0 | 2.8 |
-| plone/plone.caching | 6 | 1.0 | 2.7 |
-| plone/plone.classicui | 1 | 4.0 | 4.0 |
-| plone/plone.contentrules | 6 | 1.0 | 2.7 |
+| plone/demo.plone.org | 26 | 0.9 | 1.7 |
+| plone/diazo | 3 | 4.7 | 2.0 |
+| plone/documentation | 148 | 6.9 | 2.4 |
+| plone/five.intid | 5 | 2.2 | 2.2 |
+| plone/form-block | 2 | 0.5 | 1.5 |
+| plone/guillotina | 9 | 1.7 | 2.3 |
+| plone/guillotina-volto | 1 | 4.0 | 3.0 |
+| plone/guillotina_elasticsearch | 8 | 0.1 | 1.5 |
+| plone/jenkins.plone.org | 3 | 5.3 | 3.3 |
+| plone/meta | 43 | 3.9 | 2.0 |
+| plone/mockup | 66 | 2.5 | 1.9 |
+| plone/mr.roboto | 11 | 1.0 | 1.4 |
+| plone/nick | 1 | 7.0 | 3.0 |
+| plone/pastanaga-angular | 17 | 0.0 | 2.1 |
+| plone/plone-contributor-statistics | 3 | 0.0 | 1.3 |
+| plone/plone-mcp | 25 | 0.7 | 1.5 |
+| plone/plone-sphinx-theme | 17 | 3.8 | 1.6 |
+| plone/plone-vs-utilities | 4 | 0.5 | 1.5 |
+| plone/plone.alterego | 2 | 0.5 | 2.5 |
+| plone/plone.api | 35 | 11.3 | 2.7 |
+| plone/plone.app.blocks | 1 | 4.0 | 3.0 |
+| plone/plone.app.caching | 7 | 2.6 | 2.7 |
+| plone/plone.app.content | 10 | 3.2 | 2.4 |
+| plone/plone.app.contentlisting | 2 | 0.5 | 2.5 |
+| plone/plone.app.contentmenu | 3 | 0.0 | 2.3 |
+| plone/plone.app.contentrules | 4 | 0.5 | 2.2 |
+| plone/plone.app.contenttypes | 8 | 0.5 | 2.1 |
+| plone/plone.app.customerize | 3 | 0.0 | 2.3 |
+| plone/plone.app.debugtoolbar | 1 | 2.0 | 2.0 |
+| plone/plone.app.dexterity | 7 | 0.3 | 2.1 |
+| plone/plone.app.discussion | 24 | 4.0 | 2.0 |
+| plone/plone.app.drafts | 2 | 1.0 | 2.5 |
+| plone/plone.app.event | 6 | 1.7 | 2.7 |
+| plone/plone.app.i18n | 2 | 0.5 | 2.5 |
+| plone/plone.app.intid | 2 | 0.5 | 2.5 |
+| plone/plone.app.iterate | 8 | 3.0 | 2.0 |
+| plone/plone.app.layout | 23 | 3.1 | 2.5 |
+| plone/plone.app.linkintegrity | 3 | 1.0 | 2.3 |
+| plone/plone.app.lockingbehavior | 3 | 0.3 | 2.3 |
+| plone/plone.app.mosaic | 26 | 2.2 | 1.7 |
+| plone/plone.app.multilingual | 22 | 2.1 | 2.0 |
+| plone/plone.app.portlets | 4 | 0.8 | 2.2 |
+| plone/plone.app.querystring | 7 | 0.7 | 2.0 |
+| plone/plone.app.redirector | 3 | 0.3 | 2.3 |
+| plone/plone.app.registry | 3 | 0.0 | 2.3 |
+| plone/plone.app.relationfield | 5 | 1.0 | 2.6 |
+| plone/plone.app.robotframework | 5 | 3.2 | 2.8 |
+| plone/plone.app.standardtiles | 7 | 2.3 | 2.0 |
+| plone/plone.app.testing | 3 | 0.0 | 2.0 |
+| plone/plone.app.textfield | 2 | 0.5 | 2.5 |
+| plone/plone.app.theming | 10 | 2.8 | 2.3 |
+| plone/plone.app.tiles | 5 | 2.8 | 2.0 |
+| plone/plone.app.upgrade | 19 | 2.6 | 2.3 |
+| plone/plone.app.users | 9 | 1.4 | 2.3 |
+| plone/plone.app.uuid | 2 | 0.0 | 2.5 |
+| plone/plone.app.versioningbehavior | 3 | 0.0 | 2.3 |
+| plone/plone.app.viewletmanager | 5 | 0.0 | 1.8 |
+| plone/plone.app.vocabularies | 6 | 1.2 | 2.3 |
+| plone/plone.app.widgets | 2 | 1.0 | 2.0 |
+| plone/plone.app.workflow | 4 | 1.2 | 2.5 |
+| plone/plone.app.z3cform | 13 | 2.5 | 2.4 |
+| plone/plone.autoform | 3 | 0.3 | 2.3 |
+| plone/plone.autoinclude | 12 | 2.8 | 2.3 |
+| plone/plone.base | 15 | 3.3 | 2.5 |
+| plone/plone.batching | 6 | 0.5 | 1.3 |
+| plone/plone.behavior | 3 | 0.3 | 2.3 |
+| plone/plone.browserlayer | 2 | 1.0 | 2.0 |
+| plone/plone.cachepurging | 2 | 0.0 | 2.5 |
+| plone/plone.caching | 2 | 0.5 | 2.5 |
+| plone/plone.classicui | 4 | 2.2 | 2.2 |
+| plone/plone.contentrules | 2 | 0.5 | 2.5 |
 | plone/plone.de | 1 | 0.0 | 1.0 |
-| plone/plone.dexterity | 8 | 1.8 | 2.9 |
-| plone/plone.distribution | 14 | 3.6 | 3.1 |
-| plone/plone.event | 6 | 0.8 | 2.8 |
-| plone/plone.exportimport | 16 | 4.3 | 3.3 |
-| plone/plone.folder | 6 | 1.0 | 2.8 |
-| plone/plone.formwidget.autocomplete | 1 | 2.0 | 3.0 |
-| plone/plone.formwidget.namedfile | 7 | 1.0 | 3.0 |
-| plone/plone.formwidget.recaptcha | 3 | 12.7 | 4.0 |
-| plone/plone.formwidget.recurrence | 7 | 0.9 | 2.4 |
+| plone/plone.dexterity | 3 | 0.0 | 2.3 |
+| plone/plone.distribution | 16 | 2.8 | 2.4 |
+| plone/plone.event | 2 | 0.5 | 2.5 |
+| plone/plone.exportimport | 24 | 2.5 | 2.3 |
+| plone/plone.folder | 1 | 0.0 | 2.0 |
+| plone/plone.formwidget.hcaptcha | 4 | 2.0 | 2.0 |
+| plone/plone.formwidget.namedfile | 3 | 0.3 | 2.3 |
+| plone/plone.formwidget.recaptcha | 3 | 10.0 | 2.7 |
+| plone/plone.formwidget.recurrence | 6 | 2.5 | 2.7 |
 | plone/plone.gallery | 1 | 0.0 | 1.0 |
-| plone/plone.i18n | 8 | 1.4 | 2.9 |
-| plone/plone.indexer | 6 | 0.5 | 2.2 |
-| plone/plone.intelligenttext | 6 | 0.5 | 2.3 |
-| plone/plone.jenkins_node | 2 | 12.0 | 3.0 |
-| plone/plone.keyring | 6 | 0.2 | 1.8 |
-| plone/plone.locking | 6 | 2.3 | 3.2 |
-| plone/plone.memoize | 7 | 0.3 | 2.0 |
-| plone/plone.namedfile | 19 | 5.8 | 2.9 |
-| plone/plone.org | 7 | 1.1 | 2.0 |
-| plone/plone.outputfilters | 9 | 0.3 | 1.9 |
-| plone/plone.patternslib | 7 | 1.1 | 1.7 |
-| plone/plone.portlet.collection | 1 | 1.0 | 3.0 |
-| plone/plone.portlet.static | 7 | 0.1 | 1.9 |
-| plone/plone.portlets | 7 | 0.1 | 1.9 |
-| plone/plone.protect | 12 | 2.7 | 2.9 |
-| plone/plone.recipe.zeoserver | 13 | 0.2 | 1.8 |
-| plone/plone.recipe.zope2instance | 3 | 4.0 | 2.0 |
-| plone/plone.registry | 6 | 0.0 | 1.7 |
-| plone/plone.releaser | 7 | 0.3 | 1.0 |
-| plone/plone.resource | 6 | 0.0 | 2.0 |
-| plone/plone.resourceeditor | 6 | 0.0 | 1.7 |
-| plone/plone.rest | 3 | 3.0 | 3.3 |
-| plone/plone.restapi | 58 | 6.3 | 3.5 |
-| plone/plone.rfc822 | 6 | 0.0 | 1.7 |
-| plone/plone.scale | 17 | 3.6 | 2.7 |
-| plone/plone.schema | 7 | 1.1 | 2.3 |
-| plone/plone.schemaeditor | 14 | 1.1 | 2.3 |
-| plone/plone.session | 8 | 1.2 | 2.0 |
-| plone/plone.staticresources | 30 | 2.5 | 2.5 |
-| plone/plone.stringinterp | 6 | 0.0 | 2.0 |
-| plone/plone.subrequest | 6 | 0.0 | 1.7 |
-| plone/plone.supermodel | 6 | 0.0 | 1.7 |
-| plone/plone.testing | 11 | 1.2 | 2.4 |
-| plone/plone.theme | 7 | 0.1 | 1.9 |
-| plone/plone.tiles | 5 | 4.2 | 2.6 |
-| plone/plone.transformchain | 6 | 0.0 | 1.7 |
-| plone/plone.uuid | 6 | 0.0 | 1.7 |
-| plone/plone.volto | 17 | 8.3 | 3.6 |
-| plone/plone.z3cform | 2 | 5.5 | 3.0 |
+| plone/plone.i18n | 3 | 1.7 | 2.3 |
+| plone/plone.indexer | 2 | 0.5 | 2.5 |
+| plone/plone.intelligenttext | 2 | 0.5 | 2.5 |
+| plone/plone.jenkins_node | 4 | 8.5 | 2.5 |
+| plone/plone.jsonserializer | 1 | 1.0 | 2.0 |
+| plone/plone.keyring | 3 | 0.3 | 2.0 |
+| plone/plone.locking | 6 | 2.5 | 2.3 |
+| plone/plone.memoize | 3 | 1.0 | 2.0 |
+| plone/plone.namedfile | 16 | 4.0 | 2.2 |
+| plone/plone.org | 16 | 1.3 | 1.9 |
+| plone/plone.outputfilters | 4 | 0.2 | 1.8 |
+| plone/plone.patternslib | 7 | 1.3 | 2.0 |
+| plone/plone.portlet.collection | 3 | 0.3 | 2.3 |
+| plone/plone.portlet.static | 3 | 0.0 | 2.3 |
+| plone/plone.portlets | 3 | 0.0 | 2.3 |
+| plone/plone.protect | 7 | 4.3 | 2.9 |
+| plone/plone.recipe.zeoserver | 7 | 1.4 | 1.9 |
+| plone/plone.recipe.zope2instance | 6 | 2.8 | 2.0 |
+| plone/plone.registry | 2 | 0.5 | 2.5 |
+| plone/plone.releaser | 10 | 0.2 | 1.2 |
+| plone/plone.reload | 2 | 3.0 | 2.5 |
+| plone/plone.resource | 2 | 0.0 | 2.5 |
+| plone/plone.resourceeditor | 2 | 0.0 | 2.5 |
+| plone/plone.rest | 6 | 1.7 | 2.2 |
+| plone/plone.restapi | 69 | 4.9 | 2.3 |
+| plone/plone.rfc822 | 2 | 0.0 | 2.5 |
+| plone/plone.scale | 13 | 4.3 | 2.3 |
+| plone/plone.schema | 3 | 2.7 | 3.0 |
+| plone/plone.schemaeditor | 9 | 1.0 | 2.0 |
+| plone/plone.session | 3 | 3.0 | 2.3 |
+| plone/plone.staticresources | 23 | 1.7 | 1.3 |
+| plone/plone.stringinterp | 2 | 0.5 | 2.5 |
+| plone/plone.subrequest | 2 | 0.5 | 2.5 |
+| plone/plone.supermodel | 2 | 0.5 | 2.5 |
+| plone/plone.testing | 6 | 1.0 | 1.8 |
+| plone/plone.theme | 3 | 0.0 | 2.3 |
+| plone/plone.tiles | 5 | 3.0 | 2.4 |
+| plone/plone.transformchain | 2 | 0.0 | 2.5 |
+| plone/plone.uuid | 2 | 0.5 | 2.5 |
+| plone/plone.versioncheck | 2 | 2.5 | 2.0 |
+| plone/plone.volto | 19 | 4.4 | 2.6 |
+| plone/plone.z3cform | 3 | 3.0 | 2.0 |
 | plone/plonecli | 2 | 0.5 | 1.5 |
-| plone/plonetheme.barceloneta | 22 | 2.7 | 2.5 |
-| plone/repoplone | 5 | 0.0 | 1.6 |
+| plone/ploneorg.theme | 3 | 1.7 | 1.7 |
+| plone/plonetheme.barceloneta | 25 | 2.4 | 2.0 |
+| plone/pytest-plone | 6 | 0.8 | 1.8 |
+| plone/repoplone | 12 | 0.2 | 1.7 |
 | plone/tagung.plone.de | 16 | 0.1 | 1.1 |
-| plone/training | 32 | 4.9 | 2.2 |
-| plone/volto | 704 | 6.6 | 3.2 |
+| plone/training | 53 | 4.3 | 2.1 |
+| plone/volto | 888 | 4.6 | 2.3 |
+| plone/zodbverify | 1 | 2.0 | 2.0 |
 
 
 ## Engagement Insights
 
 ### Most Discussed PRs (by comment count)
-- **[plone/volto#7115](https://github.com/plone/volto/pull/7115)**: Many Volto documentation corrections (241 comments)
-- **[plone/Products.CMFPlone#4168](https://github.com/plone/Products.CMFPlone/pull/4168)**: Implement Recycle Bin  (191 comments)
+- **[plone/volto#7115](https://github.com/plone/volto/pull/7115)**: Many Volto documentation corrections (242 comments)
+- **[plone/Products.CMFPlone#4168](https://github.com/plone/Products.CMFPlone/pull/4168)**: Implement Recycle Bin  (192 comments)
 - **[plone/cookieplone-templates#174](https://github.com/plone/cookieplone-templates/pull/174)**: Add documentation_starter to `cookieplone-templates/templates` (159 comments)
-- **[plone/volto#6560](https://github.com/plone/volto/pull/6560)**: Block examples documentation (157 comments)
-- **[plone/volto#6605](https://github.com/plone/volto/pull/6605)**: Feature/Jest to Vitest migration (147 comments)
+- **[plone/volto#6605](https://github.com/plone/volto/pull/6605)**: Feature/Jest to Vitest migration (146 comments)
+- **[plone/cookieplone-templates#167](https://github.com/plone/cookieplone-templates/pull/167)**: Cleanup of precommit (122 comments)
 
 ### Fastest Response Times (hours)
-- **[plone/volto#6910](https://github.com/plone/volto/pull/6910)**: 0.0 hours
-- **[plone/volto#6905](https://github.com/plone/volto/pull/6905)**: 0.0 hours
-- **[plone/volto#6985](https://github.com/plone/volto/pull/6985)**: 0.0 hours
-- **[plone/volto#6942](https://github.com/plone/volto/pull/6942)**: 0.0 hours
-- **[plone/volto#6814](https://github.com/plone/volto/pull/6814)**: 0.0 hours
+- **[plone/volto#7062](https://github.com/plone/volto/pull/7062)**: 0.0 hours
+- **[plone/volto#7546](https://github.com/plone/volto/pull/7546)**: 0.0 hours
+- **[plone/volto#7571](https://github.com/plone/volto/pull/7571)**: 0.0 hours
+- **[plone/container-backend#182](https://github.com/plone/container-backend/pull/182)**: 0.0 hours
+- **[plone/pastanaga-angular#739](https://github.com/plone/pastanaga-angular/pull/739)**: 0.0 hours
