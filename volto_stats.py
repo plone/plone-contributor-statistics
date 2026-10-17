@@ -58,9 +58,12 @@ def get_all_contributors(session):
     return contributors
 
 def get_pull_requests(session, username, start_date, end_date):
-    """Get number of merged PRs for a user in the specified date range."""
+    """Get number of PRs by a user merged in the specified date range.
+
+    Like plone_contributors.py, PRs belong to the year they were merged in (#42).
+    """
     url = f'{BASE_URL}/search/issues'
-    query = f'repo:{REPO_OWNER}/{REPO_NAME} author:{username} type:pr is:merged created:{start_date}..{end_date}'
+    query = f'repo:{REPO_OWNER}/{REPO_NAME} author:{username} type:pr is:merged merged:{start_date}..{end_date}'
 
     params = {
         'q': query,
