@@ -3,7 +3,7 @@
 import pytest
 import requests
 
-from github_api import GitHubAPIError, github_get, rate_limit_wait
+from github_api import GitHubAPIError, github_get, github_graphql, rate_limit_wait
 
 
 class FakeResponse:
@@ -91,3 +91,51 @@ def test_rate_limit_wait_uses_reset_time():
 
     assert rate_limit_wait(response, now=1000) == 101
     assert rate_limit_wait(FakeResponse(200)) is None
+
+
+# GraphQL
+
+
+class FakeGraphQLResponse(FakeResponse):
+    def __init__(self, status_code, body=None, headers=None):
+        super().__init__(status_code, headers)
+        self.body = body or {}
+
+    def json(self):
+        return self.body
+
+
+class FakePostSession(FakeSession):
+    def post(self, url, json=None, timeout=None):
+        return self.get(url)
+
+
+def test_graphql_returns_data():
+    session = FakePostSession(FakeGraphQLResponse(200, {'data': {'repository': {}}}))
+
+    assert github_graphql(session, 'query { x }') == {'repository': {}}
+
+
+def test_graphql_retries_server_errors():
+    waits = []
+    session = FakePostSession(FakeGraphQLResponse(502), FakeGraphQLResponse(200, {'data': {'ok': True}}))
+
+    assert github_graphql(session, 'query { x }', sleep=waits.append) == {'ok': True}
+    assert waits == [2]
+
+
+def test_graphql_waits_for_rate_limit_in_a_200_response():
+    waits = []
+    limited = FakeGraphQLResponse(200, {'errors': [{'type': 'RATE_LIMITED', 'message': 'API rate limit exceeded'}]},
+                                  {'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '9999999999'})
+    session = FakePostSession(limited, FakeGraphQLResponse(200, {'data': {'ok': True}}))
+
+    assert github_graphql(session, 'query { x }', sleep=waits.append) == {'ok': True}
+    assert len(waits) == 1 and waits[0] > 0
+
+
+def test_graphql_errors_raise():
+    session = FakePostSession(FakeGraphQLResponse(200, {'errors': [{'type': 'NOT_FOUND', 'message': 'no repo'}]}))
+
+    with pytest.raises(GitHubAPIError, match='NOT_FOUND'):
+        github_graphql(session, 'query { x }')

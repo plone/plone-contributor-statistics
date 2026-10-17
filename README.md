@@ -276,6 +276,9 @@ This ensures statistics reflect actual contributions to the codebase.
 A pull request belongs to the year it was **merged** in, both in the core and the Volto statistics. Pull requests to any base branch count, including backports to maintenance branches.
 
 **Exception**: PR interaction statistics (`plone_pr_interactions.py`) count all interactions (comments, reviews) on any PR, regardless of merge status, to accurately capture community engagement.
+A PR belongs to the year it was **created** in.
+Bots (GitHub Apps and the accounts in `bot_accounts.csv`) are left out: their PRs, comments and reviews.
+A comment or review by a bot is also no response for the first response time.
 
 ### Commit Counting
 
