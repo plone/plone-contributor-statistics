@@ -1,7 +1,7 @@
 # Five-Year Summary Results (2020-2024)
 
 - 67 total organisations tracked across the past 5 years
-- 44,217 total commits and 9,498 pull requests
+- 44,287 total commits and 9,498 pull requests
 - 344 unique contributors across all organisations
 - File generated: summary-past-five-years-2020-2024.csv
 
@@ -28,7 +28,7 @@
 6. jensens - 1,975 commits
 7. tisto - 1,962 commits
 8. ericof - 1,659 commits
-9. thet - 1,333 commits
+9. thet - 1,334 commits
 10. ksuess - 1,211 commits
 
 ## Top 10 organisations by pull requests (2020-2024)
@@ -54,9 +54,9 @@ Not mapped to an organisation: 692 PRs
 4. Steve Piercy - Website Builder: 2,621 commits
 5. Kombinat: 2,406 commits
 6. Klein & Partner KG: 1,993 commits
-7. Syslab: 1,671 commits
+7. Syslab: 1,674 commits
 8. PY76: 1,346 commits
 9. Eau de Web: 1,341 commits
 10. Rohberg: 1,211 commits
 
-Not mapped to an organisation: 1,787 commits
+Not mapped to an organisation: 1,808 commits

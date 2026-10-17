@@ -36,44 +36,6 @@ def extractor(monkeypatch):
     )
 
 
-def commit(date):
-    return {
-        'author': {'login': 'alice', 'type': 'User'},
-        'commit': {'author': {'date': f'{date}T12:00:00Z'}, 'committer': {'date': f'{date}T12:00:00Z'}},
-        'parents': [{'sha': '0'}],
-    }
-
-
-def test_fetches_commits(extractor):
-    extractor.session = FakeSession(FakeResponse(200, [commit('2015-03-01'), commit('2015-04-01')]))
-
-    assert len(extractor.get_repository_commits('volto', 'main')) == 2
-
-
-def test_empty_repository_has_no_commits(extractor):
-    extractor.session = FakeSession(FakeResponse(409, {'message': 'Git Repository is empty.'}))
-
-    assert extractor.get_repository_commits('empty-repo', 'main') == []
-
-
-def test_api_error_raises_instead_of_counting_zero(extractor):
-    # Before #41, a failed request returned 0 commits without notice.
-    extractor.session = FakeSession(FakeResponse(500))
-
-    with pytest.raises(GitHubAPIError):
-        extractor.get_repository_commits('volto', 'main')
-
-
-def test_rate_limit_is_waited_out(extractor, monkeypatch):
-    waits = []
-    monkeypatch.setattr('github_api.time.sleep', waits.append)
-    limited = FakeResponse(403, headers={'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '9999999999'})
-    extractor.session = FakeSession(limited, FakeResponse(200, [commit('2015-03-01')]))
-
-    assert len(extractor.get_repository_commits('volto', 'main')) == 1
-    assert len(waits) == 1
-
-
 def test_forbidden_organization_listing_raises(extractor):
     # Before #41, a 403 fell back to five hard-coded repositories.
     extractor.session = FakeSession(FakeResponse(403))

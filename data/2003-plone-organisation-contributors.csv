@@ -1,6 +1,6 @@
 organisation,total_commits,total_pull_requests,contributors_count,contributors,repositories_count,repositories,first_contribution,last_contribution
-Enfold,336,0,2,"jcameroncooper, sidnei",4,"Products.Archetypes, Products.CMFQuickInstallerTool, Products.PasswordResetTool, Products.PlacelessTranslationService",2003-01-03,2003-12-27
-Unmapped,89,0,8,"bobdobbs666, geoff-davis, jodok, joelburton, mcdonc, mrtopf, tiran, xiru",4,"Products.Archetypes, Products.CMFQuickInstallerTool, Products.PlacelessTranslationService, Products.PloneLanguageTool",2003-03-07,2003-12-22
-Jarn,42,0,3,"baekholt, limi, stefanholek",3,"Products.CMFQuickInstallerTool, Products.CMFTestCase, Products.PloneLanguageTool",2003-09-13,2003-12-28
-Klein & Partner KG,12,0,1,jensens,1,Products.Archetypes,2003-11-06,2003-12-17
-iMio,11,0,1,gotcha,1,Products.Archetypes,2003-03-19,2003-04-04
+Unmapped,678,0,16,"bbuehlmann, bitranch, bobdobbs666, geoff-davis, jodok, joelburton, mcdonc, mrtopf, openprojects, phabegger, philikon, robertrottermann, tiran, ulricheck, vinsci, xiru",6,"Products.Archetypes, Products.CMFFormController, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.PlacelessTranslationService, Products.PloneLanguageTool",2003-01-13,2003-12-30
+Jarn,516,0,3,"baekholt, limi, stefanholek",5,"Products.CMFFormController, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.CMFTestCase, Products.PloneLanguageTool",2003-02-12,2003-12-29
+Enfold,408,0,2,"jcameroncooper, sidnei",6,"Products.Archetypes, Products.CMFFormController, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.PasswordResetTool, Products.PlacelessTranslationService",2003-01-03,2003-12-30
+Klein & Partner KG,23,0,1,jensens,2,"Products.Archetypes, Products.CMFPlone",2003-09-14,2003-12-19
+iMio,15,0,1,gotcha,2,"Products.Archetypes, Products.CMFPlone",2003-03-19,2003-12-22

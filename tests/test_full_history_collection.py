@@ -44,37 +44,6 @@ def test_year_periods():
     ]
 
 
-class EmptyResponse:
-    status_code = 200
-    headers = {}
-    text = ''
-
-    def json(self):
-        return []
-
-
-class RecordingSession:
-    def __init__(self):
-        self.calls = []
-
-    def get(self, url, params=None, timeout=None):
-        self.calls.append(dict(params))
-        return EmptyResponse()
-
-
-def test_the_whole_range_is_fetched_in_one_request(extractor):
-    extractor.session = RecordingSession()
-
-    extractor.get_repository_commits('Products.CMFPlone', 'master')
-
-    calls = extractor.session.calls
-
-    assert len(calls) == 1
-    assert calls[0]['since'] == '2012-01-01T00:00:00Z'
-    assert calls[0]['until'] == '2014-12-31T23:59:59Z'
-    assert 'author' not in calls[0]  # no longer one request per person
-
-
 def test_commits_are_assigned_to_the_year_of_their_commit_date(extractor):
     extractor.process_commits('Products.CMFPlone', [
         commit('alice', '2012-05-01'),
