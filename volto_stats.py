@@ -23,6 +23,8 @@ from datetime import datetime
 import requests
 from dotenv import load_dotenv
 
+from github_api import github_get
+
 # Force reload environment
 if 'GITHUB_TOKEN' in os.environ:
     del os.environ['GITHUB_TOKEN']
@@ -40,11 +42,11 @@ def get_all_contributors(session):
     contributors = []
     page = 1
     while True:
-        response = session.get(
+        response = github_get(
+            session,
             f'{BASE_URL}/repos/{REPO_OWNER}/{REPO_NAME}/contributors',
             params={'per_page': 100, 'page': page}
         )
-        response.raise_for_status()
         data = response.json()
         if not data:
             break
@@ -65,14 +67,9 @@ def get_pull_requests(session, username, start_date, end_date):
         'per_page': 1  # We only need the count
     }
 
-    try:
-        response = session.get(url, params=params)
-        response.raise_for_status()
-        data = response.json()
-        return data.get('total_count', 0)
-    except Exception as e:
-        print(f"Error fetching PRs for {username}: {e}")
-        return 0
+    # Errors raise GitHubAPIError instead of counting 0 PRs (#41)
+    response = github_get(session, url, params=params)
+    return response.json().get('total_count', 0)
 
 def get_commits(session, username, start_date, end_date):
     """Get number of commits for a user in the specified date range on the main branch."""
@@ -89,29 +86,25 @@ def get_commits(session, username, start_date, end_date):
     total_commits = 0
     page = 1
 
-    try:
-        while True:
-            params['page'] = page
-            response = session.get(url, params=params)
-            response.raise_for_status()
+    # Errors raise GitHubAPIError instead of counting 0 commits (#41)
+    while True:
+        params['page'] = page
+        response = github_get(session, url, params=params)
 
-            commits = response.json()
-            if not commits:
-                break
+        commits = response.json()
+        if not commits:
+            break
 
-            total_commits += len(commits)
+        total_commits += len(commits)
 
-            # Check if there are more pages
-            if 'Link' not in response.headers or 'rel="next"' not in response.headers['Link']:
-                break
+        # Check if there are more pages
+        if 'Link' not in response.headers or 'rel="next"' not in response.headers['Link']:
+            break
 
-            page += 1
-            time.sleep(0.5)  # Rate limiting
+        page += 1
+        time.sleep(0.5)  # Rate limiting
 
-        return total_commits
-    except Exception as e:
-        print(f"Error fetching commits for {username}: {e}")
-        return 0
+    return total_commits
 
 def generate_statistics(session, start_date, end_date):
     """Generate statistics for all contributors."""
