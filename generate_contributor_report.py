@@ -11,6 +11,8 @@ import pandas as pd
 from pathlib import Path
 from datetime import datetime
 
+from organisation_stats import UNMAPPED
+
 
 def load_contributor_file(year):
     """Load contributor statistics for a specific year."""
@@ -132,8 +134,13 @@ def top_contributors_table(df, n=10):
 
 
 def top_organisations_table(df, n=10):
-    """Generate markdown table for top organisations, sorted by PRs."""
-    df_sorted = df.sort_values('total_pull_requests', ascending=False).head(n)
+    """Generate markdown table for top organisations, sorted by PRs.
+
+    Unmapped contributors are not an organisation (#53): they are not ranked,
+    but shown in a line below the table.
+    """
+    unmapped = df[df['organisation'] == UNMAPPED]
+    df_sorted = df[df['organisation'] != UNMAPPED].sort_values('total_pull_requests', ascending=False).head(n)
     lines = []
     lines.append("| Rank | Organization | PRs | Commits | Contributors | Repositories |")
     lines.append("|------|-------------|-----|---------|---------------|-------------|")
@@ -142,6 +149,13 @@ def top_organisations_table(df, n=10):
             f"| {i} | {row['organisation']} | {format_number(row['total_pull_requests'])} "
             f"| {format_number(row['total_commits'])} "
             f"| {int(row['contributors_count'])} | {int(row['repositories_count'])} |"
+        )
+    if not unmapped.empty:
+        row = unmapped.iloc[0]
+        lines.append("")
+        lines.append(
+            f"Not mapped to an organisation: {format_number(row['total_pull_requests'])} PRs, "
+            f"{format_number(row['total_commits'])} commits by {int(row['contributors_count'])} contributors."
         )
     return '\n'.join(lines)
 
