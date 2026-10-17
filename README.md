@@ -209,6 +209,15 @@ make setup
 make dev-setup  # Includes linting and formatting tools
 ```
 
+4. **Tests**:
+
+```bash
+make test   # pytest, offline: GitHub API calls are replaced by fakes
+make check  # compiles all scripts and checks the requirements
+```
+
+Code changes get tests; data files only get format checks (#52). GitHub Actions runs `make check`, `make test` and a flake8 check for syntax errors and undefined names on every pull request.
+
 ## Usage Examples
 
 ### Complete Analysis Workflow
