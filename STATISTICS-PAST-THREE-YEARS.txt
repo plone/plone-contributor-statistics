@@ -1,58 +1,62 @@
 # Three-Year Summary Results (2022-2024)
 
-- 50 total organisations tracked across 3 years
-- 26,510 total commits and 7,112 pull requests
-- 382 unique contributors across all organisations
+- 55 total organisations tracked across 3 years
+- 29,496 total commits and 6,180 pull requests
+- 258 unique contributors across all organisations
 - File generated: summary-past-three-years-2022-2024.csv
 
 ## Top 10 contributors by pull requests (2022-2024)
 
-1. sneridagh - 1,046 PRs
-2. stevepiercy - 680 PRs
-3. mauritsvanrees - 590 PRs
-4. petschki - 484 PRs
-5. gforcada - 469 PRs
-6. davisagli - 282 PRs
-7. jensens - 197 PRs
-8. erral - 184 PRs
-9. ksuess - 177 PRs
-10. ericof - 169 PRs
+1. sneridagh - 1,038 PRs
+2. stevepiercy - 648 PRs
+3. mauritsvanrees - 540 PRs
+4. petschki - 461 PRs
+5. gforcada - 425 PRs
+6. davisagli - 271 PRs
+7. jensens - 175 PRs
+8. ericof - 166 PRs
+9. ksuess - 150 PRs
+10. erral - 142 PRs
 
 ## Top 10 contributors by commits (2022-2024)
 
-1. mauritsvanrees - 5,277 commits
-2. stevepiercy - 2,609 commits
-3. gforcada - 2,578 commits
-4. sneridagh - 2,178 commits
-5. petschki - 2,065 commits
-6. jensens - 1,256 commits
-7. ericof - 1,189 commits
-8. davisagli - 1,030 commits
-9. ksuess - 777 commits
-10. erral - 325 commits
+1. mauritsvanrees - 5,286 commits
+2. sneridagh - 3,568 commits
+3. gforcada - 2,781 commits
+4. stevepiercy - 2,459 commits
+5. petschki - 2,189 commits
+6. ericof - 1,278 commits
+7. jensens - 1,243 commits
+8. davisagli - 960 commits
+9. ksuess - 794 commits
+10. thet - 744 commits
 
 ## Top 10 organisations by pull requests (2022-2024)
 
-1. kitconcept: 1,936 PRs
-2. Independent: 761 PRs
-3. stevepiercy: 680 PRs
-4. py76: 590 PRs
-5. kombinat: 484 PRs
-6. freitag: 469 PRs
-7. redturtle: 243 PRs
-8. eau-de-web: 221 PRs
-9. codesyntax: 217 PRs
-10. syslab: 213 PRs
+1. kitconcept GmbH: 1,787 PRs
+2. Steve Piercy - Website Builder: 648 PRs
+3. Kombinat: 461 PRs
+4. Zest Software: 432 PRs
+5. der Freitag: 425 PRs
+6. Eau de Web: 201 PRs
+7. RedTurtle: 197 PRs
+8. Syslab: 192 PRs
+9. Klein & Partner KG: 182 PRs
+10. Codesyntax: 177 PRs
+
+Not mapped to an organisation: 356 PRs
 
 ## Top 10 organisations by commits (2022-2024)
 
-1. kitconcept: 6,044 commits
-2. py76: 5,277 commits
-3. stevepiercy: 2,609 commits
-4. freitag: 2,578 commits
-5. kombinat: 2,065 commits
-6. Independent: 994 commits
-7. syslab: 803 commits
-8. eau-de-web: 579 commits
-9. codesyntax: 453 commits
-10. redturtle: 302 commits
+1. kitconcept GmbH: 7,609 commits
+2. Zest Software: 4,397 commits
+3. der Freitag: 2,781 commits
+4. Steve Piercy - Website Builder: 2,459 commits
+5. Kombinat: 2,189 commits
+6. PY76: 1,346 commits
+7. Klein & Partner KG: 1,261 commits
+8. Syslab: 916 commits
+9. Rohberg: 794 commits
+10. Derico: 740 commits
+
+Not mapped to an organisation: 1,229 commits

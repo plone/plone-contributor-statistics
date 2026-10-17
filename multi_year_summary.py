@@ -12,6 +12,8 @@ import argparse
 import sys
 from pathlib import Path
 
+from organisation_stats import UNMAPPED
+
 
 def load_organisation_file(year):
     """Load organisation statistics file for a specific year."""
@@ -170,7 +172,7 @@ def save_summary(df, years):
     txt_content = []
     txt_content.append(f"# {summary_type.title()} Summary Results ({year_range})")
     txt_content.append("")
-    txt_content.append(f"- {len(df)} total organisations tracked across {period_label}")
+    txt_content.append(f"- {len(df[df['organisation'] != UNMAPPED])} total organisations tracked across {period_label}")
     txt_content.append(f"- {df['total_commits'].sum():,} total commits and {df['total_pull_requests'].sum():,} pull requests")
     txt_content.append(f"- {df['contributors_count'].sum()} unique contributors across all organisations")
     txt_content.append(f"- File generated: {csv_filename}")
@@ -187,15 +189,20 @@ def save_summary(df, years):
             for i, (username, row) in enumerate(top.iterrows(), 1):
                 txt_content.append(f"{i}. {username} - {row[column]:,} {unit}")
 
-    # Add top organisations
+    # Add top organisations; unmapped contributors are not an organisation (#53)
+    organisations = df[df['organisation'] != UNMAPPED]
+    unmapped = df[df['organisation'] == UNMAPPED]
     for column, unit in [('total_pull_requests', 'PRs'), ('total_commits', 'commits')]:
         title = 'pull requests' if unit == 'PRs' else unit
         txt_content.append("")
         txt_content.append(f"## Top 10 organisations by {title} ({year_range})")
         txt_content.append("")
-        top_orgs = df.sort_values(column, ascending=False).head(10)
+        top_orgs = organisations.sort_values(column, ascending=False).head(10)
         for i, (_, row) in enumerate(top_orgs.iterrows(), 1):
             txt_content.append(f"{i}. {row['organisation']}: {row[column]:,} {unit}")
+        if not unmapped.empty:
+            txt_content.append("")
+            txt_content.append(f"Not mapped to an organisation: {unmapped.iloc[0][column]:,} {unit}")
     
     # Write to TXT file
     with open(txt_filename, 'w', encoding='utf-8') as f:
