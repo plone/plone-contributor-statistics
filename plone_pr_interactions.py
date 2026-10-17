@@ -17,6 +17,8 @@ import logging
 from collections import defaultdict
 from dotenv import load_dotenv
 
+from plone_contributors import load_excluded_repositories, select_repositories
+
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
@@ -104,6 +106,11 @@ class PlonePRInteractionExtractor:
             logger.info(f"Fetched {len(data)} repositories (page {page})")
             page += 1
             
+        # Skip the same repositories as plone_contributors.py
+        repos, skipped = select_repositories(repos, load_excluded_repositories())
+        for repo_name, reason in skipped:
+            logger.info(f"Skipping excluded repository {repo_name}: {reason}")
+
         self.repositories = repos
         # Convert to repo names for compatibility
         self.plone_repos = [f"{self.org}/{repo['name']}" for repo in repos]
