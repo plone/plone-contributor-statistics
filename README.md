@@ -288,11 +288,17 @@ Commits are counted from the default branch only, which automatically includes:
 
 This excludes commits on unmerged branches or rejected pull requests.
 
+**Older history on release branches** (#68): in some repositories, the history from before the move to the egg structure is only on the old release branches. For example, the `master` of Products.CMFPlone starts in 2008, its branch `3.0` goes back to 2002. Commits on release branches (`2.5`, `3.0`, `4.3.x`, …) are counted when they are older than the first commit of the default branch. Later commits on release branches are mostly backports of changes on the default branch, so they are not counted twice; backport PRs are counted as PRs.
+
 **Merge commits** (commits with more than one parent, e.g. from GitHub's merge button) are not counted: merging is not code creation. Review and merge work is discussed in #61.
 
 ### Collection
 
-For each repository, the commits of the default branch and the closed pull requests are fetched **once** for the whole requested range, and then assigned to the years: commits by commit date, pull requests by merge date. A run over all years needs a few thousand API requests. Commits without a GitHub account linked to their email, and bot accounts (type `Bot`, or listed in `bot_accounts.csv`), are not counted.
+For each repository, the commits and the closed pull requests are fetched **once** for the whole requested range, and then assigned to the years: commits by commit date, pull requests by merge date.
+
+The commits are read from local clones in `.cache/repositories/` (`git_history.py`). The clones are bare and treeless (commits only, no files), and are updated on the next run. GitHub links a commit to the account that has its author email; the collector looks up each email once via the GraphQL API. The pull requests come from the REST API. A run over all years needs a few thousand API requests.
+
+Commits without a GitHub account linked to their email, and bot accounts (type `Bot`, or listed in `bot_accounts.csv`), are not counted. This affects many commits from the CVS and SVN times, whose author emails are like `name@localhost` (#69).
 
 ### Repositories
 

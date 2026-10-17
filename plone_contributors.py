@@ -11,14 +11,18 @@ Aggregates data per contributor including:
 Important: Only commits that made it to the default branch are counted. This includes:
 - Direct commits to the default branch
 - Commits merged via pull requests
+- The history from before the default branch started, which in some
+  repositories is only on the old release branches (2.5, 3.0, ...) (#68)
 
 Commits on feature branches that were never merged are NOT counted. Merge
 commits are not counted either (#39).
 
-For each repository, the commits of the default branch and the closed pull
-requests are fetched once for the whole requested time range, and then
-assigned to the requested periods (usually years). One run can therefore
-produce the files for many years at once (--from-year/--to-year).
+The commits are read from local clones (git_history.py) and linked to
+GitHub accounts by their author email, like the GitHub API does. The
+closed pull requests come from the API. Both are fetched once for the
+whole requested time range, and then assigned to the requested periods
+(usually years). One run can therefore produce the files for many years
+at once (--from-year/--to-year).
 """
 
 import os
@@ -35,7 +39,8 @@ from dotenv import load_dotenv
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
 
-from github_api import GitHubAPIError, github_get, is_merge_commit
+import git_history
+from github_api import GitHubAPIError, github_get, github_graphql, is_merge_commit
 
 
 EXCLUDED_REPOSITORIES_FILE = 'excluded_repositories.csv'
@@ -143,6 +148,9 @@ class PloneStatsExtractor:
               f" ({len(periods)} period{'s' if len(periods) > 1 else ''})")
 
         self.bots = load_bot_accounts()
+        self.cache_dir = git_history.CACHE_DIR
+        # Author email (lower case) -> GitHub login, or None if the email is not linked to an account
+        self.email_logins = {}
         self.repositories = []
         self.contributors_data = {label: defaultdict(_new_stats) for label, _, _ in periods}
 
@@ -204,37 +212,50 @@ class PloneStatsExtractor:
         return repos
 
     def get_repository_commits(self, repo_name: str, default_branch: str) -> List[Dict[str, Any]]:
-        """Get all commits on the default branch in the whole date range, in one paginated request."""
-        url = f'https://api.github.com/repos/{self.org}/{repo_name}/commits'
-        params = {
-            'sha': default_branch,  # Only count commits on default branch (main/master)
-            'since': self.start_date.strftime('%Y-%m-%dT%H:%M:%SZ'),
-            'until': self.end_date.strftime('%Y-%m-%dT%H:%M:%SZ'),
-            'per_page': 100,
-        }
+        """Get the commits of the default branch (and its older history) in the whole date range.
 
-        commits = []
-        page = 1
-        while True:
-            params['page'] = page
-            response = self._get(url, params=params)
-
-            if response.status_code != 200:  # empty repository
-                break
-
-            data = response.json()
-            if not data:
-                break
-            commits.extend(data)
-
-            # Check if there are more pages
-            if 'Link' not in response.headers or 'rel="next"' not in response.headers['Link']:
-                break
-
-            page += 1
-            time.sleep(0.1)  # Be nice to the GitHub API
-
+        They are read from a local clone (#68) and linked to GitHub accounts.
+        """
+        url = f'https://github.com/{self.org}/{repo_name}.git'
+        path = os.path.join(self.cache_dir, self.org, f'{repo_name}.git')
+        commits = [
+            commit for commit in git_history.repository_commits(url, path, default_branch, token=self.token)
+            if self.start_date <= parse_timestamp(commit['commit']['committer']['date']) <= self.end_date
+        ]
+        self.link_authors(repo_name, commits)
         return commits
+
+    def link_authors(self, repo_name: str, commits: List[Dict[str, Any]], batch_size: int = 100):
+        """Set the GitHub account of each commit, like the commit list of the GitHub API does.
+
+        GitHub links a commit to the account that has its author email. For
+        each email not seen before, one of its commits is looked up in a
+        GraphQL query, up to batch_size commits per query.
+        """
+        unknown = {}
+        for commit in commits:
+            email = commit['commit']['author']['email'].lower()
+            if email not in self.email_logins:
+                unknown.setdefault(email, commit['sha'])
+
+        lookups = list(unknown.items())
+        for start in range(0, len(lookups), batch_size):
+            batch = lookups[start:start + batch_size]
+            fields = ' '.join(
+                f'c{i}: object(oid: "{sha}") {{ ... on Commit {{ author {{ user {{ login }} }} }} }}'
+                for i, (_, sha) in enumerate(batch)
+            )
+            query = f'query($owner: String!, $name: String!) {{ repository(owner: $owner, name: $name) {{ {fields} }} }}'
+            data = github_graphql(self.session, query, {'owner': self.org, 'name': repo_name})
+            for i, (email, _) in enumerate(batch):
+                node = data['repository'][f'c{i}']
+                # Bots are no User, their user is None
+                user = ((node or {}).get('author') or {}).get('user')
+                self.email_logins[email] = user['login'] if user else None
+
+        for commit in commits:
+            login = self.email_logins[commit['commit']['author']['email'].lower()]
+            commit['author'] = {'login': login, 'type': 'User'} if login else None
 
     def process_commits(self, repo_name: str, commits: List[Dict[str, Any]]):
         """Count each commit for its author in the period of its commit date."""
@@ -529,7 +550,7 @@ def main():
         try:
             # Extract statistics from all repositories
             extractor.extract_all_stats()
-        except (KeyboardInterrupt, GitHubAPIError, requests.exceptions.RequestException) as e:
+        except (KeyboardInterrupt, GitHubAPIError, git_history.GitError, requests.exceptions.RequestException) as e:
             # Never write incomplete data to the regular files, only checkpoints
             reason = 'interrupted by user' if isinstance(e, KeyboardInterrupt) else f'{type(e).__name__}: {e}'
             print(f"\n\nExtraction stopped ({reason}).")
