@@ -15,4 +15,6 @@ These pages describe the rules that keep data, method and documentation consiste
 
 ```{toctree}
 :maxdepth: 1
+
+documentation
 ```
