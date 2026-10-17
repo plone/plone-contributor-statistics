@@ -134,6 +134,7 @@ help:
 	@echo "  lint              Run code linting"
 	@echo "  format            Format Python code"
 	@echo "  check             Check code quality and dependencies"
+	@echo "  test              Run the test suite (pytest)"
 	@echo ""
 	@echo "Date range examples:"
 	@echo "  python plone_contributors.py --year 2024"
@@ -155,7 +156,7 @@ setup: install
 
 # Development setup with additional tools
 dev-setup: setup
-	pip install black flake8 mypy
+	pip install black flake8 mypy pytest
 
 # Run main statistics extraction (current year)
 run-stats:
@@ -630,6 +631,10 @@ check: lint
 	@echo "All Python files compile successfully!"
 	@echo "Checking requirements..."
 	@pip check
+
+# Run the test suite
+test:
+	python -m pytest tests
 
 # Run all scripts
 run-all: run-stats run-contributors run-companies
