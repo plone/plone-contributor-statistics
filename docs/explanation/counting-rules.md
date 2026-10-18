@@ -47,7 +47,7 @@ Review and merge work deserves recognition of its own, which is still open ([#61
 A merged pull request counts for the person who opened it, not for people who pushed commits to it or reviewed it.
 It counts for the year it was merged, the moment the project accepted it.
 
-The same rule applies to the core repositories and to Volto ([#42](https://github.com/plone/plone-contributor-statistics/issues/42)).
+The same rule applies to every repository, Volto included ([#42](https://github.com/plone/plone-contributor-statistics/issues/42)).
 
 Pull requests to any branch count, including backports to maintenance branches.
 A backport is work of its own: it needs to be adapted, tested and released.

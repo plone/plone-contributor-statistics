@@ -60,7 +60,6 @@ def pr_interactions_report(year):
     return PR_INTERACTION_REPORTS_DIR / f'github-pr-interactions-report-{year}.md'
 
 
-
 def organisation_contributors_file(label):
     return ORGANISATION_CONTRIBUTORS_DIR / f'{label}-plone-organisation-contributors.csv'
 
