@@ -48,7 +48,8 @@ People without a GitHub account, who are counted under their name, are Unmapped 
 ## A mapping needs a source
 
 The mapping says something about real people and real organisations, so it needs evidence.
-Acceptable sources are public records: a public profile, a company website, an archived page, a register entry, a conference speaker biography, or a confirmation by the person in public, such as a comment on a GitHub issue or pull request.
+Acceptable sources are public records: a public profile, a company website, an archived page, a register entry, a conference speaker biography, a public participant list of a community sprint, or a confirmation by the person in public, such as a comment on a GitHub issue or pull request.
+A participant list is evidence only for the year of the sprint.
 A confirmation that exists only in private doesn't count, because nobody else can check it.
 A company email address in the person's commits is evidence for the years in which the person used it, but only in commits made in Git, see {doc}`history-and-coverage`.
 Personal domains and project addresses, such as plone.org, say nothing about an employer.
