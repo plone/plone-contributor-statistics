@@ -42,14 +42,14 @@ Werkbank GmbH,25,7,2,"AlexBueckig, woolyseal",5,"aurora, plone.app.portlets, plo
 minddistrict,267,7,3,"icemac, janjaapdriessen, sallner",5,"Products.PloneHotfix20210518, meta, plone.protect, plone.recipe.codeanalysis, plone.recipe.zope2instance","2020, 2021, 2022, 2023",2020-02-11,2023-08-28
 Plone Venezuela,41,7,1,macagua,5,"aurora, form-block, plone.app.debugtoolbar, plone.restapi, volto","2021, 2022, 2023, 2024",2021-11-08,2024-02-23
 Webmeisterei,5,7,1,frisi,3,"bobtemplates.plone, plone.app.event, plone.formwidget.namedfile",2021,2021-05-31,2021-08-18
+Ludwig Maximilian University Munich,17,6,1,loechel,5,"Products.CMFPlone, diazo, meta, plone.api, training","2021, 2022, 2023",2021-01-30,2023-10-09
 Salesforce,209,6,1,esteele,44,"Products.CMFEditions, Products.CMFPlacefulWorkflow, Products.CMFPlone, Products.PlonePAS, aurora, buildout.coredev, documentation, plone.api, plone.app.caching, plone.app.content, plone.app.contentmenu, plone.app.contentrules, plone.app.contenttypes, plone.app.dexterity, plone.app.discussion, plone.app.event, plone.app.iterate, plone.app.layout, plone.app.multilingual, plone.app.portlets, plone.app.querystring, plone.app.registry, plone.app.users, plone.app.versioningbehavior, plone.app.workflow, plone.app.z3cform, plone.base, plone.batching, plone.contentrules, plone.dexterity, plone.folder, plone.formwidget.namedfile, plone.portlet.collection, plone.portlet.static, plone.registry, plone.resource, plone.restapi, plone.schemaeditor, plone.session, plone.staticresources, plone.testing, plone.z3cform, plonetheme.barceloneta, volto","2020, 2021, 2022",2020-01-07,2022-12-02
 Radio Free Asia,15,6,1,flipmcf,8,"2023.ploneconf.org, documentation, mockup, plone.app.dexterity, plone.app.vocabularies, plone.nl, plone.outputfilters, ploneconf.org","2020, 2021",2020-08-13,2021-12-08
-Ludwig Maximilian University Munich,17,6,1,loechel,5,"Products.CMFPlone, diazo, meta, plone.api, training","2021, 2022, 2023",2021-01-30,2023-10-09
 4Teamwork,6,5,4,"buchi, deiferni, lukasgraf, maethu",2,"plone.formwidget.recaptcha, plone.restapi","2020, 2021",2020-01-22,2021-07-23
-IT Sprit,11,5,1,thomasmassmann,5,"Products.CMFPlone, Products.PortalTransforms, plone.app.layout, plone.app.upgrade, training.plone.org","2020, 2022",2020-04-08,2022-01-07
 Zopyx,7,5,1,zopyx,7,"Products.MimetypesRegistry, planet.plone.org, plone.api, plone.app.content, plone.app.portlets, plone.restapi, training","2020, 2021, 2022, 2023",2020-07-15,2023-10-24
-WebTide,8,4,1,mikejmets,3,"aurora, documentation, volto","2020, 2021, 2023",2020-01-30,2023-11-23
+it-spirit,11,5,1,thomasmassmann,5,"Products.CMFPlone, Products.PortalTransforms, plone.app.layout, plone.app.upgrade, training.plone.org","2020, 2022",2020-04-08,2022-01-07
 Reid-McMahon,20,4,1,smcmahon,3,"Installers-UnifiedInstaller, ansible-playbook, ansible.plone_server","2020, 2021",2019-12-01,2020-07-27
+WebTide,8,4,1,mikejmets,3,"aurora, documentation, volto","2020, 2021, 2023",2020-01-30,2023-11-23
 FHNW,7,4,2,"rristow, tomschall",3,"Products.CMFEditions, aurora, volto","2022, 2024",2018-04-25,2024-07-26
 Jens Vagelpohl (independent),60,4,1,dataflake,2,"meta, plone.recipe.zope2instance","2020, 2021, 2022",2020-02-15,2022-12-28
 infoCatch,5,4,1,mtrebron,3,"plone.app.z3cform, ploneorg.core, ploneorg.theme","2021, 2022",2021-02-21,2022-08-14

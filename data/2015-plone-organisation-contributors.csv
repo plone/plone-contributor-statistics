@@ -33,7 +33,7 @@ Codesyntax,14,1,1,erral,7,"Products.TinyMCE, buildout.coredev, plone.app.dexteri
 bearstach,11,0,1,encolpe,6,"buildout.coredev, plone.app.dexterity, plone.app.discussion, plone.app.event, plone.app.multilingual, plone.app.versioningbehavior",2015-09-15,2015-09-20
 Cosent,11,3,1,gyst,4,"Products.CMFPlone, plone.api, plone.app.blocks, plone.app.theming",2014-06-11,2015-07-10
 CMS Communications Inc.,9,6,1,terapyon,5,"plone.app.dexterity, plone.app.discussion, plone.app.event, plone.app.multilingual, plone.app.theming",2015-04-29,2015-10-17
-IT Sprit,7,4,1,thomasmassmann,3,"plone.app.theming, plone.restapi, training",2015-07-16,2015-09-28
+it-spirit,7,4,1,thomasmassmann,3,"plone.app.theming, plone.restapi, training",2015-07-16,2015-09-28
 acsr industrialdesign,6,2,1,acsr,3,"communication.plone5-posters, documentation, training",2015-01-05,2015-10-27
 Affinitic,4,2,1,laulaz,2,"diazo, plone.formwidget.multifile",2015-07-20,2015-12-18
 Zopyx,4,1,1,zopyx,3,"documentation, plone.api, plone.schemaeditor",2015-04-09,2015-09-01
