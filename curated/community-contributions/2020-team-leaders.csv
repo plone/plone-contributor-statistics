@@ -1,9 +1,10 @@
 Name,Team,Organisation,Source
-Jens Klein,Framework Team,Klein & Partner KG,Confirmed by Jens Klein (Framework Team lead)
-Maurits van Rees,Security Team,Zest Software,Confirmed by Jens Klein
-Kim Nguyen,Marketing Team,Six Feet Up,https://plone.org/foundation/meetings/minutes/2020/plone-foundation-board-minutes-may-07-2020
-Rikupekka Oksanen,Marketing Team,University of Jyväskylä,https://plone.org/foundation/meetings/minutes/2020/plone-foundation-board-minutes-may-07-2020
-Víctor Fernández de Alba,Volto Team,kitconcept GmbH,https://plone.org/foundation/meetings/minutes/2017/minutes-for-november-2-2017
-Philip Bauer,Training Team,Starzel,"From the original data, no source found"
-Sven Strack,Documentation Team,Sven Strack (independent),Confirmed by Jens Klein
-Érico Andrei,Membership Committee,kitconcept GmbH,https://plone.org/foundation/meetings/minutes/2019/plone-foundation-board-minutes-for-november-7-2019
+Érico Andrei,Admin & Infrastructure Team,Pendect,https://community.plone.org/t/minutes-of-plone-steering-circle-first-meeting-2020-09-22/12879; organisation from the organisation mapping: https://2020.ploneconf.org/speakers/erico-andrei
+Rikupekka Oksanen,Marketing Team,University of Jyväskylä,https://plone.org/foundation/meetings/minutes/2020/plone-foundation-board-minutes-may-07-2020; organisation from the organisation mapping: https://github.com/rioksane
+T. Kim Nguyen,Marketing Team,Sixfeetup,https://community.plone.org/t/plone-communications-and-marketing-team-meeting-2020-05-07/12264; organisation from the organisation mapping: https://2019.ploneconf.org/people/t-kim-nguyen
+T. Kim Nguyen,Membership Committee,Sixfeetup,https://community.plone.org/t/foundation-membership-committee-for-2019-2020/11014; organisation from the organisation mapping: https://2019.ploneconf.org/people/t-kim-nguyen
+Érico Andrei,Membership Committee,Pendect,https://community.plone.org/t/foundation-membership-committee-for-2019-2020/11014; organisation from the organisation mapping: https://2020.ploneconf.org/speakers/erico-andrei
+Alexander Loechel,Security Team,Ludwig Maximilian University Munich,https://plone.org/foundation/meetings/minutes/2017/minutes-for-november-2-2017; organisation from the organisation mapping: https://github.com/loechel
+Rob Porter,Usability Team,Unmapped,https://community.plone.org/t/minutes-of-plone-steering-circle-first-meeting-2020-09-22/12879
+Víctor Fernández de Alba,Volto Team,kitconcept GmbH,https://plone.org/foundation/meetings/minutes/2017/minutes-for-november-2-2017; organisation from the organisation mapping: https://github.com/sneridagh
+Jens Vagelpohl,Zope Team,Jens Vagelpohl (independent),https://community.plone.org/t/minutes-of-plone-steering-circle-first-meeting-2020-09-22/12879; organisation from the organisation mapping: https://github.com/dataflake

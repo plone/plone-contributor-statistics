@@ -76,7 +76,7 @@ Several people or organisations in one cell are separated by semicolons.
 
 `curated/community-contributions/YYYY-team-leaders.csv`
 :   One row per team leader and team.
-    Columns: `Name`, `Team`, `Organisation`, and `Source` from 2020 to 2024.
+    Columns: `Name`, `Team`, `Organisation`, `Source`.
 
 `curated/community-contributions/YYYY-strategic-sprints.csv`
 :   One row per strategic sprint.
