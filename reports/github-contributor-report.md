@@ -1,6 +1,6 @@
 # Plone Core Contributor Statistics Report
 
-Generated on: 2026-10-18 16:35:48
+Generated on: 2026-10-18 18:10:54
 
 This report shows the top contributors and organizations in the Plone ecosystem across different time periods.
 
@@ -153,7 +153,7 @@ Not mapped to an organisation: 666 PRs, 1,832 commits by 189 contributors.
 | 9 | Eau de Web | 567 | 1,649 | 18 | 37 |
 | 10 | Starzel | 542 | 2,298 | 3 | 142 |
 
-Not mapped to an organisation: 2,277 PRs, 6,743 commits by 388 contributors.
+Not mapped to an organisation: 2,277 PRs, 6,409 commits by 387 contributors.
 
 
 ---
