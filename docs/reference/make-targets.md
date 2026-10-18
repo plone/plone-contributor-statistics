@@ -6,7 +6,7 @@ This page lists the targets of the `Makefile`, grouped by purpose.
 `make help` prints the full list.
 Targets with `YYYY` exist once per year.
 
-See {doc}`/explanation/known-limitations` for the effect of the broken targets.
+Targets of archived scripts were removed; `archive/README.md` lists the scripts.
 
 ## Variables
 
@@ -30,7 +30,7 @@ Set a variable on the command line to use another year, for example `make five-y
 | `make check` | Runs `lint`, compiles all scripts and checks the installed requirements. | works |
 | `make lint` | Runs flake8 on the scripts, if installed. | works |
 | `make format` | Formats the scripts. | works |
-| `make clean` | Deletes generated files in the repository root and `graphs/`. | works |
+| `make clean` | Deletes caches, checkpoint files and the built documentation; never committed files. | works |
 | `make status` | Prints the Python version and whether a GitHub token is configured. | works |
 
 ## Collection
@@ -47,8 +47,6 @@ Set a variable on the command line to use another year, for example `make five-y
 | `make run-volto-stats` | Collects Volto contributor statistics of the current year. | works |
 | `make run-volto-stats-YYYY` | Collects Volto contributor statistics of one year. | works |
 | `make run-plips` | Collects all PLIPs. | works |
-| `make npm-packages` | Collects npm packages and downloads of the organisations in `npm_mapping.txt`. | works |
-| `make pypi-packages` | Should collect PyPI packages. | broken: calls `pypi_package_stats.py`, the script is `pypi_package_statistics.py` |
 
 ## Aggregation and reports
 
@@ -64,20 +62,8 @@ Set a variable on the command line to use another year, for example `make five-y
 | `make community-recognition` | Writes the community recognition report of `RECOGNITION_YEAR`. | works |
 | `make yearly-activity` | Writes `yearly-activity-statistics.csv`. | works |
 | `make yearly-graphs` | Runs `yearly-activity` and draws the graphs in `graphs/`. | works |
-| `make flourish-graph-organisation-contributors-csv-file` | Writes the organisation chart data for Flourish. | works |
-| `make flourish-graph-individual-contributors-csv-file` | Writes the contributor chart data for Flourish. | works |
 | `make analyze-independent` | Lists unmapped contributors worth researching. | works |
-| `make analyze-plip-levels` | Writes a PLIP contributor level analysis to the repository root. | works |
 | `make run-plip-organisations` | Writes `plone-plip-organisations.csv` from `plone-plips-detailed.csv` and the mapping files. | works |
-| `make generate-plip-report` | Should write `reports/plips.md`. | broken: `generate_plip_report.py` is not in the repository |
-
-## Not part of the current method
-
-| Target | Does | Status |
-|---|---|---|
-| `make run-contributors` | Runs `plone_contributor_statistics.py`, based on the GitHub contributor statistics API. | not part of the current method |
-| `make run-organisations` | Runs `plone_companies.py`, which guessed organisations from GitHub profiles and email domains. | not part of the current method |
-| `make run-all` | Should run several collectors. | broken: depends on the missing target `run-companies` |
 
 ## Documentation
 

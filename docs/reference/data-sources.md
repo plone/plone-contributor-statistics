@@ -16,9 +16,6 @@ See {doc}`/explanation/scope` for why these sources were chosen, and {doc}`/expl
 | Pull request interactions | GitHub GraphQL API, with the REST API for long threads and code review comments | 2010–2025 | `plone_pr_interactions.py` | `data/YYYY-plone-pr-interactions.csv`, `reports/github-pr-interactions-report-YYYY.md` | `make pr-interactions-all-years`, `make pr-interactions-YYYY` |
 | Volto contributors | GitHub REST API contributors of `plone/volto`, and the search API per person | 2016–2025 | `volto_stats.py` | `data/YYYY-volto-stats.csv` | `make run-volto-stats-YYYY` |
 | PLIPs | GitHub REST API, issues with the PLIP label in `Products.CMFPlone`, `volto` and `plone.restapi` | all years in one file | `plone_plips.py` | `plone-plips.csv`, `plone-plips-detailed.csv` | `make run-plips` |
-| Products.CMFPlone releases | GitHub REST API, releases of `Products.CMFPlone` | snapshot | `fetch_cmfplone_releases.py`, `filter_releases.py` | `cmfplone-releases.csv` | none |
-| npm packages | npm registry and npm download API, per organisation in `npm_mapping.txt` | snapshot of 2025-08-20 | `npm_package_stats.py` | `npm-packages-*.csv`, `npm-packages-*.md`, `npm-packages-summary.md` | `make npm-packages` |
-| PyPI packages | PyPI simple index and JSON API, packages starting with `plone.` or `collective.` | not committed | `pypi_package_statistics.py` | none committed | none working |
 
 ## Curated by hand
 
@@ -47,4 +44,3 @@ All curated files are in `data/community-contributions/`, one file per year.
 | PLIPs per organisation | `plone-plips-detailed.csv`, mapping files | `plip_organisation_stats.py` | `plone-plip-organisations.csv` | `make run-plip-organisations` |
 | Community recognition | curated files, yearly organisation files, PLIP files, recognition files | `generate_community_recognition_report.py` | `reports/community-recognition.md`, `data/community-contributions/YYYY-community-recognition-report.csv` | `make community-recognition` |
 | Yearly activity and graphs | contributor and organisation files | `yearly_activity_analysis.py`, `generate_yearly_graphs.py` | `yearly-activity-statistics.csv`, `graphs/` | `make yearly-activity`, `make yearly-graphs` |
-| Flourish charts | contributor and organisation files | `create_organization_flourish_csv.py`, `create_individual_contributors_flourish_csv.py` | `data/plone-organizations-bar-chart-race-flourish.csv`, `data/plone-individual-contributors-flourish.csv` | `make flourish-graph-organisation-contributors-csv-file`, `make flourish-graph-individual-contributors-csv-file` |

@@ -1,4 +1,4 @@
-.PHONY: help install clean run-stats run-stats-all-years run-stats-2025 run-stats-2024 run-stats-2023 run-stats-2022 run-stats-2021 run-stats-2020 run-stats-2019 run-stats-2018 run-stats-2017 run-stats-2016 run-stats-2015 run-stats-2014 run-stats-2013 run-stats-2012 run-stats-2011 run-stats-2010 run-stats-2009 run-stats-2008 run-stats-2007 run-stats-2006 run-stats-2005 run-stats-2004 run-stats-2003 run-stats-2002 run-stats-2001 run-stats-2000 run-stats-custom run-contributors run-organisations run-organisation-stats run-organisation-stats-2025 run-organisation-stats-2024 run-organisation-stats-2023 run-organisation-stats-2022 run-organisation-stats-2021 run-organisation-stats-2020 run-organisation-stats-2019 run-organisation-stats-2018 run-organisation-stats-2017 run-organisation-stats-2016 run-organisation-stats-2015 run-organisation-stats-2014 run-organisation-stats-2013 run-organisation-stats-2012 run-organisation-stats-2011 run-organisation-stats-2010 run-organisation-stats-2009 run-organisation-stats-2008 run-organisation-stats-2007 run-organisation-stats-2006 run-organisation-stats-2005 run-organisation-stats-2004 run-organisation-stats-2003 run-organisation-stats-2002 run-organisation-stats-2001 run-organisation-stats-2000 run-plips run-plip-organisations analyze-independent three-year-summary ten-year-summary flourish-graph-organisation-contributors-csv-file flourish-graph-individual-contributors-csv-file generate-report generate-plip-report community-recognition pr-interactions pr-interactions-all-years pr-interactions-2025 pr-interactions-2024 pr-interactions-2023 pr-interactions-2022 pr-interactions-2021 pr-interactions-2020 pr-interactions-2019 pr-interactions-2018 pr-interactions-2017 pr-interactions-2016 pr-interactions-2015 pr-interactions-2014 pr-interactions-2013 pr-interactions-2012 pr-interactions-2011 pr-interactions-2010 pr-interactions-2009 pr-interactions-2008 pr-interactions-2007 pr-interactions-2006 pr-interactions-2005 setup dev-setup lint format check test docs-install docs docs-linkcheck docs-clean
+.PHONY: help install clean run-stats run-stats-all-years run-stats-2025 run-stats-2024 run-stats-2023 run-stats-2022 run-stats-2021 run-stats-2020 run-stats-2019 run-stats-2018 run-stats-2017 run-stats-2016 run-stats-2015 run-stats-2014 run-stats-2013 run-stats-2012 run-stats-2011 run-stats-2010 run-stats-2009 run-stats-2008 run-stats-2007 run-stats-2006 run-stats-2005 run-stats-2004 run-stats-2003 run-stats-2002 run-stats-2001 run-stats-2000 run-stats-custom run-organisation-stats run-organisation-stats-2025 run-organisation-stats-2024 run-organisation-stats-2023 run-organisation-stats-2022 run-organisation-stats-2021 run-organisation-stats-2020 run-organisation-stats-2019 run-organisation-stats-2018 run-organisation-stats-2017 run-organisation-stats-2016 run-organisation-stats-2015 run-organisation-stats-2014 run-organisation-stats-2013 run-organisation-stats-2012 run-organisation-stats-2011 run-organisation-stats-2010 run-organisation-stats-2009 run-organisation-stats-2008 run-organisation-stats-2007 run-organisation-stats-2006 run-organisation-stats-2005 run-organisation-stats-2004 run-organisation-stats-2003 run-organisation-stats-2002 run-organisation-stats-2001 run-organisation-stats-2000 run-plips run-plip-organisations analyze-independent three-year-summary ten-year-summary generate-report community-recognition pr-interactions pr-interactions-all-years pr-interactions-2025 pr-interactions-2024 pr-interactions-2023 pr-interactions-2022 pr-interactions-2021 pr-interactions-2020 pr-interactions-2019 pr-interactions-2018 pr-interactions-2017 pr-interactions-2016 pr-interactions-2015 pr-interactions-2014 pr-interactions-2013 pr-interactions-2012 pr-interactions-2011 pr-interactions-2010 pr-interactions-2009 pr-interactions-2008 pr-interactions-2007 pr-interactions-2006 pr-interactions-2005 setup dev-setup lint format check test docs-install docs docs-linkcheck docs-clean
 
 # Default years, from years.py; override on the command line, e.g. make five-year-summary SUMMARY_END=2025
 SUMMARY_END ?= $(shell python -c 'from years import SUMMARY_END_YEAR; print(SUMMARY_END_YEAR)')
@@ -43,8 +43,6 @@ help:
 	@echo "  run-stats-2001    Run statistics for 2001"
 	@echo "  run-stats-2000    Run statistics for 2000"
 	@echo "  run-stats-custom  Run statistics with custom date range (see help)"
-	@echo "  run-contributors  Run contributor statistics analysis"
-	@echo "  run-organisations Run organisation statistics analysis"
 	@echo "  run-organisation-stats Generate organisation statistics from individual stats (all available years)"
 	@echo "  run-organisation-stats-2025 Generate organisation statistics for 2025"
 	@echo "  run-organisation-stats-2024 Generate organisation statistics for 2024"
@@ -74,19 +72,13 @@ help:
 	@echo "  run-organisation-stats-2000 Generate organisation statistics for 2000"
 	@echo "  run-plips         Extract PLIP statistics from all repositories"
 	@echo "  run-plip-organisations Generate PLIP organisation statistics using organisation mapping"
-	@echo "  analyze-plip-levels Analyze PLIP contributor levels and generate report"
 	@echo "  analyze-independent Analyze Independent contributors for potential organisation mappings"
 	@echo "  three-year-summary Generate combined statistics summary for the 3 years up to SUMMARY_END ($(SUMMARY_END))"
 	@echo "  five-year-summary Generate combined statistics summary for the 5 years up to SUMMARY_END"
 	@echo "  ten-year-summary  Generate combined statistics summary for the 10 years up to SUMMARY_END"
 	@echo "  yearly-activity   Generate yearly development activity analysis"
 	@echo "  yearly-graphs     Generate visual graphs from yearly activity data"
-	@echo "  npm-packages      Analyze NPM packages published by Plone organizations"
-	@echo "  pypi-packages     Analyze PyPI packages published by Plone organizations"
-	@echo "  flourish-graph-organisation-contributors-csv-file Generate organization CSV for Flourish visualization"
-	@echo "  flourish-graph-individual-contributors-csv-file Generate individual contributors CSV for Flourish visualization"
 	@echo "  generate-report   Generate comprehensive contributor and organization report"
-	@echo "  generate-plip-report Generate PLIP contribution report"
 	@echo "  generate-volto-report Generate Volto contributor and organization report"
 	@echo "  run-volto-stats   Run Volto repository statistics extraction (current year)"
 	@echo "  run-volto-stats-2025 Run Volto statistics for 2025"
@@ -138,7 +130,7 @@ help:
 	@echo "  pr-interactions-2007 Extract pull request comments and interactions for 2007"
 	@echo "  pr-interactions-2006 Extract pull request comments and interactions for 2006"
 	@echo "  pr-interactions-2005 Extract pull request comments and interactions for 2005"
-	@echo "  clean             Clean up generated files"
+	@echo "  clean             Delete caches, checkpoints and the built docs (never committed files)"
 	@echo "  lint              Run code linting"
 	@echo "  format            Format Python code"
 	@echo "  check             Check code quality and dependencies"
@@ -264,14 +256,6 @@ run-stats-custom:
 	@echo "  python plone_contributors.py --start-date 2024-01-01 --end-date 2024-12-31"
 	@echo "  python plone_contributors.py --start-date 2023-01-01 --end-date 2024-12-31"
 
-# Run contributor statistics
-run-contributors:
-	python plone_contributor_statistics.py
-
-# Run organisation statistics
-run-organisations:
-	python plone_companies.py
-
 # Generate organisation statistics from individual contributor stats (all available years)
 run-organisation-stats:
 	@echo "Running organisation statistics for all available years..."
@@ -371,10 +355,6 @@ run-plips:
 run-plip-organisations:
 	python plip_organisation_stats.py
 
-# Analyze PLIP contributor levels and generate report
-analyze-plip-levels:
-	python analyze_plip_contributor_levels.py
-
 # Analyze Independent contributors for potential organisation mappings
 analyze-independent:
 	python analyze_independent_contributors.py
@@ -397,29 +377,9 @@ yearly-activity:
 yearly-graphs: yearly-activity
 	python generate_yearly_graphs.py
 
-# Analyze NPM packages published by Plone organizations
-npm-packages:
-	python npm_package_stats.py
-
-# Analyze PyPI packages published by Plone organizations
-pypi-packages:
-	python pypi_package_stats.py
-
-# Generate organization CSV for Flourish visualization
-flourish-graph-organisation-contributors-csv-file:
-	python create_organization_flourish_csv.py --output-dir data
-
-# Generate individual contributors CSV for Flourish visualization
-flourish-graph-individual-contributors-csv-file:
-	python create_individual_contributors_flourish_csv.py --output-dir data
-
 # Generate comprehensive contributor and organization report
 generate-report:
 	python generate_contributor_report.py
-
-# Generate PLIP contribution report
-generate-plip-report:
-	python generate_plip_report.py
 
 # Calculate community recognition points and generate report
 community-recognition:
@@ -606,25 +566,8 @@ run-volto-stats-2000:
 
 # Clean generated files
 clean:
-	rm -f *-plone-contributors*.csv
-	rm -f plone-contributors*.csv
-	rm -f *-plone-organisation-contributors*.csv
-	rm -f plone-organisation-contributors*.csv
-	rm -f plone-plips.csv
-	rm -f plone-plips-detailed.csv
-	rm -f plone-plip-organisations.csv
-	rm -f summary-past-*-years-*.csv
-	rm -f STATISTICS-PAST-*-YEARS.txt
-	rm -f yearly-activity-statistics.csv
-	rm -f YEARLY-ACTIVITY-ANALYSIS.md
-	rm -rf graphs/
-	rm -f npm-packages-*.md
-	rm -f npm-packages-*.csv
-	rm -f pypi-packages-*.md
-	rm -f pypi-packages-*.csv
-	rm -f plone_contributors*.csv
-	rm -f plone_contributor_stats*.csv
-	rm -f plone_companies*.csv
+	rm -f data/*_checkpoint.csv
+	rm -rf .pytest_cache docs/_build
 	find . -name "*.pyc" -delete
 	find . -name "__pycache__" -type d -exec rm -rf {} +
 
@@ -653,9 +596,6 @@ check: lint
 # Run the test suite
 test:
 	python -m pytest tests
-
-# Run all scripts
-run-all: run-stats run-contributors run-companies
 
 # Show current status
 status:

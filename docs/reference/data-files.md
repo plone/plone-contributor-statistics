@@ -44,10 +44,6 @@ See {doc}`/explanation/counting-rules` for why the files count the way they do.
     One row per organisation, with the PLIPs of its members: a closed PLIP counts for the author's organisation in the year it was closed, an open one in the year it was created.
     Columns: `organisation`, `total_plips`, `open_plips`, `closed_plips`, `contributors_count`, `contributors`, `repositories_count`, `repositories`, `first_plip`, `last_plip`.
 
-`cmfplone-releases.csv`
-:   Written by `fetch_cmfplone_releases.py`.
-    One row per release of `Products.CMFPlone`.
-    Columns: `release`, `date`.
 
 ## Curated data
 
@@ -130,6 +126,3 @@ Several people or organisations in one cell are separated by semicolons.
 
 `reports/community-recognition.md`
 :   Written by `generate_community_recognition_report.py`.
-
-`reports/plips.md`
-:   Its generator `generate_plip_report.py` is not in the repository.
