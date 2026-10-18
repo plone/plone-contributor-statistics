@@ -34,11 +34,6 @@ See {doc}`/explanation/counting-rules` for why the files count the way they do.
     Columns: `repo`, `pr_number`, `title`, `author`, `created_at`, `merged_at`, `state`, `merged`, `issue_comments_count`, `review_comments_count`, `reviews_count`, `total_comments`, `participants_count`, `reviewers_count`, `commenters_count`, `approved_reviews`, `changes_requested_reviews`, `comment_reviews`, `reactions_total`, `first_response_time`.
     `first_response_time` is in hours.
 
-`collected/volto/YYYY-volto-stats.csv`
-:   Written by `scripts/collect/volto_stats.py`.
-    One row per contributor of `plone/volto` with at least one pull request or commit in the year.
-    Columns: `github_username`, `pull_requests`, `commits`.
-
 `collected/plips/plone-plips.csv`
 :   Written by `scripts/collect/plone_plips.py`.
     One row per PLIP author, over all years.
@@ -129,10 +124,6 @@ Several people or organisations in one cell are separated by semicolons.
 :   Written by `scripts/collect/plone_pr_interactions.py`.
     Pull request engagement of the year: totals, response times, the most active participants and reviewers, and a breakdown per repository.
     The collector writes it, not a report script, because the report ranks participants and reviewers by name, and the CSV file holds only counts per pull request.
-
-`reports/volto.md`
-:   Written by `scripts/report/generate_volto_team_report.py`.
-    Volto contributors and their organisations per year.
 
 `reports/community-recognition.md`
 :   Written by `scripts/report/generate_community_recognition_report.py`.

@@ -26,7 +26,6 @@ You don't need a GitHub token, because nothing is collected from GitHub again.
     make five-year-summary
     make ten-year-summary
     make generate-report
-    make generate-volto-report
     make yearly-activity
     ```
 

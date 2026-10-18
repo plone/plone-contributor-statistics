@@ -14,7 +14,7 @@ Running a file directly (`python scripts/collect/plone_contributors.py`) fails w
 
 | Folder | Holds |
 |---|---|
-| `collect/` | Collectors: fetch commits, pull requests, pull request interactions, Volto statistics and PLIPs from GitHub; they need a GitHub token. |
+| `collect/` | Collectors: fetch commits, pull requests, pull request interactions and PLIPs from GitHub; they need a GitHub token. |
 | `derive/` | Compute organisation statistics, summaries, yearly totals and PLIPs per organisation from the collected data and the mapping files. |
 | `report/` | Write the human-facing reports and graphs. |
 | `tools/` | Helpers for maintainers, for example to look up a GitHub user's name or list unmapped contributors. |

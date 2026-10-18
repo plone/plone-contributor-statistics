@@ -49,7 +49,6 @@ def test_year_runs_the_pipeline_in_order():
     assert steps == [
         'scripts.collect.plone_contributors',
         'scripts.collect.plone_pr_interactions',
-        'scripts.collect.volto_stats',
         'scripts.collect.plone_plips',
         'scripts.derive.organisation_stats',
         'scripts.derive.plip_organisation_stats',
@@ -59,7 +58,6 @@ def test_year_runs_the_pipeline_in_order():
         'scripts.derive.yearly_activity_analysis',
         'scripts.report.generate_yearly_graphs',
         'scripts.report.generate_contributor_report',
-        'scripts.report.generate_volto_team_report',
         'scripts.report.generate_community_recognition_report',
     ]
     assert 'python -m scripts.collect.plone_contributors --year 2024' in result.stdout
