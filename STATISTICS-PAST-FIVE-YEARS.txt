@@ -1,8 +1,8 @@
 # Five-Year Summary Results (2020-2024)
 
-- 68 total organisations tracked across the past 5 years
+- 76 total organisations tracked across the past 5 years
 - 40,492 total commits and 9,498 pull requests
-- 344 unique contributors across all organisations
+- 351 unique contributors across all organisations
 - File generated: summary-past-five-years-2020-2024.csv
 
 ## Top 10 contributors by pull requests (2020-2024)
@@ -33,30 +33,30 @@
 
 ## Top 10 organisations by pull requests (2020-2024)
 
-1. kitconcept GmbH: 2,528 PRs
+1. kitconcept GmbH: 2,440 PRs
 2. Zest Software: 764 PRs
 3. Steve Piercy - Website Builder: 663 PRs
 4. Kombinat: 537 PRs
-5. Eau de Web: 475 PRs
-6. Nuclia: 463 PRs
-7. der Freitag: 433 PRs
-8. RedTurtle: 388 PRs
-9. Syslab: 353 PRs
+5. Eau de Web: 439 PRs
+6. der Freitag: 433 PRs
+7. Syslab: 353 PRs
+8. RedTurtle: 318 PRs
+9. Nuclia: 294 PRs
 10. Klein & Partner KG: 290 PRs
 
-Not mapped to an organisation: 677 PRs
+Not mapped to an organisation: 879 PRs
 
 ## Top 10 organisations by commits (2020-2024)
 
-1. kitconcept GmbH: 11,528 commits
+1. kitconcept GmbH: 11,037 commits
 2. Zest Software: 6,570 commits
 3. Steve Piercy - Website Builder: 2,533 commits
 4. der Freitag: 2,407 commits
 5. Kombinat: 2,017 commits
 6. Syslab: 1,344 commits
-7. Eau de Web: 1,333 commits
-8. Klein & Partner KG: 1,323 commits
+7. Klein & Partner KG: 1,323 commits
+8. Eau de Web: 1,232 commits
 9. PY76: 1,193 commits
 10. Rohberg: 1,149 commits
 
-Not mapped to an organisation: 1,766 commits
+Not mapped to an organisation: 2,192 commits

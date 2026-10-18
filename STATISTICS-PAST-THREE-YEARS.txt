@@ -1,8 +1,8 @@
 # Three-Year Summary Results (2022-2024)
 
-- 57 total organisations tracked across 3 years
+- 59 total organisations tracked across 3 years
 - 26,159 total commits and 6,180 pull requests
-- 258 unique contributors across all organisations
+- 259 unique contributors across all organisations
 - File generated: summary-past-three-years-2022-2024.csv
 
 ## Top 10 contributors by pull requests (2022-2024)
@@ -33,22 +33,22 @@
 
 ## Top 10 organisations by pull requests (2022-2024)
 
-1. kitconcept GmbH: 1,787 PRs
+1. kitconcept GmbH: 1,720 PRs
 2. Steve Piercy - Website Builder: 648 PRs
 3. Kombinat: 461 PRs
 4. Zest Software: 432 PRs
 5. der Freitag: 425 PRs
-6. RedTurtle: 201 PRs
-7. Eau de Web: 201 PRs
-8. Syslab: 192 PRs
-9. Klein & Partner KG: 182 PRs
-10. Codesyntax: 177 PRs
+6. Syslab: 192 PRs
+7. Klein & Partner KG: 182 PRs
+8. Codesyntax: 177 PRs
+9. RedTurtle: 167 PRs
+10. Eau de Web: 165 PRs
 
-Not mapped to an organisation: 349 PRs
+Not mapped to an organisation: 437 PRs
 
 ## Top 10 organisations by commits (2022-2024)
 
-1. kitconcept GmbH: 6,948 commits
+1. kitconcept GmbH: 6,570 commits
 2. Zest Software: 3,881 commits
 3. Steve Piercy - Website Builder: 2,377 commits
 4. der Freitag: 2,371 commits
@@ -59,4 +59,4 @@ Not mapped to an organisation: 349 PRs
 9. Syslab: 695 commits
 10. Derico: 672 commits
 
-Not mapped to an organisation: 1,152 commits
+Not mapped to an organisation: 1,349 commits
