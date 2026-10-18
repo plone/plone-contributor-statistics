@@ -70,7 +70,7 @@ Several people or organisations in one cell are separated by semicolons.
 
 `data/community-contributions/YYYY-release-managers.csv`
 :   One row per release manager.
-    Columns: `Name`, `Github`, `Organisation`, and `Source` from 2020 to 2024.
+    Columns: `Name`, `Github`, `Organisation`, `Source`.
 
 `data/community-contributions/YYYY-team-leaders.csv`
 :   One row per team leader and team.
