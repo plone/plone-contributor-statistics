@@ -10,7 +10,7 @@ Targets of archived scripts were removed; `archive/README.md` lists the scripts.
 ## Variables
 
 Some targets take a year from a variable.
-The defaults are in `scripts/lib/years.py`, and they match the years of the committed files.
+The defaults are in `scripts/lib/years.py`: the last completed year.
 Set a variable on the command line to use another year, for example `make five-year-summary SUMMARY_END=2025`.
 
 | Variable | Used by |

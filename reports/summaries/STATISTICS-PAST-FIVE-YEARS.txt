@@ -1,62 +1,62 @@
-# Five-Year Summary Results (2020-2024)
+# Five-Year Summary Results (2021-2025)
 
-- 79 total organisations tracked across the past 5 years
-- 40,492 total commits and 9,498 pull requests
-- 356 unique contributors across all organisations
-- File generated: summary-past-five-years-2020-2024.csv
+- 77 total organisations tracked across the past 5 years
+- 40,994 total commits and 9,917 pull requests
+- 342 unique contributors across all organisations
+- File generated: derived/summaries/summary-past-five-years-2021-2025.csv
 
-## Top 10 contributors by pull requests (2020-2024)
+## Top 10 contributors by pull requests (2021-2025)
 
-1. sneridagh - 1,419 PRs
-2. mauritsvanrees - 854 PRs
-3. stevepiercy - 663 PRs
-4. petschki - 537 PRs
-5. gforcada - 433 PRs
-6. mpellerin42 - 301 PRs
-7. jensens - 283 PRs
-8. davisagli - 271 PRs
-9. ericof - 233 PRs
-10. ksuess - 216 PRs
+1. sneridagh - 1,563 PRs
+2. mauritsvanrees - 891 PRs
+3. stevepiercy - 846 PRs
+4. gforcada - 701 PRs
+5. petschki - 653 PRs
+6. davisagli - 381 PRs
+7. ericof - 299 PRs
+8. erral - 241 PRs
+9. jensens - 240 PRs
+10. wesleybl - 236 PRs
 
-## Top 10 contributors by commits (2020-2024)
+## Top 10 contributors by commits (2021-2025)
 
-1. mauritsvanrees - 7,289 commits
-2. sneridagh - 6,086 commits
-3. stevepiercy - 2,533 commits
-4. gforcada - 2,407 commits
-5. petschki - 2,017 commits
-6. ericof - 1,599 commits
-7. tisto - 1,562 commits
-8. jensens - 1,306 commits
-9. ksuess - 1,149 commits
-10. thet - 1,092 commits
+1. mauritsvanrees - 7,408 commits
+2. sneridagh - 5,657 commits
+3. gforcada - 3,611 commits
+4. stevepiercy - 3,081 commits
+5. petschki - 2,544 commits
+6. ericof - 1,750 commits
+7. jensens - 1,180 commits
+8. MrTango - 1,110 commits
+9. thet - 1,036 commits
+10. ksuess - 1,010 commits
 
-## Top 10 organisations by pull requests (2020-2024)
+## Top 10 organisations by pull requests (2021-2025)
 
-1. kitconcept GmbH: 2,444 PRs
-2. Zest Software: 764 PRs
-3. Steve Piercy - Website Builder: 663 PRs
-4. Kombinat: 537 PRs
-5. Eau de Web: 484 PRs
-6. der Freitag: 433 PRs
-7. Syslab: 353 PRs
-8. RedTurtle: 318 PRs
-9. Nuclia: 294 PRs
-10. Klein & Partner KG: 290 PRs
+1. kitconcept GmbH: 2,670 PRs
+2. Steve Piercy - Website Builder: 846 PRs
+3. der Freitag: 706 PRs
+4. Kombinat: 653 PRs
+5. Zest Software: 575 PRs
+6. Eau de Web: 387 PRs
+7. Syslab: 365 PRs
+8. PY76: 359 PRs
+9. RedTurtle: 311 PRs
+10. Codesyntax: 289 PRs
 
-Not mapped to an organisation: 823 PRs
+Not mapped to an organisation: 666 PRs
 
-## Top 10 organisations by commits (2020-2024)
+## Top 10 organisations by commits (2021-2025)
 
-1. kitconcept GmbH: 11,050 commits
-2. Zest Software: 6,570 commits
-3. Steve Piercy - Website Builder: 2,533 commits
-4. der Freitag: 2,407 commits
-5. Kombinat: 2,017 commits
-6. Eau de Web: 1,350 commits
-7. Syslab: 1,344 commits
-8. Klein & Partner KG: 1,323 commits
-9. PY76: 1,193 commits
-10. Rohberg: 1,149 commits
+1. kitconcept GmbH: 10,750 commits
+2. Zest Software: 4,947 commits
+3. der Freitag: 3,621 commits
+4. Steve Piercy - Website Builder: 3,081 commits
+5. PY76: 2,926 commits
+6. Kombinat: 2,544 commits
+7. Syslab: 1,279 commits
+8. Klein & Partner KG: 1,197 commits
+9. Derico: 1,110 commits
+10. Rohberg: 1,010 commits
 
-Not mapped to an organisation: 1,990 commits
+Not mapped to an organisation: 1,832 commits
