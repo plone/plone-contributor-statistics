@@ -23,8 +23,9 @@ from dotenv import load_dotenv
 from scripts.lib import paths
 from scripts.lib.github_api import GitHubAPIError, github_get
 
-# The repositories where PLIPs are created. Aurora, the new UI after Volto, started
-# as an idea in Volto; its first PLIPs were transferred there from Volto.
+# The repositories where a PLIP can live. Aurora, the new UI after Volto, started
+# as an idea in Volto; its first PLIPs were transferred there from Volto. Other
+# repositories use the PLIP label for issues related to a PLIP, which are not PLIPs.
 REPOSITORIES = [
     ('plone', 'Products.CMFPlone'),
     ('plone', 'volto'),
