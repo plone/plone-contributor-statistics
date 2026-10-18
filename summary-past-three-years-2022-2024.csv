@@ -30,30 +30,30 @@ Interaktiv,20,8,3,"Thokas, jmevissen, mliebischer",7,"Products.CMFPlone, cookiec
 Plone Venezuela,35,7,1,macagua,5,"aurora, form-block, plone.app.debugtoolbar, plone.restapi, volto","2022, 2023, 2024",2022-10-14,2024-02-23
 Abstract IT,16,7,2,"gianniftp, szakitibi",6,"Products.CMFPlone, aurora, plone.app.contentmenu, plone.app.multilingual, plone.app.registry, volto","2023, 2024",2023-10-06,2024-09-29
 CCC,45,6,1,polyester,8,"Plone, ai-team-private, documentation, foundation, papyrus, plone-sphinx-theme, sphinxtheme.plone, training","2022, 2023, 2024",2022-01-15,2024-11-26
-University of Jyväskylä,22,5,2,"datakurre, rioksane",3,"Products.CMFPlone, buildout.coredev, plone.app.robotframework","2022, 2023",2022-02-18,2023-07-02
 TU Dresden,10,5,1,pgrunewald,5,"aurora, buildout.coredev, plone.app.linkintegrity, plone.staticresources, volto","2022, 2023, 2024",2023-05-16,2024-05-14
+University of Jyväskylä,22,5,2,"datakurre, rioksane",3,"Products.CMFPlone, buildout.coredev, plone.app.robotframework","2022, 2023",2022-02-18,2023-07-02
 Salesforce,77,4,1,esteele,20,"Products.CMFEditions, Products.CMFPlacefulWorkflow, Products.PlonePAS, aurora, buildout.coredev, documentation, plone.api, plone.app.contentmenu, plone.app.dexterity, plone.app.multilingual, plone.app.portlets, plone.app.querystring, plone.app.versioningbehavior, plone.app.workflow, plone.base, plone.dexterity, plone.restapi, plone.schemaeditor, plone.session, volto",2022,2022-07-21,2022-12-02
-operun,6,4,1,santonelli,4,"bobtemplates.plone, plone.app.viewletmanager, plonecli, training",2022,2022-09-01,2022-10-09
 Zopyx,4,4,1,zopyx,4,"plone.api, plone.app.content, plone.restapi, training","2022, 2023",2022-04-30,2023-10-24
+operun,6,4,1,santonelli,4,"bobtemplates.plone, plone.app.viewletmanager, plonecli, training",2022,2022-09-01,2022-10-09
 FHNW,7,4,2,"rristow, tomschall",3,"Products.CMFEditions, aurora, volto","2022, 2024",2018-04-25,2024-07-26
-Ludwig Maximilian University Munich,5,3,1,loechel,2,"meta, training","2022, 2023",2022-10-10,2023-10-09
 Interlegis Program (Senado Federal),13,3,2,"fabiorauber, jhgouveia",3,"aurora, helm-charts, volto","2023, 2024",2023-06-28,2023-11-30
 IMS Inc.,7,3,1,ewohnlich,2,"Products.CMFPlone, plone.locking","2023, 2024",2023-04-11,2024-03-05
+Ludwig Maximilian University Munich,5,3,1,loechel,2,"meta, training","2022, 2023",2022-10-10,2023-10-09
 minddistrict,66,3,2,"icemac, janjaapdriessen",3,"meta, plone.protect, plone.recipe.codeanalysis","2022, 2023",2022-01-11,2023-08-28
 KU Leuven,4,3,2,"Sakoes, spereverde",4,"aurora, plone.app.iterate, plone.recipe.zope2instance, volto","2022, 2024",2022-10-12,2024-09-05
-University of Koblenz,8,3,1,mbarde,2,"blocks-conversion-tool, form-block","2022, 2023, 2024",2022-04-20,2024-09-12
 webcloud7 ag,4,3,1,maethu,2,"container-zeo, plone.namedfile",2023,2023-04-26,2023-09-11
-Malthe Borch (independent),3,2,1,malthe,1,Products.CMFPlone,2023,2023-03-28,2023-03-29
-Nelen-Schuurmans,8,2,1,reinout,1,meta,2024,2024-02-03,2024-02-06
-Werkbank GmbH,2,2,1,woolyseal,1,plone.app.portlets,2023,2023-01-09,2023-01-09
-Cosent,4,2,1,gyst,2,"plone.app.event, plone.recipe.zope2instance",2024,2024-04-19,2024-05-07
-IT Sprit,3,2,1,thomasmassmann,1,plone.app.layout,2022,2022-01-07,2022-01-07
+University of Koblenz,8,3,1,mbarde,2,"blocks-conversion-tool, form-block","2022, 2023, 2024",2022-04-20,2024-09-12
 WebTide,5,2,1,mikejmets,3,"aurora, documentation, volto",2023,2023-08-17,2023-11-23
+Nelen-Schuurmans,8,2,1,reinout,1,meta,2024,2024-02-03,2024-02-06
+it-spirit,3,2,1,thomasmassmann,1,plone.app.layout,2022,2022-01-07,2022-01-07
+Cosent,4,2,1,gyst,2,"plone.app.event, plone.recipe.zope2instance",2024,2024-04-19,2024-05-07
+Malthe Borch (independent),3,2,1,malthe,1,Products.CMFPlone,2023,2023-03-28,2023-03-29
+Werkbank GmbH,2,2,1,woolyseal,1,plone.app.portlets,2023,2023-01-09,2023-01-09
 BlueDynamics KG,3,1,1,zworkb,4,"plone.app.blocks, plone.app.contenttypes, plone.app.dexterity, plone.app.event",2022,2022-03-21,2022-03-25
 Wildcard Corp,6,1,1,vangheem,1,guillotina_s3storage,2022,2022-03-08,2022-05-21
 Jarn,0,1,1,witsch,1,plone.portlet.collection,2023,,
 CMS Communications Inc.,2,1,1,terapyon,2,"aurora, volto",2022,2022-11-10,2022-11-10
-infoCatch,2,1,1,mtrebron,1,plone.app.z3cform,2022,2022-08-14,2022-08-14
 cloud19,0,1,1,faro76,1,documentation,2022,,
+infoCatch,2,1,1,mtrebron,1,plone.app.z3cform,2022,2022-08-14,2022-08-14
 Makina Corpus,2,0,1,Gagaro,1,plone.restapi-angular,2022,2022-03-02,2022-03-02
 Jens Vagelpohl (independent),21,0,1,dataflake,1,meta,2022,2022-02-09,2022-12-28

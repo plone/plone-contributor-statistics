@@ -141,3 +141,21 @@ def read_csv(name):
     with open(ROOT / name, newline='', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         return reader.fieldnames, list(reader)
+
+
+def test_organisation_sources_format():
+    # Public records for the current organisation of each login in organisations.csv (#86)
+    _, organisations = read_csv('organisations.csv')
+    current = {login.strip(): row['Organisation'] for row in organisations
+               for login in row['Team'].split(';') if login.strip()}
+    fields, sources = read_csv('organisation_mapping_sources.csv')
+    assert fields == ['github_username', 'organisation', 'source', 'checked']
+
+    seen = set()
+    for row in sources:
+        login = row['github_username']
+        assert login not in seen, f'{login} is listed twice'
+        seen.add(login)
+        assert current.get(login) == row['organisation'], f'{login} is not listed under {row["organisation"]}'
+        assert re.search(r'https?://', row['source']), f'{login} needs a link to a public record'
+        assert re.fullmatch(r'\d{4}-\d{2}-\d{2}', row['checked']), row

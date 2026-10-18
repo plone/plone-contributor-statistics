@@ -32,7 +32,7 @@ operun,11,8,1,santonelli,5,"Products.CMFPlone, buildout.coredev, plone.app.themi
 Enfold,9,7,1,frapell,6,"Products.CMFPlone, mockup, plone.app.iterate, plone.app.upgrade, plone.patternslib, plone.staticresources",2020-01-02,2020-09-25
 Makina Corpus,9,0,2,"Gagaro, tdesvenain",2,"mockup, plone.restapi-angular",2019-02-05,2020-06-23
 Serpro,8,10,1,wesleybl,3,"bobtemplates.plone, buildout.coredev, plone.restapi",2020-10-31,2020-12-30
-IT Sprit,8,3,1,thomasmassmann,4,"Products.CMFPlone, Products.PortalTransforms, plone.app.upgrade, training.plone.org",2020-04-08,2020-05-25
+it-spirit,8,3,1,thomasmassmann,4,"Products.CMFPlone, Products.PortalTransforms, plone.app.upgrade, training.plone.org",2020-04-08,2020-05-25
 Radio Free Asia,7,2,1,flipmcf,3,"mockup, plone.app.vocabularies, plone.outputfilters",2020-08-13,2020-11-04
 Jarn,7,1,2,"fschulze, witsch",2,"archetypes.querywidget, plone.scale",2017-09-19,2020-09-04
 CCC,5,1,1,polyester,3,"foundation, papyrus, sphinxtheme.plone",2020-02-24,2020-07-01

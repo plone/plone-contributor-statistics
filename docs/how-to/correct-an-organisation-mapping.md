@@ -17,7 +17,8 @@ If the contributor worked for another organisation in past years, add an overrid
 2.  Remove the login from the `Team` cell of the organisation it is listed under, if any.
 3.  Add the login to the `Team` cell of the right organisation, separated from the other logins by a semicolon.
 4.  If the organisation is new, add a row for it, and keep the file sorted alphabetically by organisation.
-5.  If the contributor works on Plone privately or as a volunteer, use an organisation named after the person, such as `Jane Doe (independent)`.
+5.  Add or update the contributor's row in `organisation_mapping_sources.csv`, with a link to the public record and the date you checked it.
+6.  If the contributor works on Plone privately or as a volunteer, use an organisation named after the person, such as `Jane Doe (independent)`.
 
 ## Add a past organisation
 
