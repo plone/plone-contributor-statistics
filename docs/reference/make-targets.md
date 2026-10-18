@@ -17,7 +17,7 @@ Set a variable on the command line to use another year, for example `make five-y
 |---|---|
 | `SUMMARY_END` | The last year of `three-year-summary`, `five-year-summary` and `ten-year-summary`. |
 | `RECOGNITION_YEAR` | The year of `community-recognition`. |
-| `YEAR` | The year of `year`, `run-stats`, `pr-interactions`, `run-volto-stats` and `run-organisation-stats-year`; defaults to the last completed year. |
+| `YEAR` | The year of `year`, `run-stats`, `pr-interactions` and `run-organisation-stats-year`; defaults to the last completed year. |
 
 ## Setup and maintenance
 
@@ -48,7 +48,6 @@ Set a variable on the command line to use another year, for example `make five-y
 | `make run-stats-custom` | Prints how to collect a custom date range. | works |
 | `make pr-interactions-all-years` | Collects pull request interactions from 2010 to the current year in one run. | works |
 | `make pr-interactions` | Collects pull request interactions of `YEAR`. | works |
-| `make run-volto-stats` | Collects Volto contributor statistics of `YEAR`. | works |
 | `make run-plips` | Collects all PLIPs. | works |
 
 ## Aggregation and reports
@@ -61,7 +60,6 @@ Set a variable on the command line to use another year, for example `make five-y
 | `make five-year-summary` | Writes the summary of the five years up to `SUMMARY_END`. | works |
 | `make ten-year-summary` | Writes the summary of the ten years up to `SUMMARY_END`. | works |
 | `make generate-report` | Writes `reports/github-contributor-report.md`. | works |
-| `make generate-volto-report` | Writes `reports/volto.md`. | works |
 | `make community-recognition` | Writes the community recognition report of `RECOGNITION_YEAR`. | works |
 | `make yearly-activity` | Writes `derived/yearly-activity-statistics.csv`. | works |
 | `make yearly-graphs` | Runs `yearly-activity` and draws the graphs in `reports/graphs/`. | works |

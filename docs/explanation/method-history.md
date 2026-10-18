@@ -91,9 +91,10 @@ Tooling:
 - The repository was reorganised by role: code in `scripts/`, curated input in `curated/`, collected data in `collected/`, derived data in `derived/` and reports in `reports/`.
   Dead and experimental scripts moved to `archive/`, and a missing input file now stops a run instead of being skipped ([#101](https://github.com/plone/plone-contributor-statistics/pull/101), [#105](https://github.com/plone/plone-contributor-statistics/pull/105), [#106](https://github.com/plone/plone-contributor-statistics/pull/106)).
   The method and the numbers didn't change.
+- The separate Volto statistics and report moved to `archive/volto-statistics/`: Volto is counted with all other repositories, and views per project are an open question ([#108](https://github.com/plone/plone-contributor-statistics/issues/108)).
 
 ## Which files are comparable
 
 All contributor files from 2003 to 2025 and all interaction files from 2010 to 2025 were collected with the method of October 2026.
-The Volto files and the recognition report are older, as {doc}`known-limitations` describes.
+The recognition report is older, as {doc}`known-limitations` describes.
 Files in `archive/` describe earlier states of the method and data.

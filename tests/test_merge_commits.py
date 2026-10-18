@@ -3,7 +3,6 @@
 from datetime import datetime
 
 from scripts.collect import plone_contributors
-from scripts.collect import volto_stats
 from scripts.lib.github_api import is_merge_commit
 
 
@@ -70,10 +69,3 @@ def test_only_merge_commits_count_as_no_commits(monkeypatch):
     extractor.process_commits('Products.CMFPlone', [commit('2015-01-10', parents=2)])
 
     assert 'alice' not in extractor.contributors_data['2015-plone-contributors']
-
-
-def test_volto_skips_merge_commits(monkeypatch):
-    monkeypatch.setattr(volto_stats.time, 'sleep', lambda seconds: None)
-    session = FakeSession(FakeResponse([commit('2024-01-10', parents=2), commit('2024-02-01')]))
-
-    assert volto_stats.get_commits(session, 'alice', '2024-01-01', '2024-12-31') == 1

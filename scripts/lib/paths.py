@@ -23,7 +23,6 @@ RECOGNITION_LEVELS = COMMUNITY / 'community-recognition-levels.csv'
 # Collected by the collectors; never edit by hand
 CONTRIBUTORS_DIR = Path('collected/contributors')
 PR_INTERACTIONS_DIR = Path('collected/pr-interactions')
-VOLTO_DIR = Path('collected/volto')
 PLIPS = Path('collected/plips/plone-plips.csv')
 PLIPS_DETAILED = Path('collected/plips/plone-plips-detailed.csv')
 
@@ -38,7 +37,6 @@ RECOGNITION_REPORT_DIR = Path('derived/community-recognition')
 REPORTS_DIR = Path('reports')
 PR_INTERACTION_REPORTS_DIR = Path('reports/pr-interactions')
 CONTRIBUTOR_REPORT = Path('reports/github-contributor-report.md')
-VOLTO_REPORT = Path('reports/volto.md')
 RECOGNITION_REPORT = Path('reports/community-recognition.md')
 SUMMARY_REPORTS_DIR = Path('reports/summaries')
 GRAPHS_DIR = Path('reports/graphs')
@@ -61,9 +59,6 @@ def pr_interactions_file(label):
 def pr_interactions_report(year):
     return PR_INTERACTION_REPORTS_DIR / f'github-pr-interactions-report-{year}.md'
 
-
-def volto_file(label):
-    return VOLTO_DIR / f'{label}-volto-stats.csv'
 
 
 def organisation_contributors_file(label):

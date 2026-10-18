@@ -5,7 +5,6 @@ from datetime import datetime
 import pytest
 
 from scripts.collect import plone_contributors
-from scripts.collect import volto_stats
 
 
 class FakeResponse:
@@ -90,16 +89,3 @@ def test_unmerged_and_backport_prs(extractor):
 
     # Backports to maintenance branches are work too and count as PRs.
     assert [p['number'] for p in prs] == [2]
-
-
-def test_volto_counts_prs_by_merge_date():
-    queries = []
-
-    class SearchSession:
-        def get(self, url, params=None, timeout=None):
-            queries.append(params['q'])
-            return FakeResponse({'total_count': 4})
-
-    assert volto_stats.get_pull_requests(SearchSession(), 'alice', '2024-01-01', '2024-12-31') == 4
-    assert 'merged:2024-01-01..2024-12-31' in queries[0]
-    assert 'created:' not in queries[0]

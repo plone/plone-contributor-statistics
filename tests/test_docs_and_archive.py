@@ -40,6 +40,9 @@ BUNDLES = {
                  'data/plone-individual-contributors-flourish.csv',
                  'data/plone-organizations-bar-chart-race-flourish.csv'],
     'orphan-outputs': ['reports/plips.md', 'graphs/commits_prs_trend.png'],
+    'volto-statistics': ['scripts/collect/volto_stats.py', 'scripts/report/generate_volto_team_report.py',
+                         'reports/volto.md', 'tests/test_volto_stats_api_errors.py']
+                        + [f'collected/volto/{year}-volto-stats.csv' for year in range(2016, 2026)],
 }
 BUNDLED = [(bundle, original) for bundle, originals in BUNDLES.items() for original in originals]
 
@@ -60,9 +63,10 @@ def test_bundle_listed_in_archive_readme(bundle):
     assert f'| `{bundle}/` |' in (ARCHIVE / 'README.md').read_text()
 
 
-@pytest.mark.parametrize('bundle, original', [(b, o) for b, o in BUNDLED if not o.startswith('npm-packages-')])
+@pytest.mark.parametrize('bundle, original', [(b, o) for b, o in BUNDLED
+                                             if not o.startswith(('npm-packages-', 'collected/volto/'))])
 def test_bundle_row_names_original_path(bundle, original):
-    # The npm-packages-* files are named by their pattern
+    # The npm-packages-* and yearly Volto files are named by their pattern
     row = next(line for line in (ARCHIVE / 'README.md').read_text().splitlines() if line.startswith(f'| `{bundle}/` |'))
     assert f'`{original}`' in row
 

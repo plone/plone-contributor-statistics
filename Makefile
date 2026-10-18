@@ -11,10 +11,10 @@ summary_years = $(shell seq $$(($(SUMMARY_END) - $(1) + 1)) $(SUMMARY_END))
 
 .PHONY: help install setup dev-setup year \
 	run-stats run-stats-all-years run-stats-custom pr-interactions pr-interactions-all-years \
-	run-volto-stats run-plips \
+	run-plips \
 	run-organisation-stats run-organisation-stats-year run-plip-organisations \
 	three-year-summary five-year-summary ten-year-summary yearly-activity \
-	yearly-graphs generate-report generate-volto-report community-recognition \
+	yearly-graphs generate-report community-recognition \
 	analyze-independent clean lint format check test status \
 	docs-install docs docs-linkcheck docs-clean
 
@@ -35,7 +35,6 @@ help:
 	@echo "  run-stats-custom  Print how to collect a custom date range"
 	@echo "  pr-interactions   Pull request interactions of YEAR"
 	@echo "  pr-interactions-all-years Pull request interactions, 2010 to now, in one run"
-	@echo "  run-volto-stats   Volto contributor statistics of YEAR"
 	@echo "  run-plips         All PLIPs"
 	@echo ""
 	@echo "Derive:"
@@ -50,7 +49,6 @@ help:
 	@echo "Report:"
 	@echo "  yearly-graphs     Graphs of the yearly totals (runs yearly-activity)"
 	@echo "  generate-report   Contributor and organisation report"
-	@echo "  generate-volto-report Volto report"
 	@echo "  community-recognition Community recognition report of RECOGNITION_YEAR ($(RECOGNITION_YEAR))"
 	@echo ""
 	@echo "Tools:"
@@ -95,14 +93,12 @@ dev-setup: setup
 year:
 	$(MAKE) run-stats YEAR=$(YEAR)
 	$(MAKE) pr-interactions YEAR=$(YEAR)
-	$(MAKE) run-volto-stats YEAR=$(YEAR)
 	$(MAKE) run-plips
 	$(MAKE) run-organisation-stats-year YEAR=$(YEAR)
 	$(MAKE) run-plip-organisations
 	$(MAKE) three-year-summary five-year-summary ten-year-summary SUMMARY_END=$(YEAR)
 	$(MAKE) yearly-graphs
 	$(MAKE) generate-report
-	$(MAKE) generate-volto-report
 	$(MAKE) community-recognition RECOGNITION_YEAR=$(YEAR)
 
 # Collect
@@ -125,9 +121,6 @@ pr-interactions:
 
 pr-interactions-all-years:
 	python -m scripts.collect.plone_pr_interactions --from-year 2010 --to-year $$(date +%Y)
-
-run-volto-stats:
-	python -m scripts.collect.volto_stats --year $(YEAR)
 
 run-plips:
 	python -m scripts.collect.plone_plips
@@ -170,9 +163,6 @@ yearly-graphs: yearly-activity
 
 generate-report:
 	python -m scripts.report.generate_contributor_report
-
-generate-volto-report:
-	python -m scripts.report.generate_volto_team_report
 
 community-recognition:
 	python -m scripts.report.generate_community_recognition_report --year $(RECOGNITION_YEAR)

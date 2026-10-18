@@ -56,10 +56,6 @@ Login lookup is case-sensitive
 
 ## Parts with a different method
 
-Volto statistics
-:   `scripts/collect/volto_stats.py` uses another method than the core collector: the contributor list of the API, which stops after 500 people, a search request per person, and the branch `main`.
-    Its data and `reports/volto.md` were last generated before the fixes for merge dates and merge commits, and before the split of Unmapped and independent contributors ([#80](https://github.com/plone/plone-contributor-statistics/issues/80)).
-
 PLIPs
 :   PLIPs are read from three repositories only.
     A closed PLIP stands in for a merged and released one, although most PLIPs are closed as completed ([#14](https://github.com/plone/plone-contributor-statistics/issues/14)).

@@ -16,10 +16,10 @@ You need a GitHub personal access token, see {doc}`collect-data-again` for how t
     Without `YEAR`, the target uses the last completed year.
     It runs the steps in pipeline order:
 
-    -   collect commits, merged pull requests, pull request interactions, Volto statistics and PLIPs;
+    -   collect commits, merged pull requests, pull request interactions and PLIPs;
     -   write the organisation statistics of the year and the PLIPs per organisation;
     -   write the three-, five- and ten-year summaries that end with the year, and the yearly totals and graphs;
-    -   write the contributor report, the Volto report and the community recognition report of the year.
+    -   write the contributor report and the community recognition report of the year.
 
     Most steps stop with an error if a file they need is missing.
     To repeat a single step, run its target, listed in {doc}`/reference/make-targets`.
