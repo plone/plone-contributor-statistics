@@ -1,6 +1,6 @@
 # Plone Core Contributor Statistics Report
 
-Generated on: 2026-10-18 18:10:54
+Generated on: 2026-10-18 19:09:28
 
 This report shows the top contributors and organizations in the Plone ecosystem across different time periods.
 
