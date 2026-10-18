@@ -51,7 +51,7 @@ Login lookup is case-sensitive
 
 Volto statistics
 :   `volto_stats.py` uses another method than the core collector: the contributor list of the API, which stops after 500 people, a search request per person, and the branch `main`.
-    Its data and `reports/volto.md` were last generated before the fixes for merge dates and merge commits, and before the split of Unmapped and independent contributors.
+    Its data and `reports/volto.md` were last generated before the fixes for merge dates and merge commits, and before the split of Unmapped and independent contributors ([#80](https://github.com/plone/plone-contributor-statistics/issues/80)).
 
 PLIPs
 :   PLIPs are read from three repositories only.
