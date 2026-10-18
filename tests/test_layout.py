@@ -59,6 +59,7 @@ def test_year_runs_the_pipeline_in_order():
         'scripts.report.generate_yearly_graphs',
         'scripts.report.generate_contributor_report',
         'scripts.report.generate_community_recognition_report',
+        'scripts.derive.community_page',
     ]
     assert 'python -m scripts.collect.plone_contributors --year 2024' in result.stdout
     assert 'python -m scripts.derive.multi_year_summary --years 2020 2021 2022 2023 2024' in result.stdout

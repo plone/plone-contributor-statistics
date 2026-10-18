@@ -23,6 +23,7 @@ pr-interactions
 attribution
 curated-community-data
 community-recognition
+community-page
 known-limitations
 method-history
 ```

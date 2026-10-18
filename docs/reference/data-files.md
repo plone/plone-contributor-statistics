@@ -104,6 +104,11 @@ Several people or organisations in one cell are separated by semicolons.
     One row per organisation, plus one row `Unmapped`.
     Columns: `organisation`, `total_commits`, `total_pull_requests`, `contributors_count`, `contributors`, `repositories_count`, `repositories`, `first_contribution`, `last_contribution`.
 
+`derived/community-page.json`
+:   Written by `scripts/derive/community_page.py`.
+    Every number and list the community page shows: the headline numbers, the recognition levels and the organisations on the wall with their points and contributions, the yearly counts per person (by login or name, sorted, without ranks), and the history per year.
+    {doc}`/explanation/community-page` explains the definitions.
+
 `derived/summaries/summary-past-*-years-*.csv`
 :   Written by `scripts/derive/multi_year_summary.py`.
     One row per organisation over the years in the file name.
