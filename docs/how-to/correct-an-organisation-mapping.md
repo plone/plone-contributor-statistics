@@ -24,11 +24,12 @@ If the contributor worked for another organisation in past years, add an overrid
 Add one row to `organisation_mapping_overrides.csv`:
 
 ```text
-github_username,organisation,from_year,to_year
-janedoe,Example Company,2015,2019
+github_username,organisation,from_year,to_year,source
+janedoe,Example Company,2015,2019,https://example.com/team (archived 2017)
 ```
 
 Leave `to_year` empty if the override applies up to the present.
+In `source`, say how you know, as in the pull request description.
 Spell the organisation exactly as in `organisations.csv`.
 
 ## Check and send the correction

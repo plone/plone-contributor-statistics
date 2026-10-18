@@ -32,7 +32,7 @@ Rules
 Past organisations of GitHub accounts, for the years in which they differ from `organisations.csv`.
 
 Columns
-:   `github_username`, `organisation`, `from_year`, `to_year`.
+:   `github_username`, `organisation`, `from_year`, `to_year`, `source`.
 
 `from_year`
 :   The first year the override applies to.
@@ -41,9 +41,13 @@ Columns
 :   The last year the override applies to.
     Empty means up to the present.
 
+`source`
+:   How the past organisation is known: a link, a commit, or a confirmation, for example "Review in #70".
+
 Rules
 :   For a given year, a matching override replaces the entry of `organisations.csv`.
     `from_year` must not be later than `to_year`.
+    Every row must have a source.
     `tests/test_unmapped_and_mapping.py` checks the format.
 
 ## `bot_accounts.csv`
