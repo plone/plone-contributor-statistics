@@ -23,6 +23,7 @@ name@localhost,janedoe,Jane Doe,Same name in commits linked to this account
 - Write the email address in lower case.
 - If the person has a GitHub account, put their login in `github_username`.
 - If the person has no GitHub account, leave `github_username` empty; the commits are then counted under `name`.
+- For addresses from the CVS and Subversion years, a public record is often impossible. There, the source may be a confirmation by people who worked with the person; say so in `source`.
 - In `source`, say how you know: the same name in commits that are linked to the account, an entry in the [credits of Plone 2.0](https://github.com/plone/Products.CMFPlone/blob/2.0/CREDITS.txt), the account profile, or a confirmation by the person or by people who worked with them.
 
 ## Merge a second account
