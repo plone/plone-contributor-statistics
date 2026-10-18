@@ -37,7 +37,7 @@ Zope and other Foundation projects are not counted
 
 Work outside GitHub is counted only where curated data exists
 :   Documentation outside GitHub, marketing, and help in the forum are not recorded ([#35](https://github.com/plone/plone-contributor-statistics/issues/35)).
-    Curated community data starts in 2020, except for conference organisers ([#72](https://github.com/plone/plone-contributor-statistics/issues/72)).
+    Sprints, trainings, podcasts and World Plone Day are recorded from 2020 or 2021 on; conference organisers from 2003, and Board members, release managers and team leaders from 2004 ([#72](https://github.com/plone/plone-contributor-statistics/issues/72)).
 
 ## Counting
 
@@ -63,9 +63,6 @@ PLIPs
 
 Community recognition
 :   The levels published in August 2026 were calculated outside the repository, and they differ from the script's levels on the current data ({doc}`community-recognition`).
-
-Board of Directors
-:   The organisations come from heuristics on the board members' biographies on plone.org, and the files have no source column.
 
 Yearly activity
 :   `scripts/derive/yearly_activity_analysis.py` counts Unmapped as an organisation.

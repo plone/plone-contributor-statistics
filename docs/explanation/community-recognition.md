@@ -65,7 +65,7 @@ Two pieces of work wait for input from Mikel Larreategi (erral):
 - A weighting of contributions by year ([#34](https://github.com/plone/plone-contributor-statistics/pull/34)).
 - A split into separate code and community recognition, discussed at the Beethoven Sprint 2026 (branch `split-code-and-community-contributions`).
 
-Open questions about the inputs include how to count the Steering Circle ([#45](https://github.com/plone/plone-contributor-statistics/issues/45)) and the check of the 2025 community data against the Board minutes ([#46](https://github.com/plone/plone-contributor-statistics/issues/46)).
+An open question about the inputs is the check of the 2025 community data against the Board minutes ([#46](https://github.com/plone/plone-contributor-statistics/issues/46)).
 
 The PLIP level scripts left over from earlier proposals are in `archive/`, in the folder `plip-levels/`.
 They are not part of the program.
