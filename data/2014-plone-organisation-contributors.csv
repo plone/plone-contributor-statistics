@@ -33,7 +33,7 @@ Sixfeetup,10,1,2,"calvinhp, cdw9",7,"Products.PloneOrg, documentation, mockup-tr
 Agitator,8,2,1,agitator,5,"Products.Archetypes, archetypes.referencebrowserwidget, mockup, plone.app.contenttypes, plone.app.event",2014-03-26,2014-11-01
 BubbleNet,8,1,1,gotcha,5,"Products.CMFDynamicViewFTI, Products.CMFPlone, plone.api, plone.app.ldap, plone.outputfilters",2014-06-13,2014-11-25
 Jowett Enterprises Ltd,6,5,1,djowett,6,"Installers-UnifiedInstaller, documentation, mockup-training, plone.api, plone.app.jquerytools, plone.tiles",2014-03-06,2014-12-31
-minddistrict,5,5,1,icemac,1,plone.testing,2014-05-15,2014-12-22
+gocept,5,5,1,icemac,1,plone.testing,2014-05-15,2014-12-22
 Cosent,5,1,1,gyst,3,"plone.app.discussion, plone.app.event, plone.formwidget.contenttree",2013-09-17,2014-03-26
 Kombinat,5,3,1,petschki,5,"mockup, mockup-core, plone.app.viewletmanager, plone.formwidget.autocomplete, plone.formwidget.querystring",2014-10-08,2014-10-13
 Derico,4,1,1,MrTango,3,"Products.CMFPlone, mockup, plone.app.controlpanel",2014-11-01,2014-11-02
