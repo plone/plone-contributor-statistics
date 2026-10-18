@@ -60,6 +60,13 @@ def test_bundle_listed_in_archive_readme(bundle):
     assert f'| `{bundle}/` |' in (ARCHIVE / 'README.md').read_text()
 
 
+@pytest.mark.parametrize('bundle, original', [(b, o) for b, o in BUNDLED if not o.startswith('npm-packages-')])
+def test_bundle_row_names_original_path(bundle, original):
+    # The npm-packages-* files are named by their pattern
+    row = next(line for line in (ARCHIVE / 'README.md').read_text().splitlines() if line.startswith(f'| `{bundle}/` |'))
+    assert f'`{original}`' in row
+
+
 @pytest.mark.parametrize('name', sorted({Path(o).name for o in sum(BUNDLES.values(), []) if o.endswith('.py')}))
 def test_archived_scripts_not_referenced(name):
     pattern = re.compile(r'''(?<![\w./-])''' + re.escape(name) + r'''(?![\w-])''')
