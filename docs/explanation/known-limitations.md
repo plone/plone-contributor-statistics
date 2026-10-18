@@ -59,7 +59,7 @@ Login lookup is case-sensitive
 PLIPs
 :   PLIPs are read from three repositories only.
     A closed PLIP stands in for a merged and released one, although most PLIPs are closed as completed ([#14](https://github.com/plone/plone-contributor-statistics/issues/14)).
-    `scripts/collect/plone_plips.py` doesn't use the GitHub token ([#44](https://github.com/plone/plone-contributor-statistics/issues/44)).
+    The committed PLIP files were collected in February 2026 without a token, by a collector that ended a failed request without an error ([#44](https://github.com/plone/plone-contributor-statistics/issues/44)); collect them again with `make run-plips`.
 
 Community recognition
 :   The levels published in August 2026 were calculated outside the repository, and they differ from the script's levels on the current data ({doc}`community-recognition`).

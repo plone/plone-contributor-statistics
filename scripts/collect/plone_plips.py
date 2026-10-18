@@ -4,137 +4,95 @@ Plone PLIP Statistics Extractor
 
 Extracts PLIPs (Plone Improvement Proposals) from all three main repositories:
 - Products.CMFPlone
-- volto  
+- volto
 - plone.restapi
 
-Creates CSV statistics similar to plone_stats.py but for PLIPs specifically.
+Writes the PLIPs per author and per PLIP. Uses GITHUB_TOKEN from the environment or the .env file,
+and stops without writing anything if a request fails.
 """
 
 import argparse
 import os
-import requests
-import time
+import sys
+
 import pandas as pd
-from datetime import datetime
-from collections import defaultdict
+import requests
+from dotenv import load_dotenv
 
 from scripts.lib import paths
+from scripts.lib.github_api import GitHubAPIError, github_get
 
-def get_github_token():
-    """Get GitHub token from environment or .env file"""
-    # For now, skip token to test without authentication
-    return None
-    
+# The repositories where PLIPs are created
+REPOSITORIES = [
+    ('plone', 'Products.CMFPlone'),
+    ('plone', 'volto'),
+    ('plone', 'plone.restapi'),
+]
+PLIP_LABEL = '03 type: feature (plip)'
+PER_PAGE = 100
+
+
+def create_session():
+    """A session with the GitHub token from the environment or the .env file, if there is one."""
+    load_dotenv()
     token = os.getenv('GITHUB_TOKEN')
-    if not token:
-        try:
-            with open('.env', 'r') as f:
-                for line in f:
-                    if line.startswith('GITHUB_TOKEN='):
-                        token = line.split('=', 1)[1].strip()
-                        break
-        except FileNotFoundError:
-            pass
-    
-    if not token or token == 'your_token_here':
-        print("❌ GitHub token not found. Please set GITHUB_TOKEN in .env file")
-        return None
-    
-    return token
-
-def get_plips_from_repo(repo_owner, repo_name, token):
-    """Get all PLIPs (both open and closed) from a specific repository"""
-    print(f"Fetching PLIPs from {repo_owner}/{repo_name}...")
-    
-    headers = {
-        'Accept': 'application/vnd.github.v3+json'
-    }
-    
-    if token:
-        headers['Authorization'] = f'token {token}'
-    
-    plips = []
-    page = 1
-    per_page = 100
-    
-    while True:
-        url = f'https://api.github.com/repos/{repo_owner}/{repo_name}/issues'
-        params = {
-            'state': 'all',  # Get both open and closed
-            'labels': '03 type: feature (plip)',
-            'page': page,
-            'per_page': per_page,
-            'sort': 'created',
-            'direction': 'desc'
-        }
-        
-        try:
-            response = requests.get(url, headers=headers, params=params)
-            response.raise_for_status()
-            
-            issues = response.json()
-            
-            if not issues:
-                break
-                
-            for issue in issues:
-                # Skip pull requests
-                if 'pull_request' in issue:
-                    continue
-                
-                plip_data = {
-                    'number': issue['number'],
-                    'title': issue['title'],
-                    'author': issue['user']['login'],
-                    'state': issue['state'],
-                    'created_at': issue['created_at'],
-                    'updated_at': issue['updated_at'],
-                    'closed_at': issue.get('closed_at'),
-                    'repository': f"{repo_owner}/{repo_name}",
-                    'html_url': issue['html_url']
-                }
-                plips.append(plip_data)
-            
-            print(f"  Fetched page {page}: {len(issues)} issues")
-            
-            if len(issues) < per_page:
-                break
-                
-            page += 1
-            # Rate limiting - longer delay without token
-            sleep_time = 0.5 if not token else 0.1
-            time.sleep(sleep_time)
-            
-        except requests.exceptions.RequestException as e:
-            print(f"  ❌ Error: {e}")
-            break
-    
-    print(f"  ✅ Found {len(plips)} PLIPs in {repo_owner}/{repo_name}")
-    return plips
-
-def get_all_plips():
-    """Get all PLIPs from all three main repositories"""
-    token = get_github_token()
-    
-    if token:
+    session = requests.Session()
+    session.headers['Accept'] = 'application/vnd.github.v3+json'
+    if token and token != 'your_token_here':
+        session.headers['Authorization'] = f'token {token}'
         print("Using authenticated requests")
     else:
-        print("Using unauthenticated requests (limited rate)")
-    
-    # Define the three main repositories where PLIPs are created
-    repositories = [
-        ('plone', 'Products.CMFPlone'),
-        ('plone', 'volto'),
-        ('plone', 'plone.restapi')
-    ]
-    
+        print("No GitHub token found, using unauthenticated requests (60 per hour)")
+    return session
+
+
+def get_plips_from_repo(session, repo_owner, repo_name):
+    """All PLIPs, open and closed, of a repository; raises GitHubAPIError if a request fails."""
+    print(f"Fetching PLIPs from {repo_owner}/{repo_name}...")
+    plips = []
+    page = 1
+    while True:
+        params = {
+            'state': 'all',
+            'labels': PLIP_LABEL,
+            'page': page,
+            'per_page': PER_PAGE,
+            'sort': 'created',
+            'direction': 'desc',
+        }
+        issues = github_get(session, f'https://api.github.com/repos/{repo_owner}/{repo_name}/issues',
+                            params=params).json()
+        for issue in issues:
+            # The issues endpoint also lists pull requests
+            if 'pull_request' in issue:
+                continue
+            plips.append({
+                'number': issue['number'],
+                'title': issue['title'],
+                'author': issue['user']['login'],
+                'state': issue['state'],
+                'created_at': issue['created_at'],
+                'updated_at': issue['updated_at'],
+                'closed_at': issue.get('closed_at'),
+                'repository': f"{repo_owner}/{repo_name}",
+                'html_url': issue['html_url'],
+            })
+        print(f"  Fetched page {page}: {len(issues)} issues")
+        if len(issues) < PER_PAGE:
+            break
+        page += 1
+
+    print(f"  Found {len(plips)} PLIPs in {repo_owner}/{repo_name}")
+    return plips
+
+
+def get_all_plips(session):
+    """All PLIPs of the repositories in REPOSITORIES."""
     all_plips = []
-    
-    for repo_owner, repo_name in repositories:
-        plips = get_plips_from_repo(repo_owner, repo_name, token)
-        all_plips.extend(plips)
-    
+    for repo_owner, repo_name in REPOSITORIES:
+        all_plips.extend(get_plips_from_repo(session, repo_owner, repo_name))
     return all_plips
+
 
 def analyze_plip_statistics(plips):
     """Analyze PLIP statistics and create CSV output"""
@@ -271,24 +229,28 @@ def main():
     """Main function"""
     print("Plone PLIP Statistics Extractor")
     print("=" * 35)
-    
-    # Get all PLIPs from all repositories
-    plips = get_all_plips()
-    
+
+    try:
+        plips = get_all_plips(create_session())
+    except (KeyboardInterrupt, GitHubAPIError, requests.exceptions.RequestException) as e:
+        # Never write incomplete data
+        reason = 'interrupted by user' if isinstance(e, KeyboardInterrupt) else f'{type(e).__name__}: {e}'
+        print(f"\nExtraction stopped ({reason}). The data files were not written.")
+        return 1
+
     if not plips:
         print("No PLIPs found.")
-        return
-    
-    # Analyze statistics
+        return 1
+
     plips_df, contributor_stats = analyze_plip_statistics(plips)
-    
-    # Save to CSV files
     save_plip_statistics(plips_df, contributor_stats)
-    
-    print(f"\n✅ PLIP statistics extraction completed!")
+
+    print("\nPLIP statistics extraction completed!")
     print(f"Found {len(plips)} PLIPs from {len(set(p['repository'] for p in plips))} repositories")
+    return 0
+
 
 if __name__ == "__main__":
     # No options; --help says what the script does
     argparse.ArgumentParser(description=__doc__.strip().splitlines()[0]).parse_args()
-    main()
+    sys.exit(main())
