@@ -301,6 +301,8 @@ This excludes commits on unmerged branches or rejected pull requests.
 
 **Older history on release branches** (#68): in some repositories, the history from before the move to the egg structure is only on the old release branches. For example, the `master` of Products.CMFPlone starts in 2008, its branch `3.0` goes back to 2002. Commits on release branches (`2.5`, `3.0`, `4.3.x`, …) are counted when they are older than the first commit of the default branch. Later commits on release branches are mostly backports of changes on the default branch, so they are not counted twice; backport PRs are counted as PRs.
 
+**Commits that exist twice** are counted once (#78). The `[fc]` commits in buildout.coredev are automatic copies of the commits in the core packages, under the original author's name; they are not counted. Within a repository, commits with the same author date and message are the same change with another SHA (a rebased branch that was merged as well, or SVN history imported twice), and are counted once.
+
 **Merge commits** (commits with more than one parent, e.g. from GitHub's merge button) are not counted: merging is not code creation. Review and merge work is discussed in #61.
 
 ### Collection
