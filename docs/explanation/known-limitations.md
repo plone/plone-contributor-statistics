@@ -30,6 +30,7 @@ No pull requests before about 2011
 Organisations of the early years are mostly unknown
 :   The mapping records today's organisations, with few known exceptions before 2010 ([#70](https://github.com/plone/plone-contributor-statistics/issues/70)).
     Early organisation statistics reflect where people are today.
+    The email addresses of the Subversion period don't help, because the conversion to Git assigned them ({doc}`history-and-coverage`).
 
 Zope and other Foundation projects are not counted
 :   Their repositories are outside the `plone` organisation, and how to count them is open ([#58](https://github.com/plone/plone-contributor-statistics/issues/58)).

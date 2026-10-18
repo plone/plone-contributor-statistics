@@ -55,9 +55,27 @@ The {doc}`organisation mapping <attribution>` records where people work today, w
 For the years before 2010, few of these past affiliations are known with a source ([#70](https://github.com/plone/plone-contributor-statistics/issues/70)).
 Organisation statistics of the early years therefore show today's organisations of the people, unless an override says otherwise.
 
+The email addresses in commits from the Subversion period don't help here.
+The conversion to Git assigned them, not the developers at the time of the commit.
+Commits from 2002 already carry addresses at `jarn.com`, although Plone Solutions only announced its new name Jarn at the Plone Conference 2007 ([archived announcement](http://web.archive.org/web/20080124030609/http://www.jarn.com:80/)).
+A company address therefore counts as evidence for an organisation only in commits that developers made in Git.
+
 The curated data reaches back further in one place: the organising organisations of every Plone Conference since 2003.
 The rows from 2003 to 2019 also name the organisers and a public source.
 Other curated data, such as sprints, Board members and release managers, starts in 2020 ([#72](https://github.com/plone/plone-contributor-statistics/issues/72)).
+
+## Best effort, and how you can help
+
+The statistics reconstruct the history before GitHub from incomplete sources: the commits, the credits files, archived web pages, and the memory of people who were there.
+It is a best effort.
+Some of it is uncertain: who is behind an old Subversion name, and where someone worked in a given year.
+Where no source supports an entry, it stays out, and the data misses that part of the history.
+
+The people best placed to fill the gaps are the ones the data describes, and those who worked with them.
+Their knowledge turns an unknown address into a person, and a guess about an employer into a fact with a source.
+{doc}`/how-to/find-a-contributor` shows how to look someone up.
+{doc}`/how-to/link-old-commits-to-a-person` and {doc}`/how-to/correct-an-organisation-mapping` show how to send a correction.
+Comments in [#69](https://github.com/plone/plone-contributor-statistics/issues/69), about who is behind an address, and in [#70](https://github.com/plone/plone-contributor-statistics/issues/70), about organisations in the early years, help just as much.
 
 ## What this means for comparisons
 

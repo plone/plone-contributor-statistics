@@ -2,7 +2,7 @@
 
 - 69 total organisations tracked across the decade
 - 87,293 total commits and 17,852 pull requests
-- 582 unique contributors across all organisations
+- 589 unique contributors across all organisations
 - File generated: summary-past-ten-years-2015-2024.csv
 
 ## Top 10 contributors by pull requests (2015-2024)
@@ -33,30 +33,30 @@
 
 ## Top 10 organisations by pull requests (2015-2024)
 
-1. kitconcept GmbH: 3,351 PRs
-2. Zest Software: 1,330 PRs
-3. Syslab: 1,064 PRs
-4. der Freitag: 992 PRs
+1. kitconcept GmbH: 3,306 PRs
+2. Zest Software: 1,339 PRs
+3. der Freitag: 1,049 PRs
+4. Syslab: 1,041 PRs
 5. Wildcard Corp: 776 PRs
-6. Klein & Partner KG: 766 PRs
+6. Klein & Partner KG: 767 PRs
 7. Nuclia: 763 PRs
 8. Steve Piercy - Website Builder: 722 PRs
 9. Kombinat: 624 PRs
 10. Starzel: 611 PRs
 
-Not mapped to an organisation: 2,365 PRs
+Not mapped to an organisation: 2,255 PRs
 
 ## Top 10 organisations by commits (2015-2024)
 
-1. kitconcept GmbH: 18,974 commits
-2. Zest Software: 13,192 commits
-3. der Freitag: 5,200 commits
+1. kitconcept GmbH: 18,793 commits
+2. Zest Software: 13,285 commits
+3. der Freitag: 5,349 commits
 4. Wildcard Corp: 4,477 commits
-5. Klein & Partner KG: 3,340 commits
-6. Salesforce: 3,299 commits
-7. Syslab: 3,203 commits
+5. Salesforce: 3,480 commits
+6. Klein & Partner KG: 3,344 commits
+7. Syslab: 3,191 commits
 8. Nuclia: 2,962 commits
 9. Starzel: 2,774 commits
 10. Steve Piercy - Website Builder: 2,672 commits
 
-Not mapped to an organisation: 6,967 commits
+Not mapped to an organisation: 6,561 commits

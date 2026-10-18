@@ -83,12 +83,27 @@ def test_organisations_csv_format():
 def test_overrides_csv_format():
     with open(ROOT / 'organisation_mapping_overrides.csv', newline='', encoding='utf-8') as f:
         reader = csv.DictReader(f)
-        assert reader.fieldnames == ['github_username', 'organisation', 'from_year', 'to_year']
+        assert reader.fieldnames == ['github_username', 'organisation', 'from_year', 'to_year', 'source']
         rows = list(reader)
 
     for row in rows:
         assert LOGIN.fullmatch(row['github_username']), row
         assert row['organisation'].strip(), row
+        assert row['source'].strip(), f"every override needs a source: {row}"
         assert row['from_year'].isdigit(), row
         if row['to_year']:
             assert row['to_year'].isdigit() and int(row['from_year']) <= int(row['to_year']), row
+
+
+def test_proposals_csv_format():
+    # Proposals are not used by the statistics; they wait for a confirmation (#70)
+    with open(ROOT / 'organisation_mapping_proposals.csv', newline='', encoding='utf-8') as f:
+        reader = csv.DictReader(f)
+        assert reader.fieldnames == ['contributor', 'organisation', 'from_year', 'to_year', 'evidence']
+        rows = list(reader)
+
+    for row in rows:
+        assert row['contributor'].strip() and row['organisation'].strip(), row
+        assert row['from_year'].isdigit() and row['to_year'].isdigit(), row
+        assert int(row['from_year']) <= int(row['to_year']), row
+        assert row['evidence'].strip(), row
