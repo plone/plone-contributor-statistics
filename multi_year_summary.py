@@ -13,6 +13,7 @@ import sys
 from pathlib import Path
 
 import paths
+from years import window
 from organisation_stats import UNMAPPED
 
 
@@ -244,8 +245,8 @@ def parse_arguments():
         '--years',
         nargs='+',
         type=int,
-        default=[2022, 2023, 2024],
-        help='Years to combine (default: 2022 2023 2024)'
+        default=window(3),
+        help=f"Years to combine (default: {' '.join(map(str, window(3)))})"
     )
     return parser.parse_args()
 

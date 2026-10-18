@@ -21,7 +21,11 @@ def data(tmp_path):
     write(tmp_path / 'overrides.csv', 'github_username,organisation,from_year,to_year,source\n'
                                       'tisto,Unmapped,2002,2021,test\n')
     write(tmp_path / 'plips.csv', PLIP_HEADER)
-    (tmp_path / 'data' / 'community-contributions').mkdir(parents=True)
+    # Every input the points need exists, but is empty
+    for year in range(2020, 2026):
+        write(tmp_path / 'data' / f'{year}-plone-organisation-contributors.csv',
+              'organisation,total_commits,total_pull_requests\n')
+    write(tmp_path / 'data' / 'community-contributions' / '2025-plone-conference.csv', 'Organisation\n')
     return tmp_path
 
 
@@ -97,3 +101,41 @@ def test_plip_summary_maps_open_plips_by_the_year_they_were_created(data):
     assert by_org['kitconcept GmbH']['closed_plips'] == 1
     assert by_org['kitconcept GmbH']['repositories'] == 'plone/plone.restapi'
     assert by_org['RedTurtle']['total_plips'] == 1
+
+
+def test_recognition_raises_without_community_year(data):
+    # The community folder exists, but has no curated files for the year: a wrong path, not a quiet year
+    (data / 'data' / 'community-contributions' / '2025-plone-conference.csv').unlink()
+    with pytest.raises(FileNotFoundError, match='2025'):
+        points(data)
+
+
+def test_recognition_raises_without_community_folder(data):
+    with pytest.raises(FileNotFoundError, match='missing'):
+        recognition.calculate_community_recognition_points(
+            year=2025, data_dir=str(data / 'data'), community_dir=str(data / 'missing'),
+            plips_file=str(data / 'plips.csv'), organisations=str(data / 'organisations.csv'),
+            overrides=str(data / 'overrides.csv'))
+
+
+def test_recognition_raises_on_missing_organisation_year(tmp_path):
+    with pytest.raises(FileNotFoundError, match='2023-plone-organisation-contributors.csv'):
+        recognition.load_pr_data([2023], data_dir=str(tmp_path))
+
+
+def test_recognition_raises_on_missing_plips_file(data):
+    with pytest.raises(FileNotFoundError, match='missing.csv'):
+        recognition.load_plip_data([2025], str(data / 'missing.csv'),
+                                   str(data / 'organisations.csv'), str(data / 'overrides.csv'))
+
+
+def test_recognition_raises_on_missing_levels_file(tmp_path):
+    with pytest.raises(FileNotFoundError, match='missing.csv'):
+        recognition.load_recognition_levels(tmp_path / 'missing.csv')
+
+
+def test_recognition_warns_on_one_missing_kind(data, capsys):
+    # Some kinds of community data didn't exist in every year: one missing kind is a warning
+    community(data, 'plone-conference', 'Organisation\nRedTurtle\n')
+    points(data)
+    assert '2025-podcasts.csv not found' in capsys.readouterr().out

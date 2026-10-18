@@ -11,9 +11,13 @@ import os
 from collections import defaultdict
 from datetime import datetime
 from functools import lru_cache
+from pathlib import Path
+
+import argparse
 
 import mappings
 import paths
+from years import RECOGNITION_YEAR
 from plip_organisation_stats import organisation_lookup, plips_by_organisation, read_plips
 
 
@@ -21,29 +25,26 @@ from plip_organisation_stats import organisation_lookup, plips_by_organisation, 
 UNMAPPED = 'Unmapped'
 
 # The recognition year: community work of this year, code of the five years up to it
-YEAR = 2025
+YEAR = RECOGNITION_YEAR
 
 
 def five_years(year):
     """The "past five years" of the points file, up to and including the recognition year."""
     return range(year - 4, year + 1)
 
-def load_recognition_levels():
+def load_recognition_levels(path=paths.RECOGNITION_LEVELS):
     """Load recognition levels from CSV file."""
     levels = []
-    try:
-        with open(paths.RECOGNITION_LEVELS, 'r') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                level = {
-                    'name': row['Level'].strip(),
-                    'min_points': int(row['Min Points'].strip()),
-                    'max_points': float('inf') if not row['Max Points'].strip() else int(row['Max Points'].strip()),
-                    'description': row['Description'].strip()
-                }
-                levels.append(level)
-    except FileNotFoundError:
-        print("Warning: community-recognition-levels.csv not found")
+    with open(path, 'r') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            level = {
+                'name': row['Level'].strip(),
+                'min_points': int(row['Min Points'].strip()),
+                'max_points': float('inf') if not row['Max Points'].strip() else int(row['Max Points'].strip()),
+                'description': row['Description'].strip()
+            }
+            levels.append(level)
 
     return levels
 
@@ -109,29 +110,34 @@ def load_pr_data(years, data_dir=paths.ORGANISATION_CONTRIBUTORS_DIR):
     totals = defaultdict(int)
     for year in years:
         path = f'{data_dir}/{year}-plone-organisation-contributors.csv'
-        try:
-            with open(path, newline='', encoding='utf-8') as f:
-                for row in csv.DictReader(f):
-                    totals[normalize_organization_name(row['organisation'].strip())] += int(row['total_pull_requests'])
-        except FileNotFoundError:
-            print(f"Warning: {path} not found")
+        with open(path, newline='', encoding='utf-8') as f:
+            for row in csv.DictReader(f):
+                totals[normalize_organization_name(row['organisation'].strip())] += int(row['total_pull_requests'])
     return {org: {'total_prs': total, 'avg_per_year': total / len(years)} for org, total in totals.items()}
 
 
 def load_plip_data(years, plips_file=paths.PLIPS_DETAILED, organisations=paths.ORGANISATIONS,
                    overrides=paths.OVERRIDES):
     """PLIPs closed in the years, for the author's organisation in the year of closing (#95)."""
-    try:
-        plips = read_plips(plips_file)
-    except FileNotFoundError:
-        print(f"Warning: {plips_file} not found")
-        return {}
+    plips = read_plips(plips_file)
     groups = plips_by_organisation(plips, organisation_lookup(organisations, overrides), years=set(years),
                                    closed_only=True)
     closed = defaultdict(int)
     for org, org_plips in groups.items():
         closed[normalize_organization_name(org)] += len(org_plips)
     return {org: {'closed_plips': count} for org, count in closed.items()}
+
+
+def require_community_year(community, year):
+    """Raise if the curated community data of the year is missing altogether.
+
+    A single missing kind of data is only a warning: some kinds didn't exist in every year.
+    """
+    folder = Path(community)
+    if not folder.is_dir():
+        raise FileNotFoundError(f'community data folder {folder} not found')
+    if not list(folder.glob(f'{year}-*.csv')):
+        raise FileNotFoundError(f'no curated community data for {year} in {folder}')
 
 
 def calculate_community_recognition_points(year=YEAR, data_dir=paths.ORGANISATION_CONTRIBUTORS_DIR,
@@ -144,6 +150,7 @@ def calculate_community_recognition_points(year=YEAR, data_dir=paths.ORGANISATIO
     org_details = defaultdict(lambda: defaultdict(list))
 
     community = community_dir
+    require_community_year(community, year)
 
     # Load code contribution data (PRs and PLIPs)
     pr_data = load_pr_data(five_years(year), data_dir)
@@ -384,14 +391,14 @@ def write_csv_report(org_points, levels, output_file):
     return results
 
 
-def write_markdown_report(org_points, org_details, results, levels, output_file):
+def write_markdown_report(org_points, org_details, results, levels, output_file, year=YEAR):
     """Write a detailed markdown report."""
 
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
 
     with open(output_file, 'w') as f:
         # Header
-        f.write(f"# Plone Community Recognition Program {YEAR}\n\n")
+        f.write(f"# Plone Community Recognition Program {year}\n\n")
         f.write(f"*Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}*\n\n")
 
         # Executive Summary
@@ -439,7 +446,7 @@ def write_markdown_report(org_points, org_details, results, levels, output_file)
         f.write("| Podcast Host | 6 | Host Plone podcast/live event (split among hosts) |\n")
         f.write("| WPD Event | 3 | Organize World Plone Day event (split among organizers) |\n")
         f.write("| WPD Talk | 1 | Give World Plone Day talk (max 4 per org) |\n\n")
-        f.write(f"### Code Contributions ({YEAR - 4}–{YEAR})\n\n")
+        f.write(f"### Code Contributions ({year - 4}–{year})\n\n")
         f.write("| Category | Points | Description |\n")
         f.write("|----------|--------|-------------|\n")
         f.write("| Lead (PR) | 20 | 100+ PRs/year average |\n")
@@ -580,11 +587,18 @@ def write_markdown_report(org_points, org_details, results, levels, output_file)
     print(f"Markdown report written to: {output_file}")
 
 
+def parse_arguments():
+    parser = argparse.ArgumentParser(description='Calculate the community recognition points and levels of a year')
+    parser.add_argument('--year', type=int, default=YEAR, help=f'Recognition year (default: {YEAR})')
+    return parser.parse_args()
+
+
 def main():
     """Main execution function."""
+    year = parse_arguments().year
 
     print("Calculating community recognition points...")
-    org_points, org_details = calculate_community_recognition_points()
+    org_points, org_details = calculate_community_recognition_points(year=year)
 
     print(f"Found {len(org_points)} organizations")
 
@@ -593,13 +607,13 @@ def main():
     levels = load_recognition_levels()
 
     # Write CSV report
-    csv_output = paths.recognition_report_file(YEAR)
+    csv_output = paths.recognition_report_file(year)
     results = write_csv_report(org_points, levels, csv_output)
     print(f"CSV report written to: {csv_output}")
 
     # Write Markdown report
     md_output = paths.RECOGNITION_REPORT
-    write_markdown_report(org_points, org_details, results, levels, md_output)
+    write_markdown_report(org_points, org_details, results, levels, md_output, year=year)
 
     # Print summary
     print(f"\nTop 10 Organizations:")
