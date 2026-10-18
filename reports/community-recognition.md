@@ -1,21 +1,21 @@
 # Plone Community Recognition Program 2025
 
-*Generated: 2026-10-18 17:28:45*
+*Generated: 2026-10-18 22:16:22*
 
 ## Executive Summary
 
 - **Total Organizations**: 48
-- **Total Points Awarded**: 530.0
-- **Average Points per Organization**: 11.0
+- **Total Points Awarded**: 554.0
+- **Average Points per Organization**: 11.5
 
 ## Recognition Levels
 
 | Level | Points Range | Organizations |
 |-------|--------------|---------------:|
 | Platinum Contributor | 35+ | 2 |
-| Gold Contributor | 25-34 | 5 |
-| Silver Contributor | 10-24 | 11 |
-| Bronze Contributor | 3-9 | 13 |
+| Gold Contributor | 25-34 | 4 |
+| Silver Contributor | 10-24 | 13 |
+| Bronze Contributor | 3-9 | 12 |
 | Community Contributor | 1-2 | 17 |
 
 ## Recognition Categories
@@ -55,31 +55,31 @@
 
 | Rank | Organization | Recognition Level | Total Points |
 |------|--------------|-------------------|-------------:|
-| 1 | kitconcept GmbH | Platinum Contributor | 89.0 |
+| 1 | kitconcept GmbH | Platinum Contributor | 95.0 |
 | 2 | RedTurtle | Platinum Contributor | 35.0 |
 | 3 | University of Jyväskylä | Gold Contributor | 34.0 |
-| 4 | PY76 | Gold Contributor | 31.0 |
+| 4 | Steve Piercy - Website Builder | Gold Contributor | 33.0 |
 | 5 | Eau de Web | Gold Contributor | 28.0 |
-| 6 | Steve Piercy - Website Builder | Gold Contributor | 27.0 |
-| 7 | Kombinat | Gold Contributor | 26.0 |
+| 6 | PY76 | Gold Contributor | 25.0 |
+| 7 | Codesyntax | Silver Contributor | 24.0 |
 | 8 | Interlegis Program (Senado Federal) | Silver Contributor | 24.0 |
 | 9 | Zest Software | Silver Contributor | 23.0 |
 | 10 | der Freitag | Silver Contributor | 23.0 |
-| 11 | Klein & Partner KG | Silver Contributor | 20.0 |
-| 12 | Codesyntax | Silver Contributor | 18.0 |
-| 13 | Juizi | Silver Contributor | 16.0 |
-| 14 | Syslab | Silver Contributor | 13.0 |
-| 15 | UNAM | Silver Contributor | 12.0 |
-| 16 | Nuclia | Silver Contributor | 11.0 |
-| 17 | Starzel | Silver Contributor | 11.0 |
-| 18 | Serpro | Silver Contributor | 10.0 |
-| 19 | Agitator | Bronze Contributor | 7.0 |
-| 20 | Cosent | Bronze Contributor | 7.0 |
-| 21 | Affinitic | Bronze Contributor | 6.0 |
-| 22 | Simples Consultoria | Bronze Contributor | 6.0 |
-| 23 | Derico | Bronze Contributor | 4.0 |
-| 24 | KU Leuven | Bronze Contributor | 4.0 |
-| 25 | Ludwig Maximilian University Munich | Bronze Contributor | 4.0 |
+| 11 | Kombinat | Silver Contributor | 22.0 |
+| 12 | Klein & Partner KG | Silver Contributor | 20.0 |
+| 13 | Starzel | Silver Contributor | 17.0 |
+| 14 | Juizi | Silver Contributor | 16.0 |
+| 15 | Syslab | Silver Contributor | 15.0 |
+| 16 | UNAM | Silver Contributor | 12.0 |
+| 17 | Nuclia | Silver Contributor | 11.0 |
+| 18 | Ludwig Maximilian University Munich | Silver Contributor | 10.0 |
+| 19 | Serpro | Silver Contributor | 10.0 |
+| 20 | Agitator | Bronze Contributor | 7.0 |
+| 21 | Cosent | Bronze Contributor | 7.0 |
+| 22 | Affinitic | Bronze Contributor | 6.0 |
+| 23 | Derico | Bronze Contributor | 6.0 |
+| 24 | Simples Consultoria | Bronze Contributor | 6.0 |
+| 25 | KU Leuven | Bronze Contributor | 4.0 |
 | 26 | Rohberg | Bronze Contributor | 4.0 |
 | 27 | Markus Hilbert (independent) | Bronze Contributor | 3.0 |
 | 28 | Plone Foundation | Bronze Contributor | 3.0 |
@@ -155,12 +155,13 @@
 
 ### kitconcept GmbH
 
-**Total Points: 89.0**
+**Total Points: 95.0**
 
 | Category | Points | Details |
 |----------|-------:|:--------|
 | Strategic Sprint | 12.0 | • Beethoven Sprint |
 | Release Manager | 24.0 | • Víctor Fernández de Alba<br>• Timo Stollenwerk |
+| Team Leader | 6.0 | • Fred van Dijk (Admin & Infrastructure Team) |
 | WPD Talk | 4.0 | • Plone Hands On: Customize your site theme through the web with Volto!<br>• Tailwind CSS and Plone<br>• Codename Seven - Sneak Peek to the Successor of Volto<br>• Plone Hands On: Creating a new Plone project |
 | Training Session | 14.0 | • Plone 6 Volto Customization for JavaScript Beginners<br>• Plone 6 Volto Customization for JavaScript Beginners<br>• Plone Seven: Fundamentals<br>• Installing and Deploying Plone<br>• Installing and Deploying Plone<br>• ... and 2 more |
 | PR Contributions | 20.0 | • Lead (534.0 PRs/year) |
@@ -190,16 +191,16 @@
 | Training Session | 4.0 | • Introduction to Advanced Workflows with BPMN 2.0 |
 | PLIP Contributions | 3.0 | • Occasional PLIP Contributor (2 PLIPs) |
 
-### PY76
+### Steve Piercy - Website Builder
 
-**Total Points: 31.0**
+**Total Points: 33.0**
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| Release Manager | 12.0 | • Maurits van Rees |
-| Team Leader | 6.0 | • Maurits van Rees (Security Team) |
-| PR Contributions | 10.0 | • Core Member (71.8 PRs/year) |
-| PLIP Contributions | 3.0 | • Occasional PLIP Contributor (5 PLIPs) |
+| Team Leader | 6.0 | • Steve Piercy (Documentation Team) |
+| Board Member | 6.0 | • Steve Piercy |
+| WPD Talk | 1.0 | • Triple D: Documentation Driven Development - A Panel Discussion |
+| PR Contributions | 20.0 | • Lead (169.2 PRs/year) |
 
 ### Eau de Web
 
@@ -212,24 +213,26 @@
 | PR Contributions | 10.0 | • Core Member (77.4 PRs/year) |
 | PLIP Contributions | 3.0 | • Occasional PLIP Contributor (2 PLIPs) |
 
-### Steve Piercy - Website Builder
+### PY76
 
-**Total Points: 27.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| Board Member | 6.0 | • Steve Piercy |
-| WPD Talk | 1.0 | • Triple D: Documentation Driven Development - A Panel Discussion |
-| PR Contributions | 20.0 | • Lead (169.2 PRs/year) |
-
-### Kombinat
-
-**Total Points: 26.0**
+**Total Points: 25.0**
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| Team Leader | 6.0 | • Peter Mathis (Classic UI Team) |
-| PR Contributions | 20.0 | • Lead (130.6 PRs/year) |
+| Release Manager | 12.0 | • Maurits van Rees |
+| PR Contributions | 10.0 | • Core Member (71.8 PRs/year) |
+| PLIP Contributions | 3.0 | • Occasional PLIP Contributor (5 PLIPs) |
+
+### Codesyntax
+
+**Total Points: 24.0**
+
+| Category | Points | Details |
+|----------|-------:|:--------|
+| Team Leader | 6.0 | • Mikel Larreategi (Internationalization Team) |
+| Board Member | 6.0 | • Mikel Larreategi |
+| WPD Talk | 2.0 | • Deploy Cookieplone Based Projects With GitLab CI/CD<br>• Volto Bootstrap Theme |
+| PR Contributions | 10.0 | • Core Member (57.8 PRs/year) |
 
 ### Interlegis Program (Senado Federal)
 
@@ -260,6 +263,15 @@
 | PR Contributions | 20.0 | • Lead (141.2 PRs/year) |
 | PLIP Contributions | 3.0 | • Occasional PLIP Contributor (2 PLIPs) |
 
+### Kombinat
+
+**Total Points: 22.0**
+
+| Category | Points | Details |
+|----------|-------:|:--------|
+| Team Leader | 2.0 | • Peter Mathis (Classic UI Team) |
+| PR Contributions | 20.0 | • Lead (130.6 PRs/year) |
+
 ### Klein & Partner KG
 
 **Total Points: 20.0**
@@ -271,15 +283,16 @@
 | PR Contributions | 4.0 | • Active Member (49.4 PRs/year) |
 | PLIP Contributions | 3.0 | • Occasional PLIP Contributor (5 PLIPs) |
 
-### Codesyntax
+### Starzel
 
-**Total Points: 18.0**
+**Total Points: 17.0**
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| Board Member | 6.0 | • Mikel Larreategi |
-| WPD Talk | 2.0 | • Deploy Cookieplone Based Projects With GitLab CI/CD<br>• Volto Bootstrap Theme |
-| PR Contributions | 10.0 | • Core Member (57.8 PRs/year) |
+| Team Leader | 6.0 | • Philip Bauer (Training Team) |
+| Training Session | 4.0 | • Plone Migrations: Theory and Practice |
+| PR Contributions | 4.0 | • Active Member (29.2 PRs/year) |
+| PLIP Contributions | 3.0 | • Occasional PLIP Contributor (2 PLIPs) |
 
 ### Juizi
 
@@ -293,10 +306,11 @@
 
 ### Syslab
 
-**Total Points: 13.0**
+**Total Points: 15.0**
 
 | Category | Points | Details |
 |----------|-------:|:--------|
+| Team Leader | 2.0 | • Johannes Raggam (Classic UI Team) |
 | PR Contributions | 10.0 | • Core Member (73.0 PRs/year) |
 | PLIP Contributions | 3.0 | • Occasional PLIP Contributor (5 PLIPs) |
 
@@ -318,14 +332,14 @@
 | WPD Talk | 1.0 | • Plone and Google Summer of Code 2025 |
 | PR Contributions | 4.0 | • Active Member (43.4 PRs/year) |
 
-### Starzel
+### Ludwig Maximilian University Munich
 
-**Total Points: 11.0**
+**Total Points: 10.0**
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| Training Session | 4.0 | • Plone Migrations: Theory and Practice |
-| PR Contributions | 4.0 | • Active Member (29.2 PRs/year) |
+| Team Leader | 6.0 | • Alexander Loechel (Security Team) |
+| WPD Talk | 1.0 | • I've tried more than 200 CMS's and Plone is still the best! |
 | PLIP Contributions | 3.0 | • Occasional PLIP Contributor (2 PLIPs) |
 
 ### Serpro
@@ -362,6 +376,15 @@
 |----------|-------:|:--------|
 | Board Member | 6.0 | • Martin Peeters |
 
+### Derico
+
+**Total Points: 6.0**
+
+| Category | Points | Details |
+|----------|-------:|:--------|
+| Team Leader | 2.0 | • Maik Derstappen (Classic UI Team) |
+| PR Contributions | 4.0 | • Active Member (23.0 PRs/year) |
+
 ### Simples Consultoria
 
 **Total Points: 6.0**
@@ -371,14 +394,6 @@
 | WPD Event | 3.0 | • Organized WPD Event |
 | WPD Talk | 3.0 | • Mão na Massa: Começando um projeto com Plone 6.1<br>• Plone Distributions; the right way<br>• Bucharest Sprint Updates |
 
-### Derico
-
-**Total Points: 4.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| PR Contributions | 4.0 | • Active Member (23.0 PRs/year) |
-
 ### KU Leuven
 
 **Total Points: 4.0**
@@ -386,15 +401,6 @@
 | Category | Points | Details |
 |----------|-------:|:--------|
 | Training Session | 4.0 | • Training for Content Editing<br>• Content Management for Larger Plone Sites |
-
-### Ludwig Maximilian University Munich
-
-**Total Points: 4.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| WPD Talk | 1.0 | • I've tried more than 200 CMS's and Plone is still the best! |
-| PLIP Contributions | 3.0 | • Occasional PLIP Contributor (2 PLIPs) |
 
 ### Rohberg
 
@@ -586,7 +592,7 @@
 |----------|---------------:|---------------------:|
 | Strategic Sprint | 5 | 60.0 |
 | Release Manager | 2 | 36.0 |
-| Team Leader | 5 | 30.0 |
+| Team Leader | 11 | 54.0 |
 | Board Member | 6 | 42.0 |
 | Podcast Host | 0 | 0.0 |
 | WPD Event | 3 | 9.0 |
