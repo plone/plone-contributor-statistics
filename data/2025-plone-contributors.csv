@@ -12,65 +12,65 @@ ericof,221,70,22,"2024.ploneconf.org, 2025.ploneconf.org, 2026.ploneconf.org, ai
 robgietema,198,4,4,"aurora, form-block, nick, volto",2025-01-14,2025-12-23
 thet,146,59,20,"Products.CMFPlone, bobtemplates.plone, buildout.coredev, documentation, mockup, plone.app.content, plone.app.contenttypes, plone.app.event, plone.app.layout, plone.app.mosaic, plone.app.portlets, plone.app.standardtiles, plone.app.theming, plone.app.tiles, plone.app.upgrade, plone.base, plone.patternslib, plone.staticresources, plone.volto, plonetheme.barceloneta",2025-01-28,2025-11-19
 jensens,99,5,8,"buildout.coredev, container-backend, cookiecutter-zope-instance, cookieplone-templates, documentation, plone.namedfile, plone.scale, plone.versioncheck",2022-09-08,2025-12-15
-rohnsha0,98,17,10,"Products.CMFPlone, buildout.coredev, plone.api, plone.app.content, plone.app.discussion, plone.formwidget.recaptcha, plone.restapi, plone.scale, plone.session, plone.volto",2025-02-01,2025-08-01
 wesleybl,98,118,12,"aurora, buildout.coredev, code-quality, container-backend, cookieplone-templates, plone.app.iterate, plone.app.multilingual, plone.distribution, plone.formwidget.hcaptcha, plone.restapi, plone.schemaeditor, volto",2025-01-28,2025-12-19
+rohnsha0,98,17,10,"Products.CMFPlone, buildout.coredev, plone.api, plone.app.content, plone.app.discussion, plone.formwidget.recaptcha, plone.restapi, plone.scale, plone.session, plone.volto",2025-02-01,2025-08-01
 tisto,89,8,4,"Products.CMFPlone, documentation, plone-contributor-statistics, plone-mcp",2025-07-30,2025-12-18
 ale-rt,72,29,20,"Products.CMFPlone, Products.PlonePAS, buildout.coredev, documentation, plone.api, plone.app.content, plone.app.discussion, plone.app.layout, plone.app.querystring, plone.app.testing, plone.app.theming, plone.app.upgrade, plone.app.users, plone.app.z3cform, plone.autoinclude, plone.base, plone.patternslib, plone.protect, plone.restapi, plone.z3cform",2024-12-20,2025-12-19
 1letter,61,16,10,"Products.CMFPlone, buildout.coredev, documentation, mockup, plone.app.layout, plone.app.multilingual, plone.app.robotframework, plone.app.upgrade, plone.base, plone.schemaeditor",2025-02-11,2025-12-03
 ksuess,49,29,9,"aurora, buildout.coredev, documentation, plone.api, plone.app.content, plone.distribution, plone.formwidget.hcaptcha, training, volto",2025-01-27,2025-11-13
 ujsquared,48,7,5,"buildout.coredev, cookieplone-templates, plone-sphinx-theme, plone.api, plone.restapi",2025-02-11,2025-04-06
-kittauri,41,12,3,"cookieplone-templates, tagung.plone.de, volto",2025-01-30,2025-07-23
 pbauer,41,15,7,"Products.CMFPlone, buildout.coredev, cookieplone-templates, demo.plone.org, documentation, plone.volto, training",2025-02-09,2025-10-15
+kittauri,41,12,3,"cookieplone-templates, tagung.plone.de, volto",2025-01-30,2025-07-23
 pnicolli,38,37,3,"aurora, plone-mcp, volto",2025-01-03,2025-10-25
 nilbacardit26,34,13,2,"guillotina, guillotina_elasticsearch",2025-01-23,2025-12-11
 aboycalledhero,28,4,1,training,2025-08-14,2025-09-09
 datakurre,24,17,1,2025.ploneconf.org,2025-03-19,2025-10-19
+acsr,23,12,4,"cookieplone-templates, tagung.plone.de, training, volto",2025-01-27,2025-10-19
 Manas-Kenge,22,15,3,"documentation, plone-sphinx-theme, volto",2025-03-04,2025-12-01
-acsr,18,12,4,"cookieplone-templates, tagung.plone.de, training, volto",2025-01-27,2025-10-19
 Tishasoumya-02,18,11,4,"aurora, plone-mcp, training, volto",2025-01-23,2025-12-12
 ewohnlich,17,7,4,"buildout.coredev, cookieplone, plone.exportimport, training",2025-02-04,2025-09-12
 yurj,16,2,3,"buildout.coredev, plone.app.multilingual, plone.app.z3cform",2025-04-23,2025-04-28
-danalvrz,15,8,2,"plone-mcp, volto",2025-08-01,2025-12-23
 jnptk,15,5,3,"plone.restapi, plone.volto, volto",2025-04-07,2025-12-16
+danalvrz,15,8,2,"plone-mcp, volto",2025-08-01,2025-12-23
 iFlameing,12,12,3,"aurora, training, volto",2025-05-08,2025-12-18
 nileshgulia1,12,13,4,"Products.CMFEditions, aurora, plone.restapi, volto",2025-01-15,2025-10-22
 giuliaghisini,11,8,2,"aurora, volto",2025-01-10,2025-09-11
-mamico,10,4,4,"buildout.coredev, plone.app.caching, plone.namedfile, plone.restapi",2025-01-22,2025-04-27
-pgrunewald,10,4,5,"buildout.coredev, mockup, plone.app.caching, plone.app.multilingual, plone.restapi",2025-02-13,2025-06-17
 cihanandac,10,5,4,"mockup, plone.app.layout, plone.locking, plone.protect",2025-02-10,2025-05-27
+pgrunewald,10,4,5,"buildout.coredev, mockup, plone.app.caching, plone.app.multilingual, plone.restapi",2025-02-13,2025-06-17
+mamico,10,4,4,"buildout.coredev, plone.app.caching, plone.namedfile, plone.restapi",2025-01-22,2025-04-27
 mpellerin42,10,10,1,pastanaga-angular,2025-04-10,2025-06-20
 Abhishek-17h,9,11,2,"documentation, volto",2025-04-09,2025-11-20
-alexandreIFB,8,15,2,"plone.formwidget.hcaptcha, volto",2025-03-27,2025-11-04
-macagua,8,1,2,"buildout.coredev, plone.volto",2025-07-02,2025-10-02
-tlotze,8,1,1,cookieplone-templates,2025-02-12,2025-02-24
 rboixaderg,8,9,4,"aurora, guillotina, guillotina-volto, volto",2025-05-29,2025-10-25
+tlotze,8,1,1,cookieplone-templates,2025-02-12,2025-02-24
+macagua,8,1,2,"buildout.coredev, plone.volto",2025-07-02,2025-10-02
+alexandreIFB,8,15,2,"plone.formwidget.hcaptcha, volto",2025-03-27,2025-11-04
 szakitibi,7,2,3,"buildout.coredev, plone.app.multilingual, plone.behavior",2025-06-09,2025-08-04
-Wagner3UB,7,14,1,volto,2025-03-05,2025-10-28
 ionlizarazu,7,8,3,"aurora, plone-vs-utilities, volto",2025-01-29,2025-10-30
+Wagner3UB,7,14,1,volto,2025-03-05,2025-10-28
 operramon,6,6,1,pastanaga-angular,2025-02-05,2025-10-15
 tkimnguyen,6,6,4,"2024.ploneconf.org, cookieplone, plone-vs-utilities, training",2025-01-01,2025-09-10
 Fosten,6,1,2,".github, plone.org",2025-05-16,2025-11-23
-anushka-codes1,6,4,3,"plone.formwidget.recurrence, plone.org, training",2025-11-11,2025-11-17
-esteele,6,1,1,plone.org,2025-10-18,2025-10-18
 bloodbare,6,0,1,guillotina,2025-03-25,2025-10-10
-boss6825,6,2,3,"cookieplone-templates, documentation, volto",2025-03-25,2025-12-22
+esteele,6,1,1,plone.org,2025-10-18,2025-10-18
 Shyam-Raghuwanshi,6,5,2,"aurora, volto",2025-01-17,2025-12-19
-ichim-david,5,3,2,"cookieplone-templates, plone.volto",2025-01-26,2025-02-13
+boss6825,6,2,3,"cookieplone-templates, documentation, volto",2025-03-25,2025-12-22
+anushka-codes1,6,4,3,"plone.formwidget.recurrence, plone.org, training",2025-11-11,2025-11-17
 reebalazs,5,4,2,"aurora, volto",2025-01-09,2025-10-29
+ichim-david,5,3,2,"cookieplone-templates, plone.volto",2025-01-26,2025-02-13
 ana-oprea,5,2,2,"plone.volto, volto",2025-03-28,2025-03-28
-MAX-786,5,1,1,nick,2025-01-01,2025-01-03
 iRohitSingh,5,4,2,"plone.org, volto",2025-03-13,2025-12-04
+MAX-786,5,1,1,nick,2025-01-01,2025-01-03
 djay,4,4,3,"buildout.coredev, plone.namedfile, plone.restapi",2025-01-14,2025-04-02
 sverbois,4,2,3,"buildout.coredev, mockup, plone.base",2025-02-26,2025-03-19
-icemac,4,1,1,five.intid,2025-02-12,2025-02-13
-avoinea,4,3,3,"aurora, plone.volto, volto",2025-02-14,2025-10-28
 deodorhunter,4,4,2,"aurora, volto",2025-05-28,2025-09-16
-TechSubham,4,2,2,"aurora, volto",2025-01-08,2025-01-08
+avoinea,4,3,3,"aurora, plone.volto, volto",2025-02-14,2025-10-28
+silviubogan,4,4,2,"aurora, volto",2025-04-29,2025-06-11
 aryan7081,4,7,1,volto,2025-10-04,2025-12-19
+icemac,4,1,1,five.intid,2025-02-12,2025-02-13
 dataflake,4,2,2,"buildout.coredev, plone.recipe.zope2instance",2025-03-12,2025-03-13
 cekk,4,2,3,"buildout.coredev, plone.app.dexterity, plone.restapi",2025-02-13,2025-05-29
-silviubogan,4,4,2,"aurora, volto",2025-04-29,2025-06-11
 frapell,4,3,4,"aurora, buildout.coredev, plone.app.mosaic, volto",2025-09-30,2025-11-12
+TechSubham,4,2,2,"aurora, volto",2025-01-08,2025-01-08
 gil-cano,3,3,2,"cookieplone, cookieplone-templates",2025-04-08,2025-05-02
 pratyush07-hub,3,4,1,volto,2025-11-14,2025-12-26
 codehashira99,3,3,1,training,2025-03-19,2025-03-22
@@ -78,7 +78,7 @@ parruc,3,1,2,"buildout.coredev, plone.app.vocabularies",2025-08-26,2025-08-28
 Manik-Khajuria-5,2,3,2,"documentation, volto",2025-12-08,2025-12-09
 JeffersonBledsoe,2,2,1,volto,2025-05-30,2025-10-27
 ebrehault,2,2,3,"aurora, pastanaga-angular, volto",2025-01-15,2025-10-19
-Narcis2005,2,2,1,volto,2025-03-27,2025-03-29
+tomschall,2,2,1,volto,2025-05-08,2025-06-17
 sabrina-bongiovanni,2,2,2,"aurora, volto",2025-05-29,2025-10-08
 Thanush-03,2,1,1,plone.distribution,2025-08-17,2025-08-17
 pilz,2,1,2,"buildout.coredev, plone.app.users",2025-05-09,2025-06-12
@@ -86,7 +86,7 @@ lyralemos,2,1,2,"buildout.coredev, plone.distribution",2025-02-25,2025-02-25
 valipod,2,1,2,"buildout.coredev, plone.restapi",2025-10-02,2025-10-03
 Faakhir30,2,2,1,plone.restapi,2025-01-22,2025-02-22
 gyst,2,2,2,"Products.CMFPlone, plone.restapi",2025-02-03,2025-02-13
-tomschall,2,2,1,volto,2025-05-08,2025-06-17
+Narcis2005,2,2,1,volto,2025-03-27,2025-03-29
 tiberiuichim,1,1,1,plone.restapi,2025-06-16,2025-06-16
 toropok,1,1,1,volto,2025-03-29,2025-03-29
 kreafox,1,1,1,volto,2025-05-20,2025-05-20

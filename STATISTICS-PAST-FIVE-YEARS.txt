@@ -1,7 +1,7 @@
 # Five-Year Summary Results (2020-2024)
 
 - 67 total organisations tracked across the past 5 years
-- 44,287 total commits and 9,498 pull requests
+- 44,740 total commits and 9,498 pull requests
 - 344 unique contributors across all organisations
 - File generated: summary-past-five-years-2020-2024.csv
 
@@ -59,4 +59,4 @@ Not mapped to an organisation: 692 PRs
 9. Eau de Web: 1,341 commits
 10. Rohberg: 1,211 commits
 
-Not mapped to an organisation: 1,808 commits
+Not mapped to an organisation: 1,887 commits

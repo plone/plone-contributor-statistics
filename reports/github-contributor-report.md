@@ -1,6 +1,6 @@
 # Plone Core Contributor Statistics Report
 
-Generated on: 2026-10-18 01:15:27
+Generated on: 2026-10-18 02:45:16
 
 This report shows the top contributors and organizations in the Plone ecosystem across different time periods.
 
@@ -75,9 +75,9 @@ This report shows the top contributors and organizations in the Plone ecosystem 
 | 5 | petschki | 754 | 3,432 | 85 |
 | 6 | jensens | 718 | 4,950 | 149 |
 | 7 | thet | 693 | 2,792 | 103 |
-| 8 | vangheem | 660 | 3,290 | 47 |
+| 8 | vangheem | 660 | 3,396 | 50 |
 | 9 | pbauer | 513 | 2,804 | 139 |
-| 10 | davisagli | 491 | 1,954 | 129 |
+| 10 | davisagli | 491 | 1,970 | 129 |
 
 
 ---
@@ -133,27 +133,27 @@ Not mapped to an organisation: 357 PRs, 783 commits by 127 contributors.
 | 7 | RedTurtle | 379 | 957 | 9 | 38 |
 | 8 | Syslab | 365 | 1,657 | 5 | 68 |
 | 9 | PY76 | 359 | 3,464 | 1 | 135 |
-| 10 | Nuclia | 296 | 391 | 4 | 10 |
+| 10 | Nuclia | 296 | 496 | 4 | 10 |
 
-Not mapped to an organisation: 586 PRs, 1,682 commits by 188 contributors.
+Not mapped to an organisation: 586 PRs, 1,712 commits by 188 contributors.
 
 
 ### Top 10 Organisation Contributors (Past 10 Years: 2016-2025)
 
 | Rank | Organization | PRs | Commits | Contributors | Repositories |
 |------|-------------|-----|---------|---------------|-------------|
-| 1 | kitconcept GmbH | 3,792 | 20,207 | 17 | 202 |
+| 1 | kitconcept GmbH | 3,792 | 20,223 | 17 | 202 |
 | 2 | Zest Software | 1,276 | 13,037 | 3 | 191 |
 | 3 | der Freitag | 1,151 | 6,918 | 2 | 272 |
-| 4 | Syslab | 1,062 | 3,720 | 5 | 141 |
+| 4 | Syslab | 1,062 | 3,721 | 5 | 141 |
 | 5 | Steve Piercy - Website Builder | 909 | 3,357 | 1 | 38 |
 | 6 | Kombinat | 754 | 3,432 | 1 | 85 |
-| 7 | Nuclia | 733 | 2,304 | 4 | 44 |
+| 7 | Nuclia | 733 | 2,666 | 4 | 44 |
 | 8 | Klein & Partner KG | 725 | 4,968 | 2 | 149 |
-| 9 | Wildcard Corp | 662 | 3,293 | 2 | 48 |
+| 9 | Wildcard Corp | 662 | 3,399 | 2 | 51 |
 | 10 | Eau de Web | 555 | 1,651 | 14 | 37 |
 
-Not mapped to an organisation: 2,047 PRs, 4,724 commits by 395 contributors.
+Not mapped to an organisation: 2,047 PRs, 6,101 commits by 395 contributors.
 
 
 ---
