@@ -38,13 +38,13 @@
 3. Kombinat: 461 PRs
 4. Zest Software: 432 PRs
 5. der Freitag: 425 PRs
-6. Syslab: 192 PRs
-7. Klein & Partner KG: 182 PRs
-8. Eau de Web: 179 PRs
+6. Eau de Web: 208 PRs
+7. Syslab: 192 PRs
+8. Klein & Partner KG: 182 PRs
 9. Codesyntax: 177 PRs
 10. RedTurtle: 167 PRs
 
-Not mapped to an organisation: 414 PRs
+Not mapped to an organisation: 385 PRs
 
 ## Top 10 organisations by commits (2022-2024)
 
@@ -59,4 +59,4 @@ Not mapped to an organisation: 414 PRs
 9. Syslab: 695 commits
 10. Derico: 672 commits
 
-Not mapped to an organisation: 1,267 commits
+Not mapped to an organisation: 1,215 commits

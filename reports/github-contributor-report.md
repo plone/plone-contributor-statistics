@@ -1,6 +1,6 @@
 # Plone Core Contributor Statistics Report
 
-Generated on: 2026-10-18 15:51:08
+Generated on: 2026-10-18 16:35:48
 
 This report shows the top contributors and organizations in the Plone ecosystem across different time periods.
 
@@ -97,9 +97,9 @@ This report shows the top contributors and organizations in the Plone ecosystem 
 | 7 | Syslab | 89 | 165 | 3 | 31 |
 | 8 | Codesyntax | 82 | 295 | 2 | 24 |
 | 9 | RedTurtle | 69 | 72 | 6 | 7 |
-| 10 | Rohberg | 29 | 48 | 1 | 8 |
+| 10 | Eau de Web | 30 | 31 | 9 | 6 |
 
-Not mapped to an organisation: 128 PRs, 273 commits by 41 contributors.
+Not mapped to an organisation: 125 PRs, 272 commits by 40 contributors.
 
 
 ### Top 10 Organisation Contributors (Past 3 Years: 2023-2025)
@@ -117,7 +117,7 @@ Not mapped to an organisation: 128 PRs, 273 commits by 41 contributors.
 | 9 | Codesyntax | 171 | 584 | 4 | 38 |
 | 10 | RedTurtle | 163 | 304 | 9 | 22 |
 
-Not mapped to an organisation: 400 PRs, 825 commits by 127 contributors.
+Not mapped to an organisation: 371 PRs, 778 commits by 126 contributors.
 
 
 ### Top 10 Organisation Contributors (Past 5 Years: 2021-2025)
@@ -129,13 +129,13 @@ Not mapped to an organisation: 400 PRs, 825 commits by 127 contributors.
 | 3 | der Freitag | 706 | 3,621 | 2 | 230 |
 | 4 | Kombinat | 653 | 2,544 | 1 | 74 |
 | 5 | Zest Software | 575 | 4,947 | 3 | 146 |
-| 6 | Syslab | 365 | 1,279 | 5 | 68 |
-| 7 | PY76 | 359 | 2,926 | 1 | 135 |
-| 8 | Eau de Web | 355 | 915 | 15 | 20 |
+| 6 | Eau de Web | 387 | 968 | 16 | 21 |
+| 7 | Syslab | 365 | 1,279 | 5 | 68 |
+| 8 | PY76 | 359 | 2,926 | 1 | 135 |
 | 9 | RedTurtle | 311 | 656 | 9 | 30 |
 | 10 | Codesyntax | 289 | 782 | 4 | 48 |
 
-Not mapped to an organisation: 698 PRs, 1,885 commits by 190 contributors.
+Not mapped to an organisation: 666 PRs, 1,832 commits by 189 contributors.
 
 
 ### Top 10 Organisation Contributors (Past 10 Years: 2016-2025)
@@ -150,10 +150,10 @@ Not mapped to an organisation: 698 PRs, 1,885 commits by 190 contributors.
 | 6 | Onna | 777 | 3,428 | 5 | 26 |
 | 7 | Kombinat | 754 | 2,882 | 1 | 85 |
 | 8 | Klein & Partner KG | 725 | 3,125 | 2 | 149 |
-| 9 | Starzel | 542 | 2,298 | 3 | 142 |
-| 10 | Eau de Web | 535 | 1,596 | 17 | 36 |
+| 9 | Eau de Web | 567 | 1,649 | 18 | 37 |
+| 10 | Starzel | 542 | 2,298 | 3 | 142 |
 
-Not mapped to an organisation: 2,309 PRs, 6,796 commits by 389 contributors.
+Not mapped to an organisation: 2,277 PRs, 6,743 commits by 388 contributors.
 
 
 ---
