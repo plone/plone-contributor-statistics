@@ -95,7 +95,7 @@ def test_archive_readme_lists_every_file():
 
 
 def _code_files():
-    yield from ROOT.glob('*.py')
+    yield from ROOT.glob('scripts/**/*.py')
     yield ROOT / 'Makefile'
     yield from (ROOT / '.github' / 'workflows').glob('*.yml')
 

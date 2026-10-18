@@ -2,8 +2,8 @@
 
 import pytest
 
-import generate_community_recognition_report as recognition
-import plip_organisation_stats as plips
+from scripts.report import generate_community_recognition_report as recognition
+from scripts.derive import plip_organisation_stats as plips
 
 PLIP_HEADER = 'number,title,author,state,created_at,updated_at,closed_at,repository,html_url\n'
 

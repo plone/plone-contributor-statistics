@@ -4,8 +4,8 @@ from datetime import datetime
 
 import pytest
 
-import plone_contributors
-import volto_stats
+from scripts.collect import plone_contributors
+from scripts.collect import volto_stats
 
 
 class FakeResponse:

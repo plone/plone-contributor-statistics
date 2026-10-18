@@ -6,8 +6,8 @@ from pathlib import Path
 
 import pandas as pd
 
-import generate_community_recognition_report as recognition
-from organisation_stats import UNMAPPED, aggregate_organisation_stats, load_organisation_mapping
+from scripts.report import generate_community_recognition_report as recognition
+from scripts.derive.organisation_stats import UNMAPPED, aggregate_organisation_stats, load_organisation_mapping
 
 ROOT = Path(__file__).resolve().parent.parent
 LOGIN = re.compile(r'[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?')

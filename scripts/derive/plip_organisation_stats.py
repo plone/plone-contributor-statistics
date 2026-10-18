@@ -7,12 +7,13 @@ closed, an open PLIP for the organisation in the year it was created, with the
 yearly overrides of organisation_mapping_overrides.csv.
 """
 
+import argparse
 import csv
 from collections import defaultdict
 
 from scripts.lib import paths
 from scripts.lib.mappings import load_organisation_mapping
-from organisation_stats import UNMAPPED
+from scripts.derive.organisation_stats import UNMAPPED
 
 PLIPS_FILE = paths.PLIPS_DETAILED
 OUTPUT_FILE = paths.PLIP_ORGANISATIONS
@@ -91,4 +92,6 @@ def main():
 
 
 if __name__ == '__main__':
+    # No options; --help says what the script does
+    argparse.ArgumentParser(description=__doc__.strip().splitlines()[0]).parse_args()
     main()

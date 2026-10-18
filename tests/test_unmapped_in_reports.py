@@ -2,10 +2,10 @@
 
 import pandas as pd
 
-import multi_year_summary
+from scripts.derive import multi_year_summary
 from scripts.lib import paths
-from generate_contributor_report import top_organisations_table
-from organisation_stats import UNMAPPED
+from scripts.report.generate_contributor_report import top_organisations_table
+from scripts.derive.organisation_stats import UNMAPPED
 
 
 def organisations():

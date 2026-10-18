@@ -6,8 +6,8 @@ from pathlib import Path
 
 import pytest
 
-import plone_contributors
-from plone_contributors import ACCOUNT_ALIASES_FILE, COMMIT_AUTHORS_FILE, PloneStatsExtractor, year_periods
+from scripts.collect import plone_contributors
+from scripts.collect.plone_contributors import ACCOUNT_ALIASES_FILE, COMMIT_AUTHORS_FILE, PloneStatsExtractor, year_periods
 
 ROOT = Path(__file__).resolve().parent.parent
 LOGIN = re.compile(r'[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?')

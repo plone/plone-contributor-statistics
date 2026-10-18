@@ -25,7 +25,7 @@ from dotenv import load_dotenv
 from scripts.lib import paths
 from scripts.lib.github_api import GitHubAPIError, github_get, github_graphql
 from scripts.lib.mappings import load_bot_accounts, load_excluded_repositories
-from plone_contributors import parse_timestamp, select_repositories
+from scripts.collect.plone_contributors import parse_timestamp, select_repositories
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')

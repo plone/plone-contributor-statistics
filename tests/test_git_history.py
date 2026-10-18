@@ -6,7 +6,7 @@ import subprocess
 import pytest
 
 from scripts.lib import git_history
-import plone_contributors
+from scripts.collect import plone_contributors
 from scripts.lib.github_api import GitHubAPIError
 
 

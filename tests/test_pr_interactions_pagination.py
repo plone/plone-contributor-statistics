@@ -4,8 +4,8 @@ from datetime import datetime
 
 import pytest
 
-import plone_pr_interactions
-from plone_pr_interactions import PlonePRInteractionExtractor
+from scripts.collect import plone_pr_interactions
+from scripts.collect.plone_pr_interactions import PlonePRInteractionExtractor
 
 YEAR_2015 = (datetime(2015, 1, 1), datetime(2015, 12, 31, 23, 59, 59))
 

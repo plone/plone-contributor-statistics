@@ -4,9 +4,9 @@ from datetime import datetime
 
 import pytest
 
-import plone_pr_interactions
+from scripts.collect import plone_pr_interactions
 from scripts.lib.github_api import GitHubAPIError
-from plone_pr_interactions import PlonePRInteractionExtractor
+from scripts.collect.plone_pr_interactions import PlonePRInteractionExtractor
 
 
 def comment(login, at, reactions=0):

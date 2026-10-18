@@ -141,8 +141,8 @@ help:
 	@echo "  docs-clean        Remove the built documentation"
 	@echo ""
 	@echo "Date range examples:"
-	@echo "  python plone_contributors.py --year 2024"
-	@echo "  python plone_contributors.py --start-date 2024-01-01 --end-date 2024-06-30"
+	@echo "  python -m scripts.collect.plone_contributors --year 2024"
+	@echo "  python -m scripts.collect.plone_contributors --start-date 2024-01-01 --end-date 2024-06-30"
 
 # Install dependencies
 install:
@@ -164,97 +164,97 @@ dev-setup: setup
 
 # Run main statistics extraction (current year)
 run-stats:
-	python plone_contributors.py
+	python -m scripts.collect.plone_contributors
 
 # Collect all years in one run (one file per year)
 run-stats-all-years:
-	python plone_contributors.py --from-year 2003 --to-year $$(date +%Y)
+	python -m scripts.collect.plone_contributors --from-year 2003 --to-year $$(date +%Y)
 
 # Run statistics for specific years
 run-stats-2025:
-	python plone_contributors.py --year 2025
+	python -m scripts.collect.plone_contributors --year 2025
 
 run-stats-2024:
-	python plone_contributors.py --year 2024
+	python -m scripts.collect.plone_contributors --year 2024
 
 run-stats-2023:
-	python plone_contributors.py --year 2023
+	python -m scripts.collect.plone_contributors --year 2023
 
 run-stats-2022:
-	python plone_contributors.py --year 2022
+	python -m scripts.collect.plone_contributors --year 2022
 
 run-stats-2021:
-	python plone_contributors.py --year 2021
+	python -m scripts.collect.plone_contributors --year 2021
 
 run-stats-2020:
-	python plone_contributors.py --year 2020
+	python -m scripts.collect.plone_contributors --year 2020
 
 run-stats-2019:
-	python plone_contributors.py --year 2019
+	python -m scripts.collect.plone_contributors --year 2019
 
 run-stats-2018:
-	python plone_contributors.py --year 2018
+	python -m scripts.collect.plone_contributors --year 2018
 
 run-stats-2017:
-	python plone_contributors.py --year 2017
+	python -m scripts.collect.plone_contributors --year 2017
 
 run-stats-2016:
-	python plone_contributors.py --year 2016
+	python -m scripts.collect.plone_contributors --year 2016
 
 run-stats-2015:
-	python plone_contributors.py --year 2015
+	python -m scripts.collect.plone_contributors --year 2015
 
 run-stats-2014:
-	python plone_contributors.py --year 2014
+	python -m scripts.collect.plone_contributors --year 2014
 
 run-stats-2013:
-	python plone_contributors.py --year 2013
+	python -m scripts.collect.plone_contributors --year 2013
 
 run-stats-2012:
-	python plone_contributors.py --year 2012
+	python -m scripts.collect.plone_contributors --year 2012
 
 run-stats-2011:
-	python plone_contributors.py --year 2011
+	python -m scripts.collect.plone_contributors --year 2011
 
 run-stats-2010:
-	python plone_contributors.py --year 2010
+	python -m scripts.collect.plone_contributors --year 2010
 
 run-stats-2009:
-	python plone_contributors.py --year 2009
+	python -m scripts.collect.plone_contributors --year 2009
 
 run-stats-2008:
-	python plone_contributors.py --year 2008
+	python -m scripts.collect.plone_contributors --year 2008
 
 run-stats-2007:
-	python plone_contributors.py --year 2007
+	python -m scripts.collect.plone_contributors --year 2007
 
 run-stats-2006:
-	python plone_contributors.py --year 2006
+	python -m scripts.collect.plone_contributors --year 2006
 
 run-stats-2005:
-	python plone_contributors.py --year 2005
+	python -m scripts.collect.plone_contributors --year 2005
 
 run-stats-2004:
-	python plone_contributors.py --year 2004
+	python -m scripts.collect.plone_contributors --year 2004
 
 run-stats-2003:
-	python plone_contributors.py --year 2003
+	python -m scripts.collect.plone_contributors --year 2003
 
 run-stats-2002:
-	python plone_contributors.py --year 2002
+	python -m scripts.collect.plone_contributors --year 2002
 
 run-stats-2001:
-	python plone_contributors.py --year 2001
+	python -m scripts.collect.plone_contributors --year 2001
 
 run-stats-2000:
-	python plone_contributors.py --year 2000
+	python -m scripts.collect.plone_contributors --year 2000
 
 # Run statistics with custom date range
 run-stats-custom:
 	@echo "Usage examples:"
-	@echo "  python plone_contributors.py --year 2023"
-	@echo "  python plone_contributors.py --start-date 2024-01-01 --end-date 2024-12-31"
-	@echo "  python plone_contributors.py --start-date 2023-01-01 --end-date 2024-12-31"
+	@echo "  python -m scripts.collect.plone_contributors --year 2023"
+	@echo "  python -m scripts.collect.plone_contributors --start-date 2024-01-01 --end-date 2024-12-31"
+	@echo "  python -m scripts.collect.plone_contributors --start-date 2023-01-01 --end-date 2024-12-31"
 
 # Generate organisation statistics from individual contributor stats (all available years)
 run-organisation-stats:
@@ -263,306 +263,306 @@ run-organisation-stats:
 		if [ -f "$$year_file" ]; then \
 			year=$$(basename $$year_file | sed 's/-plone-contributors.csv//'); \
 			echo "Processing $$year..."; \
-			python organisation_stats.py --year $$year; \
+			python -m scripts.derive.organisation_stats --year $$year; \
 		fi \
 	done
 	@echo "Finished generating organisation statistics for all years"
 
 # Generate organisation statistics for specific years
 run-organisation-stats-2025:
-	python organisation_stats.py --year 2025
+	python -m scripts.derive.organisation_stats --year 2025
 
 run-organisation-stats-2024:
-	python organisation_stats.py --year 2024
+	python -m scripts.derive.organisation_stats --year 2024
 
 run-organisation-stats-2023:
-	python organisation_stats.py --year 2023
+	python -m scripts.derive.organisation_stats --year 2023
 
 run-organisation-stats-2022:
-	python organisation_stats.py --year 2022
+	python -m scripts.derive.organisation_stats --year 2022
 
 run-organisation-stats-2021:
-	python organisation_stats.py --year 2021
+	python -m scripts.derive.organisation_stats --year 2021
 
 run-organisation-stats-2020:
-	python organisation_stats.py --year 2020
+	python -m scripts.derive.organisation_stats --year 2020
 
 run-organisation-stats-2019:
-	python organisation_stats.py --year 2019
+	python -m scripts.derive.organisation_stats --year 2019
 
 run-organisation-stats-2018:
-	python organisation_stats.py --year 2018
+	python -m scripts.derive.organisation_stats --year 2018
 
 run-organisation-stats-2017:
-	python organisation_stats.py --year 2017
+	python -m scripts.derive.organisation_stats --year 2017
 
 run-organisation-stats-2016:
-	python organisation_stats.py --year 2016
+	python -m scripts.derive.organisation_stats --year 2016
 
 run-organisation-stats-2015:
-	python organisation_stats.py --year 2015
+	python -m scripts.derive.organisation_stats --year 2015
 
 run-organisation-stats-2014:
-	python organisation_stats.py --year 2014
+	python -m scripts.derive.organisation_stats --year 2014
 
 run-organisation-stats-2013:
-	python organisation_stats.py --year 2013
+	python -m scripts.derive.organisation_stats --year 2013
 
 run-organisation-stats-2012:
-	python organisation_stats.py --year 2012
+	python -m scripts.derive.organisation_stats --year 2012
 
 run-organisation-stats-2011:
-	python organisation_stats.py --year 2011
+	python -m scripts.derive.organisation_stats --year 2011
 
 run-organisation-stats-2010:
-	python organisation_stats.py --year 2010
+	python -m scripts.derive.organisation_stats --year 2010
 
 run-organisation-stats-2009:
-	python organisation_stats.py --year 2009
+	python -m scripts.derive.organisation_stats --year 2009
 
 run-organisation-stats-2008:
-	python organisation_stats.py --year 2008
+	python -m scripts.derive.organisation_stats --year 2008
 
 run-organisation-stats-2007:
-	python organisation_stats.py --year 2007
+	python -m scripts.derive.organisation_stats --year 2007
 
 run-organisation-stats-2006:
-	python organisation_stats.py --year 2006
+	python -m scripts.derive.organisation_stats --year 2006
 
 run-organisation-stats-2005:
-	python organisation_stats.py --year 2005
+	python -m scripts.derive.organisation_stats --year 2005
 
 run-organisation-stats-2004:
-	python organisation_stats.py --year 2004
+	python -m scripts.derive.organisation_stats --year 2004
 
 run-organisation-stats-2003:
-	python organisation_stats.py --year 2003
+	python -m scripts.derive.organisation_stats --year 2003
 
 run-organisation-stats-2002:
-	python organisation_stats.py --year 2002
+	python -m scripts.derive.organisation_stats --year 2002
 
 run-organisation-stats-2001:
-	python organisation_stats.py --year 2001
+	python -m scripts.derive.organisation_stats --year 2001
 
 run-organisation-stats-2000:
-	python organisation_stats.py --year 2000
+	python -m scripts.derive.organisation_stats --year 2000
 
 # Extract PLIP statistics
 run-plips:
-	python plone_plips.py
+	python -m scripts.collect.plone_plips
 
 # Generate PLIP organisation statistics
 run-plip-organisations:
-	python plip_organisation_stats.py
+	python -m scripts.derive.plip_organisation_stats
 
 # Analyze Independent contributors for potential organisation mappings
 analyze-independent:
-	python analyze_independent_contributors.py
+	python -m scripts.tools.analyze_independent_contributors
 
 # Combine the organisation statistics of the last 3, 5 or 10 years up to SUMMARY_END
 three-year-summary:
-	python multi_year_summary.py --years $(call summary_years,3)
+	python -m scripts.derive.multi_year_summary --years $(call summary_years,3)
 
 five-year-summary:
-	python multi_year_summary.py --years $(call summary_years,5)
+	python -m scripts.derive.multi_year_summary --years $(call summary_years,5)
 
 ten-year-summary:
-	python multi_year_summary.py --years $(call summary_years,10)
+	python -m scripts.derive.multi_year_summary --years $(call summary_years,10)
 
 # Generate yearly development activity analysis
 yearly-activity:
-	python yearly_activity_analysis.py
+	python -m scripts.derive.yearly_activity_analysis
 
 # Generate visual graphs from yearly activity data
 yearly-graphs: yearly-activity
-	python generate_yearly_graphs.py
+	python -m scripts.report.generate_yearly_graphs
 
 # Generate comprehensive contributor and organization report
 generate-report:
-	python generate_contributor_report.py
+	python -m scripts.report.generate_contributor_report
 
 # Calculate community recognition points and generate report
 community-recognition:
-	python generate_community_recognition_report.py --year $(RECOGNITION_YEAR)
+	python -m scripts.report.generate_community_recognition_report --year $(RECOGNITION_YEAR)
 
 # Generate Volto report
 generate-volto-report:
-	python generate_volto_team_report.py
+	python -m scripts.report.generate_volto_team_report
 
 # Extract pull request comments and interactions from GitHub
 pr-interactions:
-	python plone_pr_interactions.py
+	python -m scripts.collect.plone_pr_interactions
 
 # Extract pull request interactions for all years in one run
 pr-interactions-all-years:
-	python plone_pr_interactions.py --from-year 2010 --to-year $$(date +%Y)
+	python -m scripts.collect.plone_pr_interactions --from-year 2010 --to-year $$(date +%Y)
 
 # Extract pull request comments and interactions for 2025
 pr-interactions-2025:
-	python plone_pr_interactions.py --year 2025
+	python -m scripts.collect.plone_pr_interactions --year 2025
 
 # Extract pull request comments and interactions for 2024
 pr-interactions-2024:
-	python plone_pr_interactions.py --year 2024
+	python -m scripts.collect.plone_pr_interactions --year 2024
 
 # Extract pull request comments and interactions for 2023
 pr-interactions-2023:
-	python plone_pr_interactions.py --year 2023
+	python -m scripts.collect.plone_pr_interactions --year 2023
 
 # Extract pull request comments and interactions for 2022
 pr-interactions-2022:
-	python plone_pr_interactions.py --year 2022
+	python -m scripts.collect.plone_pr_interactions --year 2022
 
 # Extract pull request comments and interactions for 2021
 pr-interactions-2021:
-	python plone_pr_interactions.py --year 2021
+	python -m scripts.collect.plone_pr_interactions --year 2021
 
 # Extract pull request comments and interactions for 2020
 pr-interactions-2020:
-	python plone_pr_interactions.py --year 2020
+	python -m scripts.collect.plone_pr_interactions --year 2020
 
 # Extract pull request comments and interactions for 2019
 pr-interactions-2019:
-	python plone_pr_interactions.py --year 2019
+	python -m scripts.collect.plone_pr_interactions --year 2019
 
 # Extract pull request comments and interactions for 2018
 pr-interactions-2018:
-	python plone_pr_interactions.py --year 2018
+	python -m scripts.collect.plone_pr_interactions --year 2018
 
 # Extract pull request comments and interactions for 2017
 pr-interactions-2017:
-	python plone_pr_interactions.py --year 2017
+	python -m scripts.collect.plone_pr_interactions --year 2017
 
 # Extract pull request comments and interactions for 2016
 pr-interactions-2016:
-	python plone_pr_interactions.py --year 2016
+	python -m scripts.collect.plone_pr_interactions --year 2016
 
 # Extract pull request comments and interactions for 2015
 pr-interactions-2015:
-	python plone_pr_interactions.py --year 2015
+	python -m scripts.collect.plone_pr_interactions --year 2015
 
 # Extract pull request comments and interactions for 2014
 pr-interactions-2014:
-	python plone_pr_interactions.py --year 2014
+	python -m scripts.collect.plone_pr_interactions --year 2014
 
 # Extract pull request comments and interactions for 2013
 pr-interactions-2013:
-	python plone_pr_interactions.py --year 2013
+	python -m scripts.collect.plone_pr_interactions --year 2013
 
 # Extract pull request comments and interactions for 2012
 pr-interactions-2012:
-	python plone_pr_interactions.py --year 2012
+	python -m scripts.collect.plone_pr_interactions --year 2012
 
 # Extract pull request comments and interactions for 2011
 pr-interactions-2011:
-	python plone_pr_interactions.py --year 2011
+	python -m scripts.collect.plone_pr_interactions --year 2011
 
 # Extract pull request comments and interactions for 2010
 pr-interactions-2010:
-	python plone_pr_interactions.py --year 2010
+	python -m scripts.collect.plone_pr_interactions --year 2010
 
 # Extract pull request comments and interactions for 2009
 pr-interactions-2009:
-	python plone_pr_interactions.py --year 2009
+	python -m scripts.collect.plone_pr_interactions --year 2009
 
 # Extract pull request comments and interactions for 2008
 pr-interactions-2008:
-	python plone_pr_interactions.py --year 2008
+	python -m scripts.collect.plone_pr_interactions --year 2008
 
 # Extract pull request comments and interactions for 2007
 pr-interactions-2007:
-	python plone_pr_interactions.py --year 2007
+	python -m scripts.collect.plone_pr_interactions --year 2007
 
 # Extract pull request comments and interactions for 2006
 pr-interactions-2006:
-	python plone_pr_interactions.py --year 2006
+	python -m scripts.collect.plone_pr_interactions --year 2006
 
 # Extract pull request comments and interactions for 2005
 pr-interactions-2005:
-	python plone_pr_interactions.py --year 2005
+	python -m scripts.collect.plone_pr_interactions --year 2005
 
 # Run Volto statistics extraction (current year)
 run-volto-stats:
-	python volto_stats.py
+	python -m scripts.collect.volto_stats
 
 # Run Volto statistics for specific years
 run-volto-stats-2025:
-	python volto_stats.py --year 2025
+	python -m scripts.collect.volto_stats --year 2025
 
 run-volto-stats-2024:
-	python volto_stats.py --year 2024
+	python -m scripts.collect.volto_stats --year 2024
 
 run-volto-stats-2023:
-	python volto_stats.py --year 2023
+	python -m scripts.collect.volto_stats --year 2023
 
 run-volto-stats-2022:
-	python volto_stats.py --year 2022
+	python -m scripts.collect.volto_stats --year 2022
 
 run-volto-stats-2021:
-	python volto_stats.py --year 2021
+	python -m scripts.collect.volto_stats --year 2021
 
 run-volto-stats-2020:
-	python volto_stats.py --year 2020
+	python -m scripts.collect.volto_stats --year 2020
 
 run-volto-stats-2019:
-	python volto_stats.py --year 2019
+	python -m scripts.collect.volto_stats --year 2019
 
 run-volto-stats-2018:
-	python volto_stats.py --year 2018
+	python -m scripts.collect.volto_stats --year 2018
 
 run-volto-stats-2017:
-	python volto_stats.py --year 2017
+	python -m scripts.collect.volto_stats --year 2017
 
 run-volto-stats-2016:
-	python volto_stats.py --year 2016
+	python -m scripts.collect.volto_stats --year 2016
 
 run-volto-stats-2015:
-	python volto_stats.py --year 2015
+	python -m scripts.collect.volto_stats --year 2015
 
 run-volto-stats-2014:
-	python volto_stats.py --year 2014
+	python -m scripts.collect.volto_stats --year 2014
 
 run-volto-stats-2013:
-	python volto_stats.py --year 2013
+	python -m scripts.collect.volto_stats --year 2013
 
 run-volto-stats-2012:
-	python volto_stats.py --year 2012
+	python -m scripts.collect.volto_stats --year 2012
 
 run-volto-stats-2011:
-	python volto_stats.py --year 2011
+	python -m scripts.collect.volto_stats --year 2011
 
 run-volto-stats-2010:
-	python volto_stats.py --year 2010
+	python -m scripts.collect.volto_stats --year 2010
 
 run-volto-stats-2009:
-	python volto_stats.py --year 2009
+	python -m scripts.collect.volto_stats --year 2009
 
 run-volto-stats-2008:
-	python volto_stats.py --year 2008
+	python -m scripts.collect.volto_stats --year 2008
 
 run-volto-stats-2007:
-	python volto_stats.py --year 2007
+	python -m scripts.collect.volto_stats --year 2007
 
 run-volto-stats-2006:
-	python volto_stats.py --year 2006
+	python -m scripts.collect.volto_stats --year 2006
 
 run-volto-stats-2005:
-	python volto_stats.py --year 2005
+	python -m scripts.collect.volto_stats --year 2005
 
 run-volto-stats-2004:
-	python volto_stats.py --year 2004
+	python -m scripts.collect.volto_stats --year 2004
 
 run-volto-stats-2003:
-	python volto_stats.py --year 2003
+	python -m scripts.collect.volto_stats --year 2003
 
 run-volto-stats-2002:
-	python volto_stats.py --year 2002
+	python -m scripts.collect.volto_stats --year 2002
 
 run-volto-stats-2001:
-	python volto_stats.py --year 2001
+	python -m scripts.collect.volto_stats --year 2001
 
 run-volto-stats-2000:
-	python volto_stats.py --year 2000
+	python -m scripts.collect.volto_stats --year 2000
 
 # Clean generated files
 clean:
@@ -574,21 +574,21 @@ clean:
 # Code quality checks
 lint:
 	@if command -v flake8 >/dev/null 2>&1; then \
-		flake8 *.py; \
+		flake8 scripts tests; \
 	else \
 		echo "flake8 not installed. Run 'make dev-setup' first."; \
 	fi
 
 format:
 	@if command -v black >/dev/null 2>&1; then \
-		black *.py; \
+		black scripts tests; \
 	else \
 		echo "black not installed. Run 'make dev-setup' first."; \
 	fi
 
 check: lint
 	@echo "Checking Python syntax..."
-	@python -m py_compile *.py
+	@python -m compileall -q scripts tests
 	@echo "All Python files compile successfully!"
 	@echo "Checking requirements..."
 	@pip check

@@ -11,7 +11,7 @@ See {doc}`/explanation/counting-rules` for why the files count the way they do.
 ## Collected data
 
 `data/YYYY-plone-contributors.csv`
-:   Written by `plone_contributors.py`.
+:   Written by `scripts/collect/plone_contributors.py`.
     One row per person with at least one counted commit or merged pull request in the year.
     `username` is the GitHub login, or the name of a person without a GitHub account.
     Columns: `username`, `total_commits`, `total_pull_requests`, `repositories_count`, `repositories`, `first_contribution`, `last_contribution`.
@@ -19,28 +19,28 @@ See {doc}`/explanation/counting-rules` for why the files count the way they do.
     `first_contribution` and `last_contribution` use the author dates.
 
 `data/YYYY-plone-pr-interactions.csv`
-:   Written by `plone_pr_interactions.py`.
+:   Written by `scripts/collect/plone_pr_interactions.py`.
     One row per pull request created in the year, in any state.
     Columns: `repo`, `pr_number`, `title`, `author`, `created_at`, `merged_at`, `state`, `merged`, `issue_comments_count`, `review_comments_count`, `reviews_count`, `total_comments`, `participants_count`, `reviewers_count`, `commenters_count`, `approved_reviews`, `changes_requested_reviews`, `comment_reviews`, `reactions_total`, `first_response_time`.
     `first_response_time` is in hours.
 
 `data/YYYY-volto-stats.csv`
-:   Written by `volto_stats.py`.
+:   Written by `scripts/collect/volto_stats.py`.
     One row per contributor of `plone/volto` with at least one pull request or commit in the year.
     Columns: `github_username`, `pull_requests`, `commits`.
 
 `plone-plips.csv`
-:   Written by `plone_plips.py`.
+:   Written by `scripts/collect/plone_plips.py`.
     One row per PLIP author, over all years.
     Columns: `username`, `total_plips`, `open_plips`, `closed_plips`, `repositories_count`, `repositories`, `first_plip`, `last_plip`.
 
 `plone-plips-detailed.csv`
-:   Written by `plone_plips.py`.
+:   Written by `scripts/collect/plone_plips.py`.
     One row per PLIP.
     Columns: `number`, `title`, `author`, `state`, `created_at`, `updated_at`, `closed_at`, `repository`, `html_url`.
 
 `plone-plip-organisations.csv`
-:   Written by `plip_organisation_stats.py`.
+:   Written by `scripts/derive/plip_organisation_stats.py`.
     One row per organisation, with the PLIPs of its members: a closed PLIP counts for the author's organisation in the year it was closed, an open one in the year it was created.
     Columns: `organisation`, `total_plips`, `open_plips`, `closed_plips`, `contributors_count`, `contributors`, `repositories_count`, `repositories`, `first_plip`, `last_plip`.
 
@@ -92,37 +92,37 @@ Several people or organisations in one cell are separated by semicolons.
 ## Derived data
 
 `data/YYYY-plone-organisation-contributors.csv`
-:   Written by `organisation_stats.py`.
+:   Written by `scripts/derive/organisation_stats.py`.
     One row per organisation, plus one row `Unmapped`.
     Columns: `organisation`, `total_commits`, `total_pull_requests`, `contributors_count`, `contributors`, `repositories_count`, `repositories`, `first_contribution`, `last_contribution`.
 
 `summary-past-*-years-*.csv`
-:   Written by `multi_year_summary.py`.
+:   Written by `scripts/derive/multi_year_summary.py`.
     One row per organisation over the years in the file name.
     Columns: `organisation`, `total_commits`, `total_pull_requests`, `contributors_count`, `contributors`, `repositories_count`, `repositories`, `years_active`, `first_contribution`, `last_contribution`.
 
 `STATISTICS-PAST-*-YEARS.txt`
-:   Written by `multi_year_summary.py`.
+:   Written by `scripts/derive/multi_year_summary.py`.
     A text summary of the matching `summary-past-*-years-*.csv`.
 
 `yearly-activity-statistics.csv`
-:   Written by `yearly_activity_analysis.py`.
+:   Written by `scripts/derive/yearly_activity_analysis.py`.
     One row per year with totals and ratios over all contributors.
 
 `data/community-contributions/YYYY-community-recognition-report.csv`
-:   Written by `generate_community_recognition_report.py`.
+:   Written by `scripts/report/generate_community_recognition_report.py`.
     One row per organisation with its points per category, its total points and its level.
 
 ## Reports
 
 `reports/github-contributor-report.md`
-:   Written by `generate_contributor_report.py`.
+:   Written by `scripts/report/generate_contributor_report.py`.
 
 `reports/github-pr-interactions-report-YYYY.md`
-:   Written by `plone_pr_interactions.py`.
+:   Written by `scripts/collect/plone_pr_interactions.py`.
 
 `reports/volto.md`
-:   Written by `generate_volto_team_report.py`.
+:   Written by `scripts/report/generate_volto_team_report.py`.
 
 `reports/community-recognition.md`
-:   Written by `generate_community_recognition_report.py`.
+:   Written by `scripts/report/generate_community_recognition_report.py`.

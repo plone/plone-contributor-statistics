@@ -6,6 +6,7 @@ Generates visual graphs from yearly activity data to show development trends
 and patterns in the Plone ecosystem over time.
 """
 
+import argparse
 import pandas as pd
 from pathlib import Path
 import sys
@@ -582,4 +583,6 @@ def main():
 
 
 if __name__ == "__main__":
+    # No options; --help says what the script does
+    argparse.ArgumentParser(description=__doc__.strip().splitlines()[0]).parse_args()
     exit(main())

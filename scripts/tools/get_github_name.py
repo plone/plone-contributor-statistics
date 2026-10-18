@@ -3,6 +3,7 @@
 Query GitHub API to get the full name of a user by their GitHub handle.
 """
 
+import argparse
 import os
 import requests
 import sys
@@ -110,19 +111,12 @@ def get_multiple_names(handles):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage: python get_github_name.py <github_handle>")
-        print("   or: python get_github_name.py <handle1> <handle2> ...")
-        print("   or: python get_github_name.py --debug <handle>")
-        sys.exit(1)
-
-    debug = False
-    handles = sys.argv[1:]
-
-    # Check for debug flag
-    if '--debug' in handles:
-        debug = True
-        handles.remove('--debug')
+    parser = argparse.ArgumentParser(description='Print the full name of GitHub users from the GitHub API.')
+    parser.add_argument('handles', nargs='+', metavar='handle', help='GitHub login')
+    parser.add_argument('--debug', action='store_true', help='print the API response')
+    args = parser.parse_args()
+    debug = args.debug
+    handles = args.handles
 
     if len(handles) == 1:
         # Single handle

@@ -43,4 +43,4 @@ Read the documentation before you change data or method, and link to it instead 
 ## Looking up names
 
 `mapping-github-username-to-fullname.csv` maps some GitHub logins to full names.
-For other logins, `python get_github_name.py <login>` asks the GitHub API; add new results to the mapping file.
+For other logins, `python -m scripts.tools.get_github_name <login>` asks the GitHub API; add new results to the mapping file.

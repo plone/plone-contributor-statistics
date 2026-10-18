@@ -5,7 +5,7 @@ from datetime import datetime
 
 import pytest
 
-import plone_contributors
+from scripts.collect import plone_contributors
 from scripts.lib.github_api import GitHubAPIError
 
 

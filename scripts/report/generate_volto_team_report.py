@@ -6,6 +6,7 @@ Generates a markdown report of Volto team contributor statistics
 across multiple time periods.
 """
 
+import argparse
 from datetime import datetime
 from pathlib import Path
 
@@ -229,4 +230,6 @@ def main():
 
 
 if __name__ == "__main__":
+    # No options; --help says what the script does
+    argparse.ArgumentParser(description=__doc__.strip().splitlines()[0]).parse_args()
     exit(main())
