@@ -50,6 +50,25 @@ Rules
     Every row must have a source.
     `tests/test_unmapped_and_mapping.py` checks the format.
 
+## `organisation_mapping_proposals.csv`
+
+Past organisations that a company email address in the commits suggests, but that nobody has confirmed yet.
+The statistics don't read this file.
+
+Columns
+:   `contributor`, `organisation`, `from_year`, `to_year`, `evidence`.
+
+`contributor`
+:   The GitHub login, or the name of a person without a GitHub account.
+
+`evidence`
+:   The company address and the years of the commits that use it.
+
+Rules
+:   A confirmed row moves to `organisation_mapping_overrides.csv`, with the confirmation as its source.
+    The organisation also has to be added to `organisations.csv` if it isn't listed yet.
+    `tests/test_unmapped_and_mapping.py` checks the format.
+
 ## `bot_accounts.csv`
 
 GitHub accounts that are bots, although the GitHub API lists them as users.
