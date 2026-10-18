@@ -32,7 +32,10 @@ Several kinds of curated data depend on a definition, and the definitions follow
 - A Board member is anyone the Board page of the term lists as a director or an officer, such as the treasurer, the secretary or the executive director, with or without a vote; advisory seats don't count.
 - A strategic sprint is a sprint that the Board designated as strategic, as recorded in the Board minutes.
 - A release manager is someone approved by the Board or listed on the Release Team page.
-- A team leader is someone named in the Board minutes or on the team's page.
+- A team leader is someone named as the team's lead in the Board minutes or on the team's page, or who represented the team at the Steering Circle, the meeting of the team leads.
+  A team can have several leaders in a year.
+  Board committees such as the IP or Trademark Committee, programmes such as Google Summer of Code, and the Release Team, whose release managers count on their own, are not teams in this sense.
+- An appointment by the Board counts until a source records a successor or an end.
 - World Plone Day events count when they were held in person.
 
 ## Why scripts don't fetch curated data

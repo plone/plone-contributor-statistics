@@ -1,13 +1,13 @@
 Name,Team,Organisation,Source
-Jens Klein,Framework Team,Klein & Partner KG,Confirmed by Jens Klein (Framework Team lead)
-Maik Derstappen,Classic UI Team,Derico,https://web.archive.org/web/20250415000000/https://plone.org/community/teams/classic-ui-team
-Peter Mathis,Classic UI Team,Kombinat,https://web.archive.org/web/20250415000000/https://plone.org/community/teams/classic-ui-team
-Maurits van Rees,Security Team,Zest Software,Confirmed by Jens Klein
-Rikupekka Oksanen,Marketing Team,University of Jyväskylä,https://plone.org/foundation/meetings/minutes/2023/plone-foundation-board-minutes-november-2-2023
-Fred van Dijk,Admin & Infrastructure Team,Zest Software,https://plone.org/foundation/meetings/minutes/2021/plone-foundation-board-minutes-april-15-2021
-Steve Piercy,Community Discussion Team,Steve Piercy - Website Builder,https://web.archive.org/web/20240415000000/https://plone.org/community/teams/community-discussion-team
-Víctor Fernández de Alba,Volto Team,kitconcept GmbH,https://plone.org/foundation/meetings/minutes/2017/minutes-for-november-2-2017
-Philip Bauer,Training Team,Starzel,"From the original data, no source found"
-Steve Piercy,Documentation Team,Steve Piercy - Website Builder,Confirmed by Jens Klein
-Érico Andrei,Membership Committee,kitconcept GmbH,https://plone.org/foundation/meetings/minutes/2019/plone-foundation-board-minutes-for-november-7-2019
-Paul Roeland,Membership Committee,CCC,https://plone.org/foundation/meetings/minutes/2023/2023-10-19
+Fred van Dijk,Admin & Infrastructure Team,Zest Software,https://web.archive.org/web/20231203183117/https://plone.org/community/teams/admin-and-infrastructure; organisation from the organisation mapping: https://github.com/plone/plone-contributor-statistics/commit/7ed781ae5418187b00a591d00d5f3080c9bea065
+Steve Piercy,Community Discussion Team,Steve Piercy - Website Builder,https://web.archive.org/web/20231209020647/https://plone.org/community/teams/community-discussion-team; organisation from the organisation mapping: https://github.com/stevepiercy
+T. Kim Nguyen,Conference Team,T. Kim Nguyen (independent),https://web.archive.org/web/20231128155815/https://plone.org/community/teams/conference; organisation from the organisation mapping: https://2023.ploneconf.org/speakers/t-kim-nguyen
+Steve Piercy,Documentation Team,Steve Piercy - Website Builder,https://web.archive.org/web/20231203163447/https://plone.org/community/teams/documentation; organisation from the organisation mapping: https://github.com/stevepiercy
+Mikel Larreategi,Internationalization Team,Codesyntax,https://web.archive.org/web/20231205194652/https://plone.org/community/teams/internationalization; organisation from the organisation mapping: https://github.com/erral
+Rikupekka Oksanen,Marketing Team,University of Jyväskylä,https://plone.org/foundation/meetings/minutes/2023/plone-foundation-board-minutes-november-2-2023; organisation from the organisation mapping: https://github.com/rioksane
+Paul Roeland,Membership Committee,CCC,https://plone.org/foundation/meetings/minutes/2023/2023-10-19; organisation from the organisation mapping: https://plone.org/foundation/meetings/membership/2023-membership-meeting/nominations/paul-roeland
+T. Kim Nguyen,Membership Committee,T. Kim Nguyen (independent),https://plone.org/foundation/meetings/minutes/2023/annual-business-meeting-minutes-october-6-2023; organisation from the organisation mapping: https://2023.ploneconf.org/speakers/t-kim-nguyen
+Víctor Fernández de Alba,Membership Committee,kitconcept GmbH,https://plone.org/foundation/meetings/minutes/2023/annual-business-meeting-minutes-october-6-2023; organisation from the organisation mapping: https://github.com/sneridagh
+Alexander Loechel,Security Team,Ludwig Maximilian University Munich,https://web.archive.org/web/20230606193409/https://plone.org/community/teams/security; organisation from the organisation mapping: https://github.com/loechel
+Philip Bauer,Training Team,Starzel,https://web.archive.org/web/20231203194903/https://plone.org/community/teams/training; organisation from the organisation mapping: https://github.com/pbauer
+Víctor Fernández de Alba,Volto Team,kitconcept GmbH,https://plone.org/foundation/meetings/minutes/2017/minutes-for-november-2-2017; organisation from the organisation mapping: https://github.com/sneridagh
