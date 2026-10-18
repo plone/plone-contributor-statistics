@@ -88,3 +88,27 @@ def test_docs_reference_existing_make_targets():
             if target in KNOWN_MISSING:
                 continue
             assert target.replace('YYYY', '2024') in targets, f'{page.relative_to(ROOT)}: make {target}'
+
+
+def _workflow_jobs(name):
+    """The jobs of a workflow, as {job name: job text}, without a YAML parser."""
+    text = (ROOT / '.github' / 'workflows' / name).read_text(encoding='utf-8')
+    jobs = text.split('\njobs:\n', 1)[1]
+    parts = re.split(r'^  ([\w-]+):\n', jobs, flags=re.M)
+    return dict(zip(parts[1::2], parts[2::2]))
+
+
+def test_docs_workflow_jobs_can_read_pages():
+    # actions/configure-pages reads the Pages site, which needs the pages permission;
+    # the top-level "contents: read" sets every other permission to none.
+    for job, text in _workflow_jobs('docs.yml').items():
+        if 'actions/configure-pages' in text:
+            assert re.search(r'^\s+pages: (read|write)$', text, re.M), job
+
+
+def test_docs_workflow_deploys_only_from_main():
+    deploy = _workflow_jobs('docs.yml')['deploy']
+    condition = re.search(r'^    if: (.+)$', deploy, re.M).group(1)
+    assert "github.event_name != 'pull_request'" in condition
+    assert "github.repository == 'plone/plone-contributor-statistics'" in condition
+    assert "github.ref == 'refs/heads/main'" in condition

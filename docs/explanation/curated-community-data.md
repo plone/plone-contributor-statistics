@@ -44,7 +44,8 @@ They have no source column yet.
 
 ## Curated data reaches back further
 
-The organisers of every Plone Conference since 2003 are recorded, each with a source.
+The organising organisations of every Plone Conference since 2003 are recorded.
+The rows from 2003 to 2019 also name the organisers and a source.
 Other curated data starts in 2020.
 Collecting the earlier years needs sources that are hard to find, and people who remember ([#72](https://github.com/plone/plone-contributor-statistics/issues/72)).
 

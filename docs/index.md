@@ -11,7 +11,7 @@ myst:
 # Plone Contributor Statistics
 
 The Plone contributor statistics count who contributes to Plone and which organisations sponsor that work.
-They reach back to the first commits of Plone in 2002.
+The Git history of Plone reaches back to 2002, and the statistics start with 2003.
 This documentation explains where the data comes from, how it is counted, and why the method is the way it is.
 
 The statistics themselves, such as rankings and trends, are not part of this documentation.

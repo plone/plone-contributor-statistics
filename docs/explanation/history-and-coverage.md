@@ -52,7 +52,8 @@ The {doc}`organisation mapping <attribution>` records where people work today, w
 For the years before 2010, few of these past affiliations are known with a source ([#70](https://github.com/plone/plone-contributor-statistics/issues/70)).
 Organisation statistics of the early years therefore show today's organisations of the people, unless an override says otherwise.
 
-The curated data reaches back further in one place: the organisers of every Plone Conference since 2003, each with a public source.
+The curated data reaches back further in one place: the organising organisations of every Plone Conference since 2003.
+The rows from 2003 to 2019 also name the organisers and a public source.
 Other curated data, such as sprints, Board members and release managers, starts in 2020 ([#72](https://github.com/plone/plone-contributor-statistics/issues/72)).
 
 ## What this means for comparisons

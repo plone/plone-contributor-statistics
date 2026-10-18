@@ -26,14 +26,15 @@ In March 2026, the project took the shape it has today:
 - One file, `organisations.csv`, became the single organisation mapping ([#10](https://github.com/plone/plone-contributor-statistics/pull/10)).
 - Only merged pull requests count, in the core and in Volto ([#12](https://github.com/plone/plone-contributor-statistics/pull/12), [#13](https://github.com/plone/plone-contributor-statistics/pull/13)).
 - Commits count only on the default branch, read from the commit list instead of the contributor statistics of the GitHub API.
-- Overrides record past organisations for single years ([#16](https://github.com/plone/plone-contributor-statistics/issues/16), [#17](https://github.com/plone/plone-contributor-statistics/pull/17)).
+- Overrides record past organisations for a range of years ([#16](https://github.com/plone/plone-contributor-statistics/issues/16), [#17](https://github.com/plone/plone-contributor-statistics/pull/17)).
 
 ## Community recognition, May and June 2026
 
 In May 2026, the recognition levels were changed to five tiers, so that the organisations spread more evenly across them ([#19](https://github.com/plone/plone-contributor-statistics/issues/19), [#20](https://github.com/plone/plone-contributor-statistics/pull/20)).
 At a meeting in Bonn in June, the levels were amended once more ([#21](https://github.com/plone/plone-contributor-statistics/pull/21)), and five-year reports were added ([#23](https://github.com/plone/plone-contributor-statistics/pull/23)).
 
-In June 2026, Mikel Larreategi added the community data of 2020 to 2024: sprints, release managers, team leaders, the Board, podcasts, World Plone Day and the conferences.
+In June 2026, Mikel Larreategi opened pull requests with the community data of 2020 to 2024: sprints, release managers, team leaders, the Board, podcasts, World Plone Day and the conferences.
+They were merged in October 2026, after the review described below.
 The Foundation published the first recognition levels in August 2026 ({doc}`community-recognition`).
 
 ## Review of the method, October 2026

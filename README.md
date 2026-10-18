@@ -1,6 +1,6 @@
 # Plone Contributor Statistics
 
-Statistics about who contributes to Plone and which organisations sponsor that work, from the first commits in 2002 to today.
+Statistics about who contributes to Plone and which organisations sponsor that work, from 2003 to today.
 They count commits and merged pull requests in the repositories of the [`plone` GitHub organisation](https://github.com/plone), pull request reviews and comments, PLIPs, and curated community work such as conferences, sprints, trainings and release management.
 
 **Documentation: https://plone.github.io/plone-contributor-statistics/** (source in [`docs/`](docs/))

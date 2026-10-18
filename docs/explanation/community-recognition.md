@@ -51,7 +51,7 @@ Two pieces of work wait for input from Mikel Larreategi (erral):
 
 Open questions about the inputs include how to count the Steering Circle ([#45](https://github.com/plone/plone-contributor-statistics/issues/45)) and the check of the 2025 community data against the Board minutes ([#46](https://github.com/plone/plone-contributor-statistics/issues/46)).
 
-The PLIP level scripts `generate_plip_3tier_levels.py` and `analyze_plip_contributor_levels.py` are left over from earlier proposals, now in `archive/`.
+The PLIP level scripts `generate_plip_3tier_levels.py` and `analyze_plip_contributor_levels.py` are left over from the proposals that are now in `archive/`.
 They are not part of the program.
 
 When the calculation is in the repository, this page will describe it.

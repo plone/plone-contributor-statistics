@@ -12,6 +12,10 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # configure-pages reads the Pages site
+    permissions:
+      contents: read
+      pages: read
     concurrency:
       group: docs-${{ github.ref }}
       cancel-in-progress: true
