@@ -136,7 +136,8 @@ def require_community_year(community, year):
     folder = Path(community)
     if not folder.is_dir():
         raise FileNotFoundError(f'community data folder {folder} not found')
-    if not list(folder.glob(f'{year}-*.csv')):
+    curated = [p for p in folder.glob(f'{year}-*.csv') if not p.name.endswith('-community-recognition-report.csv')]
+    if not curated:
         raise FileNotFoundError(f'no curated community data for {year} in {folder}')
 
 

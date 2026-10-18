@@ -227,9 +227,7 @@ def get_contributor_totals(years):
     """Sum pull requests and commits per contributor across the given years."""
     frames = []
     for year in years:
-        filepath = paths.contributors_file(year)
-        if filepath.exists():
-            frames.append(pd.read_csv(filepath))
+        frames.append(pd.read_csv(paths.contributors_file(year)))
     if not frames:
         return None
 

@@ -35,9 +35,6 @@ RECOGNITION_REPORT_DIR = COMMUNITY
 
 # Reports
 REPORTS_DIR = Path('reports')
-CONTRIBUTOR_REPORT = Path('reports/github-contributor-report.md')
-VOLTO_REPORT = Path('reports/volto.md')
-RECOGNITION_REPORT = Path('reports/community-recognition.md')
 PR_INTERACTION_REPORTS_DIR = Path('reports')
 CONTRIBUTOR_REPORT = Path('reports/github-contributor-report.md')
 VOLTO_REPORT = Path('reports/volto.md')

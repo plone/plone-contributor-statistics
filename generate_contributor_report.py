@@ -17,28 +17,16 @@ from organisation_stats import UNMAPPED
 
 def load_contributor_file(year):
     """Load contributor statistics for a specific year."""
-    filepath = paths.contributors_file(year)
-    if not filepath.exists():
-        return None
-    try:
-        df = pd.read_csv(filepath)
-        df['year'] = year
-        return df
-    except Exception:
-        return None
+    df = pd.read_csv(paths.contributors_file(year))
+    df['year'] = year
+    return df
 
 
 def load_organisation_file(year):
     """Load organisation statistics for a specific year."""
-    filepath = paths.organisation_contributors_file(year)
-    if not filepath.exists():
-        return None
-    try:
-        df = pd.read_csv(filepath)
-        df['year'] = year
-        return df
-    except Exception:
-        return None
+    df = pd.read_csv(paths.organisation_contributors_file(year))
+    df['year'] = year
+    return df
 
 
 def combine_contributor_data(years):

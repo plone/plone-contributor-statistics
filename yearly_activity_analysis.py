@@ -49,14 +49,8 @@ def main():
                 if repo:
                     unique_repos.add(repo)
 
-        # Load organisation data if available
-        total_orgs = 0
-        if Path(org_file).exists():
-            try:
-                org_df = pd.read_csv(org_file)
-                total_orgs = len(org_df)
-            except Exception:
-                pass
+        # A missing organisation file would count the year as having no organisations
+        total_orgs = len(pd.read_csv(org_file))
 
         pr_to_commit_ratio = (total_prs / total_commits * 100) if total_commits > 0 else 0
         commits_per_contributor = (total_commits / total_contributors) if total_contributors > 0 else 0
