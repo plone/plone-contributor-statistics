@@ -1,5 +1,6 @@
-github_username,organisation,from_year,to_year
-thet,Syslab,2019,
-mauritsvanrees,Zest Software,2005,2023
-fredvd,Zest Software,2007,2023
-toalba,Klein & Partner KG,2023,2023
+github_username,organisation,from_year,to_year,source
+thet,Syslab,2019,,Entered by Johannes Raggam (commit 207840e)
+mauritsvanrees,Zest Software,2005,2023,https://py76.be/en (Py76 since 2023 on the side; fully independent since 2024)
+fredvd,Zest Software,2007,2023,Plone Conference speaker bios 2016-2025 (commit 7ed781a)
+toalba,Klein & Partner KG,2023,2023,Review in #53
+jensens,jens quadrat GbR,2003,2004,Review in #70; Klein & Partner KG from 2005. The address jens.klein@jensquadrat.de was still used until 2008

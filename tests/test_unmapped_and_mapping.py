@@ -83,12 +83,13 @@ def test_organisations_csv_format():
 def test_overrides_csv_format():
     with open(ROOT / 'organisation_mapping_overrides.csv', newline='', encoding='utf-8') as f:
         reader = csv.DictReader(f)
-        assert reader.fieldnames == ['github_username', 'organisation', 'from_year', 'to_year']
+        assert reader.fieldnames == ['github_username', 'organisation', 'from_year', 'to_year', 'source']
         rows = list(reader)
 
     for row in rows:
         assert LOGIN.fullmatch(row['github_username']), row
         assert row['organisation'].strip(), row
+        assert row['source'].strip(), f"every override needs a source: {row}"
         assert row['from_year'].isdigit(), row
         if row['to_year']:
             assert row['to_year'].isdigit() and int(row['from_year']) <= int(row['to_year']), row
