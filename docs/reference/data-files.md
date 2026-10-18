@@ -78,9 +78,12 @@ Several people or organisations in one cell are separated by semicolons.
 :   One row per team leader and team.
     Columns: `Name`, `Team`, `Organisation`, `Source`.
 
-`curated/community-contributions/YYYY-strategic-sprints.csv`
-:   One row per strategic sprint.
-    Columns: `Sprint`, `Organiser/Host`, `Organisation`, and `Source` from 2020 to 2024.
+`curated/community-contributions/YYYY-sprints.csv`
+:   One row per Plone sprint of the year, including Zope sprints with Plone people.
+    Columns: `Sprint`, `Start`, `End`, `Location`, `Organiser(s)`, `Organisation`, `Level`, `Source`, `Notes`.
+    `Start` and `End` are dates as `YYYY-MM-DD`, or shorter where the source gives less.
+    `Level` is `strategic` or `community` where the Board decided on the sprint, and empty otherwise; `Source` then also cites the Board decision.
+    `Notes` say for example "announced, no report found".
 
 `curated/community-contributions/YYYY-podcasts.csv`
 :   One row per podcast host.

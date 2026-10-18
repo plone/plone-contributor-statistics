@@ -5,7 +5,7 @@
 This guide shows you how to add or correct a row of curated community data, such as a sprint, a training or a release manager.
 You need a public source for the row.
 
-1.  Open the file for the year and kind of contribution in `curated/community-contributions/`, for example `curated/community-contributions/YYYY-strategic-sprints.csv`.
+1.  Open the file for the year and kind of contribution in `curated/community-contributions/`, for example `curated/community-contributions/YYYY-sprints.csv`.
 
 2.  Add or correct the row.
     Separate several people or organisations in one cell with semicolons.
