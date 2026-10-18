@@ -17,6 +17,8 @@ import pandas as pd
 from datetime import datetime
 from collections import defaultdict
 
+import paths
+
 def get_github_token():
     """Get GitHub token from environment or .env file"""
     # For now, skip token to test without authentication
@@ -214,7 +216,7 @@ def save_plip_statistics(df, contributor_stats):
         return
     
     # Save aggregated PLIP statistics by author (main CSV file)
-    plips_filename = "plone-plips.csv"
+    plips_filename = paths.PLIPS
     
     # Prepare contributor stats for CSV (this becomes the main plips file)
     contrib_export = contributor_stats.copy()
@@ -246,7 +248,7 @@ def save_plip_statistics(df, contributor_stats):
     print(f"Total contributors: {len(contrib_export)}")
     
     # Save individual PLIPs for detailed analysis (optional detailed file)
-    detailed_filename = "plone-plips-detailed.csv"
+    detailed_filename = paths.PLIPS_DETAILED
     
     # Prepare DataFrame for detailed CSV export
     export_df = df.copy()

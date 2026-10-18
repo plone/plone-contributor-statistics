@@ -30,8 +30,7 @@ def pr(login, merged, user_type='User'):
 
 
 @pytest.fixture
-def extractor(monkeypatch, tmp_path):
-    monkeypatch.chdir(tmp_path)
+def extractor(tmp_repo, monkeypatch, tmp_path):
     (tmp_path / BOT_ACCOUNTS_FILE).write_text('login,reason\nmister-roboto,Plone CI bot\n', encoding='utf-8')
     monkeypatch.setattr(plone_contributors.time, 'sleep', lambda seconds: None)
     return PloneStatsExtractor(token='test-token', periods=year_periods(2012, 2014))
@@ -99,8 +98,7 @@ def test_report_per_period(extractor):
     assert extractor.generate_report('2012-plone-contributors').empty
 
 
-def test_main_writes_one_file_per_year(monkeypatch, tmp_path):
-    monkeypatch.chdir(tmp_path)
+def test_main_writes_one_file_per_year(tmp_repo, monkeypatch, tmp_path):
     (tmp_path / 'data').mkdir()
     monkeypatch.setattr(sys, 'argv', ['plone_contributors.py', '--from-year', '2012', '--to-year', '2013',
                                       '--token', 'test-token'])

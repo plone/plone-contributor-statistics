@@ -26,8 +26,7 @@ def test_report_table_does_not_rank_unmapped():
     assert 'Not mapped to an organisation: 692 PRs, 1,500 commits by 209 contributors.' in table
 
 
-def test_summary_does_not_rank_unmapped(tmp_path, monkeypatch):
-    monkeypatch.chdir(tmp_path)
+def test_summary_does_not_rank_unmapped(tmp_repo, tmp_path, monkeypatch):
 
     _, txt_file = multi_year_summary.save_summary(organisations(), [2022, 2023, 2024])
 

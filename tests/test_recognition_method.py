@@ -27,7 +27,8 @@ def data(tmp_path):
 
 def points(data, year=2025):
     org_points, _ = recognition.calculate_community_recognition_points(
-        year=year, data_dir=str(data / 'data'), plips_file=str(data / 'plips.csv'),
+        year=year, data_dir=str(data / 'data'), community_dir=str(data / 'data' / 'community-contributions'),
+        plips_file=str(data / 'plips.csv'),
         organisations=str(data / 'organisations.csv'), overrides=str(data / 'overrides.csv'))
     return {org: dict(categories) for org, categories in org_points.items()}
 

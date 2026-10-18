@@ -2,7 +2,7 @@
 """
 Organisation Statistics Aggregator for Plone GitHub Statistics
 
-Reads the output from plone_stats.py and aggregates statistics by organisation
+Reads the output from plone_contributors.py and aggregates statistics by organisation
 using the mapping defined in organisations.csv
 """
 
@@ -15,7 +15,8 @@ import os
 import sys
 import argparse
 
-from plone_contributors import load_bot_accounts
+import paths
+from mappings import load_bot_accounts, load_organisation_mapping  # noqa: F401 (imported from here by other scripts)
 
 # Contributors who are not mapped to an organisation. This is not an
 # organisation: it gets no recognition points or level (#53). Self-employed
@@ -23,44 +24,11 @@ from plone_contributors import load_bot_accounts
 UNMAPPED = 'Unmapped'
 
 
-def load_organisation_mapping(mapping_file='organisations.csv', overrides_file='organisation_mapping_overrides.csv', year=None):
-    """Load organisation mapping from CSV file, with optional year-specific overrides."""
-    import csv
-    organisation_mapping = {}
-
-    if not os.path.exists(mapping_file):
-        print(f"Warning: {mapping_file} not found. All contributors will be marked as '{UNMAPPED}'")
-        return organisation_mapping
-
-    with open(mapping_file, newline='', encoding='utf-8') as f:
-        for row in csv.DictReader(f):
-            organisation = row['Organisation']
-            for contributor in row['Team'].split(';'):
-                contributor = contributor.strip()
-                if contributor:
-                    organisation_mapping[contributor] = organisation
-
-    if year and os.path.exists(overrides_file):
-        overrides = 0
-        with open(overrides_file, newline='', encoding='utf-8') as f:
-            for row in csv.DictReader(f):
-                from_year = int(row['from_year']) if row['from_year'] else None
-                to_year = int(row['to_year']) if row['to_year'] else None
-                if from_year and from_year <= year and (not to_year or year <= to_year):
-                    organisation_mapping[row['github_username']] = row['organisation']
-                    overrides += 1
-        if overrides:
-            print(f"Applied {overrides} year-specific override(s) for {year}")
-
-    print(f"Loaded mapping for {len(organisation_mapping)} contributors across {len(set(organisation_mapping.values()))} organisations")
-    return organisation_mapping
-
-
 def get_stats_file(year=None):
     """Find the plone contributors CSV file for a specific year or the latest one."""
     if year:
         # Look for specific year file
-        year_file = f'data/{year}-plone-contributors.csv'
+        year_file = str(paths.contributors_file(year))
         if os.path.exists(year_file):
             print(f"Using stats file: {year_file}")
             return year_file
@@ -69,11 +37,11 @@ def get_stats_file(year=None):
             return None
 
     # Look for new format (year-first) and legacy format
-    csv_files = glob.glob('data/????-plone-contributors.csv')  # New format: 2024-plone-contributors.csv
-    csv_files.extend(glob.glob('data/????-????-plone-contributors.csv'))  # New format: 2023-2024-plone-contributors.csv
-    csv_files.extend(glob.glob('data/plone_contributors_*.csv'))  # Legacy format
-    csv_files.extend(glob.glob('data/plone-contributors.csv'))
-    csv_files.extend(glob.glob('data/plone_contributors.csv'))
+    csv_files = glob.glob(str(paths.CONTRIBUTORS_DIR / '????-plone-contributors.csv'))  # New format: 2024-plone-contributors.csv
+    csv_files.extend(glob.glob(str(paths.CONTRIBUTORS_DIR / '????-????-plone-contributors.csv')))  # New format: 2023-2024-plone-contributors.csv
+    csv_files.extend(glob.glob(str(paths.CONTRIBUTORS_DIR / 'plone_contributors_*.csv')))  # Legacy format
+    csv_files.extend(glob.glob(str(paths.CONTRIBUTORS_DIR / 'plone-contributors.csv')))
+    csv_files.extend(glob.glob(str(paths.CONTRIBUTORS_DIR / 'plone_contributors.csv')))
     
     if not csv_files:
         print("No plone contributors CSV files found. Run 'python plone_stats.py' first.")
@@ -198,7 +166,7 @@ def save_organisation_report(df, filename=None, date_range=None):
             filename = 'plone-organisation-contributors'
     
     # Save to CSV
-    csv_file = f'data/{filename}.csv'
+    csv_file = paths.ORGANISATION_CONTRIBUTORS_DIR / f'{filename}.csv'
     df.to_csv(csv_file, index=False)
     print(f"Organisation report saved to {csv_file}")
     

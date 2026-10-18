@@ -20,8 +20,7 @@ def local_commit(sha, email):
 
 
 @pytest.fixture
-def extractor(monkeypatch, tmp_path):
-    monkeypatch.chdir(tmp_path)
+def extractor(tmp_repo, monkeypatch, tmp_path):
     (tmp_path / COMMIT_AUTHORS_FILE).write_text(
         'email,github_username,name,source\n'
         'whit@localhost,whitmo,Whit Morriss,Review\n'

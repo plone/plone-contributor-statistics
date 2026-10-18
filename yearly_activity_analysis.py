@@ -10,6 +10,8 @@ import pandas as pd
 from pathlib import Path
 import glob
 
+import paths
+
 
 def main():
     print("Plone Yearly Activity Analysis")
@@ -18,7 +20,7 @@ def main():
     rows = []
 
     # Find all yearly contributor CSV files
-    contributor_files = sorted(glob.glob("data/[0-9][0-9][0-9][0-9]-plone-contributors.csv"))
+    contributor_files = sorted(glob.glob(str(paths.CONTRIBUTORS_DIR / "[0-9][0-9][0-9][0-9]-plone-contributors.csv")))
 
     if not contributor_files:
         print("No yearly contributor CSV files found!")
@@ -26,7 +28,7 @@ def main():
 
     for contrib_file in contributor_files:
         year = int(Path(contrib_file).name.split("-")[0])
-        org_file = f"data/{year}-plone-organisation-contributors.csv"
+        org_file = paths.organisation_contributors_file(year)
 
         # Load contributor data
         try:
@@ -89,7 +91,7 @@ def main():
     for col in ["commits_growth", "prs_growth", "contributors_growth", "orgs_growth"]:
         df[col] = df[col].round(1)
 
-    output_file = "yearly-activity-statistics.csv"
+    output_file = paths.YEARLY_ACTIVITY
     df.to_csv(output_file, index=False)
 
     print(f"\nSaved {len(df)} years of data to {output_file}")

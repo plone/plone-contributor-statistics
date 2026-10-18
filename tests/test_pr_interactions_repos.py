@@ -14,8 +14,7 @@ class FakeResponse:
         return self._data
 
 
-def test_organization_repos_skip_excluded_and_keep_archived(monkeypatch, tmp_path):
-    monkeypatch.chdir(tmp_path)
+def test_organization_repos_skip_excluded_and_keep_archived(tmp_repo, monkeypatch, tmp_path):
     (tmp_path / EXCLUDED_REPOSITORIES_FILE).write_text(
         'repository,reason\ndockerhub-docs,Fork of docker-library/docs\n', encoding='utf-8'
     )

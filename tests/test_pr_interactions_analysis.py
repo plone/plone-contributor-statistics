@@ -27,8 +27,7 @@ def pr(number=1, author='alice', created='2015-03-01T10:00:00', comments=(), rev
 
 
 @pytest.fixture
-def extractor(monkeypatch, tmp_path):
-    monkeypatch.chdir(tmp_path)
+def extractor(tmp_repo, monkeypatch, tmp_path):
     (tmp_path / 'bot_accounts.csv').write_text('login,reason\nmister-roboto,Plone CI bot\n', encoding='utf-8')
     return PlonePRInteractionExtractor(github_token='test-token')
 
@@ -104,8 +103,7 @@ def test_bot_prs_are_left_out(extractor, monkeypatch):
     assert [a['pr_number'] for a in analyses] == [2]
 
 
-def test_token_from_environment_without_env_file(monkeypatch, tmp_path):
-    monkeypatch.chdir(tmp_path)
+def test_token_from_environment_without_env_file(tmp_repo, monkeypatch, tmp_path):
     monkeypatch.setenv('GITHUB_TOKEN', 'from-env')
 
     assert PlonePRInteractionExtractor().github_token == 'from-env'

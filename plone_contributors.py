@@ -40,13 +40,15 @@ from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
 
 import git_history
+import paths
 from github_api import GitHubAPIError, github_get, github_graphql, is_merge_commit
+from mappings import load_account_aliases, load_bot_accounts, load_commit_authors, load_excluded_repositories
 
 
-EXCLUDED_REPOSITORIES_FILE = 'excluded_repositories.csv'
-BOT_ACCOUNTS_FILE = 'bot_accounts.csv'
-COMMIT_AUTHORS_FILE = 'commit_authors.csv'
-ACCOUNT_ALIASES_FILE = 'account_aliases.csv'
+EXCLUDED_REPOSITORIES_FILE = paths.EXCLUDED_REPOSITORIES
+BOT_ACCOUNTS_FILE = paths.BOT_ACCOUNTS
+COMMIT_AUTHORS_FILE = paths.COMMIT_AUTHORS
+ACCOUNT_ALIASES_FILE = paths.ACCOUNT_ALIASES
 REPORT_COLUMNS = ['username', 'total_commits', 'total_pull_requests', 'repositories_count',
                   'repositories', 'first_contribution', 'last_contribution']
 
@@ -57,43 +59,6 @@ Period = Tuple[str, datetime, datetime]
 def parse_timestamp(value: str) -> datetime:
     """Parse a GitHub UTC timestamp into a naive datetime, like the date range."""
     return datetime.fromisoformat(value.replace('Z', '+00:00')).replace(tzinfo=None)
-
-
-def load_excluded_repositories(path: str = EXCLUDED_REPOSITORIES_FILE) -> Dict[str, str]:
-    """Load the repositories to skip, mapped to the reason for skipping them."""
-    if not os.path.exists(path):
-        return {}
-    with open(path, newline='', encoding='utf-8') as f:
-        return {row['repository'].strip(): row['reason'].strip() for row in csv.DictReader(f)}
-
-
-def load_bot_accounts(path: str = BOT_ACCOUNTS_FILE) -> Dict[str, str]:
-    """Load bot accounts that the GitHub API lists as type User, mapped to a reason."""
-    if not os.path.exists(path):
-        return {}
-    with open(path, newline='', encoding='utf-8') as f:
-        return {row['login'].strip(): row['reason'].strip() for row in csv.DictReader(f)}
-
-
-def load_commit_authors(path: str = COMMIT_AUTHORS_FILE) -> Dict[str, str]:
-    """Load the people behind commit emails that GitHub does not link to an account (#69).
-
-    Maps the email (lower case) to the GitHub login, or to the person's name
-    if they have no GitHub account.
-    """
-    if not os.path.exists(path):
-        return {}
-    with open(path, newline='', encoding='utf-8') as f:
-        return {row['email'].strip().lower(): row['github_username'].strip() or row['name'].strip()
-                for row in csv.DictReader(f)}
-
-
-def load_account_aliases(path: str = ACCOUNT_ALIASES_FILE) -> Dict[str, str]:
-    """Load second GitHub accounts of a person, mapped to their main account (#69)."""
-    if not os.path.exists(path):
-        return {}
-    with open(path, newline='', encoding='utf-8') as f:
-        return {row['alias'].strip(): row['github_username'].strip() for row in csv.DictReader(f)}
 
 
 def select_repositories(repos: List[Dict[str, Any]], excluded: Dict[str, str]):
@@ -382,7 +347,7 @@ class PloneStatsExtractor:
     def save_progress(self):
         """Save the current progress of every period to a checkpoint file."""
         for label, _, _ in self.periods:
-            checkpoint_file = f"data/{label}_checkpoint.csv"
+            checkpoint_file = paths.checkpoint_file(label)
             self.generate_report(label).to_csv(checkpoint_file, index=False)
             print(f"Progress saved to {checkpoint_file}")
 
@@ -446,7 +411,7 @@ class PloneStatsExtractor:
             filename = 'plone-contributors'
 
         # Save to CSV
-        csv_file = f'data/{filename}.csv'
+        csv_file = paths.CONTRIBUTORS_DIR / f'{filename}.csv'
         df.to_csv(csv_file, index=False)
         print(f"Report saved to {csv_file}")
 

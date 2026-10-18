@@ -12,12 +12,13 @@ import argparse
 import sys
 from pathlib import Path
 
+import paths
 from organisation_stats import UNMAPPED
 
 
 def load_organisation_file(year):
     """Load organisation statistics file for a specific year."""
-    filename = f"data/{year}-plone-organisation-contributors.csv"
+    filename = paths.organisation_contributors_file(year)
     filepath = Path(filename)
     
     if not filepath.exists():
@@ -158,6 +159,9 @@ def save_summary(df, years):
         txt_filename = f"STATISTICS-PAST-{year_count}-YEARS.txt"
         summary_type = f"{year_count}-year"
     
+    csv_filename = paths.SUMMARIES_DIR / csv_filename
+    txt_filename = paths.SUMMARY_REPORTS_DIR / txt_filename
+
     # Save CSV file
     df.to_csv(csv_filename, index=False)
     
@@ -222,7 +226,7 @@ def get_contributor_totals(years):
     """Sum pull requests and commits per contributor across the given years."""
     frames = []
     for year in years:
-        filepath = Path(f"data/{year}-plone-contributors.csv")
+        filepath = paths.contributors_file(year)
         if filepath.exists():
             frames.append(pd.read_csv(filepath))
     if not frames:

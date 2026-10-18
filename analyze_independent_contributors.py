@@ -12,9 +12,12 @@ from collections import defaultdict, Counter
 import os
 import re
 
+import paths
+from mappings import read_organisations
+
 def load_organisation_files():
     """Load all organisation CSV files"""
-    files = glob.glob('data/*-plone-organisation-contributors.csv')
+    files = glob.glob(str(paths.ORGANISATION_CONTRIBUTORS_DIR / '*-plone-organisation-contributors.csv'))
     files.sort()
 
     data = {}
@@ -135,20 +138,11 @@ def analyze_contribution_patterns(contributor_stats):
     
     return patterns
 
-def suggest_mappings(patterns, existing_mapping_file='organisations.csv'):
+def suggest_mappings(patterns, existing_mapping_file=paths.ORGANISATIONS):
     """Suggest new mappings based on analysis patterns"""
-    import csv
-
     # Load existing mappings to avoid duplicates
-    existing_contributors = set()
-    if os.path.exists(existing_mapping_file):
-        with open(existing_mapping_file, newline='', encoding='utf-8') as f:
-            for row in csv.DictReader(f):
-                for c in row['Team'].split(';'):
-                    c = c.strip()
-                    if c:
-                        existing_contributors.add(c)
-    
+    existing_contributors = set(read_organisations(existing_mapping_file))
+
     suggestions = []
     
     # High activity contributors that might be worth researching

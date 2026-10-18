@@ -12,6 +12,8 @@ from collections import defaultdict
 from datetime import datetime
 from functools import lru_cache
 
+import mappings
+import paths
 from plip_organisation_stats import organisation_lookup, plips_by_organisation, read_plips
 
 
@@ -30,7 +32,7 @@ def load_recognition_levels():
     """Load recognition levels from CSV file."""
     levels = []
     try:
-        with open('data/community-contributions/community-recognition-levels.csv', 'r') as f:
+        with open(paths.RECOGNITION_LEVELS, 'r') as f:
             reader = csv.DictReader(f)
             for row in reader:
                 level = {
@@ -55,16 +57,12 @@ def get_recognition_level(points, levels):
 
 
 @lru_cache(maxsize=None)
-def load_organisation_names(path='organisations.csv'):
+def load_organisation_names(path=paths.ORGANISATIONS):
     """The spelling of each organisation in organisations.csv, by lower-case name (#86)."""
-    try:
-        with open(path, newline='', encoding='utf-8') as f:
-            return {row['Organisation'].lower(): row['Organisation'] for row in csv.DictReader(f)}
-    except FileNotFoundError:
-        return {}
+    return mappings.organisation_names(path)
 
 
-def normalize_organization_name(org_name, organisations='organisations.csv'):
+def normalize_organization_name(org_name, organisations=paths.ORGANISATIONS):
     """Normalize organization names to the spelling in organisations.csv."""
     # Mapping of variations to canonical names
     org_mapping = {
@@ -106,7 +104,7 @@ def normalize_organization_name(org_name, organisations='organisations.csv'):
     return load_organisation_names(organisations).get(normalized.lower(), normalized)
 
 
-def load_pr_data(years, data_dir='data'):
+def load_pr_data(years, data_dir=paths.ORGANISATION_CONTRIBUTORS_DIR):
     """Merged PRs per organisation over the years, from the yearly organisation files."""
     totals = defaultdict(int)
     for year in years:
@@ -120,8 +118,8 @@ def load_pr_data(years, data_dir='data'):
     return {org: {'total_prs': total, 'avg_per_year': total / len(years)} for org, total in totals.items()}
 
 
-def load_plip_data(years, plips_file='plone-plips-detailed.csv', organisations='organisations.csv',
-                   overrides='organisation_mapping_overrides.csv'):
+def load_plip_data(years, plips_file=paths.PLIPS_DETAILED, organisations=paths.ORGANISATIONS,
+                   overrides=paths.OVERRIDES):
     """PLIPs closed in the years, for the author's organisation in the year of closing (#95)."""
     try:
         plips = read_plips(plips_file)
@@ -136,16 +134,16 @@ def load_plip_data(years, plips_file='plone-plips-detailed.csv', organisations='
     return {org: {'closed_plips': count} for org, count in closed.items()}
 
 
-def calculate_community_recognition_points(year=YEAR, data_dir='data', plips_file='plone-plips-detailed.csv',
-                                           organisations='organisations.csv',
-                                           overrides='organisation_mapping_overrides.csv'):
+def calculate_community_recognition_points(year=YEAR, data_dir=paths.ORGANISATION_CONTRIBUTORS_DIR,
+                                           community_dir=paths.COMMUNITY, plips_file=paths.PLIPS_DETAILED,
+                                           organisations=paths.ORGANISATIONS, overrides=paths.OVERRIDES):
     """Calculate the points of the recognition year, as community-recognition-points.csv says."""
 
     # Initialize points tracking
     org_points = defaultdict(lambda: defaultdict(float))
     org_details = defaultdict(lambda: defaultdict(list))
 
-    community = f'{data_dir}/community-contributions'
+    community = community_dir
 
     # Load code contribution data (PRs and PLIPs)
     pr_data = load_pr_data(five_years(year), data_dir)
@@ -595,12 +593,12 @@ def main():
     levels = load_recognition_levels()
 
     # Write CSV report
-    csv_output = f'data/community-contributions/{YEAR}-community-recognition-report.csv'
+    csv_output = paths.recognition_report_file(YEAR)
     results = write_csv_report(org_points, levels, csv_output)
     print(f"CSV report written to: {csv_output}")
 
     # Write Markdown report
-    md_output = 'reports/community-recognition.md'
+    md_output = paths.RECOGNITION_REPORT
     write_markdown_report(org_points, org_details, results, levels, md_output)
 
     # Print summary
