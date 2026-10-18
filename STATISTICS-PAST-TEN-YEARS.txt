@@ -1,8 +1,8 @@
 # Ten-Year Summary Results (2015-2024)
 
-- 69 total organisations tracked across the decade
+- 70 total organisations tracked across the decade
 - 87,293 total commits and 17,852 pull requests
-- 589 unique contributors across all organisations
+- 592 unique contributors across all organisations
 - File generated: summary-past-ten-years-2015-2024.csv
 
 ## Top 10 contributors by pull requests (2015-2024)
@@ -39,8 +39,8 @@
 4. Syslab: 1,041 PRs
 5. Wildcard Corp: 776 PRs
 6. Klein & Partner KG: 767 PRs
-7. Nuclia: 763 PRs
-8. Steve Piercy - Website Builder: 722 PRs
+7. Steve Piercy - Website Builder: 722 PRs
+8. Nuclia: 631 PRs
 9. Kombinat: 624 PRs
 10. Starzel: 611 PRs
 
@@ -55,8 +55,8 @@ Not mapped to an organisation: 2,255 PRs
 5. Salesforce: 3,480 commits
 6. Klein & Partner KG: 3,344 commits
 7. Syslab: 3,191 commits
-8. Nuclia: 2,962 commits
-9. Starzel: 2,774 commits
-10. Steve Piercy - Website Builder: 2,672 commits
+8. Starzel: 2,774 commits
+9. Steve Piercy - Website Builder: 2,672 commits
+10. Kombinat: 2,328 commits
 
 Not mapped to an organisation: 6,561 commits
