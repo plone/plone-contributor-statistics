@@ -19,7 +19,7 @@ The matching line lists the repositories they worked on.
 To see which organisation the person is mapped to, search the mapping files:
 
 ```shell
-grep -i "janedoe" organisations.csv organisation_mapping_overrides.csv
+grep -i "janedoe" curated/mappings/organisations.csv curated/mappings/organisation_mapping_overrides.csv
 ```
 
 ## Search by name

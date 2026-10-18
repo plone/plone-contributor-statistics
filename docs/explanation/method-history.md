@@ -20,7 +20,7 @@ Self-employed people were moved out of the organisation list into a list of indi
 
 In March 2026, the project took the shape it has today:
 
-- The generated files moved to `data/` ([#7](https://github.com/plone/plone-contributor-statistics/issues/7)).
+- The generated files moved to a folder `data/`, since October 2026 split into `collected/` and `derived/` ([#7](https://github.com/plone/plone-contributor-statistics/issues/7)).
 - World Plone Day counts only events held in person.
 - The Volto statistics cover all Volto contributors, not only the Volto team.
 - One file, `curated/mappings/organisations.csv`, became the single organisation mapping ([#10](https://github.com/plone/plone-contributor-statistics/pull/10)).
@@ -53,7 +53,7 @@ Data and sources:
 
 Collection:
 
-- Some scripts still read files from their old place after the move to `data/`, and all organisation files were generated again ([#40](https://github.com/plone/plone-contributor-statistics/issues/40)).
+- Some scripts still read files from their old place after the move to the folder `data/`, and all organisation files were generated again ([#40](https://github.com/plone/plone-contributor-statistics/issues/40)).
 - The collector had skipped archived repositories, and with them a large part of the history of the years when they were active.
   Archived repositories are now collected, and an explicit list names the excluded ones ([#36](https://github.com/plone/plone-contributor-statistics/issues/36)).
 - Failed or rate-limited requests had been recorded as zero activity, and partial runs had overwritten the complete data files.

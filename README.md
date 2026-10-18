@@ -37,7 +37,7 @@ See [Prepare the numbers for a new year](https://plone.github.io/plone-contribut
 ## Where things live
 
 The folders follow the pipeline: curated input and collected data go into the scripts, which write derived data and reports.
-Each folder has a README.
+Each folder has a README; the [data files reference](https://plone.github.io/plone-contributor-statistics/reference/data-files.html) describes every file.
 
 ```text
 scripts/     the code, by stage: collect/, derive/, report/, tools/, and shared code in lib/

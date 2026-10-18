@@ -111,10 +111,6 @@ Several people or organisations in one cell are separated by semicolons.
     One row per organisation over the years in the file name.
     Columns: `organisation`, `total_commits`, `total_pull_requests`, `contributors_count`, `contributors`, `repositories_count`, `repositories`, `years_active`, `first_contribution`, `last_contribution`.
 
-`reports/summaries/STATISTICS-PAST-*-YEARS.txt`
-:   Written by `scripts/derive/multi_year_summary.py`.
-    A text summary of the matching `derived/summaries/summary-past-*-years-*.csv`.
-
 `derived/yearly-activity-statistics.csv`
 :   Written by `scripts/derive/yearly_activity_analysis.py`.
     One row per year with totals and ratios over all contributors.
@@ -127,13 +123,25 @@ Several people or organisations in one cell are separated by semicolons.
 
 `reports/github-contributor-report.md`
 :   Written by `scripts/report/generate_contributor_report.py`.
+    Contributors and organisations per year and over all years.
 
 `reports/pr-interactions/github-pr-interactions-report-YYYY.md`
 :   Written by `scripts/collect/plone_pr_interactions.py`.
+    Pull request engagement of the year: totals, response times, the most active participants and reviewers, and a breakdown per repository.
     The collector writes it, not a report script, because the report ranks participants and reviewers by name, and the CSV file holds only counts per pull request.
 
 `reports/volto.md`
 :   Written by `scripts/report/generate_volto_team_report.py`.
+    Volto contributors and their organisations per year.
 
 `reports/community-recognition.md`
 :   Written by `scripts/report/generate_community_recognition_report.py`.
+    Points per category and the level of each organisation, with the contributions behind them.
+
+`reports/summaries/STATISTICS-PAST-*-YEARS.txt`
+:   Written by `scripts/derive/multi_year_summary.py`, together with the summaries in `derived/summaries/`.
+    A text summary of the matching `derived/summaries/summary-past-*-years-*.csv`.
+
+`reports/graphs/`
+:   Written by `scripts/report/generate_yearly_graphs.py`.
+    Graphs of the totals per year in `derived/yearly-activity-statistics.csv`.
