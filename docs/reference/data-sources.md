@@ -16,7 +16,6 @@ See {doc}`/explanation/scope` for why these sources were chosen, and {doc}`/expl
 | Pull request interactions | GitHub GraphQL API, with the REST API for long threads and code review comments | 2010–2025 | `plone_pr_interactions.py` | `data/YYYY-plone-pr-interactions.csv`, `reports/github-pr-interactions-report-YYYY.md` | `make pr-interactions-all-years`, `make pr-interactions-YYYY` |
 | Volto contributors | GitHub REST API contributors of `plone/volto`, and the search API per person | 2016–2025 | `volto_stats.py` | `data/YYYY-volto-stats.csv` | `make run-volto-stats-YYYY` |
 | PLIPs | GitHub REST API, issues with the PLIP label in `Products.CMFPlone`, `volto` and `plone.restapi` | all years in one file | `plone_plips.py` | `plone-plips.csv`, `plone-plips-detailed.csv` | `make run-plips` |
-| Board of Directors | plone.org REST API, board pages of the Plone Foundation | 2020–2025 | `fetch_board_members.py` | `data/community-contributions/YYYY-board-of-directors.csv` | none |
 | Products.CMFPlone releases | GitHub REST API, releases of `Products.CMFPlone` | snapshot | `fetch_cmfplone_releases.py`, `filter_releases.py` | `cmfplone-releases.csv` | none |
 | npm packages | npm registry and npm download API, per organisation in `npm_mapping.txt` | snapshot of 2025-08-20 | `npm_package_stats.py` | `npm-packages-*.csv`, `npm-packages-*.md`, `npm-packages-summary.md` | `make npm-packages` |
 | PyPI packages | PyPI simple index and JSON API, packages starting with `plone.` or `collective.` | not committed | `pypi_package_statistics.py` | none committed | none working |
@@ -27,6 +26,7 @@ All curated files are in `data/community-contributions/`, one file per year.
 
 | Data | Years covered | File | Source column |
 |---|---|---|---|
+| Board of Directors | 2004–2025 | `data/community-contributions/YYYY-board-of-directors.csv` | 2004–2025 |
 | Plone Conference organisers | 2003–2025 | `data/community-contributions/YYYY-plone-conference.csv` | 2003–2019 |
 | Plone Conference trainings | 2020–2025 | `data/community-contributions/YYYY-plone-conference-trainings.csv` | 2020–2024 |
 | Release managers | 2020–2025 | `data/community-contributions/YYYY-release-managers.csv` | 2020–2024 |
