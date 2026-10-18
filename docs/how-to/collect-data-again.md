@@ -54,7 +54,7 @@ To collect one year, run `make pr-interactions YEAR=2025` with that year instead
 When GitHub's rate limit is reached, the collectors wait until it resets and then go on.
 On any other error, they stop with exit status 1.
 
-A stopped or interrupted run of the commit collector writes its progress to `data/<label>_checkpoint.csv` and never replaces the regular data files.
+A stopped or interrupted run of the commit collector writes its progress to `collected/contributors/<label>_checkpoint.csv` and never replaces the regular data files.
 Fix the cause, for example an expired token, and start the run again.
 Delete the checkpoint files when the run succeeded.
 

@@ -4,8 +4,9 @@ import csv
 from pathlib import Path
 
 import pytest
+from scripts.lib import paths
 
-DATA = Path(__file__).resolve().parent.parent / 'data' / 'community-contributions'
+DATA = Path(__file__).resolve().parent.parent / paths.COMMUNITY
 FILES = sorted(DATA.glob('*-board-of-directors.csv'))
 
 

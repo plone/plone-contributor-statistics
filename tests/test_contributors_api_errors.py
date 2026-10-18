@@ -7,6 +7,7 @@ import pytest
 
 from scripts.collect import plone_contributors
 from scripts.lib.github_api import GitHubAPIError
+from scripts.lib import paths
 
 
 class FakeResponse:
@@ -60,7 +61,6 @@ def test_failed_repository_stops_the_extraction(tmp_repo, extractor, monkeypatch
 
 
 def test_main_keeps_only_a_checkpoint_when_the_run_fails(tmp_repo, monkeypatch, tmp_path):
-    (tmp_path / 'data').mkdir()
     monkeypatch.setattr(sys, 'argv', ['plone_contributors.py', '--year', '2015', '--token', 'test-token'])
 
     def failing_run(self, *args, **kwargs):
@@ -70,8 +70,8 @@ def test_main_keeps_only_a_checkpoint_when_the_run_fails(tmp_repo, monkeypatch, 
     monkeypatch.setattr(plone_contributors.PloneStatsExtractor, 'extract_all_stats', failing_run)
 
     assert plone_contributors.main() == 1
-    assert not (tmp_path / 'data' / '2015-plone-contributors.csv').exists()
-    assert (tmp_path / 'data' / '2015-plone-contributors_checkpoint.csv').exists()
+    assert not (tmp_path / paths.CONTRIBUTORS_DIR / '2015-plone-contributors.csv').exists()
+    assert (tmp_path / paths.CONTRIBUTORS_DIR / '2015-plone-contributors_checkpoint.csv').exists()
 
 
 def test_token_from_environment_without_env_file(tmp_repo, monkeypatch, tmp_path):

@@ -4,16 +4,17 @@ import csv
 from pathlib import Path
 
 import pytest
+from scripts.lib import paths
 
 ROOT = Path(__file__).resolve().parent.parent
-DATA = ROOT / 'data' / 'community-contributions'
+DATA = ROOT / paths.COMMUNITY
 FILES = [p for p in sorted(DATA.glob('2025-*.csv')) if 'recognition' not in p.name]
 # Not organisations, but kept apart in the report
 LABELS = {'Unmapped', 'Plone Foundation', 'Plone Foundation (community volunteer)'}
 
 
 def organisation_names():
-    with open(ROOT / 'organisations.csv', newline='', encoding='utf-8') as f:
+    with open(ROOT / paths.ORGANISATIONS, newline='', encoding='utf-8') as f:
         return {row['Organisation'] for row in csv.DictReader(f)}
 
 

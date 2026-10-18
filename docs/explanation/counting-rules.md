@@ -12,13 +12,13 @@ GitHub links a commit to the account whose email address is the commit's author 
 The collector does the same: it reads the commits from local clones and asks the GitHub GraphQL API which account each new email address belongs to.
 
 Many old addresses belong to no account today: Subversion users like `name@localhost`, or company addresses that people no longer use.
-For these, `commit_authors.csv` names the person behind the address, each entry with a source ([#77](https://github.com/plone/plone-contributor-statistics/pull/77)).
+For these, `curated/mappings/commit_authors.csv` names the person behind the address, each entry with a source ([#77](https://github.com/plone/plone-contributor-statistics/pull/77)).
 A person with a GitHub account is counted under their login, a person without one under their name.
 Commits whose address is neither linked by GitHub nor listed in the file are left out, because there is no way to tell who made them.
 {doc}`history-and-coverage` explains why this matters most for the early years.
 
 Some people have a second GitHub account that GitHub links to an old address.
-`account_aliases.csv` counts such an account for the person's main account, for commits and pull requests.
+`curated/mappings/account_aliases.csv` counts such an account for the person's main account, for commits and pull requests.
 
 A commit counts for the year of its committer date.
 The committer date is when the commit was added to the history, the author date is when the change was first written.
@@ -56,7 +56,7 @@ A backport is work of its own: it needs to be adapted, tested and released.
 
 Bots open pull requests, push commits and write comments, sometimes more than people do.
 The statistics leave them out.
-A bot is recognized by its account type, by the `[bot]` suffix of GitHub Apps, or by an entry in `bot_accounts.csv` for bots that GitHub lists as users.
+A bot is recognized by its account type, by the `[bot]` suffix of GitHub Apps, or by an entry in `curated/mappings/bot_accounts.csv` for bots that GitHub lists as users.
 Commits and pull requests of deleted accounts are left out as well, because they can't be attributed to anyone.
 
 ## Each repository is read once

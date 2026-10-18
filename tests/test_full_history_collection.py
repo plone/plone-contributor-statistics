@@ -8,6 +8,7 @@ import pytest
 
 from scripts.collect import plone_contributors
 from scripts.collect.plone_contributors import BOT_ACCOUNTS_FILE, PloneStatsExtractor, year_periods
+from scripts.lib import paths
 
 
 def commit(login, date, author_date=None, parents=1, user_type='User'):
@@ -99,7 +100,6 @@ def test_report_per_period(extractor):
 
 
 def test_main_writes_one_file_per_year(tmp_repo, monkeypatch, tmp_path):
-    (tmp_path / 'data').mkdir()
     monkeypatch.setattr(sys, 'argv', ['plone_contributors.py', '--from-year', '2012', '--to-year', '2013',
                                       '--token', 'test-token'])
 
@@ -110,7 +110,7 @@ def test_main_writes_one_file_per_year(tmp_repo, monkeypatch, tmp_path):
 
     assert plone_contributors.main() == 0
     for year, user in [(2012, 'alice'), (2013, 'bob')]:
-        with open(tmp_path / 'data' / f'{year}-plone-contributors.csv', newline='') as f:
+        with open(tmp_path / paths.CONTRIBUTORS_DIR / f'{year}-plone-contributors.csv', newline='') as f:
             assert [row['username'] for row in csv.DictReader(f)] == [user]
 
 

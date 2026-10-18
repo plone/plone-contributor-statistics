@@ -38,7 +38,7 @@ See [Prepare the numbers for a new year](https://plone.github.io/plone-contribut
 
 - `scripts/`: the code, one folder per pipeline stage, see [`scripts/README.md`](scripts/README.md).
 - `data/`: contributor, organisation and pull request interaction files, one per year.
-- `data/community-contributions/`: curated community data, one file per year and kind.
+- `curated/community-contributions/`: curated community data, one file per year and kind.
 - `reports/`: generated reports.
 - `archive/`: earlier analyses, proposals and notes, kept for reference.
 

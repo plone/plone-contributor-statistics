@@ -63,10 +63,10 @@ Set a variable on the command line to use another year, for example `make five-y
 | `make generate-report` | Writes `reports/github-contributor-report.md`. | works |
 | `make generate-volto-report` | Writes `reports/volto.md`. | works |
 | `make community-recognition` | Writes the community recognition report of `RECOGNITION_YEAR`. | works |
-| `make yearly-activity` | Writes `yearly-activity-statistics.csv`. | works |
-| `make yearly-graphs` | Runs `yearly-activity` and draws the graphs in `graphs/`. | works |
+| `make yearly-activity` | Writes `derived/yearly-activity-statistics.csv`. | works |
+| `make yearly-graphs` | Runs `yearly-activity` and draws the graphs in `reports/graphs/`. | works |
 | `make analyze-independent` | Lists unmapped contributors worth researching. | works |
-| `make run-plip-organisations` | Writes `plone-plip-organisations.csv` from `plone-plips-detailed.csv` and the mapping files. | works |
+| `make run-plip-organisations` | Writes `derived/plone-plip-organisations.csv` from `collected/plips/plone-plips-detailed.csv` and the mapping files. | works |
 
 ## Documentation
 

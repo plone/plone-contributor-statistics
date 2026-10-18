@@ -16,13 +16,13 @@ The levels combine code contributions, PLIPs, and community work such as sprints
 
 The program's inputs are here:
 
-- `data/community-contributions/community-recognition-points.csv` lists the points per kind of contribution, how they are split, and the time window.
-- `data/community-contributions/community-recognition-levels.csv` lists the levels and their point ranges.
+- `curated/community-contributions/community-recognition-points.csv` lists the points per kind of contribution, how they are split, and the time window.
+- `curated/community-contributions/community-recognition-levels.csv` lists the levels and their point ranges.
 - The {doc}`curated data <curated-community-data>` records the community work.
 - The {doc}`organisation statistics <attribution>` and the PLIP files record the code contributions.
 
 `scripts/report/generate_community_recognition_report.py` turns these inputs into points and levels per organisation.
-It spells each organisation as in `organisations.csv`, so that different spellings in the inputs add up to one organisation.
+It spells each organisation as in `curated/mappings/organisations.csv`, so that different spellings in the inputs add up to one organisation.
 Unmapped contributors get no points and no level ([#53](https://github.com/plone/plone-contributor-statistics/issues/53)).
 
 Only the repositories of the `plone` GitHub organisation count.
@@ -30,7 +30,7 @@ The program recognises work on Plone itself, so an organisation's own repositori
 
 ## How the script calculates
 
-The script applies `data/community-contributions/community-recognition-points.csv` as it is written.
+The script applies `curated/community-contributions/community-recognition-points.csv` as it is written.
 It looks at one recognition year: community work counts in that year, code in the five years up to and including it.
 
 Most rules are a direct reading of the points file.

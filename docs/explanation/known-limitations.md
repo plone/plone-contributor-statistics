@@ -9,12 +9,12 @@ Most of them have an open issue, and each fix will update this page.
 ## Coverage
 
 Commits of unidentified authors don't count
-:   Commits whose author email neither GitHub nor `commit_authors.csv` links to a person are left out.
+:   Commits whose author email neither GitHub nor `curated/mappings/commit_authors.csv` links to a person are left out.
     This hits the CVS and Subversion years hardest ([#69](https://github.com/plone/plone-contributor-statistics/issues/69)).
     Early years may undercount people, especially the early core developers.
 
 People without a GitHub account have no organisation
-:   People counted under their name can't be listed in `organisations.csv`, which holds GitHub logins, so they are Unmapped.
+:   People counted under their name can't be listed in `curated/mappings/organisations.csv`, which holds GitHub logins, so they are Unmapped.
 
 Duplicates are recognized by date and message
 :   Two different commits in one repository with the same author date and message would count as one.
@@ -52,7 +52,7 @@ Multi-year summaries split people who moved
 :   A person who changed organisations appears under each organisation, for the years they were there.
 
 Login lookup is case-sensitive
-:   A login with the wrong case in `organisations.csv` leaves its owner Unmapped.
+:   A login with the wrong case in `curated/mappings/organisations.csv` leaves its owner Unmapped.
 
 ## Parts with a different method
 

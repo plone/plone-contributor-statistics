@@ -23,7 +23,7 @@ In March 2026, the project took the shape it has today:
 - The generated files moved to `data/` ([#7](https://github.com/plone/plone-contributor-statistics/issues/7)).
 - World Plone Day counts only events held in person.
 - The Volto statistics cover all Volto contributors, not only the Volto team.
-- One file, `organisations.csv`, became the single organisation mapping ([#10](https://github.com/plone/plone-contributor-statistics/pull/10)).
+- One file, `curated/mappings/organisations.csv`, became the single organisation mapping ([#10](https://github.com/plone/plone-contributor-statistics/pull/10)).
 - Only merged pull requests count, in the core and in Volto ([#12](https://github.com/plone/plone-contributor-statistics/pull/12), [#13](https://github.com/plone/plone-contributor-statistics/pull/13)).
 - Commits count only on the default branch, read from the commit list instead of the contributor statistics of the GitHub API.
 - Overrides record past organisations for a range of years ([#16](https://github.com/plone/plone-contributor-statistics/issues/16), [#17](https://github.com/plone/plone-contributor-statistics/pull/17)).
@@ -80,7 +80,7 @@ History:
 - The collector had read only the default branch, so most of the early years of `Products.CMFPlone` were missing.
   Commits are now read from local clones, including the history that exists only on old release branches ([#75](https://github.com/plone/plone-contributor-statistics/pull/75)).
 - Many commit addresses from the Subversion years, and old company addresses, belonged to no GitHub account, so their commits were left out.
-  `commit_authors.csv` now names the people behind them, each with a source, and `account_aliases.csv` merges second accounts ([#77](https://github.com/plone/plone-contributor-statistics/pull/77)).
+  `curated/mappings/commit_authors.csv` now names the people behind them, each with a source, and `curated/mappings/account_aliases.csv` merges second accounts ([#77](https://github.com/plone/plone-contributor-statistics/pull/77)).
 - Commits that existed twice had been counted twice: the automatic `[fc]` copies in `buildout.coredev`, rebased branches that were merged as well, and history imported twice.
   Each change now counts once ([#79](https://github.com/plone/plone-contributor-statistics/pull/79)).
 
@@ -88,6 +88,9 @@ Tooling:
 
 - The tests run in GitHub Actions on every pull request ([#73](https://github.com/plone/plone-contributor-statistics/pull/73)).
 - This documentation replaced the earlier notes, which moved to `archive/`.
+- The repository was reorganised by role: code in `scripts/`, curated input in `curated/`, collected data in `collected/`, derived data in `derived/` and reports in `reports/`.
+  Dead and experimental scripts moved to `archive/`, and a missing input file now stops a run instead of being skipped ([#101](https://github.com/plone/plone-contributor-statistics/pull/101), [#105](https://github.com/plone/plone-contributor-statistics/pull/105), [#106](https://github.com/plone/plone-contributor-statistics/pull/106)).
+  The method and the numbers didn't change.
 
 ## Which files are comparable
 

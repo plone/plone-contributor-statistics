@@ -136,7 +136,7 @@ run-plips:
 
 run-organisation-stats:
 	@echo "Running organisation statistics for all available years..."
-	@for year_file in data/*-plone-contributors.csv; do \
+	@for year_file in collected/contributors/*-plone-contributors.csv; do \
 		if [ -f "$$year_file" ]; then \
 			year=$$(basename $$year_file | sed 's/-plone-contributors.csv//'); \
 			echo "Processing $$year..."; \
@@ -185,7 +185,7 @@ analyze-independent:
 # Maintenance
 
 clean:
-	rm -f data/*_checkpoint.csv
+	rm -f collected/contributors/*_checkpoint.csv
 	rm -rf .pytest_cache docs/_build
 	find . -name "*.pyc" -delete
 	find . -name "__pycache__" -type d -exec rm -rf {} +

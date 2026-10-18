@@ -19,10 +19,10 @@ Self-employed people with a company name use that name.
 
 ## Today's organisation, with exceptions for the past
 
-`organisations.csv` lists the current organisation of each account.
+`curated/mappings/organisations.csv` lists the current organisation of each account.
 Most people stay with one organisation for the years in which they contribute, so one file covers most of the history.
 
-When someone changed organisations, `organisation_mapping_overrides.csv` records the earlier one for the years it applied ([#16](https://github.com/plone/plone-contributor-statistics/issues/16)).
+When someone changed organisations, `curated/mappings/organisation_mapping_overrides.csv` records the earlier one for the years it applied ([#16](https://github.com/plone/plone-contributor-statistics/issues/16)).
 The organisation statistics are built year by year, and each year uses the overrides that apply to it.
 A person who moved is therefore counted for the old organisation in the old years and for the new one in the new years.
 Multi-year summaries add up the years, so such a person appears under both organisations.

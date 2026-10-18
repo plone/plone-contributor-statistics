@@ -77,3 +77,18 @@ def test_scripts_suggest_commands_that_work(script):
     # A command, not prose: quoted, or after 'Run:'
     for target in re.findall(r"(?:['\"`]|Run:\s+)make ([a-z][\w-]*)", source):
         assert target in targets, target
+
+
+def test_paths_follow_layout():
+    from scripts.lib import paths
+    for name, value in vars(paths).items():
+        if isinstance(value, Path) and name.isupper():
+            assert value.parts[0] in {'curated', 'collected', 'derived', 'reports'}, f'{name}: {value}'
+
+
+def test_tmp_repo_has_layout(tmp_repo):
+    from scripts.lib import paths
+    for name, value in vars(paths).items():
+        if isinstance(value, Path) and name.isupper():
+            folder = value if not value.suffix else value.parent
+            assert (tmp_repo / folder).is_dir(), f'{name}: {folder}'

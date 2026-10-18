@@ -35,7 +35,7 @@ GitHub links a commit to an account by the author's email address.
 The Subversion migration had no file that mapped Subversion users to email addresses.
 Their commits carry addresses like `name@localhost`, which no GitHub account has.
 
-`commit_authors.csv` names the people behind these addresses, where a source says who they are.
+`curated/mappings/commit_authors.csv` names the people behind these addresses, where a source says who they are.
 Sources are the same name in commits that are linked to an account, the nicknames in the [credits of Plone 2.0](https://github.com/plone/Products.CMFPlone/blob/2.0/CREDITS.txt), account profiles, and confirmations by people who were there.
 People without a GitHub account are counted under their name ([#77](https://github.com/plone/plone-contributor-statistics/pull/77)).
 
