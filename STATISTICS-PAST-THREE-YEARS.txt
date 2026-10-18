@@ -1,7 +1,7 @@
 # Three-Year Summary Results (2022-2024)
 
 - 55 total organisations tracked across 3 years
-- 29,588 total commits and 6,180 pull requests
+- 26,159 total commits and 6,180 pull requests
 - 258 unique contributors across all organisations
 - File generated: summary-past-three-years-2022-2024.csv
 
@@ -20,16 +20,16 @@
 
 ## Top 10 contributors by commits (2022-2024)
 
-1. mauritsvanrees - 5,286 commits
-2. sneridagh - 3,568 commits
-3. gforcada - 2,781 commits
-4. stevepiercy - 2,459 commits
-5. petschki - 2,189 commits
-6. ericof - 1,278 commits
-7. jensens - 1,243 commits
-8. davisagli - 960 commits
-9. ksuess - 794 commits
-10. thet - 744 commits
+1. mauritsvanrees - 4,626 commits
+2. sneridagh - 3,507 commits
+3. stevepiercy - 2,377 commits
+4. gforcada - 2,371 commits
+5. petschki - 1,828 commits
+6. ericof - 1,247 commits
+7. ksuess - 732 commits
+8. jensens - 729 commits
+9. MrTango - 672 commits
+10. davisagli - 633 commits
 
 ## Top 10 organisations by pull requests (2022-2024)
 
@@ -48,15 +48,15 @@ Not mapped to an organisation: 356 PRs
 
 ## Top 10 organisations by commits (2022-2024)
 
-1. kitconcept GmbH: 7,609 commits
-2. Zest Software: 4,397 commits
-3. der Freitag: 2,781 commits
-4. Steve Piercy - Website Builder: 2,459 commits
-5. Kombinat: 2,189 commits
-6. PY76: 1,346 commits
-7. Klein & Partner KG: 1,261 commits
-8. Syslab: 916 commits
-9. Rohberg: 794 commits
-10. Derico: 740 commits
+1. kitconcept GmbH: 6,948 commits
+2. Zest Software: 3,881 commits
+3. Steve Piercy - Website Builder: 2,377 commits
+4. der Freitag: 2,371 commits
+5. Kombinat: 1,828 commits
+6. PY76: 1,193 commits
+7. Klein & Partner KG: 746 commits
+8. Rohberg: 732 commits
+9. Syslab: 695 commits
+10. Derico: 672 commits
 
-Not mapped to an organisation: 1,231 commits
+Not mapped to an organisation: 1,178 commits
