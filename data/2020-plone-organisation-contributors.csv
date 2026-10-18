@@ -36,7 +36,7 @@ IT Sprit,8,3,1,thomasmassmann,4,"Products.CMFPlone, Products.PortalTransforms, p
 Radio Free Asia,7,2,1,flipmcf,3,"mockup, plone.app.vocabularies, plone.outputfilters",2020-08-13,2020-11-04
 Jarn,7,1,2,"fschulze, witsch",2,"archetypes.querywidget, plone.scale",2017-09-19,2020-09-04
 CCC,5,1,1,polyester,3,"foundation, papyrus, sphinxtheme.plone",2020-02-24,2020-07-01
-iMio,5,6,3,"bsuttor, gbastien, gotcha",4,"Products.CMFPlone, aurora, plone.restapi, volto",2020-06-15,2020-06-29
+iMio,5,4,2,"bsuttor, gbastien",3,"aurora, plone.restapi, volto",2020-06-15,2020-06-29
 Affinitic,5,5,2,"laulaz, mpeeters",4,"mockup, plone.app.versioningbehavior, plone.recipe.zope2instance, plone.restapi",2020-02-05,2020-09-17
 Jens Vagelpohl (independent),3,1,1,dataflake,2,"meta, plone.recipe.zope2instance",2020-02-15,2020-02-17
 Uni. Hospital Dresden,3,3,1,1letter,3,"Products.ResourceRegistries, plone.app.event, plonetheme.barceloneta",2020-03-11,2020-07-28
@@ -46,4 +46,5 @@ KU Leuven,3,0,1,spereverde,2,"documentation, training",2020-02-13,2020-06-08
 Zopyx,2,1,1,zopyx,3,"Products.MimetypesRegistry, planet.plone.org, plone.app.portlets",2020-07-15,2020-10-14
 IMS Inc.,1,0,1,ewohnlich,1,Products.CMFPlone,2020-12-23,2020-12-23
 acsr industrialdesign,1,1,1,acsr,1,documentation,2020-09-01,2020-09-01
+BubbleNet,0,2,1,gotcha,1,Products.CMFPlone,,
 Pretaweb,0,2,2,"JeffersonBledsoe, instification",2,"plone.app.contentrules, plone.app.iterate",,

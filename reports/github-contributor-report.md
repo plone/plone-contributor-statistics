@@ -1,6 +1,6 @@
 # Plone Core Contributor Statistics Report
 
-Generated on: 2026-10-18 12:02:04
+Generated on: 2026-10-18 12:20:22
 
 This report shows the top contributors and organizations in the Plone ecosystem across different time periods.
 
@@ -153,7 +153,7 @@ Not mapped to an organisation: 577 PRs, 1,618 commits by 182 contributors.
 | 9 | Nuclia | 560 | 1,022 | 4 | 15 |
 | 10 | Eau de Web | 558 | 1,632 | 15 | 37 |
 
-Not mapped to an organisation: 1,957 PRs, 5,415 commits by 375 contributors.
+Not mapped to an organisation: 1,957 PRs, 5,749 commits by 376 contributors.
 
 
 ---

@@ -38,13 +38,14 @@ Ludwig Maximilian University Munich,11,3,1,loechel,5,"plone.api, plone_best_prac
 Plone Venezuela,10,2,1,macagua,2,"aurora, volto",2019-12-09,2019-12-25
 Radio Free Asia,10,4,1,flipmcf,2,"plone.app.dexterity, plone.formwidget.namedfile",2019-10-30,2019-12-18
 Affinitic,10,5,1,laulaz,7,"Products.CMFPlone, documentation, plone.app.layout, plone.app.multilingual, plone.formwidget.autocomplete, plone.namedfile, training",2019-01-16,2019-12-20
-iMio,10,7,3,"gbastien, gotcha, sverbois",7,"aurora, container-historical, plone.app.contentlisting, plone.app.contentrules, plone.recipe.zeoserver, plone.recipe.zope2instance, volto",2019-02-19,2019-12-09
 Jürgen Gmach (independent),7,6,1,jugmac00,3,"documentation, plone.recipe.zope2instance, plone.testing",2019-04-27,2019-12-11
 TU Dresden,6,3,1,pgrunewald,2,"aurora, volto",2019-10-27,2019-11-13
+iMio,6,3,2,"gbastien, sverbois",3,"aurora, plone.app.contentrules, volto",2019-03-13,2019-12-09
 Webmeisterei,5,3,1,frisi,3,"plone.api, plone.app.themingplugins, plone.z3cform",2019-02-14,2019-09-18
-Uni. Hospital Dresden,4,1,1,1letter,2,"documentation, plone.app.mosaic",2019-07-24,2019-12-06
 Werkbank GmbH,4,2,1,woolyseal,3,"aurora, plone.restapi, volto",2019-06-21,2019-12-11
+Uni. Hospital Dresden,4,1,1,1letter,2,"documentation, plone.app.mosaic",2019-07-24,2019-12-06
 Interaktiv,4,1,1,jmevissen,2,"documentation, plone.app.upgrade",2019-02-07,2019-02-09
+BubbleNet,4,4,1,gotcha,4,"container-historical, plone.app.contentlisting, plone.recipe.zeoserver, plone.recipe.zope2instance",2019-02-19,2019-05-28
 IT Sprit,3,3,1,thomasmassmann,2,"Products.CMFPlone, plone.app.users",2019-08-23,2019-11-25
 Makina Corpus,2,1,1,tdesvenain,1,plone.app.users,2019-10-11,2019-10-11
 infoCatch,2,1,1,mtrebron,1,plone.app.contentrules,2019-09-07,2019-09-07

@@ -23,14 +23,15 @@ Pretaweb,55,17,2,"JeffersonBledsoe, instification",5,"aurora, form-block, plone.
 Enfold,45,15,1,frapell,12,"buildout.coredev, mockup, plone.app.content, plone.app.contenttypes, plone.app.mosaic, plone.app.theming, plone.app.workflow, plone.app.z3cform, plone.base, plone.schemaeditor, plone.staticresources, plonetheme.barceloneta",2022-01-19,2022-12-27
 Serpro,37,30,1,wesleybl,12,"Products.CMFPlone, aurora, bobtemplates.plone, buildout.coredev, code-quality, container-frontend, meta, plone.formwidget.recaptcha, plone.restapi, plonecli, training, volto",2021-12-08,2022-12-17
 Sixfeetup,33,9,2,"rpatterson, tkimnguyen",9,"2023.ploneconf.org, Products.PlonePAS, aurora, container-backend, mr.roboto, plone.nl, plone.volto, ploneconf.org, volto",2021-12-28,2022-10-24
-iMio,31,18,5,"bsuttor, duchenean, gbastien, gotcha, sverbois",15,"2023.ploneconf.org, Products.ATContentTypes, Products.CMFPlone, Products.PortalTransforms, buildout.coredev, plone.app.blocks, plone.app.caching, plone.app.content, plone.app.contentlisting, plone.app.discussion, plone.app.standardtiles, plone.nl, plone.outputfilters, plone.restapi, ploneconf.org",2022-02-21,2022-12-02
 Jens Vagelpohl (independent),21,0,1,dataflake,1,meta,2022-02-09,2022-12-28
 Iskra,21,15,3,"masipcat, nilbacardit26, rboixaderg",2,"guillotina, guillotina_elasticsearch",2022-03-16,2022-12-12
 Plone Venezuela,20,2,1,macagua,2,"aurora, volto",2022-10-14,2022-11-01
+iMio,19,8,4,"bsuttor, duchenean, gbastien, sverbois",9,"2023.ploneconf.org, Products.CMFPlone, buildout.coredev, plone.app.caching, plone.app.content, plone.app.contentlisting, plone.nl, plone.restapi, ploneconf.org",2022-02-21,2022-12-02
 CCC,18,3,1,polyester,7,"Plone, ai-team-private, documentation, foundation, papyrus, sphinxtheme.plone, training",2022-01-15,2022-12-14
 Interaktiv,17,6,3,"Thokas, jmevissen, mliebischer",6,"Products.CMFPlone, cookiecutter-zope-instance, plone.app.content, plone.app.upgrade, plone.staticresources, training",2021-06-23,2022-09-28
-Academy of FA Vienna,12,3,1,iham,8,"Products.CMFPlone, mockup, plone.app.caching, plone.app.contentmenu, plone.app.mosaic, plone.app.registry, plone.app.widgets, plone.app.z3cform",2019-10-09,2022-09-15
+BubbleNet,12,10,1,gotcha,9,"Products.ATContentTypes, Products.CMFPlone, Products.PortalTransforms, buildout.coredev, plone.app.blocks, plone.app.discussion, plone.app.standardtiles, plone.outputfilters, plone.restapi",2022-03-15,2022-11-30
 University of Jyväskylä,12,5,2,"datakurre, rioksane",2,"Products.CMFPlone, plone.app.robotframework",2022-02-18,2022-06-08
+Academy of FA Vienna,12,3,1,iham,8,"Products.CMFPlone, mockup, plone.app.caching, plone.app.contentmenu, plone.app.mosaic, plone.app.registry, plone.app.widgets, plone.app.z3cform",2019-10-09,2022-09-15
 operun,6,4,1,santonelli,4,"bobtemplates.plone, plone.app.viewletmanager, plonecli, training",2022-09-01,2022-10-09
 Wildcard Corp,6,1,1,vangheem,1,guillotina_s3storage,2022-03-08,2022-05-21
 Ludwig Maximilian University Munich,4,2,1,loechel,1,training,2022-10-10,2022-11-07

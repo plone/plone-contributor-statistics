@@ -24,8 +24,8 @@ University of Jyväskylä,51,7,1,datakurre,8,"aurora, mockup, plone.app.blocks, 
 4Teamwork,44,14,2,"buchi, lukasgraf",2,"plone.rest, plone.restapi",2017-03-20,2018-10-21
 Agitator,34,14,1,agitator,10,"Products.CMFPlone, buildout.coredev, plone.app.caching, plone.app.event, plone.app.jquerytools, plone.app.layout, plone.app.mosaic, plone.app.upgrade, plone.login, plonetheme.barceloneta",2018-01-27,2018-12-13
 FHNW,29,20,1,tomgross,12,"Products.CMFDiffTool, Products.CMFEditions, Products.MimetypesRegistry, buildout.coredev, plone.app.content, plone.app.layout, plone.app.multilingual, plone.app.users, plone.app.versioningbehavior, plone.app.z3cform, plone.folder, plone.outputfilters",2016-10-23,2018-09-18
-iMio,29,9,5,"anuyens, bsuttor, gbastien, gotcha, sgeulette",10,"Products.Archetypes, Products.CMFDiffTool, Products.CMFDynamicViewFTI, Products.CMFPlone, buildout.coredev, plone.api, plone.app.event, plone.formwidget.datetime, plone.testing, training",2017-12-21,2018-12-06
 Makina Corpus,27,11,2,"Gagaro, tdesvenain",2,"plone.restapi, plone.restapi-angular",2017-11-30,2018-09-27
+iMio,25,9,4,"anuyens, bsuttor, gbastien, sgeulette",9,"Products.Archetypes, Products.CMFDiffTool, Products.CMFDynamicViewFTI, Products.CMFPlone, buildout.coredev, plone.api, plone.app.event, plone.formwidget.datetime, training",2017-12-21,2018-12-06
 IT Sprit,19,10,1,thomasmassmann,7,"Products.CMFPlone, buildout.coredev, documentation, mockup, plone.recipe.codeanalysis, plone.resourceeditor, plonetheme.barceloneta",2018-01-03,2018-10-03
 Rohberg,15,5,1,ksuess,5,"Products.CMFPlone, plone.app.content, plone.app.robotframework, plone.app.testing, plone.app.upgrade",2018-01-28,2018-10-05
 CCC,14,1,1,polyester,6,"Products.CMFPlone, ai-team-private, archive.plone.org, documentation, documentation-roboshots, papyrus",2018-01-08,2018-11-11
@@ -41,6 +41,7 @@ Webmeisterei,6,2,1,frisi,2,"documentation, plone.protect",2018-01-11,2018-10-07
 Soliton Consulting,6,1,1,fulv,2,"ansible.plone_server, training",2018-03-22,2018-12-28
 Jürgen Gmach (independent),6,6,1,jugmac00,1,documentation,2018-07-19,2018-12-28
 Radio Free Asia,5,1,1,flipmcf,2,"documentation, training",2018-08-30,2018-10-03
+BubbleNet,4,0,1,gotcha,2,"plone.api, plone.testing",2018-01-29,2018-03-12
 Pretaweb,4,2,2,"djay, djowett",2,"plone.app.theming, plone.autoform",2018-02-18,2018-06-23
 CMS Communications Inc.,3,4,1,terapyon,4,"Products.CMFDiffTool, Products.CMFPlone, documentation, guillotina",2018-02-07,2018-11-19
 KU Leuven,3,0,1,spereverde,1,plone.app.dexterity,2018-12-14,2018-12-22
