@@ -120,6 +120,7 @@ Several people or organisations in one cell are separated by semicolons.
 
 `reports/github-pr-interactions-report-YYYY.md`
 :   Written by `scripts/collect/plone_pr_interactions.py`.
+    The collector writes it, not a report script, because the report ranks participants and reviewers by name, and the CSV file holds only counts per pull request.
 
 `reports/volto.md`
 :   Written by `scripts/report/generate_volto_team_report.py`.
