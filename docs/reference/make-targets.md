@@ -8,6 +8,17 @@ Targets with `YYYY` exist once per year.
 
 See {doc}`/explanation/known-limitations` for the effect of the broken targets.
 
+## Variables
+
+Some targets take a year from a variable.
+The defaults are in `years.py`, and they match the years of the committed files.
+Set a variable on the command line to use another year, for example `make five-year-summary SUMMARY_END=2025`.
+
+| Variable | Used by |
+|---|---|
+| `SUMMARY_END` | The last year of `three-year-summary`, `five-year-summary` and `ten-year-summary`. |
+| `RECOGNITION_YEAR` | The year of `community-recognition`. |
+
 ## Setup and maintenance
 
 | Target | Does | Status |
@@ -45,12 +56,12 @@ See {doc}`/explanation/known-limitations` for the effect of the broken targets.
 |---|---|---|
 | `make run-organisation-stats` | Writes the organisation statistics of every year with a contributor file. | works |
 | `make run-organisation-stats-YYYY` | Writes the organisation statistics of one year. | works |
-| `make three-year-summary` | Writes the summary of 2022–2024. | works |
-| `make five-year-summary` | Writes the summary of 2020–2024. | works |
-| `make ten-year-summary` | Writes the summary of 2015–2024. | works |
+| `make three-year-summary` | Writes the summary of the three years up to `SUMMARY_END`. | works |
+| `make five-year-summary` | Writes the summary of the five years up to `SUMMARY_END`. | works |
+| `make ten-year-summary` | Writes the summary of the ten years up to `SUMMARY_END`. | works |
 | `make generate-report` | Writes `reports/github-contributor-report.md`. | works |
 | `make generate-volto-report` | Writes `reports/volto.md`. | works |
-| `make community-recognition` | Writes the community recognition report. | works |
+| `make community-recognition` | Writes the community recognition report of `RECOGNITION_YEAR`. | works |
 | `make yearly-activity` | Writes `yearly-activity-statistics.csv`. | works |
 | `make yearly-graphs` | Runs `yearly-activity` and draws the graphs in `graphs/`. | works |
 | `make flourish-graph-organisation-contributors-csv-file` | Writes the organisation chart data for Flourish. | works |

@@ -7,6 +7,9 @@ They are in `data/community-contributions/`.
 
 See {doc}`/explanation/community-recognition` for what these files can and can't explain.
 
+`generate_community_recognition_report.py` stops with an error if the curated community data of the year is missing altogether, or if a yearly organisation file, `plone-plips-detailed.csv` or the levels file is missing.
+If only one kind of community data is missing for the year, it prints a warning and goes on, because not every kind exists in every year.
+
 ## `data/community-contributions/community-recognition-points.csv`
 
 The points per kind of contribution.
