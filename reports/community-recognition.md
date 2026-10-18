@@ -1,6 +1,6 @@
 # Plone Community Recognition Program 2025
 
-*Generated: 2026-10-18 16:48:17*
+*Generated: 2026-10-18 17:28:45*
 
 ## Executive Summary
 
@@ -160,7 +160,7 @@
 | Category | Points | Details |
 |----------|-------:|:--------|
 | Strategic Sprint | 12.0 | • Beethoven Sprint |
-| Release Manager | 24.0 | • Victor Fernandez de Alba<br>• Timo Stollenwerk |
+| Release Manager | 24.0 | • Víctor Fernández de Alba<br>• Timo Stollenwerk |
 | WPD Talk | 4.0 | • Plone Hands On: Customize your site theme through the web with Volto!<br>• Tailwind CSS and Plone<br>• Codename Seven - Sneak Peek to the Successor of Volto<br>• Plone Hands On: Creating a new Plone project |
 | Training Session | 14.0 | • Plone 6 Volto Customization for JavaScript Beginners<br>• Plone 6 Volto Customization for JavaScript Beginners<br>• Plone Seven: Fundamentals<br>• Installing and Deploying Plone<br>• Installing and Deploying Plone<br>• ... and 2 more |
 | PR Contributions | 20.0 | • Lead (534.0 PRs/year) |
