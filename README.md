@@ -5,6 +5,13 @@ They count commits and merged pull requests in the repositories of the [`plone` 
 
 **Documentation: https://plone.github.io/plone-contributor-statistics/** (source in [`docs/`](docs/))
 
+**All data comes from public records, with linked sources.**
+The commits and pull requests are public on GitHub.
+Every attribution to a person or an organisation, and every row of curated community data, needs a public record: a web page, an archived page, a register entry, a conference biography, a public commit, or a public confirmation by the person.
+A memory alone is not enough; without a public record, an entry stays out, and a contributor stays Unmapped.
+The one exception is identifying the people behind early CVS and Subversion commit addresses, where public records are often impossible; there, the source says what the identification rests on.
+Some older files still lack linked sources, and [#86](https://github.com/plone/plone-contributor-statistics/issues/86) tracks them.
+
 The documentation explains where the data comes from, how it is counted, and why.
 It is for:
 
@@ -37,7 +44,7 @@ Charts on Flourish: [individual contributors](https://public.flourish.studio/vis
 
 ## Contributing
 
-Corrections are welcome as pull requests, with a source or a confirmation.
+Corrections are welcome as pull requests, with a link to a public record, or with a confirmation by the person in the pull request.
 See [Correct an organisation mapping](https://plone.github.io/plone-contributor-statistics/how-to/correct-an-organisation-mapping.html) and [Contribute to the documentation](https://plone.github.io/plone-contributor-statistics/contributing/documentation.html).
 
 Code changes get tests; data files get format checks ([#52](https://github.com/plone/plone-contributor-statistics/issues/52)).
