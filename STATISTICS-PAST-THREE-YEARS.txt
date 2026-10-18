@@ -1,6 +1,6 @@
 # Three-Year Summary Results (2022-2024)
 
-- 59 total organisations tracked across 3 years
+- 60 total organisations tracked across 3 years
 - 26,159 total commits and 6,180 pull requests
 - 259 unique contributors across all organisations
 - File generated: summary-past-three-years-2022-2024.csv
@@ -44,7 +44,7 @@
 9. RedTurtle: 167 PRs
 10. Eau de Web: 165 PRs
 
-Not mapped to an organisation: 437 PRs
+Not mapped to an organisation: 433 PRs
 
 ## Top 10 organisations by commits (2022-2024)
 
@@ -59,4 +59,4 @@ Not mapped to an organisation: 437 PRs
 9. Syslab: 695 commits
 10. Derico: 672 commits
 
-Not mapped to an organisation: 1,349 commits
+Not mapped to an organisation: 1,343 commits
