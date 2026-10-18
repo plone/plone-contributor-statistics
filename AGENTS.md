@@ -25,6 +25,7 @@ Each top-level folder has a README that says what it holds and whether to edit i
 - `collected/`: data the collectors fetch from GitHub, one file per year. Never edit by hand.
 - `derived/`: data computed from curated and collected data. Never edit by hand.
 - `reports/`: generated reports, text summaries and graphs. Never edit by hand.
+- `scripts/report/site/`: templates and static files of the community page, which `make site` renders into the gitignored `_site/`, with the documentation below `_site/docs/`; GitHub Pages publishes `_site/`.
 - `tests/`: pytest tests.
 - `docs/`: the documentation, Sphinx with MyST markdown.
 - `archive/`: historical material. Never edit it, and never rely on it as a description of the current method.

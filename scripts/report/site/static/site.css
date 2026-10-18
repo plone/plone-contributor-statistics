@@ -7,11 +7,11 @@
   --muted: #5b6b7b;
   --line: #dde4ea;
   --soft: #f4f7fa;
-  --platinum: #6f7d8c;
-  --gold: #b8860b;
-  --silver: #8a96a3;
-  --bronze: #a0623a;
-  --community: #0083be;
+  --platinum: #56636f;
+  --gold: #7d5c06;
+  --silver: #5f6b77;
+  --bronze: #8a4f2a;
+  --community: #00618e;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   color: var(--ink);
   line-height: 1.5;
@@ -36,15 +36,15 @@ h1, h2, h3 { line-height: 1.2; color: var(--navy); }
 /* First screen */
 .hero { background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%); color: #fff; padding: 2.6rem 0 2.2rem; }
 .hero h1 { color: #fff; font-size: clamp(1.7rem, 4vw, 2.6rem); margin: 0 0 .4rem; }
-.hero .lead { font-size: 1.1rem; margin: 0 0 1.6rem; max-width: 46rem; color: #e6f3fa; }
+.hero .lead { font-size: 1.1rem; margin: 0 0 1.6rem; max-width: 46rem; color: #fff; }
 .periods { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
 .period { background: rgba(255, 255, 255, .12); border-radius: 10px; padding: 1rem 1.2rem; }
 .period h2 { color: #fff; font-size: 1rem; font-weight: 600; margin: 0 0 .6rem; letter-spacing: .02em; }
 .numbers { display: flex; gap: 1.4rem; margin: 0; flex-wrap: wrap; }
 .numbers div { display: flex; flex-direction: column-reverse; }
 .numbers dd { margin: 0; font-size: 2.2rem; font-weight: 700; line-height: 1.1; }
-.numbers dt { font-size: .85rem; color: #d7ecf7; }
-.since { margin: 1.3rem 0 0; color: #e6f3fa; font-size: .95rem; }
+.numbers dt { font-size: .85rem; color: #fff; }
+.since { margin: 1.3rem 0 0; color: #fff; font-size: .95rem; }
 .since a { color: #fff; }
 
 /* Organisation wall */
@@ -118,6 +118,10 @@ a.row { color: var(--muted); }
 .result dt { color: var(--muted); }
 .result dd { margin: 0; font-weight: 600; }
 .note { color: var(--muted); font-size: .9rem; }
+table.distribution { border-collapse: collapse; margin: 1rem 0; font-size: .9rem; }
+.distribution caption { text-align: left; color: var(--muted); padding-bottom: .4rem; }
+.distribution th, .distribution td { border-bottom: 1px solid var(--line); padding: .3rem .8rem; text-align: right; }
+.distribution tbody th { text-align: left; font-weight: 400; color: var(--muted); }
 
 /* History */
 details.year { border-bottom: 1px solid var(--line); }

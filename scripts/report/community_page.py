@@ -18,7 +18,9 @@ from scripts.lib import paths
 
 SITE = Path(__file__).parent / 'site'
 REPOSITORY = 'https://github.com/plone/plone-contributor-statistics'
-URL = re.compile(r'https?://[^\s;,)]+')
+URL = re.compile(r'https?://[^\s;,)"\'<>]+')
+# The buckets of the anonymous distributions in the People tab: (label, lowest, highest)
+BUCKETS = [('1', 1, 1), ('2–9', 2, 9), ('10–49', 10, 49), ('50+', 50, None)]
 # The areas of an organisation's yearly contribution graph
 AREAS = [('commits', 'Commits'), ('pull_requests', 'Merged pull requests'), ('roles', 'Community roles'),
          ('events', 'Events')]
@@ -69,11 +71,18 @@ def bars(history, years, area, width=4, gap=1, height=28):
              'value': value} for index, (year, value) in enumerate(zip(years, values))]
 
 
+def distribution(people, field):
+    """How many people fall into each bucket of a field, e.g. merged pull requests."""
+    return [sum(1 for p in people if p[field] >= low and (high is None or p[field] <= high))
+            for _, low, high in BUCKETS]
+
+
 def environment():
     env = Environment(loader=FileSystemLoader(SITE / 'templates'), autoescape=select_autoescape(['html']),
                       trim_blocks=True, lstrip_blocks=True)
     env.filters.update(number=number, points=points, links=labelled_links)
-    env.globals.update(data_link=data_link, bars=bars, areas=AREAS, repository=REPOSITORY)
+    env.globals.update(data_link=data_link, bars=bars, areas=AREAS, repository=REPOSITORY, buckets=BUCKETS,
+                       distribution=distribution)
     return env
 
 

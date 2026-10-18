@@ -42,14 +42,17 @@ DATA = {
             'history': {'2025': {'commits': 0, 'pull_requests': 0, 'roles': 1, 'events': 0}},
         },
     },
-    'people': {'2025': [{'id': 'secretlogin', 'commits': 5, 'pull_requests': 2, 'roles': ['Board']}]},
+    'people': {'2025': [{'id': 'secretlogin', 'commits': 5, 'pull_requests': 2, 'roles': ['Board']},
+                        {'id': 'other', 'commits': 60, 'pull_requests': 12, 'roles': []},
+                        {'id': 'name:third', 'commits': 0, 'pull_requests': 0, 'roles': ['Talk']}]},
     'people_names': {'secret person': 'secretlogin'},
     'history': {
         '2005': {'people_active': 40, 'commits': 1500, 'pull_requests': None, 'board': [], 'team_leads': [],
                  'events': [{'kind': 'plone-conference', 'level': '', 'name': 'Plone Conference 2005',
                              'organisations': ['Six Feet Up'], 'sources': ['https://example.org/c2005']}]},
         '2025': {'people_active': 151, 'commits': 7502, 'pull_requests': 2107,
-                 'board': [{'name': 'Anna Board', 'organisation': 'Affinitic', 'source': 'https://example.org/board'}],
+                 'board': [{'name': 'Anna Board', 'organisation': 'Affinitic', 'source': 'https://example.org/board'},
+                           {'name': 'Bob Board', 'organisation': 'Unmapped', 'source': 'http://www.example.com"'}],
                  'team_leads': [{'name': 'Jane Doe', 'team': 'Docs Team', 'organisation': 'Jane Doe (independent)',
                                  'source': None}],
                  'events': []},
@@ -148,3 +151,24 @@ def test_renders_the_committed_data(tmp_path):
 
 def test_links_to_the_same_site_are_numbered(page):
     assert '>example.org</a>' in page and '>example.org (2)</a>' in page
+
+
+def test_unmapped_is_not_shown_as_an_organisation(page):
+    year_2025 = page.split('id="year-2025"')[1].split('</details>')[0]
+    assert 'Bob Board' in year_2025 and 'Unmapped' not in year_2025
+
+
+def test_quotes_are_not_part_of_links(page):
+    assert 'href="http://www.example.com"' in page
+    assert 'example.com&#34;' not in page and 'example.com"<' not in page
+
+
+def test_people_show_anonymous_distributions(page):
+    # Without a search, the People tab shows how many people did how much, without names
+    people = page.split('id="people"')[1].split('</section>')[0]
+    distribution = people.split('class="distribution"')[1].split('</table>')[0]
+    assert '2025' in distribution
+    assert 'secretlogin' not in distribution and 'other' not in distribution
+    # merged pull requests: 1 person with 2-9, 1 person with 10-49; commits: 1 with 2-9, 1 with 50+
+    assert re.search(r'Merged pull requests.*?<td>0</td><td>1</td><td>1</td><td>0</td>', distribution, re.S)
+    assert re.search(r'Commits.*?<td>0</td><td>1</td><td>0</td><td>1</td>', distribution, re.S)

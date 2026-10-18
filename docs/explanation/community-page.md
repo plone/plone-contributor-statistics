@@ -59,7 +59,21 @@ They can differ from the levels published on plone.org in August 2026, see {doc}
 For each organisation, the page lists its points per category and the contributions behind them.
 Each contribution links to its row in the data and to its public record; rows without a public record yet are marked as pending ([#46](https://github.com/plone/plone-contributor-statistics/issues/46)).
 
+For each organisation, a small graph shows its yearly counts since 2003 in four areas: commits and merged pull requests, as the organisation statistics attribute them; community roles, one per person and role in the curated community data; and events it organised.
+These are counts, not points: points exist only for the recognition years.
+
 ## People
 
 The page doesn't list people in a ranking.
-It lets you search for one person, and shows for a year where they stand in commits and in merged pull requests, and which community roles they held.
+It lets you search for one person, by GitHub login or by name, and shows for a year where they stand in commits and in merged pull requests among the people with at least one, and which community roles they held.
+A name finds the person's login where the data links the two, see "People active" above.
+Without a search, the page shows how many people made one, two to nine, ten to 49, or 50 and more commits and merged pull requests in the year, without names.
+
+## History
+
+For each year since 2003, the page shows:
+
+-   the number of people active, as defined above, in that year;
+-   the commits and merged pull requests of the year, from the yearly contributor files; years without any merged pull request say so instead of showing zero, because Plone's work moved to pull requests on GitHub only around 2010;
+-   the Board of Directors and the team leads, named, because these are public roles;
+-   the events, as defined above, with their organisers and sources.

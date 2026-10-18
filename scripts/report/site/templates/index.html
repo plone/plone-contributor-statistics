@@ -125,6 +125,16 @@
       </select></label>
     </form>
     <div id="people-result" class="result" aria-live="polite"></div>
+    {% set year_people = data.people[data.year | string] %}
+    <table class="distribution" id="people-distribution">
+      <caption>How many people did how much in <span class="dy">{{ data.year }}</span>, without names</caption>
+      <thead><tr><th></th>{% for label, low, high in buckets %}<th>{{ label }}</th>{% endfor %}</tr></thead>
+      <tbody>
+        {% for field, label in [('pull_requests', 'Merged pull requests'), ('commits', 'Commits')] %}
+        <tr data-field="{{ field }}"><th>{{ label }}</th>{% for count in distribution(year_people, field) %}<td>{{ count }}</td>{% endfor %}</tr>
+        {% endfor %}
+      </tbody>
+    </table>
     <noscript><p class="note">The search needs JavaScript. The underlying numbers are in the <a href="{{ data_url }}">data file</a>.</p></noscript>
     <script type="application/json" id="people-data">{{ people_json }}</script>
   </div>
@@ -156,13 +166,13 @@
         {% if item.board %}
         <h3>Board of Directors</h3>
         <ul class="people-list">
-          {% for member in item.board %}<li>{{ member.name }} <span class="by">{{ member.organisation }}</span>{{ record_links(member.source) }}</li>{% endfor %}
+          {% for member in item.board %}<li>{{ member.name }}{% if member.organisation not in ('', 'Unmapped') %} <span class="by">{{ member.organisation }}</span>{% endif %}{{ record_links(member.source) }}</li>{% endfor %}
         </ul>
         {% endif %}
         {% if item.team_leads %}
         <h3>Team leads</h3>
         <ul class="people-list">
-          {% for lead in item.team_leads %}<li>{{ lead.name }} <span class="by">{{ lead.team }}, {{ lead.organisation }}</span>{{ record_links(lead.source) }}</li>{% endfor %}
+          {% for lead in item.team_leads %}<li>{{ lead.name }} <span class="by">{{ lead.team }}{% if lead.organisation not in ('', 'Unmapped') %}, {{ lead.organisation }}{% endif %}</span>{{ record_links(lead.source) }}</li>{% endfor %}
         </ul>
         {% endif %}
         {% if not item.events and not item.board and not item.team_leads %}

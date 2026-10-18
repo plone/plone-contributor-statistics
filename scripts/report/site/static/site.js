@@ -17,11 +17,12 @@
   }
 
   function route() {
-    var id = decodeURIComponent(location.hash.slice(1));
+    var id;
+    try { id = decodeURIComponent(location.hash.slice(1)); } catch (error) { id = ''; }
     var target = id && document.getElementById(id);
-    if (!target) { show('organisations'); return; }
-    var panel = panels.indexOf(id) >= 0 ? id : (target.closest('.panel') || {}).id;
-    if (panel) { show(panel); }
+    var panel = target && (panels.indexOf(id) >= 0 ? id : (target.closest('.panel') || {}).id);
+    show(panel || 'organisations');
+    if (!target) { return; }
     if (target.tagName === 'DETAILS') {
       target.open = true;
       target.scrollIntoView();
@@ -56,11 +57,28 @@
     return (higher + 1) + ' of ' + active.length + ' (' + person[field].toLocaleString('en') + ')';
   }
 
+  // The anonymous distribution of the selected year: no names, only counts
+  var buckets = [[1, 1], [2, 9], [10, 49], [50, Infinity]];
+  function distribute(list) {
+    var table = document.getElementById('people-distribution');
+    if (!table) { return; }
+    table.querySelector('.dy').textContent = form.year.value;
+    table.querySelectorAll('tbody tr').forEach(function (row) {
+      var field = row.getAttribute('data-field');
+      row.querySelectorAll('td').forEach(function (cell, index) {
+        cell.textContent = list.filter(function (p) {
+          return p[field] >= buckets[index][0] && p[field] <= buckets[index][1];
+        }).length;
+      });
+    });
+  }
+
   function render() {
     var query = normalise(form.person.value);
     var year = form.year.value;
     var list = people[year] || [];
     result.textContent = '';
+    distribute(list);
     if (!query) { return; }
     // A name the data links to a login finds the login
     var id = names[query] || query;

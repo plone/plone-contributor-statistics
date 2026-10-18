@@ -245,8 +245,9 @@ docs-clean:
 # Site: the community page at the root, the documentation below docs/
 
 site:
+	rm -rf _site
 	python -m scripts.report.community_page --out _site
-	python -m sphinx -W --keep-going -n -b html docs _site/docs
+	python -m sphinx -W --keep-going -n -b html -d docs/_build/doctrees docs _site/docs
 
 site-serve:
 	@echo "Serving the site at http://localhost:8000 (Ctrl+C to stop)"
