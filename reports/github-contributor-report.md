@@ -1,6 +1,6 @@
 # Plone Core Contributor Statistics Report
 
-Generated on: 2026-10-18 14:42:54
+Generated on: 2026-10-18 15:10:35
 
 This report shows the top contributors and organizations in the Plone ecosystem across different time periods.
 
@@ -117,7 +117,7 @@ Not mapped to an organisation: 128 PRs, 273 commits by 41 contributors.
 | 9 | Codesyntax | 171 | 584 | 4 | 38 |
 | 10 | RedTurtle | 163 | 304 | 9 | 22 |
 
-Not mapped to an organisation: 406 PRs, 835 commits by 130 contributors.
+Not mapped to an organisation: 400 PRs, 825 commits by 127 contributors.
 
 
 ### Top 10 Organisation Contributors (Past 5 Years: 2021-2025)
@@ -131,18 +131,18 @@ Not mapped to an organisation: 406 PRs, 835 commits by 130 contributors.
 | 5 | Zest Software | 575 | 4,947 | 3 | 146 |
 | 6 | Syslab | 365 | 1,279 | 5 | 68 |
 | 7 | PY76 | 359 | 2,926 | 1 | 135 |
-| 8 | Eau de Web | 341 | 853 | 12 | 18 |
+| 8 | Eau de Web | 355 | 915 | 15 | 20 |
 | 9 | RedTurtle | 311 | 656 | 9 | 30 |
 | 10 | Codesyntax | 289 | 782 | 4 | 48 |
 
-Not mapped to an organisation: 710 PRs, 1,944 commits by 193 contributors.
+Not mapped to an organisation: 694 PRs, 1,878 commits by 189 contributors.
 
 
 ### Top 10 Organisation Contributors (Past 10 Years: 2016-2025)
 
 | Rank | Organization | PRs | Commits | Contributors | Repositories |
 |------|-------------|-----|---------|---------------|-------------|
-| 1 | kitconcept GmbH | 3,455 | 16,639 | 15 | 180 |
+| 1 | kitconcept GmbH | 3,459 | 16,652 | 17 | 180 |
 | 2 | Zest Software | 1,279 | 11,857 | 4 | 191 |
 | 3 | der Freitag | 1,201 | 5,882 | 3 | 274 |
 | 4 | Syslab | 1,068 | 2,876 | 6 | 141 |
@@ -151,9 +151,9 @@ Not mapped to an organisation: 710 PRs, 1,944 commits by 193 contributors.
 | 7 | Kombinat | 754 | 2,882 | 1 | 85 |
 | 8 | Klein & Partner KG | 725 | 3,125 | 2 | 149 |
 | 9 | Starzel | 542 | 2,298 | 3 | 142 |
-| 10 | Eau de Web | 519 | 1,530 | 13 | 36 |
+| 10 | Eau de Web | 535 | 1,596 | 17 | 36 |
 
-Not mapped to an organisation: 2,316 PRs, 6,907 commits by 392 contributors.
+Not mapped to an organisation: 2,286 PRs, 6,763 commits by 388 contributors.
 
 
 ---

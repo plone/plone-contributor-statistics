@@ -1,6 +1,6 @@
 # Three-Year Summary Results (2022-2024)
 
-- 60 total organisations tracked across 3 years
+- 62 total organisations tracked across 3 years
 - 26,159 total commits and 6,180 pull requests
 - 259 unique contributors across all organisations
 - File generated: summary-past-three-years-2022-2024.csv
@@ -40,11 +40,11 @@
 5. der Freitag: 425 PRs
 6. Syslab: 192 PRs
 7. Klein & Partner KG: 182 PRs
-8. Codesyntax: 177 PRs
-9. RedTurtle: 167 PRs
-10. Eau de Web: 165 PRs
+8. Eau de Web: 179 PRs
+9. Codesyntax: 177 PRs
+10. RedTurtle: 167 PRs
 
-Not mapped to an organisation: 429 PRs
+Not mapped to an organisation: 414 PRs
 
 ## Top 10 organisations by commits (2022-2024)
 
@@ -59,4 +59,4 @@ Not mapped to an organisation: 429 PRs
 9. Syslab: 695 commits
 10. Derico: 672 commits
 
-Not mapped to an organisation: 1,323 commits
+Not mapped to an organisation: 1,267 commits

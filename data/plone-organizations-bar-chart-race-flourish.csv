@@ -1,7 +1,7 @@
 Organization,Region,Image URL,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025
-kitconcept,Corporate,,,243,585,1081,1894,2086,2381,2751,1953,1866,1799
+kitconcept,Corporate,,,243,585,1081,1894,2099,2381,2751,1953,1866,1799
 zest-software,Corporate,,1428,2496,600,1302,889,1623,1066,2137,1717,27,
-unmapped,Individual,,2579,1359,1733,647,729,495,348,761,345,217,273
+unmapped,Individual,,2579,1359,1733,647,729,417,338,715,337,215,273
 freitag,Corporate,,699,995,243,590,415,18,18,173,1917,281,1232
 klein-&-partner-kg,Corporate,,307,651,334,445,284,214,363,434,171,141,88
 onna,Corporate,,,,1304,1298,738,5,83,,,,
@@ -14,7 +14,7 @@ salesforce,Corporate,,,,892,802,450,11,121,77,,,4
 derico,Corporate,,44,27,182,267,239,157,216,396,187,89,222
 wildcard-corp,Corporate,,1224,489,117,100,,,2,,,,
 timo-stollenwerk-(independent),Corporate,,1677,,,,,,,,,,
-eau-de-web,Corporate,,45,45,23,66,134,409,338,288,116,81,30
+eau-de-web,Corporate,,45,45,23,66,134,413,346,334,124,81,30
 university-of-jyväskylä,Corporate,,708,468,238,51,17,18,9,12,10,,24
 reid-mcmahon,Corporate,,397,406,200,186,94,20,,,,,
 rohberg,Corporate,,,,9,15,35,187,230,486,188,58,48
@@ -26,9 +26,9 @@ rob-gietema-(independent),Corporate,,,,,516,68,26,,297,,,
 agitator,Corporate,,48,58,54,34,131,93,234,194,2,,
 makina-corpus,Corporate,,121,157,296,27,2,9,,2,,,
 ludwig-maximilian-university-munich,Corporate,,22,34,305,112,11,,12,4,1,,
-minddistrict,Corporate,,1,7,11,94,21,103,98,65,1,,4
 ccc,Corporate,,173,64,46,14,50,5,3,18,21,6,1
 fhnw,Academic,,192,81,61,29,,,,1,,6,2
+gocept,Corporate,,1,7,11,91,15,84,95,65,1,,
 4teamwork,Corporate,,31,135,92,44,42,3,3,,,,
 sixfeetup,Corporate,,3,16,6,24,125,70,28,22,,46,6
 soliton-consulting,Corporate,,174,16,36,6,19,43,23,,,,
@@ -51,7 +51,8 @@ plone-venezuela,Corporate,,3,12,,7,10,,6,20,8,7,7
 jowett-enterprises-ltd,Corporate,,21,39,11,1,3,,4,,,,
 cosent,Corporate,,11,4,,53,,,,,,4,2
 cms-communications-inc-,Corporate,,9,12,,3,12,22,2,2,,,
-academy-of-fine-arts-vienna,Academic,,,,4,2,2,13,2,,21,10,1
+academy-of-fine-arts-vienna,Academic,,,,4,2,2,16,2,,21,10,1
+codehutlabs,Corporate,,,,,,,56,,,,,
 pendect,Corporate,,,,,,,49,,,,,
 operun,Corporate,,,,,,,11,32,6,,,
 zopyx,Corporate,,4,,5,1,30,2,1,1,3,,
@@ -60,10 +61,11 @@ greenfinity-llc,Corporate,,,,,,,,2,30,8,,5
 ku-leuven,Corporate,,,,,3,20,3,14,2,,2,
 acsr-industrialdesign,Corporate,,6,1,7,,1,1,,,,,22
 webmeisterei,Corporate,,23,,7,6,,,,,,,
+minddistrict,Corporate,,,,,3,6,19,3,,,,4
 squarewave-engineering,Corporate,,2,1,,4,,,,1,25,,
 jürgen-gmach-(independent),Corporate,,,,,6,7,13,7,,,,
+werkbank-gmbh,Corporate,,,,,,4,23,2,,2,,
 radio-free-asia,Corporate,,,,,5,10,7,8,,,,
-werkbank-gmbh,Corporate,,,,,,4,21,2,,2,,
 juizi,Corporate,,,,,,,,,,,,28
 ims-inc-,Corporate,,,,,,,1,,,5,2,15
 ecréall,Corporate,,7,8,2,,,,1,,,,

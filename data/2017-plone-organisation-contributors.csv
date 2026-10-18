@@ -28,7 +28,7 @@ Eau de Web,23,1,2,"avoinea, tiberiuichim",6,"Products.CMFPlone, container-histor
 BubbleNet,19,12,1,gotcha,6,"Products.Archetypes, buildout.coredev, guillotina, plone.api, plone.dexterity, plone.outputfilters",2016-08-31,2017-09-12
 RedTurtle,19,6,2,"cekk, mamico",8,"Products.CMFPlone, aurora, plone.app.modernizr, plone.app.standardtiles, plone.formwidget.datetime, plone.namedfile, plone.recipe.zeoserver, volto",2017-03-31,2017-12-18
 Franco Pellegrini (independent),15,12,1,frapell,7,"Products.CMFDiffTool, Products.CMFPlone, mockup, plone.app.contenttypes, plone.app.iterate, plone.app.mosaic, training",2017-01-05,2017-11-10
-minddistrict,11,5,1,icemac,3,"plone.recipe.zeoserver, plone.recipe.zope2instance, plone.testing",2017-04-05,2017-11-07
+gocept,11,5,1,icemac,3,"plone.recipe.zeoserver, plone.recipe.zope2instance, plone.testing",2017-04-05,2017-11-07
 Jowett Enterprises Ltd,11,6,1,djowett,5,"Products.LinguaPlone, documentation, plone.app.discussion, plone.app.multilingual, training",2016-12-02,2017-07-21
 Rohberg,9,3,1,ksuess,2,"mockup, plone.app.discussion",2017-07-17,2017-12-14
 Vincent Fretin (independent),9,0,1,vincentfretin,5,"Products.LinguaPlone, Products.TinyMCE, buildout.coredev, plone.app.querystring, plone.app.registry",2017-01-11,2017-07-08
