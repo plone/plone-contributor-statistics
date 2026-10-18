@@ -17,7 +17,7 @@ Read the documentation before you change data or method, and link to it instead 
 
 ## Layout
 
-- Root: the scripts (`*.py`), the `Makefile`, and the mapping files (`organisations.csv`, `organisation_mapping_overrides.csv`, `organisation_mapping_proposals.csv`, `commit_authors.csv`, `account_aliases.csv`, `bot_accounts.csv`, `excluded_repositories.csv`).
+- Root: the scripts (`*.py`), the `Makefile`, and the mapping files (`organisations.csv`, `organisation_mapping_overrides.csv`, `organisation_mapping_sources.csv`, `organisation_mapping_proposals.csv`, `commit_authors.csv`, `account_aliases.csv`, `bot_accounts.csv`, `excluded_repositories.csv`).
 - `data/`: collected and derived data, one file per year.
 - `data/community-contributions/`: curated community data, one file per year and kind.
 - `reports/`: generated reports.

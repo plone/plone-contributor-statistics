@@ -27,6 +27,25 @@ Rules
     Logins must be valid GitHub logins, spelled with the same case as on GitHub, because the lookup is case-sensitive.
     `tests/test_unmapped_and_mapping.py` checks the format.
 
+## `organisation_mapping_sources.csv`
+
+Public records for the current organisation of the logins in `organisations.csv`.
+
+Columns
+:   `github_username`, `organisation`, `source`, `checked`.
+
+`source`
+:   A link to the public record, such as the GitHub profile with its company field, a conference biography, or a company team page.
+
+`checked`
+:   The date on which the record said so, as `YYYY-MM-DD`.
+
+Rules
+:   Each login appears once, with the organisation that `organisations.csv` lists for it.
+    Every row must have a link.
+    Logins without a row don't have a public record yet ([#86](https://github.com/plone/plone-contributor-statistics/issues/86)).
+    `tests/test_unmapped_and_mapping.py` checks the format.
+
 ## `organisation_mapping_overrides.csv`
 
 Past organisations of GitHub accounts, for the years in which they differ from `organisations.csv`.
