@@ -19,5 +19,6 @@ correct-an-organisation-mapping
 add-curated-community-data
 regenerate-after-a-mapping-change
 find-a-contributor
+link-old-commits-to-a-person
 collect-data-again
 ```

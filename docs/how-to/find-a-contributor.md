@@ -37,12 +37,16 @@ grep -ri "jane doe" data/community-contributions/
 To see everyone who contributed in one year, open the contributor file of that year, for example `data/YYYY-plone-contributors.csv`.
 Files exist from 2003 on.
 
-To find people of the early years who have no GitHub login in the data, look at the repositories' history directly.
-Their commits are not linked to an account, and the statistics leave them out:
+People without a GitHub account appear in the contributor files under their name.
+`commit_authors.csv` lists the old email addresses the statistics know.
+
+To find people of the early years whose commits nobody could identify yet, look at the repositories' history directly.
+The statistics leave their commits out:
 
 ```shell
 git clone --filter=blob:none --bare https://github.com/plone/Products.CMFPlone.git
 git -C Products.CMFPlone.git shortlog --all --summary --numbered --before=2006-01-01
 ```
 
+If you know who is behind an old address, {doc}`link-old-commits-to-a-person` shows how to add it.
 {doc}`/explanation/history-and-coverage` explains why early contributors are often missing.

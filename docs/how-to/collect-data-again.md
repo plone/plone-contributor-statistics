@@ -20,6 +20,7 @@ You need a GitHub personal access token, git, and a few hundred megabytes of dis
     ```
 
     Never commit `.env`.
+    Instead of the file, you can also set `GITHUB_TOKEN` in the environment.
 
 ## Collect commits and pull requests
 

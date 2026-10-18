@@ -10,12 +10,27 @@ This page explains those decisions and why they were made.
 
 GitHub links a commit to the account whose email address is the commit's author address.
 The collector does the same: it reads the commits from local clones and asks the GitHub GraphQL API which account each new email address belongs to.
-Commits without a linked account are left out, because there is no way to tell who made them.
+
+Many old addresses belong to no account today: Subversion users like `name@localhost`, or company addresses that people no longer use.
+For these, `commit_authors.csv` names the person behind the address, each entry with a source ([#77](https://github.com/plone/plone-contributor-statistics/pull/77)).
+A person with a GitHub account is counted under their login, a person without one under their name.
+Commits whose address is neither linked by GitHub nor listed in the file are left out, because there is no way to tell who made them.
 {doc}`history-and-coverage` explains why this matters most for the early years.
+
+Some people have a second GitHub account that GitHub links to an old address.
+`account_aliases.csv` counts such an account for the person's main account, for commits and pull requests.
 
 A commit counts for the year of its committer date.
 The committer date is when the commit was added to the history, the author date is when the change was first written.
 The two differ when a commit is rebased or cherry-picked, and then a commit can land in a later year than the one it was written in.
+
+## A change counts once
+
+Some changes exist twice in the history, with different commit IDs.
+`buildout.coredev` contains automatic copies of the commits in the core packages, marked `[fc]` and made under the original author's name.
+They are not counted, because the original commit already is.
+Within a repository, commits with the same author date and message are the same change, for example a rebased branch that was merged as well, or history that was imported twice.
+They are counted once ([#78](https://github.com/plone/plone-contributor-statistics/issues/78)).
 
 ## Merge commits are not contributions
 

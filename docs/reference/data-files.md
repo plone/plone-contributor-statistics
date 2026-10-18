@@ -11,7 +11,8 @@ See {doc}`/explanation/counting-rules` for why the files count the way they do.
 
 `data/YYYY-plone-contributors.csv`
 :   Written by `plone_contributors.py`.
-    One row per GitHub account with at least one counted commit or merged pull request in the year.
+    One row per person with at least one counted commit or merged pull request in the year.
+    `username` is the GitHub login, or the name of a person without a GitHub account.
     Columns: `username`, `total_commits`, `total_pull_requests`, `repositories_count`, `repositories`, `first_contribution`, `last_contribution`.
     A commit counts for the year of its committer date, a pull request for the year it was merged.
     `first_contribution` and `last_contribution` use the author dates.

@@ -35,9 +35,12 @@ GitHub links a commit to an account by the author's email address.
 The Subversion migration had no file that mapped Subversion users to email addresses.
 Their commits carry addresses like `name@localhost`, which no GitHub account has.
 
-The collector counts only commits that are linked to a GitHub account, so these commits are left out.
-In the early years, this is a considerable share of the commits, and it hits the early core developers most ([#69](https://github.com/plone/plone-contributor-statistics/issues/69)).
-A mapping from these addresses to people would bring them back.
+`commit_authors.csv` names the people behind these addresses, where a source says who they are.
+Sources are the same name in commits that are linked to an account, the nicknames in the [credits of Plone 2.0](https://github.com/plone/Products.CMFPlone/blob/2.0/CREDITS.txt), account profiles, and confirmations by people who were there.
+People without a GitHub account are counted under their name ([#77](https://github.com/plone/plone-contributor-statistics/pull/77)).
+
+Commits whose address nobody could identify yet are left out.
+In the early years, they are still a noticeable share of the commits ([#69](https://github.com/plone/plone-contributor-statistics/issues/69)).
 
 ## Before pull requests
 
@@ -60,7 +63,7 @@ Other curated data, such as sprints, Board members and release managers, starts 
 
 Comparisons between recent years are on firm ground: the same sources, the same rules, and accounts for almost everyone.
 Comparisons that reach back before 2011 compare commits only.
-Comparisons that reach back before 2006 also miss many authors.
+Comparisons that reach back before 2006 may still miss some authors.
 And organisation statistics of the early years say more about where people are today than about who sponsored their work then.
 
 ```{seealso}

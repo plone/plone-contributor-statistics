@@ -8,10 +8,16 @@ Most of them have an open issue, and each fix will update this page.
 
 ## Coverage
 
-Only GitHub activity of linked accounts counts
-:   Commits whose author email belongs to no GitHub account are left out.
+Commits of unidentified authors don't count
+:   Commits whose author email neither GitHub nor `commit_authors.csv` links to a person are left out.
     This hits the CVS and Subversion years hardest ([#69](https://github.com/plone/plone-contributor-statistics/issues/69)).
-    Early years undercount people, and especially the early core developers.
+    Early years may undercount people, especially the early core developers.
+
+People without a GitHub account have no organisation
+:   People counted under their name can't be listed in `organisations.csv`, which holds GitHub logins, so they are Unmapped.
+
+Duplicates are recognized by date and message
+:   Two different commits in one repository with the same author date and message would count as one.
 
 The early commit history is uneven
 :   CVS commits were grouped into changesets during the conversion, and initial imports count as single commits ([#67](https://github.com/plone/plone-contributor-statistics/issues/67)).

@@ -79,6 +79,10 @@ History:
 
 - The collector had read only the default branch, so most of the early years of `Products.CMFPlone` were missing.
   Commits are now read from local clones, including the history that exists only on old release branches ([#75](https://github.com/plone/plone-contributor-statistics/pull/75)).
+- Many commit addresses from the Subversion years, and old company addresses, belonged to no GitHub account, so their commits were left out.
+  `commit_authors.csv` now names the people behind them, each with a source, and `account_aliases.csv` merges second accounts ([#77](https://github.com/plone/plone-contributor-statistics/pull/77)).
+- Commits that existed twice had been counted twice: the automatic `[fc]` copies in `buildout.coredev`, rebased branches that were merged as well, and history imported twice.
+  Each change now counts once ([#79](https://github.com/plone/plone-contributor-statistics/pull/79)).
 
 Tooling:
 

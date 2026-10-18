@@ -65,6 +65,50 @@ Columns
 All other repositories of the organisation are collected, including archived repositories and forks.
 The commit and the pull request interaction collectors use the same list.
 
+## `commit_authors.csv`
+
+The people behind commit email addresses that GitHub doesn't link to an account.
+The collector uses an entry only when GitHub links no account to the address.
+
+Columns
+:   `email`, `github_username`, `name`, `source`.
+
+`email`
+:   The author email address of the commits, in lower case.
+
+`github_username`
+:   The person's GitHub login, or empty if they have no GitHub account.
+
+`name`
+:   The person's name.
+    Commits of a person without a GitHub account are counted under this name.
+
+`source`
+:   How the person was identified.
+
+Rules
+:   Each address appears only once.
+    Every entry needs a source.
+    `tests/test_commit_authors.py` checks the format.
+
+## `account_aliases.csv`
+
+Second GitHub accounts of a person, counted for their main account.
+
+Columns
+:   `alias`, `github_username`, `source`.
+
+`alias`
+:   The second account.
+
+`github_username`
+:   The main account.
+
+Rules
+:   A main account must not be an alias itself.
+    Every entry needs a source.
+    `tests/test_commit_authors.py` checks the format.
+
 ## `mapping-github-username-to-fullname.csv`
 
 Full names for some GitHub logins, used by hand when filling in curated data.

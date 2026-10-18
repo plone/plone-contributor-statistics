@@ -11,7 +11,7 @@ See {doc}`/explanation/scope` for why these sources were chosen, and {doc}`/expl
 
 | Source | Origin | Years covered | Script | Output | Make target |
 |---|---|---|---|---|---|
-| Commits | Local bare clones of all repositories of the `plone` GitHub organisation, accounts linked through the GitHub GraphQL API | 2003–2025 | `plone_contributors.py`, `git_history.py` | `data/YYYY-plone-contributors.csv` | `make run-stats-all-years`, `make run-stats-YYYY` |
+| Commits | Local bare clones of all repositories of the `plone` GitHub organisation, accounts linked through the GitHub GraphQL API and `commit_authors.csv` | 2003–2025 | `plone_contributors.py`, `git_history.py` | `data/YYYY-plone-contributors.csv` | `make run-stats-all-years`, `make run-stats-YYYY` |
 | Merged pull requests | GitHub REST API, pull requests of all repositories of the `plone` organisation | 2003–2025 | `plone_contributors.py` | `data/YYYY-plone-contributors.csv` | `make run-stats-all-years`, `make run-stats-YYYY` |
 | Pull request interactions | GitHub GraphQL API, with the REST API for long threads and code review comments | 2010–2025 | `plone_pr_interactions.py` | `data/YYYY-plone-pr-interactions.csv`, `reports/github-pr-interactions-report-YYYY.md` | `make pr-interactions-all-years`, `make pr-interactions-YYYY` |
 | Volto contributors | GitHub REST API contributors of `plone/volto`, and the search API per person | 2016–2025 | `volto_stats.py` | `data/YYYY-volto-stats.csv` | `make run-volto-stats-YYYY` |

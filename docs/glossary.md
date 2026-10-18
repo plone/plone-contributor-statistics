@@ -11,6 +11,10 @@ myst:
 # Glossary
 
 ```{glossary}
+account alias
+    A second GitHub account of a person, counted for their main account.
+    Account aliases are listed in `account_aliases.csv`.
+
 bot account
     A GitHub account that is not a person, such as a continuous integration bot or a GitHub App.
     GitHub Apps have a `[bot]` suffix.

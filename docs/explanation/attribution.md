@@ -39,6 +39,7 @@ Unmapped contributors are not mapped yet, and their affiliation is simply unknow
 Counted together, they would look like one big organisation that doesn't exist.
 
 Unmapped is shown on its own line below the organisations, is not ranked among them, and gets no recognition points or level.
+People without a GitHub account, who are counted under their name, are Unmapped too, because the mapping lists GitHub logins.
 
 ## A mapping needs a source
 
