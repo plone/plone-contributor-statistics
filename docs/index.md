@@ -17,6 +17,15 @@ This documentation explains where the data comes from, how it is counted, and wh
 The statistics themselves, such as rankings and trends, are not part of this documentation.
 Neither is the code: it has its own comments and tests.
 
+## Public records only
+
+All data comes from public records, and each entry links its source.
+The commits and pull requests are public on GitHub.
+Every attribution to a person or an organisation, and every row of curated community data, rests on a public record: a web page, an archived page, a register entry, a conference biography, a public commit, or a confirmation by the person in public.
+A memory alone is not enough: without a public record, an entry stays out, and a contributor stays Unmapped.
+The one exception is identifying the people behind early CVS and Subversion commit addresses, where public records are often impossible.
+{doc}`/explanation/attribution` and {doc}`/explanation/curated-community-data` explain the rule, and [#86](https://github.com/plone/plone-contributor-statistics/issues/86) lists the files that still lack linked sources.
+
 ## Who this is for
 
 If your organisation is ranked and you want to know how the numbers come together, start with {doc}`/explanation/index`.
