@@ -1,6 +1,6 @@
 # Five-Year Summary Results (2020-2024)
 
-- 67 total organisations tracked across the past 5 years
+- 68 total organisations tracked across the past 5 years
 - 40,492 total commits and 9,498 pull requests
 - 344 unique contributors across all organisations
 - File generated: summary-past-five-years-2020-2024.csv

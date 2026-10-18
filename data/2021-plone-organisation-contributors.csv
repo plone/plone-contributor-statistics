@@ -26,10 +26,10 @@ Pretaweb,26,6,3,"djay, djowett, instification",6,"ansible-playbook, ansible.plon
 Soliton Consulting,23,8,1,fulv,6,"ai-team-private, plone.app.caching, plone.com, ploneorg.core, ploneorg.theme, sponsorships",2020-10-14,2021-10-27
 der Freitag,18,3,1,gforcada,4,"buildout.coredev, jenkins.plone.org, mr.roboto, plone.jenkins_node",2021-02-18,2021-12-30
 Serpro,17,24,1,wesleybl,9,"Products.CMFPlone, bobtemplates.plone, buildout.coredev, plone.app.versioningbehavior, plone.dexterity, plone.dotfiles, plone.restapi, plone.schemaeditor, plonecli",2020-12-30,2021-12-10
-iMio,17,7,4,"duchenean, gbastien, gotcha, sgeulette",7,"buildout.coredev, meta, plone.app.robotframework, plone.app.textfield, plone.app.z3cform, plone.htmx, plone.restapi",2021-03-09,2021-12-13
 KU Leuven,14,6,1,spereverde,7,"Products.PloneTestCase, documentation, plone.app.blob, plone.app.dexterity, plone.app.standardtiles, plone.dotfiles, training",2021-03-23,2021-11-19
 TU Dresden,13,2,1,veritazx,1,mockup,2021-09-23,2021-09-24
 Ludwig Maximilian University Munich,12,3,1,loechel,3,"Products.CMFPlone, diazo, plone.api",2021-01-30,2021-03-08
+BubbleNet,11,5,1,gotcha,5,"buildout.coredev, meta, plone.app.textfield, plone.app.z3cform, plone.htmx",2021-03-09,2021-12-13
 Enfold,11,8,1,frapell,6,"guillotina, guillotina-volto, plone.app.workflow, plone.folder, plone.formwidget.recurrence, plone.memoize",2021-01-20,2021-11-02
 University of Jyväskylä,9,2,1,datakurre,2,"plone.app.versioningbehavior, plone.formwidget.namedfile",2020-04-22,2021-07-07
 Radio Free Asia,8,4,1,flipmcf,6,"2023.ploneconf.org, documentation, plone.app.dexterity, plone.app.vocabularies, plone.nl, ploneconf.org",2021-01-21,2021-12-08
@@ -37,6 +37,7 @@ Wildcard Corp,8,9,2,"bduncan137, vangheem",5,"guillotina, guillotina_gcloudstora
 Jürgen Gmach (independent),7,4,1,jugmac00,4,"Products.isurlinportal, meta, plone.recipe.zope2instance, plone.testing",2021-02-11,2021-08-06
 Affinitic,7,1,2,"daggelpop, laulaz",6,"Products.CMFPlone, buildout.coredev, plone.app.content, plone.app.contenttypes, plone.app.theming, plone.gallery",2021-03-05,2021-12-02
 Plone Venezuela,6,0,1,macagua,2,"aurora, volto",2021-11-08,2021-11-08
+iMio,6,2,3,"duchenean, gbastien, sgeulette",4,"plone.app.robotframework, plone.app.textfield, plone.app.z3cform, plone.restapi",2021-09-24,2021-10-15
 Webmeisterei,5,7,1,frisi,3,"bobtemplates.plone, plone.app.event, plone.formwidget.namedfile",2021-05-31,2021-08-18
 FH St. Pölten,4,1,1,2silver,1,plone.app.iterate,2021-05-19,2021-05-20
 Academy of FA Vienna,4,2,2,"gogobd, iham",2,"plone.app.contenttypes, plone.app.multilingualindexes",2021-06-01,2021-11-05

@@ -48,6 +48,8 @@ Rules
 :   For a given year, a matching override replaces the entry of `organisations.csv`.
     `from_year` must not be later than `to_year`.
     Every row must have a source.
+    `organisation` must be listed in `organisations.csv`, or be `Unmapped` for years in which the affiliation isn't documented.
+    The overrides of one login must not overlap.
     `tests/test_unmapped_and_mapping.py` checks the format.
 
 ## `organisation_mapping_proposals.csv`

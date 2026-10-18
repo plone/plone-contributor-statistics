@@ -28,6 +28,10 @@ A person who moved is therefore counted for the old organisation in the old year
 Multi-year summaries add up the years, so such a person appears under both organisations.
 
 Overrides exist only where someone knew about the change and recorded it.
+
+Without an override, today's organisation applies to every year, also to years before the organisation existed.
+An override with the organisation `Unmapped` prevents that: it marks the years in which a person's affiliation isn't documented, for example the years before their company was founded.
+Their work in those years then counts as Unmapped, as the rule "when in doubt, Unmapped" asks.
 For the early years especially, many past affiliations are unknown, and {doc}`history-and-coverage` explains what follows from that.
 
 ## Unmapped is not an organisation

@@ -22,14 +22,15 @@ Zest Software,27,3,1,jladage,3,"plone.app.layout, plone.app.upgrade, plone.base"
 Pretaweb,22,9,3,"JeffersonBledsoe, djay, instification",4,"aurora, plone.namedfile, plone.restapi, volto",2024-03-05,2024-12-02
 Abstract IT,14,5,2,"gianniftp, szakitibi",6,"Products.CMFPlone, aurora, plone.app.contentmenu, plone.app.multilingual, plone.app.registry, volto",2024-02-05,2024-09-29
 Academy of FA Vienna,10,3,1,gogobd,3,"cookiecutter-zope-instance, plone.api, plone.app.multilingual",2024-01-23,2024-04-23
-iMio,9,5,3,"alexnuttinck, bsuttor, gotcha",5,"code-quality, helm-charts, plone.app.themingplugins, plone.recipe.zope2instance, plone.testing",2024-06-17,2024-10-21
 Nelen-Schuurmans,8,2,1,reinout,1,meta,2024-02-03,2024-02-06
 TU Dresden,7,3,1,pgrunewald,1,plone.app.linkintegrity,2024-04-08,2024-05-14
+BubbleNet,7,2,1,gotcha,3,"plone.app.themingplugins, plone.recipe.zope2instance, plone.testing",2024-06-17,2024-10-21
 Plone Venezuela,7,1,1,macagua,1,plone.app.debugtoolbar,2024-02-23,2024-02-23
 FHNW,6,3,1,tomschall,2,"aurora, volto",2024-04-25,2024-07-26
 CCC,6,0,1,polyester,3,"ai-team-private, plone-sphinx-theme, training",2024-05-16,2024-11-26
 Cosent,4,2,1,gyst,2,"plone.app.event, plone.recipe.zope2instance",2024-04-19,2024-05-07
 University of Koblenz,3,0,1,mbarde,1,form-block,2024-06-13,2024-09-12
+iMio,2,3,2,"alexnuttinck, bsuttor",2,"code-quality, helm-charts",2024-07-24,2024-07-25
 Affinitic,2,1,1,laulaz,2,"mockup, plone.formwidget.autocomplete",2024-05-08,2024-10-10
 IMS Inc.,2,1,1,ewohnlich,1,Products.CMFPlone,2024-03-05,2024-03-05
 KU Leuven,2,2,2,"Sakoes, spereverde",2,"plone.app.iterate, plone.recipe.zope2instance",2024-02-19,2024-09-05

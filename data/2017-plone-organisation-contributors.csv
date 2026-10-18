@@ -24,8 +24,8 @@ CCC,46,9,1,polyester,9,"Products.CMFPlone, ai-team-private, buildout.coredev, do
 Jarn,39,12,4,"MatthewWilkes, fschulze, hannosch, witsch",14,"Products.CMFFormController, Products.CMFPlone, archetypes.referencebrowserwidget, buildout.coredev, plone.api, plone.app.blob, plone.app.standardtiles, plone.app.theming, plone.dexterity, plone.locking, plone.reload, plone.restapi, plone.scale, plone.testing",2017-01-30,2017-11-28
 Soliton Consulting,36,19,1,fulv,8,"ansible-playbook, ansible-playbook-ploneorg2019, bobtemplates.plone, documentation, pastanaga-angular, plone.behavior, plone.restapi-angular, training",2017-01-30,2017-10-17
 Codesyntax,30,14,1,erral,4,"Products.CMFPlone, Products.LinguaPlone, plone.app.multilingual, plone.restapi",2012-09-06,2017-10-26
-iMio,26,20,3,"bsuttor, gotcha, sgeulette",12,"Products.Archetypes, Products.CMFPlone, buildout.coredev, guillotina, plone.api, plone.app.contenttypes, plone.app.event, plone.app.layout, plone.app.multilingual, plone.app.robotframework, plone.dexterity, plone.outputfilters",2016-08-31,2017-10-16
 Eau de Web,23,1,2,"avoinea, tiberiuichim",6,"Products.CMFPlone, container-historical, planet.plone.org, plone.app.iterate, plone.rest, zeoserver.docker",2017-01-05,2017-09-13
+BubbleNet,19,12,1,gotcha,6,"Products.Archetypes, buildout.coredev, guillotina, plone.api, plone.dexterity, plone.outputfilters",2016-08-31,2017-09-12
 RedTurtle,19,6,2,"cekk, mamico",8,"Products.CMFPlone, aurora, plone.app.modernizr, plone.app.standardtiles, plone.formwidget.datetime, plone.namedfile, plone.recipe.zeoserver, volto",2017-03-31,2017-12-18
 Enfold,15,12,1,frapell,7,"Products.CMFDiffTool, Products.CMFPlone, mockup, plone.app.contenttypes, plone.app.iterate, plone.app.mosaic, training",2017-01-05,2017-11-10
 Pretaweb,12,7,3,"djay, djowett, instification",6,"Products.CMFPlone, Products.LinguaPlone, documentation, plone.app.discussion, plone.app.multilingual, training",2016-03-21,2017-07-21
@@ -34,6 +34,7 @@ Ecréall,11,1,2,"cedricmessiant, vincentfretin",7,"Products.LinguaPlone, Product
 Rohberg,9,3,1,ksuess,2,"mockup, plone.app.discussion",2017-07-17,2017-12-14
 Webmeisterei,7,5,1,frisi,5,"Products.LinguaPlone, Products.TinyMCE, collective.monkeypatcher, plone.app.event, plone.app.testing",2017-02-24,2017-09-08
 acsr industrialdesign,7,2,1,acsr,2,"plone.restapi, training.plone.org",2017-03-04,2017-03-24
+iMio,7,8,2,"bsuttor, sgeulette",7,"Products.CMFPlone, guillotina, plone.app.contenttypes, plone.app.event, plone.app.layout, plone.app.multilingual, plone.app.robotframework",2017-03-14,2017-10-16
 TU Dresden,6,4,1,pgrunewald,2,"Products.Archetypes, plone.memoize",2017-04-19,2017-06-28
 Zopyx,5,1,1,zopyx,3,"Products.CMFPlone, planet.plone.org, plone.app.dexterity",2017-03-29,2017-11-09
 Malthe Borch (independent),5,4,1,malthe,4,"Products.Archetypes, Products.CMFDynamicViewFTI, Products.CMFPlone, plone.app.contentrules",2017-02-03,2017-04-25

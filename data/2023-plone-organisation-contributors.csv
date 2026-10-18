@@ -24,7 +24,7 @@ Enfold,14,10,1,frapell,6,"mockup, plone.app.event, plone.app.mosaic, plone.app.p
 Interlegis Program (Senado Federal),13,2,2,"fabiorauber, jhgouveia",3,"aurora, helm-charts, volto",2023-06-28,2023-11-30
 University of Jyväskylä,10,0,1,datakurre,2,"buildout.coredev, plone.app.robotframework",2023-06-26,2023-07-02
 Plone Venezuela,8,4,1,macagua,4,"aurora, form-block, plone.restapi, volto",2023-05-17,2023-09-20
-iMio,8,3,3,"alexnuttinck, gotcha, sverbois",4,"helm-charts, plone.app.contentmenu, plone.outputfilters, plonetheme.barceloneta",2021-06-07,2023-10-23
+iMio,7,2,2,"alexnuttinck, sverbois",3,"helm-charts, plone.app.contentmenu, plonetheme.barceloneta",2021-06-07,2023-10-23
 WebTide,5,2,1,mikejmets,3,"aurora, documentation, volto",2023-08-17,2023-11-23
 Affinitic,5,5,1,laulaz,5,"plone.app.content, plone.app.event, plone.app.z3cform, plone.base, plone.gallery",2023-01-13,2023-09-22
 IMS Inc.,5,2,1,ewohnlich,2,"Products.CMFPlone, plone.locking",2023-04-11,2023-04-11
@@ -39,4 +39,5 @@ Abstract IT,2,2,1,szakitibi,2,"Products.CMFPlone, plone.app.multilingual",2023-1
 Agitator,2,2,1,agitator,2,"plone.formwidget.multifile, plonetheme.barceloneta",2023-01-26,2023-01-26
 Ludwig Maximilian University Munich,1,1,1,loechel,1,meta,2023-10-09,2023-10-09
 minddistrict,1,0,1,icemac,1,meta,2023-08-28,2023-08-28
+BubbleNet,1,1,1,gotcha,1,plone.outputfilters,2023-06-26,2023-06-26
 Jarn,0,1,1,witsch,1,plone.portlet.collection,,

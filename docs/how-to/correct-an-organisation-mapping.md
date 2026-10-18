@@ -29,6 +29,7 @@ janedoe,Example Company,2015,2019,https://example.com/team (archived 2017)
 ```
 
 Leave `to_year` empty if the override applies up to the present.
+If you know that the current organisation doesn't apply to some years, but not which one did, use `Unmapped` as the organisation for those years.
 In `source`, say how you know, as in the pull request description.
 Spell the organisation exactly as in `organisations.csv`.
 
