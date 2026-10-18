@@ -1,6 +1,7 @@
 """The repository layout: scripts by stage in scripts/, run as modules from the root."""
 
 import os
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -33,3 +34,34 @@ def test_scripts_run_as_modules(script, tmp_path):
 
 def test_no_python_files_in_root():
     assert not list(ROOT.glob('*.py'))
+
+
+def test_no_per_year_targets():
+    # One target per year meant editing the Makefile every year; YEAR=... replaces them
+    makefile = (ROOT / 'Makefile').read_text(encoding='utf-8')
+    assert not re.findall(r'^[\w-]+-(?:19|20)\d\d:', makefile, re.M)
+
+
+def test_year_runs_the_pipeline_in_order():
+    result = subprocess.run(['make', '-n', '--no-print-directory', 'year', 'YEAR=2024'], cwd=ROOT,
+                            capture_output=True, text=True, check=True)
+    steps = [line.split()[2] for line in result.stdout.splitlines() if line.startswith('python -m scripts.')]
+    assert steps == [
+        'scripts.collect.plone_contributors',
+        'scripts.collect.plone_pr_interactions',
+        'scripts.collect.volto_stats',
+        'scripts.collect.plone_plips',
+        'scripts.derive.organisation_stats',
+        'scripts.derive.plip_organisation_stats',
+        'scripts.derive.multi_year_summary',
+        'scripts.derive.multi_year_summary',
+        'scripts.derive.multi_year_summary',
+        'scripts.derive.yearly_activity_analysis',
+        'scripts.report.generate_yearly_graphs',
+        'scripts.report.generate_contributor_report',
+        'scripts.report.generate_volto_team_report',
+        'scripts.report.generate_community_recognition_report',
+    ]
+    assert 'python -m scripts.collect.plone_contributors --year 2024' in result.stdout
+    assert 'python -m scripts.derive.multi_year_summary --years 2020 2021 2022 2023 2024' in result.stdout
+    assert 'python -m scripts.report.generate_community_recognition_report --year 2024' in result.stdout
