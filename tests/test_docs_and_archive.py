@@ -23,6 +23,64 @@ ARCHIVED = [
 ]
 
 
+# Dead and experimental material, archived with its code, data and output together:
+# bundle -> {original path: name in the bundle}
+NPM_ORGS = ['codesyntax', 'eeacms', 'kitconcept', 'mbarde', 'myriadicity', 'plone', 'plone-collective',
+            'plonegovbr', 'portalbrasil', 'redturtle', 'rohberg', 'rondon-open', 'sphnl', 'starzel']
+BUNDLES = {
+    'legacy-collectors': ['plone_contributor_statistics.py', 'plone_companies.py'],
+    'plip-levels': ['analyze_plip_contributor_levels.py', 'generate_plip_3tier_levels.py', 'plip_stats.py'],
+    'package-statistics': ['npm_package_stats.py', 'volto_addon_discovery.py', 'pypi_package_statistics.py',
+                           'npm_mapping.txt', 'npm-packages-summary.md']
+                          + [f'npm-packages-{org}.{ext}' for org in NPM_ORGS for ext in ('csv', 'md')],
+    'cmfplone-releases': ['fetch_cmfplone_releases.py', 'filter_releases.py', 'cmfplone-releases.csv'],
+    'flourish': ['create_organization_flourish_csv.py', 'create_individual_contributors_flourish_csv.py',
+                 'plone-individual-contributors-flourish.csv', 'plone-organizations-bar-chart-race-flourish.csv',
+                 'plone-individual-contributors-bar-chart-race-flourish.csv', 'plone-organizations-bar-chart-race.csv',
+                 'data/plone-individual-contributors-flourish.csv',
+                 'data/plone-organizations-bar-chart-race-flourish.csv'],
+    'orphan-outputs': ['reports/plips.md', 'graphs/commits_prs_trend.png'],
+}
+BUNDLED = [(bundle, original) for bundle, originals in BUNDLES.items() for original in originals]
+
+
+def bundled_name(original):
+    # data/ copies get a prefix, so they don't clash with the root copies of the same name
+    return original.replace('data/', 'data-') if original.startswith('data/') else Path(original).name
+
+
+@pytest.mark.parametrize('bundle, original', BUNDLED)
+def test_bundled_file_moved(bundle, original):
+    assert (ARCHIVE / bundle / bundled_name(original)).exists()
+    assert not (ROOT / original).exists()
+
+
+@pytest.mark.parametrize('bundle', BUNDLES)
+def test_bundle_listed_in_archive_readme(bundle):
+    assert f'| `{bundle}/` |' in (ARCHIVE / 'README.md').read_text()
+
+
+@pytest.mark.parametrize('bundle, original', [(b, o) for b, o in BUNDLED if not o.startswith('npm-packages-')])
+def test_bundle_row_names_original_path(bundle, original):
+    # The npm-packages-* files are named by their pattern
+    row = next(line for line in (ARCHIVE / 'README.md').read_text().splitlines() if line.startswith(f'| `{bundle}/` |'))
+    assert f'`{original}`' in row
+
+
+@pytest.mark.parametrize('name', sorted({Path(o).name for o in sum(BUNDLES.values(), []) if o.endswith('.py')}))
+def test_archived_scripts_not_referenced(name):
+    pattern = re.compile(r'''(?<![\w./-])''' + re.escape(name) + r'''(?![\w-])''')
+    for path in _code_files():
+        assert not pattern.search(path.read_text(encoding='utf-8')), path.name
+
+
+def test_clean_keeps_committed_files():
+    makefile = (ROOT / 'Makefile').read_text(encoding='utf-8')
+    recipe = makefile.split('\nclean:\n', 1)[1].split('\n\n', 1)[0]
+    for committed in ['.csv', '.txt', '.md', 'graphs', 'reports']:
+        assert committed not in recipe.replace('_checkpoint.csv', ''), committed
+
+
 @pytest.mark.parametrize('name', ARCHIVED)
 def test_archived_file_moved(name):
     assert (ARCHIVE / name).exists()
@@ -56,11 +114,7 @@ DOCS = ROOT / 'docs'
 
 # Files and Make targets the docs name on purpose although they don't
 # exist: they are broken or missing, see docs/explanation/known-limitations.md
-KNOWN_MISSING = {
-    'generate_plip_report.py',  # make generate-plip-report
-    'plip_organisation_stats.py',  # make run-plip-organisations
-    'pypi_package_stats.py',  # make pypi-packages, the script is pypi_package_statistics.py
-}
+KNOWN_MISSING = set()
 
 
 def docs_pages():

@@ -40,7 +40,8 @@ See [Collect the data again](https://plone.github.io/plone-contributor-statistic
 - `reports/`: generated reports.
 - `archive/`: earlier analyses, proposals and notes, kept for reference.
 
-Charts on Flourish: [individual contributors](https://public.flourish.studio/visualisation/24775871/) and [organisations](https://public.flourish.studio/visualisation/24775561/).
+Earlier charts on Flourish: [individual contributors](https://public.flourish.studio/visualisation/24775871/) and [organisations](https://public.flourish.studio/visualisation/24775561/).
+They are no longer updated; their scripts are in `archive/flourish/`.
 
 ## Contributing
 

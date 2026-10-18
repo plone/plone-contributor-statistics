@@ -162,11 +162,6 @@ No script reads it.
 Columns
 :   `github username`, `fullname`.
 
-## `npm_mapping.txt`
-
-The npm scopes and search terms per organisation, read by `npm_package_stats.py` and `volto_addon_discovery.py`.
-One line per organisation: the organisation, a colon, and comma-separated scopes or search terms.
-
 ## Conventions for all CSV files
 
 - Separate several values in one cell with semicolons, never with `&`.

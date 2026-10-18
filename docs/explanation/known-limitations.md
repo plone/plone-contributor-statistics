@@ -63,7 +63,7 @@ Volto statistics
 PLIPs
 :   PLIPs are read from three repositories only.
     A closed PLIP stands in for a merged and released one, although most PLIPs are closed as completed ([#14](https://github.com/plone/plone-contributor-statistics/issues/14)).
-    `plone_plips.py` doesn't use the GitHub token, and `plip_stats.py --year` fails ([#44](https://github.com/plone/plone-contributor-statistics/issues/44)).
+    `plone_plips.py` doesn't use the GitHub token ([#44](https://github.com/plone/plone-contributor-statistics/issues/44)).
 
 Community recognition
 :   The levels published in August 2026 were calculated outside the repository, and they differ from the script's levels on the current data ({doc}`community-recognition`).
@@ -72,15 +72,5 @@ Community recognition
 Board of Directors
 :   The organisations come from heuristics on the board members' biographies on plone.org, and the files have no source column.
 
-Packages on npm and PyPI
-:   They are one-off snapshots, and the organisations are guessed from scopes, search terms and author fields.
-
-Yearly activity and charts
+Yearly activity
 :   `yearly_activity_analysis.py` counts Unmapped as an organisation.
-    The Flourish charts use commits instead of pull requests, a fixed range of years, and old spellings of some organisation names.
-
-## Broken Make targets
-
-`make generate-plip-report` and `make pypi-packages` call scripts that are not in the repository: `generate_plip_report.py` and `pypi_package_stats.py`.
-`make run-all` depends on a target that doesn't exist.
-{doc}`/reference/make-targets` lists their status.

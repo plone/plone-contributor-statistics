@@ -1,7 +1,7 @@
 # Archive
 
 Historical material: one-off analyses, proposals, snapshots and agent notes, mostly written with AI agents in 2025 and 2026.
-The files are kept unchanged at their original paths below `archive/`.
+The files are kept unchanged, at their original paths below `archive/` or, since 2026-10-18, in one folder per topic with their code, data and output together.
 They are not maintained and do not describe the current method.
 For the current method, see the documentation at https://plone.github.io/plone-contributor-statistics/ or in `docs/`.
 
@@ -18,5 +18,9 @@ For the current method, see the documentation at https://plone.github.io/plone-c
 | `individual_contributors.txt` | 2025-08-22 | List of individual contributors, never read by a script; replaced by `Name (independent)` entries in `organisations.csv`. |
 | `.claude/README.md` | 2026-03-07 | Conventions for AI agents; replaced by `AGENTS.md` and the documentation. |
 | `specs-and-plans/` | 2026-10-18 | Design specs and implementation plans of past work, kept unchanged for transparency. |
-
-`make analyze-plip-levels` still writes a new `plip-contributor-levels.md` to the repository root.
+| `legacy-collectors/` | 2026-10-18 | From the root: `plone_contributor_statistics.py` (GitHub contributor statistics API) and `plone_companies.py` (guessed organisations from profiles and email domains); replaced by the current collectors and the mapping files. Removed Make targets: `run-contributors`, `run-organisations`, and the broken `run-all`. |
+| `plip-levels/` | 2026-10-18 | From the root: `analyze_plip_contributor_levels.py`, `generate_plip_3tier_levels.py` and the older PLIP counter `plip_stats.py`; PLIP level experiments that are not part of the method, see [#18](https://github.com/plone/plone-contributor-statistics/issues/18) and [#44](https://github.com/plone/plone-contributor-statistics/issues/44). Removed Make target: `analyze-plip-levels`. |
+| `package-statistics/` | 2026-10-18 | From the root: `npm_package_stats.py`, `volto_addon_discovery.py`, `pypi_package_statistics.py`, `npm_mapping.txt`, `npm-packages-summary.md`, and the `npm-packages-*.csv` and `npm-packages-*.md` files of a single run on 2025-08-20; the PyPI target was broken. Removed Make targets: `npm-packages`, `pypi-packages`. Revival: [#102](https://github.com/plone/plone-contributor-statistics/issues/102). |
+| `cmfplone-releases/` | 2026-10-18 | From the root: `fetch_cmfplone_releases.py`, `filter_releases.py` and `cmfplone-releases.csv`; a list of Products.CMFPlone releases that no statistic used. |
+| `flourish/` | 2026-10-18 | Chart data for Flourish. From the root: the scripts `create_organization_flourish_csv.py` and `create_individual_contributors_flourish_csv.py`, and older copies and variants `plone-individual-contributors-flourish.csv`, `plone-organizations-bar-chart-race-flourish.csv`, `plone-individual-contributors-bar-chart-race-flourish.csv` and `plone-organizations-bar-chart-race.csv`. From `data/`, the last chart data, prefixed `data-`: `data/plone-individual-contributors-flourish.csv` and `data/plone-organizations-bar-chart-race-flourish.csv`. Removed Make targets: `flourish-graph-organisation-contributors-csv-file`, `flourish-graph-individual-contributors-csv-file`. Revival: [#103](https://github.com/plone/plone-contributor-statistics/issues/103). |
+| `orphan-outputs/` | 2026-10-18 | `reports/plips.md`, whose generator was never in the repository (removed Make target: `generate-plip-report`), and `graphs/commits_prs_trend.png`, which the graph script no longer draws. Revival of the PLIP report: [#104](https://github.com/plone/plone-contributor-statistics/issues/104). |
