@@ -17,5 +17,6 @@ For the current method, see the documentation at https://plone.github.io/plone-c
 | `team-volto.md` | 2025-10-21 | List of Volto team GitHub usernames; read by `volto_stats.py` until 2026-03-12. |
 | `individual_contributors.txt` | 2025-08-22 | List of individual contributors, never read by a script; replaced by `Name (independent)` entries in `organisations.csv`. |
 | `.claude/README.md` | 2026-03-07 | Conventions for AI agents; replaced by `AGENTS.md` and the documentation. |
+| `specs-and-plans/` | 2026-10-18 | Design specs and implementation plans of past work, kept unchanged for transparency. |
 
 `make analyze-plip-levels` still writes a new `plip-contributor-levels.md` to the repository root.
