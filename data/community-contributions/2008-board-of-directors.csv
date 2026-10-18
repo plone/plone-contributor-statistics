@@ -1,8 +1,9 @@
-Name,Organisation,Source
-Darci Hanning,Oregon State Library,https://plone.org/foundation/board/2007-2008
-Jon Stahl,ONE/Northwest,https://plone.org/foundation/board/2007-2008
-Nate Aune,Jazkarta,https://plone.org/foundation/board/2007-2008
-Geir Bækholt,Jarn,https://plone.org/foundation/board/2007-2008
-Joel Burton,Joel Burton (independent),https://plone.org/foundation/board/2007-2008
-Alexander Limi,Google,https://plone.org/foundation/board/2007-2008
-Steve McMahon,Reid-McMahon,https://plone.org/foundation/board/2007-2008
+Name,Organisation,Source,Role
+Darci Hanning,Oregon State Library,https://plone.org/foundation/board/2007-2008,voting
+Jon Stahl,ONE/Northwest,https://plone.org/foundation/board/2007-2008,voting
+Nate Aune,Jazkarta,https://plone.org/foundation/board/2007-2008,voting
+Geir Bækholt,Jarn,https://plone.org/foundation/board/2007-2008,voting
+Joel Burton,Joel Burton (independent),https://plone.org/foundation/board/2007-2008,voting
+Alexander Limi,Google,https://plone.org/foundation/board/2007-2008,voting
+Steve McMahon,Reid-McMahon,https://plone.org/foundation/board/2007-2008,voting
+Toby Roberts,Enfold,https://plone.org/foundation/board/2007-2008,non-voting

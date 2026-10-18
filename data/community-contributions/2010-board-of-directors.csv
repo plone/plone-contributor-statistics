@@ -1,8 +1,9 @@
-Name,Organisation,Source
-Geir Bækholt,Jarn,https://plone.org/foundation/board/board-2009-2010
-Calvin Hendryx-Parker,Sixfeetup,https://plone.org/foundation/board/board-2009-2010
-Steve McMahon,Reid-McMahon,https://plone.org/foundation/board/board-2009-2010
-Roberto Allende,Menttes,https://plone.org/foundation/board/board-2009-2010
-Mark Corum,University of Virginia,https://plone.org/foundation/board/board-2009-2010
-Matt Hamilton,Netsight,https://plone.org/foundation/board/board-2009-2010
-Alexander Limi,Mozilla,https://plone.org/foundation/board/board-2009-2010
+Name,Organisation,Source,Role
+Geir Bækholt,Jarn,https://plone.org/foundation/board/board-2009-2010,voting
+Calvin Hendryx-Parker,Sixfeetup,https://plone.org/foundation/board/board-2009-2010,voting
+Steve McMahon,Reid-McMahon,https://plone.org/foundation/board/board-2009-2010,voting
+Roberto Allende,Menttes,https://plone.org/foundation/board/board-2009-2010,voting
+Mark Corum,University of Virginia,https://plone.org/foundation/board/board-2009-2010,voting
+Matt Hamilton,Netsight,https://plone.org/foundation/board/board-2009-2010,voting
+Alexander Limi,Mozilla,https://plone.org/foundation/board/board-2009-2010,voting
+Toby Roberts,Enfold,https://plone.org/foundation/board/board-2009-2010,non-voting

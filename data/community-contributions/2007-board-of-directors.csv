@@ -1,8 +1,9 @@
-Name,Organisation,Source
-Paul Everitt,Unmapped,https://plone.org/foundation/board/list_board_4
-Andy McKay,Blue Fountain,https://plone.org/foundation/board/list_board_4
-Francesco Ciriaci,Reflab,https://plone.org/foundation/board/list_board_4
-Alexander Limi,Jarn,https://plone.org/foundation/board/list_board_4
-Geir Bækholt,Jarn,https://plone.org/foundation/board/list_board_4
-Nate Aune,Jazkarta,https://plone.org/foundation/board/list_board_4
-Sasha Vinçic,Lovely Systems,https://plone.org/foundation/board/list_board_4
+Name,Organisation,Source,Role
+Paul Everitt,Unmapped,https://plone.org/foundation/board/list_board_4,voting
+Andy McKay,Blue Fountain,https://plone.org/foundation/board/list_board_4,voting
+Francesco Ciriaci,Reflab,https://plone.org/foundation/board/list_board_4,voting
+Alexander Limi,Jarn,https://plone.org/foundation/board/list_board_4,voting
+Geir Bækholt,Jarn,https://plone.org/foundation/board/list_board_4,voting
+Nate Aune,Jazkarta,https://plone.org/foundation/board/list_board_4,voting
+Sasha Vinçic,Lovely Systems,https://plone.org/foundation/board/list_board_4,voting
+Toby Roberts,Enfold,https://plone.org/foundation/board/list_board_4,non-voting

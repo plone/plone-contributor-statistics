@@ -1,8 +1,10 @@
-Name,Organisation,Source
-Martin Peeters,Affinitic,https://plone.org/foundation/board/plone-foundation-board-for-2024-2025
-Guido Stevens,Cosent,https://plone.org/foundation/board/plone-foundation-board-for-2024-2025; organisation from the organisation mapping: https://github.com/gyst
-Brian Davis,Unmapped,https://plone.org/foundation/board/plone-foundation-board-for-2024-2025
-Rafahela Garcia Bazzanella,Interlegis Program (Senado Federal),https://plone.org/foundation/board/plone-foundation-board-for-2024-2025
-Eric Brehault,Nuclia,https://plone.org/foundation/board/plone-foundation-board-for-2024-2025
-João Henrique Gouveia,Interlegis Program (Senado Federal),https://plone.org/foundation/board/plone-foundation-board-for-2024-2025
-Mikel Larreategi,Codesyntax,https://plone.org/foundation/board/plone-foundation-board-for-2024-2025
+Name,Organisation,Source,Role
+Martin Peeters,Affinitic,https://plone.org/foundation/board/plone-foundation-board-for-2024-2025,voting
+Guido Stevens,Cosent,https://plone.org/foundation/board/plone-foundation-board-for-2024-2025; organisation from the organisation mapping: https://github.com/gyst,voting
+Brian Davis,Unmapped,https://plone.org/foundation/board/plone-foundation-board-for-2024-2025,voting
+Rafahela Garcia Bazzanella,Interlegis Program (Senado Federal),https://plone.org/foundation/board/plone-foundation-board-for-2024-2025,voting
+Eric Brehault,Nuclia,https://plone.org/foundation/board/plone-foundation-board-for-2024-2025,voting
+João Henrique Gouveia,Interlegis Program (Senado Federal),https://plone.org/foundation/board/plone-foundation-board-for-2024-2025,voting
+Mikel Larreategi,Codesyntax,https://plone.org/foundation/board/plone-foundation-board-for-2024-2025,voting
+Beth Smith,Unmapped,https://plone.org/foundation/board/plone-foundation-board-for-2024-2025,non-voting
+Steve Piercy,Steve Piercy - Website Builder,https://plone.org/foundation/board/plone-foundation-board-for-2024-2025; organisation from the organisation mapping: https://github.com/stevepiercy,non-voting

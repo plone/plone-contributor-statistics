@@ -1,9 +1,11 @@
-Name,Organisation,Source
-Joel Burton,Joel Burton (independent),https://plone.org/foundation/board/list_board_2
-Ben Saller,ObjectRealms,https://plone.org/foundation/board/list_board_2
-Alexander Limi,Jarn,https://plone.org/foundation/board/list_board_2
-Geoff Davis,Geoff Davis (independent),https://plone.org/foundation/board/list_board_2
-Jodok Batlogg,Lovely Systems,https://plone.org/foundation/board/list_board_2
-Munwar Shariff,CIGNEX,https://plone.org/foundation/board/list_board_2
-Jacqueline Arasi,The Open Planning Project,https://plone.org/foundation/board/list_board_2
-Alan Runyan,Enfold,https://plone.org/foundation/board/list_board_2
+Name,Organisation,Source,Role
+Joel Burton,Joel Burton (independent),https://plone.org/foundation/board/list_board_2,voting
+Ben Saller,ObjectRealms,https://plone.org/foundation/board/list_board_2,voting
+Alexander Limi,Jarn,https://plone.org/foundation/board/list_board_2,voting
+Geoff Davis,Geoff Davis (independent),https://plone.org/foundation/board/list_board_2,voting
+Jodok Batlogg,Lovely Systems,https://plone.org/foundation/board/list_board_2,voting
+Munwar Shariff,CIGNEX,https://plone.org/foundation/board/list_board_2,voting
+Jacqueline Arasi,The Open Planning Project,https://plone.org/foundation/board/list_board_2,voting
+Alan Runyan,Enfold,https://plone.org/foundation/board/list_board_2,voting
+Paul Everitt,Zope Europe,https://plone.org/foundation/board/list_board_2,non-voting
+Toby Roberts,Enfold,https://plone.org/foundation/board/list_board_2,non-voting

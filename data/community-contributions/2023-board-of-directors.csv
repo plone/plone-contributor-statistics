@@ -1,8 +1,9 @@
-Name,Organisation,Source
-Érico Andrei,kitconcept GmbH,https://plone.org/foundation/board/plone-foundation-board-for-2022-2023; organisation from the organisation mapping: https://speakerdeck.com/ericof/apresentando-o-plone-6
-Kim Paulissen,KU Leuven,https://plone.org/foundation/board/plone-foundation-board-for-2022-2023
-William Fennie,Unmapped,https://plone.org/foundation/board/plone-foundation-board-for-2022-2023
-Jens Klein,Klein & Partner KG,https://plone.org/foundation/board/plone-foundation-board-for-2022-2023
-T. Kim Nguyen,T. Kim Nguyen (independent),https://plone.org/foundation/board/plone-foundation-board-for-2022-2023; organisation from the organisation mapping: https://2023.ploneconf.org/speakers/t-kim-nguyen
-Martin Peeters,Affinitic,https://plone.org/foundation/board/plone-foundation-board-for-2022-2023
-Paul Roeland,CCC,https://plone.org/foundation/board/plone-foundation-board-for-2022-2023
+Name,Organisation,Source,Role
+Érico Andrei,kitconcept GmbH,https://plone.org/foundation/board/plone-foundation-board-for-2022-2023; organisation from the organisation mapping: https://speakerdeck.com/ericof/apresentando-o-plone-6,voting
+Kim Paulissen,KU Leuven,https://plone.org/foundation/board/plone-foundation-board-for-2022-2023,voting
+William Fennie,Unmapped,https://plone.org/foundation/board/plone-foundation-board-for-2022-2023,voting
+Jens Klein,Klein & Partner KG,https://plone.org/foundation/board/plone-foundation-board-for-2022-2023,voting
+T. Kim Nguyen,T. Kim Nguyen (independent),https://plone.org/foundation/board/plone-foundation-board-for-2022-2023; organisation from the organisation mapping: https://2023.ploneconf.org/speakers/t-kim-nguyen,voting
+Martin Peeters,Affinitic,https://plone.org/foundation/board/plone-foundation-board-for-2022-2023,voting
+Paul Roeland,CCC,https://plone.org/foundation/board/plone-foundation-board-for-2022-2023,voting
+Beth Smith,Unmapped,https://plone.org/foundation/board/plone-foundation-board-for-2022-2023,non-voting

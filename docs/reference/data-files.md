@@ -49,8 +49,9 @@ All curated files are in `data/community-contributions/`.
 Several people or organisations in one cell are separated by semicolons.
 
 `data/community-contributions/YYYY-board-of-directors.csv`
-:   One row per voting member of the Board of Directors whose term ends in the year.
-    Columns: `Name`, `Organisation`, `Source`.
+:   One row per member of the Board of Directors whose term ends in the year, including the non-voting officers.
+    Columns: `Name`, `Organisation`, `Source`, `Role`.
+    `Role` is `voting` for directors and `non-voting` for officers such as the treasurer.
 
 `data/community-contributions/YYYY-plone-conference.csv`
 :   One row per organising organisation of the Plone Conference.
