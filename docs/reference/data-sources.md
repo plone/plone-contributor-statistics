@@ -14,7 +14,7 @@ See {doc}`/explanation/scope` for why these sources were chosen, and {doc}`/expl
 | Commits | Local bare clones of all repositories of the `plone` GitHub organisation, accounts linked through the GitHub GraphQL API and `curated/mappings/commit_authors.csv` | 2003–2025 | `scripts/collect/plone_contributors.py`, `scripts/lib/git_history.py` | `collected/contributors/YYYY-plone-contributors.csv` | `make run-stats-all-years`, `make run-stats` |
 | Merged pull requests | GitHub REST API, pull requests of all repositories of the `plone` organisation | 2003–2025 | `scripts/collect/plone_contributors.py` | `collected/contributors/YYYY-plone-contributors.csv` | `make run-stats-all-years`, `make run-stats` |
 | Pull request interactions | GitHub GraphQL API, with the REST API for long threads and code review comments | 2010–2025 | `scripts/collect/plone_pr_interactions.py` | `collected/pr-interactions/YYYY-plone-pr-interactions.csv`, `reports/pr-interactions/github-pr-interactions-report-YYYY.md` | `make pr-interactions-all-years`, `make pr-interactions` |
-| PLIPs | GitHub REST API, issues with the PLIP label in `Products.CMFPlone`, `volto` and `plone.restapi` | all years in one file | `scripts/collect/plone_plips.py` | `collected/plips/plone-plips.csv`, `collected/plips/plone-plips-detailed.csv` | `make run-plips` |
+| PLIPs | GitHub REST API, issues with the PLIP label in `Products.CMFPlone`, `volto`, `plone.restapi` and `aurora` | all years in one file | `scripts/collect/plone_plips.py` | `collected/plips/plone-plips.csv`, `collected/plips/plone-plips-detailed.csv` | `make run-plips` |
 
 ## Curated by hand
 

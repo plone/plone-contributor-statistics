@@ -2,10 +2,11 @@
 """
 Plone PLIP Statistics Extractor
 
-Extracts PLIPs (Plone Improvement Proposals) from all three main repositories:
+Extracts PLIPs (Plone Improvement Proposals) from the repositories where they are made:
 - Products.CMFPlone
 - volto
 - plone.restapi
+- aurora
 
 Writes the PLIPs per author and per PLIP. Uses GITHUB_TOKEN from the environment or the .env file,
 and stops without writing anything if a request fails.
@@ -22,11 +23,13 @@ from dotenv import load_dotenv
 from scripts.lib import paths
 from scripts.lib.github_api import GitHubAPIError, github_get
 
-# The repositories where PLIPs are created
+# The repositories where PLIPs are created. Aurora, the new UI after Volto, started
+# as an idea in Volto; its first PLIPs were transferred there from Volto.
 REPOSITORIES = [
     ('plone', 'Products.CMFPlone'),
     ('plone', 'volto'),
     ('plone', 'plone.restapi'),
+    ('plone', 'aurora'),
 ]
 PLIP_LABEL = '03 type: feature (plip)'
 PER_PAGE = 100
