@@ -4,6 +4,7 @@
 
 This page describes the committed data files: which script writes them, what one row is, and which columns they have.
 Each file pattern with `YYYY` exists once per year.
+The scripts that derive data and write reports stop with an error if a yearly file they need is missing, for example when the organisation statistics of a new year have not been written yet.
 
 See {doc}`/explanation/counting-rules` for why the files count the way they do.
 

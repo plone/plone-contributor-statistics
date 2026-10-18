@@ -98,8 +98,7 @@ def local_commit(sha, email, date='2003-06-01T10:00:00Z'):
 
 
 @pytest.fixture
-def extractor(monkeypatch, tmp_path):
-    monkeypatch.chdir(tmp_path)
+def extractor(tmp_repo, monkeypatch, tmp_path):
     return plone_contributors.PloneStatsExtractor(token='test-token', periods=plone_contributors.year_periods(2003, 2010))
 
 

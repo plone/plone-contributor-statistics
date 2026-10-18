@@ -44,8 +44,7 @@ def test_forbidden_organization_listing_raises(extractor):
         extractor.get_organization_repos()
 
 
-def test_failed_repository_stops_the_extraction(extractor, monkeypatch, tmp_path):
-    monkeypatch.chdir(tmp_path)
+def test_failed_repository_stops_the_extraction(tmp_repo, extractor, monkeypatch, tmp_path):
     monkeypatch.setattr(extractor, 'get_organization_repos', lambda: [{'name': 'a'}, {'name': 'b'}])
     processed = []
 
@@ -60,8 +59,7 @@ def test_failed_repository_stops_the_extraction(extractor, monkeypatch, tmp_path
     assert processed == ['a']
 
 
-def test_main_keeps_only_a_checkpoint_when_the_run_fails(monkeypatch, tmp_path):
-    monkeypatch.chdir(tmp_path)
+def test_main_keeps_only_a_checkpoint_when_the_run_fails(tmp_repo, monkeypatch, tmp_path):
     (tmp_path / 'data').mkdir()
     monkeypatch.setattr(sys, 'argv', ['plone_contributors.py', '--year', '2015', '--token', 'test-token'])
 
@@ -76,9 +74,8 @@ def test_main_keeps_only_a_checkpoint_when_the_run_fails(monkeypatch, tmp_path):
     assert (tmp_path / 'data' / '2015-plone-contributors_checkpoint.csv').exists()
 
 
-def test_token_from_environment_without_env_file(monkeypatch, tmp_path):
+def test_token_from_environment_without_env_file(tmp_repo, monkeypatch, tmp_path):
     # Before, a missing .env file crashed the script, so the token had to go on the command line
-    monkeypatch.chdir(tmp_path)
     monkeypatch.setenv('GITHUB_TOKEN', 'from-env')
 
     assert plone_contributors.PloneStatsExtractor().token == 'from-env'

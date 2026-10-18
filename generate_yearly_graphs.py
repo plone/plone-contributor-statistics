@@ -10,6 +10,8 @@ import pandas as pd
 from pathlib import Path
 import sys
 
+import paths
+
 # Try to import optional dependencies for graph generation
 try:
     import matplotlib.pyplot as plt
@@ -48,7 +50,7 @@ def setup_plot_style():
 
 def load_yearly_data():
     """Load yearly activity statistics."""
-    csv_file = "yearly-activity-statistics.csv"
+    csv_file = paths.YEARLY_ACTIVITY
     
     if not Path(csv_file).exists():
         print(f"❌ {csv_file} not found. Please run 'make yearly-activity' first.")
@@ -63,7 +65,7 @@ def load_yearly_data():
     return df
 
 
-def create_commits_trend_graph(df, output_dir="graphs"):
+def create_commits_trend_graph(df, output_dir=paths.GRAPHS_DIR):
     """Create commits trend graph."""
     Path(output_dir).mkdir(exist_ok=True)
     year_range = f"{df['year'].min()}-{df['year'].max()}"
@@ -123,7 +125,7 @@ def create_commits_trend_graph(df, output_dir="graphs"):
     return output_file
 
 
-def create_prs_trend_graph(df, output_dir="graphs"):
+def create_prs_trend_graph(df, output_dir=paths.GRAPHS_DIR):
     """Create pull requests trend graph."""
     Path(output_dir).mkdir(exist_ok=True)
     year_range = f"{df['year'].min()}-{df['year'].max()}"
@@ -189,7 +191,7 @@ def create_prs_trend_graph(df, output_dir="graphs"):
     return output_file
 
 
-def create_commits_prs_trend_graph(df, output_dir="graphs"):
+def create_commits_prs_trend_graph(df, output_dir=paths.GRAPHS_DIR):
     """Create combined commits and PRs trend graph."""
     Path(output_dir).mkdir(exist_ok=True)
     year_range = f"{df['year'].min()}-{df['year'].max()}"
@@ -264,7 +266,7 @@ def create_commits_prs_trend_graph(df, output_dir="graphs"):
     return output_file
 
 
-def create_pr_adoption_graph(df, output_dir="graphs"):
+def create_pr_adoption_graph(df, output_dir=paths.GRAPHS_DIR):
     """Create PR adoption trend graph."""
     Path(output_dir).mkdir(exist_ok=True)
     
@@ -315,7 +317,7 @@ def create_pr_adoption_graph(df, output_dir="graphs"):
     return output_file
 
 
-def create_ecosystem_growth_graph(df, output_dir="graphs"):
+def create_ecosystem_growth_graph(df, output_dir=paths.GRAPHS_DIR):
     """Create ecosystem growth graph (contributors, orgs, repos)."""
     Path(output_dir).mkdir(exist_ok=True)
     year_range = f"{df['year'].min()}-{df['year'].max()}"
@@ -362,7 +364,7 @@ def create_ecosystem_growth_graph(df, output_dir="graphs"):
     return output_file
 
 
-def create_growth_rates_heatmap(df, output_dir="graphs"):
+def create_growth_rates_heatmap(df, output_dir=paths.GRAPHS_DIR):
     """Create growth rates heatmap."""
     Path(output_dir).mkdir(exist_ok=True)
     
@@ -397,7 +399,7 @@ def create_growth_rates_heatmap(df, output_dir="graphs"):
     return output_file
 
 
-def create_productivity_metrics_graph(df, output_dir="graphs"):
+def create_productivity_metrics_graph(df, output_dir=paths.GRAPHS_DIR):
     """Create productivity metrics graph."""
     Path(output_dir).mkdir(exist_ok=True)
     year_range = f"{df['year'].min()}-{df['year'].max()}"
@@ -436,7 +438,7 @@ def create_productivity_metrics_graph(df, output_dir="graphs"):
     return output_file
 
 
-def create_combined_overview_graph(df, output_dir="graphs"):
+def create_combined_overview_graph(df, output_dir=paths.GRAPHS_DIR):
     """Create a combined overview graph with key metrics."""
     Path(output_dir).mkdir(exist_ok=True)
     
@@ -536,7 +538,7 @@ def main():
     print(f"✅ Loaded data for {len(df)} years: {df['year'].min()}-{df['year'].max()}")
     
     # Create output directory
-    output_dir = "graphs"
+    output_dir = paths.GRAPHS_DIR
     Path(output_dir).mkdir(exist_ok=True)
     
     # Generate graphs

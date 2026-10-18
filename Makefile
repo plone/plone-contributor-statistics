@@ -1,5 +1,11 @@
 .PHONY: help install clean run-stats run-stats-all-years run-stats-2025 run-stats-2024 run-stats-2023 run-stats-2022 run-stats-2021 run-stats-2020 run-stats-2019 run-stats-2018 run-stats-2017 run-stats-2016 run-stats-2015 run-stats-2014 run-stats-2013 run-stats-2012 run-stats-2011 run-stats-2010 run-stats-2009 run-stats-2008 run-stats-2007 run-stats-2006 run-stats-2005 run-stats-2004 run-stats-2003 run-stats-2002 run-stats-2001 run-stats-2000 run-stats-custom run-contributors run-organisations run-organisation-stats run-organisation-stats-2025 run-organisation-stats-2024 run-organisation-stats-2023 run-organisation-stats-2022 run-organisation-stats-2021 run-organisation-stats-2020 run-organisation-stats-2019 run-organisation-stats-2018 run-organisation-stats-2017 run-organisation-stats-2016 run-organisation-stats-2015 run-organisation-stats-2014 run-organisation-stats-2013 run-organisation-stats-2012 run-organisation-stats-2011 run-organisation-stats-2010 run-organisation-stats-2009 run-organisation-stats-2008 run-organisation-stats-2007 run-organisation-stats-2006 run-organisation-stats-2005 run-organisation-stats-2004 run-organisation-stats-2003 run-organisation-stats-2002 run-organisation-stats-2001 run-organisation-stats-2000 run-plips run-plip-organisations analyze-independent three-year-summary ten-year-summary flourish-graph-organisation-contributors-csv-file flourish-graph-individual-contributors-csv-file generate-report generate-plip-report community-recognition pr-interactions pr-interactions-all-years pr-interactions-2025 pr-interactions-2024 pr-interactions-2023 pr-interactions-2022 pr-interactions-2021 pr-interactions-2020 pr-interactions-2019 pr-interactions-2018 pr-interactions-2017 pr-interactions-2016 pr-interactions-2015 pr-interactions-2014 pr-interactions-2013 pr-interactions-2012 pr-interactions-2011 pr-interactions-2010 pr-interactions-2009 pr-interactions-2008 pr-interactions-2007 pr-interactions-2006 pr-interactions-2005 setup dev-setup lint format check test docs-install docs docs-linkcheck docs-clean
 
+# Default years, from years.py; override on the command line, e.g. make five-year-summary SUMMARY_END=2025
+SUMMARY_END ?= $(shell python -c 'from years import SUMMARY_END_YEAR; print(SUMMARY_END_YEAR)')
+RECOGNITION_YEAR ?= $(shell python -c 'from years import RECOGNITION_YEAR; print(RECOGNITION_YEAR)')
+# The $(1) years up to and including SUMMARY_END
+summary_years = $(shell seq $$(($(SUMMARY_END) - $(1) + 1)) $(SUMMARY_END))
+
 # Default target
 help:
 	@echo "Plone GitHub Statistics Project"
@@ -70,9 +76,9 @@ help:
 	@echo "  run-plip-organisations Generate PLIP organisation statistics using organisation mapping"
 	@echo "  analyze-plip-levels Analyze PLIP contributor levels and generate report"
 	@echo "  analyze-independent Analyze Independent contributors for potential organisation mappings"
-	@echo "  three-year-summary Generate combined statistics summary for 2022-2024"
-	@echo "  five-year-summary Generate combined statistics summary for 2020-2024"
-	@echo "  ten-year-summary  Generate combined statistics summary for 2015-2024"
+	@echo "  three-year-summary Generate combined statistics summary for the 3 years up to SUMMARY_END ($(SUMMARY_END))"
+	@echo "  five-year-summary Generate combined statistics summary for the 5 years up to SUMMARY_END"
+	@echo "  ten-year-summary  Generate combined statistics summary for the 10 years up to SUMMARY_END"
 	@echo "  yearly-activity   Generate yearly development activity analysis"
 	@echo "  yearly-graphs     Generate visual graphs from yearly activity data"
 	@echo "  npm-packages      Analyze NPM packages published by Plone organizations"
@@ -373,17 +379,15 @@ analyze-plip-levels:
 analyze-independent:
 	python analyze_independent_contributors.py
 
-# Generate three-year summary combining 2022-2024 organisation statistics
+# Combine the organisation statistics of the last 3, 5 or 10 years up to SUMMARY_END
 three-year-summary:
-	python multi_year_summary.py
+	python multi_year_summary.py --years $(call summary_years,3)
 
-# Generate five-year summary combining 2020-2024 organisation statistics
 five-year-summary:
-	python multi_year_summary.py --years 2020 2021 2022 2023 2024
+	python multi_year_summary.py --years $(call summary_years,5)
 
-# Generate ten-year summary combining 2015-2024 organisation statistics
 ten-year-summary:
-	python multi_year_summary.py --years 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024
+	python multi_year_summary.py --years $(call summary_years,10)
 
 # Generate yearly development activity analysis
 yearly-activity:
@@ -419,7 +423,7 @@ generate-plip-report:
 
 # Calculate community recognition points and generate report
 community-recognition:
-	python generate_community_recognition_report.py
+	python generate_community_recognition_report.py --year $(RECOGNITION_YEAR)
 
 # Generate Volto report
 generate-volto-report:

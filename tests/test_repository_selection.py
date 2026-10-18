@@ -4,6 +4,8 @@ import csv
 import re
 from pathlib import Path
 
+import pytest
+
 from plone_contributors import (
     EXCLUDED_REPOSITORIES_FILE,
     load_excluded_repositories,
@@ -49,8 +51,10 @@ def test_forks_are_not_excluded_automatically():
     assert [r['name'] for r in selected] == ['plone.z3cform']
 
 
-def test_missing_exclusion_file_excludes_nothing(tmp_path):
-    assert load_excluded_repositories(str(tmp_path / 'missing.csv')) == {}
+def test_missing_exclusion_file_raises(tmp_path):
+    # A missing file must not silently exclude nothing: a wrong path would change the statistics
+    with pytest.raises(FileNotFoundError, match='missing.csv'):
+        load_excluded_repositories(str(tmp_path / 'missing.csv'))
 
 
 def test_load_excluded_repositories(tmp_path):
@@ -74,11 +78,10 @@ def test_exclusion_file_format():
         assert row['reason'].strip(), f"missing reason for {row['repository']}"
 
 
-def test_extract_all_stats_processes_archived_and_skips_excluded(monkeypatch, tmp_path):
+def test_extract_all_stats_processes_archived_and_skips_excluded(tmp_repo, monkeypatch, tmp_path):
     import plone_contributors
 
     # The exclusion list is read relative to the working directory, as with `make run-stats`.
-    monkeypatch.chdir(tmp_path)
     (tmp_path / EXCLUDED_REPOSITORIES_FILE).write_text(
         'repository,reason\ndockerhub-docs,Fork of docker-library/docs\n', encoding='utf-8'
     )

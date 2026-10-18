@@ -3,6 +3,7 @@
 import pandas as pd
 
 import multi_year_summary
+import paths
 from generate_contributor_report import top_organisations_table
 from organisation_stats import UNMAPPED
 
@@ -26,8 +27,12 @@ def test_report_table_does_not_rank_unmapped():
     assert 'Not mapped to an organisation: 692 PRs, 1,500 commits by 209 contributors.' in table
 
 
-def test_summary_does_not_rank_unmapped(tmp_path, monkeypatch):
-    monkeypatch.chdir(tmp_path)
+def test_summary_does_not_rank_unmapped(tmp_repo, tmp_path, monkeypatch):
+    # The contributor files of the years exist, but are empty
+    for year in [2022, 2023, 2024]:
+        path = paths.contributors_file(year)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text('username,total_commits,total_pull_requests\n', encoding='utf-8')
 
     _, txt_file = multi_year_summary.save_summary(organisations(), [2022, 2023, 2024])
 

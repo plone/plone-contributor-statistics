@@ -23,6 +23,7 @@ from datetime import datetime
 import requests
 from dotenv import load_dotenv
 
+import paths
 from github_api import github_get, is_merge_commit
 
 # Force reload environment
@@ -204,10 +205,9 @@ Examples:
         year_label = str(current_year)
 
     # Create data directory if it doesn't exist
-    data_dir = 'data'
-    os.makedirs(data_dir, exist_ok=True)
+    os.makedirs(paths.VOLTO_DIR, exist_ok=True)
 
-    filename = os.path.join(data_dir, f'{year_label}-volto-stats.csv')
+    filename = paths.volto_file(year_label)
 
     print("Volto Statistics Extractor")
     print("=" * 60)

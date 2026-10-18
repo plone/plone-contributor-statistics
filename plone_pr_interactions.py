@@ -22,8 +22,10 @@ import logging
 from collections import defaultdict
 from dotenv import load_dotenv
 
+import paths
 from github_api import GitHubAPIError, github_get, github_graphql
-from plone_contributors import load_bot_accounts, load_excluded_repositories, parse_timestamp, select_repositories
+from mappings import load_bot_accounts, load_excluded_repositories
+from plone_contributors import parse_timestamp, select_repositories
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -307,10 +309,10 @@ class PlonePRInteractionExtractor:
             filename = 'plone-pr-interactions'
 
         # Create data directory if it doesn't exist
-        os.makedirs('data', exist_ok=True)
+        os.makedirs(paths.PR_INTERACTIONS_DIR, exist_ok=True)
 
         # Save to CSV in data folder
-        csv_file = f'data/{filename}.csv'
+        csv_file = paths.PR_INTERACTIONS_DIR / f'{filename}.csv'
 
         fieldnames = [
             'repo', 'pr_number', 'title', 'author', 'created_at', 'merged_at', 'state', 'merged',
@@ -336,8 +338,8 @@ class PlonePRInteractionExtractor:
         if not output_file:
             if year:
                 # Create report directory if it doesn't exist
-                os.makedirs('reports', exist_ok=True)
-                output_file = f"reports/github-pr-interactions-report-{year}.md"
+                os.makedirs(paths.PR_INTERACTION_REPORTS_DIR, exist_ok=True)
+                output_file = paths.pr_interactions_report(year)
             else:
                 output_file = "plone_pr_engagement_report.md"
         

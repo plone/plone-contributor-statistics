@@ -10,10 +10,12 @@ yearly overrides of organisation_mapping_overrides.csv.
 import csv
 from collections import defaultdict
 
-from organisation_stats import UNMAPPED, load_organisation_mapping
+import paths
+from mappings import load_organisation_mapping
+from organisation_stats import UNMAPPED
 
-PLIPS_FILE = 'plone-plips-detailed.csv'
-OUTPUT_FILE = 'plone-plip-organisations.csv'
+PLIPS_FILE = paths.PLIPS_DETAILED
+OUTPUT_FILE = paths.PLIP_ORGANISATIONS
 COLUMNS = ['organisation', 'total_plips', 'open_plips', 'closed_plips', 'contributors_count', 'contributors',
            'repositories_count', 'repositories', 'first_plip', 'last_plip']
 
@@ -29,7 +31,7 @@ def plip_year(plip):
     return int(date[:4])
 
 
-def organisation_lookup(mapping_file='organisations.csv', overrides_file='organisation_mapping_overrides.csv'):
+def organisation_lookup(mapping_file=paths.ORGANISATIONS, overrides_file=paths.OVERRIDES):
     """Return a function (login, year) -> organisation, loading each year's mapping once."""
     mappings = {}
 

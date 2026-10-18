@@ -3,7 +3,8 @@
 # Mapping and configuration files
 
 This page describes the hand-maintained files that decide which repositories, accounts and organisations the statistics use.
-All of them are in the repository root.
+All of them are in the repository root; `paths.py` lists where the scripts look for them.
+A script that reads one of these files stops with an error if the file is missing, instead of running without it.
 
 See {doc}`/explanation/attribution` for why the mapping works the way it does.
 
