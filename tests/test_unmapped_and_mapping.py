@@ -107,3 +107,37 @@ def test_proposals_csv_format():
         assert row['from_year'].isdigit() and row['to_year'].isdigit(), row
         assert int(row['from_year']) <= int(row['to_year']), row
         assert row['evidence'].strip(), row
+
+
+def test_override_to_unmapped_counts_as_unmapped(tmp_path):
+    # Years before an organisation existed, or before a person's affiliation is documented (#70)
+    mapping = tmp_path / 'organisations.csv'
+    mapping.write_text('Organisation,Team\nkitconcept GmbH,tisto\n', encoding='utf-8')
+    overrides = tmp_path / 'overrides.csv'
+    overrides.write_text('github_username,organisation,from_year,to_year,source\n'
+                         'tisto,Unmapped,2002,2015,Founded in 2016\n', encoding='utf-8')
+
+    for year, expected in [(2015, {UNMAPPED}), (2016, {'kitconcept GmbH'})]:
+        m = load_organisation_mapping(str(mapping), str(overrides), year=year)
+        stats = aggregate_organisation_stats(contributors(('tisto', 3, 1)), m, bots={})
+        assert set(stats) == expected
+
+
+def test_overrides_name_listed_organisations_and_dont_overlap():
+    _, organisations = read_csv('organisations.csv')
+    names = {row['Organisation'] for row in organisations}
+    _, overrides = read_csv('organisation_mapping_overrides.csv')
+
+    ranges = {}
+    for row in overrides:
+        assert row['organisation'] in names | {UNMAPPED}, f"add {row['organisation']!r} to organisations.csv"
+        start, end = int(row['from_year']), int(row['to_year'] or 9999)
+        for other_start, other_end in ranges.get(row['github_username'], []):
+            assert end < other_start or start > other_end, f"overlapping overrides for {row['github_username']}"
+        ranges.setdefault(row['github_username'], []).append((start, end))
+
+
+def read_csv(name):
+    with open(ROOT / name, newline='', encoding='utf-8') as f:
+        reader = csv.DictReader(f)
+        return reader.fieldnames, list(reader)
