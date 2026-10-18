@@ -37,14 +37,14 @@
 2. Zest Software: 764 PRs
 3. Steve Piercy - Website Builder: 663 PRs
 4. Kombinat: 537 PRs
-5. Eau de Web: 455 PRs
+5. Eau de Web: 484 PRs
 6. der Freitag: 433 PRs
 7. Syslab: 353 PRs
 8. RedTurtle: 318 PRs
 9. Nuclia: 294 PRs
 10. Klein & Partner KG: 290 PRs
 
-Not mapped to an organisation: 852 PRs
+Not mapped to an organisation: 823 PRs
 
 ## Top 10 organisations by commits (2020-2024)
 
@@ -53,10 +53,10 @@ Not mapped to an organisation: 852 PRs
 3. Steve Piercy - Website Builder: 2,533 commits
 4. der Freitag: 2,407 commits
 5. Kombinat: 2,017 commits
-6. Syslab: 1,344 commits
-7. Klein & Partner KG: 1,323 commits
-8. Eau de Web: 1,298 commits
+6. Eau de Web: 1,350 commits
+7. Syslab: 1,344 commits
+8. Klein & Partner KG: 1,323 commits
 9. PY76: 1,193 commits
 10. Rohberg: 1,149 commits
 
-Not mapped to an organisation: 2,042 commits
+Not mapped to an organisation: 1,990 commits
