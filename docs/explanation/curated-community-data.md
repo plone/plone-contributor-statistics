@@ -17,7 +17,7 @@ So the statistics keep lists of them, one file per year and kind, in `data/commu
 Curated data is only as trustworthy as its sources.
 Every row needs a public source: a page on plone.org, the minutes of the Foundation Board, a conference website, or an archived copy in the Wayback Machine.
 Where a source names only people, the organisation comes from the {doc}`organisation mapping <attribution>` for that year, and the row says so.
-A memory counts as a source when people who took part confirm it.
+A memory counts as a source when people who took part confirm it in public, for example in a comment on the pull request.
 
 Rows that no source supports are removed, even if they were probably right.
 An unsourced row can't be checked, and it can't be corrected by someone who remembers it differently.

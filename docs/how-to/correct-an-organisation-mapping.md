@@ -3,7 +3,7 @@
 # Correct an organisation mapping
 
 This guide shows you how to correct the organisation that a contributor's work is counted for.
-You need a GitHub account, and a source or a confirmation for the correction.
+You need a GitHub account, and a public record for the correction: a link, or a confirmation by the contributor in the pull request.
 
 ## Decide which file to change
 
