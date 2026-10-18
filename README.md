@@ -34,13 +34,21 @@ make year YEAR=2025 # collect, derive and report a completed year
 Collecting data from GitHub needs a token in `.env`.
 See [Prepare the numbers for a new year](https://plone.github.io/plone-contributor-statistics/how-to/prepare-a-new-year.html) and [Collect the data again](https://plone.github.io/plone-contributor-statistics/how-to/collect-data-again.html).
 
-## Data and reports
+## Where things live
 
-- `scripts/`: the code, one folder per pipeline stage, see [`scripts/README.md`](scripts/README.md).
-- `data/`: contributor, organisation and pull request interaction files, one per year.
-- `data/community-contributions/`: curated community data, one file per year and kind.
-- `reports/`: generated reports.
-- `archive/`: earlier analyses, proposals and notes, kept for reference.
+The folders follow the pipeline: curated input and collected data go into the scripts, which write derived data and reports.
+Each folder has a README; the [data files reference](https://plone.github.io/plone-contributor-statistics/reference/data-files.html) describes every file.
+
+```text
+scripts/     the code, by stage: collect/, derive/, report/, tools/, and shared code in lib/
+curated/     input edited by hand: mappings/ and community-contributions/; every entry needs a public record
+collected/   data fetched from GitHub by the collectors; never edit by hand
+derived/     data computed from curated and collected data, committed for transparency; never edit by hand
+reports/     reports, text summaries and graphs; never edit by hand
+docs/        the documentation
+tests/       offline tests
+archive/     earlier analyses and archived scripts and data; not maintained
+```
 
 Earlier charts on Flourish: [individual contributors](https://public.flourish.studio/visualisation/24775871/) and [organisations](https://public.flourish.studio/visualisation/24775561/).
 They are no longer updated; their scripts are in `archive/flourish/`.

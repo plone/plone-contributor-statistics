@@ -134,6 +134,15 @@ def test_docs_reference_existing_files():
             assert list(ROOT.glob(path.replace('YYYY', '*'))), f'{page.relative_to(ROOT)}: {path}'
 
 
+def test_docs_shell_examples_reference_existing_files():
+    # Commands in code blocks must work from the repository root
+    block = re.compile(r'```shell\n(.*?)```', re.S)
+    for page in docs_pages():
+        for code in block.findall(page.read_text(encoding='utf-8')):
+            for path in re.findall(r'(?<![\w./-])([\w./*-]+\.(?:csv|txt|md)|[\w.-]+/(?:[\w.-]+/)*)(?=\s|$)', code):
+                assert list(ROOT.glob(path.replace('YYYY', '*'))), f'{page.relative_to(ROOT)}: {path}'
+
+
 def test_docs_reference_existing_make_targets():
     makefile = (ROOT / 'Makefile').read_text(encoding='utf-8')
     targets = set(re.findall(r'^([a-z0-9-]+):', makefile, re.M))

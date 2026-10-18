@@ -13,27 +13,27 @@ myst:
 ```{glossary}
 account alias
     A second GitHub account of a person, counted for their main account.
-    Account aliases are listed in `account_aliases.csv`.
+    Account aliases are listed in `curated/mappings/account_aliases.csv`.
 
 bot account
     A GitHub account that is not a person, such as a continuous integration bot or a GitHub App.
     GitHub Apps have a `[bot]` suffix.
-    Bots that GitHub lists as users are named in `bot_accounts.csv`.
+    Bots that GitHub lists as users are named in `curated/mappings/bot_accounts.csv`.
     The statistics leave bot accounts out.
 
 curated data
     Data that people collect and check by hand against a public source, as opposed to data that a script collects from an API.
-    Curated data lives in `data/community-contributions/`.
+    Curated data lives in `curated/community-contributions/`.
 
 default branch
     The main branch of a repository on GitHub, for example `main` or `master`.
 
 excluded repository
     A repository of the `plone` GitHub organisation that the statistics skip.
-    Each one is listed with a reason in `excluded_repositories.csv`.
+    Each one is listed with a reason in `curated/mappings/excluded_repositories.csv`.
 
 independent contributor
-    A self-employed person or volunteer who has their own entry in `organisations.csv`, for example `Name (independent)`.
+    A self-employed person or volunteer who has their own entry in `curated/mappings/organisations.csv`, for example `Name (independent)`.
     An independent contributor is mapped, unlike an {term}`Unmapped` one.
 
 merge commit
@@ -42,11 +42,11 @@ merge commit
 
 organisation mapping
     The assignment of a GitHub account to the organisation that sponsors the person's time on Plone.
-    It consists of `organisations.csv` and the {term}`overrides <override>`.
+    It consists of `curated/mappings/organisations.csv` and the {term}`overrides <override>`.
 
 override
-    A row in `organisation_mapping_overrides.csv` that maps a GitHub account to another organisation for a range of years.
-    Overrides record past affiliations, while `organisations.csv` records the current one.
+    A row in `curated/mappings/organisation_mapping_overrides.csv` that maps a GitHub account to another organisation for a range of years.
+    Overrides record past affiliations, while `curated/mappings/organisations.csv` records the current one.
 
 PLIP
     A Plone Improvement Proposal: a GitHub issue with the label `03 type: feature (plip)` that proposes a larger change to Plone.

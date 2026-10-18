@@ -10,7 +10,7 @@ This page explains why both kinds exist and why curated data follows stricter ru
 
 Conferences, sprints, trainings, release management and team leadership are central to Plone.
 No API records them in a form that a script could count.
-So the statistics keep lists of them, one file per year and kind, in `data/community-contributions/`.
+So the statistics keep lists of them, one file per year and kind, in `curated/community-contributions/`.
 
 ## No data without a source
 
@@ -19,7 +19,7 @@ Every row needs a public source: a page on plone.org, the minutes of the Foundat
 Where a source names only people, the organisation comes from the {doc}`organisation mapping <attribution>` for that year, and the row says so.
 A memory counts as a source when people who took part confirm it in public, for example in a comment on the pull request.
 
-Organisations are spelled as in `organisations.csv`; for the files of the current recognition year, a format check makes sure of it.
+Organisations are spelled as in `curated/mappings/organisations.csv`; for the files of the current recognition year, a format check makes sure of it.
 
 Rows that no source supports are removed, even if they were probably right.
 An unsourced row can't be checked, and it can't be corrected by someone who remembers it differently.

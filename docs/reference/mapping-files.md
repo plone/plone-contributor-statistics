@@ -3,12 +3,12 @@
 # Mapping and configuration files
 
 This page describes the hand-maintained files that decide which repositories, accounts and organisations the statistics use.
-All of them are in the repository root; `scripts/lib/paths.py` lists where the scripts look for them.
+All of them are in `curated/mappings/`; `scripts/lib/paths.py` lists where the scripts look for them.
 A script that reads one of these files stops with an error if the file is missing, instead of running without it.
 
 See {doc}`/explanation/attribution` for why the mapping works the way it does.
 
-## `organisations.csv`
+## `curated/mappings/organisations.csv`
 
 The current organisation of each GitHub account.
 
@@ -28,9 +28,9 @@ Rules
     Logins must be valid GitHub logins, spelled with the same case as on GitHub, because the lookup is case-sensitive.
     `tests/test_unmapped_and_mapping.py` checks the format.
 
-## `organisation_mapping_sources.csv`
+## `curated/mappings/organisation_mapping_sources.csv`
 
-Public records for the current organisation of the logins in `organisations.csv`.
+Public records for the current organisation of the logins in `curated/mappings/organisations.csv`.
 
 Columns
 :   `github_username`, `organisation`, `source`, `checked`.
@@ -42,14 +42,14 @@ Columns
 :   The date on which the record said so, as `YYYY-MM-DD`.
 
 Rules
-:   Each login appears once, with the organisation that `organisations.csv` lists for it.
+:   Each login appears once, with the organisation that `curated/mappings/organisations.csv` lists for it.
     Every row must have a link.
-    Every login in `organisations.csv` must have a row; a login without a public record stays Unmapped ([#86](https://github.com/plone/plone-contributor-statistics/issues/86)).
+    Every login in `curated/mappings/organisations.csv` must have a row; a login without a public record stays Unmapped ([#86](https://github.com/plone/plone-contributor-statistics/issues/86)).
     `tests/test_unmapped_and_mapping.py` checks the format.
 
-## `organisation_mapping_overrides.csv`
+## `curated/mappings/organisation_mapping_overrides.csv`
 
-Past organisations of GitHub accounts, for the years in which they differ from `organisations.csv`.
+Past organisations of GitHub accounts, for the years in which they differ from `curated/mappings/organisations.csv`.
 
 Columns
 :   `github_username`, `organisation`, `from_year`, `to_year`, `source`.
@@ -65,14 +65,14 @@ Columns
 :   How the past organisation is known: a link, a commit, or a confirmation, for example "Review in #70".
 
 Rules
-:   For a given year, a matching override replaces the entry of `organisations.csv`.
+:   For a given year, a matching override replaces the entry of `curated/mappings/organisations.csv`.
     `from_year` must not be later than `to_year`.
     Every row must have a source.
-    `organisation` must be listed in `organisations.csv`, or be `Unmapped` for years in which the affiliation isn't documented.
+    `organisation` must be listed in `curated/mappings/organisations.csv`, or be `Unmapped` for years in which the affiliation isn't documented.
     The overrides of one login must not overlap.
     `tests/test_unmapped_and_mapping.py` checks the format.
 
-## `organisation_mapping_proposals.csv`
+## `curated/mappings/organisation_mapping_proposals.csv`
 
 Past organisations that a company email address in the commits suggests, but that nobody has confirmed yet.
 The statistics don't read this file.
@@ -87,11 +87,11 @@ Columns
 :   The company address and the years of the commits that use it.
 
 Rules
-:   A confirmed row moves to `organisation_mapping_overrides.csv`, with the confirmation as its source.
-    The organisation also has to be added to `organisations.csv` if it isn't listed yet.
+:   A confirmed row moves to `curated/mappings/organisation_mapping_overrides.csv`, with the confirmation as its source.
+    The organisation also has to be added to `curated/mappings/organisations.csv` if it isn't listed yet.
     `tests/test_unmapped_and_mapping.py` checks the format.
 
-## `bot_accounts.csv`
+## `curated/mappings/bot_accounts.csv`
 
 GitHub accounts that are bots, although the GitHub API lists them as users.
 
@@ -100,7 +100,7 @@ Columns
 
 Accounts with a `[bot]` suffix, and accounts that the GitHub API marks as `Bot`, are recognized without an entry.
 
-## `excluded_repositories.csv`
+## `curated/mappings/excluded_repositories.csv`
 
 Repositories of the `plone` organisation that the statistics skip.
 
@@ -110,7 +110,7 @@ Columns
 All other repositories of the organisation are collected, including archived repositories and forks.
 The commit and the pull request interaction collectors use the same list.
 
-## `commit_authors.csv`
+## `curated/mappings/commit_authors.csv`
 
 The people behind commit email addresses that GitHub doesn't link to an account.
 The collector uses an entry only when GitHub links no account to the address.
@@ -136,7 +136,7 @@ Rules
     Every entry needs a source.
     `tests/test_commit_authors.py` checks the format.
 
-## `account_aliases.csv`
+## `curated/mappings/account_aliases.csv`
 
 Second GitHub accounts of a person, counted for their main account.
 
@@ -154,7 +154,7 @@ Rules
     Every entry needs a source.
     `tests/test_commit_authors.py` checks the format.
 
-## `mapping-github-username-to-fullname.csv`
+## `curated/mappings/mapping-github-username-to-fullname.csv`
 
 Full names for some GitHub logins, used by hand when filling in curated data.
 No script reads it.
@@ -166,4 +166,4 @@ Columns
 
 - Separate several values in one cell with semicolons, never with `&`.
 - Put double quotes around values that contain commas.
-- Spell organisation names exactly as in `organisations.csv`, for example `kitconcept GmbH`, `RedTurtle`, `Klein & Partner KG`, `CMS Communications Inc.`, `Codesyntax`, `PY76`, `UNAM` and `University of Jyväskylä`.
+- Spell organisation names exactly as in `curated/mappings/organisations.csv`, for example `kitconcept GmbH`, `RedTurtle`, `Klein & Partner KG`, `CMS Communications Inc.`, `Codesyntax`, `PY76`, `UNAM` and `University of Jyväskylä`.

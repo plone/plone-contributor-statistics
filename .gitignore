@@ -2,6 +2,6 @@
 __pycache__/
 .pytest_cache/
 .cache/
-data/*_checkpoint.csv
+collected/contributors/*_checkpoint.csv
 docs/_build/
 .DS_Store

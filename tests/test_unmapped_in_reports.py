@@ -41,3 +41,7 @@ def test_summary_does_not_rank_unmapped(tmp_repo, tmp_path, monkeypatch):
     assert f'. {UNMAPPED}:' not in text
     assert '2. Kombinat: 537 PRs' in text
     assert 'Not mapped to an organisation: 692 PRs' in text
+    # The text names the CSV file as before the layout restructure, so the committed reports stay the same
+    assert '- File generated: summary-past-three-years-2022-2024.csv\n' in text
+    assert (tmp_path / paths.SUMMARIES_DIR / 'summary-past-three-years-2022-2024.csv').exists()
+    assert txt_file == paths.SUMMARY_REPORTS_DIR / 'STATISTICS-PAST-THREE-YEARS.txt'

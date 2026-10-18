@@ -7,6 +7,7 @@ import pytest
 from scripts.collect import plone_pr_interactions
 from scripts.lib.github_api import GitHubAPIError
 from scripts.collect.plone_pr_interactions import PlonePRInteractionExtractor
+from scripts.lib import paths
 
 
 def comment(login, at, reactions=0):
@@ -28,7 +29,7 @@ def pr(number=1, author='alice', created='2015-03-01T10:00:00', comments=(), rev
 
 @pytest.fixture
 def extractor(tmp_repo, monkeypatch, tmp_path):
-    (tmp_path / 'bot_accounts.csv').write_text('login,reason\nmister-roboto,Plone CI bot\n', encoding='utf-8')
+    (tmp_path / paths.BOT_ACCOUNTS).write_text('login,reason\nmister-roboto,Plone CI bot\n', encoding='utf-8')
     return PlonePRInteractionExtractor(github_token='test-token')
 
 
@@ -130,12 +131,13 @@ def test_writes_one_file_per_year(extractor, monkeypatch, tmp_path):
     assert run_main(monkeypatch, '--from-year', '2014', '--to-year', '2015', analyses=analyses) == 0
 
     for year, number in [(2014, 1), (2015, 2)]:
-        rows = (tmp_path / f'data/{year}-plone-pr-interactions.csv').read_text(encoding='utf-8').splitlines()
+        rows = (tmp_path / paths.pr_interactions_file(year)).read_text(encoding='utf-8').splitlines()
         assert len(rows) == 2 and rows[1].startswith(f'plone/volto,{number},')
-        assert (tmp_path / f'reports/github-pr-interactions-report-{year}.md').exists()
+        assert (tmp_path / paths.pr_interactions_report(year)).exists()
 
 
 def test_writes_nothing_after_an_api_error(extractor, monkeypatch, tmp_path):
     assert run_main(monkeypatch, '--year', '2015', error=GitHubAPIError('HTTP 500')) == 1
 
-    assert not (tmp_path / 'data').exists()
+    assert not list((tmp_path / paths.PR_INTERACTIONS_DIR).iterdir())
+    assert not list((tmp_path / paths.PR_INTERACTION_REPORTS_DIR).iterdir())

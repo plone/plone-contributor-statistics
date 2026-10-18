@@ -5,13 +5,13 @@
 This guide shows you how to add or correct a row of curated community data, such as a sprint, a training or a release manager.
 You need a public source for the row.
 
-1.  Open the file for the year and kind of contribution in `data/community-contributions/`, for example `data/community-contributions/YYYY-strategic-sprints.csv`.
+1.  Open the file for the year and kind of contribution in `curated/community-contributions/`, for example `curated/community-contributions/YYYY-strategic-sprints.csv`.
 
 2.  Add or correct the row.
     Separate several people or organisations in one cell with semicolons.
 
-3.  Fill in the `Organisation` with the organisation as it is named in `organisations.csv`.
-    If the source names only people, take the organisation that `organisations.csv` and `organisation_mapping_overrides.csv` give for that year.
+3.  Fill in the `Organisation` with the organisation as it is named in `curated/mappings/organisations.csv`.
+    If the source names only people, take the organisation that `curated/mappings/organisations.csv` and `curated/mappings/organisation_mapping_overrides.csv` give for that year.
     If the organisation is unknown, leave it empty instead of guessing.
 
 4.  Put a link to the source in the `Source` column.

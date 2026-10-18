@@ -77,3 +77,34 @@ def test_scripts_suggest_commands_that_work(script):
     # A command, not prose: quoted, or after 'Run:'
     for target in re.findall(r"(?:['\"`]|Run:\s+)make ([a-z][\w-]*)", source):
         assert target in targets, target
+
+
+def test_paths_follow_layout():
+    from scripts.lib import paths
+    for name, value in vars(paths).items():
+        if isinstance(value, Path) and name.isupper():
+            assert value.parts[0] in {'curated', 'collected', 'derived', 'reports'}, f'{name}: {value}'
+
+
+def test_tmp_repo_has_layout(tmp_repo):
+    from scripts.lib import paths
+    for name, value in vars(paths).items():
+        if isinstance(value, Path) and name.isupper():
+            folder = value if not value.suffix else value.parent
+            assert (tmp_repo / folder).is_dir(), f'{name}: {folder}'
+
+
+ALLOWED_ROOT = {'README.md', 'AGENTS.md', 'CLAUDE.md', 'Makefile', 'requirements.txt', 'requirements-docs.txt',
+                'pytest.ini', '.env.example', '.gitignore', '.github', 'scripts', 'curated', 'collected',
+                'derived', 'reports', 'docs', 'tests', 'archive'}
+
+
+def test_root_contains_only_allowed_entries():
+    # New files go into the folder of their role, not into the root
+    tracked = subprocess.run(['git', 'ls-files'], cwd=ROOT, capture_output=True, text=True, check=True).stdout.split()
+    assert {p.split('/')[0] for p in tracked} <= ALLOWED_ROOT
+
+
+@pytest.mark.parametrize('folder', ['scripts', 'curated', 'collected', 'derived', 'reports'])
+def test_folder_has_readme(folder):
+    assert (ROOT / folder / 'README.md').exists()

@@ -3,14 +3,14 @@
 # Community recognition files
 
 This page describes the files of the Community Recognition Program in the repository.
-They are in `data/community-contributions/`.
+They are in `curated/community-contributions/`.
 
 See {doc}`/explanation/community-recognition` for what these files can and can't explain.
 
-`scripts/report/generate_community_recognition_report.py` stops with an error if the curated community data of the year is missing altogether, or if a yearly organisation file, `plone-plips-detailed.csv` or the levels file is missing.
+`scripts/report/generate_community_recognition_report.py` stops with an error if the curated community data of the year is missing altogether, or if a yearly organisation file, `collected/plips/plone-plips-detailed.csv` or the levels file is missing.
 If only one kind of community data is missing for the year, it prints a warning and goes on, because not every kind exists in every year.
 
-## `data/community-contributions/community-recognition-points.csv`
+## `curated/community-contributions/community-recognition-points.csv`
 
 The points per kind of contribution.
 
@@ -29,7 +29,7 @@ Columns
 No script reads this file.
 `scripts/report/generate_community_recognition_report.py` has its own points in the code.
 
-## `data/community-contributions/community-recognition-levels.csv`
+## `curated/community-contributions/community-recognition-levels.csv`
 
 The recognition levels and their point ranges.
 
@@ -38,7 +38,7 @@ Columns
 
 `scripts/report/generate_community_recognition_report.py` reads this file.
 
-## `data/community-contributions/YYYY-community-recognition-report.csv`
+## `derived/community-recognition/YYYY-community-recognition-report.csv`
 
 The result per organisation, written by `scripts/report/generate_community_recognition_report.py`.
 

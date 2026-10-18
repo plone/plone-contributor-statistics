@@ -40,5 +40,5 @@ A failed request stops the run, like in the {doc}`contribution collector <counti
 A deleted user account appears as `ghost`.
 
 ```{seealso}
-{doc}`/reference/data-files` lists the columns of `data/YYYY-plone-pr-interactions.csv`.
+{doc}`/reference/data-files` lists the columns of `collected/pr-interactions/YYYY-plone-pr-interactions.csv`.
 ```

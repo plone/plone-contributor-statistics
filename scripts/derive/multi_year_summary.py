@@ -180,7 +180,7 @@ def save_summary(df, years):
     txt_content.append(f"- {len(df[df['organisation'] != UNMAPPED])} total organisations tracked across {period_label}")
     txt_content.append(f"- {df['total_commits'].sum():,} total commits and {df['total_pull_requests'].sum():,} pull requests")
     txt_content.append(f"- {df['contributors_count'].sum()} unique contributors across all organisations")
-    txt_content.append(f"- File generated: {csv_filename}")
+    txt_content.append(f"- File generated: {csv_filename.name}")
     
     # Add top individual contributors
     contributors = get_contributor_totals(years)

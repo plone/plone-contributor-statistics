@@ -10,7 +10,7 @@ The data knows people by their GitHub login, and the curated data also by name.
 If you know the login, search the contributor files of all years:
 
 ```shell
-grep -l "^janedoe," data/*-plone-contributors.csv
+grep -l "^janedoe," collected/contributors/*-plone-contributors.csv
 ```
 
 Each file name shows a year in which the person contributed.
@@ -19,7 +19,7 @@ The matching line lists the repositories they worked on.
 To see which organisation the person is mapped to, search the mapping files:
 
 ```shell
-grep -i "janedoe" organisations.csv organisation_mapping_overrides.csv
+grep -i "janedoe" curated/mappings/organisations.csv curated/mappings/organisation_mapping_overrides.csv
 ```
 
 ## Search by name
@@ -27,18 +27,18 @@ grep -i "janedoe" organisations.csv organisation_mapping_overrides.csv
 Curated data lists people by name, for example conference organisers, trainers, release managers and team leaders:
 
 ```shell
-grep -ri "jane doe" data/community-contributions/
+grep -ri "jane doe" curated/community-contributions/
 ```
 
-`mapping-github-username-to-fullname.csv` has full names for some logins.
+`curated/mappings/mapping-github-username-to-fullname.csv` has full names for some logins.
 
 ## Browse a year
 
-To see everyone who contributed in one year, open the contributor file of that year, for example `data/YYYY-plone-contributors.csv`.
+To see everyone who contributed in one year, open the contributor file of that year, for example `collected/contributors/YYYY-plone-contributors.csv`.
 Files exist from 2003 on.
 
 People without a GitHub account appear in the contributor files under their name.
-`commit_authors.csv` lists the old email addresses the statistics know.
+`curated/mappings/commit_authors.csv` lists the old email addresses the statistics know.
 
 To find people of the early years whose commits nobody could identify yet, look at the repositories' history directly.
 The statistics leave their commits out:

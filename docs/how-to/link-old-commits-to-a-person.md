@@ -9,11 +9,11 @@ You need to know who is behind the address, and a source for it.
 ## Find the address
 
 1.  Find the commits in the repository's history, for example with `git log --author=name@localhost` in a clone of the repository.
-2.  Check that the address isn't listed in `commit_authors.csv` yet.
+2.  Check that the address isn't listed in `curated/mappings/commit_authors.csv` yet.
 
 ## Add the person
 
-Add one row to `commit_authors.csv`:
+Add one row to `curated/mappings/commit_authors.csv`:
 
 ```text
 email,github_username,name,source
@@ -28,7 +28,7 @@ name@localhost,janedoe,Jane Doe,Same name in commits linked to this account
 
 ## Merge a second account
 
-If GitHub links the address to a second account of a person, add a row to `account_aliases.csv` instead:
+If GitHub links the address to a second account of a person, add a row to `curated/mappings/account_aliases.csv` instead:
 
 ```text
 alias,github_username,source

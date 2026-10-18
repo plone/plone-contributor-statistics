@@ -8,6 +8,7 @@ import pandas as pd
 
 from scripts.report import generate_community_recognition_report as recognition
 from scripts.derive.organisation_stats import UNMAPPED, aggregate_organisation_stats, load_organisation_mapping
+from scripts.lib import paths
 
 ROOT = Path(__file__).resolve().parent.parent
 LOGIN = re.compile(r'[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?')
@@ -77,7 +78,7 @@ def test_recognition_report_spells_organisations_as_in_organisations_csv(tmp_pat
 
 
 def test_organisations_csv_format():
-    with open(ROOT / 'organisations.csv', newline='', encoding='utf-8') as f:
+    with open(ROOT / paths.ORGANISATIONS, newline='', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         assert reader.fieldnames == ['Organisation', 'Team']
         rows = list(reader)
@@ -95,7 +96,7 @@ def test_organisations_csv_format():
 
 
 def test_overrides_csv_format():
-    with open(ROOT / 'organisation_mapping_overrides.csv', newline='', encoding='utf-8') as f:
+    with open(ROOT / paths.OVERRIDES, newline='', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         assert reader.fieldnames == ['github_username', 'organisation', 'from_year', 'to_year', 'source']
         rows = list(reader)
@@ -111,7 +112,7 @@ def test_overrides_csv_format():
 
 def test_proposals_csv_format():
     # Proposals are not used by the statistics; they wait for a confirmation (#70)
-    with open(ROOT / 'organisation_mapping_proposals.csv', newline='', encoding='utf-8') as f:
+    with open(ROOT / paths.PROPOSALS, newline='', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         assert reader.fieldnames == ['contributor', 'organisation', 'from_year', 'to_year', 'evidence']
         rows = list(reader)
@@ -138,9 +139,9 @@ def test_override_to_unmapped_counts_as_unmapped(tmp_path):
 
 
 def test_overrides_name_listed_organisations_and_dont_overlap():
-    _, organisations = read_csv('organisations.csv')
+    _, organisations = read_csv(paths.ORGANISATIONS)
     names = {row['Organisation'] for row in organisations}
-    _, overrides = read_csv('organisation_mapping_overrides.csv')
+    _, overrides = read_csv(paths.OVERRIDES)
 
     ranges = {}
     for row in overrides:
@@ -159,10 +160,10 @@ def read_csv(name):
 
 def test_organisation_sources_format():
     # Public records for the current organisation of each login in organisations.csv (#86)
-    _, organisations = read_csv('organisations.csv')
+    _, organisations = read_csv(paths.ORGANISATIONS)
     current = {login.strip(): row['Organisation'] for row in organisations
                for login in row['Team'].split(';') if login.strip()}
-    fields, sources = read_csv('organisation_mapping_sources.csv')
+    fields, sources = read_csv(paths.SOURCES)
     assert fields == ['github_username', 'organisation', 'source', 'checked']
 
     seen = set()
