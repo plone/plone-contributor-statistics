@@ -1,6 +1,6 @@
 # Five-Year Summary Results (2020-2024)
 
-- 80 total organisations tracked across the past 5 years
+- 79 total organisations tracked across the past 5 years
 - 40,492 total commits and 9,498 pull requests
 - 356 unique contributors across all organisations
 - File generated: summary-past-five-years-2020-2024.csv
@@ -44,7 +44,7 @@
 9. Nuclia: 294 PRs
 10. Klein & Partner KG: 290 PRs
 
-Not mapped to an organisation: 841 PRs
+Not mapped to an organisation: 852 PRs
 
 ## Top 10 organisations by commits (2020-2024)
 
@@ -59,4 +59,4 @@ Not mapped to an organisation: 841 PRs
 9. PY76: 1,193 commits
 10. Rohberg: 1,149 commits
 
-Not mapped to an organisation: 2,022 commits
+Not mapped to an organisation: 2,042 commits

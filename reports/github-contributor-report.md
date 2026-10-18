@@ -1,6 +1,6 @@
 # Plone Core Contributor Statistics Report
 
-Generated on: 2026-10-18 15:10:35
+Generated on: 2026-10-18 15:28:45
 
 This report shows the top contributors and organizations in the Plone ecosystem across different time periods.
 
@@ -135,7 +135,7 @@ Not mapped to an organisation: 400 PRs, 825 commits by 127 contributors.
 | 9 | RedTurtle | 311 | 656 | 9 | 30 |
 | 10 | Codesyntax | 289 | 782 | 4 | 48 |
 
-Not mapped to an organisation: 694 PRs, 1,878 commits by 189 contributors.
+Not mapped to an organisation: 698 PRs, 1,885 commits by 190 contributors.
 
 
 ### Top 10 Organisation Contributors (Past 10 Years: 2016-2025)
@@ -153,7 +153,7 @@ Not mapped to an organisation: 694 PRs, 1,878 commits by 189 contributors.
 | 9 | Starzel | 542 | 2,298 | 3 | 142 |
 | 10 | Eau de Web | 535 | 1,596 | 17 | 36 |
 
-Not mapped to an organisation: 2,286 PRs, 6,763 commits by 388 contributors.
+Not mapped to an organisation: 2,309 PRs, 6,796 commits by 389 contributors.
 
 
 ---
