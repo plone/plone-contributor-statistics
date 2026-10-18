@@ -22,9 +22,9 @@ import logging
 from collections import defaultdict
 from dotenv import load_dotenv
 
-import paths
-from github_api import GitHubAPIError, github_get, github_graphql
-from mappings import load_bot_accounts, load_excluded_repositories
+from scripts.lib import paths
+from scripts.lib.github_api import GitHubAPIError, github_get, github_graphql
+from scripts.lib.mappings import load_bot_accounts, load_excluded_repositories
 from plone_contributors import parse_timestamp, select_repositories
 
 # Setup logging

@@ -15,8 +15,8 @@ import os
 import sys
 import argparse
 
-import paths
-from mappings import load_bot_accounts, load_organisation_mapping  # noqa: F401 (imported from here by other scripts)
+from scripts.lib import paths
+from scripts.lib.mappings import load_bot_accounts, load_organisation_mapping  # noqa: F401 (imported from here by other scripts)
 
 # Contributors who are not mapped to an organisation. This is not an
 # organisation: it gets no recognition points or level (#53). Self-employed

@@ -12,8 +12,8 @@ import argparse
 import sys
 from pathlib import Path
 
-import paths
-from years import window
+from scripts.lib import paths
+from scripts.lib.years import window
 from organisation_stats import UNMAPPED
 
 

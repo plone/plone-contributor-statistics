@@ -3,7 +3,7 @@
 import pytest
 
 import volto_stats
-from github_api import GitHubAPIError
+from scripts.lib.github_api import GitHubAPIError
 
 
 class FakeResponse:

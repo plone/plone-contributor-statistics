@@ -23,8 +23,8 @@ from datetime import datetime
 import requests
 from dotenv import load_dotenv
 
-import paths
-from github_api import github_get, is_merge_commit
+from scripts.lib import paths
+from scripts.lib.github_api import github_get, is_merge_commit
 
 # Force reload environment
 if 'GITHUB_TOKEN' in os.environ:

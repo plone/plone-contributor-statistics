@@ -12,8 +12,8 @@ from collections import defaultdict, Counter
 import os
 import re
 
-import paths
-from mappings import read_organisations
+from scripts.lib import paths
+from scripts.lib.mappings import read_organisations
 
 def load_organisation_files():
     """Load all organisation CSV files"""

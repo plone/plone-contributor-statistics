@@ -11,7 +11,7 @@ import pandas as pd
 from pathlib import Path
 from datetime import datetime
 
-import paths
+from scripts.lib import paths
 from organisation_stats import UNMAPPED
 
 

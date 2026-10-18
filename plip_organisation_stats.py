@@ -10,8 +10,8 @@ yearly overrides of organisation_mapping_overrides.csv.
 import csv
 from collections import defaultdict
 
-import paths
-from mappings import load_organisation_mapping
+from scripts.lib import paths
+from scripts.lib.mappings import load_organisation_mapping
 from organisation_stats import UNMAPPED
 
 PLIPS_FILE = paths.PLIPS_DETAILED

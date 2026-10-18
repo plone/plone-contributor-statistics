@@ -10,7 +10,7 @@ import pandas as pd
 from pathlib import Path
 import sys
 
-import paths
+from scripts.lib import paths
 
 # Try to import optional dependencies for graph generation
 try:

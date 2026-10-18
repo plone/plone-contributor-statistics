@@ -17,7 +17,7 @@ import pandas as pd
 from datetime import datetime
 from collections import defaultdict
 
-import paths
+from scripts.lib import paths
 
 def get_github_token():
     """Get GitHub token from environment or .env file"""

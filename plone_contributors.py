@@ -39,10 +39,10 @@ from dotenv import load_dotenv
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
 
-import git_history
-import paths
-from github_api import GitHubAPIError, github_get, github_graphql, is_merge_commit
-from mappings import load_account_aliases, load_bot_accounts, load_commit_authors, load_excluded_repositories
+from scripts.lib import git_history
+from scripts.lib import paths
+from scripts.lib.github_api import GitHubAPIError, github_get, github_graphql, is_merge_commit
+from scripts.lib.mappings import load_account_aliases, load_bot_accounts, load_commit_authors, load_excluded_repositories
 
 
 EXCLUDED_REPOSITORIES_FILE = paths.EXCLUDED_REPOSITORIES

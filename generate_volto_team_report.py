@@ -11,8 +11,8 @@ from pathlib import Path
 
 import pandas as pd
 
-import paths
-from mappings import read_organisations, read_overrides
+from scripts.lib import paths
+from scripts.lib.mappings import read_organisations, read_overrides
 
 
 def load_year(year):

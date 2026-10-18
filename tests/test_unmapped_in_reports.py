@@ -3,7 +3,7 @@
 import pandas as pd
 
 import multi_year_summary
-import paths
+from scripts.lib import paths
 from generate_contributor_report import top_organisations_table
 from organisation_stats import UNMAPPED
 

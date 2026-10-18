@@ -5,7 +5,7 @@ from datetime import datetime
 import pytest
 
 import plone_pr_interactions
-from github_api import GitHubAPIError
+from scripts.lib.github_api import GitHubAPIError
 from plone_pr_interactions import PlonePRInteractionExtractor
 
 

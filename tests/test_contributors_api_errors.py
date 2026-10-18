@@ -6,7 +6,7 @@ from datetime import datetime
 import pytest
 
 import plone_contributors
-from github_api import GitHubAPIError
+from scripts.lib.github_api import GitHubAPIError
 
 
 class FakeResponse:

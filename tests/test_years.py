@@ -2,7 +2,7 @@
 
 from datetime import date
 
-import years
+from scripts.lib import years
 
 
 def test_default_windows_unchanged():

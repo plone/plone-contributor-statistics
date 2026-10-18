@@ -15,9 +15,9 @@ from pathlib import Path
 
 import argparse
 
-import mappings
-import paths
-from years import RECOGNITION_YEAR
+from scripts.lib import mappings
+from scripts.lib import paths
+from scripts.lib.years import RECOGNITION_YEAR
 from plip_organisation_stats import organisation_lookup, plips_by_organisation, read_plips
 
 
