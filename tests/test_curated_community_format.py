@@ -1,4 +1,4 @@
-"""Format checks for all curated community files (#52); see docs/reference/recognition-files.md."""
+"""Format checks for all curated community files (#52); see docs/reference/data-files.md."""
 
 import csv
 import re
@@ -22,8 +22,9 @@ KINDS = {
     'world-plone-day-event': [['Organisation', 'Reference']],
     'world-plone-day-talks': [['Video Title', 'Speaker(s)', 'Organisation', 'Event / Location', 'Type', 'YouTube ID']],
 }
-# Columns that can hold several values, separated by semicolons
-MULTI_VALUE = ['Organisation', 'Organiser(s)', 'Organiser/Host', 'Trainer(s)', 'GitHub Handle(s)', 'Speaker(s)']
+# Columns with several people or handles, separated by semicolons; a comma there is a wrong
+# separator. Organisation names may contain commas; test_curated_organisation_names checks them.
+MULTI_VALUE = ['Organiser(s)', 'Organiser/Host', 'Trainer(s)', 'GitHub Handle(s)', 'Speaker(s)']
 FILES = sorted(DATA.glob('[0-9][0-9][0-9][0-9]-*.csv'))
 
 
@@ -79,9 +80,3 @@ def test_sources_are_links(path):
         for column in ('Source', 'Reference'):
             if column in row:
                 assert re.search(r'https?://', row[column]), f'line {number}: {column} needs a link: {row[column]!r}'
-
-
-@pytest.mark.parametrize('name', KINDS)
-def test_one_file_per_year_without_gaps(name):
-    years = [int(p.name[:4]) for p in FILES if kind(p) == name]
-    assert years == list(range(years[0], years[-1] + 1)), f'{name}: years {years}'

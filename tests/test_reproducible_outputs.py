@@ -25,8 +25,9 @@ GENERATED = re.compile(r'^\*?Generated( on)?:.*$', re.M)
 
 def committed_years():
     """The last year of the committed summaries and the year of the committed recognition report."""
-    summary = next((ROOT / 'derived' / 'summaries').glob('summary-past-three-years-*.csv'))
-    recognition = next((ROOT / 'derived' / 'community-recognition').glob('*-community-recognition-report.csv'))
+    # The newest ones, if older years are still committed next to them
+    summary = max((ROOT / 'derived' / 'summaries').glob('summary-past-three-years-*.csv'))
+    recognition = max((ROOT / 'derived' / 'community-recognition').glob('*-community-recognition-report.csv'))
     return summary.stem[-4:], recognition.name[:4]
 
 

@@ -12,7 +12,7 @@ You need a public source for the row.
 
 3.  Fill in the `Organisation` with the organisation as it is named in `curated/mappings/organisations.csv`.
     If the source names only people, take the organisation that `curated/mappings/organisations.csv` and `curated/mappings/organisation_mapping_overrides.csv` give for that year.
-    If the organisation is unknown, leave it empty instead of guessing.
+    If the organisation is unknown, write `Unmapped` instead of guessing.
 
 4.  Put a link to the source in the `Source` column.
     If the file has no `Source` column, put the link in the pull request description.
