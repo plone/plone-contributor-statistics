@@ -1,0 +1,6 @@
+plone-sphinx-theme
+myst-parser
+linkify-it-py
+sphinx-design
+sphinx-copybutton
+sphinxcontrib-mermaid

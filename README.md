@@ -1,322 +1,47 @@
-# Plone Contributor Statistics Extractor
+# Plone Contributor Statistics
 
-Comprehensive GitHub statistics extraction and analysis system for the Plone ecosystem, including individual contributor stats, organisation attribution, and PLIP (Plone Improvement Proposals) tracking across all Plone repositories.
+Statistics about who contributes to Plone and which organisations sponsor that work, from 2003 to today.
+They count commits and merged pull requests in the repositories of the [`plone` GitHub organisation](https://github.com/plone), pull request reviews and comments, PLIPs, and curated community work such as conferences, sprints, trainings and release management.
 
-## Features
+**Documentation: https://plone.github.io/plone-contributor-statistics/** (source in [`docs/`](docs/))
 
-- **Complete Repository Coverage**: Processes all 300+ repositories in the Plone organization
-- **Multi-Year Analysis**: Historical data extraction from 2005-2025
-- **Volto Statistics**: Dedicated contributor statistics for the plone/volto repository
-- **Organisation Mapping**: Attribution system mapping 109+ contributors to 54+ organisations
-- **PLIP Tracking**: Extract and analyze Plone Improvement Proposals across repositories
-- **Cross-Year Analysis**: Identify Independent contributors for organisation mapping
-- **GitHub API Integration**: Handles authentication, rate limiting, and pagination
-- **Automated Workflows**: Makefile commands for all analysis tasks
+The documentation explains where the data comes from, how it is counted, and why.
+It is for:
 
-## Quick Start
+- members of the Plone Foundation who want to understand how the numbers for their organisation come together,
+- people who study Plone as an example of a long-lived free software community,
+- everyone who looks for the people they once worked with on Plone,
+- contributors who correct data or change the method.
 
-```bash
-# Setup environment and dependencies
-make setup
+## Quick start
 
-# Run current year (2025) statistics
-make run-stats
-
-# Run statistics for individual years (e.g. 2022)
-make run-stats-2022
-
-# Run organisation statistics (this requires <YEAR>-plone-contributors.csv files to be present)
-make run-organisation-stats
-
-# Generate yearly graphs
-make yearly-graphs
-
-# Generate Flourish Graphs
-make flourish-graph-individual-contributors-csv-file
-make flourish-graph-organisation-contributors-csv-file
-
-# Extract PLIP statistics
-make run-plips
-
-# Show all available commands
-make help
+```shell
+make setup        # install the dependencies, create .env for the GitHub token
+make test         # run the offline tests
+make docs-install # install the documentation dependencies
+make docs         # build the documentation to docs/_build/html
+make help         # list all targets
 ```
 
-## Main Makefile Commands
+Collecting data from GitHub needs a token in `.env`.
+See [Collect the data again](https://plone.github.io/plone-contributor-statistics/how-to/collect-data-again.html).
 
-### Individual Contributor Statistics
+## Data and reports
 
-```bash
-# Current year (2025)
-make run-stats
+- `data/`: contributor, organisation and pull request interaction files, one per year.
+- `data/community-contributions/`: curated community data, one file per year and kind.
+- `reports/`: generated reports.
+- `archive/`: earlier analyses, proposals and notes, kept for reference.
 
-# Specific years (2005-2025 available)
-make run-stats-2024
-make run-stats-2023
-make run-stats-2022
-# ... (all years 2005-2025)
+Charts on Flourish: [individual contributors](https://public.flourish.studio/visualisation/24775871/) and [organisations](https://public.flourish.studio/visualisation/24775561/).
 
-# All years in one run (one file per year)
-make run-stats-all-years
-python plone_contributors.py --from-year 2003 --to-year 2025
+## Contributing
 
-# Custom date range
-python plone_contributors.py --start-date 2024-01-01 --end-date 2024-06-30
-```
+Corrections are welcome as pull requests, with a source or a confirmation.
+See [Correct an organisation mapping](https://plone.github.io/plone-contributor-statistics/how-to/correct-an-organisation-mapping.html) and [Contribute to the documentation](https://plone.github.io/plone-contributor-statistics/contributing/documentation.html).
 
-### Organisation Statistics
+Code changes get tests; data files get format checks ([#52](https://github.com/plone/plone-contributor-statistics/issues/52)).
+GitHub Actions runs the tests and builds the documentation on every pull request.
+A pull request that changes the method must update the documentation in the same pull request.
 
-```bash
-# Current year organisation stats
-make run-organisation-stats
-
-# Specific years (2005-2025 available)
-make run-organisation-stats-2024
-make run-organisation-stats-2023
-make run-organisation-stats-2022
-# ... (all years 2005-2025)
-```
-
-### Volto Statistics
-
-Extract contributor statistics from the plone/volto repository:
-
-```bash
-# Current year (defaults to 2025)
-make run-volto-stats
-
-# Specific years (2005-2025 available)
-make run-volto-stats-2024
-make run-volto-stats-2023
-make run-volto-stats-2022
-# ... (all years 2005-2025)
-
-# Generate Volto report
-make generate-volto-report
-```
-
-### PLIP (Plone Improvement Proposals) Analysis
-
-```bash
-# Extract PLIP statistics from all repositories
-make run-plips
-
-# Generate PLIP organisation statistics
-make run-plip-organisations
-```
-
-### Analysis and Maintenance
-
-```bash
-# Analyze Independent contributors for organisation mapping
-make analyze-independent
-
-# Clean generated files
-make clean
-
-# Code quality checks
-make lint
-make format
-make check
-```
-
-## Generated Files
-
-### Individual Statistics
-
-- `data/YYYY-plone-contributors.csv` - Individual contributor stats by year
-- Raw data with commits, PRs, repositories, and date ranges per contributor
-
-### Organisation Statistics
-
-- `data/YYYY-plone-organisation-contributors.csv` - Organisation-aggregated stats
-- Shows total activity by organisation with contributor attribution
-
-### Volto Statistics
-
-- `data/YYYY-volto-stats.csv` - Volto contributor statistics by year
-- Contains: `github_username`, `pull_requests`, `commits`
-- Sorted by pull requests (descending)
-- Report: `reports/volto.md`
-
-### PLIP Statistics
-
-- `plone-plips.csv` - PLIP counts per author (aggregated)
-- `plone-plips-detailed.csv` - Individual PLIP records
-- `plone-plip-organisations.csv` - PLIP statistics by organisation
-
-### Flourish Charts
-
-- Individual Contributors: https://public.flourish.studio/visualisation/24775871/
-- Organisations: https://public.flourish.studio/visualisation/24775561/
-
-### Configuration
-
-- `organisations.csv` - Maps contributors to organisations
-- Columns: `Organisation`, `Team` (semicolon-separated GitHub usernames)
-- `commit_authors.csv` - The people behind commit emails that GitHub does not link to an account (`email`, `github_username`, `name`, `source`)
-- `account_aliases.csv` - Second GitHub accounts of a person, counted for the main account (`alias`, `github_username`, `source`)
-
-## Key Features
-
-### Organisation Mapping System
-
-The system maps 109+ contributors across 54+ organisations including:
-
-- **kitconcept**: Leading contributor with comprehensive Plone development
-- **nuclia**: Significant PLIP contributions and core development
-- **syslab**: Multi-year contributor across various repositories
-- **Unmapped**: contributors not (yet) mapped to an organisation
-
-Rules for the mapping (`organisations.csv`, yearly overrides in `organisation_mapping_overrides.csv`):
-
-- Contributions are attributed to the organisation that **sponsors the contributor's time on Plone**, in the year of the contribution.
-- **Private engagement** and volunteers are attributed to the person: `Name (independent)`. Self-employed people with a company name use the company name.
-- **Unmapped** is not an organisation: it gets no recognition points or level, and is shown separately. A mapping needs a source or a confirmation; when in doubt, a contributor stays unmapped.
-- Bot accounts that the GitHub API lists as users are listed in `bot_accounts.csv` and not counted.
-
-### PLIP Tracking
-
-Extracts PLIPs from three main repositories:
-
-- **Products.CMFPlone**: Core Plone functionality (227 PLIPs)
-- **volto**: Modern frontend (75 PLIPs)
-- **plone.restapi**: REST API (6 PLIPs)
-
-### Cross-Year Analysis
-
-- Track contributor activity patterns across years
-- Identify unmapped contributors for potential organisation mapping
-- Generate comprehensive statistics from 2005-2025
-
-## Setup
-
-1. **Install dependencies**:
-
-```bash
-make install
-# or manually: pip install requests pandas python-dotenv
-```
-
-2. **GitHub Token Setup**:
-
-```bash
-make setup
-# Edit .env file with your GitHub token
-```
-
-3. **Development Setup** (optional):
-
-```bash
-make dev-setup  # Includes linting and formatting tools
-```
-
-4. **Tests**:
-
-```bash
-make test   # pytest, offline: GitHub API calls are replaced by fakes
-make check  # compiles all scripts and checks the requirements
-```
-
-Code changes get tests; data files only get format checks (#52). GitHub Actions runs `make check`, `make test` and a flake8 check for syntax errors and undefined names on every pull request.
-
-## Usage Examples
-
-### Complete Analysis Workflow
-
-```bash
-# 1. Extract individual stats for 2024
-make run-stats-2024
-
-# 2. Generate organisation stats for 2024
-make run-organisation-stats-2024
-
-# 3. Analyze remaining Independent contributors
-make analyze-independent
-
-# 4. Extract PLIP statistics
-make run-plips
-
-# 5. Generate PLIP organisation statistics
-make run-plip-organisations
-```
-
-### Multi-Year Organisation Analysis
-
-```bash
-# Generate organisation stats for multiple years
-make run-organisation-stats-2024
-make run-organisation-stats-2023
-make run-organisation-stats-2022
-```
-
-## Data Analysis Results
-
-### Top Organisations by Activity (2024 example)
-
-- **kitconcept**: ~2,000+ commits across 100+ repositories
-- **nuclia**: Major PLIP contributor with 37 proposals
-- **syslab**: Consistent multi-repository contributor
-- **py76**: High-volume individual contributor
-
-### PLIP Statistics
-
-- **Total PLIPs**: 317 (71 open, 237 closed)
-- **Top PLIP Authors**: tisto (60), sneridagh (32), bloodbare (20)
-- **Repository Distribution**: Products.CMFPlone (73%), volto (24%), plone.restapi (2%)
-
-## GitHub API Considerations
-
-- **With token**: 5,000 requests per hour
-- **Without token**: 60 requests per hour (not recommended)
-- Waits for rate limits and retries (`github_api.py`)
-- Stops on any other API error instead of recording zero activity; an incomplete run only writes a checkpoint file
-- Handles pagination for large datasets
-
-## Data Collection Methodology
-
-### Pull Request Counting
-
-All contributor statistics count only **merged** pull requests.
-The counts exclude the following pull request statuses.
-- Open pull requests (still under review)
-- Closed but not merged pull requests (rejected)
-
-This ensures statistics reflect actual contributions to the codebase.
-
-A pull request belongs to the year it was **merged** in, both in the core and the Volto statistics. Pull requests to any base branch count, including backports to maintenance branches.
-
-**Exception**: PR interaction statistics (`plone_pr_interactions.py`) count all interactions (comments, reviews) on any PR, regardless of merge status, to accurately capture community engagement.
-A PR belongs to the year it was **created** in.
-Bots (GitHub Apps and the accounts in `bot_accounts.csv`) are left out: their PRs, comments and reviews.
-A comment or review by a bot is also no response for the first response time.
-
-### Commit Counting
-
-Commits are counted from the default branch only, which automatically includes:
-- Direct commits to the default branch
-- Commits from merged pull requests
-
-This excludes commits on unmerged branches or rejected pull requests.
-
-**Older history on release branches** (#68): in some repositories, the history from before the move to the egg structure is only on the old release branches. For example, the `master` of Products.CMFPlone starts in 2008, its branch `3.0` goes back to 2002. Commits on release branches (`2.5`, `3.0`, `4.3.x`, …) are counted when they are older than the first commit of the default branch. Later commits on release branches are mostly backports of changes on the default branch, so they are not counted twice; backport PRs are counted as PRs.
-
-**Commits that exist twice** are counted once (#78). The `[fc]` commits in buildout.coredev are automatic copies of the commits in the core packages, under the original author's name; they are not counted. Within a repository, commits with the same author date and message are the same change with another SHA (a rebased branch that was merged as well, or SVN history imported twice), and are counted once.
-
-**Merge commits** (commits with more than one parent, e.g. from GitHub's merge button) are not counted: merging is not code creation. Review and merge work is discussed in #61.
-
-### Collection
-
-For each repository, the commits and the closed pull requests are fetched **once** for the whole requested range, and then assigned to the years: commits by commit date, pull requests by merge date.
-
-The commits are read from local clones in `.cache/repositories/` (`git_history.py`). The clones are bare and treeless (commits only, no files), and are updated on the next run. GitHub links a commit to the account that has its author email; the collector looks up each email once via the GraphQL API. The pull requests come from the REST API. A run over all years needs a few thousand API requests.
-
-Bot accounts (type `Bot`, or listed in `bot_accounts.csv`) are not counted.
-
-Many commits have an email that GitHub does not link to an account: from the CVS and SVN times (`name@localhost`), or old company addresses that are not on the person's account today. `commit_authors.csv` maps these emails to the GitHub login, or to the person's name if they have no GitHub account; they are then counted under that name. Each entry has a source. Commits with an email that is in neither GitHub nor this file are not counted (#69).
-
-`account_aliases.csv` merges the second account of a person into the main account, for commits and pull requests, when there is clear evidence that it is the same person.
-
-### Repositories
-
-All repositories of the `plone` organisation are collected, including archived ones, except those listed in `excluded_repositories.csv` with a reason (e.g. forks with foreign upstream history, see #60 and #58).
+Agents: read [`AGENTS.md`](AGENTS.md).
