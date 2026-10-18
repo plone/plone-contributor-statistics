@@ -44,7 +44,7 @@
 9. Starzel: 611 PRs
 10. Eau de Web: 502 PRs
 
-Not mapped to an organisation: 2,682 PRs
+Not mapped to an organisation: 2,678 PRs
 
 ## Top 10 organisations by commits (2015-2024)
 
@@ -59,4 +59,4 @@ Not mapped to an organisation: 2,682 PRs
 9. Salesforce: 2,353 commits
 10. Kombinat: 2,328 commits
 
-Not mapped to an organisation: 9,233 commits
+Not mapped to an organisation: 9,213 commits

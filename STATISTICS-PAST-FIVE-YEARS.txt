@@ -44,7 +44,7 @@
 9. Nuclia: 294 PRs
 10. Klein & Partner KG: 290 PRs
 
-Not mapped to an organisation: 875 PRs
+Not mapped to an organisation: 871 PRs
 
 ## Top 10 organisations by commits (2020-2024)
 
@@ -59,4 +59,4 @@ Not mapped to an organisation: 875 PRs
 9. PY76: 1,193 commits
 10. Rohberg: 1,149 commits
 
-Not mapped to an organisation: 2,186 commits
+Not mapped to an organisation: 2,166 commits
