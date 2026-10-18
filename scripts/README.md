@@ -1,7 +1,7 @@
 # Scripts
 
 The code of the statistics, one folder per pipeline stage.
-Run the scripts through `make`, see `make help` and the [Make targets](https://plone.github.io/plone-contributor-statistics/reference/make-targets.html).
+Run the scripts through `make`, see `make help` and the [Make targets](https://plone.github.io/plone-contributor-statistics/docs/reference/make-targets.html).
 To run one directly, run it as a module from the repository root, for example:
 
 ```shell

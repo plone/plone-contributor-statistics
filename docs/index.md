@@ -15,6 +15,7 @@ The Git history of Plone reaches back to 2002, and the statistics start with 200
 This documentation explains where the data comes from, how it is counted, and why the method is the way it is.
 
 The statistics themselves, such as rankings and trends, are not part of this documentation.
+They are on the [community page](https://plone.github.io/plone-contributor-statistics/), which is generated from the same data; {doc}`/explanation/community-page` explains its numbers.
 Neither is the code: it has its own comments and tests.
 
 ## Public records only

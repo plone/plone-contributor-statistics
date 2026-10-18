@@ -4,7 +4,7 @@ This file is for AI coding agents of any vendor working on this repository.
 People are welcome to read it too.
 
 The repository collects statistics about contributions to Plone: commits, pull requests, PLIPs and curated community data, attributed to people and organisations.
-The method and its reasons are documented in `docs/`, published at https://plone.github.io/plone-contributor-statistics/.
+The method and its reasons are documented in `docs/`, published at https://plone.github.io/plone-contributor-statistics/docs/.
 Read the documentation before you change data or method, and link to it instead of repeating it.
 
 ## Commands
@@ -13,6 +13,7 @@ Read the documentation before you change data or method, and link to it instead 
 - `make test`: run the offline test suite.
 - `make check`: compile all scripts and check the requirements.
 - `make docs-install` and `make docs`: build the documentation, warnings are errors.
+- `make site` and `make site-serve`: build and preview the published site: the community page at the root, the documentation below `docs/`.
 - `make help`: list all targets, see also `docs/reference/make-targets.md`.
 
 ## Layout

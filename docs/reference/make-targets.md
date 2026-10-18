@@ -30,7 +30,7 @@ Set a variable on the command line to use another year, for example `make five-y
 | `make check` | Runs `lint`, compiles all scripts and checks the installed requirements. | works |
 | `make lint` | Runs flake8 on the scripts, if installed. | works |
 | `make format` | Formats the scripts. | works |
-| `make clean` | Deletes caches, checkpoint files and the built documentation; never committed files. | works |
+| `make clean` | Deletes caches, checkpoint files, the built documentation and the built site; never committed files. | works |
 | `make status` | Prints the Python version and whether a GitHub token is configured. | works |
 
 ## A whole year
@@ -75,3 +75,10 @@ Set a variable on the command line to use another year, for example `make five-y
 | `make docs` | Builds this documentation to `docs/_build/html`; warnings are errors. | works |
 | `make docs-linkcheck` | Checks the links in this documentation. | works |
 | `make docs-clean` | Deletes `docs/_build`. | works |
+
+## Site
+
+| Target | Does | Status |
+|---|---|---|
+| `make site` | Builds the community page from `derived/community-page.json` into `_site`, and this documentation into `_site/docs`, as GitHub Pages publishes them. | works |
+| `make site-serve` | Serves `_site` at `http://localhost:8000` to preview the site. | works |

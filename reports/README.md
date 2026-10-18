@@ -10,4 +10,4 @@ Human-facing output, mostly written by the scripts in `scripts/report/`; never e
 | `summaries/` | The three-, five- and ten-year summaries as text, written by `scripts/derive/multi_year_summary.py` together with the CSV files in `derived/summaries/`. | `three-year-summary`, `five-year-summary`, `ten-year-summary` |
 | `graphs/` | Graphs of the yearly totals. | `yearly-graphs` |
 
-See [Data files](https://plone.github.io/plone-contributor-statistics/reference/data-files.html#reports) for what each report contains.
+See [Data files](https://plone.github.io/plone-contributor-statistics/docs/reference/data-files.html#reports) for what each report contains.

@@ -27,7 +27,7 @@ myst_linkify_fuzzy_links = False
 exclude_patterns = ["_build"]
 
 html_theme = "plone_sphinx_theme"
-html_baseurl = "https://plone.github.io/plone-contributor-statistics/"
+html_baseurl = "https://plone.github.io/plone-contributor-statistics/docs/"
 html_title = project
 
 html_theme_options = {
