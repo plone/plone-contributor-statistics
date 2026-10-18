@@ -42,7 +42,7 @@
 7. Steve Piercy - Website Builder: 722 PRs
 8. Kombinat: 624 PRs
 9. Starzel: 611 PRs
-10. Nuclia: 575 PRs
+10. Nuclia: 548 PRs
 
 Not mapped to an organisation: 2,255 PRs
 
