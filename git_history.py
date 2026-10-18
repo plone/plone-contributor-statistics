@@ -12,6 +12,13 @@ branch. Later commits on release branches are mostly backports: the same
 change as on the default branch, with another SHA. They are not counted
 twice; the backport PRs are counted as PRs.
 
+Commits that exist twice are counted once (#78):
+- The "[fc]" commits in buildout.coredev are automatic copies of the
+  commits in the core packages, under the original author's name.
+- Within a repository, commits with the same author date and message are
+  the same change with another SHA, e.g. a rebased branch that was merged
+  as well, or SVN history that was imported twice.
+
 The clones are bare and treeless: they only hold commits, not files. They
 are kept in a cache directory and updated on the next run.
 """
@@ -26,8 +33,8 @@ VERSION_BRANCH = re.compile(r'^\d+(\.\d+)*(\.x)?$')
 CACHE_DIR = os.path.join('.cache', 'repositories')
 
 # Fields of a commit in the git log output. Dates are printed in UTC, like in the GitHub API.
-_FIELDS = ['sha', 'parents', 'author_email', 'author_name', 'author_date', 'committer_date']
-_FORMAT = '%x1f'.join(['%H', '%P', '%ae', '%an', '%ad', '%cd']) + '%x1e'
+_FIELDS = ['sha', 'parents', 'author_email', 'author_name', 'author_date', 'committer_date', 'subject']
+_FORMAT = '%x1f'.join(['%H', '%P', '%ae', '%an', '%ad', '%cd', '%s']) + '%x1e'
 _DATE = '--date=format-local:%Y-%m-%dT%H:%M:%SZ'
 
 
@@ -90,11 +97,30 @@ def read_commits(path, branches):
                 'author': {'name': values['author_name'], 'email': values['author_email'],
                            'date': values['author_date']},
                 'committer': {'date': values['committer_date']},
+                'message': values['subject'],
             },
             # Filled in from GitHub, see PloneStatsExtractor.link_authors
             'author': None,
         })
     return commits
+
+
+def is_copy(commit):
+    """True for the automatic "[fc]" copies of core package commits in buildout.coredev."""
+    return commit['commit']['message'].startswith('[fc]')
+
+
+def without_duplicates(commits):
+    """Drop copies, and commits with the same author date and message as an earlier one."""
+    seen = set()
+    result = []
+    for commit in commits:
+        key = (commit['commit']['author']['date'], commit['commit']['message'])
+        if is_copy(commit) or key in seen:
+            continue
+        seen.add(key)
+        result.append(commit)
+    return result
 
 
 def repository_commits(url, path, default_branch, token=None):
@@ -112,4 +138,4 @@ def repository_commits(url, path, default_branch, token=None):
         commit for commit in read_commits(path, release_branches(branches, default_branch))
         if commit['sha'] not in seen and commit['commit']['committer']['date'] < first
     ]
-    return commits + older
+    return without_duplicates(commits + older)

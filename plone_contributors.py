@@ -45,6 +45,8 @@ from github_api import GitHubAPIError, github_get, github_graphql, is_merge_comm
 
 EXCLUDED_REPOSITORIES_FILE = 'excluded_repositories.csv'
 BOT_ACCOUNTS_FILE = 'bot_accounts.csv'
+COMMIT_AUTHORS_FILE = 'commit_authors.csv'
+ACCOUNT_ALIASES_FILE = 'account_aliases.csv'
 REPORT_COLUMNS = ['username', 'total_commits', 'total_pull_requests', 'repositories_count',
                   'repositories', 'first_contribution', 'last_contribution']
 
@@ -71,6 +73,27 @@ def load_bot_accounts(path: str = BOT_ACCOUNTS_FILE) -> Dict[str, str]:
         return {}
     with open(path, newline='', encoding='utf-8') as f:
         return {row['login'].strip(): row['reason'].strip() for row in csv.DictReader(f)}
+
+
+def load_commit_authors(path: str = COMMIT_AUTHORS_FILE) -> Dict[str, str]:
+    """Load the people behind commit emails that GitHub does not link to an account (#69).
+
+    Maps the email (lower case) to the GitHub login, or to the person's name
+    if they have no GitHub account.
+    """
+    if not os.path.exists(path):
+        return {}
+    with open(path, newline='', encoding='utf-8') as f:
+        return {row['email'].strip().lower(): row['github_username'].strip() or row['name'].strip()
+                for row in csv.DictReader(f)}
+
+
+def load_account_aliases(path: str = ACCOUNT_ALIASES_FILE) -> Dict[str, str]:
+    """Load second GitHub accounts of a person, mapped to their main account (#69)."""
+    if not os.path.exists(path):
+        return {}
+    with open(path, newline='', encoding='utf-8') as f:
+        return {row['alias'].strip(): row['github_username'].strip() for row in csv.DictReader(f)}
 
 
 def select_repositories(repos: List[Dict[str, Any]], excluded: Dict[str, str]):
@@ -111,15 +134,10 @@ def _new_stats():
 class PloneStatsExtractor:
     def __init__(self, token: str = None, start_date: datetime = None, end_date: datetime = None,
                  periods: List[Period] = None):
-        # Force load from .env file directly
-        if token is None:
-            with open('.env', 'r') as f:
-                for line in f:
-                    if line.startswith('GITHUB_TOKEN='):
-                        token = line.split('=', 1)[1].strip()
-                        break
-
-        load_dotenv(override=True)
+        # The token comes from --token, the environment, or the .env file.
+        # The environment is better than --token, which shows up in the process list.
+        load_dotenv()
+        token = token or os.getenv('GITHUB_TOKEN')
 
         self.token = token
         self.org = 'plone'
@@ -148,6 +166,8 @@ class PloneStatsExtractor:
               f" ({len(periods)} period{'s' if len(periods) > 1 else ''})")
 
         self.bots = load_bot_accounts()
+        self.commit_authors = load_commit_authors()
+        self.aliases = load_account_aliases()
         self.cache_dir = git_history.CACHE_DIR
         # Author email (lower case) -> GitHub login, or None if the email is not linked to an account
         self.email_logins = {}
@@ -234,7 +254,7 @@ class PloneStatsExtractor:
         """
         unknown = {}
         for commit in commits:
-            email = commit['commit']['author']['email'].lower()
+            email = commit['commit']['author']['email'].strip().lower()
             if email not in self.email_logins:
                 unknown.setdefault(email, commit['sha'])
 
@@ -254,7 +274,10 @@ class PloneStatsExtractor:
                 self.email_logins[email] = user['login'] if user else None
 
         for commit in commits:
-            login = self.email_logins[commit['commit']['author']['email'].lower()]
+            email = commit['commit']['author']['email'].strip().lower()
+            # Emails that GitHub does not link, e.g. name@localhost from SVN times (#69)
+            login = self.email_logins[email] or self.commit_authors.get(email)
+            login = self.aliases.get(login, login)
             # GraphQL returns GitHub Apps such as pre-commit-ci[bot] as users; the REST API says Bot
             user_type = 'Bot' if login and login.endswith('[bot]') else 'User'
             commit['author'] = {'login': login, 'type': user_type} if login else None
@@ -348,7 +371,8 @@ class PloneStatsExtractor:
             if label is None:
                 continue
 
-            stats = self.contributors_data[label][pr['user']['login']]
+            login = pr['user']['login']
+            stats = self.contributors_data[label][self.aliases.get(login, login)]
             stats['pull_requests'] += 1
             stats['repositories'].add(repo_name)
             merged_count += 1
@@ -476,7 +500,7 @@ Examples:
     parser.add_argument(
         '--token',
         type=str,
-        help='GitHub token (if not using .env file)'
+        help='GitHub token. Better use GITHUB_TOKEN or the .env file: --token shows up in the process list.'
     )
 
     return parser.parse_args()

@@ -1,23 +1,42 @@
 username,total_commits,total_pull_requests,repositories_count,repositories,first_contribution,last_contribution
-tiran,850,0,6,"Products.ATContentTypes, Products.Archetypes, Products.CMFFormController, Products.CMFPlone, Products.MimetypesRegistry, Products.PlacelessTranslationService",2004-01-08,2004-12-15
+tiran,849,0,6,"Products.ATContentTypes, Products.Archetypes, Products.CMFFormController, Products.CMFPlone, Products.MimetypesRegistry, Products.PlacelessTranslationService",2004-01-08,2004-12-15
 stefanholek,427,0,7,"Products.ATContentTypes, Products.Archetypes, Products.CMFFormController, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.CMFTestCase, Products.PloneLanguageTool",2004-01-06,2004-12-28
 limi,328,0,7,"Products.ATContentTypes, Products.Archetypes, Products.CMFFormController, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.PlacelessTranslationService, Products.PloneLanguageTool",2004-01-05,2004-12-23
 sidnei,194,0,8,"Products.ATContentTypes, Products.Archetypes, Products.CMFFormController, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.Marshall, Products.MimetypesRegistry, Products.PlacelessTranslationService",2004-01-13,2004-12-02
-bobdobbs666,114,0,3,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone",2004-01-05,2004-10-31
+longsleep,179,0,4,"Products.Archetypes, Products.CMFPlone, Products.PlacelessTranslationService, Products.PloneLanguageTool",2004-01-01,2004-10-08
+dnouri,137,0,3,"Products.Archetypes, Products.CMFPlone, Products.CMFQuickInstallerTool",2004-01-06,2004-09-04
+dorneles,120,0,6,"Products.ATContentTypes, Products.Archetypes, Products.CMFFormController, Products.CMFPlone, Products.PlacelessTranslationService, Products.PloneLanguageTool",2004-01-09,2004-12-14
+runyaga,114,0,3,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone",2004-01-05,2004-10-31
 jensens,99,0,5,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.MimetypesRegistry",2004-01-27,2004-12-30
 geoff-davis,81,0,3,"Products.Archetypes, Products.CMFFormController, Products.CMFPlone",2004-01-08,2004-11-27
-gotcha,31,0,4,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, Products.PloneLanguageTool",2004-05-14,2004-12-21
+bcsaller,59,0,2,"Products.Archetypes, Products.CMFQuickInstallerTool",2004-01-19,2004-10-13
+zworkb,56,0,4,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, Products.CMFQuickInstallerTool",2004-01-20,2004-10-29
+zopyx,49,0,4,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, Products.PlacelessTranslationService",2004-01-18,2004-11-01
+andymckay,40,0,3,"Products.Archetypes, Products.CMFPlone, Products.CMFQuickInstallerTool",2004-01-09,2004-12-02
+tesdal,33,0,5,"Products.ATContentTypes, Products.Archetypes, Products.CMFFormController, Products.CMFPlone, Products.PloneLanguageTool",2004-01-29,2004-12-23
 vinsci,31,0,1,Products.CMFPlone,2004-01-06,2004-05-11
+gotcha,31,0,4,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, Products.PloneLanguageTool",2004-05-14,2004-12-21
+dannybloe,26,0,2,"Products.Archetypes, Products.CMFPlone",2004-01-12,2004-12-01
 baekholt,19,0,3,"Products.Archetypes, Products.CMFPlone, Products.PloneLanguageTool",2004-02-04,2004-10-25
 joelburton,14,0,3,"Products.Archetypes, Products.CMFPlone, Products.PlacelessTranslationService",2004-02-09,2004-08-12
+kapilt,14,0,3,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone",2004-04-01,2004-12-11
+Michael Zeltner,14,0,1,Products.CMFPlone,2004-01-17,2004-04-22
+JimRoepcke,14,0,4,"Products.Archetypes, Products.CMFFormController, Products.CMFPlone, Products.PlacelessTranslationService",2004-01-07,2004-03-12
+ctheune,12,0,1,Products.ATContentTypes,2004-11-24,2004-12-14
+rafrombrc,12,0,2,"Products.Archetypes, Products.PasswordResetTool",2004-05-05,2004-12-23
+panjunyong,11,0,4,"Products.Archetypes, Products.CMFPlone, Products.MimetypesRegistry, Products.PlacelessTranslationService",2004-02-19,2004-09-15
 jladage,10,0,1,Products.CMFPlone,2004-10-07,2004-12-07
 bitranch,10,0,2,"Products.Archetypes, Products.CMFPlone",2004-02-20,2004-05-08
 xiru,10,0,1,Products.Archetypes,2004-05-28,2004-08-28
 jodok,9,0,3,"Products.Archetypes, Products.CMFPlone, Products.PloneLanguageTool",2004-02-26,2004-10-19
+maikroeder,9,0,1,Products.CMFPlone,2004-01-20,2004-01-20
+whitmo,8,0,1,Products.Archetypes,2004-03-30,2004-11-30
 chadwhitacre,5,0,1,Products.CMFPlone,2004-02-29,2004-10-06
 vincic,5,0,1,Products.CMFPlone,2004-01-20,2004-01-21
-mcdonc,4,0,1,Products.Archetypes,2004-03-26,2004-03-26
 myroslav,4,0,1,Products.CMFPlone,2004-03-02,2004-04-20
+mcdonc,4,0,1,Products.Archetypes,2004-03-26,2004-03-26
 mrtopf,3,0,1,Products.CMFPlone,2004-04-19,2004-04-20
+sthenault,3,0,1,Products.Archetypes,2004-02-06,2004-02-06
 bbuehlmann,3,0,1,Products.CMFPlone,2004-02-13,2004-04-14
+Gregoire Weber,1,0,1,Products.CMFPlone,2004-02-02,2004-02-02
 robertrottermann,1,0,1,Products.CMFPlone,2004-01-03,2004-01-03

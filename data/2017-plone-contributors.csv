@@ -1,161 +1,157 @@
 username,total_commits,total_pull_requests,repositories_count,repositories,first_contribution,last_contribution
-vangheem,1301,154,14,"Products.CMFPlone, buildout.coredev, guillotina, guillotina_dbusers, guillotina_elasticsearch, guillotina_gcloudstorage, guillotina_mailer, guillotina_prometheus, guillotina_rediscache, guillotina_s3storage, guillotina_statsd, mockup, plone.app.registry, plone.server",2016-02-27,2017-12-30
-esteele,920,2,78,"Plone, Products.ATContentTypes, Products.Archetypes, Products.CMFDiffTool, Products.CMFDynamicViewFTI, Products.CMFEditions, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.ExtendedPathIndex, Products.MimetypesRegistry, Products.PlacelessTranslationService, Products.PloneLanguageTool, Products.PortalTransforms, Products.contentmigration, Products.statusmessages, Products.validation, archetypes.multilingual, buildout.coredev, collective.monkeypatcher, diazo, mockup, plone.app.blob, plone.app.caching, plone.app.collection, plone.app.content, plone.app.contentlisting, plone.app.contentmenu, plone.app.contentrules, plone.app.contenttypes, plone.app.customerize, plone.app.debugtoolbar, plone.app.dexterity, plone.app.discussion, plone.app.event, plone.app.folder, plone.app.iterate, plone.app.layout, plone.app.ldap, plone.app.linkintegrity, plone.app.lockingbehavior, plone.app.multilingual, plone.app.portlets, plone.app.querystring, plone.app.referenceablebehavior, plone.app.testing, plone.app.textfield, plone.app.theming, plone.app.upgrade, plone.app.uuid, plone.app.vocabularies, plone.app.widgets, plone.app.workflow, plone.app.z3cform, plone.autoform, plone.browserlayer, plone.dexterity, plone.formwidget.namedfile, plone.formwidget.querystring, plone.i18n, plone.keyring, plone.login, plone.memoize, plone.namedfile, plone.outputfilters, plone.portlet.collection, plone.portlet.static, plone.protect, plone.releaser, plone.resourceeditor, plone.scale, plone.schemaeditor, plone.subrequest, plone.supermodel, plone.theme, plone.versioncheck, plone.z3cform, ploneorg.core, plonetheme.barceloneta",2017-01-01,2017-12-15
-mauritsvanrees,656,88,83,"Products.ATContentTypes, Products.Archetypes, Products.CMFEditions, Products.CMFFormController, Products.CMFPlacefulWorkflow, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.LinguaPlone, Products.PlonePAS, Products.ResourceRegistries, Products.TinyMCE, Products.contentmigration, Products.statusmessages, archetypes.multilingual, archetypes.referencebrowserwidget, archetypes.schemaextender, bobtemplates.plone, borg.localrole, buildout.coredev, documentation, five.intid, jenkins.plone.org, mockup, plone.api, plone.app.blob, plone.app.caching, plone.app.collection, plone.app.content, plone.app.contentlisting, plone.app.contentrules, plone.app.contenttypes, plone.app.debugtoolbar, plone.app.dexterity, plone.app.discussion, plone.app.intid, plone.app.iterate, plone.app.jquerytools, plone.app.layout, plone.app.ldap, plone.app.linkintegrity, plone.app.multilingual, plone.app.portlets, plone.app.querystring, plone.app.redirector, plone.app.registry, plone.app.relationfield, plone.app.robotframework, plone.app.testing, plone.app.textfield, plone.app.theming, plone.app.upgrade, plone.app.users, plone.app.uuid, plone.app.versioningbehavior, plone.app.widgets, plone.app.workflow, plone.app.z3cform, plone.autoform, plone.batching, plone.behavior, plone.browserlayer, plone.dexterity, plone.directives.form, plone.event, plone.formwidget.namedfile, plone.formwidget.querystring, plone.locking, plone.memoize, plone.namedfile, plone.portlet.collection, plone.protect, plone.recipe.zeoserver, plone.recipe.zope2instance, plone.registry, plone.releaser, plone.resource, plone.resourceeditor, plone.scale, plone.subrequest, plone.testing, plone.theme, plone.transformchain, plonetheme.classic",2016-11-16,2017-12-21
-jensens,587,107,65,"Plone, Products.ATContentTypes, Products.Archetypes, Products.CMFEditions, Products.CMFFormController, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.PlonePAS, Products.PortalTransforms, Products.statusmessages, archetypes.multilingual, bobtemplates.plone, buildout.coredev, documentation, mockup, mr.roboto, plone.api, plone.app.blob, plone.app.caching, plone.app.collection, plone.app.content, plone.app.contentrules, plone.app.contenttypes, plone.app.dexterity, plone.app.discussion, plone.app.iterate, plone.app.layout, plone.app.linkintegrity, plone.app.lockingbehavior, plone.app.mosaic, plone.app.multilingual, plone.app.openid, plone.app.portlets, plone.app.querystring, plone.app.registry, plone.app.relationfield, plone.app.robotframework, plone.app.standardtiles, plone.app.textfield, plone.app.theming, plone.app.upgrade, plone.app.users, plone.app.uuid, plone.app.versioningbehavior, plone.app.vocabularies, plone.app.workflow, plone.app.z3cform, plone.autoform, plone.behavior, plone.browserlayer, plone.dexterity, plone.event, plone.locking, plone.namedfile, plone.patternslib, plone.recipe.zeoserver, plone.recipe.zope2instance, plone.scale, plone.schemaeditor, plone.session, plone.supermodel, plone.testing, plone.theme, plone.versioncheck, plonecli",2016-11-28,2017-12-14
-tisto,458,48,26,"archetypes.referencebrowserwidget, aurora, bobtemplates.plone, buildout.coredev, guillotina, pastanaga, pastanaga-angular, plone.app.caching, plone.app.contenttypes, plone.app.jquerytools, plone.app.layout, plone.app.redirector, plone.app.robotframework, plone.app.theming, plone.app.vocabularies, plone.app.workflowmanager, plone.app.z3cform, plone.mocktestcase, plone.rest, plone.restapi, plone.restapi-angular, plone.scale, plone.tiles, plonetheme.barceloneta, volto, voltocms.com",2017-01-12,2017-12-31
-pbauer,415,67,50,"Products.ATContentTypes, Products.Archetypes, Products.CMFEditions, Products.CMFFormController, Products.CMFPlone, Products.LinguaPlone, Products.Marshall, Products.PlacelessTranslationService, Products.PlonePAS, Products.contentmigration, Products.statusmessages, bobtemplates.plone, borg.localrole, buildout.coredev, documentation, five.intid, planet.plone.org, plone.api, plone.app.blob, plone.app.caching, plone.app.contentlisting, plone.app.contenttypes, plone.app.debugtoolbar, plone.app.dexterity, plone.app.discussion, plone.app.folder, plone.app.imaging, plone.app.iterate, plone.app.layout, plone.app.linkintegrity, plone.app.referenceablebehavior, plone.app.relationfield, plone.app.testing, plone.app.theming, plone.app.upgrade, plone.app.uuid, plone.app.vocabularies, plone.app.workflow, plone.app.z3cform, plone.login, plone.namedfile, plone.portlet.collection, plone.portlet.static, plone.recipe.zope2instance, plone.rfc822, plone.schemaeditor, plone.testing, plone.z3cform, training, training.plone.org",2016-01-28,2017-12-18
-thet,385,167,46,"Products.Archetypes, Products.CMFPlone, Products.LinguaPlone, Products.contentmigration, archetypes.referencebrowserwidget, archetypes.schemaextender, aurora, buildout.coredev, mockup, papyrus, plone.api, plone.app.content, plone.app.contenttypes, plone.app.dexterity, plone.app.event, plone.app.folder, plone.app.jquerytools, plone.app.layout, plone.app.linkintegrity, plone.app.lockingbehavior, plone.app.mosaic, plone.app.multilingual, plone.app.portlets, plone.app.querystring, plone.app.theming, plone.app.upgrade, plone.app.users, plone.app.vocabularies, plone.app.widgets, plone.app.z3cform, plone.autoform, plone.dexterity, plone.formwidget.hcaptcha, plone.formwidget.recaptcha, plone.instanceprofiling, plone.namedfile, plone.patternslib, plone.portlet.collection, plone.protect, plone.schemaeditor, plone.subrequest, plone.supermodel, plone.testing, plone.versioncheck, plonetheme.barceloneta, volto",2016-02-08,2017-11-22
-gforcada,328,57,38,"Products.ATContentTypes, Products.Archetypes, Products.CMFEditions, Products.CMFPlone, Products.statusmessages, buildout.coredev, collective.indexing, documentation, jenkins.plone.org, mr.roboto, plone.api, plone.app.blob, plone.app.caching, plone.app.content, plone.app.contentmenu, plone.app.contentrules, plone.app.contenttypes, plone.app.discussion, plone.app.layout, plone.app.linkintegrity, plone.app.multilingual, plone.app.upgrade, plone.app.workflow, plone.autoform, plone.formwidget.hcaptcha, plone.formwidget.recaptcha, plone.intelligenttext, plone.jenkins_node, plone.jenkins_server, plone.login, plone.namedfile, plone.outputfilters, plone.protect, plone.recipe.codeanalysis, plone.scale, plone.testing, plone.tiles, plone_best_practices_discussion",2016-01-25,2017-12-25
-loechel,325,51,17,"Installers-UnifiedInstaller, Products.CMFPlone, bobtemplates.plone, buildout.coredev, diazo, documentation, guillotina, papyrus, plone.api, plone.app.contentlisting, plone.github, plone.namedfile, plone.versioncheck, plone_best_practices_discussion, ploneorg.addonlisting, ploneorg.releasesecurityinfo, sphinxtheme.plone",2017-01-23,2017-10-21
+vangheem,1304,154,13,"Products.CMFPlone, guillotina, guillotina_dbusers, guillotina_elasticsearch, guillotina_gcloudstorage, guillotina_mailer, guillotina_prometheus, guillotina_rediscache, guillotina_s3storage, guillotina_statsd, mockup, plone.app.registry, plone.server",2016-02-27,2017-12-30
+esteele,892,2,78,"Plone, Products.ATContentTypes, Products.Archetypes, Products.CMFDiffTool, Products.CMFDynamicViewFTI, Products.CMFEditions, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.ExtendedPathIndex, Products.MimetypesRegistry, Products.PlacelessTranslationService, Products.PloneLanguageTool, Products.PortalTransforms, Products.contentmigration, Products.statusmessages, Products.validation, archetypes.multilingual, buildout.coredev, collective.monkeypatcher, diazo, mockup, plone.app.blob, plone.app.caching, plone.app.collection, plone.app.content, plone.app.contentlisting, plone.app.contentmenu, plone.app.contentrules, plone.app.contenttypes, plone.app.customerize, plone.app.debugtoolbar, plone.app.dexterity, plone.app.discussion, plone.app.event, plone.app.folder, plone.app.iterate, plone.app.layout, plone.app.ldap, plone.app.linkintegrity, plone.app.lockingbehavior, plone.app.multilingual, plone.app.portlets, plone.app.querystring, plone.app.referenceablebehavior, plone.app.testing, plone.app.textfield, plone.app.theming, plone.app.upgrade, plone.app.uuid, plone.app.vocabularies, plone.app.widgets, plone.app.workflow, plone.app.z3cform, plone.autoform, plone.browserlayer, plone.dexterity, plone.formwidget.namedfile, plone.formwidget.querystring, plone.i18n, plone.keyring, plone.login, plone.memoize, plone.namedfile, plone.outputfilters, plone.portlet.collection, plone.portlet.static, plone.protect, plone.releaser, plone.resourceeditor, plone.scale, plone.schemaeditor, plone.subrequest, plone.supermodel, plone.theme, plone.versioncheck, plone.z3cform, ploneorg.core, plonetheme.barceloneta",2017-01-01,2017-12-15
+mauritsvanrees,578,88,83,"Products.ATContentTypes, Products.Archetypes, Products.CMFEditions, Products.CMFFormController, Products.CMFPlacefulWorkflow, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.LinguaPlone, Products.PlonePAS, Products.ResourceRegistries, Products.TinyMCE, Products.contentmigration, Products.statusmessages, archetypes.multilingual, archetypes.referencebrowserwidget, archetypes.schemaextender, bobtemplates.plone, borg.localrole, buildout.coredev, documentation, five.intid, jenkins.plone.org, mockup, plone.api, plone.app.blob, plone.app.caching, plone.app.collection, plone.app.content, plone.app.contentlisting, plone.app.contentrules, plone.app.contenttypes, plone.app.debugtoolbar, plone.app.dexterity, plone.app.discussion, plone.app.intid, plone.app.iterate, plone.app.jquerytools, plone.app.layout, plone.app.ldap, plone.app.linkintegrity, plone.app.multilingual, plone.app.portlets, plone.app.querystring, plone.app.redirector, plone.app.registry, plone.app.relationfield, plone.app.robotframework, plone.app.testing, plone.app.textfield, plone.app.theming, plone.app.upgrade, plone.app.users, plone.app.uuid, plone.app.versioningbehavior, plone.app.widgets, plone.app.workflow, plone.app.z3cform, plone.autoform, plone.batching, plone.behavior, plone.browserlayer, plone.dexterity, plone.directives.form, plone.event, plone.formwidget.namedfile, plone.formwidget.querystring, plone.locking, plone.memoize, plone.namedfile, plone.portlet.collection, plone.protect, plone.recipe.zeoserver, plone.recipe.zope2instance, plone.registry, plone.releaser, plone.resource, plone.resourceeditor, plone.scale, plone.subrequest, plone.testing, plone.theme, plone.transformchain, plonetheme.classic",2016-11-16,2017-12-21
+svx,541,60,22,"Installers-UnifiedInstaller, Products.CMFPlone, ai-static, ai-team-private, aiteam-builder, aiteam-mkpasswd, archive.plone.org, bobtemplates.plone, buildout.coredev, container-historical, documentation, papyrus, paragon.site, planet.plone.org, plone.api, plone.app.theming, plonecli, ploneorg.theme, simple-plone-buildout, sphinxtheme.plone, training, training.plone.org",2017-01-04,2017-12-30
+tisto,433,48,26,"archetypes.referencebrowserwidget, aurora, bobtemplates.plone, buildout.coredev, guillotina, pastanaga, pastanaga-angular, plone.app.caching, plone.app.contenttypes, plone.app.jquerytools, plone.app.layout, plone.app.redirector, plone.app.robotframework, plone.app.theming, plone.app.vocabularies, plone.app.workflowmanager, plone.app.z3cform, plone.mocktestcase, plone.rest, plone.restapi, plone.restapi-angular, plone.scale, plone.tiles, plonetheme.barceloneta, volto, voltocms.com",2017-01-12,2017-12-31
+jensens,334,107,65,"Plone, Products.ATContentTypes, Products.Archetypes, Products.CMFEditions, Products.CMFFormController, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.PlonePAS, Products.PortalTransforms, Products.statusmessages, archetypes.multilingual, bobtemplates.plone, buildout.coredev, documentation, mockup, mr.roboto, plone.api, plone.app.blob, plone.app.caching, plone.app.collection, plone.app.content, plone.app.contentrules, plone.app.contenttypes, plone.app.dexterity, plone.app.discussion, plone.app.iterate, plone.app.layout, plone.app.linkintegrity, plone.app.lockingbehavior, plone.app.mosaic, plone.app.multilingual, plone.app.openid, plone.app.portlets, plone.app.querystring, plone.app.registry, plone.app.relationfield, plone.app.robotframework, plone.app.standardtiles, plone.app.textfield, plone.app.theming, plone.app.upgrade, plone.app.users, plone.app.uuid, plone.app.versioningbehavior, plone.app.vocabularies, plone.app.workflow, plone.app.z3cform, plone.autoform, plone.behavior, plone.browserlayer, plone.dexterity, plone.event, plone.locking, plone.namedfile, plone.patternslib, plone.recipe.zeoserver, plone.recipe.zope2instance, plone.scale, plone.schemaeditor, plone.session, plone.supermodel, plone.testing, plone.theme, plone.versioncheck, plonecli",2016-11-28,2017-12-04
+pbauer,321,67,50,"Products.ATContentTypes, Products.Archetypes, Products.CMFEditions, Products.CMFFormController, Products.CMFPlone, Products.LinguaPlone, Products.Marshall, Products.PlacelessTranslationService, Products.PlonePAS, Products.contentmigration, Products.statusmessages, bobtemplates.plone, borg.localrole, buildout.coredev, documentation, five.intid, planet.plone.org, plone.api, plone.app.blob, plone.app.caching, plone.app.contentlisting, plone.app.contenttypes, plone.app.debugtoolbar, plone.app.dexterity, plone.app.discussion, plone.app.folder, plone.app.imaging, plone.app.iterate, plone.app.layout, plone.app.linkintegrity, plone.app.referenceablebehavior, plone.app.relationfield, plone.app.testing, plone.app.theming, plone.app.upgrade, plone.app.uuid, plone.app.vocabularies, plone.app.workflow, plone.app.z3cform, plone.login, plone.namedfile, plone.portlet.collection, plone.portlet.static, plone.recipe.zope2instance, plone.rfc822, plone.schemaeditor, plone.testing, plone.z3cform, training, training.plone.org",2016-01-28,2017-12-18
+loechel,305,51,17,"Installers-UnifiedInstaller, Products.CMFPlone, bobtemplates.plone, buildout.coredev, diazo, documentation, guillotina, papyrus, plone.api, plone.app.contentlisting, plone.github, plone.namedfile, plone.versioncheck, plone_best_practices_discussion, ploneorg.addonlisting, ploneorg.releasesecurityinfo, sphinxtheme.plone",2017-01-23,2017-10-21
 robgietema,301,10,3,"aurora, pastanaga-theme, volto",2017-03-02,2017-11-20
-datakurre,273,53,25,"Products.CMFPlone, Products.statusmessages, buildout.coredev, mockup, papyrus, plone.app.blocks, plone.app.content, plone.app.contentrules, plone.app.contenttypes, plone.app.drafts, plone.app.mosaic, plone.app.multilingual, plone.app.registry, plone.app.robotframework, plone.app.standardtiles, plone.app.tiles, plone.app.upgrade, plone.app.z3cform, plone.autoform, plone.formwidget.namedfile, plone.jsonserializer, plone.subrequest, plone.supermodel, plone.themepreview, plone.tiles",2016-12-12,2017-12-23
-MrTango,242,13,16,"Products.CMFPlone, Products.PortalTransforms, ansible.plone_server, bobtemplates.plone, buildout.coredev, documentation, plone.api, plone.app.discussion, plone.app.ldap, plone.app.multilingual, plone.app.robotframework, plone.app.testing, plone.app.upgrade, plone.namedfile, plone.outputfilters, plonecli",2016-05-16,2017-11-21
-smcmahon,201,34,6,"Installers-UnifiedInstaller, ansible-playbook, ansible-playbook-ploneorg2019, ansible.plone_server, documentation, plonedev.vagrant",2017-01-15,2017-12-27
-ebrehault,194,8,9,"ansible-playbook, ansible-playbook-ploneorg2019, buildout.coredev, documentation, pastanaga-angular, pastanaga-theme, plone.restapi, plone.restapi-angular, training",2017-02-11,2017-11-08
-jaroel,190,32,10,"aurora, buildout.coredev, plone.api, plone.app.contenttypes, plone.app.debugtoolbar, plone.app.dexterity, plone.app.jquerytools, plone.app.z3cform, plone.restapi, volto",2017-01-04,2017-12-25
-davisagli,171,32,32,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, Products.ExtendedPathIndex, Products.PlonePAS, buildout.coredev, diazo, plone.app.blob, plone.app.caching, plone.app.contentrules, plone.app.contenttypes, plone.app.customerize, plone.app.dexterity, plone.app.discussion, plone.app.event, plone.app.folder, plone.app.iterate, plone.app.linkintegrity, plone.app.mosaic, plone.app.multilingual, plone.app.portlets, plone.app.querystring, plone.app.redirector, plone.app.upgrade, plone.app.users, plone.app.uuid, plone.autoform, plone.dexterity, plone.namedfile, plone.recipe.zope2instance, plone.schemaeditor, plone.testing",2017-01-08,2017-12-28
-sneridagh,154,30,12,"Products.CMFPlone, aiteam.playbooks, bobtemplates.plone, pastanaga, pastanaga-theme, planet.plone.org, plone.restapi, ploneconf2016.policy, ploneconf2017.theme, ploneorg.core, ploneorg.theme, voltocms.com",2017-01-09,2017-12-21
-tkimnguyen,123,19,26,"Plone, Products.CMFPlone, WinPloneInstaller, aiteam.playbooks, ansible-playbook, ansible-playbook-ploneorg2019, buildout.coredev, container-historical, documentation, mockup, planet.plone.org, plone.api, plone.app.dexterity, plone.app.layout, plone.app.registry, plone.app.theming, plone.com, plone.com.ansible, plone.formwidget.namedfile, plone.namedfile, plone.protect, plone.restapi, ploneconf2016.policy, ploneorg.core, ploneorg.theme, simple-plone-buildout",2016-11-27,2017-12-24
-thomasmassmann,116,6,6,"bobtemplates.plone, plone.app.standardtiles, plonecli, plonetheme.barceloneta, training, training.plone.org",2017-06-07,2017-12-06
-agitator,106,26,16,"Products.CMFPlone, bobtemplates.plone, buildout.coredev, documentation, plone.app.content, plone.app.contentrules, plone.app.contenttypes, plone.app.layout, plone.app.mosaic, plone.app.multilingual, plone.app.querystring, plone.app.standardtiles, plone.app.upgrade, plone.portlet.collection, plone.subrequest, plonetheme.barceloneta",2017-01-25,2017-11-17
+thet,279,167,46,"Products.Archetypes, Products.CMFPlone, Products.LinguaPlone, Products.contentmigration, archetypes.referencebrowserwidget, archetypes.schemaextender, aurora, buildout.coredev, mockup, papyrus, plone.api, plone.app.content, plone.app.contenttypes, plone.app.dexterity, plone.app.event, plone.app.folder, plone.app.jquerytools, plone.app.layout, plone.app.linkintegrity, plone.app.lockingbehavior, plone.app.mosaic, plone.app.multilingual, plone.app.portlets, plone.app.querystring, plone.app.theming, plone.app.upgrade, plone.app.users, plone.app.vocabularies, plone.app.widgets, plone.app.z3cform, plone.autoform, plone.dexterity, plone.formwidget.hcaptcha, plone.formwidget.recaptcha, plone.instanceprofiling, plone.namedfile, plone.patternslib, plone.portlet.collection, plone.protect, plone.schemaeditor, plone.subrequest, plone.supermodel, plone.testing, plone.versioncheck, plonetheme.barceloneta, volto",2016-02-08,2017-11-22
+gforcada,239,57,38,"Products.ATContentTypes, Products.Archetypes, Products.CMFEditions, Products.CMFPlone, Products.statusmessages, buildout.coredev, collective.indexing, documentation, jenkins.plone.org, mr.roboto, plone.api, plone.app.blob, plone.app.caching, plone.app.content, plone.app.contentmenu, plone.app.contentrules, plone.app.contenttypes, plone.app.discussion, plone.app.layout, plone.app.linkintegrity, plone.app.multilingual, plone.app.upgrade, plone.app.workflow, plone.autoform, plone.formwidget.hcaptcha, plone.formwidget.recaptcha, plone.intelligenttext, plone.jenkins_node, plone.jenkins_server, plone.login, plone.namedfile, plone.outputfilters, plone.protect, plone.recipe.codeanalysis, plone.scale, plone.testing, plone.tiles, plone_best_practices_discussion",2016-01-25,2017-12-25
+datakurre,237,53,25,"Products.CMFPlone, Products.statusmessages, buildout.coredev, mockup, papyrus, plone.app.blocks, plone.app.content, plone.app.contentrules, plone.app.contenttypes, plone.app.drafts, plone.app.mosaic, plone.app.multilingual, plone.app.registry, plone.app.robotframework, plone.app.standardtiles, plone.app.tiles, plone.app.upgrade, plone.app.z3cform, plone.autoform, plone.formwidget.namedfile, plone.jsonserializer, plone.subrequest, plone.supermodel, plone.themepreview, plone.tiles",2016-12-12,2017-12-23
+bloodbare,224,17,5,"guillotina, guillotina_elasticsearch, guillotina_gcloudstorage, guillotina_s3storage, plone.server",2017-01-02,2017-12-05
+smcmahon,200,34,6,"Installers-UnifiedInstaller, ansible-playbook, ansible-playbook-ploneorg2019, ansible.plone_server, documentation, plonedev.vagrant",2017-01-15,2017-12-27
+ebrehault,188,8,9,"ansible-playbook, ansible-playbook-ploneorg2019, buildout.coredev, documentation, pastanaga-angular, pastanaga-theme, plone.restapi, plone.restapi-angular, training",2017-02-15,2017-11-08
+jaroel,186,32,9,"aurora, plone.api, plone.app.contenttypes, plone.app.debugtoolbar, plone.app.dexterity, plone.app.jquerytools, plone.app.z3cform, plone.restapi, volto",2017-01-04,2017-12-25
+MrTango,182,13,16,"Products.CMFPlone, Products.PortalTransforms, ansible.plone_server, bobtemplates.plone, buildout.coredev, documentation, plone.api, plone.app.discussion, plone.app.ldap, plone.app.multilingual, plone.app.robotframework, plone.app.testing, plone.app.upgrade, plone.namedfile, plone.outputfilters, plonecli",2016-05-16,2017-11-21
+sneridagh,152,30,12,"Products.CMFPlone, aiteam.playbooks, bobtemplates.plone, pastanaga, pastanaga-theme, planet.plone.org, plone.restapi, ploneconf2016.policy, ploneconf2017.theme, ploneorg.core, ploneorg.theme, voltocms.com",2017-01-09,2017-12-21
+davisagli,130,32,32,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, Products.ExtendedPathIndex, Products.PlonePAS, buildout.coredev, diazo, plone.app.blob, plone.app.caching, plone.app.contentrules, plone.app.contenttypes, plone.app.customerize, plone.app.dexterity, plone.app.discussion, plone.app.event, plone.app.folder, plone.app.iterate, plone.app.linkintegrity, plone.app.mosaic, plone.app.multilingual, plone.app.portlets, plone.app.querystring, plone.app.redirector, plone.app.upgrade, plone.app.users, plone.app.uuid, plone.autoform, plone.dexterity, plone.namedfile, plone.recipe.zope2instance, plone.schemaeditor, plone.testing",2017-01-08,2017-12-28
+tkimnguyen,117,19,26,"Plone, Products.CMFPlone, WinPloneInstaller, aiteam.playbooks, ansible-playbook, ansible-playbook-ploneorg2019, buildout.coredev, container-historical, documentation, mockup, planet.plone.org, plone.api, plone.app.dexterity, plone.app.layout, plone.app.registry, plone.app.theming, plone.com, plone.com.ansible, plone.formwidget.namedfile, plone.namedfile, plone.protect, plone.restapi, ploneconf2016.policy, ploneorg.core, ploneorg.theme, simple-plone-buildout",2016-11-27,2017-12-24
+thomasmassmann,106,6,6,"bobtemplates.plone, plone.app.standardtiles, plonecli, plonetheme.barceloneta, training, training.plone.org",2017-06-07,2017-12-06
 tdesvenain,82,26,5,"plone.app.contentlisting, plone.app.jquerytools, plone.formwidget.datetime, plone.restapi, plone.restapi-angular",2017-09-21,2017-12-29
 lucid-0,74,0,1,WinPloneInstaller,2017-04-05,2017-08-27
-tomgross,70,35,20,"Products.CMFPlone, Products.PortalTransforms, Products.statusmessages, Products.validation, buildout.coredev, documentation, mockup, plone.app.content, plone.app.contenttypes, plone.app.iterate, plone.app.layout, plone.app.linkintegrity, plone.app.mosaic, plone.app.multilingual, plone.app.querystring, plone.app.standardtiles, plone.app.z3cform, plone.namedfile, plone.restapi, plone.schemaeditor",2016-05-29,2017-11-29
-kakshay21,68,32,32,"Products.ATContentTypes, Products.CMFPlone, archetypes.multilingual, buildout.coredev, plone.app.collection, plone.app.content, plone.app.contenttypes, plone.app.discussion, plone.app.intid, plone.app.iterate, plone.app.linkintegrity, plone.app.multilingual, plone.app.portlets, plone.app.querystring, plone.app.redirector, plone.app.registry, plone.app.relationfield, plone.app.testing, plone.app.theming, plone.app.upgrade, plone.app.uuid, plone.app.vocabularies, plone.app.workflow, plone.autoform, plone.outputfilters, plone.portlet.collection, plone.portlet.static, plone.protect, plone.resourceeditor, plone.subrequest, plone.theme, plone.transformchain",2017-04-11,2017-06-13
-fgrcon,67,31,15,"Products.CMFPlone, buildout.coredev, documentation, mockup, plone.app.content, plone.app.contentlisting, plone.app.contenttypes, plone.app.dexterity, plone.app.event, plone.app.layout, plone.app.portlets, plone.app.upgrade, plone.app.vocabularies, plone.portlet.collection, plonetheme.barceloneta",2016-08-19,2017-12-25
-tschorr,62,3,6,"Products.Archetypes, Products.CMFPlone, buildout.coredev, plone.app.testing, plone.recipe.zope2instance, training",2016-10-22,2017-10-22
+tomgross,60,35,20,"Products.CMFPlone, Products.PortalTransforms, Products.statusmessages, Products.validation, buildout.coredev, documentation, mockup, plone.app.content, plone.app.contenttypes, plone.app.iterate, plone.app.layout, plone.app.linkintegrity, plone.app.mosaic, plone.app.multilingual, plone.app.querystring, plone.app.standardtiles, plone.app.z3cform, plone.namedfile, plone.restapi, plone.schemaeditor",2016-05-29,2017-11-28
+fgrcon,58,31,15,"Products.CMFPlone, buildout.coredev, documentation, mockup, plone.app.content, plone.app.contentlisting, plone.app.contenttypes, plone.app.dexterity, plone.app.event, plone.app.layout, plone.app.portlets, plone.app.upgrade, plone.app.vocabularies, plone.portlet.collection, plonetheme.barceloneta",2016-08-19,2017-12-25
+tschorr,58,3,6,"Products.Archetypes, Products.CMFPlone, buildout.coredev, plone.app.testing, plone.recipe.zope2instance, training",2016-10-22,2017-10-22
 stevepiercy,57,30,4,"ansible-playbook, ansible-playbook-ploneorg2019, documentation, training",2017-04-21,2017-10-22
-b4oshany,53,15,13,"Products.CMFPlone, Products.i18ntestcase, buildout.coredev, heroku-buildpack-plone, heroku-button-plone, mockup, plone.app.mosaic, plone.app.openid, plone.app.standardtiles, plone.app.textfield, plone.app.upgrade, plone.resourceeditor, training",2017-06-06,2017-10-26
-polyester,51,9,9,"Products.CMFPlone, ai-team-private, buildout.coredev, documentation, documentation-roboshots, papyrus, plone.app.layout, plonetheme.barceloneta, sphinxtheme.plone",2017-01-31,2017-12-30
+agitator,54,26,16,"Products.CMFPlone, bobtemplates.plone, buildout.coredev, documentation, plone.app.content, plone.app.contentrules, plone.app.contenttypes, plone.app.layout, plone.app.mosaic, plone.app.multilingual, plone.app.querystring, plone.app.standardtiles, plone.app.upgrade, plone.portlet.collection, plone.subrequest, plonetheme.barceloneta",2017-02-03,2017-10-18
+polyester,46,9,9,"Products.CMFPlone, ai-team-private, buildout.coredev, documentation, documentation-roboshots, papyrus, plone.app.layout, plonetheme.barceloneta, sphinxtheme.plone",2017-01-31,2017-12-30
+kakshay21,45,32,31,"Products.ATContentTypes, Products.CMFPlone, archetypes.multilingual, plone.app.collection, plone.app.content, plone.app.contenttypes, plone.app.discussion, plone.app.intid, plone.app.iterate, plone.app.linkintegrity, plone.app.multilingual, plone.app.portlets, plone.app.querystring, plone.app.redirector, plone.app.registry, plone.app.relationfield, plone.app.testing, plone.app.theming, plone.app.upgrade, plone.app.uuid, plone.app.vocabularies, plone.app.workflow, plone.autoform, plone.outputfilters, plone.portlet.collection, plone.portlet.static, plone.protect, plone.resourceeditor, plone.subrequest, plone.theme, plone.transformchain",2017-04-11,2017-06-13
 lukasgraf,45,10,1,plone.restapi,2017-01-12,2017-11-30
-oz123,45,11,3,"ai-team-private, training, training.plone.org",2017-10-15,2017-12-26
 buchi,44,11,2,"plone.rest, plone.restapi",2016-10-23,2017-11-14
-hvelarde,39,29,11,"Products.CMFPlone, bobtemplates.plone, buildout.coredev, documentation, plone.app.caching, plone.app.layout, plone.app.upgrade, plone.protect, plone.recipe.zeoserver, plone.tiles, training",2017-01-04,2017-11-16
-fulv,39,19,9,"ansible-playbook, ansible-playbook-ploneorg2019, bobtemplates.plone, buildout.coredev, documentation, pastanaga-angular, plone.behavior, plone.restapi-angular, training",2017-01-30,2017-10-17
-gotcha,37,12,6,"Products.Archetypes, buildout.coredev, guillotina, plone.api, plone.dexterity, plone.outputfilters",2016-08-31,2017-09-12
-erral,32,14,5,"Products.CMFPlone, Products.LinguaPlone, buildout.coredev, plone.app.multilingual, plone.restapi",2012-09-06,2017-10-26
-jean,30,10,3,"documentation, guillotina, training",2017-06-05,2017-11-06
-ale-rt,29,17,19,"Products.ATContentTypes, Products.CMFPlone, Products.MimetypesRegistry, Products.i18ntestcase, bobtemplates.plone, buildout.coredev, documentation, plone.app.content, plone.app.contentlisting, plone.app.dexterity, plone.app.layout, plone.app.ldap, plone.app.portlets, plone.locking, plone.namedfile, plone.recipe.zope2instance, plone.resource, plone.supermodel, plone.testing",2017-04-06,2017-11-17
+oz123,43,11,3,"ai-team-private, training, training.plone.org",2017-10-15,2017-12-24
+b4oshany,39,15,12,"Products.CMFPlone, Products.i18ntestcase, heroku-buildpack-plone, heroku-button-plone, mockup, plone.app.mosaic, plone.app.openid, plone.app.standardtiles, plone.app.textfield, plone.app.upgrade, plone.resourceeditor, training",2017-06-06,2017-10-26
+fulv,36,19,8,"ansible-playbook, ansible-playbook-ploneorg2019, bobtemplates.plone, documentation, pastanaga-angular, plone.behavior, plone.restapi-angular, training",2017-01-30,2017-10-17
+hvelarde,32,29,10,"Products.CMFPlone, bobtemplates.plone, documentation, plone.app.caching, plone.app.layout, plone.app.upgrade, plone.protect, plone.recipe.zeoserver, plone.tiles, training",2017-01-04,2017-11-16
+erral,30,14,4,"Products.CMFPlone, Products.LinguaPlone, plone.app.multilingual, plone.restapi",2012-09-06,2017-10-26
 csenger,29,4,1,plone.restapi,2017-02-23,2017-11-17
-Gagaro,28,13,6,"Products.CMFPlone, buildout.coredev, mockup, plone.app.content, plone.restapi, plone.restapi-angular",2017-02-01,2017-12-21
+jean,29,10,3,"documentation, guillotina, training",2017-06-05,2017-11-06
 lellex,27,12,3,"pastanaga-angular, pastanaga-theme, plone.restapi-angular",2017-09-21,2017-10-21
-sunew,24,9,3,"buildout.coredev, plone.app.debugtoolbar, plone.restapi-angular",2017-04-29,2017-11-30
-pigeonflight,22,4,5,"ansible-playbook, ansible-playbook-ploneorg2019, bobtemplates.plone, documentation, plonecli",2016-10-22,2017-11-06
-MatthewWilkes,21,4,10,"Products.CMFFormController, Products.CMFPlone, archetypes.referencebrowserwidget, buildout.coredev, plone.api, plone.app.blob, plone.app.standardtiles, plone.app.theming, plone.dexterity, plone.locking",2017-01-30,2017-11-29
-frapell,20,12,8,"Products.CMFDiffTool, Products.CMFPlone, buildout.coredev, mockup, plone.app.contenttypes, plone.app.iterate, plone.app.mosaic, training",2017-01-05,2017-11-17
-avoinea,17,0,2,"container-historical, zeoserver.docker",2017-01-05,2017-09-13
+Gagaro,26,13,5,"Products.CMFPlone, mockup, plone.app.content, plone.restapi, plone.restapi-angular",2017-02-01,2017-12-21
+ale-rt,23,17,19,"Products.ATContentTypes, Products.CMFPlone, Products.MimetypesRegistry, Products.i18ntestcase, bobtemplates.plone, buildout.coredev, documentation, plone.app.content, plone.app.contentlisting, plone.app.dexterity, plone.app.layout, plone.app.ldap, plone.app.portlets, plone.locking, plone.namedfile, plone.recipe.zope2instance, plone.resource, plone.supermodel, plone.testing",2017-04-06,2017-10-28
+sunew,22,9,2,"plone.app.debugtoolbar, plone.restapi-angular",2017-04-29,2017-11-30
+gotcha,19,12,6,"Products.Archetypes, buildout.coredev, guillotina, plone.api, plone.dexterity, plone.outputfilters",2016-08-31,2017-09-12
+MatthewWilkes,17,4,10,"Products.CMFFormController, Products.CMFPlone, archetypes.referencebrowserwidget, buildout.coredev, plone.api, plone.app.blob, plone.app.standardtiles, plone.app.theming, plone.dexterity, plone.locking",2017-01-30,2017-11-28
 TakCastel,17,1,2,"pastanaga-angular, pastanaga-theme",2017-09-22,2017-09-25
+avoinea,17,0,2,"container-historical, zeoserver.docker",2017-01-05,2017-09-13
 jladage,16,3,5,"buildout.coredev, container-historical, plone.app.event, plone.app.layout, plone.app.multilingual",2017-02-28,2017-04-20
+frapell,15,12,7,"Products.CMFDiffTool, Products.CMFPlone, mockup, plone.app.contenttypes, plone.app.iterate, plone.app.mosaic, training",2017-01-05,2017-11-10
 VaysseB,14,0,2,"aurora, volto",2017-09-24,2017-09-24
+pigeonflight,13,4,5,"ansible-playbook, ansible-playbook-ploneorg2019, bobtemplates.plone, documentation, plonecli",2016-10-22,2017-11-06
 cekk,13,3,4,"Products.CMFPlone, aurora, plone.app.standardtiles, volto",2017-05-19,2017-10-22
-untitaker,13,0,1,buildout.coredev,2017-01-19,2017-10-24
 RobZoneNet,12,0,1,training,2017-09-29,2017-10-02
-witsch,12,3,2,"plone.restapi, plone.testing",2017-03-04,2017-03-05
-djowett,12,6,6,"Products.LinguaPlone, buildout.coredev, documentation, plone.app.discussion, plone.app.multilingual, training",2016-12-02,2017-07-21
-vincentfretin,12,0,5,"Products.LinguaPlone, Products.TinyMCE, buildout.coredev, plone.app.querystring, plone.app.registry",2017-01-11,2017-07-08
 albertcasado,12,0,2,"pastanaga, pastanaga-icons",2017-07-03,2017-07-07
-geier,10,0,1,buildout.coredev,2017-01-05,2017-08-16
+witsch,12,3,2,"plone.restapi, plone.testing",2017-03-04,2017-03-05
+icemac,11,5,3,"plone.recipe.zeoserver, plone.recipe.zope2instance, plone.testing",2017-04-05,2017-11-07
+djowett,11,6,5,"Products.LinguaPlone, documentation, plone.app.discussion, plone.app.multilingual, training",2016-12-02,2017-07-21
+Diederik Veeze,10,0,7,"Products.CMFPlone, mockup, plone.app.contenttypes, plone.app.linkintegrity, plone.app.portlets, plone.app.upgrade, plone.namedfile",2016-04-15,2016-09-27
 nazrulworld,10,10,2,"guillotina, plone.restapi",2017-03-20,2017-10-22
+gitcarbs,9,1,3,"guillotina_elasticsearch, guillotina_gcloudstorage, guillotina_s3storage",2017-01-04,2017-08-10
 ksuess,9,3,2,"mockup, plone.app.discussion",2017-07-17,2017-12-14
-pgrunewald,9,4,3,"Products.Archetypes, buildout.coredev, plone.memoize",2017-04-19,2017-06-28
+vincentfretin,9,0,5,"Products.LinguaPlone, Products.TinyMCE, buildout.coredev, plone.app.querystring, plone.app.registry",2017-01-11,2017-07-08
 obct537,8,0,4,"aurora, mockup, plone.app.workflowmanager, volto",2017-03-15,2017-10-22
-ivanteoh,8,1,2,"buildout.coredev, plone.app.contentlisting",2017-04-04,2017-04-05
-frisi,8,5,6,"Products.LinguaPlone, Products.TinyMCE, buildout.coredev, collective.monkeypatcher, plone.app.event, plone.app.testing",2017-02-24,2017-09-11
-seanupton,8,3,4,"Products.CMFPlone, buildout.coredev, mockup, plone.app.vocabularies",2017-02-27,2017-06-19
-fschulze,8,5,2,"buildout.coredev, plone.scale",2017-02-28,2017-09-19
-fredvd,7,4,7,"buildout.coredev, papyrus, plone.app.contenttypes, plone.app.dexterity, plone.app.linkintegrity, plone.formwidget.contenttree, plone.formwidget.querystring",2017-08-09,2017-10-27
-rnixx,7,0,1,buildout.coredev,2017-02-03,2017-07-24
-malthe,7,4,5,"Products.Archetypes, Products.CMFDynamicViewFTI, Products.CMFPlone, buildout.coredev, plone.app.contentrules",2017-02-03,2017-04-25
-tiberiuichim,7,1,5,"Products.CMFPlone, buildout.coredev, planet.plone.org, plone.app.iterate, plone.rest",2017-02-05,2017-06-10
+frisi,7,5,5,"Products.LinguaPlone, Products.TinyMCE, collective.monkeypatcher, plone.app.event, plone.app.testing",2017-02-24,2017-09-08
 Gomez,7,5,3,"ansible.plone_server, plonecli, training",2017-10-17,2017-10-26
-zopyx,6,1,4,"Products.CMFPlone, buildout.coredev, planet.plone.org, plone.app.dexterity",2017-03-29,2017-11-09
-mamico,6,3,4,"plone.app.modernizr, plone.formwidget.datetime, plone.namedfile, plone.recipe.zeoserver",2017-03-31,2017-12-18
-bloodbare,6,17,3,"guillotina, guillotina_elasticsearch, plone.server",2017-01-27,2017-02-15
-cguardia,6,2,2,"plone.app.mosaic, plone.app.standardtiles",2017-05-05,2017-05-08
+acsr,7,2,2,"plone.restapi, training.plone.org",2017-03-04,2017-03-24
+ivanteoh,7,1,1,plone.app.contentlisting,2017-04-04,2017-04-05
+seanupton,7,3,3,"Products.CMFPlone, mockup, plone.app.vocabularies",2017-02-27,2017-06-19
+pgrunewald,6,4,2,"Products.Archetypes, plone.memoize",2017-04-19,2017-06-28
 cdw9,6,4,2,"plone.app.contenttypes, ploneorg.core",2017-02-08,2017-09-19
-hannosch,6,0,2,"buildout.coredev, plone.reload",2017-10-31,2017-10-31
+fschulze,6,5,2,"buildout.coredev, plone.scale",2017-02-28,2017-09-19
+tiberiuichim,6,1,4,"Products.CMFPlone, planet.plone.org, plone.app.iterate, plone.rest",2017-02-05,2017-06-10
+mamico,6,3,4,"plone.app.modernizr, plone.formwidget.datetime, plone.namedfile, plone.recipe.zeoserver",2017-03-31,2017-12-18
+fredvd,6,4,6,"papyrus, plone.app.contenttypes, plone.app.dexterity, plone.app.linkintegrity, plone.formwidget.contenttree, plone.formwidget.querystring",2017-08-09,2017-10-27
+cguardia,6,2,2,"plone.app.mosaic, plone.app.standardtiles",2017-05-05,2017-05-08
 bsuttor,5,6,6,"Products.CMFPlone, guillotina, plone.app.contenttypes, plone.app.event, plone.app.layout, plone.app.multilingual",2017-04-03,2017-10-16
-arsenico13,5,3,4,"buildout.coredev, plone.app.content, plone.app.dexterity, plone.app.linkintegrity",2017-08-31,2017-10-04
-gogobd,5,1,3,"Products.Archetypes, buildout.coredev, plone.instanceprofiling",2017-02-01,2017-02-13
 sgrepos,5,3,3,"Products.CMFPlone, documentation, training",2017-04-09,2017-10-07
-CaffeinatedStud,4,1,2,"buildout.coredev, plone.app.openid",2017-03-15,2017-03-15
-jone,4,2,3,"buildout.coredev, plone.protect, plone.restapi",2017-01-17,2017-07-08
-cillianderoiste,4,2,3,"buildout.coredev, mockup, plone.app.content",2017-08-25,2017-08-31
+zopyx,5,1,3,"Products.CMFPlone, planet.plone.org, plone.app.dexterity",2017-03-29,2017-11-09
+malthe,5,4,4,"Products.Archetypes, Products.CMFDynamicViewFTI, Products.CMFPlone, plone.app.contentrules",2017-02-03,2017-04-25
+witekdev,4,0,1,documentation,2017-01-12,2017-02-14
+hannosch,4,0,1,plone.reload,2017-10-31,2017-10-31
+lukebrannon,4,1,1,documentation,2017-02-07,2017-02-10
 tobiasherp,4,0,1,Products.TinyMCE,2017-10-20,2017-10-20
 ju55i,4,1,1,container-historical,2017-07-03,2017-07-03
-karalics,4,2,3,"buildout.coredev, plone.app.caching, plone.formwidget.namedfile",2017-09-01,2017-10-31
-lukebrannon,4,1,1,documentation,2017-02-07,2017-02-10
-witekdev,4,0,1,documentation,2017-01-12,2017-02-14
 ramiroluz,4,1,2,"ansible-playbook, ansible-playbook-ploneorg2019",2017-06-02,2017-06-02
-staeff,3,2,1,training,2017-06-04,2017-10-16
-prakharjoshi,3,1,2,"bobtemplates.plone, plone.restapi",2017-01-04,2017-05-06
-adamcheasley,3,2,1,plone.api,2017-01-31,2017-02-03
-rodfersou,3,6,5,"Products.CMFPlone, plone.app.layout, plone.namedfile, plonetheme.classic, plonetheme.sunburst",2017-01-03,2017-07-08
-pabo3000,3,1,2,"Products.PortalTransforms, buildout.coredev",2017-02-12,2017-02-17
+staeff,4,2,2,"buildout.coredev, training",2017-06-04,2017-10-16
+gogobd,4,1,2,"Products.Archetypes, plone.instanceprofiling",2017-02-01,2017-02-13
+jone,3,2,2,"plone.protect, plone.restapi",2017-01-17,2017-07-03
+arsenico13,3,3,3,"plone.app.content, plone.app.dexterity, plone.app.linkintegrity",2017-08-31,2017-10-04
 SyZn,3,1,2,"Products.PasswordResetTool, plone.restapi",2017-04-13,2017-07-06
-sgeulette,3,2,2,"buildout.coredev, plone.app.robotframework",2017-03-14,2017-03-16
 sdelcourt,3,0,1,Products.MasterSelectWidget,2017-02-03,2017-02-03
-shentonfreude,2,1,1,plone.restapi-angular,2017-10-22,2017-10-22
-Rotonen,2,3,3,"buildout.coredev, plone.app.versioningbehavior, plone.intelligenttext",2017-11-30,2017-12-20
+rodfersou,3,6,5,"Products.CMFPlone, plone.app.layout, plone.namedfile, plonetheme.classic, plonetheme.sunburst",2017-01-03,2017-07-08
+prakharjoshi,3,1,2,"bobtemplates.plone, plone.restapi",2017-01-04,2017-05-06
+cillianderoiste,3,2,2,"mockup, plone.app.content",2017-08-25,2017-08-31
+adamcheasley,3,2,1,plone.api,2017-01-31,2017-02-03
 tareqalam,2,1,2,"aurora, volto",2017-12-12,2017-12-12
+robinsjm2,2,2,1,training,2017-06-27,2017-06-30
+karalics,2,2,2,"plone.app.caching, plone.formwidget.namedfile",2017-09-01,2017-10-17
+zupo,2,1,2,"heroku-buildpack-plone, planet.plone.org",2017-03-07,2017-03-15
 l00ptr,2,1,1,ansible.plone_server,2017-10-31,2017-10-31
-mtrebron,2,0,2,"buildout.coredev, plone.app.contentrules",2017-03-29,2017-04-15
-rnunez80,2,0,1,plone.app.standardtiles,2017-08-24,2017-09-05
+shentonfreude,2,1,1,plone.restapi-angular,2017-10-22,2017-10-22
 davidjb,2,0,1,plone.app.vulnerabilities,2017-11-29,2017-11-29
+rnunez80,2,0,1,plone.app.standardtiles,2017-08-24,2017-09-05
+pabo3000,2,1,1,Products.PortalTransforms,2017-02-12,2017-02-16
+cedricmessiant,2,1,2,"mockup, plone.app.contenttypes",2017-03-06,2017-03-31
+allusa,2,2,2,"Products.CMFPlone, plone.app.event",2017-01-30,2017-06-06
 vkarppinen,2,1,1,Products.Archetypes,2017-07-04,2017-07-06
-djay,2,0,1,documentation,2016-03-21,2016-03-21
+CaffeinatedStud,2,1,1,plone.app.openid,2017-03-15,2017-03-15
+sgeulette,2,2,1,plone.app.robotframework,2017-03-14,2017-03-16
 jackBzzz,2,2,1,documentation,2017-02-19,2017-02-25
 enkidulan,2,2,1,plonetheme.barceloneta,2017-07-24,2017-07-26
-cedricmessiant,2,1,2,"mockup, plone.app.contenttypes",2017-03-06,2017-03-31
-awello,2,1,2,"buildout.coredev, plone.subrequest",2017-07-06,2017-07-06
-nngu6036,2,1,2,"buildout.coredev, plone.app.querystring",2017-08-13,2017-09-08
-zemm,2,1,2,"Products.Archetypes, buildout.coredev",2017-08-29,2017-08-29
-zupo,2,1,2,"heroku-buildpack-plone, planet.plone.org",2017-03-07,2017-03-15
-robinsjm2,2,2,1,training,2017-06-27,2017-06-30
-simon-previdente,1,1,1,plone.restapi-angular,2017-04-07,2017-04-07
-jfroche,1,1,1,guillotina,2017-10-16,2017-10-16
 mattss,1,1,1,plone.restapi-angular,2017-10-19,2017-10-19
+jfroche,1,1,1,guillotina,2017-10-16,2017-10-16
+cdevienne,1,1,1,guillotina,2017-12-14,2017-12-14
+awello,1,1,1,plone.subrequest,2017-07-06,2017-07-06
+rudaporto,1,1,1,plone.api,2017-10-22,2017-10-22
+dhavlik,1,1,2,"plone.i18n, plone.scale",2017-05-04,2017-05-04
+laulaz,1,0,1,buildout.coredev,2017-09-26,2017-09-26
+davilima6,1,1,1,plone.restapi,2017-11-15,2017-11-15
+Rotonen,1,3,2,"plone.app.versioningbehavior, plone.intelligenttext",2017-11-30,2017-11-30
+jnns,1,1,1,training,2017-11-23,2017-11-23
+nngu6036,1,1,1,plone.app.querystring,2017-08-13,2017-08-13
+newbazz514,1,0,1,Products.CMFPlone,2017-12-05,2017-12-05
+petschki,1,5,3,"plone.app.blocks, plone.app.multilingual, plone.app.widgets",2017-10-21,2017-10-21
+simon-previdente,1,1,1,plone.restapi-angular,2017-04-07,2017-04-07
 dmanchon,1,0,1,guillotina_elasticsearch,2017-02-16,2017-02-16
 batlock666,1,2,1,plone.app.blob,2017-05-23,2017-05-23
-rristow,1,1,1,Products.CMFDiffTool,2017-02-27,2017-02-27
-laulaz,1,0,1,buildout.coredev,2017-09-26,2017-09-26
-Ekran,1,0,1,buildout.coredev,2017-09-23,2017-09-23
-jdufresne,1,0,1,buildout.coredev,2017-06-19,2017-06-19
-brunobbbs,1,1,2,"buildout.coredev, plone.directives.form",2017-04-26,2017-04-26
-petschki,1,5,3,"plone.app.blocks, plone.app.multilingual, plone.app.widgets",2017-10-21,2017-10-21
-acsr,1,2,2,"plone.restapi, training.plone.org",2017-03-24,2017-03-24
-davilima6,1,1,1,plone.restapi,2017-11-15,2017-11-15
-newbazz514,1,0,1,Products.CMFPlone,2017-12-05,2017-12-05
-hanirok,1,1,1,plone.formwidget.querystring,2017-04-26,2017-04-26
-rfleschenberg,1,1,1,training,2017-05-15,2017-05-15
-leplatrem,1,1,1,guillotina,2017-10-23,2017-10-23
 gnafou,1,1,1,Installers-UnifiedInstaller,2017-03-24,2017-03-24
+mtrebron,1,0,1,plone.app.contentrules,2017-03-29,2017-03-29
+rristow,1,1,1,Products.CMFDiffTool,2017-02-27,2017-02-27
+streaps,1,1,1,training,2017-04-18,2017-04-18
+iham,1,1,1,plone.supermodel,2017-06-01,2017-06-01
+malloxpb,1,0,1,training,2017-03-16,2017-03-16
 deankarlen,1,0,1,documentation,2017-08-10,2017-08-10
 cleberjsantos,1,1,1,documentation,2017-08-12,2017-08-12
-himanshu81494,1,1,1,documentation,2017-03-05,2017-03-05
 dals83,1,1,1,documentation,2017-10-22,2017-10-22
-malloxpb,1,0,1,training,2017-03-16,2017-03-16
-mbaechtold,1,1,1,Products.TinyMCE,2017-03-22,2017-03-22
-jnns,1,1,1,training,2017-11-23,2017-11-23
-streaps,1,1,1,training,2017-04-18,2017-04-18
+himanshu81494,1,1,1,documentation,2017-03-05,2017-03-05
 rioksane,1,1,1,documentation,2017-07-05,2017-07-05
-rudaporto,1,1,1,plone.api,2017-10-22,2017-10-22
-cdevienne,1,1,1,guillotina,2017-12-14,2017-12-14
+djay,1,0,1,documentation,2016-03-21,2016-03-21
+rfleschenberg,1,1,1,training,2017-05-15,2017-05-15
+zemm,1,1,1,Products.Archetypes,2017-08-29,2017-08-29
+leplatrem,1,1,1,guillotina,2017-10-23,2017-10-23
+mbaechtold,1,1,1,Products.TinyMCE,2017-03-22,2017-03-22
+hanirok,1,1,1,plone.formwidget.querystring,2017-04-26,2017-04-26
 ghost,0,47,12,"Products.CMFPlone, documentation, mockup, plone.app.contenttypes, plone.app.linkintegrity, plone.app.portlets, plone.app.upgrade, plone.intelligenttext, plone.namedfile, ploneorg.addonlisting, ploneorg.releasesecurityinfo, training",,
-dhavlik,0,1,1,plone.i18n,,
-instification,0,1,1,Products.CMFPlone,,
 displacedaussie,0,2,1,Products.CMFPlone,,
-svx,0,60,15,"Products.CMFPlone, ai-team-private, archive.plone.org, bobtemplates.plone, buildout.coredev, container-historical, documentation, papyrus, plone.api, plone.app.theming, plonecli, ploneorg.theme, simple-plone-buildout, sphinxtheme.plone, training",,
-allusa,0,2,2,"Products.CMFPlone, plone.app.event",,
-lzdych,0,1,1,plone.app.querystring,,
-macagua,0,1,1,training,,
 tmog,0,1,1,plone.app.event,,
-tlotze,0,1,1,plone.recipe.zope2instance,,
+lzdych,0,1,1,plone.app.querystring,,
+instification,0,1,1,Products.CMFPlone,,
+macagua,0,1,1,training,,
 mitakas,0,1,1,Products.MasterSelectWidget,,
 maethu,0,1,1,Products.TinyMCE,,
-iham,0,1,1,plone.supermodel,,
-icemac,0,5,3,"plone.recipe.zeoserver, plone.recipe.zope2instance, plone.testing",,
-msom,0,1,1,plone.app.jquerytools,,
+brunobbbs,0,1,1,plone.directives.form,,
+tlotze,0,1,1,plone.recipe.zope2instance,,
 alorence,0,1,1,heroku-buildpack-plone,,
-gitcarbs,0,1,1,guillotina_elasticsearch,,
+msom,0,1,1,plone.app.jquerytools,,

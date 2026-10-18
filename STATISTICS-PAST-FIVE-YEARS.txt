@@ -1,8 +1,8 @@
 # Five-Year Summary Results (2020-2024)
 
 - 67 total organisations tracked across the past 5 years
-- 44,287 total commits and 9,498 pull requests
-- 344 unique contributors across all organisations
+- 40,492 total commits and 9,498 pull requests
+- 342 unique contributors across all organisations
 - File generated: summary-past-five-years-2020-2024.csv
 
 ## Top 10 contributors by pull requests (2020-2024)
@@ -20,16 +20,16 @@
 
 ## Top 10 contributors by commits (2020-2024)
 
-1. mauritsvanrees - 8,082 commits
-2. sneridagh - 6,168 commits
-3. gforcada - 2,817 commits
-4. stevepiercy - 2,621 commits
-5. petschki - 2,406 commits
-6. jensens - 1,975 commits
-7. tisto - 1,962 commits
-8. ericof - 1,659 commits
-9. thet - 1,334 commits
-10. ksuess - 1,211 commits
+1. mauritsvanrees - 7,289 commits
+2. sneridagh - 6,086 commits
+3. stevepiercy - 2,533 commits
+4. gforcada - 2,407 commits
+5. petschki - 2,017 commits
+6. ericof - 1,599 commits
+7. tisto - 1,562 commits
+8. jensens - 1,306 commits
+9. ksuess - 1,149 commits
+10. thet - 1,092 commits
 
 ## Top 10 organisations by pull requests (2020-2024)
 
@@ -48,15 +48,15 @@ Not mapped to an organisation: 692 PRs
 
 ## Top 10 organisations by commits (2020-2024)
 
-1. kitconcept GmbH: 12,409 commits
-2. Zest Software: 7,223 commits
-3. der Freitag: 2,817 commits
-4. Steve Piercy - Website Builder: 2,621 commits
-5. Kombinat: 2,406 commits
-6. Klein & Partner KG: 1,993 commits
-7. Syslab: 1,674 commits
-8. PY76: 1,346 commits
-9. Eau de Web: 1,341 commits
-10. Rohberg: 1,211 commits
+1. kitconcept GmbH: 11,528 commits
+2. Zest Software: 6,570 commits
+3. Steve Piercy - Website Builder: 2,533 commits
+4. der Freitag: 2,407 commits
+5. Kombinat: 2,017 commits
+6. Syslab: 1,344 commits
+7. Eau de Web: 1,327 commits
+8. Klein & Partner KG: 1,323 commits
+9. PY76: 1,193 commits
+10. Rohberg: 1,149 commits
 
-Not mapped to an organisation: 1,808 commits
+Not mapped to an organisation: 1,824 commits

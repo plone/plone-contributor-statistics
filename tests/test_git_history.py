@@ -56,6 +56,7 @@ def test_default_branch_plus_older_history_of_release_branches(upstream, tmp_pat
                                '2008-08-02T13:13:39Z', '2010-05-01T12:00:00Z']
     old = by_date['2002-02-21T16:09:32Z']
     assert old['commit']['author'] == {'name': 'andyd_', 'email': 'andyd_@localhost', 'date': '2002-02-21T16:09:32Z'}
+    assert old['commit']['message'] == 'Initial revision'
     assert old['parents'] == [] and old['author'] is None
 
 
@@ -162,3 +163,27 @@ def test_commits_are_filtered_to_the_date_range(extractor, monkeypatch):
 
     assert [c['sha'] for c in commits] == ['b']
     assert linked == commits
+
+
+# Commits that exist twice (#78)
+
+
+def test_copies_and_duplicates_are_counted_once(tmp_path):
+    path = tmp_path / 'coredev'
+    path.mkdir()
+    git(path, 'init', '-q', '-b', 'master')
+    commit(path, 'Prototype with mod_transform', '2008-07-28T12:00:00+00:00', email='paul@localhost')
+    # The same commit, imported again from another SVN repository under another user name
+    commit(path, 'Prototype with mod_transform', '2008-07-28T12:00:00+00:00', email='zopepaul@localhost')
+    # Same message, but another time: another change
+    commit(path, 'Prototype with mod_transform', '2008-07-29T12:00:00+00:00', email='paul@localhost')
+    commit(path, '[fc] Repository: plone.keyring', '2015-06-01T10:00:00+00:00')
+    commit(path, 'Pin plone.keyring', '2015-06-01T10:05:00+00:00')
+
+    commits = git_history.repository_commits(f'file://{path}', str(tmp_path / 'cache' / 'c.git'), 'master')
+
+    assert sorted((c['commit']['author']['date'], c['commit']['message']) for c in commits) == [
+        ('2008-07-28T12:00:00Z', 'Prototype with mod_transform'),
+        ('2008-07-29T12:00:00Z', 'Prototype with mod_transform'),
+        ('2015-06-01T10:05:00Z', 'Pin plone.keyring'),
+    ]

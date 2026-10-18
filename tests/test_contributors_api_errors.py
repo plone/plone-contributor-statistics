@@ -74,3 +74,11 @@ def test_main_keeps_only_a_checkpoint_when_the_run_fails(monkeypatch, tmp_path):
     assert plone_contributors.main() == 1
     assert not (tmp_path / 'data' / '2015-plone-contributors.csv').exists()
     assert (tmp_path / 'data' / '2015-plone-contributors_checkpoint.csv').exists()
+
+
+def test_token_from_environment_without_env_file(monkeypatch, tmp_path):
+    # Before, a missing .env file crashed the script, so the token had to go on the command line
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv('GITHUB_TOKEN', 'from-env')
+
+    assert plone_contributors.PloneStatsExtractor().token == 'from-env'

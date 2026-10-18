@@ -3,39 +3,57 @@ tiran,406,0,10,"Products.ATContentTypes, Products.Archetypes, Products.CMFDynami
 alecpm,395,0,10,"Products.ATContentTypes, Products.ATReferenceBrowserWidget, Products.Archetypes, Products.CMFDiffTool, Products.CMFDynamicViewFTI, Products.CMFEditions, Products.CMFPlacefulWorkflow, Products.CMFPlone, Products.PlacelessTranslationService, Products.ResourceRegistries",2005-03-27,2005-12-23
 stefanholek,363,0,9,"Products.ATContentTypes, Products.Archetypes, Products.CMFDynamicViewFTI, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.CMFTestCase, Products.MimetypesRegistry, Products.PlacelessTranslationService, Products.PlonePAS",2005-01-02,2005-12-29
 hannosch,331,0,13,"Products.ATContentTypes, Products.ATReferenceBrowserWidget, Products.Archetypes, Products.CMFDynamicViewFTI, Products.CMFFormController, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.MimetypesRegistry, Products.PlacelessTranslationService, Products.PloneLanguageTool, Products.ResourceRegistries, Products.i18ntestcase, Products.statusmessages",2005-04-09,2005-12-29
-limi,323,0,8,"Products.ATContentTypes, Products.ATReferenceBrowserWidget, Products.Archetypes, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.MimetypesRegistry, Products.PloneLanguageTool, Products.ResourceRegistries",2005-01-03,2005-12-31
+limi,322,0,8,"Products.ATContentTypes, Products.ATReferenceBrowserWidget, Products.Archetypes, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.MimetypesRegistry, Products.PloneLanguageTool, Products.ResourceRegistries",2005-01-03,2005-12-31
 jcameroncooper,226,0,3,"Products.CMFPlone, Products.PasswordResetTool, Products.PlonePAS",2005-02-02,2005-12-01
 sidnei,200,0,10,"Products.ATContentTypes, Products.ATReferenceBrowserWidget, Products.Archetypes, Products.CMFFormController, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.Marshall, Products.MimetypesRegistry, Products.PlacelessTranslationService, Products.PlonePAS",2005-01-07,2005-12-29
 fschulze,180,0,5,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.ResourceRegistries",2005-05-31,2005-12-22
-jensens,134,0,5,"Products.ATContentTypes, Products.Archetypes, Products.CMFQuickInstallerTool, Products.MimetypesRegistry, Products.PlonePAS",2005-01-04,2005-12-29
+rafrombrc,172,0,9,"Products.ATContentTypes, Products.Archetypes, Products.CMFDynamicViewFTI, Products.CMFPlone, Products.MimetypesRegistry, Products.PasswordResetTool, Products.ResourceRegistries, txtfilter, wicked",2005-01-19,2005-12-30
 baekholt,134,0,3,"Products.Archetypes, Products.CMFPlone, Products.ResourceRegistries",2005-03-08,2005-09-16
+jensens,134,0,5,"Products.ATContentTypes, Products.Archetypes, Products.CMFQuickInstallerTool, Products.MimetypesRegistry, Products.PlonePAS",2005-01-04,2005-12-29
 optilude,131,0,8,"Products.ATContentTypes, Products.Archetypes, Products.CMFDynamicViewFTI, Products.CMFFormController, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.PloneLanguageTool, Products.contentmigration",2005-02-09,2005-12-31
-geoff-davis,27,0,4,"Products.CMFFormController, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.ResourceRegistries",2005-05-28,2005-12-28
+panjunyong,108,0,5,"Products.ATContentTypes, Products.Archetypes, Products.CMFDynamicViewFTI, Products.CMFPlone, Products.MimetypesRegistry",2005-01-02,2005-12-29
+dannybloe,66,0,4,"Products.ATContentTypes, Products.ATReferenceBrowserWidget, Products.Archetypes, Products.CMFPlone",2005-01-28,2005-07-28
+dorneles,64,0,6,"Products.ATContentTypes, Products.Archetypes, Products.CMFDynamicViewFTI, Products.CMFPlone, Products.PloneLanguageTool, Products.ResourceRegistries",2005-01-04,2005-12-10
+whitmo,53,0,7,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.MimetypesRegistry, txtfilter, wicked",2005-02-04,2005-12-28
+dnouri,40,0,5,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, Products.PlonePAS, Products.ResourceRegistries",2005-02-11,2005-12-27
+kapilt,35,0,9,"Products.ATContentTypes, Products.Archetypes, Products.CMFQuickInstallerTool, Products.CMFTestCase, Products.PasswordResetTool, Products.PlacelessTranslationService, Products.PloneLanguageTool, Products.PlonePAS, wicked",2005-01-31,2005-10-16
 chadwhitacre,27,0,3,"Products.CMFPlone, Products.PlonePAS, Products.ResourceRegistries",2005-02-01,2005-05-06
+geoff-davis,27,0,4,"Products.CMFFormController, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.ResourceRegistries",2005-05-28,2005-12-28
 encolpe,26,0,1,Products.CMFPlacefulWorkflow,2005-11-10,2005-12-27
 wichert,21,0,5,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.PlonePAS",2005-11-18,2005-12-28
 rockyburt,20,0,3,"Products.Archetypes, Products.CMFPlone, Products.PlonePAS",2005-02-04,2005-12-13
 davconvent,19,0,1,Products.CMFPlone,2005-03-25,2005-04-16
 mrtopf,18,0,2,"Products.Archetypes, Products.CMFPlone",2005-03-24,2005-04-05
 mishunov,17,0,2,"Products.ATContentTypes, Products.CMFPlone",2005-12-05,2005-12-27
+tesdal,17,0,6,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.PloneLanguageTool, Products.PlonePAS",2005-01-21,2005-11-24
+longsleep,14,0,1,Products.CMFPlone,2005-05-12,2005-09-02
 vinsci,11,0,2,"Products.CMFFormController, Products.CMFPlone",2005-06-11,2005-06-26
 jodok,10,0,5,"Products.ATContentTypes, Products.ATReferenceBrowserWidget, Products.CMFPlone, Products.PlacelessTranslationService, Products.ResourceRegistries",2005-02-01,2005-08-07
 jladage,9,0,1,Products.CMFPlone,2005-01-03,2005-06-01
 gotcha,9,0,2,"Products.Archetypes, Products.CMFPlone",2005-03-09,2005-07-28
+andymckay,9,0,3,"Products.Archetypes, Products.CMFPlone, Products.CMFQuickInstallerTool",2005-05-10,2005-11-30
 naro,8,0,1,Products.CMFPlone,2005-05-18,2005-10-15
 joelburton,8,0,3,"Products.Archetypes, Products.CMFPlone, Products.PlonePAS",2005-01-20,2005-08-10
+ctheune,7,0,2,"Products.ATContentTypes, Products.CMFPlone",2005-02-22,2005-12-02
+Gregoire Weber,7,0,1,Products.CMFEditions,2005-06-30,2005-09-22
+bcsaller,6,0,2,"Products.Archetypes, Products.PlonePAS",2005-01-31,2005-12-01
+zworkb,6,0,2,"Products.Archetypes, Products.CMFQuickInstallerTool",2005-01-05,2005-10-01
 vds,6,0,1,Products.CMFEditions,2005-06-30,2005-07-02
-reinout,5,0,2,"Products.ATContentTypes, Products.Archetypes",2005-05-10,2005-05-27
-robertrottermann,5,0,2,"Products.ATContentTypes, Products.CMFPlone",2005-04-10,2005-04-20
-bobdobbs666,5,0,2,"Products.Archetypes, Products.CMFPlone",2005-03-10,2005-12-05
-brianfive,5,0,1,Products.CMFPlone,2005-06-11,2005-06-13
+topiaruss,5,0,1,Products.ATContentTypes,2005-05-02,2005-05-02
+runyaga,5,0,2,"Products.Archetypes, Products.CMFPlone",2005-03-10,2005-12-05
 aburkhalter,5,0,1,Products.CMFPlone,2005-06-10,2005-06-13
+reinout,5,0,2,"Products.ATContentTypes, Products.Archetypes",2005-05-10,2005-05-27
+brianfive,5,0,1,Products.CMFPlone,2005-06-11,2005-06-13
+robertrottermann,5,0,2,"Products.ATContentTypes, Products.CMFPlone",2005-04-10,2005-04-20
 lrowe,5,0,3,"Products.Archetypes, Products.PlonePAS, Products.ResourceRegistries",2005-08-24,2005-12-26
+sthenault,4,0,2,"Products.Archetypes, Products.CMFEditions",2005-08-11,2005-10-14
+lalomartins,4,0,1,Products.Archetypes,2005-04-15,2005-08-05
 siebo,3,0,2,"Products.Archetypes, Products.CMFPlone",2005-11-28,2005-12-28
 bbuehlmann,2,0,1,Products.CMFPlone,2005-05-07,2005-05-07
 bitranch,2,0,1,Products.CMFPlone,2005-08-13,2005-08-13
 xiru,2,0,1,Products.CMFPlone,2005-03-11,2005-06-12
-andymckay,1,0,1,Products.CMFPlone,2005-11-30,2005-11-30
-csenger,1,0,1,Products.ATContentTypes,2005-12-18,2005-12-18
+zopyx,1,0,1,Products.CMFPlone,2005-10-01,2005-10-01
 glenfant,1,0,1,Products.ATContentTypes,2005-07-14,2005-07-14
+jfroche,1,0,1,Products.ATContentTypes,2005-12-04,2005-12-04
+csenger,1,0,1,Products.ATContentTypes,2005-12-18,2005-12-18
 dataflake,1,0,1,Products.ATContentTypes,2005-04-12,2005-04-12
