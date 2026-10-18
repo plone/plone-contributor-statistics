@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from plone_contributors import (
+from scripts.collect.plone_contributors import (
     EXCLUDED_REPOSITORIES_FILE,
     load_excluded_repositories,
     select_repositories,
@@ -79,7 +79,7 @@ def test_exclusion_file_format():
 
 
 def test_extract_all_stats_processes_archived_and_skips_excluded(tmp_repo, monkeypatch, tmp_path):
-    import plone_contributors
+    from scripts.collect import plone_contributors
 
     # The exclusion list is read relative to the working directory, as with `make run-stats`.
     (tmp_path / EXCLUDED_REPOSITORIES_FILE).write_text(

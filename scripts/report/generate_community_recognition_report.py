@@ -15,10 +15,10 @@ from pathlib import Path
 
 import argparse
 
-import mappings
-import paths
-from years import RECOGNITION_YEAR
-from plip_organisation_stats import organisation_lookup, plips_by_organisation, read_plips
+from scripts.lib import mappings
+from scripts.lib import paths
+from scripts.lib.years import RECOGNITION_YEAR
+from scripts.derive.plip_organisation_stats import organisation_lookup, plips_by_organisation, read_plips
 
 
 # Contributors not mapped to an organisation, see organisation_stats.UNMAPPED (#53)

@@ -1,7 +1,7 @@
 """plone_pr_interactions.py uses the same repository selection as plone_contributors.py (#36)."""
 
-from plone_contributors import EXCLUDED_REPOSITORIES_FILE
-from plone_pr_interactions import PlonePRInteractionExtractor
+from scripts.collect.plone_contributors import EXCLUDED_REPOSITORIES_FILE
+from scripts.collect.plone_pr_interactions import PlonePRInteractionExtractor
 
 
 class FakeResponse:

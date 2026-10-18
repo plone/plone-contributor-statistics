@@ -5,11 +5,11 @@ from pathlib import Path
 
 import pytest
 
-import generate_community_recognition_report as recognition
-import generate_contributor_report
-import multi_year_summary
-import paths
-import yearly_activity_analysis
+from scripts.report import generate_community_recognition_report as recognition
+from scripts.report import generate_contributor_report
+from scripts.derive import multi_year_summary
+from scripts.lib import paths
+from scripts.derive import yearly_activity_analysis
 
 CONTRIBUTORS = 'username,total_commits,total_pull_requests,repositories_count,repositories,first_contribution,last_contribution\n'
 

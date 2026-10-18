@@ -15,6 +15,7 @@ These guides help you with a specific task, such as correcting the organisation 
 ```{toctree}
 :maxdepth: 1
 
+prepare-a-new-year
 correct-an-organisation-mapping
 add-curated-community-data
 regenerate-after-a-mapping-change

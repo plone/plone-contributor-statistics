@@ -5,9 +5,9 @@ import subprocess
 
 import pytest
 
-import git_history
-import plone_contributors
-from github_api import GitHubAPIError
+from scripts.lib import git_history
+from scripts.collect import plone_contributors
+from scripts.lib.github_api import GitHubAPIError
 
 
 def git(path, *args, date=None, email='alice@example.org'):

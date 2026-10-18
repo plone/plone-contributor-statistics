@@ -6,11 +6,12 @@ Aggregates per-year contributor and organisation CSV files into a single
 yearly-activity-statistics.csv for use by the graph generator.
 """
 
+import argparse
 import pandas as pd
 from pathlib import Path
 import glob
 
-import paths
+from scripts.lib import paths
 
 
 def main():
@@ -95,4 +96,6 @@ def main():
 
 
 if __name__ == "__main__":
+    # No options; --help says what the script does
+    argparse.ArgumentParser(description=__doc__.strip().splitlines()[0]).parse_args()
     exit(main())

@@ -6,13 +6,14 @@ Generates a markdown report of Volto team contributor statistics
 across multiple time periods.
 """
 
+import argparse
 from datetime import datetime
 from pathlib import Path
 
 import pandas as pd
 
-import paths
-from mappings import read_organisations, read_overrides
+from scripts.lib import paths
+from scripts.lib.mappings import read_organisations, read_overrides
 
 
 def load_year(year):
@@ -229,4 +230,6 @@ def main():
 
 
 if __name__ == "__main__":
+    # No options; --help says what the script does
+    argparse.ArgumentParser(description=__doc__.strip().splitlines()[0]).parse_args()
     exit(main())

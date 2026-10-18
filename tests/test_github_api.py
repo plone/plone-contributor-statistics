@@ -3,7 +3,7 @@
 import pytest
 import requests
 
-from github_api import GitHubAPIError, github_get, github_graphql, rate_limit_wait
+from scripts.lib.github_api import GitHubAPIError, github_get, github_graphql, rate_limit_wait
 
 
 class FakeResponse:

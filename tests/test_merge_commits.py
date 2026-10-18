@@ -2,9 +2,9 @@
 
 from datetime import datetime
 
-import plone_contributors
-import volto_stats
-from github_api import is_merge_commit
+from scripts.collect import plone_contributors
+from scripts.collect import volto_stats
+from scripts.lib.github_api import is_merge_commit
 
 
 class FakeResponse:

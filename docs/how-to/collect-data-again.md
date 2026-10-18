@@ -22,6 +22,10 @@ You need a GitHub personal access token, git, and a few hundred megabytes of dis
     Never commit `.env`.
     Instead of the file, you can also set `GITHUB_TOKEN` in the environment.
 
+The `make` targets run the scripts as modules from the repository root, for example `python -m scripts.collect.plone_contributors --year 2025`.
+Run a script yourself the same way; `python scripts/collect/plone_contributors.py` fails with `ModuleNotFoundError: No module named 'scripts'`.
+Every script answers `--help`.
+
 ## Collect commits and pull requests
 
 To collect all years from 2003 to the current year in one run:
@@ -30,7 +34,7 @@ To collect all years from 2003 to the current year in one run:
 make run-stats-all-years
 ```
 
-To collect one year, run `make run-stats-YYYY` with that year instead.
+To collect one year, run `make run-stats YEAR=2025` with that year instead.
 
 The first run clones all repositories into `.cache/repositories/`.
 The clones hold only the commit history, and later runs update them.
@@ -43,7 +47,7 @@ To collect all years from 2010 to the current year in one run:
 make pr-interactions-all-years
 ```
 
-To collect one year, run `make pr-interactions-YYYY` with that year instead.
+To collect one year, run `make pr-interactions YEAR=2025` with that year instead.
 
 ## If a run stops
 

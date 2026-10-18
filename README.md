@@ -28,13 +28,15 @@ make test         # run the offline tests
 make docs-install # install the documentation dependencies
 make docs         # build the documentation to docs/_build/html
 make help         # list all targets
+make year YEAR=2025 # collect, derive and report a completed year
 ```
 
 Collecting data from GitHub needs a token in `.env`.
-See [Collect the data again](https://plone.github.io/plone-contributor-statistics/how-to/collect-data-again.html).
+See [Prepare the numbers for a new year](https://plone.github.io/plone-contributor-statistics/how-to/prepare-a-new-year.html) and [Collect the data again](https://plone.github.io/plone-contributor-statistics/how-to/collect-data-again.html).
 
 ## Data and reports
 
+- `scripts/`: the code, one folder per pipeline stage, see [`scripts/README.md`](scripts/README.md).
 - `data/`: contributor, organisation and pull request interaction files, one per year.
 - `data/community-contributions/`: curated community data, one file per year and kind.
 - `reports/`: generated reports.

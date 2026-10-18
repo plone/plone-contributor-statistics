@@ -12,9 +12,9 @@ import argparse
 import sys
 from pathlib import Path
 
-import paths
-from years import window
-from organisation_stats import UNMAPPED
+from scripts.lib import paths
+from scripts.lib.years import window
+from scripts.derive.organisation_stats import UNMAPPED
 
 
 def load_organisation_file(year):
@@ -24,7 +24,7 @@ def load_organisation_file(year):
     
     if not filepath.exists():
         print(f"❌ Missing file: {filename}")
-        print(f"   Run: make run-organisation-stats-{year}")
+        print(f"   Run: make run-organisation-stats-year YEAR={year}")
         return None
     
     try:

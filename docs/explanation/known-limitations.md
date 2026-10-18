@@ -57,13 +57,13 @@ Login lookup is case-sensitive
 ## Parts with a different method
 
 Volto statistics
-:   `volto_stats.py` uses another method than the core collector: the contributor list of the API, which stops after 500 people, a search request per person, and the branch `main`.
+:   `scripts/collect/volto_stats.py` uses another method than the core collector: the contributor list of the API, which stops after 500 people, a search request per person, and the branch `main`.
     Its data and `reports/volto.md` were last generated before the fixes for merge dates and merge commits, and before the split of Unmapped and independent contributors ([#80](https://github.com/plone/plone-contributor-statistics/issues/80)).
 
 PLIPs
 :   PLIPs are read from three repositories only.
     A closed PLIP stands in for a merged and released one, although most PLIPs are closed as completed ([#14](https://github.com/plone/plone-contributor-statistics/issues/14)).
-    `plone_plips.py` doesn't use the GitHub token ([#44](https://github.com/plone/plone-contributor-statistics/issues/44)).
+    `scripts/collect/plone_plips.py` doesn't use the GitHub token ([#44](https://github.com/plone/plone-contributor-statistics/issues/44)).
 
 Community recognition
 :   The levels published in August 2026 were calculated outside the repository, and they differ from the script's levels on the current data ({doc}`community-recognition`).
@@ -73,4 +73,4 @@ Board of Directors
 :   The organisations come from heuristics on the board members' biographies on plone.org, and the files have no source column.
 
 Yearly activity
-:   `yearly_activity_analysis.py` counts Unmapped as an organisation.
+:   `scripts/derive/yearly_activity_analysis.py` counts Unmapped as an organisation.

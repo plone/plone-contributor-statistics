@@ -3,10 +3,10 @@ from pathlib import Path
 
 import pytest
 
-# The scripts live in the repository root, not in a package.
+# The scripts run as modules from the repository root: python -m scripts.<stage>.<name>
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-import paths  # noqa: E402
+from scripts.lib import paths  # noqa: E402
 
 # Header-only mapping files: the loaders require every file to exist
 EMPTY_MAPPINGS = {

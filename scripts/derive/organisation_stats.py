@@ -15,8 +15,8 @@ import os
 import sys
 import argparse
 
-import paths
-from mappings import load_bot_accounts, load_organisation_mapping  # noqa: F401 (imported from here by other scripts)
+from scripts.lib import paths
+from scripts.lib.mappings import load_bot_accounts, load_organisation_mapping  # noqa: F401 (imported from here by other scripts)
 
 # Contributors who are not mapped to an organisation. This is not an
 # organisation: it gets no recognition points or level (#53). Self-employed
@@ -44,7 +44,7 @@ def get_stats_file(year=None):
     csv_files.extend(glob.glob(str(paths.CONTRIBUTORS_DIR / 'plone_contributors.csv')))
     
     if not csv_files:
-        print("No plone contributors CSV files found. Run 'python plone_stats.py' first.")
+        print("No plone contributors CSV files found. Run 'make run-stats YEAR=<year>' first.")
         return None
     
     # Sort by modification time, most recent first

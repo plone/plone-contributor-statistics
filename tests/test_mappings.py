@@ -4,8 +4,8 @@ from pathlib import Path
 
 import pytest
 
-import mappings
-import paths
+from scripts.lib import mappings
+from scripts.lib import paths
 
 LOADERS = [
     mappings.load_excluded_repositories,

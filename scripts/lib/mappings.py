@@ -6,7 +6,7 @@ must stop the run instead of producing statistics without the mapping.
 
 import csv
 
-import paths
+from scripts.lib import paths
 
 
 def _rows(path):

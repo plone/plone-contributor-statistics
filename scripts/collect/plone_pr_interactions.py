@@ -22,10 +22,10 @@ import logging
 from collections import defaultdict
 from dotenv import load_dotenv
 
-import paths
-from github_api import GitHubAPIError, github_get, github_graphql
-from mappings import load_bot_accounts, load_excluded_repositories
-from plone_contributors import parse_timestamp, select_repositories
+from scripts.lib import paths
+from scripts.lib.github_api import GitHubAPIError, github_get, github_graphql
+from scripts.lib.mappings import load_bot_accounts, load_excluded_repositories
+from scripts.collect.plone_contributors import parse_timestamp, select_repositories
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -503,11 +503,11 @@ def main():
         description='Extract Plone PR interactions and engagement data',
         epilog="""
 Examples:
-  python plone_pr_interactions.py                    # All Plone repos, current year
-  python plone_pr_interactions.py --year 2024       # All Plone repos, all of 2024
-  python plone_pr_interactions.py --from-year 2010 --to-year 2025  # One file per year, in one run
-  python plone_pr_interactions.py --repos plone/volto --year 2025  # Only Volto, 2025
-  python plone_pr_interactions.py --repos plone/volto plone/plone.restapi --year 2024  # Specific repos
+  python -m scripts.collect.plone_pr_interactions                    # All Plone repos, current year
+  python -m scripts.collect.plone_pr_interactions --year 2024       # All Plone repos, all of 2024
+  python -m scripts.collect.plone_pr_interactions --from-year 2010 --to-year 2025  # One file per year, in one run
+  python -m scripts.collect.plone_pr_interactions --repos plone/volto --year 2025  # Only Volto, 2025
+  python -m scripts.collect.plone_pr_interactions --repos plone/volto plone/plone.restapi --year 2024  # Specific repos
         """,
         formatter_class=argparse.RawDescriptionHelpFormatter
     )

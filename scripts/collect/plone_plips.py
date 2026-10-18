@@ -10,6 +10,7 @@ Extracts PLIPs (Plone Improvement Proposals) from all three main repositories:
 Creates CSV statistics similar to plone_stats.py but for PLIPs specifically.
 """
 
+import argparse
 import os
 import requests
 import time
@@ -17,7 +18,7 @@ import pandas as pd
 from datetime import datetime
 from collections import defaultdict
 
-import paths
+from scripts.lib import paths
 
 def get_github_token():
     """Get GitHub token from environment or .env file"""
@@ -288,4 +289,6 @@ def main():
     print(f"Found {len(plips)} PLIPs from {len(set(p['repository'] for p in plips))} repositories")
 
 if __name__ == "__main__":
+    # No options; --help says what the script does
+    argparse.ArgumentParser(description=__doc__.strip().splitlines()[0]).parse_args()
     main()

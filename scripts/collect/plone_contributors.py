@@ -39,10 +39,10 @@ from dotenv import load_dotenv
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
 
-import git_history
-import paths
-from github_api import GitHubAPIError, github_get, github_graphql, is_merge_commit
-from mappings import load_account_aliases, load_bot_accounts, load_commit_authors, load_excluded_repositories
+from scripts.lib import git_history
+from scripts.lib import paths
+from scripts.lib.github_api import GitHubAPIError, github_get, github_graphql, is_merge_commit
+from scripts.lib.mappings import load_account_aliases, load_bot_accounts, load_commit_authors, load_excluded_repositories
 
 
 EXCLUDED_REPOSITORIES_FILE = paths.EXCLUDED_REPOSITORIES
@@ -424,11 +424,11 @@ def parse_arguments():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python plone_contributors.py                    # Current year (default)
-  python plone_contributors.py --year 2024        # All of 2024
-  python plone_contributors.py --from-year 2003 --to-year 2025   # One file per year, in one run
-  python plone_contributors.py --start-date 2024-01-01 --end-date 2024-06-30  # First half of 2024
-  python plone_contributors.py --start-date 2023-01-01 --end-date 2024-12-31  # Two year span
+  python -m scripts.collect.plone_contributors                    # Current year (default)
+  python -m scripts.collect.plone_contributors --year 2024        # All of 2024
+  python -m scripts.collect.plone_contributors --from-year 2003 --to-year 2025   # One file per year, in one run
+  python -m scripts.collect.plone_contributors --start-date 2024-01-01 --end-date 2024-06-30  # First half of 2024
+  python -m scripts.collect.plone_contributors --start-date 2023-01-01 --end-date 2024-12-31  # Two year span
         """
     )
 

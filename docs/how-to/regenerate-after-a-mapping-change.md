@@ -17,7 +17,7 @@ You don't need a GitHub token, because nothing is collected from GitHub again.
     make run-organisation-stats
     ```
 
-    If the change affects only one year, run `make run-organisation-stats-YYYY` with that year instead.
+    If the change affects only one year, run `make run-organisation-stats-year YEAR=2025` with that year instead.
 
 3.  Regenerate the summaries and the reports:
 

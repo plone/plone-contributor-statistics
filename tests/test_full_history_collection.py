@@ -6,8 +6,8 @@ from datetime import datetime
 
 import pytest
 
-import plone_contributors
-from plone_contributors import BOT_ACCOUNTS_FILE, PloneStatsExtractor, year_periods
+from scripts.collect import plone_contributors
+from scripts.collect.plone_contributors import BOT_ACCOUNTS_FILE, PloneStatsExtractor, year_periods
 
 
 def commit(login, date, author_date=None, parents=1, user_type='User'):

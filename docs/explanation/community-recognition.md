@@ -21,7 +21,7 @@ The program's inputs are here:
 - The {doc}`curated data <curated-community-data>` records the community work.
 - The {doc}`organisation statistics <attribution>` and the PLIP files record the code contributions.
 
-`generate_community_recognition_report.py` turns these inputs into points and levels per organisation.
+`scripts/report/generate_community_recognition_report.py` turns these inputs into points and levels per organisation.
 It spells each organisation as in `organisations.csv`, so that different spellings in the inputs add up to one organisation.
 Unmapped contributors get no points and no level ([#53](https://github.com/plone/plone-contributor-statistics/issues/53)).
 
@@ -39,7 +39,7 @@ An organisation gets points for one strategic sprint per year at most.
 Pull requests count as an average per year over the five years, from the yearly organisation files, so a person counts for the organisation of each year.
 
 PLIPs count in the same way.
-`plip_organisation_stats.py` gives each PLIP to its author's organisation in the year the PLIP was closed ([#95](https://github.com/plone/plone-contributor-statistics/issues/95)).
+`scripts/derive/plip_organisation_stats.py` gives each PLIP to its author's organisation in the year the PLIP was closed ([#95](https://github.com/plone/plone-contributor-statistics/issues/95)).
 The points file asks for PLIPs that were merged and released, but the data only says whether a PLIP is closed.
 So a closed PLIP counts as merged and released ([#14](https://github.com/plone/plone-contributor-statistics/issues/14)).
 

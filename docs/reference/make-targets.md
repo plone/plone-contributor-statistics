@@ -4,20 +4,20 @@
 
 This page lists the targets of the `Makefile`, grouped by purpose.
 `make help` prints the full list.
-Targets with `YYYY` exist once per year.
 
 Targets of archived scripts were removed; `archive/README.md` lists the scripts.
 
 ## Variables
 
 Some targets take a year from a variable.
-The defaults are in `years.py`, and they match the years of the committed files.
+The defaults are in `scripts/lib/years.py`, and they match the years of the committed files.
 Set a variable on the command line to use another year, for example `make five-year-summary SUMMARY_END=2025`.
 
 | Variable | Used by |
 |---|---|
 | `SUMMARY_END` | The last year of `three-year-summary`, `five-year-summary` and `ten-year-summary`. |
 | `RECOGNITION_YEAR` | The year of `community-recognition`. |
+| `YEAR` | The year of `year`, `run-stats`, `pr-interactions`, `run-volto-stats` and `run-organisation-stats-year`; defaults to the last completed year. |
 
 ## Setup and maintenance
 
@@ -33,19 +33,22 @@ Set a variable on the command line to use another year, for example `make five-y
 | `make clean` | Deletes caches, checkpoint files and the built documentation; never committed files. | works |
 | `make status` | Prints the Python version and whether a GitHub token is configured. | works |
 
+## A whole year
+
+| Target | Does | Status |
+|---|---|---|
+| `make year` | Collects, derives and reports `YEAR` in pipeline order, see {doc}`/how-to/prepare-a-new-year`. | works |
+
 ## Collection
 
 | Target | Does | Status |
 |---|---|---|
 | `make run-stats-all-years` | Collects commits and merged pull requests from 2003 to the current year in one run. | works |
-| `make run-stats` | Collects commits and merged pull requests of the current year. | works |
-| `make run-stats-YYYY` | Collects commits and merged pull requests of one year. | works |
+| `make run-stats` | Collects commits and merged pull requests of `YEAR`. | works |
 | `make run-stats-custom` | Prints how to collect a custom date range. | works |
 | `make pr-interactions-all-years` | Collects pull request interactions from 2010 to the current year in one run. | works |
-| `make pr-interactions` | Collects pull request interactions of the current year. | works |
-| `make pr-interactions-YYYY` | Collects pull request interactions of one year. | works |
-| `make run-volto-stats` | Collects Volto contributor statistics of the current year. | works |
-| `make run-volto-stats-YYYY` | Collects Volto contributor statistics of one year. | works |
+| `make pr-interactions` | Collects pull request interactions of `YEAR`. | works |
+| `make run-volto-stats` | Collects Volto contributor statistics of `YEAR`. | works |
 | `make run-plips` | Collects all PLIPs. | works |
 
 ## Aggregation and reports
@@ -53,7 +56,7 @@ Set a variable on the command line to use another year, for example `make five-y
 | Target | Does | Status |
 |---|---|---|
 | `make run-organisation-stats` | Writes the organisation statistics of every year with a contributor file. | works |
-| `make run-organisation-stats-YYYY` | Writes the organisation statistics of one year. | works |
+| `make run-organisation-stats-year` | Writes the organisation statistics of `YEAR`. | works |
 | `make three-year-summary` | Writes the summary of the three years up to `SUMMARY_END`. | works |
 | `make five-year-summary` | Writes the summary of the five years up to `SUMMARY_END`. | works |
 | `make ten-year-summary` | Writes the summary of the ten years up to `SUMMARY_END`. | works |

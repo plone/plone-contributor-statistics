@@ -7,12 +7,13 @@ statistics across multiple time periods (current year, last full year,
 3-year and 10-year summaries).
 """
 
+import argparse
 import pandas as pd
 from pathlib import Path
 from datetime import datetime
 
-import paths
-from organisation_stats import UNMAPPED
+from scripts.lib import paths
+from scripts.derive.organisation_stats import UNMAPPED
 
 
 def load_contributor_file(year):
@@ -275,4 +276,6 @@ def main():
 
 
 if __name__ == "__main__":
+    # No options; --help says what the script does
+    argparse.ArgumentParser(description=__doc__.strip().splitlines()[0]).parse_args()
     exit(main())

@@ -6,14 +6,15 @@ Analyzes unmapped contributors (formerly "Independent") across all organisation 
 patterns and potential mappings based on their contributions and commit patterns.
 """
 
+import argparse
 import pandas as pd
 import glob
 from collections import defaultdict, Counter
 import os
 import re
 
-import paths
-from mappings import read_organisations
+from scripts.lib import paths
+from scripts.lib.mappings import read_organisations
 
 def load_organisation_files():
     """Load all organisation CSV files"""
@@ -238,4 +239,6 @@ def generate_research_report():
     }
 
 if __name__ == "__main__":
+    # No options; --help says what the script does
+    argparse.ArgumentParser(description=__doc__.strip().splitlines()[0]).parse_args()
     results = generate_research_report()

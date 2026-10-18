@@ -1,154 +1,83 @@
-.PHONY: help install clean run-stats run-stats-all-years run-stats-2025 run-stats-2024 run-stats-2023 run-stats-2022 run-stats-2021 run-stats-2020 run-stats-2019 run-stats-2018 run-stats-2017 run-stats-2016 run-stats-2015 run-stats-2014 run-stats-2013 run-stats-2012 run-stats-2011 run-stats-2010 run-stats-2009 run-stats-2008 run-stats-2007 run-stats-2006 run-stats-2005 run-stats-2004 run-stats-2003 run-stats-2002 run-stats-2001 run-stats-2000 run-stats-custom run-organisation-stats run-organisation-stats-2025 run-organisation-stats-2024 run-organisation-stats-2023 run-organisation-stats-2022 run-organisation-stats-2021 run-organisation-stats-2020 run-organisation-stats-2019 run-organisation-stats-2018 run-organisation-stats-2017 run-organisation-stats-2016 run-organisation-stats-2015 run-organisation-stats-2014 run-organisation-stats-2013 run-organisation-stats-2012 run-organisation-stats-2011 run-organisation-stats-2010 run-organisation-stats-2009 run-organisation-stats-2008 run-organisation-stats-2007 run-organisation-stats-2006 run-organisation-stats-2005 run-organisation-stats-2004 run-organisation-stats-2003 run-organisation-stats-2002 run-organisation-stats-2001 run-organisation-stats-2000 run-plips run-plip-organisations analyze-independent three-year-summary ten-year-summary generate-report community-recognition pr-interactions pr-interactions-all-years pr-interactions-2025 pr-interactions-2024 pr-interactions-2023 pr-interactions-2022 pr-interactions-2021 pr-interactions-2020 pr-interactions-2019 pr-interactions-2018 pr-interactions-2017 pr-interactions-2016 pr-interactions-2015 pr-interactions-2014 pr-interactions-2013 pr-interactions-2012 pr-interactions-2011 pr-interactions-2010 pr-interactions-2009 pr-interactions-2008 pr-interactions-2007 pr-interactions-2006 pr-interactions-2005 setup dev-setup lint format check test docs-install docs docs-linkcheck docs-clean
+# Plone contributor statistics; see docs/reference/make-targets.md
+# Scripts run from the repository root as modules: python -m scripts.<stage>.<name>
 
-# Default years, from years.py; override on the command line, e.g. make five-year-summary SUMMARY_END=2025
-SUMMARY_END ?= $(shell python -c 'from years import SUMMARY_END_YEAR; print(SUMMARY_END_YEAR)')
-RECOGNITION_YEAR ?= $(shell python -c 'from years import RECOGNITION_YEAR; print(RECOGNITION_YEAR)')
+# The year to collect and derive; defaults to the last completed year
+YEAR ?= $(shell python -c 'from scripts.lib.years import last_completed_year; print(last_completed_year())')
+# Default years of the summaries and the recognition report, from scripts/lib/years.py
+SUMMARY_END ?= $(shell python -c 'from scripts.lib.years import SUMMARY_END_YEAR; print(SUMMARY_END_YEAR)')
+RECOGNITION_YEAR ?= $(shell python -c 'from scripts.lib.years import RECOGNITION_YEAR; print(RECOGNITION_YEAR)')
 # The $(1) years up to and including SUMMARY_END
 summary_years = $(shell seq $$(($(SUMMARY_END) - $(1) + 1)) $(SUMMARY_END))
 
-# Default target
+.PHONY: help install setup dev-setup year \
+	run-stats run-stats-all-years run-stats-custom pr-interactions pr-interactions-all-years \
+	run-volto-stats run-plips \
+	run-organisation-stats run-organisation-stats-year run-plip-organisations \
+	three-year-summary five-year-summary ten-year-summary yearly-activity \
+	yearly-graphs generate-report generate-volto-report community-recognition \
+	analyze-independent clean lint format check test status \
+	docs-install docs docs-linkcheck docs-clean
+
 help:
-	@echo "Plone GitHub Statistics Project"
+	@echo "Plone contributor statistics"
 	@echo ""
-	@echo "Available commands:"
-	@echo "  help              Show this help message"
+	@echo "Setup:"
 	@echo "  install           Install Python dependencies"
-	@echo "  setup             Setup environment (.env file and dependencies)"
-	@echo "  run-stats         Run main statistics extraction (current year)"
-	@echo "  run-stats-all-years Collect all years 2003–now in one run"
-	@echo "  run-stats-2025    Run statistics for 2025"
-	@echo "  run-stats-2024    Run statistics for 2024"
-	@echo "  run-stats-2023    Run statistics for 2023"
-	@echo "  run-stats-2022    Run statistics for 2022"
-	@echo "  run-stats-2021    Run statistics for 2021"
-	@echo "  run-stats-2020    Run statistics for 2020"
-	@echo "  run-stats-2019    Run statistics for 2019"
-	@echo "  run-stats-2018    Run statistics for 2018"
-	@echo "  run-stats-2017    Run statistics for 2017"
-	@echo "  run-stats-2016    Run statistics for 2016"
-	@echo "  run-stats-2015    Run statistics for 2015"
-	@echo "  run-stats-2014    Run statistics for 2014"
-	@echo "  run-stats-2013    Run statistics for 2013"
-	@echo "  run-stats-2012    Run statistics for 2012"
-	@echo "  run-stats-2011    Run statistics for 2011"
-	@echo "  run-stats-2010    Run statistics for 2010"
-	@echo "  run-stats-2009    Run statistics for 2009"
-	@echo "  run-stats-2008    Run statistics for 2008"
-	@echo "  run-stats-2007    Run statistics for 2007"
-	@echo "  run-stats-2006    Run statistics for 2006"
-	@echo "  run-stats-2005    Run statistics for 2005"
-	@echo "  run-stats-2004    Run statistics for 2004"
-	@echo "  run-stats-2003    Run statistics for 2003"
-	@echo "  run-stats-2002    Run statistics for 2002"
-	@echo "  run-stats-2001    Run statistics for 2001"
-	@echo "  run-stats-2000    Run statistics for 2000"
-	@echo "  run-stats-custom  Run statistics with custom date range (see help)"
-	@echo "  run-organisation-stats Generate organisation statistics from individual stats (all available years)"
-	@echo "  run-organisation-stats-2025 Generate organisation statistics for 2025"
-	@echo "  run-organisation-stats-2024 Generate organisation statistics for 2024"
-	@echo "  run-organisation-stats-2023 Generate organisation statistics for 2023"
-	@echo "  run-organisation-stats-2022 Generate organisation statistics for 2022"
-	@echo "  run-organisation-stats-2021 Generate organisation statistics for 2021"
-	@echo "  run-organisation-stats-2020 Generate organisation statistics for 2020"
-	@echo "  run-organisation-stats-2019 Generate organisation statistics for 2019"
-	@echo "  run-organisation-stats-2018 Generate organisation statistics for 2018"
-	@echo "  run-organisation-stats-2017 Generate organisation statistics for 2017"
-	@echo "  run-organisation-stats-2016 Generate organisation statistics for 2016"
-	@echo "  run-organisation-stats-2015 Generate organisation statistics for 2015"
-	@echo "  run-organisation-stats-2014 Generate organisation statistics for 2014"
-	@echo "  run-organisation-stats-2013 Generate organisation statistics for 2013"
-	@echo "  run-organisation-stats-2012 Generate organisation statistics for 2012"
-	@echo "  run-organisation-stats-2011 Generate organisation statistics for 2011"
-	@echo "  run-organisation-stats-2010 Generate organisation statistics for 2010"
-	@echo "  run-organisation-stats-2009 Generate organisation statistics for 2009"
-	@echo "  run-organisation-stats-2008 Generate organisation statistics for 2008"
-	@echo "  run-organisation-stats-2007 Generate organisation statistics for 2007"
-	@echo "  run-organisation-stats-2006 Generate organisation statistics for 2006"
-	@echo "  run-organisation-stats-2005 Generate organisation statistics for 2005"
-	@echo "  run-organisation-stats-2004 Generate organisation statistics for 2004"
-	@echo "  run-organisation-stats-2003 Generate organisation statistics for 2003"
-	@echo "  run-organisation-stats-2002 Generate organisation statistics for 2002"
-	@echo "  run-organisation-stats-2001 Generate organisation statistics for 2001"
-	@echo "  run-organisation-stats-2000 Generate organisation statistics for 2000"
-	@echo "  run-plips         Extract PLIP statistics from all repositories"
-	@echo "  run-plip-organisations Generate PLIP organisation statistics using organisation mapping"
-	@echo "  analyze-independent Analyze Independent contributors for potential organisation mappings"
-	@echo "  three-year-summary Generate combined statistics summary for the 3 years up to SUMMARY_END ($(SUMMARY_END))"
-	@echo "  five-year-summary Generate combined statistics summary for the 5 years up to SUMMARY_END"
-	@echo "  ten-year-summary  Generate combined statistics summary for the 10 years up to SUMMARY_END"
-	@echo "  yearly-activity   Generate yearly development activity analysis"
-	@echo "  yearly-graphs     Generate visual graphs from yearly activity data"
-	@echo "  generate-report   Generate comprehensive contributor and organization report"
-	@echo "  generate-volto-report Generate Volto contributor and organization report"
-	@echo "  run-volto-stats   Run Volto repository statistics extraction (current year)"
-	@echo "  run-volto-stats-2025 Run Volto statistics for 2025"
-	@echo "  run-volto-stats-2024 Run Volto statistics for 2024"
-	@echo "  run-volto-stats-2023 Run Volto statistics for 2023"
-	@echo "  run-volto-stats-2022 Run Volto statistics for 2022"
-	@echo "  run-volto-stats-2021 Run Volto statistics for 2021"
-	@echo "  run-volto-stats-2020 Run Volto statistics for 2020"
-	@echo "  run-volto-stats-2019 Run Volto statistics for 2019"
-	@echo "  run-volto-stats-2018 Run Volto statistics for 2018"
-	@echo "  run-volto-stats-2017 Run Volto statistics for 2017"
-	@echo "  run-volto-stats-2016 Run Volto statistics for 2016"
-	@echo "  run-volto-stats-2015 Run Volto statistics for 2015"
-	@echo "  run-volto-stats-2014 Run Volto statistics for 2014"
-	@echo "  run-volto-stats-2013 Run Volto statistics for 2013"
-	@echo "  run-volto-stats-2012 Run Volto statistics for 2012"
-	@echo "  run-volto-stats-2011 Run Volto statistics for 2011"
-	@echo "  run-volto-stats-2010 Run Volto statistics for 2010"
-	@echo "  run-volto-stats-2009 Run Volto statistics for 2009"
-	@echo "  run-volto-stats-2008 Run Volto statistics for 2008"
-	@echo "  run-volto-stats-2007 Run Volto statistics for 2007"
-	@echo "  run-volto-stats-2006 Run Volto statistics for 2006"
-	@echo "  run-volto-stats-2005 Run Volto statistics for 2005"
-	@echo "  run-volto-stats-2004 Run Volto statistics for 2004"
-	@echo "  run-volto-stats-2003 Run Volto statistics for 2003"
-	@echo "  run-volto-stats-2002 Run Volto statistics for 2002"
-	@echo "  run-volto-stats-2001 Run Volto statistics for 2001"
-	@echo "  run-volto-stats-2000 Run Volto statistics for 2000"
-	@echo "  pr-interactions   Extract pull request comments and interactions from GitHub"
-	@echo "  pr-interactions-all-years Extract PR interactions for all years 2010–now in one run"
-	@echo "  pr-interactions-2025 Extract pull request comments and interactions for 2025"
-	@echo "  pr-interactions-2024 Extract pull request comments and interactions for 2024"
-	@echo "  pr-interactions-2023 Extract pull request comments and interactions for 2023"
-	@echo "  pr-interactions-2022 Extract pull request comments and interactions for 2022"
-	@echo "  pr-interactions-2021 Extract pull request comments and interactions for 2021"
-	@echo "  pr-interactions-2020 Extract pull request comments and interactions for 2020"
-	@echo "  pr-interactions-2019 Extract pull request comments and interactions for 2019"
-	@echo "  pr-interactions-2018 Extract pull request comments and interactions for 2018"
-	@echo "  pr-interactions-2017 Extract pull request comments and interactions for 2017"
-	@echo "  pr-interactions-2016 Extract pull request comments and interactions for 2016"
-	@echo "  pr-interactions-2015 Extract pull request comments and interactions for 2015"
-	@echo "  pr-interactions-2014 Extract pull request comments and interactions for 2014"
-	@echo "  pr-interactions-2013 Extract pull request comments and interactions for 2013"
-	@echo "  pr-interactions-2012 Extract pull request comments and interactions for 2012"
-	@echo "  pr-interactions-2011 Extract pull request comments and interactions for 2011"
-	@echo "  pr-interactions-2010 Extract pull request comments and interactions for 2010"
-	@echo "  pr-interactions-2009 Extract pull request comments and interactions for 2009"
-	@echo "  pr-interactions-2008 Extract pull request comments and interactions for 2008"
-	@echo "  pr-interactions-2007 Extract pull request comments and interactions for 2007"
-	@echo "  pr-interactions-2006 Extract pull request comments and interactions for 2006"
-	@echo "  pr-interactions-2005 Extract pull request comments and interactions for 2005"
-	@echo "  clean             Delete caches, checkpoints and the built docs (never committed files)"
-	@echo "  lint              Run code linting"
-	@echo "  format            Format Python code"
-	@echo "  check             Check code quality and dependencies"
+	@echo "  setup             Install dependencies and create a .env template for the GitHub token"
+	@echo "  dev-setup         Setup plus development tools"
+	@echo ""
+	@echo "A whole year (YEAR, default: the last completed year):"
+	@echo "  year              Collect, derive and report YEAR, in pipeline order"
+	@echo ""
+	@echo "Collect (needs a GitHub token):"
+	@echo "  run-stats         Commits and merged pull requests of YEAR"
+	@echo "  run-stats-all-years Commits and merged pull requests, 2003 to now, in one run"
+	@echo "  run-stats-custom  Print how to collect a custom date range"
+	@echo "  pr-interactions   Pull request interactions of YEAR"
+	@echo "  pr-interactions-all-years Pull request interactions, 2010 to now, in one run"
+	@echo "  run-volto-stats   Volto contributor statistics of YEAR"
+	@echo "  run-plips         All PLIPs"
+	@echo ""
+	@echo "Derive:"
+	@echo "  run-organisation-stats Organisation statistics of every year with a contributor file"
+	@echo "  run-organisation-stats-year Organisation statistics of YEAR"
+	@echo "  run-plip-organisations PLIPs per organisation"
+	@echo "  three-year-summary Summary of the 3 years up to SUMMARY_END ($(SUMMARY_END))"
+	@echo "  five-year-summary Summary of the 5 years up to SUMMARY_END"
+	@echo "  ten-year-summary  Summary of the 10 years up to SUMMARY_END"
+	@echo "  yearly-activity   Yearly totals of all years"
+	@echo ""
+	@echo "Report:"
+	@echo "  yearly-graphs     Graphs of the yearly totals (runs yearly-activity)"
+	@echo "  generate-report   Contributor and organisation report"
+	@echo "  generate-volto-report Volto report"
+	@echo "  community-recognition Community recognition report of RECOGNITION_YEAR ($(RECOGNITION_YEAR))"
+	@echo ""
+	@echo "Tools:"
+	@echo "  analyze-independent List unmapped contributors worth researching"
+	@echo ""
+	@echo "Maintenance:"
 	@echo "  test              Run the test suite (pytest)"
+	@echo "  check             Lint, compile all scripts and check the requirements"
+	@echo "  lint              Run flake8"
+	@echo "  format            Format the code with black"
+	@echo "  clean             Delete caches, checkpoints and the built docs (never committed files)"
+	@echo "  status            Show the Python version and whether a GitHub token is configured"
 	@echo "  docs-install      Install the documentation dependencies"
 	@echo "  docs              Build the documentation (warnings are errors)"
 	@echo "  docs-linkcheck    Check the links in the documentation"
 	@echo "  docs-clean        Remove the built documentation"
 	@echo ""
-	@echo "Date range examples:"
-	@echo "  python plone_contributors.py --year 2024"
-	@echo "  python plone_contributors.py --start-date 2024-01-01 --end-date 2024-06-30"
+	@echo "Examples:"
+	@echo "  make year YEAR=2025"
+	@echo "  make run-stats YEAR=2024"
+	@echo "  make five-year-summary SUMMARY_END=2025"
 
-# Install dependencies
+# Setup
+
 install:
 	pip install -r requirements.txt
 
-# Setup development environment
 setup: install
 	@if [ ! -f .env ]; then \
 		echo "Creating .env file template..."; \
@@ -158,453 +87,135 @@ setup: install
 		echo ".env file already exists"; \
 	fi
 
-# Development setup with additional tools
 dev-setup: setup
 	pip install black flake8 mypy pytest pytest-timeout
 
-# Run main statistics extraction (current year)
+# A whole year, in pipeline order: collect, derive, report
+
+year:
+	$(MAKE) run-stats YEAR=$(YEAR)
+	$(MAKE) pr-interactions YEAR=$(YEAR)
+	$(MAKE) run-volto-stats YEAR=$(YEAR)
+	$(MAKE) run-plips
+	$(MAKE) run-organisation-stats-year YEAR=$(YEAR)
+	$(MAKE) run-plip-organisations
+	$(MAKE) three-year-summary five-year-summary ten-year-summary SUMMARY_END=$(YEAR)
+	$(MAKE) yearly-graphs
+	$(MAKE) generate-report
+	$(MAKE) generate-volto-report
+	$(MAKE) community-recognition RECOGNITION_YEAR=$(YEAR)
+
+# Collect
+
 run-stats:
-	python plone_contributors.py
+	python -m scripts.collect.plone_contributors --year $(YEAR)
 
-# Collect all years in one run (one file per year)
+# One file per year, in one run
 run-stats-all-years:
-	python plone_contributors.py --from-year 2003 --to-year $$(date +%Y)
+	python -m scripts.collect.plone_contributors --from-year 2003 --to-year $$(date +%Y)
 
-# Run statistics for specific years
-run-stats-2025:
-	python plone_contributors.py --year 2025
-
-run-stats-2024:
-	python plone_contributors.py --year 2024
-
-run-stats-2023:
-	python plone_contributors.py --year 2023
-
-run-stats-2022:
-	python plone_contributors.py --year 2022
-
-run-stats-2021:
-	python plone_contributors.py --year 2021
-
-run-stats-2020:
-	python plone_contributors.py --year 2020
-
-run-stats-2019:
-	python plone_contributors.py --year 2019
-
-run-stats-2018:
-	python plone_contributors.py --year 2018
-
-run-stats-2017:
-	python plone_contributors.py --year 2017
-
-run-stats-2016:
-	python plone_contributors.py --year 2016
-
-run-stats-2015:
-	python plone_contributors.py --year 2015
-
-run-stats-2014:
-	python plone_contributors.py --year 2014
-
-run-stats-2013:
-	python plone_contributors.py --year 2013
-
-run-stats-2012:
-	python plone_contributors.py --year 2012
-
-run-stats-2011:
-	python plone_contributors.py --year 2011
-
-run-stats-2010:
-	python plone_contributors.py --year 2010
-
-run-stats-2009:
-	python plone_contributors.py --year 2009
-
-run-stats-2008:
-	python plone_contributors.py --year 2008
-
-run-stats-2007:
-	python plone_contributors.py --year 2007
-
-run-stats-2006:
-	python plone_contributors.py --year 2006
-
-run-stats-2005:
-	python plone_contributors.py --year 2005
-
-run-stats-2004:
-	python plone_contributors.py --year 2004
-
-run-stats-2003:
-	python plone_contributors.py --year 2003
-
-run-stats-2002:
-	python plone_contributors.py --year 2002
-
-run-stats-2001:
-	python plone_contributors.py --year 2001
-
-run-stats-2000:
-	python plone_contributors.py --year 2000
-
-# Run statistics with custom date range
 run-stats-custom:
 	@echo "Usage examples:"
-	@echo "  python plone_contributors.py --year 2023"
-	@echo "  python plone_contributors.py --start-date 2024-01-01 --end-date 2024-12-31"
-	@echo "  python plone_contributors.py --start-date 2023-01-01 --end-date 2024-12-31"
+	@echo "  python -m scripts.collect.plone_contributors --year 2023"
+	@echo "  python -m scripts.collect.plone_contributors --start-date 2024-01-01 --end-date 2024-12-31"
+	@echo "  python -m scripts.collect.plone_contributors --start-date 2023-01-01 --end-date 2024-12-31"
 
-# Generate organisation statistics from individual contributor stats (all available years)
+pr-interactions:
+	python -m scripts.collect.plone_pr_interactions --year $(YEAR)
+
+pr-interactions-all-years:
+	python -m scripts.collect.plone_pr_interactions --from-year 2010 --to-year $$(date +%Y)
+
+run-volto-stats:
+	python -m scripts.collect.volto_stats --year $(YEAR)
+
+run-plips:
+	python -m scripts.collect.plone_plips
+
+# Derive
+
 run-organisation-stats:
 	@echo "Running organisation statistics for all available years..."
 	@for year_file in data/*-plone-contributors.csv; do \
 		if [ -f "$$year_file" ]; then \
 			year=$$(basename $$year_file | sed 's/-plone-contributors.csv//'); \
 			echo "Processing $$year..."; \
-			python organisation_stats.py --year $$year; \
+			python -m scripts.derive.organisation_stats --year $$year; \
 		fi \
 	done
 	@echo "Finished generating organisation statistics for all years"
 
-# Generate organisation statistics for specific years
-run-organisation-stats-2025:
-	python organisation_stats.py --year 2025
+run-organisation-stats-year:
+	python -m scripts.derive.organisation_stats --year $(YEAR)
 
-run-organisation-stats-2024:
-	python organisation_stats.py --year 2024
-
-run-organisation-stats-2023:
-	python organisation_stats.py --year 2023
-
-run-organisation-stats-2022:
-	python organisation_stats.py --year 2022
-
-run-organisation-stats-2021:
-	python organisation_stats.py --year 2021
-
-run-organisation-stats-2020:
-	python organisation_stats.py --year 2020
-
-run-organisation-stats-2019:
-	python organisation_stats.py --year 2019
-
-run-organisation-stats-2018:
-	python organisation_stats.py --year 2018
-
-run-organisation-stats-2017:
-	python organisation_stats.py --year 2017
-
-run-organisation-stats-2016:
-	python organisation_stats.py --year 2016
-
-run-organisation-stats-2015:
-	python organisation_stats.py --year 2015
-
-run-organisation-stats-2014:
-	python organisation_stats.py --year 2014
-
-run-organisation-stats-2013:
-	python organisation_stats.py --year 2013
-
-run-organisation-stats-2012:
-	python organisation_stats.py --year 2012
-
-run-organisation-stats-2011:
-	python organisation_stats.py --year 2011
-
-run-organisation-stats-2010:
-	python organisation_stats.py --year 2010
-
-run-organisation-stats-2009:
-	python organisation_stats.py --year 2009
-
-run-organisation-stats-2008:
-	python organisation_stats.py --year 2008
-
-run-organisation-stats-2007:
-	python organisation_stats.py --year 2007
-
-run-organisation-stats-2006:
-	python organisation_stats.py --year 2006
-
-run-organisation-stats-2005:
-	python organisation_stats.py --year 2005
-
-run-organisation-stats-2004:
-	python organisation_stats.py --year 2004
-
-run-organisation-stats-2003:
-	python organisation_stats.py --year 2003
-
-run-organisation-stats-2002:
-	python organisation_stats.py --year 2002
-
-run-organisation-stats-2001:
-	python organisation_stats.py --year 2001
-
-run-organisation-stats-2000:
-	python organisation_stats.py --year 2000
-
-# Extract PLIP statistics
-run-plips:
-	python plone_plips.py
-
-# Generate PLIP organisation statistics
 run-plip-organisations:
-	python plip_organisation_stats.py
+	python -m scripts.derive.plip_organisation_stats
 
-# Analyze Independent contributors for potential organisation mappings
-analyze-independent:
-	python analyze_independent_contributors.py
-
-# Combine the organisation statistics of the last 3, 5 or 10 years up to SUMMARY_END
 three-year-summary:
-	python multi_year_summary.py --years $(call summary_years,3)
+	python -m scripts.derive.multi_year_summary --years $(call summary_years,3)
 
 five-year-summary:
-	python multi_year_summary.py --years $(call summary_years,5)
+	python -m scripts.derive.multi_year_summary --years $(call summary_years,5)
 
 ten-year-summary:
-	python multi_year_summary.py --years $(call summary_years,10)
+	python -m scripts.derive.multi_year_summary --years $(call summary_years,10)
 
-# Generate yearly development activity analysis
 yearly-activity:
-	python yearly_activity_analysis.py
+	python -m scripts.derive.yearly_activity_analysis
 
-# Generate visual graphs from yearly activity data
+# Report
+
 yearly-graphs: yearly-activity
-	python generate_yearly_graphs.py
+	python -m scripts.report.generate_yearly_graphs
 
-# Generate comprehensive contributor and organization report
 generate-report:
-	python generate_contributor_report.py
+	python -m scripts.report.generate_contributor_report
 
-# Calculate community recognition points and generate report
-community-recognition:
-	python generate_community_recognition_report.py --year $(RECOGNITION_YEAR)
-
-# Generate Volto report
 generate-volto-report:
-	python generate_volto_team_report.py
+	python -m scripts.report.generate_volto_team_report
 
-# Extract pull request comments and interactions from GitHub
-pr-interactions:
-	python plone_pr_interactions.py
+community-recognition:
+	python -m scripts.report.generate_community_recognition_report --year $(RECOGNITION_YEAR)
 
-# Extract pull request interactions for all years in one run
-pr-interactions-all-years:
-	python plone_pr_interactions.py --from-year 2010 --to-year $$(date +%Y)
+# Tools
 
-# Extract pull request comments and interactions for 2025
-pr-interactions-2025:
-	python plone_pr_interactions.py --year 2025
+analyze-independent:
+	python -m scripts.tools.analyze_independent_contributors
 
-# Extract pull request comments and interactions for 2024
-pr-interactions-2024:
-	python plone_pr_interactions.py --year 2024
+# Maintenance
 
-# Extract pull request comments and interactions for 2023
-pr-interactions-2023:
-	python plone_pr_interactions.py --year 2023
-
-# Extract pull request comments and interactions for 2022
-pr-interactions-2022:
-	python plone_pr_interactions.py --year 2022
-
-# Extract pull request comments and interactions for 2021
-pr-interactions-2021:
-	python plone_pr_interactions.py --year 2021
-
-# Extract pull request comments and interactions for 2020
-pr-interactions-2020:
-	python plone_pr_interactions.py --year 2020
-
-# Extract pull request comments and interactions for 2019
-pr-interactions-2019:
-	python plone_pr_interactions.py --year 2019
-
-# Extract pull request comments and interactions for 2018
-pr-interactions-2018:
-	python plone_pr_interactions.py --year 2018
-
-# Extract pull request comments and interactions for 2017
-pr-interactions-2017:
-	python plone_pr_interactions.py --year 2017
-
-# Extract pull request comments and interactions for 2016
-pr-interactions-2016:
-	python plone_pr_interactions.py --year 2016
-
-# Extract pull request comments and interactions for 2015
-pr-interactions-2015:
-	python plone_pr_interactions.py --year 2015
-
-# Extract pull request comments and interactions for 2014
-pr-interactions-2014:
-	python plone_pr_interactions.py --year 2014
-
-# Extract pull request comments and interactions for 2013
-pr-interactions-2013:
-	python plone_pr_interactions.py --year 2013
-
-# Extract pull request comments and interactions for 2012
-pr-interactions-2012:
-	python plone_pr_interactions.py --year 2012
-
-# Extract pull request comments and interactions for 2011
-pr-interactions-2011:
-	python plone_pr_interactions.py --year 2011
-
-# Extract pull request comments and interactions for 2010
-pr-interactions-2010:
-	python plone_pr_interactions.py --year 2010
-
-# Extract pull request comments and interactions for 2009
-pr-interactions-2009:
-	python plone_pr_interactions.py --year 2009
-
-# Extract pull request comments and interactions for 2008
-pr-interactions-2008:
-	python plone_pr_interactions.py --year 2008
-
-# Extract pull request comments and interactions for 2007
-pr-interactions-2007:
-	python plone_pr_interactions.py --year 2007
-
-# Extract pull request comments and interactions for 2006
-pr-interactions-2006:
-	python plone_pr_interactions.py --year 2006
-
-# Extract pull request comments and interactions for 2005
-pr-interactions-2005:
-	python plone_pr_interactions.py --year 2005
-
-# Run Volto statistics extraction (current year)
-run-volto-stats:
-	python volto_stats.py
-
-# Run Volto statistics for specific years
-run-volto-stats-2025:
-	python volto_stats.py --year 2025
-
-run-volto-stats-2024:
-	python volto_stats.py --year 2024
-
-run-volto-stats-2023:
-	python volto_stats.py --year 2023
-
-run-volto-stats-2022:
-	python volto_stats.py --year 2022
-
-run-volto-stats-2021:
-	python volto_stats.py --year 2021
-
-run-volto-stats-2020:
-	python volto_stats.py --year 2020
-
-run-volto-stats-2019:
-	python volto_stats.py --year 2019
-
-run-volto-stats-2018:
-	python volto_stats.py --year 2018
-
-run-volto-stats-2017:
-	python volto_stats.py --year 2017
-
-run-volto-stats-2016:
-	python volto_stats.py --year 2016
-
-run-volto-stats-2015:
-	python volto_stats.py --year 2015
-
-run-volto-stats-2014:
-	python volto_stats.py --year 2014
-
-run-volto-stats-2013:
-	python volto_stats.py --year 2013
-
-run-volto-stats-2012:
-	python volto_stats.py --year 2012
-
-run-volto-stats-2011:
-	python volto_stats.py --year 2011
-
-run-volto-stats-2010:
-	python volto_stats.py --year 2010
-
-run-volto-stats-2009:
-	python volto_stats.py --year 2009
-
-run-volto-stats-2008:
-	python volto_stats.py --year 2008
-
-run-volto-stats-2007:
-	python volto_stats.py --year 2007
-
-run-volto-stats-2006:
-	python volto_stats.py --year 2006
-
-run-volto-stats-2005:
-	python volto_stats.py --year 2005
-
-run-volto-stats-2004:
-	python volto_stats.py --year 2004
-
-run-volto-stats-2003:
-	python volto_stats.py --year 2003
-
-run-volto-stats-2002:
-	python volto_stats.py --year 2002
-
-run-volto-stats-2001:
-	python volto_stats.py --year 2001
-
-run-volto-stats-2000:
-	python volto_stats.py --year 2000
-
-# Clean generated files
 clean:
 	rm -f data/*_checkpoint.csv
 	rm -rf .pytest_cache docs/_build
 	find . -name "*.pyc" -delete
 	find . -name "__pycache__" -type d -exec rm -rf {} +
 
-# Code quality checks
 lint:
 	@if command -v flake8 >/dev/null 2>&1; then \
-		flake8 *.py; \
+		flake8 scripts tests; \
 	else \
 		echo "flake8 not installed. Run 'make dev-setup' first."; \
 	fi
 
 format:
 	@if command -v black >/dev/null 2>&1; then \
-		black *.py; \
+		black scripts tests; \
 	else \
 		echo "black not installed. Run 'make dev-setup' first."; \
 	fi
 
 check: lint
 	@echo "Checking Python syntax..."
-	@python -m py_compile *.py
+	@python -m compileall -q scripts tests
 	@echo "All Python files compile successfully!"
 	@echo "Checking requirements..."
 	@pip check
 
-# Run the test suite
 test:
 	python -m pytest tests
 
-# Show current status
 status:
-	@echo "Project: Plone GitHub Statistics"
 	@echo "Python version: $$(python --version)"
-	@echo "Pip version: $$(pip --version)"
-	@echo ""
-	@echo "Generated files:"
-	@ls -la *.csv *.json 2>/dev/null || echo "No output files found"
 	@echo ""
 	@echo "Environment:"
 	@if [ -f .env ]; then \
@@ -618,7 +229,8 @@ status:
 		echo "❌ .env file missing - run 'make setup'"; \
 	fi
 
-# Documentation (Sphinx with MyST, see docs/)
+# Documentation
+
 docs-install:
 	pip install -r requirements-docs.txt
 
