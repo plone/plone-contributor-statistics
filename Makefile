@@ -14,7 +14,7 @@ summary_years = $(shell seq $$(($(SUMMARY_END) - $(1) + 1)) $(SUMMARY_END))
 	run-plips \
 	run-organisation-stats run-organisation-stats-year run-plip-organisations \
 	three-year-summary five-year-summary ten-year-summary yearly-activity \
-	yearly-graphs generate-report community-recognition \
+	yearly-graphs generate-report community-recognition community-page \
 	analyze-independent clean lint format check test status \
 	docs-install docs docs-linkcheck docs-clean
 
@@ -50,6 +50,7 @@ help:
 	@echo "  yearly-graphs     Graphs of the yearly totals (runs yearly-activity)"
 	@echo "  generate-report   Contributor and organisation report"
 	@echo "  community-recognition Community recognition report of RECOGNITION_YEAR ($(RECOGNITION_YEAR))"
+	@echo "  community-page    Data of the community page for RECOGNITION_YEAR"
 	@echo ""
 	@echo "Tools:"
 	@echo "  analyze-independent List unmapped contributors worth researching"
@@ -100,6 +101,7 @@ year:
 	$(MAKE) yearly-graphs
 	$(MAKE) generate-report
 	$(MAKE) community-recognition RECOGNITION_YEAR=$(YEAR)
+	$(MAKE) community-page RECOGNITION_YEAR=$(YEAR)
 
 # Collect
 
@@ -166,6 +168,9 @@ generate-report:
 
 community-recognition:
 	python -m scripts.report.generate_community_recognition_report --year $(RECOGNITION_YEAR)
+
+community-page:
+	python -m scripts.derive.community_page --year $(RECOGNITION_YEAR)
 
 # Tools
 

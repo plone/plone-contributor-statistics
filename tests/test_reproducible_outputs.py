@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parent.parent
 # The steps that need no network; the graphs are left out, because their pixels
 # depend on the matplotlib version
 TARGETS = ['run-organisation-stats', 'run-plip-organisations', 'three-year-summary', 'five-year-summary',
-           'ten-year-summary', 'yearly-activity', 'generate-report', 'community-recognition']
+           'ten-year-summary', 'yearly-activity', 'generate-report', 'community-recognition', 'community-page']
 COMPARED = ['derived', 'reports']
 GENERATED = re.compile(r'^\*?Generated( on)?:.*$', re.M)
 
@@ -33,7 +33,7 @@ def committed_years():
 
 def outputs(root):
     return {p.relative_to(root): p for folder in COMPARED for p in (root / folder).rglob('*')
-            if p.is_file() and p.suffix in ('.csv', '.md', '.txt') and p.name != 'README.md'}
+            if p.is_file() and p.suffix in ('.csv', '.md', '.txt', '.json') and p.name != 'README.md'}
 
 
 @pytest.fixture(scope='module')

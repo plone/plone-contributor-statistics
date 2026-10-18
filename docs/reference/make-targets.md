@@ -16,7 +16,7 @@ Set a variable on the command line to use another year, for example `make five-y
 | Variable | Used by |
 |---|---|
 | `SUMMARY_END` | The last year of `three-year-summary`, `five-year-summary` and `ten-year-summary`. |
-| `RECOGNITION_YEAR` | The year of `community-recognition`. |
+| `RECOGNITION_YEAR` | The year of `community-recognition` and `community-page`. |
 | `YEAR` | The year of `year`, `run-stats`, `pr-interactions` and `run-organisation-stats-year`; defaults to the last completed year. |
 
 ## Setup and maintenance
@@ -61,6 +61,7 @@ Set a variable on the command line to use another year, for example `make five-y
 | `make ten-year-summary` | Writes the summary of the ten years up to `SUMMARY_END`. | works |
 | `make generate-report` | Writes `reports/github-contributor-report.md`. | works |
 | `make community-recognition` | Writes the community recognition report of `RECOGNITION_YEAR`. | works |
+| `make community-page` | Writes `derived/community-page.json`, the data of the community page, for `RECOGNITION_YEAR`. | works |
 | `make yearly-activity` | Writes `derived/yearly-activity-statistics.csv`. | works |
 | `make yearly-graphs` | Runs `yearly-activity` and draws the graphs in `reports/graphs/`. | works |
 | `make analyze-independent` | Lists unmapped contributors worth researching. | works |

@@ -32,6 +32,7 @@ SUMMARIES_DIR = Path('derived/summaries')
 YEARLY_ACTIVITY = Path('derived/yearly-activity-statistics.csv')
 PLIP_ORGANISATIONS = Path('derived/plone-plip-organisations.csv')
 RECOGNITION_REPORT_DIR = Path('derived/community-recognition')
+COMMUNITY_PAGE = Path('derived/community-page.json')
 
 # Reports; never edit by hand
 REPORTS_DIR = Path('reports')
