@@ -43,15 +43,14 @@ See {doc}`/explanation/counting-rules` for why the files count the way they do.
     One row per release of `Products.CMFPlone`.
     Columns: `release`, `date`.
 
-`data/community-contributions/YYYY-board-of-directors.csv`
-:   Written by `fetch_board_members.py`.
-    One row per board member of the board term that ends in the year.
-    Columns: `Name`, `Organisation`.
-
 ## Curated data
 
 All curated files are in `data/community-contributions/`.
 Several people or organisations in one cell are separated by semicolons.
+
+`data/community-contributions/YYYY-board-of-directors.csv`
+:   One row per voting member of the Board of Directors whose term ends in the year.
+    Columns: `Name`, `Organisation`, `Source`.
 
 `data/community-contributions/YYYY-plone-conference.csv`
 :   One row per organising organisation of the Plone Conference.

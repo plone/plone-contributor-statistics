@@ -27,6 +27,7 @@ Some files don't have a source column yet, such as the 2025 files and the podcas
 
 Several kinds of curated data depend on a definition, and the definitions follow the Plone Foundation:
 
+- A Board member is a voting director listed on the Board page of the term; non-voting officers, such as the treasurer, don't count.
 - A strategic sprint is a sprint that the Board designated as strategic, as recorded in the Board minutes.
 - A release manager is someone approved by the Board or listed on the Release Team page.
 - A team leader is someone named in the Board minutes or on the team's page.
@@ -39,8 +40,8 @@ The repository deliberately has no scripts for that ([#30](https://github.com/pl
 A website lists what was announced, not what took place, and it doesn't know who sponsored a trainer's time.
 Every run of such a script would overwrite the corrections that people made by hand.
 
-The Board of Directors files are an exception: `fetch_board_members.py` still reads them from plone.org, and guesses the organisations from the board members' biographies.
-They have no source column yet.
+The Board of Directors files followed the same path: a script used to read them from plone.org and guessed the organisations from the members' biographies.
+They are curated now, with the Board page of each term as the source.
 
 ## Curated data reaches back further
 
