@@ -13,10 +13,9 @@ Its repositories hold the history of Plone since 2002, imported from CVS and Sub
 That history is the one source that covers the whole life of the project in the same form, so it is the core of the statistics.
 
 The collector reads every repository of the organisation, including archived ones.
-An earlier version skipped archived repositories, and with them a large part of the history of the years when those repositories were active ([#36](https://github.com/plone/plone-contributor-statistics/issues/36)).
-A repository that is archived today was alive once, and its commits belong to the years they were made.
+A repository that is archived today was active once, and its commits belong to the years they were made ([#36](https://github.com/plone/plone-contributor-statistics/issues/36)).
 
-Instead of skipping repositories by a rule, an explicit list names the few repositories that are not Plone work, each with a reason.
+An explicit list names the few repositories that are not Plone work, each with a reason.
 Examples are forks that carry the upstream history of Docker images, and archived forks of Zope Foundation repositories.
 The list is open for review ([#60](https://github.com/plone/plone-contributor-statistics/issues/60)).
 How to count Zope and the other projects of the Plone Foundation is not decided yet ([#58](https://github.com/plone/plone-contributor-statistics/issues/58)).

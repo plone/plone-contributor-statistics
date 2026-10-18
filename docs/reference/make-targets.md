@@ -60,11 +60,11 @@ See {doc}`/explanation/known-limitations` for the effect of the broken targets.
 | `make run-plip-organisations` | Should write `plone-plip-organisations.csv`. | broken: `plip_organisation_stats.py` is not in the repository |
 | `make generate-plip-report` | Should write `reports/plips.md`. | broken: `generate_plip_report.py` is not in the repository |
 
-## Earlier methods
+## Not part of the current method
 
 | Target | Does | Status |
 |---|---|---|
-| `make run-contributors` | Runs `plone_contributor_statistics.py`, the first collector, based on the GitHub contributor statistics API. | not part of the current method |
+| `make run-contributors` | Runs `plone_contributor_statistics.py`, based on the GitHub contributor statistics API. | not part of the current method |
 | `make run-organisations` | Runs `plone_companies.py`, which guessed organisations from GitHub profiles and email domains. | not part of the current method |
 | `make run-all` | Should run several collectors. | broken: depends on the missing target `run-companies` |
 

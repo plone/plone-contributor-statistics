@@ -46,6 +46,8 @@ In short:
 - Use American English, the active voice, and sentence case in headings.
 - Give each page one purpose: explanation, reference or how-to guide.
 - Explain the method and its reasons, not the numbers it produces.
+- Describe the current state in explanation, reference and how-to pages.
+  What changed over time, and what didn't work before, belongs in {doc}`/explanation/method-history`.
 
 ## Specs and plans
 

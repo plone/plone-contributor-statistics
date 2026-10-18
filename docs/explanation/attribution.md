@@ -33,12 +33,11 @@ For the early years especially, many past affiliations are unknown, and {doc}`hi
 ## Unmapped is not an organisation
 
 An account without an entry is Unmapped.
-An earlier version called this group "Independent", together with the self-employed people and volunteers.
-In 2025, that combined group showed up as one of the biggest organisations, although it was a mix of people whose affiliation was simply unknown ([#53](https://github.com/plone/plone-contributor-statistics/issues/53)).
-
-Since then, the two are separate.
+Unmapped and independent contributors are two different groups ([#53](https://github.com/plone/plone-contributor-statistics/issues/53)).
 Independent contributors are mapped: they chose to contribute on their own, and their entries say so.
-Unmapped contributors are not mapped yet.
+Unmapped contributors are not mapped yet, and their affiliation is simply unknown.
+Counted together, they would look like one big organisation that doesn't exist.
+
 Unmapped is shown on its own line below the organisations, is not ranked among them, and gets no recognition points or level.
 
 ## A mapping needs a source
@@ -54,9 +53,9 @@ This keeps the mapping close to what people would say about their own work.
 ## Small mistakes have large effects
 
 A mapping file is easy to get wrong.
-A typo once turned one login into an unknown one, and a whole organisation's activity went to the wrong group ([#38](https://github.com/plone/plone-contributor-statistics/issues/38)).
+A single typo in a login sends a contributor's whole activity to Unmapped, and with it part of an organisation's numbers ([#38](https://github.com/plone/plone-contributor-statistics/issues/38)).
 Logins are also case-sensitive in the lookup.
-Format tests now check every login in the mapping files, and every change goes through review.
+Format tests check every login in the mapping files, and every change goes through review.
 
 ```{seealso}
 {doc}`/reference/mapping-files` describes the format and rules of the mapping files.

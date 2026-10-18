@@ -32,8 +32,7 @@ Review and merge work deserves recognition of its own, which is still open ([#61
 A merged pull request counts for the person who opened it, not for people who pushed commits to it or reviewed it.
 It counts for the year it was merged, the moment the project accepted it.
 
-Volto and the core repositories once used different dates: Volto counted pull requests when they were created, the core when they were merged.
-Since [#42](https://github.com/plone/plone-contributor-statistics/issues/42), the merge date applies everywhere.
+The same rule applies to the core repositories and to Volto ([#42](https://github.com/plone/plone-contributor-statistics/issues/42)).
 
 Pull requests to any branch count, including backports to maintenance branches.
 A backport is work of its own: it needs to be adapted, tested and released.
@@ -47,19 +46,18 @@ Commits and pull requests of deleted accounts are left out as well, because they
 
 ## Each repository is read once
 
-The first collector asked GitHub for the commits of every contributor of every repository, separately for every year.
-That was about 15,000 requests per year, and the contributor list of the GitHub API stops after 500 people.
-Today, each repository's commits and pull requests are read once for the whole time range and then assigned to the years ([#63](https://github.com/plone/plone-contributor-statistics/pull/63)).
-The change was checked against the old method on several repositories and gave the same counts.
+Each repository's commits and pull requests are read once for the whole time range and then assigned to the years ([#63](https://github.com/plone/plone-contributor-statistics/pull/63)).
+Asking per contributor and per year would need many thousands of requests per year, and the contributor list of the GitHub API stops after 500 people.
+Reading whole repositories needs few requests and misses nobody.
 
 ## An error stops the run
 
 GitHub limits how many requests a client may send.
-An earlier collector recorded a failed or rate-limited request as zero activity, and a partial run overwrote the complete data files ([#41](https://github.com/plone/plone-contributor-statistics/issues/41)).
-Wrong zeros are worse than no data, because nobody notices them.
+The collector waits when GitHub asks it to, and stops on any other error.
+An interrupted run writes only a checkpoint file and never replaces the data files ([#41](https://github.com/plone/plone-contributor-statistics/issues/41)).
 
-Now the collector waits when GitHub asks it to, and stops on any other error.
-An interrupted run writes only a checkpoint file and never replaces the data files.
+A failed request must never look like a year without activity.
+Wrong zeros are worse than no data, because nobody notices them.
 
 ```{seealso}
 {doc}`/reference/data-files` describes the columns of the files these rules produce.

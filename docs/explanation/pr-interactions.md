@@ -26,22 +26,18 @@ Many of these pull requests were never merged, so the creation date is the one d
 
 ## Bots are left out
 
-Bots once opened about a third of the pull requests in a year, most of them automated updates of tool versions.
-Bot comments arrive within seconds and made the response times look like zero hours.
+Bots can open about a third of the pull requests in a year, most of them automated updates of tool versions.
+Bot comments arrive within seconds and would make response times look like zero hours.
 Pull requests, comments and reviews by bots are therefore left out, with the same rules as for {doc}`commits <counting-rules>`.
 
 ## Why the collector uses GraphQL
 
-The first version of this collector made three REST requests per pull request and listed every repository's pull requests again for every year.
-Collecting all years took about 85,000 requests, or 17 hours.
-It also lost data silently: a failed request counted as a pull request without comments, and one deleted user account made it skip a whole repository.
-
-The current collector reads each repository once with the GitHub GraphQL API, which returns fifty pull requests with their comments and reviews in one request ([#74](https://github.com/plone/plone-contributor-statistics/pull/74)).
+The collector reads each repository once with the GitHub GraphQL API, which returns fifty pull requests with their comments and reviews in one request ([#74](https://github.com/plone/plone-contributor-statistics/pull/74)).
 Code review comments come from one listing per repository, and long discussions are completed with the REST API.
-A failed request stops the run, like in the {doc}`contribution collector <counting-rules>`.
+With the REST API alone, every pull request would need several requests, and collecting all years would take most of a day.
 
-An earlier bug stopped the paging too early, so that the big repositories had no pull requests at all in some past years ([#37](https://github.com/plone/plone-contributor-statistics/issues/37)).
-All years from 2010 on were collected again with the fixed collector.
+A failed request stops the run, like in the {doc}`contribution collector <counting-rules>`.
+A deleted user account appears as `ghost`.
 
 ```{seealso}
 {doc}`/reference/data-files` lists the columns of `data/YYYY-plone-pr-interactions.csv`.

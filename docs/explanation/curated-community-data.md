@@ -35,7 +35,7 @@ Several kinds of curated data depend on a definition, and the definitions follow
 ## Why scripts don't fetch curated data
 
 Some curated data could be scraped, for example the trainings from a conference website.
-Scripts for that existed and were removed ([#30](https://github.com/plone/plone-contributor-statistics/pull/30)).
+The repository deliberately has no scripts for that ([#30](https://github.com/plone/plone-contributor-statistics/pull/30)).
 A website lists what was announced, not what took place, and it doesn't know who sponsored a trainer's time.
 Every run of such a script would overwrite the corrections that people made by hand.
 

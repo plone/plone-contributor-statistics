@@ -22,9 +22,9 @@ Commit counts of the early years are therefore less comparable to later years th
 
 When Plone moved to the egg structure around 2008, many packages got a new default branch.
 In some repositories, the history from before that move exists only on the old release branches, such as `2.5` or `3.0`.
-The collector once read only the default branch, so most of the early years of `Products.CMFPlone` were missing.
+The default branch of `Products.CMFPlone`, for example, starts in 2008, while its branch `3.0` reaches back to 2002.
 
-Since [#75](https://github.com/plone/plone-contributor-statistics/pull/75), the collector reads local clones of all repositories.
+The collector therefore reads local clones of all repositories, with all their branches ([#75](https://github.com/plone/plone-contributor-statistics/pull/75)).
 It counts the commits of the default branch, plus the commits of release branches that are older than the first commit of the default branch.
 Later commits on release branches are mostly backports: the same change as on the default branch, with another commit ID.
 They are not counted twice ([#68](https://github.com/plone/plone-contributor-statistics/issues/68)).

@@ -47,7 +47,7 @@ Multi-year summaries split people who moved
 Login lookup is case-sensitive
 :   A login with the wrong case in `organisations.csv` leaves its owner Unmapped.
 
-## Parts that use an older method
+## Parts with a different method
 
 Volto statistics
 :   `volto_stats.py` uses another method than the core collector: the contributor list of the API, which stops after 500 people, a search request per person, and the branch `main`.
