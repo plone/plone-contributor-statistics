@@ -1,6 +1,6 @@
 # Plone Core Contributor Statistics Report
 
-Generated on: 2026-10-18 13:33:24
+Generated on: 2026-10-18 14:42:54
 
 This report shows the top contributors and organizations in the Plone ecosystem across different time periods.
 
@@ -88,7 +88,7 @@ This report shows the top contributors and organizations in the Plone ecosystem 
 
 | Rank | Organization | PRs | Commits | Contributors | Repositories |
 |------|-------------|-----|---------|---------------|-------------|
-| 1 | kitconcept GmbH | 576 | 1,804 | 13 | 109 |
+| 1 | kitconcept GmbH | 572 | 1,799 | 12 | 109 |
 | 2 | der Freitag | 278 | 1,232 | 2 | 119 |
 | 3 | PY76 | 214 | 1,733 | 1 | 129 |
 | 4 | Steve Piercy - Website Builder | 187 | 570 | 1 | 20 |
@@ -96,17 +96,17 @@ This report shows the top contributors and organizations in the Plone ecosystem 
 | 6 | Serpro | 133 | 99 | 2 | 12 |
 | 7 | Syslab | 89 | 165 | 3 | 31 |
 | 8 | Codesyntax | 82 | 295 | 2 | 24 |
-| 9 | RedTurtle | 71 | 86 | 7 | 9 |
-| 10 | Eau de Web | 30 | 31 | 9 | 6 |
+| 9 | RedTurtle | 69 | 72 | 6 | 7 |
+| 10 | Rohberg | 29 | 48 | 1 | 8 |
 
-Not mapped to an organisation: 119 PRs, 249 commits by 37 contributors.
+Not mapped to an organisation: 128 PRs, 273 commits by 41 contributors.
 
 
 ### Top 10 Organisation Contributors (Past 3 Years: 2023-2025)
 
 | Rank | Organization | PRs | Commits | Contributors | Repositories |
 |------|-------------|-----|---------|---------------|-------------|
-| 1 | kitconcept GmbH | 1,788 | 5,673 | 16 | 132 |
+| 1 | kitconcept GmbH | 1,769 | 5,618 | 14 | 132 |
 | 2 | der Freitag | 683 | 3,430 | 2 | 229 |
 | 3 | Steve Piercy - Website Builder | 658 | 2,100 | 1 | 31 |
 | 4 | Kombinat | 444 | 1,728 | 1 | 54 |
@@ -114,46 +114,46 @@ Not mapped to an organisation: 119 PRs, 249 commits by 37 contributors.
 | 6 | Serpro | 197 | 204 | 2 | 20 |
 | 7 | Zest Software | 194 | 1,744 | 3 | 117 |
 | 8 | Syslab | 189 | 384 | 5 | 46 |
-| 9 | RedTurtle | 181 | 346 | 11 | 28 |
-| 10 | Codesyntax | 171 | 584 | 4 | 38 |
+| 9 | Codesyntax | 171 | 584 | 4 | 38 |
+| 10 | RedTurtle | 163 | 304 | 9 | 22 |
 
-Not mapped to an organisation: 351 PRs, 739 commits by 124 contributors.
+Not mapped to an organisation: 406 PRs, 835 commits by 130 contributors.
 
 
 ### Top 10 Organisation Contributors (Past 5 Years: 2021-2025)
 
 | Rank | Organization | PRs | Commits | Contributors | Repositories |
 |------|-------------|-----|---------|---------------|-------------|
-| 1 | kitconcept GmbH | 2,748 | 11,137 | 17 | 155 |
+| 1 | kitconcept GmbH | 2,670 | 10,750 | 15 | 154 |
 | 2 | Steve Piercy - Website Builder | 846 | 3,081 | 1 | 35 |
 | 3 | der Freitag | 706 | 3,621 | 2 | 230 |
 | 4 | Kombinat | 653 | 2,544 | 1 | 74 |
 | 5 | Zest Software | 575 | 4,947 | 3 | 146 |
-| 6 | RedTurtle | 383 | 944 | 11 | 37 |
-| 7 | Eau de Web | 380 | 955 | 14 | 21 |
-| 8 | Syslab | 365 | 1,279 | 5 | 68 |
-| 9 | PY76 | 359 | 2,926 | 1 | 135 |
-| 10 | Nuclia | 296 | 496 | 4 | 10 |
+| 6 | Syslab | 365 | 1,279 | 5 | 68 |
+| 7 | PY76 | 359 | 2,926 | 1 | 135 |
+| 8 | Eau de Web | 341 | 853 | 12 | 18 |
+| 9 | RedTurtle | 311 | 656 | 9 | 30 |
+| 10 | Codesyntax | 289 | 782 | 4 | 48 |
 
-Not mapped to an organisation: 577 PRs, 1,618 commits by 182 contributors.
+Not mapped to an organisation: 710 PRs, 1,944 commits by 193 contributors.
 
 
 ### Top 10 Organisation Contributors (Past 10 Years: 2016-2025)
 
 | Rank | Organization | PRs | Commits | Contributors | Repositories |
 |------|-------------|-----|---------|---------------|-------------|
-| 1 | kitconcept GmbH | 3,747 | 18,608 | 17 | 197 |
+| 1 | kitconcept GmbH | 3,455 | 16,639 | 15 | 180 |
 | 2 | Zest Software | 1,279 | 11,857 | 4 | 191 |
 | 3 | der Freitag | 1,201 | 5,882 | 3 | 274 |
-| 4 | Syslab | 1,050 | 2,853 | 6 | 140 |
+| 4 | Syslab | 1,068 | 2,876 | 6 | 141 |
 | 5 | Steve Piercy - Website Builder | 909 | 3,242 | 1 | 38 |
-| 6 | Kombinat | 754 | 2,882 | 1 | 85 |
-| 7 | Klein & Partner KG | 725 | 3,125 | 2 | 149 |
-| 8 | Wildcard Corp | 662 | 3,301 | 2 | 51 |
-| 9 | Nuclia | 560 | 1,022 | 4 | 15 |
-| 10 | Eau de Web | 558 | 1,632 | 15 | 37 |
+| 6 | Onna | 777 | 3,428 | 5 | 26 |
+| 7 | Kombinat | 754 | 2,882 | 1 | 85 |
+| 8 | Klein & Partner KG | 725 | 3,125 | 2 | 149 |
+| 9 | Starzel | 542 | 2,298 | 3 | 142 |
+| 10 | Eau de Web | 519 | 1,530 | 13 | 36 |
 
-Not mapped to an organisation: 1,957 PRs, 5,749 commits by 376 contributors.
+Not mapped to an organisation: 2,316 PRs, 6,907 commits by 392 contributors.
 
 
 ---

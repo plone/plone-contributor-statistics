@@ -1,11 +1,10 @@
 github_username,organisation,from_year,to_year,source
-thet,Syslab,2019,,Entered by Johannes Raggam himself: https://github.com/plone/plone-contributor-statistics/commit/207840e7209f4ee2d5f2d75cbf262a41a19ced0b
+thet,Syslab,2019,,"Entered by Johannes Raggam himself: https://github.com/plone/plone-contributor-statistics/commit/207840e7209f4ee2d5f2d75cbf262a41a19ced0b; ""the whole Syslab team, which I'm a proud member since 2019"": https://community.plone.org/t/this-was-the-buschenschanksprint-2026/23065"
 mauritsvanrees,Zest Software,2005,2023,https://py76.be/en (Py76 since 2023 on the side; fully independent since 2024)
 fredvd,Zest Software,2007,2023,"Plone Conference speaker bios 2016-2025, see https://github.com/plone/plone-contributor-statistics/commit/7ed781ae5418187b00a591d00d5f3080c9bea065"
 toalba,Klein & Partner KG,2023,2023,"Intern at Klein & Partner KG in 2023, confirmed by Jens Klein (employer) in #87 (https://github.com/plone/plone-contributor-statistics/pull/87); https://github.com/toalba"
 jensens,jens quadrat GbR,2003,2004,"Confirmed by Jens Klein himself in #87 (https://github.com/plone/plone-contributor-statistics/pull/87): jens quadrat GbR in 2003-2004, Klein & Partner KG from 2005; the address jens.klein@jensquadrat.de was still used until 2008"
 acatlla,Iskra,2014,2015,Company address @iskra.cat in commits 2014-2015 (example: https://github.com/plone/mockup/commit/919f94339b23d3fa55d642d50257f9807ef1cd4f) (#70)
-ale-rt,RedTurtle,2012,2016,Company address @redturtle.it in commits 2012-2016 (example: https://github.com/plone/plone.app.layout/commit/ccb7a6f0d9e20aa95af70b04111de5274c881e35) (#70)
 allcaps,Zest Software,2014,2016,Company address @zestsoftware.nl in commits 2014-2016 (example: https://github.com/plone/plone.app.dexterity/commit/b0efe07444997ad55714d45e1328a83ad2066e57) (#70)
 allusa,Iskra,2015,2020,Company address @iskra.cat in commits 2015-2020 (example: https://github.com/plone/plone.app.content/commit/f7817510ee3a222971afe9559a978fae61451e8f) (#70)
 anuyens,iMio,2018,2018,Company address @imio.be in commits 2018 (example: https://github.com/plone/buildout.coredev/commit/646d916c923d458c1a1ecb06e512b3f58f56aa31) (#70)
@@ -16,7 +15,6 @@ cedricmessiant,Ecréall,2012,2017,Company address @ecreall.com in commits 2012-2
 claytron,Sixfeetup,2012,2013,Company address @sixfeetup.com in commits 2012-2013 (example: https://github.com/plone/buildout.deco/commit/7e60e726f9c8a740947358086eb8278afc88ae2d) (#70)
 daggelpop,Affinitic,2021,2021,Company address @affinitic.be in commits 2021 (example: https://github.com/plone/Products.CMFPlone/commit/9485e323157f4bf2f0a06ed988f5e3ae3a7bdafc) (#70)
 davidblewett,Sixfeetup,2012,2013,Company address @sixfeetup.com in commits 2012-2013 (example: https://github.com/plone/Products.Archetypes/commit/c1010d9ac702ac1c56a8bd7eaa3df600b9426057) (#70)
-davisagli,Salesforce,2018,2018,Company address @salesforce.com in commits 2018 (example: https://github.com/plone/buildout.coredev/commit/f5115f4b21375547766b92cf35f952ae19d492ea) (#70)
 DieKatze,iMio,2016,2016,Company address @imio.be in commits 2016 (example: https://github.com/plone/Products.PlonePAS/commit/c44e655f782b8a978862b1575658a8aad5b30f2f) (#70)
 eikichi18,RedTurtle,2018,2023,Company address @redturtle.it in commits 2018-2023 (example: https://github.com/plone/buildout.coredev/commit/41771a7a9e491bff32fee338eaee9ea43b3150c5) (#70)
 ggozad,Jarn,2010,2012,Company address @jarn.com in commits 2010-2012 (example: https://github.com/plone/plone.app.async/commit/482cd37bc435e70d97be632c270c75174e874c49) (#70)
@@ -43,13 +41,102 @@ ebrehault,Makina Corpus,2012,2017,"Chef de projet chez Makina Corpus (2011): htt
 ebrehault,Onna,2018,2019,"Talk ""Building a business solution with Guillotina"" on the Onna platform: https://2018.ploneconf.org/talks/building-a-business-solution-with-guillotina.html; joint talk ""Status of Guillotina"" (""At Onna we ...""): https://maurits.vanrees.org/weblog/archive/2019/10/nathan-ramon-and-eric-status-of-guillotina"
 tisto,Unmapped,2002,2009,Studied computer science at the University of Bonn until 2008: https://www.linkedin.com/in/timostollenwerk/; the organisation before 2010 is not documented (#70)
 tisto,Timo Stollenwerk (independent),2010,2015,"Self-employed web application developer with his own VAT ID, legal notice of timostollenwerk.net 2010-2015: http://web.archive.org/web/20101230055743/http://timostollenwerk.net/ and http://web.archive.org/web/20150413171952/http://timostollenwerk.net/; kitconcept GmbH registered on 2016-02-04: https://www.northdata.de/kitconcept+GmbH,+Bonn/HRB+22064"
-davisagli,Unmapped,2002,2015,"kitconcept GmbH was registered on 2016-02-04: https://www.northdata.de/kitconcept+GmbH,+Bonn/HRB+22064; the organisation before is not documented (#70)"
-robgietema,Unmapped,2002,2015,"kitconcept GmbH was registered on 2016-02-04: https://www.northdata.de/kitconcept+GmbH,+Bonn/HRB+22064; the organisation before is not documented (#70)"
 sneridagh,Unmapped,2002,2015,"kitconcept GmbH was registered on 2016-02-04: https://www.northdata.de/kitconcept+GmbH,+Bonn/HRB+22064; the organisation before is not documented (#70)"
-jaroel,Unmapped,2002,2015,"kitconcept GmbH was registered on 2016-02-04: https://www.northdata.de/kitconcept+GmbH,+Bonn/HRB+22064; the organisation before is not documented (#70)"
-reebalazs,Unmapped,2002,2015,"kitconcept GmbH was registered on 2016-02-04: https://www.northdata.de/kitconcept+GmbH,+Bonn/HRB+22064; the organisation before is not documented (#70)"
-ericof,Unmapped,2002,2015,"kitconcept GmbH was registered on 2016-02-04: https://www.northdata.de/kitconcept+GmbH,+Bonn/HRB+22064; the organisation before is not documented (#70)"
 bloodbare,Unmapped,2002,2012,Nuclia was founded in 2019: https://elreferente.es/inversiones/nuclia-cierra-ronda-pre-seed-400000-liderada-elaia/; the organisation before 2013 is not documented (#70)
 esteele,Penn State University,2002,2012,Began his Plone career with the WebLion group of Penn State University: https://2017.ploneconf.org/talks/keynotes/eric-steele.html; company address @psu.edu in commits 2011-2012; Review in #70
 esteele,Unmapped,2013,2016,Salesforce.org is documented from 2017 (https://2017.ploneconf.org/talks/keynotes/eric-steele.html); the organisation in 2013-2016 is not documented (#70)
 dextermilo,Unmapped,2002,2014,Salesforce is not documented before 2015; his commits in 2011-2014 use @rynamic.com (example: https://github.com/plone/plone.app.deco/commit/3e43053b49db546c0fca24043d30ce1b2d0e9d0e) (#70)
+frapell,Unmapped,2002,2011,no public record for these years (#86)
+frapell,Ravvit,2012,2012,co-owner of Ravvit: https://plone.org/news-and-events/news/2012/plone-framework-team-accepts-new-members
+frapell,Unmapped,2013,2015,no public record for these years (#86)
+masipcat,Unmapped,2002,2016,no public record for these years (#86)
+masipcat,Onna,2017,2019,Onna from 2017: https://jordi.masip.cat
+masipcat,Vinissimus,2020,2020,backend developer / DevOps at Vinissimus: https://2020.ploneconf.org/speakers/jordi-masip
+masipcat,Unmapped,2021,2025,no public record for these years (#86)
+jaroel,Unmapped,2002,2008,no public record for these years (#86)
+jaroel,Four Digits,2009,2011,Four Digits in the Plone 3 TinyMCE credits: https://productstinymce.readthedocs.io/en/latest/contributors.html; company address @fourdigits.nl in commits (example: https://github.com/plone/buildout.coredev/commit/62eb13733999b6c6dc20b6acde4e54f0fd8ef8bd)
+jaroel,Unmapped,2012,2017,no public record for these years (#86)
+djowett,Unmapped,2002,2009,no public record for these years (#86)
+iham,Unmapped,2002,2021,no public record for these years (#86)
+limi,Unmapped,2002,2002,no public record for these years (#86)
+limi,Jarn,2003,2005,co-founder of Plone Solutions (renamed Jarn in 2007): https://plone.org/events/plone-conferences/vienna-2004/speakers
+limi,Google,2006,2008,Google: https://plone.org/foundation/board/2007-2008
+limi,Mozilla,2009,2010,Mozilla: https://plone.org/foundation/board/plone-foundation-board-for-2008-2009 and https://limi.net/about
+limi,Unmapped,2011,2025,no public record for these years (#86)
+hannosch,Unmapped,2002,2007,no public record for these years (#86)
+lrowe,Unmapped,2002,2007,no public record for these years (#86)
+lrowe,Jarn,2008,2008,Software Developer for Jarn AS: https://plone.org/news/2008/plone-4-framework-team-announced
+lrowe,Unmapped,2009,2015,no public record for these years (#86)
+lrowe,Netflix,2016,2016,Netflix: https://2016.ploneconf.org/people/laurence-rowe.html
+lrowe,Unmapped,2017,2025,no public record for these years (#86)
+fschulze,Unmapped,2002,2006,no public record for these years (#86)
+fschulze,Jarn,2007,2007,"README ""Florian Schulze <fschulze@jarn.com>"": https://github.com/plone/plone.app.viewletmanager/blob/master/README.rst"
+witsch,Unmapped,2002,2010,no public record for these years (#86)
+witsch,Jarn,2011,2011,freelance developer for Jarn: http://web.archive.org/web/20110811232448/http://www.jarn.com/about/team-1
+witsch,Unmapped,2012,2025,no public record for these years (#86)
+tomster,Unmapped,2002,2005,no public record for these years (#86)
+tomster,Tom Lazar (independent),2006,2009,freelance IT consultant: http://web.archive.org/web/20070705131758/http://tomster.org:80/bizniz/
+MatthewWilkes,Unmapped,2002,2007,no public record for these years (#86)
+MatthewWilkes,Team Rubber,2008,2008,Team Rubber: https://plone.org/foundation/meetings/membership/2008/nominations/matthew-wilkes
+MatthewWilkes,Unmapped,2009,2009,no public record for these years (#86)
+MatthewWilkes,Jarn,2010,2011,"Team Rubber, freelance, and Jarn AS in Berlin (2011 book): https://api.pageplace.de/preview/DT0400.9781849514439_A24190962/preview-9781849514439_A24190962.pdf"
+MatthewWilkes,Unmapped,2012,2017,no public record for these years (#86)
+MatthewWilkes,Matthew Wilkes (independent),2018,2018,independent developer: https://2018.ploneconf.org/people/matthew-wilkes.html
+MatthewWilkes,Unmapped,2019,2025,no public record for these years (#86)
+davisagli,Unmapped,2002,2007,no public record for these years (#86)
+davisagli,ONE/Northwest,2008,2009,ONE/Northwest: https://plone.org/news-and-events/news/2008/plone-4-framework-team-announced
+davisagli,Groundwire,2010,2012,Groundwire (2011 book): https://api.pageplace.de/preview/DT0400.9781849514439_A24190962/preview-9781849514439_A24190962.pdf; company address @groundwire.org in commits (example: https://github.com/plone/archetypes.kss/commit/b130e5e3522b35eb0a8c73d678a7b34c4a4851ad)
+davisagli,Unmapped,2013,2015,no public record for these years (#86)
+davisagli,Glick Software,2016,2017,freelance with Jazkarta and OddBird: https://2016.ploneconf.org/people/david-glick.html and https://2017.ploneconf.org/people/david-glick.html; own company: https://plone.org/foundation/members/davisagli
+davisagli,Salesforce,2018,2018,Salesforce.org: https://2018.ploneconf.org/people/david-glick.html
+davisagli,Unmapped,2019,2021,no public record for these years (#86)
+robgietema,Unmapped,2002,2008,no public record for these years (#86)
+robgietema,Four Digits,2009,2015,Four Digits in the Plone 3 TinyMCE credits: https://productstinymce.readthedocs.io/en/latest/contributors.html; company address @fourdigits.nl in commits (example: https://github.com/plone/buildout.coredev/commit/663a7905fe360aa83ef49136c62ad458d55e7a05)
+robgietema,Unmapped,2016,2017,no public record for these years (#86)
+robgietema,Rob Gietema (independent),2018,2022,freelancer: https://2018.ploneconf.org/people/rob-gietema.html
+reebalazs,Unmapped,2002,2005,no public record for these years (#86)
+ericof,Unmapped,2002,2010,no public record for these years (#86)
+ericof,Simples Consultoria,2011,2014,co-founder and CEO of Simples Consultoria: https://plone.org/foundation/board/plone-foundation-board-for-2012-2013; company address @simplesconsultoria.com.br in commits (example: https://github.com/plone/plone.app.cmsui/commit/f168d18811c6e57426024ef68fb39ff14e2c3e79)
+ericof,Unmapped,2015,2016,no public record for these years (#86)
+ericof,Briefy,2017,2017,CTO at Briefy: https://2017.ploneconf.org/people/erico-andrei.html
+ericof,Wundertax,2018,2018,CTO at Wundertax: https://2018.ploneconf.org/people/erico-andrei.html
+ericof,Unmapped,2019,2019,no public record for these years (#86)
+ericof,Pendect,2020,2020,CTO and co-founder of Pendect: https://2020.ploneconf.org/speakers/erico-andrei
+tkimnguyen,Unmapped,2002,2013,no public record for these years (#86)
+tkimnguyen,University of Wisconsin Oshkosh,2014,2014,https://plone.org/news-and-events/news/2014/welcome-2014-15-plone-foundation-board-members
+tkimnguyen,Wildcard Corp,2015,2018,"Jazkarta/Wildcard 2015, Wildcard from 2016: https://2017.ploneconf.org/people/kim-nguyen.html"
+tkimnguyen,Sixfeetup,2019,2022,Six Feet Up: https://2019.ploneconf.org/people/t-kim-nguyen and https://2022.ploneconf.org/speakers/kim-nguyen.html
+tkimnguyen,T. Kim Nguyen (independent),2023,2023,freelance: https://2023.ploneconf.org/speakers/t-kim-nguyen
+vangheem,Unmapped,2002,2011,no public record for these years (#86)
+vangheem,Wildcard Corp,2012,2016,Wildcard Corp: https://plone.org/news/2012/plonefoundationmembers-sept2012 and https://2016.ploneconf.org/people/nathan-van-gheem.html
+vangheem,Onna,2017,2019,full stack developer at Onna: https://2017.ploneconf.org/people/nathan-van-gheem.html and https://2019.ploneconf.org/people/nathan-van-gheem
+vangheem,Unmapped,2020,2025,no public record for these years (#86)
+ale-rt,Unmapped,2002,2011,no public record for these years (#86)
+ale-rt,RedTurtle,2012,2015,RedTurtle: https://ep2012.europython.eu/conference/p/alessandro-pisa.html; company address @redturtle.it in commits (example: https://github.com/plone/plone.app.layout/commit/ccb7a6f0d9e20aa95af70b04111de5274c881e35)
+tlotze,Unmapped,2002,2005,no public record for these years (#86)
+tlotze,gocept,2006,2015,develops Zope/Plone applications for gocept: https://plone.org/news-and-events/news/2006/plone-authors-editors-get-handbook; company address @gocept.com in commits (example: https://github.com/plone/Products.ATContentTypes/commit/28040f31366fc0e81ad8c9f599f607515d3e7f09)
+rpatterson,Unmapped,2002,2007,no public record for these years (#86)
+rpatterson,Ross Patterson (independent),2008,2012,independent: https://plone.org/news-and-events/news/2008/plone-4-framework-team-announced and https://rpatterson.net/blog/looking-for-projects-and-or-a-team
+rpatterson,Unmapped,2013,2025,no public record for these years (#86)
+encolpe,Unmapped,2002,2002,no public record for these years (#86)
+encolpe,Nuxeo,2003,2004,CV: http://encolpe.degoute.free.fr/cv-fr.html
+encolpe,Ingeniweb,2005,2008,"Ingeniweb/Alter Way, CV: http://encolpe.degoute.free.fr/cv-fr.html"
+encolpe,Quadra Informatique,2009,2011,CV: http://encolpe.degoute.free.fr/cv-fr.html
+encolpe,Bearstech,2012,2015,CV: http://encolpe.degoute.free.fr/cv-fr.html
+encolpe,Unmapped,2016,2025,no public record for these years (#86)
+sidnei,Unmapped,2002,2002,no public record for these years (#86)
+sidnei,AGM Web consulting,2003,2003,financial support from AGM Web consulting: https://lists.zope.org/pipermail/zope-cmf/2003-July/019032.html
+reinout,Unmapped,2002,2009,no public record for these years (#86)
+djay,Unmapped,2002,2008,no public record for these years (#86)
+nzambello,Unmapped,2002,2017,no public record for these years (#86)
+nzambello,RedTurtle,2018,2020,Frontend developer @ RedTurtle: https://2019.ploneconf.org/people/nicola-zambello; company address @redturtle.it in commits (example: https://github.com/plone/plone.app.content/commit/61c3b9918d79451aeceed63969cde930c70e2cef)
+frisi,Unmapped,2002,2005,no public record for these years (#86)
+frisi,Webmeisterei,2006,2018,Webmeisterei GmbH: https://github.com/collective/collective.fingerpointing/blob/master/CONTRIBUTORS.rst; company address @webmeisterei.com in commits (example: https://github.com/plone/Products.Archetypes/commit/24879bdbdf6cd43449ea88e9ed22d793336eac36)
+frisi,Lovely Systems,2019,2021,company address @lovelysystems.com in commits (example: https://github.com/plone/buildout.coredev/commit/af46d168aab90c842f72d4d13e45fb2a4a6eeded)
+frisi,Unmapped,2022,2025,no public record for these years (#86)
+vincentfretin,Unmapped,2002,2010,no public record for these years (#86)
+vincentfretin,Ecréall,2011,2011,Vincent Fretin of Ecreall: https://plone.org/news-and-events/news/2011/plone-foundation-selects-four-new-members
+mpellerin42,Unmapped,2002,2019,no public record for these years (#86)
+mpellerin42,Onna,2020,2021,company address @onna.com in commits (example: https://github.com/plone/pastanaga-angular/commit/4024b77b4fc0245c4c5716e68059bcebcb7e06a8)
+sverbois,Unmapped,2002,2025,no public record for these years (#86)
+rnixx,Unmapped,2002,2004,no public record for these years (#86)
