@@ -85,3 +85,13 @@ def test_main_writes_both_files(tmp_repo, monkeypatch):
     assert plone_plips.main() == 0
     assert paths.PLIPS.read_text(encoding='utf-8').startswith('username,total_plips,')
     assert paths.PLIPS_DETAILED.read_text(encoding='utf-8').startswith('number,title,author,')
+
+
+def test_reads_the_repositories_where_plips_are_made():
+    # Aurora started as an idea in Volto and became the new UI; its PLIPs moved there from Volto
+    assert plone_plips.REPOSITORIES == [
+        ('plone', 'Products.CMFPlone'),
+        ('plone', 'volto'),
+        ('plone', 'plone.restapi'),
+        ('plone', 'aurora'),
+    ]
