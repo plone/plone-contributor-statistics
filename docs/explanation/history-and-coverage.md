@@ -60,9 +60,10 @@ The conversion to Git assigned them, not the developers at the time of the commi
 Commits from 2002 already carry addresses at `jarn.com`, although Plone Solutions only announced its new name Jarn at the Plone Conference 2007 ([archived announcement](http://web.archive.org/web/20080124030609/http://www.jarn.com:80/)).
 A company address therefore counts as evidence for an organisation only in commits that developers made in Git.
 
-The curated data reaches back further in one place: the organising organisations of every Plone Conference since 2003.
-The rows from 2003 to 2019 also name the organisers and a public source.
-Other curated data, such as sprints, Board members and release managers, starts in 2020 ([#72](https://github.com/plone/plone-contributor-statistics/issues/72)).
+The curated data reaches back further for some kinds of work.
+The organising organisations of every Plone Conference since 2003 are recorded; the rows from 2003 to 2019 also name the organisers and a public source.
+Board members, release managers and team leaders are recorded with sources from 2004 on.
+Sprints, trainings, podcasts and World Plone Day start in 2020 or 2021 ([#72](https://github.com/plone/plone-contributor-statistics/issues/72)).
 
 ## Best effort, and how you can help
 

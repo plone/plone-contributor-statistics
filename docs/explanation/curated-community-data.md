@@ -52,8 +52,9 @@ They are curated now, with the Board page of each term as the source.
 
 The organising organisations of every Plone Conference since 2003 are recorded.
 The rows from 2003 to 2019 also name the organisers and a source.
-Other curated data starts in 2020.
-Collecting the earlier years needs sources that are hard to find, and people who remember ([#72](https://github.com/plone/plone-contributor-statistics/issues/72)).
+Board members, release managers and team leaders are recorded with sources from 2004 on ([#94](https://github.com/plone/plone-contributor-statistics/pull/94), [#99](https://github.com/plone/plone-contributor-statistics/pull/99), [#113](https://github.com/plone/plone-contributor-statistics/pull/113)).
+Sprints, trainings, podcasts and World Plone Day start in 2020 or 2021.
+Collecting their earlier years needs sources that are hard to find, and people who remember ([#72](https://github.com/plone/plone-contributor-statistics/issues/72)).
 
 ```{seealso}
 {doc}`/how-to/add-curated-community-data` shows how to add or correct curated data.
