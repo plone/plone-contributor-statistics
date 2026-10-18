@@ -50,12 +50,25 @@ def test_world_plone_day_is_one_event_per_year(folder):
     assert event.sources == ('https://plone.org/wpd',)
 
 
-def test_strategic_sprints_count_by_name(folder):
-    write(folder, '2020-strategic-sprints.csv', 'Sprint,Organiser/Host,Organisation,Source\n'
-          'Sprint A,Jane,RedTurtle,https://a\nSprint A,John,Syslab,https://a\nSprint B,Joe,Codesyntax,https://b\n')
+def test_every_recorded_sprint_is_an_event(folder):
+    # Strategic, community and sprints without a level alike
+    write(folder, '2020-sprints.csv', 'Sprint,Start,End,Location,Organiser(s),Organisation,Level,Source,Notes\n'
+          'Sprint A,,,Ferrara,Jane;John,RedTurtle;Syslab,strategic,https://a,\n'
+          'Sprint B,,,Bonn,Joe,Codesyntax,community,https://b,\n'
+          'Sprint C,,,Online,Ann,Unmapped,,https://c,\n')
     events = community.events(2020, folder)
-    assert [(e.name, e.organisations) for e in events] == [('Sprint A', ('RedTurtle', 'Syslab')),
-                                                           ('Sprint B', ('Codesyntax',))]
+    assert [(e.kind, e.name, e.organisations, e.level) for e in events] == [
+        ('sprints', 'Sprint A', ('RedTurtle', 'Syslab'), 'strategic'),
+        ('sprints', 'Sprint B', ('Codesyntax',), 'community'),
+        ('sprints', 'Sprint C', ('Unmapped',), ''),
+    ]
+
+
+def test_sprint_organisers_are_roles(folder):
+    write(folder, '2020-sprints.csv', 'Sprint,Start,End,Location,Organiser(s),Organisation,Level,Source,Notes\nSprint A,,,Ferrara,Jane;John,RedTurtle;Syslab,strategic,https://a,\n')
+    records = community.community_records(2020, folder)
+    assert [(r.person, r.organisation, r.label, r.detail) for r in records] == [
+        ('Jane', 'RedTurtle', 'Sprint organiser', 'Sprint A'), ('John', 'Syslab', 'Sprint organiser', 'Sprint A')]
 
 
 def test_conference_is_one_event_per_year(folder):

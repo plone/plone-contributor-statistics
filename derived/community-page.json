@@ -1,17 +1,17 @@
 {
  "headline": {
   "five_years": {
-   "events": 25,
-   "organisations": 88,
-   "people": 389
+   "events": 59,
+   "organisations": 89,
+   "people": 398
   },
   "since_2003": {
-   "people": 973
+   "people": 1046
   },
   "year": {
-   "events": 7,
+   "events": 9,
    "organisations": 53,
-   "people": 145
+   "people": 151
   }
  },
  "history": {
@@ -21,14 +21,82 @@
    "events": [
     {
      "kind": "plone-conference",
+     "level": "",
      "name": "Plone Conference 2003",
      "organisations": [],
      "sources": [
       "https://plone.org/news-and-events/events/plone-conferences/new-orleans-2003"
      ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "First Plone Sprint in Berne (PloneSprintBerne)",
+     "organisations": [
+      "4Teamwork"
+     ],
+     "sources": [
+      "https://sourceforge.net/p/plone/mailman/message/8119464/"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Sprint, Victoria, Canada",
+     "organisations": [
+      "AGM Web consulting",
+      "Tyrell"
+     ],
+     "sources": [
+      "https://sourceforge.net/p/plone/mailman/message/9558476/; organisation from the organisation mapping: http://www.agmweb.ca; organisation from the organisation mapping: https://sourceforge.net/p/plone/mailman/message/8119436/"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Sprint in Padova (second Plone Sprint)",
+     "organisations": [
+      "Reflab",
+      "1000ASA"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20131022234724/http://plone.org/events/sprints/past-sprints/padova"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Castle Sprint",
+     "organisations": [
+      "BlueDynamics KG"
+     ],
+     "sources": [
+      "https://sourceforge.net/p/plone/mailman/message/9560465/"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Educational Plone Sprint in Paderborn",
+     "organisations": [
+      "Bertelsmann Foundation",
+      "German Zope User Group"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2003/News_Item.2003-09-24.2854"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "New Orleans Sprint 2003 (before Plone Conference 2003)",
+     "organisations": [],
+     "sources": [
+      "https://sourceforge.net/p/plone/mailman/message/10609896/"
+     ]
     }
    ],
-   "people_active": 42,
+   "people_active": 48,
    "pull_requests": null,
    "team_leads": []
   },
@@ -94,6 +162,7 @@
    "events": [
     {
      "kind": "plone-conference",
+     "level": "",
      "name": "Plone Conference 2004",
      "organisations": [
       "BlueDynamics KG"
@@ -101,9 +170,92 @@
      "sources": [
       "https://plone.org/news-and-events/events/plone-conferences/vienna-2004"
      ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Snow Sprint 2004",
+     "organisations": [
+      "solution2u.net GmbH",
+      "Bibliotheca Hertziana"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2003/News_Item.2003-11-24.5712"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Mini Plone sprint, Aachen",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20131023022420/http://plone.org/events/community/plone_sprint_aachen"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Second Aachen Sprint",
+     "organisations": [
+      "COM.lounge"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20131023004441/http://plone.org/events/community/aachen_sprint_2"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Castle Sprint 2004 (Castle Sprint V2)",
+     "organisations": [
+      "BlueDynamics KG"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20131023000528/http://plone.org/events/sprints/past-sprints/castlev2; took place, listed on the participant's bio: https://kleinundpartner.at/klein-partner/jens-werner-klein"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "RTL mini-sprint",
+     "organisations": [],
+     "sources": [
+      "https://plone.org/news-and-events/news/2004/plone-rtl-support"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Mountain Sprint",
+     "organisations": [
+      "Telesis"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20131022234530/http://plone.org/events/sprints/past-sprints/mountain-sprint"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Grimsel Sprint 2004",
+     "organisations": [
+      "4Teamwork"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20131022230656/http://plone.org/events/sprints/past-sprints/grimsel-sprint"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Houston Sprint 2004 (versioning)",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20131022235839/http://plone.org/events/sprints/past-sprints/houston"
+     ]
     }
    ],
-   "people_active": 54,
+   "people_active": 56,
    "pull_requests": null,
    "team_leads": [
     {
@@ -266,6 +418,7 @@
    "events": [
     {
      "kind": "plone-conference",
+     "level": "",
      "name": "Plone Conference 2005",
      "organisations": [
       "BlueDynamics KG"
@@ -273,9 +426,124 @@
      "sources": [
       "https://plone.org/news-and-events/events/plone-conferences/vienna-2005"
      ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "San Jose Sprint",
+     "organisations": [
+      "CIGNEX"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2005/SprintReport1"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Snow Sprint 2005",
+     "organisations": [
+      "Telesis"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2005/snow-sprint2_1"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Amsterdam UI Sprint",
+     "organisations": [
+      "Jarn"
+     ],
+     "sources": [
+      "https://sourceforge.net/p/plone/mailman/message/13168332/; organisation from the organisation mapping: https://plone.org/events/plone-conferences/vienna-2004/speakers"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Vancouver Sprint 2005",
+     "organisations": [
+      "Enfold"
+     ],
+     "sources": [
+      "https://sourceforge.net/p/plone/mailman/message/13586556/"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "CMFEditions sprint in Goteborg (after EuroPython 2005)",
+     "organisations": [],
+     "sources": [
+      "https://plone.org/news-and-events/news/2005/news_item.2005-07-11.5367248388"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Multimedia Sprint (after Plone Conference 2005)",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20131022221232/http://plone.org/events/sprints/past-sprints/multimedia"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Castle Sprint 2005 (CMF 2.0 Goldegg Sprint)",
+     "organisations": [
+      "BlueDynamics KG"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20060115171010/http://www.bluedynamics.com:80/service/news/agx-generator-project-beim-castle-sprint-gestartet"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Goldegg sprint in Fredericksburg",
+     "organisations": [],
+     "sources": [
+      "https://sourceforge.net/p/plone/mailman/message/14255351/"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "San Jose Sprint II: Packaging and Products (Goldegg)",
+     "organisations": [
+      "CIGNEX"
+     ],
+     "sources": [
+      "https://sourceforge.net/p/plone/mailman/message/14255565/"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Bern Ajax Sprint 2005",
+     "organisations": [
+      "4Teamwork"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2005/bern-sprint-details"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Calendar Sprint (CalSprint)",
+     "organisations": [
+      "Black Rock City/ Burning Man"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20131022213526/http://plone.org/events/sprints/past-sprints/calsprint"
+     ]
     }
    ],
-   "people_active": 71,
+   "people_active": 77,
    "pull_requests": null,
    "team_leads": [
     {
@@ -457,14 +725,99 @@
    "events": [
     {
      "kind": "plone-conference",
+     "level": "",
      "name": "Plone Conference 2006",
      "organisations": [],
      "sources": [
       "https://plone.org/news-and-events/news/2006/press-release-plone-foundation-announces-plone-conference-2006"
      ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "CMFEditions Pisa Sprint (Versioning sprint, Pisa)",
+     "organisations": [],
+     "sources": [
+      "https://sourceforge.net/p/plone/mailman/message/14256613/"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Snow Sprint 2006 (3rd Snow Sprint)",
+     "organisations": [
+      "Lovely Systems"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20131030010017/http://plone.org/events/sprints/past-sprints/snow-sprint3/snowsprint2006"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Golden Roof Genesis Sprint (AGX sprint)",
+     "organisations": [
+      "BlueDynamics KG"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20131022225616/http://plone.org/events/sprints/past-sprints/goldenroof; took place, listed on the participant's bio: https://kleinundpartner.at/klein-partner/jens-werner-klein"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Norwegian Archipelago Sprint",
+     "organisations": [
+      "Jarn"
+     ],
+     "sources": [
+      "https://sourceforge.net/p/plone/mailman/message/14793011/"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Big Apple Sprint",
+     "organisations": [
+      "Columbia University's Center for New Media Teaching and Learning"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20131022231532/http://plone.org/events/sprints/past-sprints/bigapple"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "VanDevTools Sprint (Vancouver Tools Sprint)",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20131022220531/http://plone.org/events/sprints/past-sprints/vandevtools-sprint"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Seattle Sprint 2006 (after Plone Conference 2006)",
+     "organisations": [
+      "TriZPUG"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/plone-conferences/seattle-2006/seattle-sprint/seattle-sprint"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Toerggelen Sprint South Tyrol 2006",
+     "organisations": [
+      "CoCOS"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20131023004257/http://plone.org/events/sprints/past-sprints/toerggelen/torggelen-sprint-south-tyrol-2006; took place, listed on the participant's bio: https://kleinundpartner.at/klein-partner/jens-werner-klein"
+     ]
     }
    ],
-   "people_active": 68,
+   "people_active": 75,
    "pull_requests": null,
    "team_leads": [
     {
@@ -642,6 +995,7 @@
    "events": [
     {
      "kind": "plone-conference",
+     "level": "",
      "name": "Plone Conference 2007",
      "organisations": [
       "Abstract Open Solutions"
@@ -649,9 +1003,171 @@
      "sources": [
       "https://plone.org/news-and-events/events/plone-conferences/naples-2007/plone-conference-2007-1"
      ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Snow Sprint 2007 (4th Snow Sprint)",
+     "organisations": [
+      "Lovely Systems"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2007/snowsprint-thanks"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "German Plone translation sprint",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20131023011334/http://plone.org/events/community/german-plone-translation-sprint"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Baarn UI Sprint 2007 (Plone 3.0 UI sprint)",
+     "organisations": [
+      "Google"
+     ],
+     "sources": [
+      "https://sourceforge.net/p/plone/mailman/message/15426814/; organisation from the organisation mapping: https://plone.org/foundation/board/2007-2008"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "ATVocabulary Manager Virtual Sprint",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20131023005417/http://plone.org/events/community/atvocabulary-manager-virtual-sprint"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone 3 performance mini-sprint",
+     "organisations": [
+      "Google"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20131023020447/http://plone.org/events/community/plone-3-performance-mini-sprint; organisation from the organisation mapping: https://plone.org/foundation/board/2007-2008"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "BBQ Sprint 2007",
+     "organisations": [],
+     "sources": [
+      "https://sourceforge.net/p/plone/mailman/message/15427517/"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Open Garden 2007",
+     "organisations": [
+      "Abstract Open Solutions"
+     ],
+     "sources": [
+      "https://sourceforge.net/p/plone/mailman/message/15427704/"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "PIKtipi Sprint 2007",
+     "organisations": [
+      "PIK Potsdam"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20131022223530/http://plone.org/events/sprints/past-sprints/potsdam-sprint-2007"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Google Documentation + Ecommerce (GetPaid) Sprint",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20131022215717/http://plone.org/events/sprints/past-sprints/doc-ecommerce"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "ArlingtonSprint (CanDo summer kick-off sprint)",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20131022224951/http://plone.org/events/sprints/past-sprints/arlington-2007"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Barcelona Sprint 2007 (LinguaPlone sprint)",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20131026002140/http://plone.org/events/sprints/past-sprints/barcelona-sprint-2007/linguaplone-sprint-notes"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone4Artists / Multimedia Sprint 2007",
+     "organisations": [
+      "Christian Science Monitor"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2007/plone4artists-sprint-in-boston-a-success"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Pastis Sprint 2007 (PortalTransforms mini sprint)",
+     "organisations": [
+      "atReal"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20131023012639/http://plone.org/events/community/portaltransforms-mini-sprint"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Naples Sprint 2007 (after Plone Conference 2007)",
+     "organisations": [],
+     "sources": [
+      "https://plone.org/news-and-events/events/plone-conferences/naples-2007/sprint/sprint"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Copenhagen Performance Sprint 2007",
+     "organisations": [
+      "Headnet"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20131022232232/http://plone.org/events/sprints/past-sprints/copenhagen-performance-sprint"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Merano Sprint 2007 (SFSCon 2007)",
+     "organisations": [
+      "SFSCon"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20131022225152/http://plone.org/events/sprints/past-sprints/merano"
+     ]
     }
    ],
-   "people_active": 80,
+   "people_active": 93,
    "pull_requests": null,
    "team_leads": [
     {
@@ -793,14 +1309,185 @@
    "events": [
     {
      "kind": "plone-conference",
+     "level": "",
      "name": "Plone Conference 2008",
      "organisations": [],
      "sources": [
       "https://plone.org/foundation/meetings/membership/2009-membership-meeting/nominations/alex-clark"
      ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "RTL i18n Virtual Sprint",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20131023023403/http://plone.org/events/community/rtl-i18n-virtual-sprint"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Snow Sprint 2008 (5th Snow Sprint)",
+     "organisations": [
+      "Lovely Systems"
+     ],
+     "sources": [
+      "https://sourceforge.net/p/plone/mailman/message/18382622/"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Davis Biblio-Doc Sprint (Scientific Tools and Documentation Sprint)",
+     "organisations": [
+      "Reid-McMahon"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2008/science-and-doc-sprint-wrap-up; organisation from the organisation mapping: https://github.com/smcmahon"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Symposium East 2008 Sprints",
+     "organisations": [
+      "Penn State University"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2008/sprint-summary-from-plone-symposium-east-2008"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Open Garden 2008",
+     "organisations": [
+      "Abstract Open Solutions"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2008/plonebuzz-1-sorrento-sprint-2008-special"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone 3 Paris Sprint",
+     "organisations": [
+      "Alter Way Solutions"
+     ],
+     "sources": [
+      "https://sourceforge.net/p/plone/mailman/message/19236158/"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Boston Plone Calendaring Sprint",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20131022234907/http://plone.org/events/sprints/past-sprints/boston-calendaring-sprint-2008"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "plone.org sprint",
+     "organisations": [
+      "Ingeniweb"
+     ],
+     "sources": [
+      "https://sourceforge.net/p/plone/mailman/message/19727302/; organisation from the organisation mapping: https://sourceforge.net/p/plone/mailman/message/19052435/"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Black Forest Sprint",
+     "organisations": [
+      "Haufe Mediengruppe"
+     ],
+     "sources": [
+      "https://sourceforge.net/p/plone/mailman/message/21380153/"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Paris Bobun Sprint 2008",
+     "organisations": [
+      "Pilot Systems"
+     ],
+     "sources": [
+      "https://sourceforge.net/p/plone/mailman/message/20443467/"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Conference 2008 Sprint",
+     "organisations": [],
+     "sources": [
+      "https://plone.org/news-and-events/events/plone-conferences/washington-dc-2008"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Bolzano Plone Sprint 2008 (SFSCon 2008)",
+     "organisations": [
+      "TIS - Free Software Center",
+      "Abstract Open Solutions"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20131023003710/http://plone.org/events/community/bolzano-plone-sprint"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Barcelona Multilingual Sprint",
+     "organisations": [
+      "Güell Consulting"
+     ],
+     "sources": [
+      "https://web.archive.org/web/2012/http://www.openplans.org:80/projects/plone-sprint-multilingual/project-home"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "PloneFormGen sprint",
+     "organisations": [],
+     "sources": [
+      "https://plone.org/news-and-events/news/2009/plone-featured-in-how-to-sponsor-an-open-source-sprint"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Bristol Performance Sprint 2008",
+     "organisations": [
+      "Netsight"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2010/month-in-plone-jan-2010"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Python and Plone promotion and sprint in Morocco",
+     "organisations": [
+      "PloneGov",
+      "Nextma"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081216160257/http://plone.org:80/events/community/python-and-plone-promotion-event-and-sprint-in-morocco"
+     ]
     }
    ],
-   "people_active": 83,
+   "people_active": 97,
    "pull_requests": null,
    "team_leads": [
     {
@@ -936,6 +1623,7 @@
    "events": [
     {
      "kind": "plone-conference",
+     "level": "",
      "name": "Plone Conference 2009",
      "organisations": [
       "Greenfinity LLC",
@@ -944,9 +1632,126 @@
      "sources": [
       "https://plone.org/news-and-events/events/plone-conferences/budapest-2009"
      ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Jarn sprint on Collections, Contentlistings and Search",
+     "organisations": [
+      "Jarn"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2009/thismonthinplone-oct2009"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Berlinale Sprint 2009",
+     "organisations": [
+      "Jarn"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20100214083543/http://david.wglick.org/2009/report-from-the-berlinale-sprint-how-we-can-fix-the-plone-skin-situation/"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Dutch Plone translation sprint (Four Digits vertaalsprint 2009)",
+     "organisations": [
+      "Four Digits"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20130820163407/http://plone.org/events/community/dutch-plone-translation-sprint"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Open Garden 2009",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/2012/http://www.openplans.org:80/projects/sorrento-sprint-2009/project-home"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Symposium East 2009 Sprints",
+     "organisations": [
+      "Penn State University"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2009/zopeskel-usability-sprint-requests-your-support"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Bristol Balloon Sprint 2009",
+     "organisations": [
+      "Team Rubber"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20130820162751/http://plone.org/events/community/bristol-balloon-sprint"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "No-Fun ZopeSkel BBQ Sprint",
+     "organisations": [
+      "TriZPUG",
+      "Plonebootcamps.com"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2009/zopeskel-usability-sprint-requests-your-support"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone 3.4 i18n and French l10n sprint (Paris)",
+     "organisations": [],
+     "sources": [
+      "https://sourceforge.net/p/plone/mailman/message/23732642/"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Conference 2009 Sprint",
+     "organisations": [
+      "Greenfinity LLC",
+      "Open Society Institute"
+     ],
+     "sources": [
+      "https://sourceforge.net/p/plone/mailman/message/23916283/"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Easyshop Sprint in Essen",
+     "organisations": [
+      "Derico"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20130820202122/http://plone.org/events/community/easyshop-sprint-in-essen-germany; organisation from the organisation mapping: https://github.com/MrTango"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Baarn sprint (Plone 4 UI)",
+     "organisations": [],
+     "sources": [
+      "https://sourceforge.net/p/plone/mailman/message/21698393/"
+     ]
     }
    ],
-   "people_active": 95,
+   "people_active": 100,
    "pull_requests": null,
    "team_leads": [
     {
@@ -1028,6 +1833,7 @@
    "events": [
     {
      "kind": "plone-conference",
+     "level": "",
      "name": "Plone Conference 2010",
      "organisations": [
       "Netsight"
@@ -1035,9 +1841,129 @@
      "sources": [
       "https://plone.org/news-and-events/events/plone-conferences/bristol-2010"
      ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Cathedral Sprint 2010",
+     "organisations": [
+      "Rheinland group of the German Zope User group",
+      "GfU Cyrus AG"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2010/this-month-in-plone-may-2010"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Tahoe Snow Sprint 2010 (Dexterity)",
+     "organisations": [],
+     "sources": [
+      "https://sourceforge.net/p/plone/mailman/message/24848837/"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone eCampaigning Sprint",
+     "organisations": [
+      "FairSay"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20131023000725/http://plone.org/events/community/plone-ecampaigning-sprint"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Symposium East 2010 Sprints",
+     "organisations": [
+      "Penn State University"
+     ],
+     "sources": [
+      "https://sourceforge.net/p/plone/mailman/message/25413045/"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Open Garden 2010",
+     "organisations": [
+      "Abstract Open Solutions"
+     ],
+     "sources": [
+      "https://sourceforge.net/p/plone/mailman/message/25413045/"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Sauna Sprint 2010",
+     "organisations": [
+      "EESTEC LC Helsinki"
+     ],
+     "sources": [
+      "https://sourceforge.net/p/plone/mailman/message/25835127/"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Living Statues Sprint 2010",
+     "organisations": [
+      "Four Digits"
+     ],
+     "sources": [
+      "https://web.archive.org/web/2012/http://coactivate.org/projects/living-statues-sprint-2010/project-home"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "West Coast Sprint 2010 (LA Plone Sprint)",
+     "organisations": [
+      "Los Angeles Plone Users Group"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20131022174417/http://plone.org/events/community/west-coast-sprint-2010"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Conference 2010 Sprint",
+     "organisations": [
+      "Netsight"
+     ],
+     "sources": [
+      "https://sourceforge.net/p/plone/mailman/message/26523382/"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Neoplanta Sprint",
+     "organisations": [
+      "EESTEC"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20131023003103/http://plone.org/events/community/neoplanta-sprint"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Symposium South America 2010 Sprint",
+     "organisations": [
+      "Plone Cono Sur"
+     ],
+     "sources": [
+      "https://sourceforge.net/p/plone/mailman/message/26676338/"
+     ]
     }
    ],
-   "people_active": 113,
+   "people_active": 123,
    "pull_requests": null,
    "team_leads": [
     {
@@ -1107,14 +2033,143 @@
    "events": [
     {
      "kind": "plone-conference",
+     "level": "",
      "name": "Plone Conference 2011",
      "organisations": [],
      "sources": [
       "https://plone.org/news-and-events/news/2011/2011PloneConferenceResults"
      ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "artsprint ]a[ 2011",
+     "organisations": [
+      "Academy of FA Vienna"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20110122032317/http://plone.org/events/community/artsprint-a-2011"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Cioppino (West Coast USA) Sprint",
+     "organisations": [
+      "Reid-McMahon"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2011/cioppino-sprint-2011-report; organisation from the organisation mapping: https://github.com/smcmahon"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plonator Sprint",
+     "organisations": [
+      "Starzel"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20110414110741/http://plone.org/events/community/plonator-sprint; organisation from the organisation mapping: https://github.com/pbauer"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Open Garden 2011",
+     "organisations": [
+      "Abstract Open Solutions"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2011/plone-open-garden-2011-thanks"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Buschenschanksprint 2011",
+     "organisations": [
+      "Syslab"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20110513234448/http://plone.org/events/community/buschenschanksprint-2011; organisation from the organisation mapping: https://github.com/thet"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Symposium East 2011 sprints",
+     "organisations": [
+      "Penn State University"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2011/plonesymposiumeast-2011"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Pyramid CRUD sprint",
+     "organisations": [
+      "RedTurtle"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20110513234309/http://plone.org/events/community/pyramid-crud-sprint"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Bristol UI Sprint 2011",
+     "organisations": [
+      "Netsight"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20110603234816/http://plone.org/events/sprints/bristol-ui-sprint-2011; Board: https://plone.org/foundation/meetings/minutes/2011/minutes-for-june-2-2011"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Sauna Sprint 2011",
+     "organisations": [
+      "EESTEC"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20110513235222/http://plone.org/events/community/sauna-sprint-2011; Board: https://plone.org/foundation/meetings/minutes/2011/minutes-for-june-2-2011"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Zidanca Plone Sprint 2011",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20170411071902/https://www.coactivate.org/projects/zidanca-plone-sprint-2011/project-home/"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Living Statues Sprint 2011",
+     "organisations": [
+      "Four Digits"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20110622023415/http://plone.org/events/community/living-statues-sprint-2011"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Conference 2011 sprint",
+     "organisations": [],
+     "sources": [
+      "https://plone.org/foundation/meetings/minutes/2011/minutes-2011-11-17"
+     ]
     }
    ],
-   "people_active": 140,
+   "people_active": 143,
    "pull_requests": 142,
    "team_leads": [
     {
@@ -1179,6 +2234,7 @@
    "events": [
     {
      "kind": "plone-conference",
+     "level": "",
      "name": "Plone Conference 2012",
      "organisations": [
       "Four Digits"
@@ -1186,9 +2242,143 @@
      "sources": [
       "https://plone.org/foundation/meetings/minutes/2012/minutes-2012-01-21"
      ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "ARTSprInt ]a[ 2012",
+     "organisations": [
+      "Academy of FA Vienna"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20120204033837/http://plone.org/events/community/artsprint-a-2012"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Konferenz München 2012 sprints",
+     "organisations": [
+      "Münchner Plone User Group"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20120205180017/http://plone.org/events/community/plone-konferenz-muenchen-2012"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Cioppino Sprint 2012",
+     "organisations": [
+      "Reid-McMahon",
+      "Groundwire"
+     ],
+     "sources": [
+      "https://plone.org/foundation/meetings/minutes/2012/minutes-2012-03-22; organisation from the organisation mapping: https://github.com/smcmahon; organisation from the organisation mapping: https://api.pageplace.de/preview/DT0400.9781849514439_A24190962/preview-9781849514439_A24190962.pdf; Board: https://plone.org/foundation/meetings/minutes/2012/minutes-2012-03-01"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Open Garden 2012",
+     "organisations": [
+      "Abstract Open Solutions"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2012/plone-open-garden-2012"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Pre-PSE12 Strategic-esque Sprintacular",
+     "organisations": [
+      "Penn State University"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20170415042334/http://www.coactivate.org/projects/pre-pse12-strategicesque-sprintacular/project-home"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Symposium East 2012 sprints",
+     "organisations": [],
+     "sources": [
+      "https://plone.org/news-and-events/news/2012/pse12-registration"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Buschenschanksprint 2012",
+     "organisations": [
+      "Syslab"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20120502111128/http://plone.org/events/community/buschenschanksprint-2012; organisation from the organisation mapping: https://github.com/thet"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Cafecito Sprint",
+     "organisations": [
+      "Simples Consultoria"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20131022204417/http://plone.org/events/community/cafecito-sprint"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Belgian Beer Sprint",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20120805122844/http://plone.org/events/community/belgian-beer-sprint; Board: https://plone.org/foundation/meetings/minutes/2012/minutes-2012-05-31"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Jamaica Jerk Sprint",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20170412095135/https://www.coactivate.org/projects/jamaica-jerk-sprint/project-home/"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Caipirinha Sprint 2012",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20131023015016/http://plone.org/events/regional/past-events/pssa/2012/caipirinha-sprint; Board: https://plone.org/foundation/meetings/minutes/2012/minutes-2012-06-28"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Sea Sprint 2012",
+     "organisations": [],
+     "sources": [
+      "https://plone.org/news-and-events/news/2012/seasprint2012; Board: https://plone.org/foundation/meetings/minutes/2012/minutes-2012-07-26"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Plone Conference 2012 sprint",
+     "organisations": [
+      "Four Digits"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20120328182635/http://www.ploneconf.org:80/the-event/sprint; Board: https://plone.org/foundation/meetings/minutes/2012/minutes-2012-10-18"
+     ]
     }
    ],
-   "people_active": 203,
+   "people_active": 213,
    "pull_requests": 414,
    "team_leads": [
     {
@@ -1265,6 +2455,7 @@
    "events": [
     {
      "kind": "plone-conference",
+     "level": "",
      "name": "Plone Conference 2013",
      "organisations": [
       "PloneGov-BR"
@@ -1272,9 +2463,207 @@
      "sources": [
       "https://plone.org/news-and-events/news/2013/the-biggest-plone-event-in-the-world-and-the-biggest-python-event-in-brazil"
      ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "The Beer and Wine Sprint",
+     "organisations": [
+      "Syslab",
+      "Praekelt"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20130114192629/http://plone.org/events/community/beer-and-wine-sprint; Board: https://plone.org/foundation/meetings/minutes/2012/minutes-for-november-29-2012"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Emerald Sprint 2013",
+     "organisations": [
+      "Seattle Plone user's group"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20130114193252/http://plone.org/events/community/emerald-sprint; Board: https://plone.org/foundation/meetings/minutes/2013/minutes-for-january-10-2013"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Barcelona Sprint (Continuous Integration)",
+     "organisations": [
+      "Iskra"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2013/come-sprint; organisation from the organisation mapping: https://plone.org/news-and-events/news/2013/ramon-navarro-bosch-and-philip-bauer-named-to-plone-foundation; Board: https://plone.org/foundation/meetings/minutes/2013/minutes-for-january-10-2013"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "community",
+     "name": "ArTSprInt ]a[ 2013",
+     "organisations": [
+      "Academy of FA Vienna"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20130114193320/http://plone.org/events/community/artsprint-a-2013; Board: https://plone.org/foundation/meetings/minutes/2013/minutes-for-january-24-2013"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Open Garden 2013",
+     "organisations": [
+      "Abstract Open Solutions"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2012/announcing-plone-open-garden-2013"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Plone Symposium Midwest 2013 pre-conference sprint",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20170409213201/https://www.coactivate.org/projects/mid-west-symposium-pre-conference-sprint/project-home; Board: https://plone.org/foundation/meetings/minutes/2013/minutes-for-may-2-2013"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Plone Symposium Midwest 2013 sprints",
+     "organisations": [
+      "University of Wisconsin Oshkosh"
+     ],
+     "sources": [
+      "https://plone.org/foundation/meetings/minutes/2013/minutes-for-june-13-2013; Board: https://plone.org/foundation/meetings/minutes/2013/minutes-for-may-2-2013"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Bastille Day Plone Sprint",
+     "organisations": [
+      "Sixfeetup"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2013/bastille-day-day-sprint-2013-results; Board: https://plone.org/foundation/meetings/minutes/2013/minutes-for-june-27-2013"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Cafecito Sprint Rosario",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20131023014743/http://plone.org/events/community/cafecito-sprint-rosario"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Zurich Sprint 2013",
+     "organisations": [
+      "Agitator"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20130805074857/http://plone.org/events/community/zurich-sprint; organisation from the organisation mapping: https://2016.ploneconf.org/people/peter-holzer.html"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "community",
+     "name": "Red Foot Sprint",
+     "organisations": [
+      "Simples Consultoria"
+     ],
+     "sources": [
+      "https://plone.org/foundation/meetings/minutes/2013/minutes-for-september-5-2013"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "community",
+     "name": "Buschenschank Sprint 2013",
+     "organisations": [
+      "Syslab"
+     ],
+     "sources": [
+      "https://plone.org/foundation/meetings/minutes/2013/minutes-for-november-27-2013; organisation from the organisation mapping: https://github.com/thet"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Conference 2013 post-conference sprint",
+     "organisations": [
+      "PloneGov-BR"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2013/submit-plone-conference-2013-proposals"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Caipirinha Sprint 2013",
+     "organisations": [],
+     "sources": [
+      "https://plone.org/news-and-events/news/2013/submit-plone-conference-2013-proposals"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Dublin Plone Sprint 2013 (PyCon Ireland)",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20170410163309/https://www.coactivate.org/projects/dublin-plone-sprint-2013/project-home/"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Arnhem Sprint 2013",
+     "organisations": [
+      "Four Digits"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2013/arnhem-turns-into-plone-town; Board: https://plone.org/foundation/meetings/minutes/2013/minutes-for-august-22nd-2013"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "EuroPython 2013 Plone sprint",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20170409212347/https://www.coactivate.org/projects/europython-plone-sprint-2013/project-home/"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Asia-Pacific Sprint 2013",
+     "organisations": [
+      "Pretaweb"
+     ],
+     "sources": [
+      "https://plone.org/foundation/meetings/minutes/2013/minutes-for-august-22nd-2013"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Security Sprint 2013",
+     "organisations": [],
+     "sources": [
+      "https://plone.org/foundation/meetings/minutes/2013/minutes-for-august-8-2013; Board: https://plone.org/foundation/meetings/minutes/2013/minutes-for-july-25-2013"
+     ]
     }
    ],
-   "people_active": 256,
+   "people_active": 263,
    "pull_requests": 512,
    "team_leads": [
     {
@@ -1416,6 +2805,7 @@
    "events": [
     {
      "kind": "plone-conference",
+     "level": "",
      "name": "Plone Conference 2014",
      "organisations": [
       "Netsight"
@@ -1423,9 +2813,152 @@
      "sources": [
       "https://plone.org/news-and-events/events/plone-conferences/bristol-2014"
      ]
+    },
+    {
+     "kind": "sprints",
+     "level": "community",
+     "name": "UK \"fish&chips\" Sprint",
+     "organisations": [
+      "Pretaweb"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20140421055437/http://plone.org/events/community/uk-fish-chips-sprint; organisation from the organisation mapping: https://www.slideshare.net/slideshow/funnelweb-ploneconf2010/5614200; Board: https://plone.org/foundation/meetings/minutes/2014/minutes-for-february-20-2014"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "community",
+     "name": "Stroopwafel Sprint",
+     "organisations": [],
+     "sources": [
+      "https://plone.org/news-and-events/news/2014/plone-docs-get-monumental-overhaul; Board: https://plone.org/foundation/meetings/minutes/2014/minutes-for-january-9-2014"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Cathedral Sprint 2014",
+     "organisations": [
+      "GfU Cyrus AG"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2014/cathedral-sprint-report; Board: https://plone.org/foundation/meetings/minutes/2014/minutes-for-january-9-2014"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Emerald Sprint 2014",
+     "organisations": [],
+     "sources": [
+      "https://plone.org/news-and-events/news/2014/a-very-brief-overview-of-the-march-emerald-sprint; Board: https://plone.org/foundation/meetings/minutes/2014/minutes-for-february-6-2014"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Plone DocSprint Munich 2014",
+     "organisations": [],
+     "sources": [
+      "https://plone.org/news-and-events/news/2014/plone-docs-get-monumental-overhaul; Board: https://plone.org/foundation/meetings/minutes/2014/minutes-for-february-20-2014"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "The Wine and Beer Sprint 2014",
+     "organisations": [
+      "Syslab"
+     ],
+     "sources": [
+      "https://plone.org/foundation/meetings/minutes/2014/minutes-for-april-3-2014; organisation from the organisation mapping: https://github.com/pilz; Board: https://plone.org/foundation/meetings/minutes/2014/minutes-for-february-20-2014"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Open Garden 2014",
+     "organisations": [
+      "Abstract Open Solutions"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2013/plone-open-garden-2014"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Barcelona Mosaic sprint",
+     "organisations": [
+      "Universitat Politècnica de Catalunya · BarcelonaTech",
+      "UPCnet, SLU"
+     ],
+     "sources": [
+      "https://community.plone.org/t/plone-mosaic-open-space/320"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Plone Symposium Midwest 2014 sprints (incl. Installer sprint)",
+     "organisations": [
+      "University of Wisconsin Oshkosh"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2014/plone-symposium-midwest-2014-needs-you; Board: https://plone.org/foundation/meetings/minutes/2014/minutes-for-april-17-2014"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Zidanca sprint 2014",
+     "organisations": [],
+     "sources": [
+      "https://plone.org/foundation/meetings/minutes/2014/minutes-for-august-21-2014; Board: https://plone.org/foundation/meetings/minutes/2014/minutes-for-august-7-2014"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Zurich Sprint 2014",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20150102123249/http://plone.org/events/community/zurich-sprint-2014"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Berlin Plone Social Sprint 2014",
+     "organisations": [],
+     "sources": [
+      "https://community.plone.org/t/plone-social-sprint-berlin-2014/220"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Conference 2014 sprint",
+     "organisations": [
+      "Netsight"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20150102123254/http://plone.org/events/community/plone-conference-sprint"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "community",
+     "name": "PloneGovBr open data sprint",
+     "organisations": [
+      "PloneGov-BR"
+     ],
+     "sources": [
+      "https://plone.org/foundation/meetings/minutes/2014/minutes-for-april-17-2014; Board: https://plone.org/foundation/meetings/minutes/2014/minutes-for-april-3-2014"
+     ]
     }
    ],
-   "people_active": 223,
+   "people_active": 235,
    "pull_requests": 807,
    "team_leads": [
     {
@@ -1519,6 +3052,7 @@
    "events": [
     {
      "kind": "plone-conference",
+     "level": "",
      "name": "Plone Conference 2015",
      "organisations": [
       "Eau de Web"
@@ -1526,9 +3060,85 @@
      "sources": [
       "https://plone.org/news-and-events/news/2015/2015-plone-conference-schedule-of-events"
      ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Alpine City Sprint 2015",
+     "organisations": [
+      "Klein & Partner KG"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20150102123244/http://plone.org/events/community/alpine-city-sprint-2015-innsbruck"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Plone Open Garden 2015 (Strategic Summit)",
+     "organisations": [
+      "Abstract Open Solutions"
+     ],
+     "sources": [
+      "https://plone.org/foundation/meetings/minutes/2015/minutes-for-april-2-2015; Board: https://plone.org/foundation/meetings/minutes/2014/minutes-for-december-23-2014"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Symposium Tokyo 2015 sprint",
+     "organisations": [
+      "Plone Symposium Tokyo 2015 Organizing Committee",
+      "Ochanomizu University"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/regional/plone-symposium-tokyo-2015"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Anniversary Sprint 2015",
+     "organisations": [
+      "Four Digits"
+     ],
+     "sources": [
+      "https://community.plone.org/t/help-out-the-arnhem-sprint-remotely-de-grokify-some-pages/804; Board: https://plone.org/foundation/meetings/minutes/2015/minutes-for-february-19-2015"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Plone 5 Theming Sprint (Munich Plone 5 Sprint and Party)",
+     "organisations": [
+      "Python Software Verband e.V."
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2015/munich-plone-5-sprint-and-party; Board: https://plone.org/foundation/meetings/minutes/2015/minutes-for-august-20-2015"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Conference 2015 sprints",
+     "organisations": [
+      "Eau de Web"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2015/2015-plone-conference-summary"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Intranet sprint (early 2015)",
+     "organisations": [],
+     "sources": [
+      "https://plone.org/foundation/meetings/minutes/2015/minutes-for-march-19-2015"
+     ]
     }
    ],
-   "people_active": 200,
+   "people_active": 207,
    "pull_requests": 1602,
    "team_leads": [
     {
@@ -1658,6 +3268,7 @@
    "events": [
     {
      "kind": "plone-conference",
+     "level": "",
      "name": "Plone Conference 2016",
      "organisations": [
       "Jazkarta",
@@ -1666,9 +3277,161 @@
      "sources": [
       "https://plone.org/news-and-events/news/2016/another-successful-annual-plone-conference"
      ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Jamaica Sprint 2016 (Theming Documentation)",
+     "organisations": [
+      "Alteroo",
+      "PythonJamaica"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20170412095352/https://www.coactivate.org/projects/jamaica-sprint/project-home"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Alpine City Sprint 2016",
+     "organisations": [
+      "Klein & Partner KG"
+     ],
+     "sources": [
+      "https://community.plone.org/t/report-after-alpine-city-strategic-sprint/1489; Board: https://plone.org/foundation/meetings/minutes/2015/minutes-for-december-22-2015"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone.org online sprint",
+     "organisations": [
+      "kitconcept GmbH"
+     ],
+     "sources": [
+      "https://plone.org/foundation/meetings/minutes/2016/minutes-for-february-18-2016; organisation from the organisation mapping: https://github.com/sneridagh"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "aRtSpRiNT 2016",
+     "organisations": [
+      "Academy of FA Vienna"
+     ],
+     "sources": [
+      "https://community.plone.org/t/artsprint-2016-the-pleasurable-way-to-sneak-that-stick-of-dynamite-into-your-head/1767"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Open Garden 2016",
+     "organisations": [
+      "Abstract Open Solutions"
+     ],
+     "sources": [
+      "https://community.plone.org/t/minutes-from-the-annual-meeting-from-the-plone-conference/3052"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Plone.org Sprint 2016",
+     "organisations": [
+      "Wildcard Corp"
+     ],
+     "sources": [
+      "https://community.plone.org/t/plone-org-sprint-april-25-may-2/1875; organisation from the organisation mapping: https://2017.ploneconf.org/people/kim-nguyen.html; Board: https://plone.org/foundation/meetings/minutes/2016/minutes-for-march-17-2016"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Barcelona Strategic Sprint 2016",
+     "organisations": [
+      "Iskra",
+      "Intranetum"
+     ],
+     "sources": [
+      "https://plone.org/foundation/meetings/minutes/2016/minutes-for-may-26-2016; Board: https://plone.org/foundation/meetings/minutes/2016/minutes-for-march-3-2016"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Berlin Strategic Sprint 2016",
+     "organisations": [],
+     "sources": [
+      "https://plone.org/foundation/meetings/minutes/2016/minutes-for-may-26-2016; Board: https://plone.org/foundation/meetings/minutes/2016/minutes-for-march-3-2016"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Plone Planning and Organizing Sprint 2016",
+     "organisations": [
+      "CCC",
+      "Ludwig Maximilian University Munich"
+     ],
+     "sources": [
+      "https://plone.org/foundation/meetings/minutes/2016/minutes-for-august-4-2016; organisation from the organisation mapping: https://plone.org/foundation/meetings/membership/2023-membership-meeting/nominations/paul-roeland; organisation from the organisation mapping: https://github.com/loechel; Board: https://plone.org/foundation/meetings/minutes/2016/minutes-for-june-23-2016"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Plone Mephisto Sprint Leipzig 2016",
+     "organisations": [
+      "Derico"
+     ],
+     "sources": [
+      "https://community.plone.org/t/plone-mephisto-sprint-2016-report/2743; organisation from the organisation mapping: https://github.com/MrTango; Board: https://plone.org/foundation/meetings/minutes/2016/minutes-for-august-18-2016"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "community",
+     "name": "Castle Sprint 2016",
+     "organisations": [],
+     "sources": [
+      "https://community.plone.org/t/castle-sprint-2016-report/2956; Board: https://plone.org/foundation/meetings/minutes/2016/minutes-for-september-29-2016"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Zope Resurrection Sprint 2016",
+     "organisations": [
+      "gocept"
+     ],
+     "sources": [
+      "https://blog.gocept.com/2016/09/29/zope-resurrection-part-1-reanimation/"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Conference 2016 sprint",
+     "organisations": [
+      "Jazkarta",
+      "Wildcard Corp"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2016/another-successful-annual-plone-conference"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "community",
+     "name": "DragonSprint",
+     "organisations": [],
+     "sources": [
+      "https://plone.org/news-and-events/events/sprints/dragonsprint; Board: https://plone.org/foundation/meetings/minutes/2016/minutes-for-november-17-2016"
+     ]
     }
    ],
-   "people_active": 164,
+   "people_active": 174,
    "pull_requests": 1758,
    "team_leads": [
     {
@@ -1744,6 +3507,7 @@
    "events": [
     {
      "kind": "plone-conference",
+     "level": "",
      "name": "Plone Conference 2017",
      "organisations": [
       "Iskra"
@@ -1751,9 +3515,115 @@
      "sources": [
       "https://plone.org/news-and-events/news/2016/plone-conference-2017-coming-to-barcelona"
      ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Alpine City Sprint 2017",
+     "organisations": [],
+     "sources": [
+      "https://plone.org/news-and-events/news/2017/porting-plone-and-zope-to-python-3-successful-alpine-city-sprint; Board: https://plone.org/foundation/meetings/minutes/2016/minutes-for-december-1-2016"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Bonn Beethoven Sprint 2017",
+     "organisations": [
+      "kitconcept GmbH"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2017/successful-beethoven-sprint-in-bonn; Board: https://plone.org/foundation/meetings/minutes/2016/minutes-for-december-15-2016"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Open Garden 2017",
+     "organisations": [],
+     "sources": [
+      "https://plone.org/news-and-events/news/2017/report-from-plone-open-garden-2017"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Zope 2 Resurrection Sprint 2017",
+     "organisations": [
+      "gocept"
+     ],
+     "sources": [
+      "https://plone.org/foundation/meetings/minutes/2017/minutes-for-may-4-2017; Board: https://plone.org/foundation/meetings/minutes/2017/minutes-for-february-23-2017"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Midsummer Sprint Jyväskylä 2017",
+     "organisations": [
+      "University of Jyväskylä"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2017/report-from-midsummer-sprint-2017; Board: https://plone.org/foundation/meetings/minutes/2017/minutes-for-may-4-2017"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Remote Sprint to finish Plone 5.1",
+     "organisations": [
+      "Starzel"
+     ],
+     "sources": [
+      "https://plone.org/foundation/meetings/minutes/2017/minutes-for-september-7-2017; organisation from the organisation mapping: https://github.com/pbauer"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Zope 4 Phoenix Sprint",
+     "organisations": [
+      "gocept"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/sprints/zope-4-phoenix-sprint; Board: https://plone.org/foundation/meetings/minutes/2017/minutes-for-september-7-2017"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Conference 2017 sprint",
+     "organisations": [
+      "Iskra"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/plone-conferences/barcelona-2017/plone-conference-2017"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Pastanaga Sprint (Bonn)",
+     "organisations": [
+      "kitconcept GmbH"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2017/successful-pastanaga-sprint-in-bonn; Board: https://plone.org/foundation/meetings/minutes/2017/minutes-for-november-2-2017"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Pastanaga Toulouse Sprint",
+     "organisations": [
+      "Makina Corpus"
+     ],
+     "sources": [
+      "https://community.plone.org/t/plone-ui-shared-basis-for-react-angular-efforts/4941; Board: https://plone.org/foundation/meetings/minutes/2017/minutes-for-august-10-2017"
+     ]
     }
    ],
-   "people_active": 159,
+   "people_active": 165,
    "pull_requests": 1676,
    "team_leads": [
     {
@@ -1835,6 +3705,7 @@
    "events": [
     {
      "kind": "plone-conference",
+     "level": "",
      "name": "Plone Conference 2018",
      "organisations": [
       "CMS Communications Inc."
@@ -1842,9 +3713,130 @@
      "sources": [
       "https://plone.org/news-and-events/news/2017/plone-conference-2018-will-be-in-tokyo-japan"
      ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Alpine City Strategic Sprint 2018",
+     "organisations": [
+      "Klein & Partner KG"
+     ],
+     "sources": [
+      "https://community.plone.org/t/alpine-city-strategic-sprint-2018-technical-report/5685; Board: https://plone.org/foundation/meetings/minutes/2017/minutes-for-november-30-2017"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Plone React Sprint Bonn 2018",
+     "organisations": [
+      "kitconcept GmbH"
+     ],
+     "sources": [
+      "https://community.plone.org/t/any-live-examples-of-pastanaga-ui/6023; Board: https://plone.org/foundation/meetings/minutes/2018/minutes-for-march-8-2018"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Plone Tagung 2018 sprint",
+     "organisations": [
+      "Derico"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/community/plone-tagung-2018-berlin; organisation from the organisation mapping: https://github.com/MrTango; Board: https://plone.org/foundation/meetings/minutes/2018/minutes-for-january-11-2018"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "community",
+     "name": "Zope 4 Welcome Sprint",
+     "organisations": [
+      "gocept"
+     ],
+     "sources": [
+      "https://plone.org/foundation/meetings/minutes/2018/minutes-for-may-24-2018"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "community",
+     "name": "Buschenschanksprint 2018",
+     "organisations": [
+      "Syslab"
+     ],
+     "sources": [
+      "https://community.plone.org/t/this-was-the-buschenschanksprint-2018/6711; organisation from the organisation mapping: https://github.com/thet; Board: https://plone.org/foundation/meetings/minutes/2018/minutes-for-june-7-2018"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Bonn Beethoven Sprint 2018",
+     "organisations": [
+      "kitconcept GmbH"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2018/successful-beethoven-sprint-in-bonn; Board: https://plone.org/foundation/meetings/minutes/2018/minutes-for-june-7-2018"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Costa Brava Sprint 2018",
+     "organisations": [
+      "Iskra",
+      "kitconcept GmbH"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/sprints/costa-brava-sprint-2018"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plonator Sprint 2018",
+     "organisations": [],
+     "sources": [
+      "https://plone.org/news-and-events/events/sprints/plonator-sprint-2018"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Manresa Sprint",
+     "organisations": [
+      "Iskra",
+      "kitconcept GmbH"
+     ],
+     "sources": [
+      "https://plone.org/foundation/meetings/minutes/2018/minutes-for-september-27-2018"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Saltlabs Sprint in Halle",
+     "organisations": [
+      "gocept"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2018/plone-on-python-3-is-closer-to-reality-thanks-to-huge-sprint; Board: https://plone.org/foundation/meetings/minutes/2018/minutes-for-july-19-2018"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Conference 2018 sprint",
+     "organisations": [
+      "CMS Communications Inc."
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2018/thank-you-plone-conference-2018-tokyo; organisation from the organisation mapping: https://github.com/terapyon"
+     ]
     }
    ],
-   "people_active": 163,
+   "people_active": 165,
    "pull_requests": 1695,
    "team_leads": [
     {
@@ -1968,6 +3960,7 @@
    "events": [
     {
      "kind": "plone-conference",
+     "level": "",
      "name": "Plone Conference 2019",
      "organisations": [
       "RedTurtle"
@@ -1975,9 +3968,130 @@
      "sources": [
       "https://plone.org/news-and-events/news/2018/plone-conference-2019-will-be-in-ferrara-italy"
      ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Alpine City Strategic Sprint 2019",
+     "organisations": [
+      "Klein & Partner KG"
+     ],
+     "sources": [
+      "https://community.plone.org/t/technical-report-alpine-city-strategic-sprint-2019/8054; Board: https://plone.org/foundation/meetings/minutes/2018/minutes-for-december-20-2018"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone 5.2 release testing sprint (remote)",
+     "organisations": [
+      "Sixfeetup",
+      "Starzel"
+     ],
+     "sources": [
+      "https://community.plone.org/t/plone-5-2-release-testing-day-coming-up-march-14-2019-py-day/8164; organisation from the organisation mapping: https://2019.ploneconf.org/people/t-kim-nguyen; organisation from the organisation mapping: https://github.com/pbauer"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "community",
+     "name": "Sorrento Sprint on Frontend Modernization and Python 3 Porting (PLOG 2019)",
+     "organisations": [
+      "Soliton Consulting"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2019/the-return-of-plog; organisation from the organisation mapping: https://plone.org/foundation/meetings/membership/2019-membership-meeting/nominations/fulvio-casali; Board: https://plone.org/foundation/meetings/minutes/2019/plone-foundation-board-minutes-for-january-31-2019"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Zope spring cleaning sprint",
+     "organisations": [
+      "gocept"
+     ],
+     "sources": [
+      "https://community.plone.org/t/zope-spring-cleaning-sprint-8-10-5-2019/8190; organisation from the organisation mapping: https://github.com/plone/plone.testing/commit/15e865d2e1dfd28a772bd84d42bab5cea48fd28d"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Toulouse Guillotina Sprint",
+     "organisations": [
+      "Onna"
+     ],
+     "sources": [
+      "https://community.plone.org/t/toulouse-guillotina-sprint/8149; Board: https://plone.org/foundation/meetings/minutes/2019/plone-foundation-board-minutes-april-11-2019"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Buschenschanksprint 2019",
+     "organisations": [
+      "Syslab"
+     ],
+     "sources": [
+      "https://community.plone.org/t/this-was-the-buschenschanksprint-2019/10470; organisation from the organisation mapping: https://github.com/plone/plone-contributor-statistics/commit/207840e7209f4ee2d5f2d75cbf262a41a19ced0b; Board: https://plone.org/foundation/meetings/minutes/2019/plone-foundation-board-minutes-april-25-2019"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Beethoven Sprint 2019",
+     "organisations": [
+      "kitconcept GmbH"
+     ],
+     "sources": [
+      "https://community.plone.org/t/plone-beethoven-sprint-2019-report-plone-6-volto-rest-api-guillotina/9984; Board: https://plone.org/foundation/meetings/minutes/2019/plone-foundation-board-minutes-for-february-28-2019"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Plone AI team sprint (Admin & Infrastructure)",
+     "organisations": [
+      "CCC",
+      "kitconcept GmbH"
+     ],
+     "sources": [
+      "https://plone.org/foundation/meetings/minutes/2019/plone-foundation-board-minutes-august-29-2019; organisation from the organisation mapping: https://plone.org/foundation/meetings/membership/2023-membership-meeting/nominations/paul-roeland; organisation from the organisation mapping: https://github.com/sneridagh; Board: https://plone.org/foundation/meetings/minutes/2019/plone-foundation-board-minutes-august-1-2019"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Conference 2019 sprint",
+     "organisations": [
+      "RedTurtle"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20191116000233/https://2019.ploneconf.org/sprints/"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Plone 6 Kick Off Sprint",
+     "organisations": [
+      "kitconcept GmbH"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/sprints/plone-6-kickoff-sprint; Board: https://plone.org/foundation/meetings/minutes/2019/plone-foundation-board-minutes-november-21-2019"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Tagung 2019 sprints",
+     "organisations": [],
+     "sources": [
+      "https://plone.org/news-and-events/events/community/plone-tagung-2019-munich"
+     ]
     }
    ],
-   "people_active": 146,
+   "people_active": 155,
    "pull_requests": 1623,
    "team_leads": [
     {
@@ -2065,6 +4179,7 @@
    "events": [
     {
      "kind": "plone-conference",
+     "level": "",
      "name": "Plone Conference 2020",
      "organisations": [
       "Plone Foundation"
@@ -2072,40 +4187,127 @@
      "sources": []
     },
     {
-     "kind": "strategic-sprints",
-     "name": "Alpine City Sprint",
+     "kind": "sprints",
+     "level": "",
+     "name": "Plonator Sprint 2020",
+     "organisations": [
+      "Ludwig Maximilian University Munich"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/sprints/plonator-sprint-2020"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Alpine City Strategic Sprint 2020",
      "organisations": [
       "Klein & Partner KG"
      ],
      "sources": [
-      "https://plone.org/foundation/meetings/minutes/2020/plone-foundation-board-minutes-january-16-2020"
+      "https://docs.google.com/document/d/172UtDjJbIfnoxHE_x67KkirOfnhcRJ1casBZlyjJGe0; Board: https://plone.org/foundation/meetings/minutes/2020/plone-foundation-board-minutes-january-16-2020"
      ]
     },
     {
-     "kind": "strategic-sprints",
-     "name": "Beethoven Sprint",
-     "organisations": [
-      "kitconcept GmbH"
-     ],
-     "sources": [
-      "https://plone.org/foundation/meetings/minutes/2020/plone-foundation-board-minutes-february-27-2020"
-     ]
-    },
-    {
-     "kind": "strategic-sprints",
-     "name": "Plone 6 Remote Sprint",
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone 6 Remote Sprint (Plone 6 Classic UI Sprint, remote-only)",
      "organisations": [
       "Agitator",
-      "Derico",
-      "Klein & Partner KG",
+      "Derico"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2020/plone-6-remote-sprint-april-2020; organisation from the organisation mapping: https://2016.ploneconf.org/people/peter-holzer.html; organisation from the organisation mapping: https://github.com/MrTango"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Zope May Sprint 2020 (remote only)",
+     "organisations": [
+      "gocept"
+     ],
+     "sources": [
+      "https://community.plone.org/t/zope-may-sprint-goes-remote-13th-till-15th-of-may-2020/11938"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Beethoven Sprint 2020 (remote only)",
+     "organisations": [
       "kitconcept GmbH"
      ],
      "sources": [
-      "https://plone.org/news-and-events/news/2020/plog-2020-replaced-by-remote-sprint"
+      "https://plone.org/news-and-events/news/2020/great-progress-on-volto-at-the-2020-beethoven-sprint; Board: https://plone.org/foundation/meetings/minutes/2020/plone-foundation-board-minutes-february-27-2020"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Zope Autumn Sprint 2020",
+     "organisations": [
+      "gocept"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/sprints/zope-autumn-sprint-2020"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone 6 Theming Sprint to the Finish!",
+     "organisations": [
+      "Agitator"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/sprints/plone-6-theming-sprint-to-the-finish; organisation from the organisation mapping: https://2016.ploneconf.org/people/peter-holzer.html"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone 6 Classic Resources Sprint",
+     "organisations": [
+      "Derico"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/sprints/plone-6-resources-sprint; organisation from the organisation mapping: https://github.com/MrTango"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Conference 2020 sprint (online)",
+     "organisations": [
+      "Steve Piercy - Website Builder"
+     ],
+     "sources": [
+      "https://community.plone.org/t/ploneconf-2020-sprints-sat-dec-12-and-sun-dec-13/13212; organisation from the organisation mapping: https://github.com/stevepiercy"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone 6 Classic UI weekly sprint days 2020",
+     "organisations": [],
+     "sources": [
+      "https://plone.org/news-and-events/events/sprints/plone-6-theming-sprint-to-the-finish"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Tagung 2020 sprint",
+     "organisations": [
+      "TU Dresden"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2020/recap-the-plone-symposium-in-dresden-2020"
      ]
     }
    ],
-   "people_active": 149,
+   "people_active": 156,
    "pull_requests": 1688,
    "team_leads": [
     {
@@ -2211,6 +4413,7 @@
    "events": [
     {
      "kind": "plone-conference",
+     "level": "",
      "name": "Plone Conference 2021",
      "organisations": [
       "Plone Foundation"
@@ -2218,18 +4421,141 @@
      "sources": []
     },
     {
-     "kind": "strategic-sprints",
-     "name": "Sorrento Fan Zone",
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Relations Sprint",
+     "organisations": [],
+     "sources": [
+      "https://plone.org/news-and-events/news/2021/great-progress-at-the-plone-relations-sprint"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "\"Not-an-Alpine-City-Sprint\" Sprint 2021",
+     "organisations": [],
+     "sources": [
+      "https://plone.org/news-and-events/news/2021/report-not-an-alpine-city-sprint-sprint"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Relations Sprint: The Sequel",
+     "organisations": [],
+     "sources": [
+      "https://plone.org/news-and-events/events/sprints/plone-relations-sprint-the-sequel"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone 6 Micro-Sprint (March 24)",
      "organisations": [
-      "kitconcept GmbH",
-      "Klein & Partner KG"
+      "kitconcept GmbH"
      ],
      "sources": [
-      "https://plone.org/foundation/meetings/minutes/2021/plone-foundation-board-minutes-sept-16-2021"
+      "https://plone.org/news-and-events/events/sprints/plone-6-micro-sprint; organisation from the organisation mapping: https://github.com/tisto"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone 6 Micro-Sprint (April 22)",
+     "organisations": [],
+     "sources": [
+      "https://community.plone.org/t/plone-6-micro-sprint-april-22nd-edition/13755"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Zope April Sprint 2021",
+     "organisations": [
+      "gocept"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/sprints/zope-april-sprint-2021; organisation from the organisation mapping: https://github.com/plone/plone.testing/commit/15e865d2e1dfd28a772bd84d42bab5cea48fd28d"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone 6 Micro-Sprint (May 13)",
+     "organisations": [
+      "kitconcept GmbH"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/sprints/plone-6-micro-sprint-may; organisation from the organisation mapping: https://github.com/tisto"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Zope July Sprint 2021",
+     "organisations": [
+      "gocept"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/sprints/zope-july-sprint-2021; organisation from the organisation mapping: https://github.com/plone/plone.testing/commit/15e865d2e1dfd28a772bd84d42bab5cea48fd28d"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone 6 Classic UI: ES6 Sprint",
+     "organisations": [
+      "Derico"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/sprints/plone-6-classic-es6-sprint; organisation from the organisation mapping: https://github.com/MrTango"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Plone Conference Fanzone Sorrento 2021 (Sorrento Fan Zone)",
+     "organisations": [
+      "CCC"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2021/the-plone-newsroom-podcast-episode-03; organisation from the organisation mapping: https://plone.org/foundation/meetings/membership/2023-membership-meeting/nominations/paul-roeland; Board: https://plone.org/foundation/meetings/minutes/2021/plone-foundation-board-minutes-sept-16-2021"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Conference 2021 sprint (online)",
+     "organisations": [],
+     "sources": [
+      "https://plone.org/news-and-events/news/2021/plone-conference-2021-recap"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone.org renewal sprint, December 2021",
+     "organisations": [
+      "University of Jyväskylä"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/sprints/plone-org-renewal-to-plone-6-dec22; organisation from the organisation mapping: https://github.com/rioksane"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone 6 Classic UI weekly sprints 2021",
+     "organisations": [
+      "Derico"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/sprints/classicui-weekly-sprint; organisation from the organisation mapping: https://github.com/MrTango"
      ]
     },
     {
      "kind": "world-plone-day-event",
+     "level": "",
      "name": "World Plone Day 2021",
      "organisations": [
       "RedTurtle",
@@ -2240,7 +4566,7 @@
      ]
     }
    ],
-   "people_active": 160,
+   "people_active": 164,
    "pull_requests": 1630,
    "team_leads": [
     {
@@ -2484,6 +4810,7 @@
    "events": [
     {
      "kind": "plone-conference",
+     "level": "",
      "name": "Plone Conference 2022",
      "organisations": [
       "iMio",
@@ -2492,27 +4819,149 @@
      "sources": []
     },
     {
-     "kind": "strategic-sprints",
-     "name": "Beethoven Sprint",
+     "kind": "sprints",
+     "level": "",
+     "name": "Mosaic upgrade to Plone 6 mini sprint",
+     "organisations": [],
+     "sources": [
+      "https://plone.org/news-and-events/events/sprints/plone-6-mosaic-upgrade-sprint"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone.org renewal and documentation sprint, January 15, 2022",
+     "organisations": [
+      "University of Jyväskylä"
+     ],
+     "sources": [
+      "https://community.plone.org/t/report-out-for-plone-org-renewal-to-plone-6-sprint-january-15-2022/14805; organisation from the organisation mapping: https://github.com/rioksane"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone.org renewal sprint, February 18-19, 2022",
+     "organisations": [
+      "University of Jyväskylä"
+     ],
+     "sources": [
+      "https://community.plone.org/t/plone-org-to-plone-6-sprint-report-feb-18-19-2022/14855; organisation from the organisation mapping: https://github.com/rioksane"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone.org renewal sprint, March 25-26, 2022",
+     "organisations": [
+      "University of Jyväskylä"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/sprints/plone-org-renewal-to-plone-6-mar22; organisation from the organisation mapping: https://github.com/rioksane"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Zope April Sprint 2022",
+     "organisations": [
+      "gocept"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/sprints/zope-april-sprint-2022; organisation from the organisation mapping: https://github.com/plone/plone.testing/commit/15e865d2e1dfd28a772bd84d42bab5cea48fd28d"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Beethoven Sprint 2022",
      "organisations": [
       "kitconcept GmbH"
      ],
      "sources": [
-      "https://plone.org/foundation/meetings/minutes/2022/plone-foundation-board-minutes-april-14-2022"
+      "https://plone.org/news-and-events/news/2022/beethoven-sprint-recap-progress-towards-plone-6; Board: https://plone.org/foundation/meetings/minutes/2022/plone-foundation-board-minutes-april-14-2022"
      ]
     },
     {
-     "kind": "strategic-sprints",
-     "name": "Buschenschanksprint",
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Buschenschanksprint 2022",
      "organisations": [
       "Syslab"
      ],
      "sources": [
-      "https://plone.org/foundation/meetings/minutes/2022/plone-foundation-board-minutes-march-31-2022"
+      "https://plone.org/news-and-events/news/2022/buschenschanksprint-2022-report; organisation from the organisation mapping: https://github.com/plone/plone-contributor-statistics/commit/207840e7209f4ee2d5f2d75cbf262a41a19ced0b; Board: https://plone.org/foundation/meetings/minutes/2022/plone-foundation-board-minutes-march-31-2022"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone.org renewal sprint, May 20-21, 2022",
+     "organisations": [
+      "University of Jyväskylä"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/sprints/plone-org-renewal-to-plone-6-may20-2022; organisation from the organisation mapping: https://github.com/rioksane"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Cerrado Sprint 2022",
+     "organisations": [
+      "PloneGov-BR"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/sprints/cerrado-sprint-2022"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone.org renewal sprint, June 17, 2022",
+     "organisations": [
+      "University of Jyväskylä"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/sprints/plone-org-renewal-to-plone-6-june17-2022; organisation from the organisation mapping: https://github.com/rioksane"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Mini sprint: review issues and PRs",
+     "organisations": [
+      "Zest Software"
+     ],
+     "sources": [
+      "https://community.plone.org/t/mini-sprint-wed-aug-24-review-issues-and-prs/15551; organisation from the organisation mapping: https://py76.be/en"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Conference 2022 sprint",
+     "organisations": [
+      "iMio"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2022/plone-conference-2022-sprint-recap"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone.org renewal sprint, November 2022",
+     "organisations": [
+      "University of Jyväskylä"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/sprints/plone-org-renewal-to-plone-6-november-2022; organisation from the organisation mapping: https://github.com/rioksane"
      ]
     },
     {
      "kind": "world-plone-day-event",
+     "level": "",
      "name": "World Plone Day 2022",
      "organisations": [
       "RedTurtle",
@@ -2526,7 +4975,7 @@
      ]
     }
    ],
-   "people_active": 159,
+   "people_active": 163,
    "pull_requests": 2227,
    "team_leads": [
     {
@@ -2662,6 +5111,7 @@
    "events": [
     {
      "kind": "plone-conference",
+     "level": "",
      "name": "Plone Conference 2023",
      "organisations": [
       "Codesyntax"
@@ -2669,47 +5119,104 @@
      "sources": []
     },
     {
-     "kind": "strategic-sprints",
-     "name": "Alpine City Sprint",
-     "organisations": [
-      "Klein & Partner KG"
-     ],
+     "kind": "sprints",
+     "level": "community",
+     "name": "Plone.org Sprint, January 13, 2023",
+     "organisations": [],
      "sources": [
-      "https://plone.org/foundation/meetings/minutes/2023/plone-foundation-board-minutes-february-2-2023"
+      "https://plone.org/news-and-events/events/sprints/plone-org-sprint-january-2023; Board: https://plone.org/foundation/meetings/minutes/2023/annual-business-meeting-minutes-october-6-2023"
      ]
     },
     {
-     "kind": "strategic-sprints",
-     "name": "Beethoven Sprint",
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Alpine City Strategic Sprint 2023: Plone in the Sky with Diamonds",
+     "organisations": [
+      "Klein & Partner KG",
+      "r2 Solutions GmbH"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2023/alpine-city-strategic-sprint-2023-news; Board: https://plone.org/foundation/meetings/minutes/2023/plone-foundation-board-minutes-february-2-2023"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "community",
+     "name": "Plone.org Sprint, March 17, 2023",
+     "organisations": [],
+     "sources": [
+      "https://plone.org/news-and-events/events/sprints/plone-org-sprint-march-2023; Board: https://plone.org/foundation/meetings/minutes/2023/annual-business-meeting-minutes-october-6-2023"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Beethoven Sprint 2023",
      "organisations": [
       "kitconcept GmbH"
      ],
      "sources": [
-      "https://plone.org/foundation/meetings/minutes/2023/plone-foundation-board-minutes-march-30-2023"
+      "https://plone.org/news-and-events/news/2023/fifth-beethoven-sprint-progress-plone-6-1-foundations-plone-7; Board: https://plone.org/foundation/meetings/minutes/2023/plone-foundation-board-minutes-march-30-2023"
      ]
     },
     {
-     "kind": "strategic-sprints",
-     "name": "Art Sprint",
-     "organisations": [
-      "Academy of FA Vienna"
-     ],
-     "sources": [
-      "https://plone.org/foundation/meetings/minutes/2023/plone-foundation-board-minutes-june-22-2023"
-     ]
-    },
-    {
-     "kind": "strategic-sprints",
-     "name": "Cerrado Sprint",
+     "kind": "sprints",
+     "level": "community",
+     "name": "Cerrado Sprint 2023",
      "organisations": [
       "PloneGov-BR"
      ],
      "sources": [
-      "https://plone.org/foundation/meetings/minutes/2023/plone-foundation-board-minutes-june-22-2023"
+      "https://plone.org/news-and-events/news/2023/cerrado-sprint-2023-builds-plone-distributions-for-brazil; Board: https://plone.org/foundation/meetings/minutes/2023/annual-business-meeting-minutes-october-6-2023"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "community",
+     "name": "Plone Midsummer Sprint 2023",
+     "organisations": [
+      "University of Jyväskylä"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2023/plone-midsummer-sprint-2023-recap-1; Board: https://plone.org/foundation/meetings/minutes/2023/annual-business-meeting-minutes-october-6-2023"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "community",
+     "name": "aRtsPRiNt 2023",
+     "organisations": [
+      "Academy of FA Vienna"
+     ],
+     "sources": [
+      "https://plone.org/foundation/meetings/minutes/2023/annual-business-meeting-minutes-october-6-2023"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Zope Sprint 2023 (Ready, set, sprint: Earl Zope invites again)",
+     "organisations": [
+      "gocept"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/sprints/zope-2023-sprint"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Conference 2023 sprint",
+     "organisations": [
+      "Codesyntax"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2023/plone-conference-2023-sprint-report"
      ]
     },
     {
      "kind": "world-plone-day-event",
+     "level": "",
      "name": "World Plone Day 2023",
      "organisations": [
       "RedTurtle",
@@ -2720,7 +5227,7 @@
      ]
     }
    ],
-   "people_active": 174,
+   "people_active": 179,
    "pull_requests": 2205,
    "team_leads": [
     {
@@ -2844,6 +5351,7 @@
    "events": [
     {
      "kind": "plone-conference",
+     "level": "",
      "name": "Plone Conference 2024",
      "organisations": [
       "PloneGov-BR",
@@ -2857,37 +5365,83 @@
      "sources": []
     },
     {
-     "kind": "strategic-sprints",
-     "name": "Beethoven Sprint",
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Tagung 2024 sprint",
+     "organisations": [
+      "Derico"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/community/plone-tagung-2024; organisation from the organisation mapping: https://github.com/MrTango"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Tiny Shiny Alpine City Sprint 2024",
+     "organisations": [
+      "Klein & Partner KG"
+     ],
+     "sources": [
+      "https://docs.google.com/document/d/1_-PzoEsmYqPbRq3yI1l38L19pQgIzF3SoYSgKc4n6Uk"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "community",
+     "name": "Axolote Sprint 2024",
+     "organisations": [
+      "UNAM"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/2024/first-axolote-sprint-a-success; Board: https://plone.org/foundation/meetings/minutes/2024/plone-foundation-board-minutes-april-18-2024"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Beethoven Sprint 2024",
      "organisations": [
       "kitconcept GmbH"
      ],
      "sources": [
-      "https://plone.org/foundation/meetings/minutes/2024/plone-foundation-board-minutes-march-31-2024"
+      "https://plone.org/news-and-events/news/2024/beethoven-sprint-report-2024; Board: https://plone.org/foundation/meetings/minutes/2024/plone-foundation-board-minutes-march-31-2024"
      ]
     },
     {
-     "kind": "strategic-sprints",
-     "name": "Buschenschanksprint",
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Buschenschanksprint 2024",
      "organisations": [
       "Syslab"
      ],
      "sources": [
-      "https://plone.org/foundation/meetings/minutes/2024/plone-foundation-board-minutes-march-31-2024"
+      "https://plone.org/news-and-events/news/2024/the-buschenschanksprint-2024-report; Board: https://plone.org/foundation/meetings/minutes/2024/plone-foundation-board-minutes-march-31-2024"
      ]
     },
     {
-     "kind": "strategic-sprints",
-     "name": "Salamina Sprint",
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Salamina Sprint 2024",
      "organisations": [
       "RedTurtle"
      ],
      "sources": [
-      "https://plone.org/foundation/meetings/minutes/2024/plone-foundation-board-minutes-march-31-2024"
+      "https://plone.org/news-and-events/news/2024/salamina-sprint-a-made-in-italy-experience; Board: https://plone.org/foundation/meetings/minutes/2024/plone-foundation-board-minutes-february-22-2022"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Plone Conference 2024 sprint",
+     "organisations": [],
+     "sources": [
+      "https://plone.org/news-and-events/news/2024/plone-conference-2024-recap"
      ]
     },
     {
      "kind": "world-plone-day-event",
+     "level": "",
      "name": "World Plone Day 2024",
      "organisations": [
       "Eau de Web",
@@ -2909,7 +5463,7 @@
      ]
     }
    ],
-   "people_active": 138,
+   "people_active": 144,
    "pull_requests": 1748,
    "team_leads": [
     {
@@ -3026,6 +5580,7 @@
    "events": [
     {
      "kind": "plone-conference",
+     "level": "",
      "name": "Plone Conference 2025",
      "organisations": [
       "University of Jyväskylä"
@@ -3033,47 +5588,84 @@
      "sources": []
     },
     {
-     "kind": "strategic-sprints",
-     "name": "Alpine City Sprint",
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Alpine City Sprint 2025",
      "organisations": [
       "Klein & Partner KG"
      ],
-     "sources": []
+     "sources": [
+      "https://plone.org/news-and-events/news/news-for-2025/alpine-city-sprint-2025-report; Board: https://plone.org/foundation/meetings/minutes/2025/plone-foundation-board-minutes-january-23-2025"
+     ]
     },
     {
-     "kind": "strategic-sprints",
-     "name": "Bucharest Sprint",
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Bucharest Plone Sprint 2025",
      "organisations": [
       "Eau de Web"
      ],
-     "sources": []
+     "sources": [
+      "https://plone.org/news-and-events/news/news-for-2025/bucharest-sprint-2025-report; Board: https://plone.org/foundation/meetings/minutes/2025/plone-foundation-board-minutes-april-17-2025"
+     ]
     },
     {
-     "kind": "strategic-sprints",
-     "name": "Beethoven Sprint",
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Beethoven Sprint 2025",
      "organisations": [
       "kitconcept GmbH"
      ],
-     "sources": []
+     "sources": [
+      "https://plone.org/news-and-events/news/news-for-2025/beethoven-sprint-2025-report; Board: https://plone.org/foundation/meetings/minutes/2025/plone-foundation-board-minutes-may-1-2025"
+     ]
     },
     {
-     "kind": "strategic-sprints",
-     "name": "Axolote Sprint",
+     "kind": "sprints",
+     "level": "community",
+     "name": "Plone Tagung 2025 sprint",
+     "organisations": [],
+     "sources": [
+      "https://community.plone.org/t/plone-tagung-is-next-week-june-10-14-2025-in-koblenz-germany/22158; Board: https://plone.org/foundation/meetings/minutes/2025/plone-foundation-board-minutes-june-12-2025"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Axolote Sprint 2025",
      "organisations": [
       "UNAM"
      ],
-     "sources": []
+     "sources": [
+      "https://plone.org/news-and-events/news/news-for-2025/axolote-sprint-2025-report; Board: https://plone.org/foundation/meetings/minutes/2025/plone-foundation-board-minutes-april-17-2025"
+     ]
     },
     {
-     "kind": "strategic-sprints",
-     "name": "Salamina Sprint",
+     "kind": "sprints",
+     "level": "strategic",
+     "name": "Salamina Sprint 2025",
      "organisations": [
       "RedTurtle"
      ],
-     "sources": []
+     "sources": [
+      "https://plone.org/news-and-events/news/news-for-2025/salamina-sprint-2025-report; Board: https://plone.org/foundation/meetings/minutes/2025/plone-foundation-board-minutes-november-27-2025"
+     ]
+    },
+    {
+     "kind": "sprints",
+     "level": "",
+     "name": "Post Plone Conference 2025 sprint",
+     "organisations": [
+      "kitconcept GmbH",
+      "University of Jyväskylä"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/news/news-for-2025/post-plone-conference-2025-sprint-report; organisation from the organisation mapping: https://github.com/fredvd; organisation from the organisation mapping: https://github.com/datakurre; organisation from the organisation mapping: https://github.com/rioksane"
+     ]
     },
     {
      "kind": "world-plone-day-event",
+     "level": "",
      "name": "World Plone Day 2025",
      "organisations": [
       "RedTurtle",
@@ -3085,7 +5677,7 @@
      ]
     }
    ],
-   "people_active": 145,
+   "people_active": 151,
    "pull_requests": 2107,
    "team_leads": [
     {
@@ -3436,9 +6028,9 @@
     },
     "2013": {
      "commits": 7,
-     "events": 0,
+     "events": 1,
      "pull_requests": 1,
-     "roles": 0
+     "roles": 1
     },
     "2014": {
      "commits": 8,
@@ -3478,9 +6070,9 @@
     },
     "2020": {
      "commits": 93,
-     "events": 1,
+     "events": 2,
      "pull_requests": 11,
-     "roles": 1
+     "roles": 4
     },
     "2021": {
      "commits": 234,
@@ -3937,9 +6529,9 @@
     },
     "2016": {
      "commits": 64,
-     "events": 0,
+     "events": 1,
      "pull_requests": 16,
-     "roles": 1
+     "roles": 4
     },
     "2017": {
      "commits": 46,
@@ -3955,9 +6547,9 @@
     },
     "2019": {
      "commits": 50,
-     "events": 0,
+     "events": 1,
      "pull_requests": 5,
-     "roles": 1
+     "roles": 6
     },
     "2020": {
      "commits": 5,
@@ -3967,9 +6559,9 @@
     },
     "2021": {
      "commits": 3,
-     "events": 0,
+     "events": 1,
      "pull_requests": 2,
-     "roles": 3
+     "roles": 5
     },
     "2022": {
      "commits": 18,
@@ -4110,9 +6702,9 @@
     },
     "2018": {
      "commits": 3,
-     "events": 1,
+     "events": 2,
      "pull_requests": 4,
-     "roles": 4
+     "roles": 8
     },
     "2019": {
      "commits": 12,
@@ -4344,9 +6936,9 @@
     },
     "2023": {
      "commits": 191,
-     "events": 1,
+     "events": 2,
      "pull_requests": 52,
-     "roles": 1
+     "roles": 2
     },
     "2024": {
      "commits": 98,
@@ -4779,9 +7371,9 @@
     },
     "2009": {
      "commits": 0,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
-     "roles": 0
+     "roles": 1
     },
     "2010": {
      "commits": 0,
@@ -4821,9 +7413,9 @@
     },
     "2016": {
      "commits": 27,
-     "events": 0,
+     "events": 1,
      "pull_requests": 3,
-     "roles": 0
+     "roles": 1
     },
     "2017": {
      "commits": 182,
@@ -4833,9 +7425,9 @@
     },
     "2018": {
      "commits": 267,
-     "events": 0,
+     "events": 1,
      "pull_requests": 17,
-     "roles": 0
+     "roles": 1
     },
     "2019": {
      "commits": 239,
@@ -4845,15 +7437,15 @@
     },
     "2020": {
      "commits": 157,
-     "events": 1,
+     "events": 2,
      "pull_requests": 16,
-     "roles": 1
+     "roles": 4
     },
     "2021": {
      "commits": 216,
-     "events": 0,
+     "events": 2,
      "pull_requests": 24,
-     "roles": 2
+     "roles": 4
     },
     "2022": {
      "commits": 396,
@@ -4869,9 +7461,9 @@
     },
     "2024": {
      "commits": 89,
-     "events": 0,
+     "events": 1,
      "pull_requests": 9,
-     "roles": 0
+     "roles": 1
     },
     "2025": {
      "commits": 222,
@@ -4915,11 +7507,11 @@
     "Strategic Sprint": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-strategic-sprints.csv",
+       "file": "curated/community-contributions/2025-sprints.csv",
        "line": 3,
        "points": 12.0,
-       "source": null,
-       "text": "Bucharest Sprint"
+       "source": "https://plone.org/news-and-events/news/news-for-2025/bucharest-sprint-2025-report; Board: https://plone.org/foundation/meetings/minutes/2025/plone-foundation-board-minutes-april-17-2025",
+       "text": "Bucharest Plone Sprint 2025"
       }
      ],
      "points": 12.0
@@ -5026,9 +7618,9 @@
     },
     "2015": {
      "commits": 45,
-     "events": 1,
+     "events": 2,
      "pull_requests": 10,
-     "roles": 1
+     "roles": 2
     },
     "2016": {
      "commits": 45,
@@ -5712,9 +8304,9 @@
     },
     "2022": {
      "commits": 16,
-     "events": 1,
+     "events": 2,
      "pull_requests": 6,
-     "roles": 0
+     "roles": 1
     },
     "2023": {
      "commits": 5,
@@ -6198,9 +8790,9 @@
     },
     "2013": {
      "commits": 364,
-     "events": 0,
+     "events": 1,
      "pull_requests": 4,
-     "roles": 1
+     "roles": 2
     },
     "2014": {
      "commits": 294,
@@ -6216,21 +8808,21 @@
     },
     "2016": {
      "commits": 588,
-     "events": 0,
+     "events": 1,
      "pull_requests": 9,
-     "roles": 0
+     "roles": 1
     },
     "2017": {
      "commits": 226,
-     "events": 1,
+     "events": 2,
      "pull_requests": 19,
-     "roles": 2
+     "roles": 4
     },
     "2018": {
      "commits": 2,
-     "events": 0,
+     "events": 2,
      "pull_requests": 3,
-     "roles": 0
+     "roles": 2
     },
     "2019": {
      "commits": 1,
@@ -6542,11 +9134,11 @@
     "Strategic Sprint": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-strategic-sprints.csv",
+       "file": "curated/community-contributions/2025-sprints.csv",
        "line": 4,
        "points": 12.0,
-       "source": null,
-       "text": "Beethoven Sprint"
+       "source": "https://plone.org/news-and-events/news/news-for-2025/beethoven-sprint-2025-report; Board: https://plone.org/foundation/meetings/minutes/2025/plone-foundation-board-minutes-may-1-2025",
+       "text": "Beethoven Sprint 2025"
       }
      ],
      "points": 12.0
@@ -6711,37 +9303,37 @@
     },
     "2016": {
      "commits": 243,
-     "events": 0,
+     "events": 1,
      "pull_requests": 22,
-     "roles": 0
+     "roles": 1
     },
     "2017": {
      "commits": 585,
-     "events": 0,
+     "events": 2,
      "pull_requests": 78,
-     "roles": 1
+     "roles": 3
     },
     "2018": {
      "commits": 1081,
-     "events": 0,
+     "events": 4,
      "pull_requests": 95,
-     "roles": 3
+     "roles": 7
     },
     "2019": {
      "commits": 1894,
-     "events": 0,
+     "events": 3,
      "pull_requests": 248,
-     "roles": 2
+     "roles": 9
     },
     "2020": {
      "commits": 2099,
-     "events": 2,
+     "events": 1,
      "pull_requests": 346,
-     "roles": 7
+     "roles": 6
     },
     "2021": {
      "commits": 2381,
-     "events": 1,
+     "events": 2,
      "pull_requests": 378,
      "roles": 21
     },
@@ -6765,9 +9357,9 @@
     },
     "2025": {
      "commits": 1799,
-     "events": 1,
+     "events": 2,
      "pull_requests": 572,
-     "roles": 16
+     "roles": 19
     }
    },
    "level": "Platinum Contributor",
@@ -6805,11 +9397,11 @@
     "Strategic Sprint": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-strategic-sprints.csv",
+       "file": "curated/community-contributions/2025-sprints.csv",
        "line": 2,
        "points": 12.0,
-       "source": null,
-       "text": "Alpine City Sprint"
+       "source": "https://plone.org/news-and-events/news/news-for-2025/alpine-city-sprint-2025-report; Board: https://plone.org/foundation/meetings/minutes/2025/plone-foundation-board-minutes-january-23-2025",
+       "text": "Alpine City Sprint 2025"
       }
      ],
      "points": 12.0
@@ -6902,15 +9494,15 @@
     },
     "2015": {
      "commits": 307,
-     "events": 0,
+     "events": 1,
      "pull_requests": 47,
-     "roles": 0
+     "roles": 2
     },
     "2016": {
      "commits": 651,
-     "events": 0,
+     "events": 1,
      "pull_requests": 167,
-     "roles": 0
+     "roles": 2
     },
     "2017": {
      "commits": 334,
@@ -6920,27 +9512,27 @@
     },
     "2018": {
      "commits": 445,
-     "events": 0,
+     "events": 1,
      "pull_requests": 94,
-     "roles": 0
+     "roles": 1
     },
     "2019": {
      "commits": 284,
-     "events": 0,
+     "events": 1,
      "pull_requests": 62,
-     "roles": 0
+     "roles": 2
     },
     "2020": {
      "commits": 214,
-     "events": 2,
+     "events": 1,
      "pull_requests": 48,
      "roles": 3
     },
     "2021": {
      "commits": 363,
-     "events": 1,
+     "events": 0,
      "pull_requests": 60,
-     "roles": 7
+     "roles": 6
     },
     "2022": {
      "commits": 434,
@@ -6952,19 +9544,19 @@
      "commits": 171,
      "events": 1,
      "pull_requests": 65,
-     "roles": 2
+     "roles": 4
     },
     "2024": {
      "commits": 141,
-     "events": 0,
+     "events": 1,
      "pull_requests": 38,
-     "roles": 0
+     "roles": 2
     },
     "2025": {
      "commits": 88,
      "events": 1,
      "pull_requests": 5,
-     "roles": 3
+     "roles": 4
     }
    },
    "level": "Silver Contributor",
@@ -7434,9 +10026,9 @@
     },
     "2016": {
      "commits": 34,
-     "events": 0,
+     "events": 1,
      "pull_requests": 6,
-     "roles": 1
+     "roles": 4
     },
     "2017": {
      "commits": 305,
@@ -7458,9 +10050,9 @@
     },
     "2020": {
      "commits": 0,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
-     "roles": 1
+     "roles": 2
     },
     "2021": {
      "commits": 12,
@@ -7959,9 +10551,9 @@
     },
     "2019": {
      "commits": 738,
-     "events": 0,
+     "events": 1,
      "pull_requests": 253,
-     "roles": 0
+     "roles": 1
     },
     "2020": {
      "commits": 5,
@@ -8427,15 +11019,15 @@
     },
     "2013": {
      "commits": 0,
-     "events": 1,
+     "events": 2,
      "pull_requests": 0,
-     "roles": 1
+     "roles": 2
     },
     "2014": {
      "commits": 0,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
-     "roles": 0
+     "roles": 1
     },
     "2015": {
      "commits": 0,
@@ -8481,9 +11073,9 @@
     },
     "2022": {
      "commits": 0,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
-     "roles": 1
+     "roles": 2
     },
     "2023": {
      "commits": 0,
@@ -8588,15 +11180,15 @@
     },
     "2013": {
      "commits": 19,
-     "events": 0,
+     "events": 1,
      "pull_requests": 1,
-     "roles": 0
+     "roles": 1
     },
     "2014": {
      "commits": 17,
-     "events": 0,
+     "events": 1,
      "pull_requests": 6,
-     "roles": 1
+     "roles": 3
     },
     "2015": {
      "commits": 13,
@@ -8873,11 +11465,11 @@
     "Strategic Sprint": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-strategic-sprints.csv",
-       "line": 6,
+       "file": "curated/community-contributions/2025-sprints.csv",
+       "line": 7,
        "points": 12.0,
-       "source": null,
-       "text": "Salamina Sprint"
+       "source": "https://plone.org/news-and-events/news/news-for-2025/salamina-sprint-2025-report; Board: https://plone.org/foundation/meetings/minutes/2025/plone-foundation-board-minutes-november-27-2025",
+       "text": "Salamina Sprint 2025"
       }
      ],
      "points": 12.0
@@ -8989,9 +11581,9 @@
     },
     "2011": {
      "commits": 0,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
-     "roles": 0
+     "roles": 1
     },
     "2012": {
      "commits": 5,
@@ -9037,9 +11629,9 @@
     },
     "2019": {
      "commits": 116,
-     "events": 1,
+     "events": 2,
      "pull_requests": 44,
-     "roles": 1
+     "roles": 2
     },
     "2020": {
      "commits": 171,
@@ -9987,15 +12579,15 @@
     },
     "2012": {
      "commits": 55,
-     "events": 0,
+     "events": 1,
      "pull_requests": 3,
-     "roles": 1
+     "roles": 3
     },
     "2013": {
      "commits": 54,
-     "events": 0,
+     "events": 1,
      "pull_requests": 5,
-     "roles": 1
+     "roles": 2
     },
     "2014": {
      "commits": 10,
@@ -10154,9 +12746,9 @@
     },
     "2013": {
      "commits": 96,
-     "events": 0,
+     "events": 1,
      "pull_requests": 1,
-     "roles": 1
+     "roles": 2
     },
     "2014": {
      "commits": 10,
@@ -10190,9 +12782,9 @@
     },
     "2019": {
      "commits": 125,
-     "events": 0,
+     "events": 1,
      "pull_requests": 27,
-     "roles": 4
+     "roles": 5
     },
     "2020": {
      "commits": 70,
@@ -10339,9 +12931,9 @@
     },
     "2011": {
      "commits": 22,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
-     "roles": 0
+     "roles": 1
     },
     "2012": {
      "commits": 30,
@@ -10375,9 +12967,9 @@
     },
     "2017": {
      "commits": 328,
-     "events": 0,
+     "events": 1,
      "pull_requests": 73,
-     "roles": 1
+     "roles": 2
     },
     "2018": {
      "commits": 858,
@@ -10387,9 +12979,9 @@
     },
     "2019": {
      "commits": 222,
-     "events": 0,
+     "events": 1,
      "pull_requests": 85,
-     "roles": 0
+     "roles": 1
     },
     "2020": {
      "commits": 159,
@@ -10590,9 +13182,9 @@
     },
     "2020": {
      "commits": 22,
-     "events": 0,
+     "events": 1,
      "pull_requests": 4,
-     "roles": 1
+     "roles": 2
     },
     "2021": {
      "commits": 134,
@@ -10721,27 +13313,27 @@
     },
     "2011": {
      "commits": 586,
-     "events": 0,
+     "events": 1,
      "pull_requests": 5,
-     "roles": 0
+     "roles": 1
     },
     "2012": {
      "commits": 550,
-     "events": 0,
+     "events": 1,
      "pull_requests": 4,
-     "roles": 0
+     "roles": 1
     },
     "2013": {
      "commits": 913,
-     "events": 0,
+     "events": 2,
      "pull_requests": 34,
-     "roles": 0
+     "roles": 2
     },
     "2014": {
      "commits": 738,
-     "events": 0,
+     "events": 1,
      "pull_requests": 48,
-     "roles": 0
+     "roles": 1
     },
     "2015": {
      "commits": 503,
@@ -10763,15 +13355,15 @@
     },
     "2018": {
      "commits": 379,
-     "events": 0,
+     "events": 1,
      "pull_requests": 163,
-     "roles": 0
+     "roles": 1
     },
     "2019": {
      "commits": 191,
-     "events": 0,
+     "events": 1,
      "pull_requests": 83,
-     "roles": 0
+     "roles": 1
     },
     "2020": {
      "commits": 230,
@@ -10821,11 +13413,11 @@
     "Strategic Sprint": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-strategic-sprints.csv",
-       "line": 5,
+       "file": "curated/community-contributions/2025-sprints.csv",
+       "line": 6,
        "points": 12.0,
-       "source": null,
-       "text": "Axolote Sprint"
+       "source": "https://plone.org/news-and-events/news/news-for-2025/axolote-sprint-2025-report; Board: https://plone.org/foundation/meetings/minutes/2025/plone-foundation-board-minutes-april-17-2025",
+       "text": "Axolote Sprint 2025"
       }
      ],
      "points": 12.0
@@ -10960,15 +13552,15 @@
     },
     "2024": {
      "commits": 0,
-     "events": 1,
+     "events": 2,
      "pull_requests": 0,
-     "roles": 1
+     "roles": 4
     },
     "2025": {
      "commits": 3,
      "events": 1,
      "pull_requests": 3,
-     "roles": 1
+     "roles": 3
     }
    },
    "level": "Silver Contributor",
@@ -11451,9 +14043,9 @@
     },
     "2017": {
      "commits": 238,
-     "events": 0,
+     "events": 1,
      "pull_requests": 54,
-     "roles": 0
+     "roles": 1
     },
     "2018": {
      "commits": 51,
@@ -11475,21 +14067,21 @@
     },
     "2021": {
      "commits": 9,
-     "events": 0,
+     "events": 1,
      "pull_requests": 2,
-     "roles": 5
+     "roles": 6
     },
     "2022": {
      "commits": 12,
-     "events": 0,
+     "events": 6,
      "pull_requests": 5,
-     "roles": 9
+     "roles": 15
     },
     "2023": {
      "commits": 10,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
-     "roles": 1
+     "roles": 2
     },
     "2024": {
      "commits": 0,
@@ -11499,9 +14091,9 @@
     },
     "2025": {
      "commits": 24,
-     "events": 1,
+     "events": 2,
      "pull_requests": 17,
-     "roles": 4
+     "roles": 7
     }
    },
    "level": "Gold Contributor",
@@ -11654,9 +14246,9 @@
     },
     "2022": {
      "commits": 2137,
-     "events": 1,
+     "events": 2,
      "pull_requests": 238,
-     "roles": 5
+     "roles": 6
     },
     "2023": {
      "commits": 1717,
@@ -11835,6 +14427,46 @@
     ]
    },
    {
+    "commits": 0,
+    "id": "name:alexander limi (sprint lead)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:andy mckay (announced it)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:bernhard buehlmann",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:francesco ciriaci",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:jim roepcke (contact)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
     "commits": 3,
     "id": "name:maisa fonseca",
     "pull_requests": 0,
@@ -11845,6 +14477,14 @@
     "id": "name:michael zeltner",
     "pull_requests": 0,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "name:robert boulanger",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 2,
@@ -12119,6 +14759,22 @@
    },
    {
     "commits": 0,
+    "id": "name:bernhard buehlmann",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:christian scholz (contact)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:geoff davis",
     "pull_requests": 0,
     "roles": [
@@ -12144,6 +14800,7 @@
     "id": "name:jodok batlogg",
     "pull_requests": 0,
     "roles": [
+     "Sprint organiser",
      "Team lead"
     ]
    },
@@ -12201,7 +14858,8 @@
     "pull_requests": 0,
     "roles": [
      "Board",
-     "Conference organiser"
+     "Conference organiser",
+     "Sprint organiser"
     ]
    },
    {
@@ -12335,6 +14993,7 @@
     "id": "andymckay",
     "pull_requests": 0,
     "roles": [
+     "Sprint organiser",
      "Team lead"
     ]
    },
@@ -12512,6 +15171,7 @@
     "pull_requests": 0,
     "roles": [
      "Board",
+     "Sprint organiser",
      "Team lead"
     ]
    },
@@ -12552,10 +15212,34 @@
    },
    {
     "commits": 0,
+    "id": "name:andrew burkhalter",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:bernhard buehlmann",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:christian heimes",
     "pull_requests": 0,
     "roles": [
      "Board"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:danny",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -12590,10 +15274,19 @@
    },
    {
     "commits": 0,
+    "id": "name:jens klein",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:jodok batlogg",
     "pull_requests": 0,
     "roles": [
      "Board",
+     "Sprint organiser",
      "Team lead"
     ]
    },
@@ -12603,6 +15296,7 @@
     "pull_requests": 0,
     "roles": [
      "Board",
+     "Sprint organiser",
      "Team lead"
     ]
    },
@@ -12625,6 +15319,14 @@
    },
    {
     "commits": 0,
+    "id": "name:nate aune",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:norm patriquin",
     "pull_requests": 0,
     "roles": [
@@ -12636,7 +15338,8 @@
     "id": "name:phil auersperg",
     "pull_requests": 0,
     "roles": [
-     "Conference organiser"
+     "Conference organiser",
+     "Sprint organiser"
     ]
    },
    {
@@ -12646,6 +15349,14 @@
     "roles": [
      "Board",
      "Conference organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:tom 'spanky' kapanka",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -12998,10 +15709,34 @@
    },
    {
     "commits": 0,
+    "id": "name:andrew burkhalter (contact)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:ben saller",
     "pull_requests": 0,
     "roles": [
      "Board"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:francesco ciriaci (contacts)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:geir baekholt",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -13036,10 +15771,27 @@
    },
    {
     "commits": 0,
+    "id": "name:jens klein (contact)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:jens w. klein",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:jodok batlogg",
     "pull_requests": 0,
     "roles": [
      "Board",
+     "Sprint organiser",
      "Team lead"
     ]
    },
@@ -13049,6 +15801,7 @@
     "pull_requests": 0,
     "roles": [
      "Board",
+     "Sprint organiser",
      "Team lead"
     ]
    },
@@ -13058,6 +15811,14 @@
     "pull_requests": 0,
     "roles": [
      "Conference organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:jonah bossewitch (page)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -13074,6 +15835,14 @@
     "pull_requests": 0,
     "roles": [
      "Board"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:vincenzo di somma",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -13267,7 +16036,9 @@
     "commits": 32,
     "id": "aclark4life",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 246,
@@ -13415,6 +16186,7 @@
     "id": "hannosch",
     "pull_requests": 0,
     "roles": [
+     "Sprint organiser",
      "Team lead"
     ]
    },
@@ -13468,6 +16240,7 @@
     "pull_requests": 0,
     "roles": [
      "Board",
+     "Sprint organiser",
      "Team lead"
     ]
    },
@@ -13533,10 +16306,42 @@
    },
    {
     "commits": 0,
+    "id": "name:alec mitchell (helping with organisation)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:alec mitchell (page)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:alexander limi (contact)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:darci hanning",
     "pull_requests": 0,
     "roles": [
      "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:donna snow",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -13549,10 +16354,42 @@
    },
    {
     "commits": 0,
+    "id": "name:geir baekholt",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:geir bækholt",
     "pull_requests": 0,
     "roles": [
      "Board"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:jan ulrich hasecke (contact)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:jeff elkner",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:joanna springsteen",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -13573,11 +16410,36 @@
    },
    {
     "commits": 0,
+    "id": "name:malthe borch",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:maria-anna lang (contact)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:nate aune",
     "pull_requests": 0,
     "roles": [
      "Board",
+     "Sprint organiser",
      "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:rocky burt (sprint leaders)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -13585,7 +16447,16 @@
     "id": "name:sasha vincic",
     "pull_requests": 0,
     "roles": [
-     "Board"
+     "Board",
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:thierry benita",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -13594,6 +16465,14 @@
     "pull_requests": 0,
     "roles": [
      "Board"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:tom 'spanky' kapanka",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -13751,7 +16630,9 @@
     "commits": 36,
     "id": "whitmo",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 708,
@@ -14057,11 +16938,51 @@
    },
    {
     "commits": 0,
+    "id": "name:ajung (page editor)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:alec mitchell (announced it)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:andreas schmid (contact)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:chris calloway (sprint director)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:darci hanning",
     "pull_requests": 0,
     "roles": [
      "Board",
      "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:donna snow",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -14078,6 +16999,14 @@
     "pull_requests": 0,
     "roles": [
      "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:jodok batlogg",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -14099,6 +17028,30 @@
    },
    {
     "commits": 0,
+    "id": "name:kamon ayeva (contact)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:maikroeder (page editor)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:matt hamilton (page)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:nate aune",
     "pull_requests": 0,
     "roles": [
@@ -14107,10 +17060,50 @@
    },
    {
     "commits": 0,
+    "id": "name:nate aune (contact)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:souheil chelfouh (contact)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:tarek ziade (contact)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:toby roberts",
     "pull_requests": 0,
     "roles": [
      "Board"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:vincenzo barone",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:vincenzo barone (contact)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -14219,6 +17212,7 @@
     "pull_requests": 0,
     "roles": [
      "Board",
+     "Sprint organiser",
      "Team lead"
     ]
    },
@@ -14234,7 +17228,9 @@
     "commits": 25,
     "id": "tarekziade",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 23,
@@ -14664,6 +17660,22 @@
    },
    {
     "commits": 0,
+    "id": "mrtango",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:andreas zeidler (contact)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:darci hanning",
     "pull_requests": 0,
     "roles": [
@@ -14707,6 +17719,14 @@
    },
    {
     "commits": 0,
+    "id": "name:matthew wilkes (contact)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:nate aune",
     "pull_requests": 0,
     "roles": [
@@ -14715,10 +17735,26 @@
    },
    {
     "commits": 0,
+    "id": "name:roel bruggink (contact)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:toby roberts",
     "pull_requests": 0,
     "roles": [
      "Board"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:vincent fretin (announced it)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -15339,6 +18375,38 @@
    },
    {
     "commits": 0,
+    "id": "name:david brenneman",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:duane raymond (contact)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:eric steele (contact)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:florian friesdorf",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:geir bækholt",
     "pull_requests": 0,
     "roles": [
@@ -15347,10 +18415,34 @@
    },
    {
     "commits": 0,
+    "id": "name:heather wozniak (page)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:jan ulrich hasecke",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:jon stahl",
     "pull_requests": 0,
     "roles": [
      "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:joni orponen",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -15373,6 +18465,22 @@
    },
    {
     "commits": 0,
+    "id": "name:maurizio delmonte (page)",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:nejc zupan",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:roberto allende",
     "pull_requests": 0,
     "roles": [
@@ -15385,6 +18493,14 @@
     "pull_requests": 0,
     "roles": [
      "Board"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:vilmos somogyi",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -16182,18 +19298,18 @@
    },
    {
     "commits": 0,
-    "id": "name:calvin hendryx-parker",
+    "id": "name:andrew mleczko",
     "pull_requests": 0,
     "roles": [
-     "Board"
+     "Sprint organiser"
     ]
    },
    {
     "commits": 0,
-    "id": "name:elizabeth leddy",
+    "id": "name:calvin hendryx-parker",
     "pull_requests": 0,
     "roles": [
-     "Conference organiser"
+     "Board"
     ]
    },
    {
@@ -16206,11 +19322,27 @@
    },
    {
     "commits": 0,
+    "id": "name:georg bernhard",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:jon stahl",
     "pull_requests": 0,
     "roles": [
      "Board",
      "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:jure cerjak",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -16227,7 +19359,8 @@
     "id": "name:matt hamilton",
     "pull_requests": 0,
     "roles": [
-     "Board"
+     "Board",
+     "Sprint organiser"
     ]
    },
    {
@@ -16236,6 +19369,14 @@
     "pull_requests": 0,
     "roles": [
      "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:nejc zupan",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -16262,13 +19403,17 @@
     "commits": 343,
     "id": "optilude",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 22,
     "id": "pbauer",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 1,
@@ -16365,7 +19510,9 @@
     "id": "smcmahon",
     "pull_requests": 1,
     "roles": [
-     "Board"
+     "Board",
+     "Conference organiser",
+     "Sprint organiser"
     ]
    },
    {
@@ -16422,7 +19569,9 @@
     "commits": 586,
     "id": "thet",
     "pull_requests": 5,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 272,
@@ -16748,9 +19897,7 @@
     "commits": 55,
     "id": "ericof",
     "pull_requests": 3,
-    "roles": [
-     "Board"
-    ]
+    "roles": []
    },
    {
     "commits": 35,
@@ -17248,6 +20395,14 @@
    },
    {
     "commits": 0,
+    "id": "name:andre nogueira",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:carol ganz",
     "pull_requests": 0,
     "roles": [
@@ -17256,10 +20411,34 @@
    },
    {
     "commits": 0,
-    "id": "name:elizabeth leddy",
+    "id": "name:chris calloway",
     "pull_requests": 0,
     "roles": [
-     "Team lead"
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:craig haynal",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:erico andrei",
+    "pull_requests": 0,
+    "roles": [
+     "Board"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:florian friesdorf",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -17268,6 +20447,22 @@
     "pull_requests": 0,
     "roles": [
      "Board"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:georg bernhard",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:hector velarde",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -17302,6 +20497,38 @@
     "roles": [
      "Board",
      "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:michael halm",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:nejc zupan",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:paul roeland",
+    "pull_requests": 0,
+    "roles": [
+     "Board"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:rosario savarese",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -17352,7 +20579,9 @@
     "commits": 30,
     "id": "pbauer",
     "pull_requests": 3,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 1,
@@ -17376,7 +20605,9 @@
     "commits": 1,
     "id": "pigeonflight",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 0,
@@ -17394,9 +20625,7 @@
     "commits": 13,
     "id": "polyester",
     "pull_requests": 0,
-    "roles": [
-     "Board"
-    ]
+    "roles": []
    },
    {
     "commits": 4,
@@ -17534,7 +20763,10 @@
     "commits": 77,
     "id": "smcmahon",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Sprint organiser",
+     "Team lead"
+    ]
    },
    {
     "commits": 51,
@@ -17606,7 +20838,9 @@
     "commits": 532,
     "id": "thet",
     "pull_requests": 1,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 0,
@@ -17897,6 +21131,7 @@
     "id": "bloodbare",
     "pull_requests": 4,
     "roles": [
+     "Sprint organiser",
      "Team lead"
     ]
    },
@@ -18144,9 +21379,7 @@
     "commits": 54,
     "id": "ericof",
     "pull_requests": 5,
-    "roles": [
-     "Board"
-    ]
+    "roles": []
    },
    {
     "commits": 51,
@@ -18472,7 +21705,9 @@
     "commits": 3,
     "id": "jpgimenez",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 0,
@@ -18719,16 +21954,8 @@
     "id": "name:carol ganz",
     "pull_requests": 0,
     "roles": [
-     "Board"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:elizabeth leddy",
-    "pull_requests": 0,
-    "roles": [
      "Board",
-     "Team lead"
+     "Sprint organiser"
     ]
    },
    {
@@ -18737,6 +21964,46 @@
     "pull_requests": 0,
     "roles": [
      "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:erico andrei",
+    "pull_requests": 0,
+    "roles": [
+     "Board"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:fulvio casali",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:georg bernhard",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:hector velarde",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:jc brand",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -18762,6 +22029,7 @@
     "pull_requests": 0,
     "roles": [
      "Board",
+     "Sprint organiser",
      "Team lead"
     ]
    },
@@ -18771,6 +22039,31 @@
     "pull_requests": 0,
     "roles": [
      "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:paul roeland",
+    "pull_requests": 0,
+    "roles": [
+     "Board",
+     "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:peter holzer",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:rosario savarese",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -18835,7 +22128,9 @@
     "commits": 162,
     "id": "pbauer",
     "pull_requests": 9,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 1,
@@ -18889,10 +22184,7 @@
     "commits": 9,
     "id": "polyester",
     "pull_requests": 0,
-    "roles": [
-     "Board",
-     "Team lead"
-    ]
+    "roles": []
    },
    {
     "commits": 1,
@@ -19155,7 +22447,9 @@
     "commits": 815,
     "id": "thet",
     "pull_requests": 7,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 3,
@@ -19691,9 +22985,7 @@
     "commits": 10,
     "id": "ericof",
     "pull_requests": 3,
-    "roles": [
-     "Board"
-    ]
+    "roles": []
    },
    {
     "commits": 13,
@@ -19863,7 +23155,9 @@
     "commits": 5,
     "id": "gyst",
     "pull_requests": 1,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 14,
@@ -20211,6 +23505,14 @@
    },
    {
     "commits": 0,
+    "id": "name:astra baker",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:cris ewing",
     "pull_requests": 0,
     "roles": [
@@ -20222,7 +23524,32 @@
     "id": "name:dylan jay",
     "pull_requests": 0,
     "roles": [
+     "Sprint organiser",
      "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:erico andrei",
+    "pull_requests": 0,
+    "roles": [
+     "Board"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:gabrijel persin",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:gil forcada",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -20231,6 +23558,14 @@
     "pull_requests": 0,
     "roles": [
      "Board"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:jure cerjak",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -20247,6 +23582,62 @@
     "pull_requests": 0,
     "roles": [
      "Conference organiser",
+     "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:max jakob",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:paul roeland",
+    "pull_requests": 0,
+    "roles": [
+     "Board"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:ramon navarro",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:rosario savarese",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:stefania trabucchi",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:sven strack",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:t. kim nguyen",
+    "pull_requests": 0,
+    "roles": [
      "Team lead"
     ]
    },
@@ -20360,15 +23751,15 @@
     "commits": 1,
     "id": "pilz",
     "pull_requests": 1,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 159,
     "id": "polyester",
     "pull_requests": 14,
-    "roles": [
-     "Board"
-    ]
+    "roles": []
    },
    {
     "commits": 0,
@@ -20514,7 +23905,9 @@
     "commits": 176,
     "id": "sneridagh",
     "pull_requests": 5,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 0,
@@ -20613,6 +24006,7 @@
     "id": "tisto",
     "pull_requests": 23,
     "roles": [
+     "Sprint organiser",
      "Team lead"
     ]
    },
@@ -20620,9 +24014,7 @@
     "commits": 28,
     "id": "tkimnguyen",
     "pull_requests": 3,
-    "roles": [
-     "Team lead"
-    ]
+    "roles": []
    },
    {
     "commits": 0,
@@ -21500,6 +24892,14 @@
    },
    {
     "commits": 0,
+    "id": "name:christine baumgartner",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:cris ewing",
     "pull_requests": 0,
     "roles": [
@@ -21512,6 +24912,14 @@
     "pull_requests": 0,
     "roles": [
      "Board"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:jens klein",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -21532,9 +24940,51 @@
    },
    {
     "commits": 0,
+    "id": "name:maurizio delmonte",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:max jakob",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:paul roeland",
+    "pull_requests": 0,
+    "roles": [
+     "Board",
+     "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:rosario savarese",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:sven strack",
     "pull_requests": 0,
     "roles": [
+     "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:t. kim nguyen",
+    "pull_requests": 0,
+    "roles": [
+     "Board",
      "Team lead"
     ]
    },
@@ -21580,7 +25030,9 @@
     "commits": 521,
     "id": "pbauer",
     "pull_requests": 84,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 1,
@@ -21616,10 +25068,7 @@
     "commits": 173,
     "id": "polyester",
     "pull_requests": 57,
-    "roles": [
-     "Board",
-     "Team lead"
-    ]
+    "roles": []
    },
    {
     "commits": 0,
@@ -21810,7 +25259,9 @@
     "commits": 9,
     "id": "terapyon",
     "pull_requests": 6,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 463,
@@ -21842,10 +25293,7 @@
     "commits": 48,
     "id": "tkimnguyen",
     "pull_requests": 21,
-    "roles": [
-     "Board",
-     "Team lead"
-    ]
+    "roles": []
    },
    {
     "commits": 1,
@@ -22029,7 +25477,9 @@
     "commits": 581,
     "id": "bloodbare",
     "pull_requests": 9,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 1,
@@ -22502,7 +25952,8 @@
     "id": "loechel",
     "pull_requests": 6,
     "roles": [
-     "Board"
+     "Board",
+     "Sprint organiser"
     ]
    },
    {
@@ -22581,7 +26032,9 @@
     "commits": 27,
     "id": "mrtango",
     "pull_requests": 3,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 0,
@@ -22614,6 +26067,14 @@
     ]
    },
    {
+    "commits": 0,
+    "id": "name:christine baumgartner",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
     "commits": 15,
     "id": "name:diederik veeze",
     "pull_requests": 0,
@@ -22621,10 +26082,85 @@
    },
    {
     "commits": 0,
+    "id": "name:georg bernhard",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:gil forcada",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:jennifer myers",
     "pull_requests": 0,
     "roles": [
      "Board"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:jens klein",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:maurizio delmonte",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:nejc zupan",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:paul roeland",
+    "pull_requests": 0,
+    "roles": [
+     "Board",
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:rosario savarese",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:sven strack",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:t. kim nguyen",
+    "pull_requests": 0,
+    "roles": [
+     "Board",
+     "Sprint organiser",
+     "Team lead"
     ]
    },
    {
@@ -22676,15 +26212,15 @@
     "commits": 40,
     "id": "pigeonflight",
     "pull_requests": 1,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 64,
     "id": "polyester",
     "pull_requests": 16,
-    "roles": [
-     "Board"
-    ]
+    "roles": []
    },
    {
     "commits": 1,
@@ -22811,7 +26347,8 @@
     "id": "sneridagh",
     "pull_requests": 8,
     "roles": [
-     "Board"
+     "Board",
+     "Sprint organiser"
     ]
    },
    {
@@ -22878,10 +26415,7 @@
     "commits": 124,
     "id": "tkimnguyen",
     "pull_requests": 17,
-    "roles": [
-     "Board",
-     "Team lead"
-    ]
+    "roles": []
    },
    {
     "commits": 1,
@@ -23028,7 +26562,8 @@
     "id": "bloodbare",
     "pull_requests": 17,
     "roles": [
-     "Conference organiser"
+     "Conference organiser",
+     "Sprint organiser"
     ]
    },
    {
@@ -23115,7 +26650,9 @@
     "commits": 237,
     "id": "datakurre",
     "pull_requests": 53,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 2,
@@ -23182,14 +26719,6 @@
     "id": "enkidulan",
     "pull_requests": 2,
     "roles": []
-   },
-   {
-    "commits": 0,
-    "id": "ericof",
-    "pull_requests": 0,
-    "roles": [
-     "Team lead"
-    ]
    },
    {
     "commits": 30,
@@ -23553,6 +27082,22 @@
     ]
    },
    {
+    "commits": 0,
+    "id": "name:christian kreutzer",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:christine baumgartner",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
     "commits": 10,
     "id": "name:diederik veeze",
     "pull_requests": 0,
@@ -23560,10 +27105,51 @@
    },
    {
     "commits": 0,
+    "id": "name:eric brehault",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:erico andrei",
+    "pull_requests": 0,
+    "roles": [
+     "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:jennifer myers",
     "pull_requests": 0,
     "roles": [
      "Board"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:jens klein",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:paul roeland",
+    "pull_requests": 0,
+    "roles": [
+     "Board"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:t. kim nguyen",
+    "pull_requests": 0,
+    "roles": [
+     "Board",
+     "Team lead"
     ]
    },
    {
@@ -23607,7 +27193,8 @@
     "id": "pbauer",
     "pull_requests": 67,
     "roles": [
-     "Board"
+     "Board",
+     "Sprint organiser"
     ]
    },
    {
@@ -23632,9 +27219,7 @@
     "commits": 46,
     "id": "polyester",
     "pull_requests": 9,
-    "roles": [
-     "Board"
-    ]
+    "roles": []
    },
    {
     "commits": 3,
@@ -23757,6 +27342,7 @@
     "roles": [
      "Board",
      "Conference organiser",
+     "Sprint organiser",
      "Team lead"
     ]
    },
@@ -23836,16 +27422,15 @@
     "commits": 433,
     "id": "tisto",
     "pull_requests": 48,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 117,
     "id": "tkimnguyen",
     "pull_requests": 19,
-    "roles": [
-     "Board",
-     "Team lead"
-    ]
+    "roles": []
    },
    {
     "commits": 0,
@@ -24149,9 +27734,7 @@
     "commits": 3,
     "id": "ericof",
     "pull_requests": 2,
-    "roles": [
-     "Team lead"
-    ]
+    "roles": []
    },
    {
     "commits": 77,
@@ -24279,7 +27862,9 @@
     "commits": 91,
     "id": "icemac",
     "pull_requests": 21,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 0,
@@ -24492,7 +28077,9 @@
     "commits": 267,
     "id": "mrtango",
     "pull_requests": 17,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 0,
@@ -24500,6 +28087,22 @@
     "pull_requests": 0,
     "roles": [
      "Board"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:christian kreutzer",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:erico andrei",
+    "pull_requests": 0,
+    "roles": [
+     "Team lead"
     ]
    },
    {
@@ -24512,10 +28115,27 @@
    },
    {
     "commits": 0,
-    "id": "name:manabu terada",
+    "id": "name:jens klein",
     "pull_requests": 0,
     "roles": [
-     "Conference organiser"
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:paul roeland",
+    "pull_requests": 0,
+    "roles": [
+     "Board",
+     "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:ramon navarro",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -24528,18 +28148,11 @@
    },
    {
     "commits": 0,
-    "id": "name:takanori suzuki",
+    "id": "name:t. kim nguyen",
     "pull_requests": 0,
     "roles": [
-     "Conference organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:takeshi yamamoto",
-    "pull_requests": 0,
-    "roles": [
-     "Conference organiser"
+     "Board",
+     "Team lead"
     ]
    },
    {
@@ -24548,14 +28161,6 @@
     "pull_requests": 0,
     "roles": [
      "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:zenichiro yasuda",
-    "pull_requests": 0,
-    "roles": [
-     "Conference organiser"
     ]
    },
    {
@@ -24624,6 +28229,7 @@
     "pull_requests": 172,
     "roles": [
      "Board",
+     "Sprint organiser",
      "Team lead"
     ]
    },
@@ -24655,10 +28261,7 @@
     "commits": 14,
     "id": "polyester",
     "pull_requests": 1,
-    "roles": [
-     "Board",
-     "Team lead"
-    ]
+    "roles": []
    },
    {
     "commits": 3,
@@ -24813,13 +28416,18 @@
     "commits": 3,
     "id": "terapyon",
     "pull_requests": 4,
-    "roles": []
+    "roles": [
+     "Conference organiser",
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 144,
     "id": "thet",
     "pull_requests": 60,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 19,
@@ -24838,6 +28446,7 @@
     "id": "tisto",
     "pull_requests": 47,
     "roles": [
+     "Sprint organiser",
      "Team lead"
     ]
    },
@@ -24845,10 +28454,7 @@
     "commits": 100,
     "id": "tkimnguyen",
     "pull_requests": 25,
-    "roles": [
-     "Board",
-     "Team lead"
-    ]
+    "roles": []
    },
    {
     "commits": 21,
@@ -25164,10 +28770,7 @@
     "commits": 96,
     "id": "ericof",
     "pull_requests": 22,
-    "roles": [
-     "Board",
-     "Team lead"
-    ]
+    "roles": []
    },
    {
     "commits": 52,
@@ -25271,7 +28874,9 @@
     "commits": 15,
     "id": "icemac",
     "pull_requests": 6,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 3,
@@ -25484,10 +29089,87 @@
    },
    {
     "commits": 0,
+    "id": "name:christine baumgartner",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:eric brehault",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:erico andrei",
+    "pull_requests": 0,
+    "roles": [
+     "Board",
+     "Sprint organiser",
+     "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:fulvio casali",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:jennifer myers",
     "pull_requests": 0,
     "roles": [
      "Board"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:jens klein",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:paul roeland",
+    "pull_requests": 0,
+    "roles": [
+     "Board",
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:sally kleinfeldt",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:sven strack",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:t. kim nguyen",
+    "pull_requests": 0,
+    "roles": [
+     "Board",
+     "Sprint organiser",
+     "Team lead"
     ]
    },
    {
@@ -25560,7 +29242,9 @@
     "commits": 216,
     "id": "pbauer",
     "pull_requests": 83,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 151,
@@ -25596,9 +29280,7 @@
     "commits": 50,
     "id": "polyester",
     "pull_requests": 5,
-    "roles": [
-     "Board"
-    ]
+    "roles": []
    },
    {
     "commits": 1,
@@ -25708,6 +29390,7 @@
     "pull_requests": 162,
     "roles": [
      "Board",
+     "Sprint organiser",
      "Team lead"
     ]
    },
@@ -25775,7 +29458,9 @@
     "commits": 85,
     "id": "thet",
     "pull_requests": 26,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 3,
@@ -25793,16 +29478,15 @@
     "commits": 492,
     "id": "tisto",
     "pull_requests": 72,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 116,
     "id": "tkimnguyen",
     "pull_requests": 24,
-    "roles": [
-     "Board",
-     "Team lead"
-    ]
+    "roles": []
    },
    {
     "commits": 63,
@@ -25896,9 +29580,7 @@
     "commits": 93,
     "id": "agitator",
     "pull_requests": 11,
-    "roles": [
-     "Sprint organiser"
-    ]
+    "roles": []
    },
    {
     "commits": 50,
@@ -26088,11 +29770,7 @@
     "commits": 49,
     "id": "ericof",
     "pull_requests": 4,
-    "roles": [
-     "Board",
-     "Sprint organiser",
-     "Team lead"
-    ]
+    "roles": []
    },
    {
     "commits": 35,
@@ -26202,7 +29880,9 @@
     "commits": 84,
     "id": "icemac",
     "pull_requests": 1,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 17,
@@ -26290,10 +29970,7 @@
     "commits": 214,
     "id": "jensens",
     "pull_requests": 48,
-    "roles": [
-     "Board",
-     "Sprint organiser"
-    ]
+    "roles": []
    },
    {
     "commits": 12,
@@ -26433,6 +30110,31 @@
    },
    {
     "commits": 0,
+    "id": "name:christian kreutzer",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:christine baumgartner",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:erico andrei",
+    "pull_requests": 0,
+    "roles": [
+     "Board",
+     "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:fulvio casali",
     "pull_requests": 0,
     "roles": [
@@ -26449,15 +30151,48 @@
    },
    {
     "commits": 0,
-    "id": "name:kim nguyen",
+    "id": "name:jens klein",
     "pull_requests": 0,
     "roles": [
-     "Podcast"
+     "Board",
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:paul roeland",
+    "pull_requests": 0,
+    "roles": [
+     "Board"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:peter holzer",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:plone-team tud",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
     "commits": 0,
     "id": "name:rob porter",
+    "pull_requests": 0,
+    "roles": [
+     "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:t. kim nguyen",
     "pull_requests": 0,
     "roles": [
      "Team lead"
@@ -26543,9 +30278,7 @@
     "commits": 5,
     "id": "polyester",
     "pull_requests": 1,
-    "roles": [
-     "Board"
-    ]
+    "roles": []
    },
    {
     "commits": 1,
@@ -26651,6 +30384,7 @@
     "pull_requests": 163,
     "roles": [
      "Board",
+     "Podcast",
      "Team lead",
      "Trainer"
     ]
@@ -26678,6 +30412,7 @@
     "id": "stevepiercy",
     "pull_requests": 4,
     "roles": [
+     "Sprint organiser",
      "Trainer"
     ]
    },
@@ -26743,9 +30478,7 @@
     "commits": 64,
     "id": "tkimnguyen",
     "pull_requests": 19,
-    "roles": [
-     "Team lead"
-    ]
+    "roles": []
    },
    {
     "commits": 6,
@@ -26840,7 +30573,6 @@
     "id": "agitator",
     "pull_requests": 70,
     "roles": [
-     "Team lead",
      "Trainer"
     ]
    },
@@ -27051,10 +30783,6 @@
     "id": "ericof",
     "pull_requests": 63,
     "roles": [
-     "Board",
-     "Sprint organiser",
-     "Talk",
-     "Team lead",
      "Trainer"
     ]
    },
@@ -27167,6 +30895,7 @@
     "id": "icemac",
     "pull_requests": 2,
     "roles": [
+     "Sprint organiser",
      "Team lead"
     ]
    },
@@ -27227,12 +30956,7 @@
     "commits": 363,
     "id": "jensens",
     "pull_requests": 60,
-    "roles": [
-     "Board",
-     "Sprint organiser",
-     "Talk",
-     "Team lead"
-    ]
+    "roles": []
    },
    {
     "commits": 1,
@@ -27416,6 +31140,7 @@
     "id": "mrtango",
     "pull_requests": 24,
     "roles": [
+     "Sprint organiser",
      "Team lead",
      "Trainer"
     ]
@@ -27436,6 +31161,16 @@
    },
    {
     "commits": 0,
+    "id": "name:erico andrei",
+    "pull_requests": 0,
+    "roles": [
+     "Board",
+     "Talk",
+     "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:jennifer myers",
     "pull_requests": 0,
     "roles": [
@@ -27444,18 +31179,21 @@
    },
    {
     "commits": 0,
-    "id": "name:kathy sparkes",
+    "id": "name:jens klein",
     "pull_requests": 0,
     "roles": [
-     "Talk"
+     "Board",
+     "Sprint organiser",
+     "Talk",
+     "Team lead"
     ]
    },
    {
     "commits": 0,
-    "id": "name:kim nguyen",
+    "id": "name:kathy sparkes",
     "pull_requests": 0,
     "roles": [
-     "Podcast"
+     "Talk"
     ]
    },
    {
@@ -27476,9 +31214,29 @@
    },
    {
     "commits": 0,
+    "id": "name:paul roeland",
+    "pull_requests": 0,
+    "roles": [
+     "Board",
+     "Sprint organiser",
+     "Talk",
+     "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:peter holzer",
+    "pull_requests": 0,
+    "roles": [
+     "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:sally kleinfeldt",
     "pull_requests": 0,
     "roles": [
+     "Sprint organiser",
      "Talk",
      "Team lead"
     ]
@@ -27504,6 +31262,15 @@
     "id": "name:sven strack",
     "pull_requests": 0,
     "roles": [
+     "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:t. kim nguyen",
+    "pull_requests": 0,
+    "roles": [
+     "Talk",
      "Team lead"
     ]
    },
@@ -27599,11 +31366,7 @@
     "commits": 3,
     "id": "polyester",
     "pull_requests": 2,
-    "roles": [
-     "Board",
-     "Talk",
-     "Team lead"
-    ]
+    "roles": []
    },
    {
     "commits": 0,
@@ -27648,6 +31411,7 @@
     "id": "rioksane",
     "pull_requests": 0,
     "roles": [
+     "Sprint organiser",
      "Talk",
      "Team lead"
     ]
@@ -27720,7 +31484,7 @@
     "pull_requests": 218,
     "roles": [
      "Board",
-     "Sprint organiser",
+     "Podcast",
      "Talk",
      "Team lead",
      "Trainer"
@@ -27796,6 +31560,7 @@
     "id": "tisto",
     "pull_requests": 54,
     "roles": [
+     "Sprint organiser",
      "Talk",
      "Team lead"
     ]
@@ -27804,10 +31569,7 @@
     "commits": 19,
     "id": "tkimnguyen",
     "pull_requests": 7,
-    "roles": [
-     "Talk",
-     "Team lead"
-    ]
+    "roles": []
    },
    {
     "commits": 6,
@@ -28086,8 +31848,6 @@
     "id": "ericof",
     "pull_requests": 43,
     "roles": [
-     "Board",
-     "Talk",
      "Trainer"
     ]
    },
@@ -28203,6 +31963,7 @@
     "id": "icemac",
     "pull_requests": 2,
     "roles": [
+     "Sprint organiser",
      "Team lead"
     ]
    },
@@ -28276,8 +32037,6 @@
     "id": "jensens",
     "pull_requests": 79,
     "roles": [
-     "Board",
-     "Talk",
      "Trainer"
     ]
    },
@@ -28387,6 +32146,7 @@
     "pull_requests": 224,
     "roles": [
      "Release manager",
+     "Sprint organiser",
      "Talk",
      "Team lead"
     ]
@@ -28506,6 +32266,15 @@
    },
    {
     "commits": 0,
+    "id": "name:erico andrei",
+    "pull_requests": 0,
+    "roles": [
+     "Board",
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:ionut dobricean",
     "pull_requests": 0,
     "roles": [
@@ -28514,10 +32283,11 @@
    },
    {
     "commits": 0,
-    "id": "name:kim nguyen",
+    "id": "name:jens klein",
     "pull_requests": 0,
     "roles": [
-     "Podcast"
+     "Board",
+     "Talk"
     ]
    },
    {
@@ -28538,10 +32308,26 @@
    },
    {
     "commits": 0,
+    "id": "name:paul roeland",
+    "pull_requests": 0,
+    "roles": [
+     "Board"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:rafahela",
     "pull_requests": 0,
     "roles": [
      "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:rafahela bazzanela",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -28558,6 +32344,15 @@
     "pull_requests": 0,
     "roles": [
      "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:t. kim nguyen",
+    "pull_requests": 0,
+    "roles": [
+     "Talk",
+     "Team lead"
     ]
    },
    {
@@ -28637,9 +32432,7 @@
     "commits": 18,
     "id": "polyester",
     "pull_requests": 3,
-    "roles": [
-     "Board"
-    ]
+    "roles": []
    },
    {
     "commits": 1,
@@ -28676,6 +32469,7 @@
     "id": "rioksane",
     "pull_requests": 1,
     "roles": [
+     "Sprint organiser",
      "Talk",
      "Team lead"
     ]
@@ -28766,6 +32560,7 @@
     "pull_requests": 329,
     "roles": [
      "Board",
+     "Podcast",
      "Talk",
      "Team lead",
      "Trainer"
@@ -28881,8 +32676,6 @@
     "id": "tkimnguyen",
     "pull_requests": 4,
     "roles": [
-     "Talk",
-     "Team lead",
      "Trainer"
     ]
    },
@@ -29169,8 +32962,6 @@
     "id": "ericof",
     "pull_requests": 63,
     "roles": [
-     "Board",
-     "Talk",
      "Trainer"
     ]
    },
@@ -29282,7 +33073,9 @@
     "commits": 1,
     "id": "icemac",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 8,
@@ -29327,6 +33120,7 @@
     "id": "jackahl",
     "pull_requests": 3,
     "roles": [
+     "Sprint organiser",
      "Trainer"
     ]
    },
@@ -29352,10 +33146,7 @@
     "commits": 154,
     "id": "jensens",
     "pull_requests": 58,
-    "roles": [
-     "Board",
-     "Sprint organiser"
-    ]
+    "roles": []
    },
    {
     "commits": 2,
@@ -29580,10 +33371,10 @@
    },
    {
     "commits": 0,
-    "id": "name:david glick",
+    "id": "name:christine baumgartner",
     "pull_requests": 0,
     "roles": [
-     "Talk"
+     "Sprint organiser"
     ]
    },
    {
@@ -29596,7 +33387,16 @@
    },
    {
     "commits": 0,
-    "id": "name:georg bernhard",
+    "id": "name:erico andrei",
+    "pull_requests": 0,
+    "roles": [
+     "Board",
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:gogo",
     "pull_requests": 0,
     "roles": [
      "Sprint organiser"
@@ -29612,18 +33412,19 @@
    },
    {
     "commits": 0,
-    "id": "name:joao henrique gouveia",
+    "id": "name:jens klein",
     "pull_requests": 0,
     "roles": [
-     "Talk"
+     "Board",
+     "Sprint organiser"
     ]
    },
    {
     "commits": 0,
-    "id": "name:kim nguyen",
+    "id": "name:joao henrique gouveia",
     "pull_requests": 0,
     "roles": [
-     "Podcast"
+     "Talk"
     ]
    },
    {
@@ -29653,6 +33454,24 @@
    },
    {
     "commits": 0,
+    "id": "name:paul roeland",
+    "pull_requests": 0,
+    "roles": [
+     "Board",
+     "Talk",
+     "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:robert niederreiter",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:sally kleinfeldt",
     "pull_requests": 0,
     "roles": [
@@ -29665,6 +33484,16 @@
     "pull_requests": 0,
     "roles": [
      "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:t. kim nguyen",
+    "pull_requests": 0,
+    "roles": [
+     "Board",
+     "Talk",
+     "Team lead"
     ]
    },
    {
@@ -29773,9 +33602,6 @@
     "id": "polyester",
     "pull_requests": 3,
     "roles": [
-     "Board",
-     "Talk",
-     "Team lead",
      "Trainer"
     ]
    },
@@ -29832,6 +33658,7 @@
     "id": "rioksane",
     "pull_requests": 0,
     "roles": [
+     "Sprint organiser",
      "Team lead"
     ]
    },
@@ -29890,10 +33717,19 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "smcmahon",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
     "commits": 880,
     "id": "sneridagh",
     "pull_requests": 425,
     "roles": [
+     "Podcast",
      "Talk",
      "Team lead",
      "Trainer"
@@ -29976,7 +33812,6 @@
     "id": "tisto",
     "pull_requests": 20,
     "roles": [
-     "Sprint organiser",
      "Talk"
     ]
    },
@@ -29985,9 +33820,6 @@
     "id": "tkimnguyen",
     "pull_requests": 0,
     "roles": [
-     "Board",
-     "Talk",
-     "Team lead",
      "Trainer"
     ]
    },
@@ -30212,6 +34044,7 @@
     "id": "danalvrz",
     "pull_requests": 2,
     "roles": [
+     "Sprint organiser",
      "Talk",
      "Trainer"
     ]
@@ -30251,7 +34084,6 @@
     "id": "ericof",
     "pull_requests": 60,
     "roles": [
-     "Talk",
      "Trainer"
     ]
    },
@@ -30416,7 +34248,9 @@
     "commits": 19,
     "id": "jackahl",
     "pull_requests": 5,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 15,
@@ -30546,13 +34380,23 @@
     "commits": 89,
     "id": "mrtango",
     "pull_requests": 9,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 2,
     "id": "muditchoudhary",
     "pull_requests": 1,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "name:adriana ramirez",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 0,
@@ -30588,15 +34432,15 @@
    },
    {
     "commits": 0,
-    "id": "name:dana comiselu",
+    "id": "name:christine baumgartner",
     "pull_requests": 0,
     "roles": [
-     "Talk"
+     "Sprint organiser"
     ]
    },
    {
     "commits": 0,
-    "id": "name:david glick",
+    "id": "name:dana comiselu",
     "pull_requests": 0,
     "roles": [
      "Talk"
@@ -30621,6 +34465,22 @@
    },
    {
     "commits": 0,
+    "id": "name:erico andrei",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:gil bautista",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:gildardo bautista",
     "pull_requests": 0,
     "roles": [
@@ -30629,10 +34489,10 @@
    },
    {
     "commits": 0,
-    "id": "name:kim nguyen",
+    "id": "name:jens klein",
     "pull_requests": 0,
     "roles": [
-     "Talk"
+     "Sprint organiser"
     ]
    },
    {
@@ -30654,6 +34514,15 @@
    },
    {
     "commits": 0,
+    "id": "name:paul roeland",
+    "pull_requests": 0,
+    "roles": [
+     "Board",
+     "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:rafahela bazzanella",
     "pull_requests": 0,
     "roles": [
@@ -30666,6 +34535,14 @@
     "pull_requests": 0,
     "roles": [
      "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:t. kim nguyen",
+    "pull_requests": 0,
+    "roles": [
+     "Team lead"
     ]
    },
    {
@@ -30746,15 +34623,15 @@
     "commits": 36,
     "id": "pnicolli",
     "pull_requests": 19,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 6,
     "id": "polyester",
     "pull_requests": 0,
     "roles": [
-     "Board",
-     "Team lead",
      "Trainer"
     ]
    },
@@ -30870,6 +34747,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "smcmahon",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
     "commits": 1001,
     "id": "sneridagh",
     "pull_requests": 284,
@@ -30945,8 +34830,7 @@
     "id": "tisto",
     "pull_requests": 8,
     "roles": [
-     "Release manager",
-     "Sprint organiser"
+     "Release manager"
     ]
    },
    {
@@ -30954,7 +34838,6 @@
     "id": "tkimnguyen",
     "pull_requests": 6,
     "roles": [
-     "Team lead",
      "Trainer"
     ]
    },
@@ -31140,6 +35023,7 @@
     "id": "danalvrz",
     "pull_requests": 8,
     "roles": [
+     "Sprint organiser",
      "Trainer"
     ]
    },
@@ -31154,6 +35038,7 @@
     "id": "datakurre",
     "pull_requests": 17,
     "roles": [
+     "Sprint organiser",
      "Talk",
      "Trainer"
     ]
@@ -31193,7 +35078,6 @@
     "id": "ericof",
     "pull_requests": 70,
     "roles": [
-     "Talk",
      "Trainer"
     ]
    },
@@ -31242,6 +35126,7 @@
     "id": "fredvd",
     "pull_requests": 21,
     "roles": [
+     "Sprint organiser",
      "Team lead",
      "Trainer"
     ]
@@ -31349,9 +35234,7 @@
     "commits": 88,
     "id": "jensens",
     "pull_requests": 5,
-    "roles": [
-     "Talk"
-    ]
+    "roles": []
    },
    {
     "commits": 15,
@@ -31458,6 +35341,14 @@
    },
    {
     "commits": 0,
+    "id": "name:adriana ramirez vigueras",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:alec ghica",
     "pull_requests": 0,
     "roles": [
@@ -31490,14 +35381,6 @@
    },
    {
     "commits": 0,
-    "id": "name:bluedynamics alliance",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:brian davis",
     "pull_requests": 0,
     "roles": [
@@ -31507,10 +35390,10 @@
    },
    {
     "commits": 0,
-    "id": "name:david glick",
+    "id": "name:christine baumgartner",
     "pull_requests": 0,
     "roles": [
-     "Talk"
+     "Sprint organiser"
     ]
    },
    {
@@ -31548,10 +35431,26 @@
    },
    {
     "commits": 0,
+    "id": "name:erico andrei",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:erika cavallo",
     "pull_requests": 0,
     "roles": [
      "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:gil bautista",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -31564,11 +35463,28 @@
    },
    {
     "commits": 0,
+    "id": "name:jens klein",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser",
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:joao henrique gouveia",
     "pull_requests": 0,
     "roles": [
      "Board",
      "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:maik",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -31633,6 +35549,14 @@
     "pull_requests": 0,
     "roles": [
      "Board"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:robert niederreiter",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -31800,6 +35724,7 @@
     "id": "rioksane",
     "pull_requests": 0,
     "roles": [
+     "Sprint organiser",
      "Talk"
     ]
    },
@@ -31844,6 +35769,14 @@
     "id": "silviubogan",
     "pull_requests": 4,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "smcmahon",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 581,

@@ -133,9 +133,10 @@ def test_organisation_without_a_person_counts_as_active(repo):
 def test_organisations_in_person_columns_are_not_people(repo):
     write(paths.ORGANISATIONS, 'Organisation,Team\nJuizi,\nkitconcept GmbH,tisto\nPloneGov-BR,\nRedTurtle,mamico\n'
                                'UNAM,\n')
-    write(paths.COMMUNITY / '2025-strategic-sprints.csv',
-          'Sprint,Organiser/Host,Organisation,Source\nSprint A,PloneGov-BR,PloneGov-BR,https://a\n'
-          'Sprint B,Mathematics Institute at UNAM,UNAM,https://b\nSprint C,Alex (Juizi),Juizi,https://c\n')
+    write(paths.COMMUNITY / '2025-sprints.csv', 'Sprint,Start,End,Location,Organiser(s),Organisation,Level,Source,Notes\n'
+          'Sprint A,,,X,PloneGov-BR,PloneGov-BR,strategic,https://a,\n'
+          'Sprint B,,,X,Mathematics Institute at UNAM,UNAM,strategic,https://b,\n'
+          'Sprint C,,,X,Alex (Juizi),Juizi,community,https://c,\n')
     ids = [p['id'] for p in community_page.build_page_data(2025)['people']['2025']]
     assert ids == ['name:alex (juizi)']
 

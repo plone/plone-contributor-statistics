@@ -17,7 +17,7 @@ ROLE_KINDS = {
     'release-managers': ('Release manager', 'Name', 'Github', None),
     'plone-conference-trainings': ('Trainer', 'Trainer(s)', 'GitHub Handle(s)', 'Title'),
     'world-plone-day-talks': ('Talk', 'Speaker(s)', None, 'Video Title'),
-    'strategic-sprints': ('Sprint organiser', 'Organiser/Host', None, 'Sprint'),
+    'sprints': ('Sprint organiser', 'Organiser(s)', None, 'Sprint'),
     'podcasts': ('Podcast', 'Name', None, None),
     'plone-conference': ('Conference organiser', 'Organiser(s)', None, None),
 }
@@ -46,6 +46,7 @@ class Event:
     name: str
     organisations: tuple
     sources: tuple
+    level: str = ''
 
 
 def split(value):
@@ -108,14 +109,11 @@ def _conference(year, rows):
                   _unique(_source('plone-conference', row) for _, row in rows))]
 
 
-def _strategic_sprints(year, rows):
-    sprints = {}
-    for _, row in rows:
-        sprints.setdefault(row['Sprint'].strip(), []).append(row)
-    return [Event('strategic-sprints', year, name,
-                  _unique(o for row in group for o in split(row['Organisation'])),
-                  _unique(_source('strategic-sprints', row) for row in group))
-            for name, group in sprints.items()]
+def _sprints(year, rows):
+    # One row per sprint: strategic, community, or without a level (before 2011)
+    return [Event('sprints', year, row['Sprint'].strip(), _unique(split(row['Organisation'])),
+                  _unique([_source('sprints', row)]), (row.get('Level') or '').strip())
+            for _, row in rows]
 
 
 def _world_plone_day(year, rows):
@@ -129,7 +127,7 @@ def _world_plone_day(year, rows):
 # What counts as an event, per file kind. Add new kinds here, for example community sprints.
 EVENT_RULES = {
     'plone-conference': _conference,
-    'strategic-sprints': _strategic_sprints,
+    'sprints': _sprints,
     'world-plone-day-event': _world_plone_day,
 }
 EVENT_KINDS = tuple(EVENT_RULES)

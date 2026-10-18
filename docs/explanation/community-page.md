@@ -44,11 +44,11 @@ Unmapped contributors, self-employed people (`Name (independent)`) and `Plone Fo
 Events are the gatherings the curated data records:
 
 -   the Plone Conference, one per year;
--   strategic sprints, one per sprint name;
+-   sprints, one per recorded sprint, strategic or community, and before 2011 without a level;
 -   World Plone Day, one per year, with its organising organisations ([#118](https://github.com/plone/plone-contributor-statistics/issues/118)).
 
 Trainings are sessions at the conference, not events of their own.
-Community sprints and meetups join the count once they are recorded; the list of event kinds is `EVENT_RULES` in `scripts/lib/community.py`.
+Meetups join the count once they are recorded; the list of event kinds is `EVENT_RULES` in `scripts/lib/community.py`.
 
 ## Recognition levels
 

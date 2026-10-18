@@ -85,7 +85,7 @@ def organisations_of_year(year, records, events):
 
 
 def event_data(event):
-    return {'kind': event.kind, 'name': event.name,
+    return {'kind': event.kind, 'name': event.name, 'level': event.level,
             'organisations': [o for o in event.organisations if o != recognition.UNMAPPED],
             'sources': list(event.sources)}
 
