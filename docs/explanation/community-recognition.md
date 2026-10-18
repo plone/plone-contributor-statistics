@@ -22,6 +22,7 @@ The program's inputs are here:
 - The {doc}`organisation statistics <attribution>` and the PLIP files record the code contributions.
 
 `generate_community_recognition_report.py` turns these inputs into points and levels per organisation.
+It spells each organisation as in `organisations.csv`, so that different spellings in the inputs add up to one organisation.
 Unmapped contributors get no points and no level ([#53](https://github.com/plone/plone-contributor-statistics/issues/53)).
 
 ## The published levels can't be reproduced yet

@@ -10,6 +10,7 @@ import csv
 import os
 from collections import defaultdict
 from datetime import datetime
+from functools import lru_cache
 
 
 # Contributors not mapped to an organisation, see organisation_stats.UNMAPPED (#53)
@@ -43,8 +44,18 @@ def get_recognition_level(points, levels):
     return 'No Level'
 
 
-def normalize_organization_name(org_name):
-    """Normalize organization names to handle different naming conventions."""
+@lru_cache(maxsize=None)
+def load_organisation_names(path='organisations.csv'):
+    """The spelling of each organisation in organisations.csv, by lower-case name (#86)."""
+    try:
+        with open(path, newline='', encoding='utf-8') as f:
+            return {row['Organisation'].lower(): row['Organisation'] for row in csv.DictReader(f)}
+    except FileNotFoundError:
+        return {}
+
+
+def normalize_organization_name(org_name, organisations='organisations.csv'):
+    """Normalize organization names to the spelling in organisations.csv."""
     # Mapping of variations to canonical names
     org_mapping = {
         'kitconcept': 'kitconcept GmbH',
@@ -57,7 +68,7 @@ def normalize_organization_name(org_name):
         'starzel': 'Starzel',
         'codesyntax': 'CodeSyntax',
         'syslab': 'Syslab',
-        'freitag': 'Freitag',
+        'freitag': 'der Freitag',
         'kombinat': 'Kombinat',
         'agitator': 'Agitator',
         'derico': 'Derico',
@@ -65,7 +76,7 @@ def normalize_organization_name(org_name):
         'vangheem': 'Vangheem',
         'serpro': 'SERPRO',
         'iskra': 'Iskra',
-        'university-hospital-dresden': 'University Hospital Dresden',
+        'university-hospital-dresden': 'Uni. Hospital Dresden',
         'dbain': 'DBA Informatica Notariaal',
         'iham': 'IHAM',
         'pretaweb': 'Pretaweb',
@@ -81,7 +92,8 @@ def normalize_organization_name(org_name):
 
     # Try to find a mapping, otherwise return the original name
     normalized = org_mapping.get(org_name.lower(), org_name)
-    return normalized
+    # Spell it as in organisations.csv, so that one organisation gets one row
+    return load_organisation_names(organisations).get(normalized.lower(), normalized)
 
 
 def load_pr_data():
