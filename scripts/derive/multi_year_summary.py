@@ -24,7 +24,7 @@ def load_organisation_file(year):
     
     if not filepath.exists():
         print(f"❌ Missing file: {filename}")
-        print(f"   Run: make run-organisation-stats-{year}")
+        print(f"   Run: make run-organisation-stats-year YEAR={year}")
         return None
     
     try:

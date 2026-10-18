@@ -28,7 +28,7 @@ make test         # run the offline tests
 make docs-install # install the documentation dependencies
 make docs         # build the documentation to docs/_build/html
 make help         # list all targets
-make year YEAR=2026 # collect, derive and report a new year
+make year YEAR=2025 # collect, derive and report a completed year
 ```
 
 Collecting data from GitHub needs a token in `.env`.

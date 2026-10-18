@@ -161,10 +161,10 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python volto_stats.py                    # Current year (default)
-  python volto_stats.py --year 2024       # All of 2024
-  python volto_stats.py --start-date 2024-01-01 --end-date 2024-06-30  # First half of 2024
-  python volto_stats.py --start-date 2023-01-01 --end-date 2024-12-31  # Two year span
+  python -m scripts.collect.volto_stats                    # Current year (default)
+  python -m scripts.collect.volto_stats --year 2024       # All of 2024
+  python -m scripts.collect.volto_stats --start-date 2024-01-01 --end-date 2024-06-30  # First half of 2024
+  python -m scripts.collect.volto_stats --start-date 2023-01-01 --end-date 2024-12-31  # Two year span
         """
     )
 

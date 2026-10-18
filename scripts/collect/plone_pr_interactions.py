@@ -503,11 +503,11 @@ def main():
         description='Extract Plone PR interactions and engagement data',
         epilog="""
 Examples:
-  python plone_pr_interactions.py                    # All Plone repos, current year
-  python plone_pr_interactions.py --year 2024       # All Plone repos, all of 2024
-  python plone_pr_interactions.py --from-year 2010 --to-year 2025  # One file per year, in one run
-  python plone_pr_interactions.py --repos plone/volto --year 2025  # Only Volto, 2025
-  python plone_pr_interactions.py --repos plone/volto plone/plone.restapi --year 2024  # Specific repos
+  python -m scripts.collect.plone_pr_interactions                    # All Plone repos, current year
+  python -m scripts.collect.plone_pr_interactions --year 2024       # All Plone repos, all of 2024
+  python -m scripts.collect.plone_pr_interactions --from-year 2010 --to-year 2025  # One file per year, in one run
+  python -m scripts.collect.plone_pr_interactions --repos plone/volto --year 2025  # Only Volto, 2025
+  python -m scripts.collect.plone_pr_interactions --repos plone/volto plone/plone.restapi --year 2024  # Specific repos
         """,
         formatter_class=argparse.RawDescriptionHelpFormatter
     )

@@ -69,7 +69,7 @@ help:
 	@echo "  docs-clean        Remove the built documentation"
 	@echo ""
 	@echo "Examples:"
-	@echo "  make year YEAR=2026"
+	@echo "  make year YEAR=2025"
 	@echo "  make run-stats YEAR=2024"
 	@echo "  make five-year-summary SUMMARY_END=2025"
 

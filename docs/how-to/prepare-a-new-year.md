@@ -10,7 +10,7 @@ You need a GitHub personal access token, see {doc}`collect-data-again` for how t
 2.  Collect, derive and report the year in one run:
 
     ```shell
-    make year YEAR=2026
+    make year YEAR=2025
     ```
 
     Without `YEAR`, the target uses the last completed year.
@@ -21,10 +21,10 @@ You need a GitHub personal access token, see {doc}`collect-data-again` for how t
     -   write the three-, five- and ten-year summaries that end with the year, and the yearly totals and graphs;
     -   write the contributor report, the Volto report and the community recognition report of the year.
 
-    Each step stops with an error if a file it needs is missing.
+    Most steps stop with an error if a file they need is missing.
     To repeat a single step, run its target, listed in {doc}`/reference/make-targets`.
 
-3.  List the contributors of the year who aren't mapped to an organisation:
+3.  List the unmapped contributors worth researching, of all years:
 
     ```shell
     make analyze-independent

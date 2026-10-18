@@ -424,11 +424,11 @@ def parse_arguments():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python plone_contributors.py                    # Current year (default)
-  python plone_contributors.py --year 2024        # All of 2024
-  python plone_contributors.py --from-year 2003 --to-year 2025   # One file per year, in one run
-  python plone_contributors.py --start-date 2024-01-01 --end-date 2024-06-30  # First half of 2024
-  python plone_contributors.py --start-date 2023-01-01 --end-date 2024-12-31  # Two year span
+  python -m scripts.collect.plone_contributors                    # Current year (default)
+  python -m scripts.collect.plone_contributors --year 2024        # All of 2024
+  python -m scripts.collect.plone_contributors --from-year 2003 --to-year 2025   # One file per year, in one run
+  python -m scripts.collect.plone_contributors --start-date 2024-01-01 --end-date 2024-06-30  # First half of 2024
+  python -m scripts.collect.plone_contributors --start-date 2023-01-01 --end-date 2024-12-31  # Two year span
         """
     )
 

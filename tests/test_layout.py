@@ -65,3 +65,15 @@ def test_year_runs_the_pipeline_in_order():
     assert 'python -m scripts.collect.plone_contributors --year 2024' in result.stdout
     assert 'python -m scripts.derive.multi_year_summary --years 2020 2021 2022 2023 2024' in result.stdout
     assert 'python -m scripts.report.generate_community_recognition_report --year 2024' in result.stdout
+
+
+@pytest.mark.parametrize('script', SCRIPTS, ids=module)
+def test_scripts_suggest_commands_that_work(script):
+    # Help texts and hints must not send people to `python name.py` or to removed Make targets
+    source = script.read_text(encoding='utf-8')
+    assert not re.findall(r'python [\w/]+\.py', source)
+    makefile = (ROOT / 'Makefile').read_text(encoding='utf-8')
+    targets = set(re.findall(r'^([\w-]+):', makefile, re.M))
+    # A command, not prose: quoted, or after 'Run:'
+    for target in re.findall(r"(?:['\"`]|Run:\s+)make ([a-z][\w-]*)", source):
+        assert target in targets, target

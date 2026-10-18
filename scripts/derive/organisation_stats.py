@@ -44,7 +44,7 @@ def get_stats_file(year=None):
     csv_files.extend(glob.glob(str(paths.CONTRIBUTORS_DIR / 'plone_contributors.csv')))
     
     if not csv_files:
-        print("No plone contributors CSV files found. Run 'python plone_stats.py' first.")
+        print("No plone contributors CSV files found. Run 'make run-stats YEAR=<year>' first.")
         return None
     
     # Sort by modification time, most recent first

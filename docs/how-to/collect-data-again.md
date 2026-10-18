@@ -22,6 +22,10 @@ You need a GitHub personal access token, git, and a few hundred megabytes of dis
     Never commit `.env`.
     Instead of the file, you can also set `GITHUB_TOKEN` in the environment.
 
+The `make` targets run the scripts as modules from the repository root, for example `python -m scripts.collect.plone_contributors --year 2025`.
+Run a script yourself the same way; `python scripts/collect/plone_contributors.py` fails with `ModuleNotFoundError: No module named 'scripts'`.
+Every script answers `--help`.
+
 ## Collect commits and pull requests
 
 To collect all years from 2003 to the current year in one run:
