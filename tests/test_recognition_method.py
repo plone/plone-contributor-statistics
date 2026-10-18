@@ -162,3 +162,45 @@ def test_levels_file_has_no_gaps():
     for lower, upper in zip(levels, levels[1:]):
         assert upper['min_points'] == lower['max_points'] + 1, (lower['name'], upper['name'])
     assert levels[-1]['max_points'] == float('inf')
+
+
+def contributions(data, year=2025):
+    found = {}
+    recognition.calculate_community_recognition_points(
+        year=year, data_dir=str(data / 'data'), community_dir=str(data / 'data' / 'community-contributions'),
+        plips_file=str(data / 'plips.csv'), organisations=str(data / 'organisations.csv'),
+        overrides=str(data / 'overrides.csv'), contributions=found)
+    return found
+
+
+def test_contributions_carry_file_line_and_source(data):
+    # The community page links every point to its row and public record
+    community(data, 'sprints', 'Sprint,Start,End,Location,Organiser(s),Organisation,Level,Source,Notes\n'
+                               'Beethoven Sprint,,,Bonn,Jakob Kahl,RedTurtle,strategic,https://example.org/sprint,\n')
+    [sprint] = contributions(data)['RedTurtle']['Strategic Sprint']
+    assert sprint.points == 12
+    assert sprint.file.endswith('2025-sprints.csv')
+    assert sprint.line == 2
+    assert sprint.source == 'https://example.org/sprint'
+    assert sprint.text == 'Beethoven Sprint'
+
+
+def test_wpd_talk_source_is_the_video(data):
+    community(data, 'world-plone-day-talks', 'Video Title,Speaker(s),Organisation,Event / Location,Type,YouTube ID\n'
+                                             'A talk,Mauro,RedTurtle,Online,Talk,abc\n')
+    [talk] = contributions(data)['RedTurtle']['WPD Talk']
+    assert talk.source == 'https://www.youtube.com/watch?v=abc'
+
+
+def test_contributions_match_points(data):
+    community(data, 'sprints', 'Sprint,Start,End,Location,Organiser(s),Organisation,Level,Source,Notes\n'
+                               'Beethoven Sprint,,,Bonn,Jakob Kahl,kitconcept GmbH;RedTurtle,strategic,https://s,\n')
+    community(data, 'team-leaders', 'Name,Team,Organisation,Source\n'
+                                    'Timo,Volto Team,kitconcept GmbH,https://a\nMauro,Volto Team,RedTurtle,https://b\n')
+    for year, prs in [(2021, 150), (2022, 150), (2023, 150), (2024, 150), (2025, 150)]:
+        write(data / 'data' / f'{year}-plone-organisation-contributors.csv',
+              f'organisation,total_commits,total_pull_requests\nRedTurtle,1,{prs}\n')
+    found = contributions(data)
+    for org, categories in points(data).items():
+        for category, value in categories.items():
+            assert sum(c.points for c in found[org][category]) == pytest.approx(value), (org, category)
