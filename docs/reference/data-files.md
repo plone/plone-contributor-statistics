@@ -3,6 +3,16 @@
 # Data files
 
 This page describes the committed data files: which script writes them, what one row is, and which columns they have.
+The top-level folders follow their role in the pipeline:
+
+| Folder | Holds | Edit by hand? |
+|---|---|---|
+| `curated/` | Mapping files and curated community data. | yes, with a public record for every entry |
+| `collected/` | Data the collectors fetch from GitHub. | no |
+| `derived/` | Data computed from curated and collected data. | no |
+| `reports/` | Reports, text summaries and graphs. | no |
+
+The code is in `scripts/`, one folder per stage, and `scripts/lib/paths.py` lists the location of every file.
 Each file pattern with `YYYY` exists once per year.
 The scripts that derive data and write reports stop with an error if a yearly file they need is missing, for example when the organisation statistics of a new year have not been written yet.
 

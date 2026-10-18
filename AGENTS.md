@@ -17,14 +17,17 @@ Read the documentation before you change data or method, and link to it instead 
 
 ## Layout
 
-- `scripts/`: the code, one folder per pipeline stage (`collect/`, `derive/`, `report/`, `tools/`) and shared code in `lib/`; run as `python -m scripts.<stage>.<name>` from the root, normally through `make`. See `scripts/README.md`.
-- Root: the `Makefile`, and the mapping files (`curated/mappings/organisations.csv`, `curated/mappings/organisation_mapping_overrides.csv`, `curated/mappings/organisation_mapping_sources.csv`, `curated/mappings/organisation_mapping_proposals.csv`, `curated/mappings/commit_authors.csv`, `curated/mappings/account_aliases.csv`, `curated/mappings/bot_accounts.csv`, `curated/mappings/excluded_repositories.csv`).
-- `data/`: collected and derived data, one file per year.
-- `curated/community-contributions/`: curated community data, one file per year and kind.
-- `reports/`: generated reports.
+Each top-level folder has a README that says what it holds and whether to edit it by hand.
+
+- `scripts/`: the code, one folder per pipeline stage (`collect/`, `derive/`, `report/`, `tools/`) and shared code in `lib/`; run as `python -m scripts.<stage>.<name>` from the root, normally through `make`. `scripts/lib/paths.py` says where every file lives.
+- `curated/`: input edited by hand. `curated/mappings/` holds the mapping files (`organisations.csv`, `organisation_mapping_overrides.csv`, `organisation_mapping_sources.csv`, `organisation_mapping_proposals.csv`, `commit_authors.csv`, `account_aliases.csv`, `bot_accounts.csv`, `excluded_repositories.csv`, `mapping-github-username-to-fullname.csv`); `curated/community-contributions/` holds curated community data, one file per year and kind.
+- `collected/`: data the collectors fetch from GitHub, one file per year. Never edit by hand.
+- `derived/`: data computed from curated and collected data. Never edit by hand.
+- `reports/`: generated reports, text summaries and graphs. Never edit by hand.
 - `tests/`: pytest tests.
 - `docs/`: the documentation, Sphinx with MyST markdown.
 - `archive/`: historical material. Never edit it, and never rely on it as a description of the current method.
+- Root: only the `Makefile`, the READMEs, requirements and configuration. A test keeps other files out.
 
 ## Rules
 

@@ -92,3 +92,19 @@ def test_tmp_repo_has_layout(tmp_repo):
         if isinstance(value, Path) and name.isupper():
             folder = value if not value.suffix else value.parent
             assert (tmp_repo / folder).is_dir(), f'{name}: {folder}'
+
+
+ALLOWED_ROOT = {'README.md', 'AGENTS.md', 'CLAUDE.md', 'Makefile', 'requirements.txt', 'requirements-docs.txt',
+                'pytest.ini', '.env.example', '.gitignore', '.github', 'scripts', 'curated', 'collected',
+                'derived', 'reports', 'docs', 'tests', 'archive'}
+
+
+def test_root_contains_only_allowed_entries():
+    # New files go into the folder of their role, not into the root
+    tracked = subprocess.run(['git', 'ls-files'], cwd=ROOT, capture_output=True, text=True, check=True).stdout.split()
+    assert {p.split('/')[0] for p in tracked} <= ALLOWED_ROOT
+
+
+@pytest.mark.parametrize('folder', ['scripts', 'curated', 'collected', 'derived', 'reports'])
+def test_folder_has_readme(folder):
+    assert (ROOT / folder / 'README.md').exists()
