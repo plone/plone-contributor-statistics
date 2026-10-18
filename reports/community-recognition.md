@@ -1,22 +1,22 @@
 # Plone Community Recognition Program 2025
 
-*Generated: 2026-06-24 20:27:08*
+*Generated: 2026-10-18 16:35:49*
 
 ## Executive Summary
 
-- **Total Organizations**: 55
-- **Total Points Awarded**: 657.0
-- **Average Points per Organization**: 11.9
+- **Total Organizations**: 48
+- **Total Points Awarded**: 591.0
+- **Average Points per Organization**: 12.3
 
 ## Recognition Levels
 
 | Level | Points Range | Organizations |
 |-------|--------------|---------------:|
-| Platinum Contributor | 35+ | 5 |
-| Gold Contributor | 25-34 | 6 |
-| Silver Contributor | 10-24 | 8 |
+| Platinum Contributor | 35+ | 3 |
+| Gold Contributor | 25-34 | 7 |
+| Silver Contributor | 10-24 | 7 |
 | Bronze Contributor | 3-9 | 16 |
-| Community Contributor | 1-2 | 20 |
+| Community Contributor | 1-2 | 15 |
 
 ## Recognition Categories
 
@@ -56,60 +56,53 @@
 | Rank | Organization | Recognition Level | Total Points |
 |------|--------------|-------------------|-------------:|
 | 1 | kitconcept GmbH | Platinum Contributor | 96.0 |
-| 2 | PY76 | Platinum Contributor | 53.0 |
-| 3 | Independent | Platinum Contributor | 42.0 |
-| 4 | RedTurtle | Platinum Contributor | 39.0 |
-| 5 | Eau de Web | Platinum Contributor | 38.0 |
-| 6 | University of Jyväskylä | Gold Contributor | 33.0 |
-| 7 | Klein & Partner KG | Gold Contributor | 32.0 |
-| 8 | Nuclia | Gold Contributor | 32.0 |
-| 9 | Steve Piercy - Website Builder | Gold Contributor | 27.0 |
-| 10 | Kombinat | Gold Contributor | 26.0 |
-| 11 | Syslab | Gold Contributor | 25.0 |
-| 12 | Freitag | Silver Contributor | 19.0 |
+| 2 | RedTurtle | Platinum Contributor | 39.0 |
+| 3 | PY76 | Platinum Contributor | 37.0 |
+| 4 | University of Jyväskylä | Gold Contributor | 33.0 |
+| 5 | Klein & Partner KG | Gold Contributor | 32.0 |
+| 6 | Nuclia | Gold Contributor | 32.0 |
+| 7 | Eau de Web | Gold Contributor | 28.0 |
+| 8 | Steve Piercy - Website Builder | Gold Contributor | 27.0 |
+| 9 | Kombinat | Gold Contributor | 26.0 |
+| 10 | Syslab | Gold Contributor | 25.0 |
+| 11 | Interlegis Program (Senado Federal) | Silver Contributor | 24.0 |
+| 12 | Zest Software | Silver Contributor | 20.0 |
 | 13 | Juizi | Silver Contributor | 19.0 |
-| 14 | CodeSyntax | Silver Contributor | 18.0 |
+| 14 | der Freitag | Silver Contributor | 19.0 |
 | 15 | Starzel | Silver Contributor | 13.0 |
-| 16 | UNAM | Silver Contributor | 12.0 |
-| 17 | Interlegis Program (Federal Senate) | Silver Contributor | 11.0 |
-| 18 | Vangheem | Silver Contributor | 11.0 |
-| 19 | Rohberg | Silver Contributor | 10.0 |
+| 16 | Codesyntax | Silver Contributor | 12.0 |
+| 17 | UNAM | Silver Contributor | 12.0 |
+| 18 | Vangheem | Bronze Contributor | 9.0 |
+| 19 | Affinitic | Bronze Contributor | 8.0 |
 | 20 | Agitator | Bronze Contributor | 7.0 |
-| 21 | Derico | Bronze Contributor | 7.0 |
-| 22 | Affinitic | Bronze Contributor | 6.0 |
-| 23 | Brazilian Government | Bronze Contributor | 6.0 |
-| 24 | Cosent | Bronze Contributor | 6.0 |
-| 25 | Federal Senate (Interlegis Program) | Bronze Contributor | 6.0 |
-| 26 | KU Leuven | Bronze Contributor | 6.0 |
-| 27 | Simples Consultoria | Bronze Contributor | 6.0 |
-| 28 | Iskra | Bronze Contributor | 4.0 |
-| 29 | SERPRO | Bronze Contributor | 4.0 |
-| 30 | CCC | Bronze Contributor | 3.0 |
-| 31 | DBA Informatica Notariaal | Bronze Contributor | 3.0 |
-| 32 | IHAM | Bronze Contributor | 3.0 |
-| 33 | Kim Nguyen | Bronze Contributor | 3.0 |
-| 34 | Plone Foundation | Bronze Contributor | 3.0 |
-| 35 | ZOPYX | Bronze Contributor | 3.0 |
-| 36 | PloneGov-BR | Community Contributor | 2.0 |
-| 37 | Pretaweb | Community Contributor | 2.0 |
-| 38 | University Hospital Dresden | Community Contributor | 2.0 |
-| 39 | affinitic | Community Contributor | 2.0 |
-| 40 | frapell | Community Contributor | 2.0 |
-| 41 | AUSL Romagna | Community Contributor | 1.0 |
-| 42 | BOSS | Community Contributor | 1.0 |
-| 43 | CMS Communications Inc. | Community Contributor | 1.0 |
-| 44 | Er.GO | Community Contributor | 1.0 |
-| 45 | Giallocobalto | Community Contributor | 1.0 |
-| 46 | IRR | Community Contributor | 1.0 |
-| 47 | LMU | Community Contributor | 1.0 |
-| 48 | Plone Foundation (community volunteer) | Community Contributor | 1.0 |
-| 49 | Quaive | Community Contributor | 1.0 |
-| 50 | RIOS (Rete Italiana Open Source) | Community Contributor | 1.0 |
-| 51 | Regione Emilia-Romagna | Community Contributor | 1.0 |
-| 52 | Senado Federal | Community Contributor | 1.0 |
-| 53 | Università di Macerata | Community Contributor | 1.0 |
-| 54 | eCityclic | Community Contributor | 1.0 |
-| 55 | iMio | Community Contributor | 1.0 |
+| 21 | Cosent | Bronze Contributor | 7.0 |
+| 22 | Derico | Bronze Contributor | 7.0 |
+| 23 | KU Leuven | Bronze Contributor | 6.0 |
+| 24 | Simples Consultoria | Bronze Contributor | 6.0 |
+| 25 | Onna | Bronze Contributor | 4.0 |
+| 26 | Rohberg | Bronze Contributor | 4.0 |
+| 27 | Serpro | Bronze Contributor | 4.0 |
+| 28 | CCC | Bronze Contributor | 3.0 |
+| 29 | DBA Informatica Notariaal | Bronze Contributor | 3.0 |
+| 30 | IHAM | Bronze Contributor | 3.0 |
+| 31 | Kim Nguyen | Bronze Contributor | 3.0 |
+| 32 | Plone Foundation | Bronze Contributor | 3.0 |
+| 33 | Zopyx | Bronze Contributor | 3.0 |
+| 34 | PloneGov-BR | Community Contributor | 2.0 |
+| 35 | Uni. Hospital Dresden | Community Contributor | 2.0 |
+| 36 | AUSL Romagna | Community Contributor | 1.0 |
+| 37 | BOSS | Community Contributor | 1.0 |
+| 38 | CMS Communications Inc. | Community Contributor | 1.0 |
+| 39 | Er.GO | Community Contributor | 1.0 |
+| 40 | Giallocobalto | Community Contributor | 1.0 |
+| 41 | IRR | Community Contributor | 1.0 |
+| 42 | Ludwig Maximilian University Munich | Community Contributor | 1.0 |
+| 43 | Plone Foundation (community volunteer) | Community Contributor | 1.0 |
+| 44 | RIOS (Rete Italiana Open Source) | Community Contributor | 1.0 |
+| 45 | Regione Emilia-Romagna | Community Contributor | 1.0 |
+| 46 | Università di Macerata | Community Contributor | 1.0 |
+| 47 | eCityclic | Community Contributor | 1.0 |
+| 48 | iMio | Community Contributor | 1.0 |
 
 ## Code Contribution Highlights
 
@@ -117,29 +110,26 @@
 
 | Rank | Organization | Points | Level | PRs/Year |
 |------|--------------|-------:|:------|----------|
-| 1 | kitconcept GmbH | 20 | Lead | 555.4 |
-| 2 | Independent | 20 | Lead | 261.2 |
-| 3 | PY76 | 20 | Lead | 187.6 |
-| 4 | Steve Piercy - Website Builder | 20 | Lead | 139.8 |
-| 5 | Eau de Web | 20 | Lead | 114.2 |
-| 6 | Kombinat | 20 | Lead | 113.8 |
-| 7 | Freitag | 10 | Core Member | 97.2 |
-| 8 | Nuclia | 10 | Core Member | 94.0 |
-| 9 | RedTurtle | 10 | Core Member | 93.2 |
-| 10 | Syslab | 10 | Core Member | 86.4 |
-| 11 | Klein & Partner KG | 10 | Core Member | 66.0 |
-| 12 | CodeSyntax | 10 | Core Member | 57.8 |
-| 13 | Rohberg | 10 | Core Member | 53.4 |
+| 1 | kitconcept GmbH | 20 | Lead | 488.8 |
+| 2 | Zest Software | 20 | Lead | 152.8 |
+| 3 | Steve Piercy - Website Builder | 20 | Lead | 132.6 |
+| 4 | Kombinat | 20 | Lead | 107.4 |
+| 5 | Eau de Web | 10 | Core Member | 96.8 |
+| 6 | der Freitag | 10 | Core Member | 86.6 |
+| 7 | Syslab | 10 | Core Member | 70.6 |
+| 8 | RedTurtle | 10 | Core Member | 63.6 |
+| 9 | Nuclia | 10 | Core Member | 58.8 |
+| 10 | Klein & Partner KG | 10 | Core Member | 58.0 |
+| 11 | Codesyntax | 4 | Active Member | 47.2 |
+| 12 | Rohberg | 4 | Active Member | 43.2 |
+| 13 | Onna | 4 | Active Member | 33.8 |
 | 14 | Starzel | 4 | Active Member | 32.6 |
-| 15 | SERPRO | 4 | Active Member | 31.4 |
-| 16 | Agitator | 4 | Active Member | 27.2 |
-| 17 | Derico | 4 | Active Member | 27.0 |
-| 18 | Iskra | 4 | Active Member | 26.6 |
-| 19 | University Hospital Dresden | 2 | Team Member | 16.6 |
-| 20 | Vangheem | 2 | Team Member | 14.6 |
-| 21 | Pretaweb | 2 | Team Member | 14.2 |
-| 22 | frapell | 2 | Team Member | 10.6 |
-| 23 | affinitic | 2 | Team Member | 10.2 |
+| 15 | PY76 | 4 | Active Member | 29.0 |
+| 16 | Agitator | 4 | Active Member | 26.0 |
+| 17 | Serpro | 4 | Active Member | 25.6 |
+| 18 | Derico | 4 | Active Member | 24.6 |
+| 19 | Uni. Hospital Dresden | 2 | Team Member | 13.8 |
+| 20 | Affinitic | 2 | Team Member | 10.2 |
 
 ### PLIP Contributors
 
@@ -147,21 +137,20 @@
 |------|--------------|-------:|:------|-------|
 | 1 | kitconcept GmbH | 15 | Significant PLIP Contributor | 71 |
 | 2 | Nuclia | 15 | Significant PLIP Contributor | 37 |
-| 3 | Independent | 15 | Significant PLIP Contributor | 25 |
-| 4 | Syslab | 15 | Significant PLIP Contributor | 16 |
-| 5 | PY76 | 15 | Significant PLIP Contributor | 10 |
-| 6 | Klein & Partner KG | 9 | Regular PLIP Contributor | 9 |
-| 7 | Freitag | 9 | Regular PLIP Contributor | 6 |
-| 8 | Vangheem | 9 | Regular PLIP Contributor | 6 |
-| 9 | IHAM | 3 | Occasional PLIP Contributor | 5 |
-| 10 | Kim Nguyen | 3 | Occasional PLIP Contributor | 5 |
-| 11 | Eau de Web | 3 | Occasional PLIP Contributor | 4 |
-| 12 | Starzel | 3 | Occasional PLIP Contributor | 4 |
-| 13 | Agitator | 3 | Occasional PLIP Contributor | 3 |
-| 14 | ZOPYX | 3 | Occasional PLIP Contributor | 3 |
-| 15 | DBA Informatica Notariaal | 3 | Occasional PLIP Contributor | 2 |
-| 16 | Derico | 3 | Occasional PLIP Contributor | 2 |
-| 17 | RedTurtle | 3 | Occasional PLIP Contributor | 2 |
+| 3 | Syslab | 15 | Significant PLIP Contributor | 16 |
+| 4 | PY76 | 15 | Significant PLIP Contributor | 10 |
+| 5 | Klein & Partner KG | 9 | Regular PLIP Contributor | 9 |
+| 6 | Vangheem | 9 | Regular PLIP Contributor | 6 |
+| 7 | der Freitag | 9 | Regular PLIP Contributor | 6 |
+| 8 | IHAM | 3 | Occasional PLIP Contributor | 5 |
+| 9 | Kim Nguyen | 3 | Occasional PLIP Contributor | 5 |
+| 10 | Eau de Web | 3 | Occasional PLIP Contributor | 4 |
+| 11 | Starzel | 3 | Occasional PLIP Contributor | 4 |
+| 12 | Agitator | 3 | Occasional PLIP Contributor | 3 |
+| 13 | Zopyx | 3 | Occasional PLIP Contributor | 3 |
+| 14 | DBA Informatica Notariaal | 3 | Occasional PLIP Contributor | 2 |
+| 15 | Derico | 3 | Occasional PLIP Contributor | 2 |
+| 16 | RedTurtle | 3 | Occasional PLIP Contributor | 2 |
 
 ## Detailed Breakdown by Organization
 
@@ -174,31 +163,9 @@
 | Strategic Sprint | 12.0 | • Beethoven Sprint |
 | Release Manager | 24.0 | • Victor Fernandez de Alba<br>• Timo Stollenwerk |
 | WPD Talk | 4.0 | • Plone Hands On: Customize your site theme through the web with Volto!<br>• Tailwind CSS and Plone<br>• Codename Seven - Sneak Peek to the Successor of Volto<br>• Plone Hands On: Creating a new Plone project |
-| Training Session | 21.0 | • Plone 6 Volto Customization for JavaScript Beginners<br>• Plone Seven: Fundamentals<br>• Installing and Deploying Plone<br>• Customizing the Volto Light Theme |
-| PR Contributions | 20.0 | • Lead (555.4 PRs/year) |
+| Training Session | 21.0 | • Plone 6 Volto Customization for JavaScript Beginners<br>• Plone 6 Volto Customization for JavaScript Beginners<br>• Plone Seven: Fundamentals<br>• Installing and Deploying Plone<br>• Installing and Deploying Plone<br>• ... and 2 more |
+| PR Contributions | 20.0 | • Lead (488.8 PRs/year) |
 | PLIP Contributions | 15.0 | • Significant PLIP Contributor (71 PLIPs) |
-
-### PY76
-
-**Total Points: 53.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| Release Manager | 12.0 | • Maurits van Rees |
-| Team Leader | 6.0 | • Maurits van Rees (Security Team) |
-| PR Contributions | 20.0 | • Lead (187.6 PRs/year) |
-| PLIP Contributions | 15.0 | • Significant PLIP Contributor (10 PLIPs) |
-
-### Independent
-
-**Total Points: 42.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| Board Member | 6.0 | • Brian Davis |
-| WPD Talk | 1.0 | • Triple D: Documentation Driven Development - A Panel Discussion |
-| PR Contributions | 20.0 | • Lead (261.2 PRs/year) |
-| PLIP Contributions | 15.0 | • Significant PLIP Contributor (25 PLIPs) |
 
 ### RedTurtle
 
@@ -211,19 +178,19 @@
 | WPD Event | 3.0 | • Organized WPD Event |
 | WPD Talk | 2.0 | • Plone & PWA: il caso Lignano Sabbiadoro - WPD2025 Italia<br>• AUSL Ferrara - uno dei primi siti conformi al modello ASL di Designers Italia - WPD 2025 Italia |
 | Training Session | 3.0 | • Plone Seven: Fundamentals |
-| PR Contributions | 10.0 | • Core Member (93.2 PRs/year) |
+| PR Contributions | 10.0 | • Core Member (63.6 PRs/year) |
 | PLIP Contributions | 3.0 | • Occasional PLIP Contributor (2 PLIPs) |
 
-### Eau de Web
+### PY76
 
-**Total Points: 38.0**
+**Total Points: 37.0**
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| Strategic Sprint | 12.0 | • Bucharest Sprint |
-| WPD Talk | 3.0 | • Select user widget feature in Volto<br>• Volto block style: Start customizing your site through the web<br>• Dynamic Vocabulary Based on Context in Plone |
-| PR Contributions | 20.0 | • Lead (114.2 PRs/year) |
-| PLIP Contributions | 3.0 | • Occasional PLIP Contributor (4 PLIPs) |
+| Release Manager | 12.0 | • Maurits van Rees |
+| Team Leader | 6.0 | • Maurits van Rees (Security Team) |
+| PR Contributions | 4.0 | • Active Member (29.0 PRs/year) |
+| PLIP Contributions | 15.0 | • Significant PLIP Contributor (10 PLIPs) |
 
 ### University of Jyväskylä
 
@@ -243,7 +210,7 @@
 |----------|-------:|:--------|
 | Strategic Sprint | 12.0 | • Alpine City Sprint |
 | WPD Talk | 1.0 | • Mxmake - an opinionated way to use make for development and deployment on Python projects |
-| PR Contributions | 10.0 | • Core Member (66.0 PRs/year) |
+| PR Contributions | 10.0 | • Core Member (58.0 PRs/year) |
 | PLIP Contributions | 9.0 | • Regular PLIP Contributor (9 PLIPs) |
 
 ### Nuclia
@@ -252,10 +219,21 @@
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| Board Member | 6.0 | • Éric Bréhault |
+| Board Member | 6.0 | • Eric Brehault |
 | WPD Talk | 1.0 | • Plone and Google Summer of Code 2025 |
-| PR Contributions | 10.0 | • Core Member (94.0 PRs/year) |
+| PR Contributions | 10.0 | • Core Member (58.8 PRs/year) |
 | PLIP Contributions | 15.0 | • Significant PLIP Contributor (37 PLIPs) |
+
+### Eau de Web
+
+**Total Points: 28.0**
+
+| Category | Points | Details |
+|----------|-------:|:--------|
+| Strategic Sprint | 12.0 | • Bucharest Sprint |
+| WPD Talk | 3.0 | • Select user widget feature in Volto<br>• Volto block style: Start customizing your site through the web<br>• Dynamic Vocabulary Based on Context in Plone |
+| PR Contributions | 10.0 | • Core Member (96.8 PRs/year) |
+| PLIP Contributions | 3.0 | • Occasional PLIP Contributor (4 PLIPs) |
 
 ### Steve Piercy - Website Builder
 
@@ -265,7 +243,7 @@
 |----------|-------:|:--------|
 | Board Member | 6.0 | • Steve Piercy |
 | WPD Talk | 1.0 | • Triple D: Documentation Driven Development - A Panel Discussion |
-| PR Contributions | 20.0 | • Lead (139.8 PRs/year) |
+| PR Contributions | 20.0 | • Lead (132.6 PRs/year) |
 
 ### Kombinat
 
@@ -274,7 +252,7 @@
 | Category | Points | Details |
 |----------|-------:|:--------|
 | Team Leader | 6.0 | • Peter Mathis (Classic UI Team) |
-| PR Contributions | 20.0 | • Lead (113.8 PRs/year) |
+| PR Contributions | 20.0 | • Lead (107.4 PRs/year) |
 
 ### Syslab
 
@@ -282,17 +260,27 @@
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| PR Contributions | 10.0 | • Core Member (86.4 PRs/year) |
+| PR Contributions | 10.0 | • Core Member (70.6 PRs/year) |
 | PLIP Contributions | 15.0 | • Significant PLIP Contributor (16 PLIPs) |
 
-### Freitag
+### Interlegis Program (Senado Federal)
 
-**Total Points: 19.0**
+**Total Points: 24.0**
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| PR Contributions | 10.0 | • Core Member (97.2 PRs/year) |
-| PLIP Contributions | 9.0 | • Regular PLIP Contributor (6 PLIPs) |
+| Team Leader | 6.0 | • Rafahela Bazzanella (Membership Committee) |
+| Board Member | 12.0 | • Rafahela Garcia Bazzanella<br>• João Henrique Gouveia |
+| WPD Event | 3.0 | • Organized WPD Event |
+| WPD Talk | 3.0 | • World Plone Day: Brasília; Brazil<br>• Event Opening<br>• PloneGov-BR Community |
+
+### Zest Software
+
+**Total Points: 20.0**
+
+| Category | Points | Details |
+|----------|-------:|:--------|
+| PR Contributions | 20.0 | • Lead (152.8 PRs/year) |
 
 ### Juizi
 
@@ -304,15 +292,14 @@
 | WPD Talk | 4.0 | • I've tried more than 200 CMS's and Plone is still the best!<br>• Click less; do more - save time with Plone content rules<br>• An external to internal Plone support love story<br>• Plone Community Teams and How to Be Part of It |
 | Training Session | 9.0 | • Training for Content Editing<br>• Create your Customer Avatar: Do you know who you're coding for? |
 
-### CodeSyntax
+### der Freitag
 
-**Total Points: 18.0**
+**Total Points: 19.0**
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| Board Member | 6.0 | • Mikel Larreategi |
-| WPD Talk | 2.0 | • Deploy Cookieplone Based Projects With GitLab CI/CD<br>• Volto Bootstrap Theme |
-| PR Contributions | 10.0 | • Core Member (57.8 PRs/year) |
+| PR Contributions | 10.0 | • Core Member (86.6 PRs/year) |
+| PLIP Contributions | 9.0 | • Regular PLIP Contributor (6 PLIPs) |
 
 ### Starzel
 
@@ -324,6 +311,16 @@
 | PR Contributions | 4.0 | • Active Member (32.6 PRs/year) |
 | PLIP Contributions | 3.0 | • Occasional PLIP Contributor (4 PLIPs) |
 
+### Codesyntax
+
+**Total Points: 12.0**
+
+| Category | Points | Details |
+|----------|-------:|:--------|
+| Board Member | 6.0 | • Mikel Larreategi |
+| WPD Talk | 2.0 | • Deploy Cookieplone Based Projects With GitLab CI/CD<br>• Volto Bootstrap Theme |
+| PR Contributions | 4.0 | • Active Member (47.2 PRs/year) |
+
 ### UNAM
 
 **Total Points: 12.0**
@@ -332,32 +329,22 @@
 |----------|-------:|:--------|
 | Strategic Sprint | 12.0 | • Axolote Sprint |
 
-### Interlegis Program (Federal Senate)
-
-**Total Points: 11.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| Board Member | 6.0 | • Rafahela Garcia Bazzanella |
-| WPD Event | 3.0 | • Organized WPD Event |
-| WPD Talk | 2.0 | • Event Opening<br>• PloneGov-BR Community |
-
 ### Vangheem
 
-**Total Points: 11.0**
+**Total Points: 9.0**
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| PR Contributions | 2.0 | • Team Member (14.6 PRs/year) |
 | PLIP Contributions | 9.0 | • Regular PLIP Contributor (6 PLIPs) |
 
-### Rohberg
+### Affinitic
 
-**Total Points: 10.0**
+**Total Points: 8.0**
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| PR Contributions | 10.0 | • Core Member (53.4 PRs/year) |
+| Board Member | 6.0 | • Martin Peeters |
+| PR Contributions | 2.0 | • Team Member (10.2 PRs/year) |
 
 ### Agitator
 
@@ -365,8 +352,17 @@
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| PR Contributions | 4.0 | • Active Member (27.2 PRs/year) |
+| PR Contributions | 4.0 | • Active Member (26.0 PRs/year) |
 | PLIP Contributions | 3.0 | • Occasional PLIP Contributor (3 PLIPs) |
+
+### Cosent
+
+**Total Points: 7.0**
+
+| Category | Points | Details |
+|----------|-------:|:--------|
+| Board Member | 6.0 | • Guido Stevens |
+| WPD Talk | 1.0 | • Collabora Online integration into Plone and Quaive |
 
 ### Derico
 
@@ -374,40 +370,8 @@
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| PR Contributions | 4.0 | • Active Member (27.0 PRs/year) |
+| PR Contributions | 4.0 | • Active Member (24.6 PRs/year) |
 | PLIP Contributions | 3.0 | • Occasional PLIP Contributor (2 PLIPs) |
-
-### Affinitic
-
-**Total Points: 6.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| Board Member | 6.0 | • Martin Peeters |
-
-### Brazilian Government
-
-**Total Points: 6.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| Team Leader | 6.0 | • Rafahela Bazzanella (Membership Committee) |
-
-### Cosent
-
-**Total Points: 6.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| Board Member | 6.0 | • Guido Stevens |
-
-### Federal Senate (Interlegis Program)
-
-**Total Points: 6.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| Board Member | 6.0 | • João Henrique Gouveia |
 
 ### KU Leuven
 
@@ -426,21 +390,29 @@
 | WPD Event | 3.0 | • Organized WPD Event |
 | WPD Talk | 3.0 | • Mão na Massa: Começando um projeto com Plone 6.1<br>• Plone Distributions; the right way<br>• Bucharest Sprint Updates |
 
-### Iskra
+### Onna
 
 **Total Points: 4.0**
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| PR Contributions | 4.0 | • Active Member (26.6 PRs/year) |
+| PR Contributions | 4.0 | • Active Member (33.8 PRs/year) |
 
-### SERPRO
+### Rohberg
 
 **Total Points: 4.0**
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| PR Contributions | 4.0 | • Active Member (31.4 PRs/year) |
+| PR Contributions | 4.0 | • Active Member (43.2 PRs/year) |
+
+### Serpro
+
+**Total Points: 4.0**
+
+| Category | Points | Details |
+|----------|-------:|:--------|
+| PR Contributions | 4.0 | • Active Member (25.6 PRs/year) |
 
 ### CCC
 
@@ -482,7 +454,7 @@
 |----------|-------:|:--------|
 | WPD Talk | 3.0 | • Plone Community Teams and How to Be Part of It<br>• The Plone Newsroom Episode 22 - Back Again<br>• AMA with David Glick; Plone core developer |
 
-### ZOPYX
+### Zopyx
 
 **Total Points: 3.0**
 
@@ -498,37 +470,13 @@
 |----------|-------:|:--------|
 | WPD Talk | 2.0 | • World Plone Day: Brasília; Brazil<br>• PortalBrasil Project |
 
-### Pretaweb
+### Uni. Hospital Dresden
 
 **Total Points: 2.0**
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| PR Contributions | 2.0 | • Team Member (14.2 PRs/year) |
-
-### University Hospital Dresden
-
-**Total Points: 2.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| PR Contributions | 2.0 | • Team Member (16.6 PRs/year) |
-
-### affinitic
-
-**Total Points: 2.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| PR Contributions | 2.0 | • Team Member (10.2 PRs/year) |
-
-### frapell
-
-**Total Points: 2.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| PR Contributions | 2.0 | • Team Member (10.6 PRs/year) |
+| PR Contributions | 2.0 | • Team Member (13.8 PRs/year) |
 
 ### AUSL Romagna
 
@@ -578,7 +526,7 @@
 |----------|-------:|:--------|
 | WPD Talk | 1.0 | • An external to internal Plone support love story |
 
-### LMU
+### Ludwig Maximilian University Munich
 
 **Total Points: 1.0**
 
@@ -593,14 +541,6 @@
 | Category | Points | Details |
 |----------|-------:|:--------|
 | WPD Talk | 1.0 | • Baseball; Farming; and Smarthomes: When Volto Meets 3rd-Party APIs |
-
-### Quaive
-
-**Total Points: 1.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| WPD Talk | 1.0 | • Collabora Online integration into Plone and Quaive |
 
 ### RIOS (Rete Italiana Open Source)
 
@@ -617,14 +557,6 @@
 | Category | Points | Details |
 |----------|-------:|:--------|
 | WPD Talk | 1.0 | • Volto e straVolto - World Plone Day 2025 Italia |
-
-### Senado Federal
-
-**Total Points: 1.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| WPD Talk | 1.0 | • World Plone Day: Brasília; Brazil |
 
 ### Università di Macerata
 
@@ -657,14 +589,14 @@
 | Strategic Sprint | 5 | 60.0 |
 | Release Manager | 2 | 36.0 |
 | Team Leader | 5 | 30.0 |
-| Board Member | 8 | 48.0 |
+| Board Member | 6 | 42.0 |
 | Podcast Host | 0 | 0.0 |
 | WPD Event | 3 | 9.0 |
-| WPD Talk | 29 | 47.0 |
+| WPD Talk | 27 | 46.0 |
 | Conference Organization | 1 | 24.0 |
 | Training Session | 7 | 54.0 |
-| PR Contributions | 23 | 220.0 |
-| PLIP Contributions | 17 | 129.0 |
+| PR Contributions | 20 | 176.0 |
+| PLIP Contributions | 16 | 114.0 |
 
 ---
 
