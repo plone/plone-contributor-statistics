@@ -17,8 +17,10 @@ esteele,121,0,30,"Products.CMFEditions, buildout.coredev, plone.app.caching, plo
 pbauer,110,12,15,"2023.ploneconf.org, Products.CMFPlone, Products.PortalTransforms, buildout.coredev, old_plone.org, plone.api, plone.app.contenttypes, plone.app.layout, plone.app.multilingual, plone.app.upgrade, plone.app.vocabularies, plone.app.z3cform, plone.nl, ploneconf.org, training",2021-01-12,2021-12-06
 ale-rt,105,41,24,"Products.CMFPlone, buildout.coredev, documentation, plone.api, plone.app.caching, plone.app.content, plone.app.contentlisting, plone.app.contenttypes, plone.app.debugtoolbar, plone.app.multilingual, plone.app.registry, plone.app.upgrade, plone.app.versioningbehavior, plone.autoinclude, plone.dexterity, plone.i18n, plone.recipe.haproxy, plone.recipe.zope2instance, plone.reload, plone.resource, plone.restapi, plone.staticresources, plone.supermodel, plone.z3cform",2019-03-04,2021-12-22
 giuliaghisini,98,42,3,"aurora, form-block, volto",2021-01-19,2021-12-28
+icemac,96,2,4,"Products.PloneHotfix20210518, buildout.coredev, meta, plone.recipe.zope2instance",2021-01-08,2021-11-25
 iFlameing,95,22,3,"aurora, training, volto",2021-01-22,2021-10-22
 avoinea,84,43,10,"aurora, buildout.coredev, container-backend, container-historical, plone-haproxy, plone.dexterity, plone.restapi, plone.volto, volto, volto-addon-ci",2021-01-14,2021-12-21
+mpellerin42,83,79,1,pastanaga-angular,2021-01-04,2021-11-17
 masipcat,64,19,2,"guillotina, guillotina_elasticsearch",2021-01-04,2021-12-16
 nileshgulia1,59,20,4,"aurora, critical-css-cli, volto, volto-addon-ci",2021-01-12,2021-12-17
 Thokas,47,1,2,"buildout.coredev, mockup",2021-05-12,2021-09-02
@@ -32,19 +34,20 @@ silviot,29,10,3,"container-backend, container-frontend, documentation",2021-05-2
 ebrehault,27,27,1,pastanaga-angular,2021-01-04,2021-07-12
 veritazx,27,2,1,mockup,2021-09-23,2021-09-24
 cekk,25,15,5,"aurora, plone.dexterity, plone.restapi, plone.volto, volto",2021-01-04,2021-12-31
-andreasma,25,3,2,"buildout.coredev, plone.formwidget.hcaptcha",2021-06-04,2021-12-15
 pnicolli,25,10,4,"aurora, container-backend, container-historical, volto",2021-02-09,2021-12-11
+andreasma,25,3,2,"buildout.coredev, plone.formwidget.hcaptcha",2021-06-04,2021-12-15
 fulv,23,8,6,"ai-team-private, plone.app.caching, plone.com, ploneorg.core, ploneorg.theme, sponsorships",2020-10-14,2021-10-27
 djay,20,1,1,plone.app.standardtiles,2021-02-04,2021-02-05
 tkimnguyen,20,7,7,"buildout.coredev, container-historical, planet.plone.org, plone.app.viewletmanager, ploneorg.core, ploneorg.theme, training",2021-05-07,2021-12-22
-wesleybl,19,24,9,"Products.CMFPlone, bobtemplates.plone, buildout.coredev, plone.app.versioningbehavior, plone.dexterity, plone.dotfiles, plone.restapi, plone.schemaeditor, plonecli",2020-12-30,2021-12-10
-ichim-david,19,7,4,"aurora, plone.restapi, training, volto",2021-09-30,2021-12-20
-fredvd,19,6,9,"aurora, buildout.coredev, jenkins.plone.org, plone.app.layout, plone.app.portlets, plone.formwidget.hcaptcha, plone.restapi, plone.volto, volto",2021-06-22,2021-12-22
 yurj,19,3,6,"bobtemplates.plone, buildout.coredev, documentation, mockup, plone.staticresources, plonetheme.barceloneta",2021-06-08,2021-12-01
+fredvd,19,6,9,"aurora, buildout.coredev, jenkins.plone.org, plone.app.layout, plone.app.portlets, plone.formwidget.hcaptcha, plone.restapi, plone.volto, volto",2021-06-22,2021-12-22
+ichim-david,19,7,4,"aurora, plone.restapi, training, volto",2021-09-30,2021-12-20
+wesleybl,19,24,9,"Products.CMFPlone, bobtemplates.plone, buildout.coredev, plone.app.versioningbehavior, plone.dexterity, plone.dotfiles, plone.restapi, plone.schemaeditor, plonecli",2020-12-30,2021-12-10
+lferran,18,8,1,guillotina,2021-01-14,2021-02-09
 gforcada,18,3,4,"buildout.coredev, jenkins.plone.org, mr.roboto, plone.jenkins_node",2021-02-18,2021-12-30
 jmevissen,17,5,4,"Products.CMFPlone, buildout.coredev, mockup, plone.app.z3cform",2021-10-25,2021-12-30
-iRohitSingh,16,8,2,"aurora, volto",2021-10-11,2021-12-01
 rboixaderg,16,9,2,"guillotina, pastanaga-angular",2021-05-14,2021-08-04
+iRohitSingh,16,8,2,"aurora, volto",2021-10-11,2021-12-01
 spereverde,15,6,8,"Products.PloneTestCase, buildout.coredev, documentation, plone.app.blob, plone.app.dexterity, plone.app.standardtiles, plone.dotfiles, training",2021-03-23,2021-11-19
 frapell,14,8,7,"buildout.coredev, guillotina, guillotina-volto, plone.app.workflow, plone.folder, plone.formwidget.recurrence, plone.memoize",2021-01-20,2021-11-02
 alecpm,14,1,5,"ansible.plone_server, buildout.coredev, plone.app.event, plone.app.vocabularies, plone.app.z3cform",2021-01-30,2021-08-12
@@ -55,94 +58,92 @@ barcafa,12,12,1,pastanaga-angular,2021-02-10,2021-09-01
 mgedmin,12,0,1,meta,2021-01-04,2021-06-22
 gotcha,11,5,5,"buildout.coredev, meta, plone.app.textfield, plone.app.z3cform, plone.htmx",2021-03-09,2021-12-13
 flipmcf,10,4,7,"2023.ploneconf.org, buildout.coredev, documentation, plone.app.dexterity, plone.app.vocabularies, plone.nl, ploneconf.org",2021-01-21,2021-12-08
+nilbacardit26,10,9,2,"guillotina, guillotina_elasticsearch",2021-03-01,2021-11-10
 datakurre,10,2,3,"buildout.coredev, plone.app.versioningbehavior, plone.formwidget.namedfile",2020-04-22,2021-07-07
 ionlizarazu,10,5,2,"aurora, volto",2021-04-28,2021-08-20
-nilbacardit26,10,9,2,"guillotina, guillotina_elasticsearch",2021-03-01,2021-11-10
+svx,10,5,5,"aurora, documentation, guillotina, plonecli, volto",2020-05-14,2021-09-20
 cdw9,9,2,3,"2023.ploneconf.org, plone.nl, ploneconf.org",2021-10-01,2021-10-12
-kreafox,8,4,2,"aurora, volto",2021-09-01,2021-10-31
 ThomasKindermann,8,4,2,"aurora, volto",2021-07-03,2021-07-08
-Petchesi-Iulian,8,0,1,plone.api,2021-01-30,2021-01-31
-faustoonna,8,8,1,pastanaga-angular,2021-08-31,2021-11-02
+kreafox,8,4,2,"aurora, volto",2021-09-01,2021-10-31
 talarias,8,1,4,"Products.CMFPlone, mockup, plone.app.layout, plonetheme.barceloneta",2021-06-23,2021-12-30
-frisi,7,7,4,"bobtemplates.plone, buildout.coredev, plone.app.event, plone.formwidget.namedfile",2021-05-31,2021-09-09
-jugmac00,7,4,4,"Products.isurlinportal, meta, plone.recipe.zope2instance, plone.testing",2021-02-11,2021-08-06
+faustoonna,8,8,1,pastanaga-angular,2021-08-31,2021-11-02
+Petchesi-Iulian,8,0,1,plone.api,2021-01-30,2021-01-31
 Rudd-O,7,1,3,"buildout.coredev, plone.app.linkintegrity, plone.outputfilters",2021-12-12,2021-12-28
-vangheem,6,7,3,"guillotina, guillotina_gcloudstorage, plone.formwidget.namedfile",2018-11-14,2021-04-20
-macagua,6,0,2,"aurora, volto",2021-11-08,2021-11-08
-laulaz,6,0,5,"buildout.coredev, plone.app.content, plone.app.contenttypes, plone.app.theming, plone.gallery",2021-03-05,2021-12-02
+jugmac00,7,4,4,"Products.isurlinportal, meta, plone.recipe.zope2instance, plone.testing",2021-02-11,2021-08-06
+frisi,7,7,4,"bobtemplates.plone, buildout.coredev, plone.app.event, plone.formwidget.namedfile",2021-05-31,2021-09-09
 tschorr,6,3,2,"Products.CMFPlone, plone.autoinclude",2021-02-11,2021-02-27
-Gomez,5,2,2,"mockup, plone.app.multilingual",2021-01-09,2021-02-13
-razvanMiu,5,2,3,"aurora, critical-css-cli, volto",2021-03-25,2021-08-17
+laulaz,6,0,5,"buildout.coredev, plone.app.content, plone.app.contenttypes, plone.app.theming, plone.gallery",2021-03-05,2021-12-02
+macagua,6,0,2,"aurora, volto",2021-11-08,2021-11-08
+vangheem,6,7,3,"guillotina, guillotina_gcloudstorage, plone.formwidget.namedfile",2018-11-14,2021-04-20
 valentinab25,5,4,1,volto-addon-ci,2021-05-20,2021-05-28
+razvanMiu,5,2,3,"aurora, critical-css-cli, volto",2021-03-25,2021-08-17
 balavec,5,2,2,"Products.CMFPlone, plone.app.mosaic",2021-02-25,2021-04-14
+Gomez,5,2,2,"mockup, plone.app.multilingual",2021-01-09,2021-02-13
 djowett,5,4,4,"ansible-playbook, ansible.plone_server, buildout.coredev, plone.app.debugtoolbar",2018-09-11,2021-12-20
-duchenean,4,0,3,"buildout.coredev, plone.app.textfield, plone.app.z3cform",2021-10-04,2021-11-25
 1bsilver,4,1,2,"aurora, volto",2021-07-09,2021-07-09
+duchenean,4,0,3,"buildout.coredev, plone.app.textfield, plone.app.z3cform",2021-10-04,2021-11-25
 2silver,4,1,1,plone.app.iterate,2021-05-19,2021-05-20
-polyester,3,2,4,"buildout.coredev, documentation, papyrus, training",2021-10-23,2021-10-29
-sallner,3,0,1,meta,2021-02-01,2021-03-19
-gbastien,3,1,1,plone.restapi,2021-09-24,2021-09-24
-jlp0328,3,3,1,pastanaga-angular,2021-01-05,2021-01-13
-niglesiaszingoni,3,1,1,pastanaga-angular,2021-01-11,2021-01-11
+cleberjsantos,3,1,3,"2023.ploneconf.org, plone.nl, ploneconf.org",2021-10-05,2021-10-05
 arky,3,3,2,"plone.restapi, training",2021-06-26,2021-11-03
+mtrebron,3,3,2,"ploneorg.core, ploneorg.theme",2021-02-21,2021-03-27
 wolbernd,3,1,1,plone.app.caching,2021-11-23,2021-11-24
 pigeonflight,3,1,3,"aurora, training, volto",2021-03-17,2021-11-21
 agroszer,3,0,1,meta,2021-07-29,2021-08-16
-cleberjsantos,3,1,3,"2023.ploneconf.org, plone.nl, ploneconf.org",2021-10-05,2021-10-05
-mtrebron,3,3,2,"ploneorg.core, ploneorg.theme",2021-02-21,2021-03-27
+sallner,3,0,1,meta,2021-02-01,2021-03-19
+gbastien,3,1,1,plone.restapi,2021-09-24,2021-09-24
+niglesiaszingoni,3,1,1,pastanaga-angular,2021-01-11,2021-01-11
+jlp0328,3,3,1,pastanaga-angular,2021-01-05,2021-01-13
+polyester,3,2,4,"buildout.coredev, documentation, papyrus, training",2021-10-23,2021-10-29
 bduncan137,3,2,3,"buildout.coredev, plone.app.caching, plone.app.drafts",2021-03-10,2021-09-27
+reebalazs,2,1,2,"aurora, volto",2021-12-01,2021-12-01
 MarcoCouto,2,1,2,"aurora, volto",2021-12-13,2021-12-13
 jimbiscuit,2,1,2,"aurora, volto",2021-12-13,2021-12-13
 instification,2,1,2,"aurora, volto",2021-12-30,2021-12-30
-reebalazs,2,1,2,"aurora, volto",2021-12-01,2021-12-01
-damiDev8,2,1,2,"aurora, volto",2021-03-03,2021-03-03
-jaroel,2,6,7,"Products.CMFPlone, buildout.coredev, plone.app.contenttypes, plone.app.multilingual, plone.app.testing, plone.dexterity, plone.supermodel",2021-01-26,2021-08-18
-alecghica,2,1,2,"aurora, volto",2021-03-11,2021-03-11
+gogobd,2,1,1,plone.app.multilingualindexes,2021-06-01,2021-06-01
+daggelpop,2,1,1,Products.CMFPlone,2021-08-18,2021-08-19
 sauzher,2,2,2,"plone-haproxy, plone.app.themingplugins",2021-10-29,2021-11-09
 jotare,2,2,1,guillotina,2021-07-19,2021-11-08
+damiDev8,2,1,2,"aurora, volto",2021-03-03,2021-03-03
+fayasnoushad,2,0,1,buildout.coredev,2021-09-28,2021-09-28
+jaroel,2,6,7,"Products.CMFPlone, buildout.coredev, plone.app.contenttypes, plone.app.multilingual, plone.app.testing, plone.dexterity, plone.supermodel",2021-01-26,2021-08-18
+mliebischer,2,1,2,"buildout.coredev, plone.app.multilingual",2021-03-23,2021-10-15
+csenger,2,1,2,"aurora, volto",2021-04-08,2021-04-08
+AlexBueckig,2,1,2,"aurora, volto",2021-04-07,2021-04-07
 danielamormocea,2,1,2,"aurora, volto",2021-08-18,2021-08-18
 terapyon,2,1,2,"aurora, volto",2021-09-20,2021-09-20
-daggelpop,2,1,1,Products.CMFPlone,2021-08-18,2021-08-19
-iham,2,1,1,plone.app.contenttypes,2021-10-30,2021-11-05
-fayasnoushad,2,0,1,buildout.coredev,2021-09-28,2021-09-28
-mliebischer,2,1,2,"buildout.coredev, plone.app.multilingual",2021-03-23,2021-10-15
-AlexBueckig,2,1,2,"aurora, volto",2021-04-07,2021-04-07
-csenger,2,1,2,"aurora, volto",2021-04-08,2021-04-08
-gogobd,2,1,1,plone.app.multilingualindexes,2021-06-01,2021-06-01
 deiferni,2,2,1,plone.restapi,2021-04-30,2021-05-03
-mariushegele,1,0,1,buildout.coredev,2021-10-15,2021-10-15
+alecghica,2,1,2,"aurora, volto",2021-03-11,2021-03-11
+iham,2,1,1,plone.app.contenttypes,2021-10-30,2021-11-05
 cjwatson,1,0,1,meta,2021-01-05,2021-01-05
-valipod,1,1,1,plone.restapi,2021-07-05,2021-07-05
-vincentfretin,1,0,1,buildout.coredev,2021-07-28,2021-07-28
-malthe,1,0,1,Products.CMFPlone,2017-04-18,2017-04-18
-MatthewWilkes,1,1,1,Products.CMFPlone,2021-09-11,2021-09-11
-zopyx,1,0,1,planet.plone.org,2021-10-14,2021-10-14
 veit,1,0,1,planet.plone.org,2021-01-16,2021-01-16
-reinhardt,1,2,2,"plone.app.caching, plone.app.iterate",2021-04-20,2021-04-20
-jianaijun,1,1,1,guillotina,2021-06-12,2021-06-12
+valipod,1,1,1,plone.restapi,2021-07-05,2021-07-05
+mariushegele,1,0,1,buildout.coredev,2021-10-15,2021-10-15
+vincentfretin,1,0,1,buildout.coredev,2021-07-28,2021-07-28
 wfennie,1,0,1,marketing-communications,2021-07-12,2021-07-12
+zopyx,1,0,1,planet.plone.org,2021-10-14,2021-10-14
 craftsbyshuvro,1,1,1,Products.Archetypes,2021-04-22,2021-04-22
+maethu,1,0,1,plone.formwidget.recaptcha,2021-07-23,2021-07-23
+malthe,1,0,1,Products.CMFPlone,2017-04-18,2017-04-18
 julienCarret,1,12,1,pastanaga-angular,2021-12-09,2021-12-09
-Rotonen,1,1,1,plone.app.dexterity,2019-05-14,2019-05-14
 basvanberckel,1,1,1,training,2021-04-19,2021-04-19
+Rotonen,1,1,1,plone.app.dexterity,2019-05-14,2019-05-14
 robdayz,1,0,1,plone.volto,2021-04-26,2021-04-26
+jianaijun,1,1,1,guillotina,2021-06-12,2021-06-12
+reinhardt,1,2,2,"plone.app.caching, plone.app.iterate",2021-04-20,2021-04-20
+MatthewWilkes,1,1,1,Products.CMFPlone,2021-09-11,2021-09-11
 michaellaunay,1,0,1,plone.app.portlets,2021-09-24,2021-09-24
 rexalex,0,1,1,volto,,
-svx,0,5,3,"guillotina, plonecli, volto",,
-raulclay,0,2,1,pastanaga-angular,,
-gamboz,0,1,1,plone.app.dexterity,,
-mck9,0,1,1,documentation,,
 mikejmets,0,1,1,documentation,,
-albertcasado,0,1,1,pastanaga-angular,,
+mck9,0,1,1,documentation,,
 dgsmith2,0,2,1,pastanaga-angular,,
+raulclay,0,2,1,pastanaga-angular,,
 telshock,0,1,1,plone.app.multilingual,,
-mpellerin42,0,79,1,pastanaga-angular,,
-andreesg,0,2,2,"plone.app.discussion, plone.contentrules",,
+albertcasado,0,1,1,pastanaga-angular,,
+gamboz,0,1,1,plone.app.dexterity,,
 ghost,0,2,1,plonetheme.barceloneta,,
-jihaisse,0,1,1,plone.app.portlets,,
 sgeulette,0,1,1,plone.app.robotframework,,
 woolyseal,0,1,1,plone.app.z3cform,,
+andreesg,0,2,2,"plone.app.discussion, plone.contentrules",,
+jihaisse,0,1,1,plone.app.portlets,,
 pfreixes,0,1,1,guillotina,,
-lferran,0,8,1,guillotina,,
-icemac,0,2,2,"Products.PloneHotfix20210518, plone.recipe.zope2instance",,
 smcmahon,0,1,1,ansible-playbook,,

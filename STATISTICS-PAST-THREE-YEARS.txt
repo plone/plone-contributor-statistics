@@ -1,7 +1,7 @@
 # Three-Year Summary Results (2022-2024)
 
 - 55 total organisations tracked across 3 years
-- 29,496 total commits and 6,180 pull requests
+- 29,588 total commits and 6,180 pull requests
 - 258 unique contributors across all organisations
 - File generated: summary-past-three-years-2022-2024.csv
 
@@ -59,4 +59,4 @@ Not mapped to an organisation: 356 PRs
 9. Rohberg: 794 commits
 10. Derico: 740 commits
 
-Not mapped to an organisation: 1,229 commits
+Not mapped to an organisation: 1,231 commits

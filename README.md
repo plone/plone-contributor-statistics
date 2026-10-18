@@ -154,6 +154,8 @@ make check
 
 - `organisations.csv` - Maps contributors to organisations
 - Columns: `Organisation`, `Team` (semicolon-separated GitHub usernames)
+- `commit_authors.csv` - The people behind commit emails that GitHub does not link to an account (`email`, `github_username`, `name`, `source`)
+- `account_aliases.csv` - Second GitHub accounts of a person, counted for the main account (`alias`, `github_username`, `source`)
 
 ## Key Features
 
@@ -307,7 +309,11 @@ For each repository, the commits and the closed pull requests are fetched **once
 
 The commits are read from local clones in `.cache/repositories/` (`git_history.py`). The clones are bare and treeless (commits only, no files), and are updated on the next run. GitHub links a commit to the account that has its author email; the collector looks up each email once via the GraphQL API. The pull requests come from the REST API. A run over all years needs a few thousand API requests.
 
-Commits without a GitHub account linked to their email, and bot accounts (type `Bot`, or listed in `bot_accounts.csv`), are not counted. This affects many commits from the CVS and SVN times, whose author emails are like `name@localhost` (#69).
+Bot accounts (type `Bot`, or listed in `bot_accounts.csv`) are not counted.
+
+Many commits have an email that GitHub does not link to an account: from the CVS and SVN times (`name@localhost`), or old company addresses that are not on the person's account today. `commit_authors.csv` maps these emails to the GitHub login, or to the person's name if they have no GitHub account; they are then counted under that name. Each entry has a source. Commits with an email that is in neither GitHub nor this file are not counted (#69).
+
+`account_aliases.csv` merges the second account of a person into the main account, for commits and pull requests, when there is clear evidence that it is the same person.
 
 ### Repositories
 
