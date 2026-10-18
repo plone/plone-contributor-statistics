@@ -96,5 +96,5 @@ Tooling:
 ## Which files are comparable
 
 All contributor files from 2003 to 2025 and all interaction files from 2010 to 2025 were collected with the method of October 2026.
-The recognition report is older, as {doc}`known-limitations` describes.
+The derived data and the reports were regenerated from them, with the summaries ending in 2025.
 Files in `archive/` describe earlier states of the method and data.

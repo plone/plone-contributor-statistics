@@ -63,7 +63,6 @@ PLIPs
 
 Community recognition
 :   The levels published in August 2026 were calculated outside the repository, and they differ from the script's levels on the current data ({doc}`community-recognition`).
-    `reports/community-recognition.md` was generated before the split of Unmapped and independent contributors.
 
 Board of Directors
 :   The organisations come from heuristics on the board members' biographies on plone.org, and the files have no source column.
