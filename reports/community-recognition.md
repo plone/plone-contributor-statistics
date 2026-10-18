@@ -1,6 +1,6 @@
 # Plone Community Recognition Program 2025
 
-*Generated: 2026-10-18 22:16:22*
+*Generated: 2026-10-19 01:25:17*
 
 ## Executive Summary
 
@@ -159,7 +159,7 @@
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| Strategic Sprint | 12.0 | • Beethoven Sprint |
+| Strategic Sprint | 12.0 | • Beethoven Sprint 2025 |
 | Release Manager | 24.0 | • Víctor Fernández de Alba<br>• Timo Stollenwerk |
 | Team Leader | 6.0 | • Fred van Dijk (Admin & Infrastructure Team) |
 | WPD Talk | 4.0 | • Plone Hands On: Customize your site theme through the web with Volto!<br>• Tailwind CSS and Plone<br>• Codename Seven - Sneak Peek to the Successor of Volto<br>• Plone Hands On: Creating a new Plone project |
@@ -173,7 +173,7 @@
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| Strategic Sprint | 12.0 | • Salamina Sprint |
+| Strategic Sprint | 12.0 | • Salamina Sprint 2025 |
 | Team Leader | 6.0 | • Piero Nicolli (Volto Team) |
 | WPD Event | 3.0 | • Organized WPD Event |
 | WPD Talk | 2.0 | • Plone & PWA: il caso Lignano Sabbiadoro - WPD2025 Italia<br>• AUSL Ferrara - uno dei primi siti conformi al modello ASL di Designers Italia - WPD 2025 Italia |
@@ -208,7 +208,7 @@
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| Strategic Sprint | 12.0 | • Bucharest Sprint |
+| Strategic Sprint | 12.0 | • Bucharest Plone Sprint 2025 |
 | WPD Talk | 3.0 | • Select user widget feature in Volto<br>• Volto block style: Start customizing your site through the web<br>• Dynamic Vocabulary Based on Context in Plone |
 | PR Contributions | 10.0 | • Core Member (77.4 PRs/year) |
 | PLIP Contributions | 3.0 | • Occasional PLIP Contributor (2 PLIPs) |
@@ -278,7 +278,7 @@
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| Strategic Sprint | 12.0 | • Alpine City Sprint |
+| Strategic Sprint | 12.0 | • Alpine City Sprint 2025 |
 | WPD Talk | 1.0 | • Mxmake - an opinionated way to use make for development and deployment on Python projects |
 | PR Contributions | 4.0 | • Active Member (49.4 PRs/year) |
 | PLIP Contributions | 3.0 | • Occasional PLIP Contributor (5 PLIPs) |
@@ -320,7 +320,7 @@
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| Strategic Sprint | 12.0 | • Axolote Sprint |
+| Strategic Sprint | 12.0 | • Axolote Sprint 2025 |
 
 ### Nuclia
 

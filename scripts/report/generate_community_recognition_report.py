@@ -164,8 +164,10 @@ def calculate_community_recognition_points(year=YEAR, data_dir=paths.ORGANISATIO
     #    an entity gets points for at most one sprint per year
     try:
         rewarded = set()
-        with open(f'{community}/{year}-strategic-sprints.csv', 'r') as f:
+        with open(f'{community}/{year}-sprints.csv', 'r') as f:
             for row in csv.DictReader(f):
+                if row['Level'] != 'strategic':
+                    continue
                 orgs = [normalize_organization_name(o.strip()) for o in row['Organisation'].split(';') if o.strip()]
                 sprint = row['Sprint'].strip()
                 for org in orgs:
@@ -175,7 +177,7 @@ def calculate_community_recognition_points(year=YEAR, data_dir=paths.ORGANISATIO
                     org_details[org]['Strategic Sprint'].append(sprint)
                 rewarded.update(orgs)
     except FileNotFoundError:
-        print(f"Warning: {year}-strategic-sprints.csv not found")
+        print(f"Warning: {year}-sprints.csv not found")
 
     # 2. Release Managers - 12 points per person
     try:

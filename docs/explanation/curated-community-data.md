@@ -30,13 +30,28 @@ Some files don't have a source column yet, such as the 2025 files and the podcas
 Several kinds of curated data depend on a definition, and the definitions follow the Plone Foundation:
 
 - A Board member is anyone the Board page of the term lists as a director or an officer, such as the treasurer, the secretary or the executive director, with or without a vote; advisory seats don't count.
-- A strategic sprint is a sprint that the Board designated as strategic, as recorded in the Board minutes.
+- A strategic sprint is a sprint that the Board designated as strategic, that a team declared strategic under the Board's procedure, or that the Foundation funded, as recorded in the Board minutes.
+  A sprint that the Board funded at the community level, or called not strategic, is a community sprint.
+  The sprint files list all known sprints, and say which were strategic.
 - A release manager is someone approved by the Board or listed on the Release Team page.
 - A team leader is someone named as the team's lead in the Board minutes or on the team's page, or who represented the team at the Steering Circle, the meeting of the team leads.
   A team can have several leaders in a year.
   Board committees such as the IP or Trademark Committee, programmes such as Google Summer of Code, and the Release Team, whose release managers count on their own, are not teams in this sense.
 - An appointment by the Board counts until a source records a successor or an end.
 - World Plone Day events count when they were held in person.
+
+## The rules for sprints changed over time
+
+Plone sprints are older than the Foundation's rules for them.
+The first sprint took place in Bern in February 2003, and many followed without any designation.
+
+The Board first discussed strategic sprints in 2009 and 2010, and funded the first one in 2011.
+From late 2012, it budgeted strategic sprints, proposed by the teams, next to community sprints at a much lower level ([minutes of November 29, 2012](https://plone.org/foundation/meetings/minutes/2012/minutes-for-november-29-2012)).
+The sponsorship policy said from 2013 that what counts as strategic "is in general decided by the various teams within the community" ([policy page of 2013](https://web.archive.org/web/20130211040131/http://plone.org/foundation/event-sponsorship/plone-event-sponsorship-policy)).
+From December 2021, the Board graded the funding by size, from community to small, large and mega sprints ([minutes of December 9, 2021](https://plone.org/foundation/meetings/minutes/2021/plone-foundation-board-minutes-december-9-2021)).
+Since March 2025, a sprint must serve the roadmap by shipping PLIPs to get funding at all ([minutes of March 6, 2025](https://plone.org/foundation/meetings/minutes/2025/plone-foundation-board-minutes-march-6-2025)).
+
+So a sprint before 2011 has no level, and from 2011 on the level follows the rules of its time.
 
 ## Why scripts don't fetch curated data
 

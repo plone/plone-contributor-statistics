@@ -46,9 +46,10 @@ def test_five_years_end_with_the_recognition_year():
 
 
 def test_strategic_sprint_points_are_split_and_given_once_per_year(data):
-    community(data, 'strategic-sprints', 'Sprint,Organiser/Host,Organisation\n'
-                                         'Beethoven Sprint,Jakob Kahl,kitconcept GmbH;RedTurtle\n'
-                                         'Second Sprint,Timo Stollenwerk,kitconcept GmbH\n')
+    community(data, 'sprints', 'Sprint,Start,End,Location,Organiser(s),Organisation,Level,Source,Notes\n'
+                               'Beethoven Sprint,,,Bonn,Jakob Kahl,kitconcept GmbH;RedTurtle,strategic,https://plone.org,\n'
+                               'Second Sprint,,,Bonn,Timo Stollenwerk,kitconcept GmbH,strategic,https://plone.org,\n'
+                               'Community Sprint,,,Ferrara,Mauro,RedTurtle,community,https://plone.org,\n')
     result = points(data)
     assert result['kitconcept GmbH']['Strategic Sprint'] == 6
     assert result['RedTurtle']['Strategic Sprint'] == 6

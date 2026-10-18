@@ -27,7 +27,7 @@ All curated files are in `curated/community-contributions/`, one file per year.
 | Plone Conference trainings | 2020–2025 | `curated/community-contributions/YYYY-plone-conference-trainings.csv` | 2020–2024 |
 | Release managers | 2004–2025 | `curated/community-contributions/YYYY-release-managers.csv` | 2004–2025 |
 | Team leaders | 2004–2025 | `curated/community-contributions/YYYY-team-leaders.csv` | 2004–2025 |
-| Strategic sprints | 2020–2025 | `curated/community-contributions/YYYY-strategic-sprints.csv` | 2020–2024 |
+| Sprints | 2003–2025 | `curated/community-contributions/YYYY-sprints.csv` | 2003–2025 |
 | Podcast hosts | 2020–2025 | `curated/community-contributions/YYYY-podcasts.csv` | none |
 | World Plone Day events | 2021–2025 | `curated/community-contributions/YYYY-world-plone-day-event.csv` | `Reference` column |
 | World Plone Day talks | 2021–2025 | `curated/community-contributions/YYYY-world-plone-day-talks.csv` | `YouTube ID` column |
