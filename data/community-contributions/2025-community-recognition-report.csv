@@ -1,37 +1,38 @@
 Organisation,Recognition Level,Strategic Sprint,Release Manager,Team Leader,Board Member,Podcast Host,WPD Event,WPD Talk,Conference Organization,Training Session,PR Contributions,PLIP Contributions,Total Points
-kitconcept GmbH,Platinum Contributor,12.0,24.0,0,0,0,0,4.0,0,21.0,20.0,15.0,96.0
-RedTurtle,Platinum Contributor,12.0,0,6.0,0,0,3.0,2.0,0,3.0,10.0,3.0,39.0
-PY76,Platinum Contributor,0,12.0,6.0,0,0,0,0,0,0,4.0,15.0,37.0
-University of Jyväskylä,Gold Contributor,0,0,0,0,0,0,3.0,24.0,6.0,0,0,33.0
-Klein & Partner KG,Gold Contributor,12.0,0,0,0,0,0,1.0,0,0,10.0,9.0,32.0
-Nuclia,Gold Contributor,0,0,0,6.0,0,0,1.0,0,0,10.0,15.0,32.0
+kitconcept GmbH,Platinum Contributor,12.0,24.0,0,0,0,0,4.0,0,14.0,20.0,15.0,89.0
+RedTurtle,Platinum Contributor,12.0,0,6.0,0,0,3.0,2.0,0,2.0,10.0,0,35.0
+University of Jyväskylä,Gold Contributor,0,0,0,0,0,0,3.0,24.0,4.0,0,3.0,34.0
+PY76,Gold Contributor,0,12.0,6.0,0,0,0,0,0,0,10.0,3.0,31.0
 Eau de Web,Gold Contributor,12.0,0,0,0,0,0,3.0,0,0,10.0,3.0,28.0
 Steve Piercy - Website Builder,Gold Contributor,0,0,0,6.0,0,0,1.0,0,0,20.0,0,27.0
 Kombinat,Gold Contributor,0,0,6.0,0,0,0,0,0,0,20.0,0,26.0
-Syslab,Gold Contributor,0,0,0,0,0,0,0,0,0,10.0,15.0,25.0
 Interlegis Program (Senado Federal),Silver Contributor,0,0,6.0,12.0,0,3.0,3.0,0,0,0,0,24.0
-Zest Software,Silver Contributor,0,0,0,0,0,0,0,0,0,20.0,0,20.0
-Juizi,Silver Contributor,0,0,6.0,0,0,0,4.0,0,9.0,0,0,19.0
-der Freitag,Silver Contributor,0,0,0,0,0,0,0,0,0,10.0,9.0,19.0
-Starzel,Silver Contributor,0,0,0,0,0,0,0,0,6.0,4.0,3.0,13.0
-Codesyntax,Silver Contributor,0,0,0,6.0,0,0,2.0,0,0,4.0,0,12.0
+Zest Software,Silver Contributor,0,0,0,0,0,0,0,0,0,20.0,3.0,23.0
+der Freitag,Silver Contributor,0,0,0,0,0,0,0,0,0,20.0,3.0,23.0
+Klein & Partner KG,Silver Contributor,12.0,0,0,0,0,0,1.0,0,0,4.0,3.0,20.0
+Codesyntax,Silver Contributor,0,0,0,6.0,0,0,2.0,0,0,10.0,0,18.0
+Juizi,Silver Contributor,0,0,6.0,0,0,0,4.0,0,6.0,0,0,16.0
+Syslab,Silver Contributor,0,0,0,0,0,0,0,0,0,10.0,3.0,13.0
 UNAM,Silver Contributor,12.0,0,0,0,0,0,0,0,0,0,0,12.0
-Vangheem,Bronze Contributor,0,0,0,0,0,0,0,0,0,0,9.0,9.0
-Affinitic,Bronze Contributor,0,0,0,6.0,0,0,0,0,0,2.0,0,8.0
+Nuclia,Silver Contributor,0,0,0,6.0,0,0,1.0,0,0,4.0,0,11.0
+Starzel,Silver Contributor,0,0,0,0,0,0,0,0,4.0,4.0,3.0,11.0
+Serpro,Silver Contributor,0,0,0,0,0,0,0,0,0,10.0,0,10.0
 Agitator,Bronze Contributor,0,0,0,0,0,0,0,0,0,4.0,3.0,7.0
 Cosent,Bronze Contributor,0,0,0,6.0,0,0,1.0,0,0,0,0,7.0
-Derico,Bronze Contributor,0,0,0,0,0,0,0,0,0,4.0,3.0,7.0
-KU Leuven,Bronze Contributor,0,0,0,0,0,0,0,0,6.0,0,0,6.0
+Affinitic,Bronze Contributor,0,0,0,6.0,0,0,0,0,0,0,0,6.0
 Simples Consultoria,Bronze Contributor,0,0,0,0,0,3.0,3.0,0,0,0,0,6.0
-Onna,Bronze Contributor,0,0,0,0,0,0,0,0,0,4.0,0,4.0
+Derico,Bronze Contributor,0,0,0,0,0,0,0,0,0,4.0,0,4.0
+KU Leuven,Bronze Contributor,0,0,0,0,0,0,0,0,4.0,0,0,4.0
+Ludwig Maximilian University Munich,Bronze Contributor,0,0,0,0,0,0,1.0,0,0,0,3.0,4.0
 Rohberg,Bronze Contributor,0,0,0,0,0,0,0,0,0,4.0,0,4.0
-Serpro,Bronze Contributor,0,0,0,0,0,0,0,0,0,4.0,0,4.0
-CCC,Bronze Contributor,0,0,0,0,0,0,0,0,3.0,0,0,3.0
-DBA Informatica Notariaal,Bronze Contributor,0,0,0,0,0,0,0,0,0,0,3.0,3.0
-IHAM,Bronze Contributor,0,0,0,0,0,0,0,0,0,0,3.0,3.0
-Kim Nguyen,Bronze Contributor,0,0,0,0,0,0,0,0,0,0,3.0,3.0
+Markus Hilbert (independent),Bronze Contributor,0,0,0,0,0,0,0,0,0,0,3.0,3.0
 Plone Foundation,Bronze Contributor,0,0,0,0,0,0,3.0,0,0,0,0,3.0
-Zopyx,Bronze Contributor,0,0,0,0,0,0,0,0,0,0,3.0,3.0
+Pretaweb,Bronze Contributor,0,0,0,0,0,0,0,0,0,0,3.0,3.0
+Rob Gietema (independent),Bronze Contributor,0,0,0,0,0,0,0,0,0,0,3.0,3.0
+Sixfeetup,Bronze Contributor,0,0,0,0,0,0,0,0,0,0,3.0,3.0
+CCC,Community Contributor,0,0,0,0,0,0,0,0,2.0,0,0,2.0
+Iskra,Community Contributor,0,0,0,0,0,0,0,0,0,2.0,0,2.0
+Onna,Community Contributor,0,0,0,0,0,0,0,0,0,2.0,0,2.0
 PloneGov-BR,Community Contributor,0,0,0,0,0,0,2.0,0,0,0,0,2.0
 Uni. Hospital Dresden,Community Contributor,0,0,0,0,0,0,0,0,0,2.0,0,2.0
 AUSL Romagna,Community Contributor,0,0,0,0,0,0,1.0,0,0,0,0,1.0
@@ -40,7 +41,6 @@ CMS Communications Inc.,Community Contributor,0,0,0,0,0,0,1.0,0,0,0,0,1.0
 Er.GO,Community Contributor,0,0,0,0,0,0,1.0,0,0,0,0,1.0
 Giallocobalto,Community Contributor,0,0,0,0,0,0,1.0,0,0,0,0,1.0
 IRR,Community Contributor,0,0,0,0,0,0,1.0,0,0,0,0,1.0
-Ludwig Maximilian University Munich,Community Contributor,0,0,0,0,0,0,1.0,0,0,0,0,1.0
 Plone Foundation (community volunteer),Community Contributor,0,0,0,0,0,0,1.0,0,0,0,0,1.0
 RIOS (Rete Italiana Open Source),Community Contributor,0,0,0,0,0,0,1.0,0,0,0,0,1.0
 Regione Emilia-Romagna,Community Contributor,0,0,0,0,0,0,1.0,0,0,0,0,1.0
