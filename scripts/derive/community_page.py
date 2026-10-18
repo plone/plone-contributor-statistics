@@ -14,7 +14,7 @@ import unicodedata
 from collections import defaultdict
 
 from scripts.lib import community, paths, people
-from scripts.lib.mappings import read_organisations
+from scripts.lib.mappings import organisation_names
 from scripts.lib.years import RECOGNITION_YEAR
 from scripts.report import generate_community_recognition_report as recognition
 
@@ -63,11 +63,14 @@ def code_key(index, username):
 def people_of_year(year, index, records):
     found = defaultdict(lambda: {'commits': 0, 'pull_requests': 0, 'roles': set()})
     for username, commits, pulls in code_work(year):
-        person = found[code_key(index, username)]
+        key = code_key(index, username)
+        if key is None:
+            continue
+        person = found[key]
         person['commits'] += commits
         person['pull_requests'] += pulls
     for record in records:
-        key = index.key(record.person, record.handle)
+        key = index.key(record.person, record.handle, community.split(record.organisation))
         if key:
             found[key]['roles'].add(record.label)
     return [{'id': key, 'commits': value['commits'], 'pull_requests': value['pull_requests'],
@@ -82,8 +85,19 @@ def organisations_of_year(year, records, events):
 
 
 def event_data(event):
-    return {'kind': event.kind, 'name': event.name, 'organisations': list(event.organisations),
+    return {'kind': event.kind, 'name': event.name,
+            'organisations': [o for o in event.organisations if o != recognition.UNMAPPED],
             'sources': list(event.sources)}
+
+
+def merged(contributions):
+    """Equal contributions as one, e.g. a training whose organisation cell names one organisation twice."""
+    points = {}
+    for c in contributions:
+        key = (c.text, c.file, c.line, c.source)
+        points[key] = points.get(key, 0) + c.points
+    return [{'text': text, 'points': rounded(value), 'file': file, 'line': line, 'source': source}
+            for (text, file, line, source), value in points.items()]
 
 
 def levels_data(levels):
@@ -109,8 +123,7 @@ def organisation_data(name, categories, found, levels, history_years, per_year):
         'categories': {
             category: {
                 'points': rounded(points),
-                'contributions': [{'text': c.text, 'points': rounded(c.points), 'file': c.file, 'line': c.line,
-                                   'source': c.source} for c in found.get(category, [])],
+                'contributions': merged(found.get(category, [])),
             } for category, points in sorted(categories.items())},
         'history': {str(year): per_year[year].get(name, {'commits': 0, 'pull_requests': 0, 'roles': 0, 'events': 0})
                     for year in history_years},
@@ -154,7 +167,7 @@ def build_page_data(year=RECOGNITION_YEAR):
     records = {y: community.community_records(y) for y in all_years}
     events = {y: community.events(y) for y in all_years}
     index = people.build_person_index([r for y in all_years for r in records[y]],
-                                      organisations=set(read_organisations().values()))
+                                      organisations=set(organisation_names().values()))
 
     per_person = {y: people_of_year(y, index, records[y]) for y in all_years}
     per_organisation = {y: organisation_history(y, records[y], events[y]) for y in all_years}

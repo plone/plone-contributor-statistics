@@ -24,10 +24,23 @@ def normalise(name):
     return ' '.join(plain.lower().split())
 
 
-def is_group(name, organisations):
-    """True for entries in person columns that are not one person."""
+def is_group(name, organisations, row_organisations=()):
+    """True for entries in person columns that are not one person.
+
+    Groups are several entries, teams, organisations, and entries that name one of
+    the row's organisations, such as "Mathematics Institute at UNAM"; a person
+    with their organisation in parentheses, such as "Alex (Juizi)", is a person.
+    """
     name = name.strip()
-    return ';' in name or name.lower().endswith(' team') or name in organisations
+    if ';' in name or name.lower().endswith(' team') or name in organisations:
+        return True
+    for organisation in row_organisations:
+        if name.casefold() == organisation.casefold():
+            return True
+        word = re.escape(organisation)
+        if re.search(rf'(?<!\w){word}(?!\w)', name, re.I) and not re.search(rf'\({word}\)', name, re.I):
+            return True
+    return False
 
 
 class PersonIndex:
@@ -37,10 +50,10 @@ class PersonIndex:
         self.logins_by_name = logins_by_name
         self.organisations = organisations
 
-    def key(self, name='', handle=''):
+    def key(self, name='', handle='', row_organisations=()):
         if handle.strip():
             return handle.strip().casefold()
-        if not name.strip() or is_group(name, self.organisations):
+        if not name.strip() or is_group(name, self.organisations, row_organisations):
             return None
         normalised = normalise(name)
         return self.logins_by_name.get(normalised, f'name:{normalised}')

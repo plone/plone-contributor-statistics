@@ -119,3 +119,42 @@ def test_data_is_deterministic(repo):
     write(paths.contributors_file(2025), CONTRIBUTORS + 'tisto,10,5\n')
     first = json.dumps(community_page.build_page_data(2025), sort_keys=True)
     assert json.dumps(community_page.build_page_data(2025), sort_keys=True) == first
+
+
+def test_organisation_without_a_person_counts_as_active(repo):
+    # A talk with an organisation but no speaker still counts for the organisation
+    write(paths.COMMUNITY / '2025-world-plone-day-talks.csv',
+          'Video Title,Speaker(s),Organisation,Event / Location,Type,YouTube ID\nA talk,,kitconcept GmbH,Online,Talk,v1\n')
+    data = community_page.build_page_data(2025)
+    assert data['headline']['year']['organisations'] == 2  # RedTurtle (conference) and kitconcept (talk)
+    assert data['organisations']['kitconcept-gmbh']['history']['2025']['roles'] == 1
+
+
+def test_organisations_in_person_columns_are_not_people(repo):
+    write(paths.ORGANISATIONS, 'Organisation,Team\nJuizi,\nkitconcept GmbH,tisto\nPloneGov-BR,\nRedTurtle,mamico\n'
+                               'UNAM,\n')
+    write(paths.COMMUNITY / '2025-strategic-sprints.csv',
+          'Sprint,Organiser/Host,Organisation,Source\nSprint A,PloneGov-BR,PloneGov-BR,https://a\n'
+          'Sprint B,Mathematics Institute at UNAM,UNAM,https://b\nSprint C,Alex (Juizi),Juizi,https://c\n')
+    ids = [p['id'] for p in community_page.build_page_data(2025)['people']['2025']]
+    assert ids == ['name:alex (juizi)']
+
+
+def test_unmapped_is_not_listed_as_an_event_organiser(repo):
+    write(paths.COMMUNITY / '2025-plone-conference.csv', 'Organisation\nUnmapped\nRedTurtle\n')
+    [conference] = community_page.build_page_data(2025)['history']['2025']['events']
+    assert conference['organisations'] == ['RedTurtle']
+
+
+def test_equal_contributions_are_merged(repo):
+    write(paths.COMMUNITY / '2025-plone-conference-trainings.csv',
+          'Title,Trainer(s),GitHub Handle(s),Organisation,Source\n'
+          'Volto,Timo;Rob,tisto;robgietema,kitconcept GmbH;kitconcept GmbH,https://t\n')
+    [training] = community_page.build_page_data(2025)['organisations']['kitconcept-gmbh']['categories'][
+        'Training Session']['contributions']
+    assert training['points'] == 4
+
+
+def test_commit_author_named_like_an_organisation_is_skipped(repo):
+    write(paths.contributors_file(2025), CONTRIBUTORS + 'RedTurtle Team,3,0\nalice,1,1\n')
+    assert [p['id'] for p in community_page.build_page_data(2025)['people']['2025']] == ['alice']

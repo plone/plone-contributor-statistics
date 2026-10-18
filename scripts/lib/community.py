@@ -81,6 +81,9 @@ def community_records(year, community_dir=paths.COMMUNITY):
             persons = split(row[person_column])
             handles = split(row.get(handle_column, '')) if handle_column else []
             organisations = split(row.get('Organisation', ''))
+            if not persons and organisations:
+                # Work of an organisation without a named person: counts for the organisation only
+                persons = ['']
             for index, person in enumerate(persons):
                 records.append(Record(
                     kind=kind, year=year, person=person,

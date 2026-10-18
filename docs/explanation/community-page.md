@@ -28,7 +28,7 @@ A person is active in a period if they did code work or community work in it.
 -   Community work is a role or contribution in the curated community data: Board member, team lead, release manager, conference organiser, trainer, World Plone Day talk, sprint organiser, or podcast host, see {doc}`curated-community-data`.
 
 Unmapped people and self-employed people count.
-Entries in person columns that are groups, such as a team, don't count.
+Entries in person columns that are groups, such as a team or an organisation, don't count as people; they count for their organisation.
 
 Code work identifies people by their GitHub login, but most community roles name a person without a login.
 A person is matched to their login where the data links the two: a login column, a link to the person's GitHub profile in the source, the commit author mapping, or the name mapping.
@@ -37,7 +37,7 @@ A person without such a link counts by name, so someone who did both code and co
 ## Organisations active
 
 An organisation is active in a period if its people did code work in it, as the organisation statistics attribute it, or if it is named in community work or as an event organiser.
-Unmapped contributors and self-employed people (`Name (independent)`) are not counted as organisations.
+Unmapped contributors, self-employed people (`Name (independent)`) and `Plone Foundation (community volunteer)` are not counted as organisations.
 
 ## Events
 

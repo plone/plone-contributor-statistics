@@ -3,15 +3,15 @@
   "five_years": {
    "events": 25,
    "organisations": 88,
-   "people": 392
+   "people": 389
   },
   "since_2003": {
-   "people": 976
+   "people": 973
   },
   "year": {
    "events": 7,
-   "organisations": 52,
-   "people": 147
+   "organisations": 53,
+   "people": 145
   }
  },
  "history": {
@@ -22,9 +22,7 @@
     {
      "kind": "plone-conference",
      "name": "Plone Conference 2003",
-     "organisations": [
-      "Unmapped"
-     ],
+     "organisations": [],
      "sources": [
       "https://plone.org/news-and-events/events/plone-conferences/new-orleans-2003"
      ]
@@ -460,9 +458,7 @@
     {
      "kind": "plone-conference",
      "name": "Plone Conference 2006",
-     "organisations": [
-      "Unmapped"
-     ],
+     "organisations": [],
      "sources": [
       "https://plone.org/news-and-events/news/2006/press-release-plone-foundation-announces-plone-conference-2006"
      ]
@@ -798,9 +794,7 @@
     {
      "kind": "plone-conference",
      "name": "Plone Conference 2008",
-     "organisations": [
-      "Unmapped"
-     ],
+     "organisations": [],
      "sources": [
       "https://plone.org/foundation/meetings/membership/2009-membership-meeting/nominations/alex-clark"
      ]
@@ -1114,9 +1108,7 @@
     {
      "kind": "plone-conference",
      "name": "Plone Conference 2011",
-     "organisations": [
-      "Unmapped"
-     ],
+     "organisations": [],
      "sources": [
       "https://plone.org/news-and-events/news/2011/2011PloneConferenceResults"
      ]
@@ -2728,7 +2720,7 @@
      ]
     }
    ],
-   "people_active": 175,
+   "people_active": 174,
    "pull_requests": 2205,
    "team_leads": [
     {
@@ -3093,7 +3085,7 @@
      ]
     }
    ],
-   "people_active": 147,
+   "people_active": 145,
    "pull_requests": 2107,
    "team_leads": [
     {
@@ -5740,7 +5732,7 @@
      "commits": 0,
      "events": 0,
      "pull_requests": 0,
-     "roles": 0
+     "roles": 1
     }
    },
    "level": "Community Contributor",
@@ -6576,14 +6568,7 @@
       {
        "file": "curated/community-contributions/2025-plone-conference-trainings.csv",
        "line": 5,
-       "points": 2.0,
-       "source": null,
-       "text": "Plone 6 Volto Customization for JavaScript Beginners"
-      },
-      {
-       "file": "curated/community-contributions/2025-plone-conference-trainings.csv",
-       "line": 5,
-       "points": 2.0,
+       "points": 4.0,
        "source": null,
        "text": "Plone 6 Volto Customization for JavaScript Beginners"
       },
@@ -6597,28 +6582,14 @@
       {
        "file": "curated/community-contributions/2025-plone-conference-trainings.csv",
        "line": 8,
-       "points": 2.0,
-       "source": null,
-       "text": "Installing and Deploying Plone"
-      },
-      {
-       "file": "curated/community-contributions/2025-plone-conference-trainings.csv",
-       "line": 8,
-       "points": 2.0,
+       "points": 4.0,
        "source": null,
        "text": "Installing and Deploying Plone"
       },
       {
        "file": "curated/community-contributions/2025-plone-conference-trainings.csv",
        "line": 9,
-       "points": 2.0,
-       "source": null,
-       "text": "Customizing the Volto Light Theme"
-      },
-      {
-       "file": "curated/community-contributions/2025-plone-conference-trainings.csv",
-       "line": 9,
-       "points": 2.0,
+       "points": 4.0,
        "source": null,
        "text": "Customizing the Volto Light Theme"
       }
@@ -8458,7 +8429,7 @@
      "commits": 0,
      "events": 1,
      "pull_requests": 0,
-     "roles": 0
+     "roles": 1
     },
     "2014": {
      "commits": 0,
@@ -9068,7 +9039,7 @@
      "commits": 116,
      "events": 1,
      "pull_requests": 44,
-     "roles": 0
+     "roles": 1
     },
     "2020": {
      "commits": 171,
@@ -9098,7 +9069,7 @@
      "commits": 141,
      "events": 2,
      "pull_requests": 52,
-     "roles": 1
+     "roles": 3
     },
     "2025": {
      "commits": 72,
@@ -29682,14 +29653,6 @@
    },
    {
     "commits": 0,
-    "id": "name:plonegov-br",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:sally kleinfeldt",
     "pull_requests": 0,
     "roles": [
@@ -31626,14 +31589,6 @@
    },
    {
     "commits": 0,
-    "id": "name:mathematics institute at unam",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:nicola marighelli",
     "pull_requests": 0,
     "roles": [
@@ -31659,14 +31614,6 @@
    {
     "commits": 0,
     "id": "name:paolo roganti",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:plone jp / cms communications inc.",
     "pull_requests": 0,
     "roles": [
      "Talk"
