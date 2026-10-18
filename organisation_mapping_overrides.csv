@@ -2,8 +2,8 @@ github_username,organisation,from_year,to_year,source
 thet,Syslab,2019,,Entered by Johannes Raggam himself: https://github.com/plone/plone-contributor-statistics/commit/207840e7209f4ee2d5f2d75cbf262a41a19ced0b
 mauritsvanrees,Zest Software,2005,2023,https://py76.be/en (Py76 since 2023 on the side; fully independent since 2024)
 fredvd,Zest Software,2007,2023,"Plone Conference speaker bios 2016-2025, see https://github.com/plone/plone-contributor-statistics/commit/7ed781ae5418187b00a591d00d5f3080c9bea065"
-toalba,Klein & Partner KG,2023,2023,"Intern at Klein & Partner KG in 2023, confirmed by Jens Klein (employer) in #PRNUMBER; https://github.com/toalba"
-jensens,jens quadrat GbR,2003,2004,"Confirmed by Jens Klein himself in #PRNUMBER: jens quadrat GbR in 2003-2004, Klein & Partner KG from 2005; the address jens.klein@jensquadrat.de was still used until 2008"
+toalba,Klein & Partner KG,2023,2023,"Intern at Klein & Partner KG in 2023, confirmed by Jens Klein (employer) in #87 (https://github.com/plone/plone-contributor-statistics/pull/87); https://github.com/toalba"
+jensens,jens quadrat GbR,2003,2004,"Confirmed by Jens Klein himself in #87 (https://github.com/plone/plone-contributor-statistics/pull/87): jens quadrat GbR in 2003-2004, Klein & Partner KG from 2005; the address jens.klein@jensquadrat.de was still used until 2008"
 acatlla,Iskra,2014,2015,Company address @iskra.cat in commits 2014-2015 (example: https://github.com/plone/mockup/commit/919f94339b23d3fa55d642d50257f9807ef1cd4f) (#70)
 ale-rt,RedTurtle,2012,2016,Company address @redturtle.it in commits 2012-2016 (example: https://github.com/plone/plone.app.layout/commit/ccb7a6f0d9e20aa95af70b04111de5274c881e35) (#70)
 allcaps,Zest Software,2014,2016,Company address @zestsoftware.nl in commits 2014-2016 (example: https://github.com/plone/plone.app.dexterity/commit/b0efe07444997ad55714d45e1328a83ad2066e57) (#70)
