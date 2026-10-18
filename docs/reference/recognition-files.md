@@ -36,6 +36,10 @@ The recognition levels and their point ranges.
 Columns
 :   `Level`, `Min Points`, `Max Points`, `Description`.
 
+Rules
+:   The ranges follow each other without gaps; the last level has no `Max Points`.
+    A level applies from its `Min Points` until the next level's minimum is reached, because points can be fractions: 9.5 points are still in the level that ends at 9.
+
 `scripts/report/generate_community_recognition_report.py` reads this file.
 
 ## `derived/community-recognition/YYYY-community-recognition-report.csv`

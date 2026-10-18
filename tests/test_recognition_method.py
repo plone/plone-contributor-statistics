@@ -139,3 +139,25 @@ def test_recognition_warns_on_one_missing_kind(data, capsys):
     community(data, 'plone-conference', 'Organisation\nRedTurtle\n')
     points(data)
     assert '2025-podcasts.csv not found' in capsys.readouterr().out
+
+
+LEVELS = [
+    {'name': 'Bronze', 'min_points': 3, 'max_points': 9, 'description': ''},
+    {'name': 'Silver', 'min_points': 10, 'max_points': float('inf'), 'description': ''},
+]
+
+
+@pytest.mark.parametrize('points, level', [(0, 'No Level'), (2.5, 'No Level'), (3, 'Bronze'), (9, 'Bronze'),
+                                           (9.5, 'Bronze'), (10, 'Silver'), (1000, 'Silver')])
+def test_a_level_applies_from_its_minimum(points, level):
+    # Points can be fractions (split among organisers); 9.5 hasn't reached Silver yet
+    assert recognition.get_recognition_level(points, LEVELS) == level
+
+
+def test_levels_file_has_no_gaps():
+    from pathlib import Path
+    from scripts.lib import paths
+    levels = recognition.load_recognition_levels(Path(__file__).resolve().parent.parent / paths.RECOGNITION_LEVELS)
+    for lower, upper in zip(levels, levels[1:]):
+        assert upper['min_points'] == lower['max_points'] + 1, (lower['name'], upper['name'])
+    assert levels[-1]['max_points'] == float('inf')
