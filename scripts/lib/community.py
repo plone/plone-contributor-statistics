@@ -37,6 +37,8 @@ class Record:
     file: str
     line: int
     source: str
+    # True when the row names several people: its source can't tell whose evidence it is
+    shared: bool = False
 
 
 @dataclass(frozen=True)
@@ -93,7 +95,7 @@ def community_records(year, community_dir=paths.COMMUNITY):
                                   else ';'.join(organisations)),
                     label=label,
                     detail=(row.get(detail_column) or '').strip() if detail_column else '',
-                    file=str(path), line=line, source=_source(kind, row)))
+                    file=str(path), line=line, source=_source(kind, row), shared=len(persons) > 1))
     return records
 
 

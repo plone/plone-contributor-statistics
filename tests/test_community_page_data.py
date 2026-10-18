@@ -159,3 +159,10 @@ def test_equal_contributions_are_merged(repo):
 def test_commit_author_named_like_an_organisation_is_skipped(repo):
     write(paths.contributors_file(2025), CONTRIBUTORS + 'RedTurtle Team,3,0\nalice,1,1\n')
     assert [p['id'] for p in community_page.build_page_data(2025)['people']['2025']] == ['alice']
+
+
+def test_names_linked_to_logins_are_in_the_data(repo):
+    # The people search finds a person by name when the data links the name to a login
+    write(paths.COMMUNITY / '2025-release-managers.csv',
+          'Name,Github,Organisation,Source\nDavid Glick,davisagli,Unmapped,https://a\n')
+    assert community_page.build_page_data(2025)['people_names'] == {'david glick': 'davisagli'}

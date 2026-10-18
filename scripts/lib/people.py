@@ -66,6 +66,9 @@ def _logins_from_records(records):
         if record.handle.strip():
             yield record.person, record.handle.strip().casefold()
             continue
+        if getattr(record, 'shared', False):
+            # A profile link in a row with several people may belong to any of them
+            continue
         links = PROFILE_LINK.findall(record.source or '')
         if len({link.casefold() for link in links}) == 1:
             yield record.person, links[0].casefold()

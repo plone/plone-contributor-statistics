@@ -80,3 +80,10 @@ def test_conference_is_one_event_per_year(folder):
 def test_missing_kinds_are_no_events(folder):
     folder.mkdir()
     assert community.events(2025, folder) == []
+
+
+def test_records_of_rows_with_several_people_are_shared(folder):
+    write(folder, '2020-sprints.csv', 'Sprint,Start,End,Location,Organiser(s),Organisation,Level,Source,Notes\n'
+          'Sprint A,,,X,Jane;John,RedTurtle,strategic,https://a,\nSprint B,,,X,Joe,Syslab,community,https://b,\n')
+    assert [(r.person, r.shared) for r in community.community_records(2020, folder)] == [
+        ('Jane', True), ('John', True), ('Joe', False)]

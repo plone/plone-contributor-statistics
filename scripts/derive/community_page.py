@@ -205,6 +205,9 @@ def build_page_data(year=RECOGNITION_YEAR):
                  for level in sorted(levels, key=lambda lvl: -lvl['min_points']) if wall[level['name']]],
         'organisations': organisations,
         'people': {str(y): per_person[y] for y in all_years},
+        # Names in the community data that the data links to a login, for the people search
+        'people_names': {name: login for name, login in sorted(index.logins_by_name.items())
+                         if name in {people.normalise(r.person) for y in all_years for r in records[y]}},
         'history': {str(y): history_of_year(y, per_person[y], records[y], events[y]) for y in all_years},
     }
 

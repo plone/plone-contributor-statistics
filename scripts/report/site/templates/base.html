@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Plone community{% endblock %}</title>
+  <meta name="description" content="Who builds Plone: the people, organisations and events of the Plone community, generated from public records.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%230083be'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="static/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">●</span> Plone <span>community</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="#organisations">Organisations</a>
+        <a href="#people">People</a>
+        <a href="#history">History</a>
+        <a href="{{ docs_url }}">Documentation</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+{% block content %}{% endblock %}
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Generated from public records in the
+        <a href="{{ repository }}">plone-contributor-statistics</a> repository.
+        Every number comes from <a href="{{ data_url }}">community-page.json</a>;
+        <a href="{{ docs_url }}explanation/community-page.html">how it is counted</a>.</p>
+      <p><a href="{{ docs_url }}">Documentation</a> ·
+        <a href="{{ docs_url }}how-to/correct-an-organisation-mapping.html">Correct your organisation</a> ·
+        <a href="{{ repository }}/issues">Report a problem</a></p>
+    </div>
+  </footer>
+  <script src="static/site.js"></script>
+</body>
+</html>
