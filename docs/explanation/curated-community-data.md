@@ -27,7 +27,7 @@ Some files don't have a source column yet, such as the 2025 files and the podcas
 
 Several kinds of curated data depend on a definition, and the definitions follow the Plone Foundation:
 
-- A Board member is a voting director listed on the Board page of the term; non-voting officers, such as the treasurer, don't count.
+- A Board member is anyone the Board page of the term lists as a director or an officer, such as the treasurer, the secretary or the executive director, with or without a vote; advisory seats don't count.
 - A strategic sprint is a sprint that the Board designated as strategic, as recorded in the Board minutes.
 - A release manager is someone approved by the Board or listed on the Release Team page.
 - A team leader is someone named in the Board minutes or on the team's page.

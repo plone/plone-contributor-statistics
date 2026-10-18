@@ -1,8 +1,9 @@
-Name,Organisation,Source
-Paul Roeland,CCC,https://plone.org/foundation/board/plone-foundation-board-for-2018-2019
-Chrissy Wainwright,Sixfeetup,https://plone.org/foundation/board/plone-foundation-board-for-2018-2019
-Carol Ganz,Sixfeetup,https://plone.org/foundation/board/plone-foundation-board-for-2018-2019
-Érico Andrei,Wundertax,https://plone.org/foundation/board/plone-foundation-board-for-2018-2019
-Víctor Fernández de Alba,kitconcept GmbH,https://plone.org/foundation/board/plone-foundation-board-for-2018-2019
-Alexander Loechel,Ludwig Maximilian University Munich,https://plone.org/foundation/board/plone-foundation-board-for-2018-2019
-T. Kim Nguyen,Wildcard Corp,https://plone.org/foundation/board/plone-foundation-board-for-2018-2019
+Name,Organisation,Source,Role
+Paul Roeland,CCC,https://plone.org/foundation/board/plone-foundation-board-for-2018-2019,voting
+Chrissy Wainwright,Sixfeetup,https://plone.org/foundation/board/plone-foundation-board-for-2018-2019,voting
+Carol Ganz,Sixfeetup,https://plone.org/foundation/board/plone-foundation-board-for-2018-2019,voting
+Érico Andrei,Wundertax,https://plone.org/foundation/board/plone-foundation-board-for-2018-2019,voting
+Víctor Fernández de Alba,kitconcept GmbH,https://plone.org/foundation/board/plone-foundation-board-for-2018-2019,voting
+Alexander Loechel,Ludwig Maximilian University Munich,https://plone.org/foundation/board/plone-foundation-board-for-2018-2019,voting
+T. Kim Nguyen,Wildcard Corp,https://plone.org/foundation/board/plone-foundation-board-for-2018-2019,voting
+Jennifer Myers,Unmapped,https://plone.org/foundation/board/plone-foundation-board-for-2018-2019,non-voting

@@ -1,8 +1,9 @@
-Name,Organisation,Source
-Calvin Hendryx-Parker,Sixfeetup,https://plone.org/foundation/board/list
-Matt Hamilton,Netsight,https://plone.org/foundation/board/list
-Geir Bækholt,Jarn,https://plone.org/foundation/board/list
-Mark Corum,University of Virginia,https://plone.org/foundation/board/list
-Alexander Limi,Mozilla,https://plone.org/foundation/board/list
-Steve McMahon,Reid-McMahon,https://plone.org/foundation/board/list
-Jon Stahl,Groundwire,https://plone.org/foundation/board/list
+Name,Organisation,Source,Role
+Calvin Hendryx-Parker,Sixfeetup,https://plone.org/foundation/board/list,voting
+Matt Hamilton,Netsight,https://plone.org/foundation/board/list,voting
+Geir Bækholt,Jarn,https://plone.org/foundation/board/list,voting
+Mark Corum,University of Virginia,https://plone.org/foundation/board/list,voting
+Alexander Limi,Mozilla,https://plone.org/foundation/board/list,voting
+Steve McMahon,Reid-McMahon,https://plone.org/foundation/board/list,voting
+Jon Stahl,Groundwire,https://plone.org/foundation/board/list,voting
+Toby Roberts,Enfold,https://plone.org/foundation/board/list,non-voting

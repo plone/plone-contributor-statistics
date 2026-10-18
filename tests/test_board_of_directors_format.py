@@ -18,7 +18,7 @@ def test_files_from_2004():
 def test_one_sourced_row_per_member(path):
     with open(path, newline='', encoding='utf-8') as f:
         reader = csv.DictReader(f)
-        assert reader.fieldnames == ['Name', 'Organisation', 'Source']
+        assert reader.fieldnames == ['Name', 'Organisation', 'Source', 'Role']
         rows = list(reader)
 
     names = [row['Name'] for row in rows]
@@ -28,3 +28,4 @@ def test_one_sourced_row_per_member(path):
         # Unmapped or "Name (independent)", see #53
         assert row['Organisation'] not in ('Independent', 'independent', 'freelancer'), row
         assert row['Source'].startswith('https://'), row
+        assert row['Role'] in ('voting', 'non-voting'), row
