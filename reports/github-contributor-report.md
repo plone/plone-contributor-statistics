@@ -1,6 +1,6 @@
 # Plone Core Contributor Statistics Report
 
-Generated on: 2026-10-18 11:53:04
+Generated on: 2026-10-18 11:58:01
 
 This report shows the top contributors and organizations in the Plone ecosystem across different time periods.
 
@@ -150,7 +150,7 @@ Not mapped to an organisation: 577 PRs, 1,618 commits by 182 contributors.
 | 6 | Kombinat | 754 | 2,882 | 1 | 85 |
 | 7 | Klein & Partner KG | 725 | 3,125 | 2 | 149 |
 | 8 | Wildcard Corp | 662 | 3,301 | 2 | 51 |
-| 9 | Nuclia | 616 | 1,199 | 4 | 17 |
+| 9 | Nuclia | 560 | 1,022 | 4 | 15 |
 | 10 | Eau de Web | 558 | 1,632 | 15 | 37 |
 
 Not mapped to an organisation: 1,957 PRs, 5,415 commits by 375 contributors.

@@ -2,7 +2,7 @@
 
 - 70 total organisations tracked across the decade
 - 87,293 total commits and 17,852 pull requests
-- 592 unique contributors across all organisations
+- 593 unique contributors across all organisations
 - File generated: summary-past-ten-years-2015-2024.csv
 
 ## Top 10 contributors by pull requests (2015-2024)
@@ -40,9 +40,9 @@
 5. Wildcard Corp: 776 PRs
 6. Klein & Partner KG: 767 PRs
 7. Steve Piercy - Website Builder: 722 PRs
-8. Nuclia: 631 PRs
-9. Kombinat: 624 PRs
-10. Starzel: 611 PRs
+8. Kombinat: 624 PRs
+9. Starzel: 611 PRs
+10. Nuclia: 575 PRs
 
 Not mapped to an organisation: 2,255 PRs
 

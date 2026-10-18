@@ -17,13 +17,14 @@ university-of-jyväskylä,Corporate,,708,468,238,51,17,18,9,12,10,,24
 iskra,Corporate,,266,588,226,9,32,118,90,21,20,49,42
 redturtle,Corporate,,31,23,19,86,116,171,374,224,99,161,86
 reid-mcmahon,Corporate,,397,406,200,186,94,20,,,,,
-nuclia,Corporate,,92,,,103,277,323,304,71,57,46,18
 rohberg,Corporate,,,,9,15,35,187,230,486,188,58,48
+nuclia,Corporate,,92,,,,203,323,304,71,57,46,18
 codesyntax,Corporate,,14,11,30,77,52,41,37,161,191,98,295
 agitator,Corporate,,48,58,54,34,131,93,234,194,2,,
 sixfeetup,Corporate,,51,140,123,128,132,70,59,33,,46,6
 makina-corpus,Corporate,,29,157,296,27,2,9,,2,,,
 ludwig-maximilian-university-munich,Corporate,,22,34,305,112,11,,12,4,1,,
+onna,Corporate,,,,,398,74,,,,,,
 minddistrict,Corporate,,1,7,11,94,21,103,98,65,1,,4
 ccc,Corporate,,173,64,46,14,50,5,3,18,21,6,1
 fhnw,Academic,,192,81,61,29,,,,1,,6,2
@@ -31,7 +32,6 @@ fhnw,Academic,,192,81,61,29,,,,1,,6,2
 imio,Corporate,,150,40,26,29,10,5,17,31,8,9,4
 soliton-consulting,Corporate,,174,16,36,6,19,43,23,,,,
 university-hospital-dresden,Academic,,,,,,4,3,33,57,32,133,53
-onna,Corporate,,,,,295,,,,,,,
 ecréall,Corporate,,133,36,11,13,18,78,2,,,,
 serpro,Corporate,,,,,,,8,17,37,15,90,99
 pretaweb,Corporate,,34,39,12,4,16,,26,55,17,22,5
