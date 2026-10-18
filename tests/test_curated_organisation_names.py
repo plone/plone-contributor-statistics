@@ -1,4 +1,4 @@
-"""The curated files of the recognition year spell organisations as in organisations.csv (#86)."""
+"""The curated files spell organisations as in organisations.csv (#86, #52)."""
 
 import csv
 from pathlib import Path
@@ -8,7 +8,7 @@ from scripts.lib import paths
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / paths.COMMUNITY
-FILES = [p for p in sorted(DATA.glob('2025-*.csv')) if 'recognition' not in p.name]
+FILES = sorted(DATA.glob('[0-9][0-9][0-9][0-9]-*.csv'))
 # Not organisations, but kept apart in the report
 LABELS = {'Unmapped', 'Plone Foundation', 'Plone Foundation (community volunteer)'}
 

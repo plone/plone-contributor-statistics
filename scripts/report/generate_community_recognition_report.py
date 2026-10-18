@@ -50,11 +50,14 @@ def load_recognition_levels(path=paths.RECOGNITION_LEVELS):
 
 
 def get_recognition_level(points, levels):
-    """Determine the recognition level for a given point total."""
-    for level in levels:
-        if level['min_points'] <= points <= level['max_points']:
-            return level['name']
-    return 'No Level'
+    """The highest level whose minimum the points reach.
+
+    Points can be fractions, because shared events split their points, so a
+    level applies from its minimum up to the next level's minimum: 9.5 points
+    are still Bronze when Silver starts at 10.
+    """
+    reached = [level for level in levels if level['min_points'] <= points]
+    return max(reached, key=lambda level: level['min_points'])['name'] if reached else 'No Level'
 
 
 @lru_cache(maxsize=None)

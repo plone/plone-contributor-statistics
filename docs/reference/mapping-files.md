@@ -167,3 +167,7 @@ Columns
 - Separate several values in one cell with semicolons, never with `&`.
 - Put double quotes around values that contain commas.
 - Spell organisation names exactly as in `curated/mappings/organisations.csv`, for example `kitconcept GmbH`, `RedTurtle`, `Klein & Partner KG`, `CMS Communications Inc.`, `Codesyntax`, `PY76`, `UNAM` and `University of Jyväskylä`.
+  An organisation without GitHub contributors gets a row with an empty `Team`.
+- Write `Unmapped` when the organisation isn't known; never leave the organisation empty.
+- Save the files as UTF-8 without a byte order mark, with Unix line endings.
+- `tests/test_curated_community_format.py` and `tests/test_curated_organisation_names.py` check these conventions for the curated community data.

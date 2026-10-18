@@ -42,4 +42,7 @@ You don't need a GitHub token, because nothing is collected from GitHub again.
     git diff --stat
     ```
 
+    `tests/test_reproducible_outputs.py` regenerates the derived data and reports in a temporary copy and compares them with the committed files.
+    It fails if an input changed and a file wasn't regenerated, and names the file.
+
 {doc}`/reference/make-targets` lists all targets.
