@@ -159,3 +159,6 @@ def test_organisation_sources_format():
         assert current.get(login) == row['organisation'], f'{login} is not listed under {row["organisation"]}'
         assert re.search(r'https?://', row['source']), f'{login} needs a link to a public record'
         assert re.fullmatch(r'\d{4}-\d{2}-\d{2}', row['checked']), row
+    # A current entry without a public record stays Unmapped
+    missing = sorted(set(current) - seen, key=str.casefold)
+    assert not missing, f'no public record in organisation_mapping_sources.csv for {missing}'

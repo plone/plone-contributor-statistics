@@ -43,7 +43,7 @@ Columns
 Rules
 :   Each login appears once, with the organisation that `organisations.csv` lists for it.
     Every row must have a link.
-    Logins without a row don't have a public record yet ([#86](https://github.com/plone/plone-contributor-statistics/issues/86)).
+    Every login in `organisations.csv` must have a row; a login without a public record stays Unmapped ([#86](https://github.com/plone/plone-contributor-statistics/issues/86)).
     `tests/test_unmapped_and_mapping.py` checks the format.
 
 ## `organisation_mapping_overrides.csv`
