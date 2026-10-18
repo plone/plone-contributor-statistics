@@ -64,10 +64,9 @@ PLIPs
 :   PLIPs are read from three repositories only.
     A closed PLIP stands in for a merged and released one, although most PLIPs are closed as completed ([#14](https://github.com/plone/plone-contributor-statistics/issues/14)).
     `plone_plips.py` doesn't use the GitHub token, and `plip_stats.py --year` fails ([#44](https://github.com/plone/plone-contributor-statistics/issues/44)).
-    The generator of `plone-plip-organisations.csv` is not in the repository, and the file still uses old organisation names.
 
 Community recognition
-:   The published levels can't be reproduced from the repository, and the script and the points file disagree ({doc}`community-recognition`).
+:   The levels published in August 2026 were calculated outside the repository, and they differ from the script's levels on the current data ({doc}`community-recognition`).
     `reports/community-recognition.md` was generated before the split of Unmapped and independent contributors.
 
 Board of Directors
@@ -82,6 +81,6 @@ Yearly activity and charts
 
 ## Broken Make targets
 
-`make run-plip-organisations`, `make generate-plip-report` and `make pypi-packages` call scripts that are not in the repository: `plip_organisation_stats.py`, `generate_plip_report.py` and `pypi_package_stats.py`.
+`make generate-plip-report` and `make pypi-packages` call scripts that are not in the repository: `generate_plip_report.py` and `pypi_package_stats.py`.
 `make run-all` depends on a target that doesn't exist.
 {doc}`/reference/make-targets` lists their status.

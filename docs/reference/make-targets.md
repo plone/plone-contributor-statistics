@@ -57,7 +57,7 @@ See {doc}`/explanation/known-limitations` for the effect of the broken targets.
 | `make flourish-graph-individual-contributors-csv-file` | Writes the contributor chart data for Flourish. | works |
 | `make analyze-independent` | Lists unmapped contributors worth researching. | works |
 | `make analyze-plip-levels` | Writes a PLIP contributor level analysis to the repository root. | works |
-| `make run-plip-organisations` | Should write `plone-plip-organisations.csv`. | broken: `plip_organisation_stats.py` is not in the repository |
+| `make run-plip-organisations` | Writes `plone-plip-organisations.csv` from `plone-plips-detailed.csv` and the mapping files. | works |
 | `make generate-plip-report` | Should write `reports/plips.md`. | broken: `generate_plip_report.py` is not in the repository |
 
 ## Not part of the current method

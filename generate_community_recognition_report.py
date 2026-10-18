@@ -12,9 +12,19 @@ from collections import defaultdict
 from datetime import datetime
 from functools import lru_cache
 
+from plip_organisation_stats import organisation_lookup, plips_by_organisation, read_plips
+
 
 # Contributors not mapped to an organisation, see organisation_stats.UNMAPPED (#53)
 UNMAPPED = 'Unmapped'
+
+# The recognition year: community work of this year, code of the five years up to it
+YEAR = 2025
+
+
+def five_years(year):
+    """The "past five years" of the points file, up to and including the recognition year."""
+    return range(year - 4, year + 1)
 
 def load_recognition_levels():
     """Load recognition levels from CSV file."""
@@ -96,80 +106,71 @@ def normalize_organization_name(org_name, organisations='organisations.csv'):
     return load_organisation_names(organisations).get(normalized.lower(), normalized)
 
 
-def load_pr_data():
-    """Load PR statistics from past 5 years summary."""
-    pr_stats = {}
+def load_pr_data(years, data_dir='data'):
+    """Merged PRs per organisation over the years, from the yearly organisation files."""
+    totals = defaultdict(int)
+    for year in years:
+        path = f'{data_dir}/{year}-plone-organisation-contributors.csv'
+        try:
+            with open(path, newline='', encoding='utf-8') as f:
+                for row in csv.DictReader(f):
+                    totals[normalize_organization_name(row['organisation'].strip())] += int(row['total_pull_requests'])
+        except FileNotFoundError:
+            print(f"Warning: {path} not found")
+    return {org: {'total_prs': total, 'avg_per_year': total / len(years)} for org, total in totals.items()}
+
+
+def load_plip_data(years, plips_file='plone-plips-detailed.csv', organisations='organisations.csv',
+                   overrides='organisation_mapping_overrides.csv'):
+    """PLIPs closed in the years, for the author's organisation in the year of closing (#95)."""
     try:
-        with open('summary-past-five-years-2020-2024.csv', 'r') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                org = normalize_organization_name(row['organisation'].strip())
-                total_prs = int(row['total_pull_requests'])
-                avg_prs_per_year = total_prs / 5  # 5 years
-                pr_stats[org] = {
-                    'total_prs': total_prs,
-                    'avg_per_year': avg_prs_per_year
-                }
+        plips = read_plips(plips_file)
     except FileNotFoundError:
-        print("Warning: summary-past-five-years-2020-2024.csv not found")
-    except Exception as e:
-        print(f"Warning: Error loading PR data: {e}")
-
-    return pr_stats
-
-
-def load_plip_data():
-    """Load PLIP statistics."""
-    plip_stats = {}
-    try:
-        with open('plone-plip-organisations.csv', 'r') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                org = normalize_organization_name(row['organisation'].strip())
-                # Note: Using total_plips as all-time count
-                # Ideally we'd filter to past 5 years, but data doesn't have dates
-                total_plips = int(row['total_plips'])
-                closed_plips = int(row['closed_plips'])
-                plip_stats[org] = {
-                    'total_plips': total_plips,
-                    'closed_plips': closed_plips
-                }
-    except FileNotFoundError:
-        print("Warning: plone-plip-organisations.csv not found")
-    except Exception as e:
-        print(f"Warning: Error loading PLIP data: {e}")
-
-    return plip_stats
+        print(f"Warning: {plips_file} not found")
+        return {}
+    groups = plips_by_organisation(plips, organisation_lookup(organisations, overrides), years=set(years),
+                                   closed_only=True)
+    closed = defaultdict(int)
+    for org, org_plips in groups.items():
+        closed[normalize_organization_name(org)] += len(org_plips)
+    return {org: {'closed_plips': count} for org, count in closed.items()}
 
 
-def calculate_community_recognition_points():
-    """Calculate community recognition points from all contribution data."""
+def calculate_community_recognition_points(year=YEAR, data_dir='data', plips_file='plone-plips-detailed.csv',
+                                           organisations='organisations.csv',
+                                           overrides='organisation_mapping_overrides.csv'):
+    """Calculate the points of the recognition year, as community-recognition-points.csv says."""
 
     # Initialize points tracking
     org_points = defaultdict(lambda: defaultdict(float))
     org_details = defaultdict(lambda: defaultdict(list))
 
-    data_dir = 'data/community-contributions'
+    community = f'{data_dir}/community-contributions'
 
     # Load code contribution data (PRs and PLIPs)
-    pr_data = load_pr_data()
-    plip_data = load_plip_data()
+    pr_data = load_pr_data(five_years(year), data_dir)
+    plip_data = load_plip_data(five_years(year), plips_file, organisations, overrides)
 
-    # 1. Strategic Sprints - 12 points per organization
+    # 1. Strategic sprints - 12 points per sprint, split among its organising entities;
+    #    an entity gets points for at most one sprint per year
     try:
-        with open(f'{data_dir}/2025-strategic-sprints.csv', 'r') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                org = normalize_organization_name(row['Organisation'].strip())
+        rewarded = set()
+        with open(f'{community}/{year}-strategic-sprints.csv', 'r') as f:
+            for row in csv.DictReader(f):
+                orgs = [normalize_organization_name(o.strip()) for o in row['Organisation'].split(';') if o.strip()]
                 sprint = row['Sprint'].strip()
-                org_points[org]['Strategic Sprint'] += 12
-                org_details[org]['Strategic Sprint'].append(sprint)
+                for org in orgs:
+                    if org in rewarded:
+                        continue
+                    org_points[org]['Strategic Sprint'] += 12 / len(orgs)
+                    org_details[org]['Strategic Sprint'].append(sprint)
+                rewarded.update(orgs)
     except FileNotFoundError:
-        print("Warning: 2025-strategic-sprints.csv not found")
+        print(f"Warning: {year}-strategic-sprints.csv not found")
 
     # 2. Release Managers - 12 points per person
     try:
-        with open(f'{data_dir}/2025-release-managers.csv', 'r') as f:
+        with open(f'{community}/{year}-release-managers.csv', 'r') as f:
             reader = csv.DictReader(f)
             for row in reader:
                 org = normalize_organization_name(row['Organisation'].strip())
@@ -177,12 +178,12 @@ def calculate_community_recognition_points():
                 org_points[org]['Release Manager'] += 12
                 org_details[org]['Release Manager'].append(name)
     except FileNotFoundError:
-        print("Warning: 2025-release-managers.csv not found")
+        print(f"Warning: {year}-release-managers.csv not found")
 
     # 3. Team Leaders - 6 points per team, split among leaders
     try:
         team_leaders = defaultdict(list)
-        with open(f'{data_dir}/2025-team-leaders.csv', 'r') as f:
+        with open(f'{community}/{year}-team-leaders.csv', 'r') as f:
             reader = csv.DictReader(f)
             for row in reader:
                 team = row['Team'].strip()
@@ -196,11 +197,11 @@ def calculate_community_recognition_points():
                 org_points[org]['Team Leader'] += points_per_leader
                 org_details[org]['Team Leader'].append(f"{name} ({team})")
     except FileNotFoundError:
-        print("Warning: 2025-team-leaders.csv not found")
+        print(f"Warning: {year}-team-leaders.csv not found")
 
     # 4. Board of Directors - 6 points per member
     try:
-        with open(f'{data_dir}/2025-board-of-directors.csv', 'r') as f:
+        with open(f'{community}/{year}-board-of-directors.csv', 'r') as f:
             reader = csv.DictReader(f)
             for row in reader:
                 org = normalize_organization_name(row['Organisation'].strip())
@@ -208,11 +209,11 @@ def calculate_community_recognition_points():
                 org_points[org]['Board Member'] += 6
                 org_details[org]['Board Member'].append(name)
     except FileNotFoundError:
-        print("Warning: 2025-board-of-directors.csv not found")
+        print(f"Warning: {year}-board-of-directors.csv not found")
 
     # 5. Podcasts - 6 points per series, split among hosts
     try:
-        with open(f'{data_dir}/2025-podcasts.csv', 'r') as f:
+        with open(f'{community}/{year}-podcasts.csv', 'r') as f:
             reader = csv.DictReader(f)
             hosts = []
             for row in reader:
@@ -226,23 +227,23 @@ def calculate_community_recognition_points():
                     org_points[org]['Podcast Host'] += points_per_host
                     org_details[org]['Podcast Host'].append(name)
     except FileNotFoundError:
-        print("Warning: 2025-podcasts.csv not found")
+        print(f"Warning: {year}-podcasts.csv not found")
 
-    # 6. World Plone Day Events - 3 points per event
+    # 6. World Plone Day events - 3 points per event, split among its organising entities
     try:
-        with open(f'{data_dir}/2025-world-plone-day-event.csv', 'r') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                org = normalize_organization_name(row['Organisation'].strip())
-                org_points[org]['WPD Event'] += 3
-                org_details[org]['WPD Event'].append('Organized WPD Event')
+        with open(f'{community}/{year}-world-plone-day-event.csv', 'r') as f:
+            for row in csv.DictReader(f):
+                orgs = [normalize_organization_name(o.strip()) for o in row['Organisation'].split(';') if o.strip()]
+                for org in orgs:
+                    org_points[org]['WPD Event'] += 3 / len(orgs)
+                    org_details[org]['WPD Event'].append('Organized WPD Event')
     except FileNotFoundError:
-        print("Warning: 2025-world-plone-day-event.csv not found")
+        print(f"Warning: {year}-world-plone-day-event.csv not found")
 
     # 7. World Plone Day Talks - 1 point per talk, max 4 per organization
     try:
         talk_count = defaultdict(int)
-        with open(f'{data_dir}/2025-world-plone-day-talks.csv', 'r') as f:
+        with open(f'{community}/{year}-world-plone-day-talks.csv', 'r') as f:
             reader = csv.DictReader(f)
             for row in reader:
                 orgs_raw = row['Organisation'].strip()
@@ -263,11 +264,11 @@ def calculate_community_recognition_points():
                         org_points[org]['WPD Talk'] += 1
                         org_details[org]['WPD Talk'].append(video_title)
     except FileNotFoundError:
-        print("Warning: 2025-world-plone-day-talks.csv not found")
+        print(f"Warning: {year}-world-plone-day-talks.csv not found")
 
     # 8. Conference Organization - 24 points split among organizers
     try:
-        with open(f'{data_dir}/2025-plone-conference.csv', 'r') as f:
+        with open(f'{community}/{year}-plone-conference.csv', 'r') as f:
             reader = csv.DictReader(f)
             organizers = [normalize_organization_name(row['Organisation'].strip()) for row in reader]
 
@@ -275,26 +276,26 @@ def calculate_community_recognition_points():
                 points_per_org = 24 / len(organizers)
                 for org in organizers:
                     org_points[org]['Conference Organization'] += points_per_org
-                    org_details[org]['Conference Organization'].append('Organized Plone Conference 2025')
+                    org_details[org]['Conference Organization'].append(f'Organized Plone Conference {year}')
     except FileNotFoundError:
-        print("Warning: 2025-plone-conference.csv not found")
+        print(f"Warning: {year}-plone-conference.csv not found")
 
-    # 9. Training Sessions - 6 points per session, split among co-trainers
+    # 9. Training sessions - 4 points per training, split among the trainers' organisations
     try:
-        with open(f'{data_dir}/2025-plone-conference-trainings.csv', 'r') as f:
+        with open(f'{community}/{year}-plone-conference-trainings.csv', 'r') as f:
             reader = csv.DictReader(f)
             for row in reader:
                 orgs_raw = row['Organisation'].strip()
                 title = row['Title'].strip()
                 orgs = [normalize_organization_name(o.strip()) for o in orgs_raw.split(';')]
-                points_per_org = 6 / len(orgs)
+                points_per_org = 4 / len(orgs)
                 for org in orgs:
                     org_points[org]['Training Session'] += points_per_org
                     org_details[org]['Training Session'].append(title)
     except FileNotFoundError:
-        print("Warning: 2025-plone-conference-trainings.csv not found")
+        print(f"Warning: {year}-plone-conference-trainings.csv not found")
 
-    # 10. Pull Request Contributions - Based on 5-year average
+    # 10. Pull request contributions - average per year over the past five years
     # Criteria: Lead (100+/yr=20pts), Core Member (50-99/yr=10pts), Active Member (20-49/yr=4pts), Team Member (10-19/yr=2pts)
     for org, data in pr_data.items():
         avg_prs = data['avg_per_year']
@@ -316,10 +317,10 @@ def calculate_community_recognition_points():
         org_points[org]['PR Contributions'] += points
         org_details[org]['PR Contributions'].append(f"{level} ({avg_prs:.1f} PRs/year)")
 
-    # 11. PLIP Contributions - Based on total PLIPs (all-time, ideally would be 5 years)
+    # 11. PLIP contributions - PLIPs closed in the past five years
     # Criteria: Significant PLIP Contributor (10+=15pts), Regular PLIP Contributor (6+=9pts), Occasional PLIP Contributor (2+=3pts)
     for org, data in plip_data.items():
-        total_plips = data['closed_plips']  # Using closed PLIPs as "merged and released"
+        total_plips = data['closed_plips']  # closed counts as "merged and released"
         if total_plips >= 10:
             points = 15
             level = 'Significant PLIP Contributor'
@@ -392,7 +393,7 @@ def write_markdown_report(org_points, org_details, results, levels, output_file)
 
     with open(output_file, 'w') as f:
         # Header
-        f.write("# Plone Community Recognition Program 2025\n\n")
+        f.write(f"# Plone Community Recognition Program {YEAR}\n\n")
         f.write(f"*Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}*\n\n")
 
         # Executive Summary
@@ -428,28 +429,28 @@ def write_markdown_report(org_points, org_details, results, levels, output_file)
         f.write("### Community Contributions\n\n")
         f.write("| Category | Points | Description |\n")
         f.write("|----------|--------|-------------|\n")
-        f.write("| Strategic Sprint | 12 | Organize/host a strategic sprint |\n")
+        f.write("| Strategic Sprint | 12 | Organize/host a strategic sprint (split among organizers, one sprint per organization) |\n")
         f.write("| Release Manager | 12 | Serve as a release manager |\n")
         f.write("| Team Leader | 6 | Lead a community team (split among co-leaders) |\n")
         f.write("| Board Member | 6 | Serve on the Foundation Board |\n")
         f.write("| Conference Organization | 24 | Organize Plone Conference (split among organizers) |\n")
-        f.write("| Training Session | 6 | Host training at Plone Conference (split among co-trainers) |\n\n")
+        f.write("| Training Session | 4 | Host training at Plone Conference (split among co-trainers) |\n\n")
         f.write("### Marketing Contributions\n\n")
         f.write("| Category | Points | Description |\n")
         f.write("|----------|--------|-------------|\n")
         f.write("| Podcast Host | 6 | Host Plone podcast/live event (split among hosts) |\n")
-        f.write("| WPD Event | 3 | Organize World Plone Day event |\n")
+        f.write("| WPD Event | 3 | Organize World Plone Day event (split among organizers) |\n")
         f.write("| WPD Talk | 1 | Give World Plone Day talk (max 4 per org) |\n\n")
-        f.write("### Code Contributions (Past 5 Years)\n\n")
+        f.write(f"### Code Contributions ({YEAR - 4}–{YEAR})\n\n")
         f.write("| Category | Points | Description |\n")
         f.write("|----------|--------|-------------|\n")
         f.write("| Lead (PR) | 20 | 100+ PRs/year average |\n")
         f.write("| Core Member (PR) | 10 | 50-99 PRs/year average |\n")
         f.write("| Active Member (PR) | 4 | 20-49 PRs/year average |\n")
         f.write("| Team Member (PR) | 2 | 10-19 PRs/year average |\n")
-        f.write("| Significant PLIP Contributor | 15 | 10+ PLIPs merged and released |\n")
-        f.write("| Regular PLIP Contributor | 9 | 6+ PLIPs merged and released |\n")
-        f.write("| Occasional PLIP Contributor | 3 | 2+ PLIPs merged and released |\n\n")
+        f.write("| Significant PLIP Contributor | 15 | 10+ PLIPs closed |\n")
+        f.write("| Regular PLIP Contributor | 9 | 6+ PLIPs closed |\n")
+        f.write("| Occasional PLIP Contributor | 3 | 2+ PLIPs closed |\n\n")
 
         # Leaderboard
         f.write("## Recognition Leaderboard\n\n")
@@ -594,7 +595,7 @@ def main():
     levels = load_recognition_levels()
 
     # Write CSV report
-    csv_output = 'data/community-contributions/2025-community-recognition-report.csv'
+    csv_output = f'data/community-contributions/{YEAR}-community-recognition-report.csv'
     results = write_csv_report(org_points, levels, csv_output)
     print(f"CSV report written to: {csv_output}")
 

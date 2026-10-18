@@ -38,6 +38,11 @@ See {doc}`/explanation/counting-rules` for why the files count the way they do.
     One row per PLIP.
     Columns: `number`, `title`, `author`, `state`, `created_at`, `updated_at`, `closed_at`, `repository`, `html_url`.
 
+`plone-plip-organisations.csv`
+:   Written by `plip_organisation_stats.py`.
+    One row per organisation, with the PLIPs of its members: a closed PLIP counts for the author's organisation in the year it was closed, an open one in the year it was created.
+    Columns: `organisation`, `total_plips`, `open_plips`, `closed_plips`, `contributors_count`, `contributors`, `repositories_count`, `repositories`, `first_plip`, `last_plip`.
+
 `cmfplone-releases.csv`
 :   Written by `fetch_cmfplone_releases.py`.
     One row per release of `Products.CMFPlone`.
