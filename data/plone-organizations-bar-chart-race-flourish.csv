@@ -1,7 +1,7 @@
 Organization,Region,Image URL,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025
 kitconcept,Corporate,,,315,1202,1650,2109,2195,2385,3079,2003,1866,1804
 zest-software,Corporate,,1428,2496,600,1302,889,1623,1066,2137,1717,27,
-unmapped,Individual,,4177,1294,1215,627,598,397,217,662,331,159,249
+unmapped,Individual,,2500,1294,1215,627,598,397,217,662,331,159,249
 freitag,Corporate,,699,995,243,590,415,18,18,173,1917,281,1232
 wildcard-corp,Corporate,,1176,365,1304,893,633,92,8,6,,,
 klein-&-partner-kg,Corporate,,307,651,334,445,284,214,363,434,171,141,88
@@ -12,6 +12,7 @@ kombinat,Corporate,,16,6,1,137,151,43,146,670,632,526,570
 starzel,Corporate,,523,188,328,858,222,159,100,286,47,63,47
 salesforce,Corporate,,,,892,802,450,11,121,77,,,4
 derico,Corporate,,44,27,182,267,239,157,216,396,187,89,222
+timo-stollenwerk-(independent),Corporate,,1677,,,,,,,,,,
 eau-de-web,Corporate,,45,45,23,66,134,409,346,330,143,105,31
 university-of-jyväskylä,Corporate,,708,468,238,51,17,18,9,12,10,,24
 iskra,Corporate,,266,588,226,9,32,118,90,21,20,49,42
