@@ -12,6 +12,9 @@ Conferences, sprints, trainings, release management and team leadership are cent
 No API records them in a form that a script could count.
 So the statistics keep lists of them, one file per year and kind, in `curated/community-contributions/`.
 
+Files of the current year are started as soon as the first rows have a public record, such as a sprint report or the Board page of the new term.
+They stay incomplete until the year ends, and the community page and the recognition only use them once the year is completed.
+
 ## No data without a source
 
 Curated data is only as trustworthy as its sources.
