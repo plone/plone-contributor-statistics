@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "organisation",
+      "type": "string",
+      "description": "The id of the organisation that hosted the conference.",
+      "constraints": {
+        "required": true,
+        "pattern": "^[a-z0-9][a-z0-9-]*$"
+      }
+    },
+    {
+      "name": "organisers",
+      "type": "string",
+      "description": "The ids of the organising persons in the people register. Several values are separated by semicolons.",
+      "x-set": "people"
+    },
+    {
+      "name": "source",
+      "type": "string",
+      "description": "A public record, linked as a web address, that supports the row.",
+      "constraints": {
+        "required": true,
+        "pattern": ".*https?://.*"
+      }
+    },
+    {
+      "name": "notes",
+      "type": "string",
+      "description": "Free-text remarks on the row."
+    }
+  ],
+  "foreignKeys": [
+    {
+      "fields": [
+        "organisation"
+      ],
+      "reference": {
+        "resource": "organisations",
+        "fields": [
+          "id"
+        ]
+      }
+    }
+  ]
+}

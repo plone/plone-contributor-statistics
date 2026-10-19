@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "person",
+      "type": "string",
+      "description": "The id of the person in the people register.",
+      "constraints": {
+        "required": true,
+        "pattern": "^[a-z0-9][a-z0-9-]*$"
+      }
+    },
+    {
+      "name": "kind",
+      "type": "string",
+      "description": "The kind of identity: a name, an email address or a login.",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "name",
+          "email",
+          "login"
+        ]
+      }
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "description": "The spelling of the name, the email address or the login as it appears in the data.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "source",
+      "type": "string",
+      "description": "What the identification rests on; early commit authors may have no public record."
+    }
+  ],
+  "foreignKeys": [
+    {
+      "fields": [
+        "person"
+      ],
+      "reference": {
+        "resource": "people",
+        "fields": [
+          "id"
+        ]
+      }
+    }
+  ]
+}

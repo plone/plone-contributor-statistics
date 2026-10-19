@@ -1,0 +1,73 @@
+{
+  "fields": [
+    {
+      "name": "Number",
+      "type": "string",
+      "description": "The number of the PLIP in its numbering."
+    },
+    {
+      "name": "Numbering",
+      "type": "string",
+      "description": "The numbering the number belongs to, such as roadmap."
+    },
+    {
+      "name": "Title",
+      "type": "string",
+      "description": "The title of the PLIP."
+    },
+    {
+      "name": "Proposer",
+      "type": "string",
+      "description": "The proposer of the PLIP."
+    },
+    {
+      "name": "Implementers",
+      "type": "string",
+      "description": "The implementers of the PLIP."
+    },
+    {
+      "name": "State",
+      "type": "string",
+      "description": "The state of the PLIP."
+    },
+    {
+      "name": "Proposed",
+      "type": "string",
+      "description": "When the PLIP was proposed."
+    },
+    {
+      "name": "Completed",
+      "type": "string",
+      "description": "When the PLIP was completed."
+    },
+    {
+      "name": "Release",
+      "type": "string",
+      "description": "The Plone release that contains the PLIP."
+    },
+    {
+      "name": "Same as",
+      "type": "string",
+      "description": "The PLIP this one duplicates."
+    },
+    {
+      "name": "Source",
+      "type": "string",
+      "description": "A public record, linked as a web address, for the PLIP.",
+      "constraints": {
+        "required": true,
+        "pattern": ".*https?://.*"
+      }
+    },
+    {
+      "name": "Quote",
+      "type": "string",
+      "description": "The words of the source that support the row."
+    },
+    {
+      "name": "Notes",
+      "type": "string",
+      "description": "Free-text remarks on the row."
+    }
+  ]
+}
