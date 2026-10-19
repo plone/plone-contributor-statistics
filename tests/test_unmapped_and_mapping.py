@@ -56,22 +56,6 @@ def test_recognition_report_excludes_unmapped():
     points = {'kitconcept GmbH': {'PR Contributions': 20}, UNMAPPED: {'PR Contributions': 20}, '': {'WPD Talk': 1}}
 
     assert recognition.exclude_unmapped(points) == {'kitconcept GmbH': {'PR Contributions': 20}}
-    # The old name from existing data files is treated the same way
-    assert recognition.normalize_organization_name('Independent') == UNMAPPED
-
-
-
-def test_recognition_report_spells_organisations_as_in_organisations_csv(tmp_path):
-    organisations = tmp_path / 'organisations.csv'
-    organisations.write_text('Organisation,Team\nCodesyntax,erral\nder Freitag,gforcada\n', encoding='utf-8')
-
-    def normalize(name):
-        return recognition.normalize_organization_name(name, organisations=str(organisations))
-
-    # Different spellings in the input files end up as one organisation
-    assert normalize('CodeSyntax') == normalize('codesyntax') == normalize('Codesyntax') == 'Codesyntax'
-    assert normalize('freitag') == normalize('der Freitag') == 'der Freitag'
-    assert normalize('Not listed GmbH') == 'Not listed GmbH'
 
 
 # Format checks for the mapping files

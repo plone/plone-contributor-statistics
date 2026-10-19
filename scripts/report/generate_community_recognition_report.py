@@ -11,33 +11,23 @@ import os
 from collections import defaultdict
 from datetime import datetime
 from dataclasses import dataclass
-from functools import lru_cache
 from pathlib import Path
 
 import argparse
 
-from scripts.lib import mappings
 from scripts.lib import paths
+from scripts.lib.model import IN_PERSON, MIN_EPISODES, TALK_TYPES, UNMAPPED, items, load_registry
 from scripts.lib.years import RECOGNITION_YEAR
 from scripts.derive.plip_organisation_stats import organisation_lookup, plips_by_organisation, read_plips
 
-
-# Contributors not mapped to an organisation, see organisation_stats.UNMAPPED (#53)
-UNMAPPED = 'Unmapped'
-
 # The recognition year: community work of this year, code of the five years up to it
-# Only these World Plone Day videos are talks (#119)
-TALK_TYPES = ('Talk',)
-# A podcast or live series counts with at least this many episodes in the year
-MIN_EPISODES = 5
-# World Plone Day events count when they were held in person (#118)
-IN_PERSON = ('in person', 'hybrid')
 YEAR = RECOGNITION_YEAR
 
 
 def five_years(year):
     """The "past five years" of the points file, up to and including the recognition year."""
     return range(year - 4, year + 1)
+
 
 def load_recognition_levels(path=paths.RECOGNITION_LEVELS):
     """Load recognition levels from CSV file."""
@@ -67,54 +57,6 @@ def get_recognition_level(points, levels):
     return max(reached, key=lambda level: level['min_points'])['name'] if reached else 'No Level'
 
 
-@lru_cache(maxsize=None)
-def load_organisation_names(path=paths.ORGANISATIONS):
-    """The spelling of each organisation in organisations.csv, by lower-case name (#86)."""
-    return mappings.organisation_names(path)
-
-
-def normalize_organization_name(org_name, organisations=paths.ORGANISATIONS):
-    """Normalize organization names to the spelling in organisations.csv."""
-    # Mapping of variations to canonical names
-    org_mapping = {
-        'kitconcept': 'kitconcept GmbH',
-        'py76': 'PY76',
-        'eau-de-web': 'Eau de Web',
-        'redturtle': 'RedTurtle',
-        'kleinundpartner': 'Klein & Partner KG',
-        'klein und partner': 'Klein & Partner KG',
-        'nuclia': 'Nuclia',
-        'starzel': 'Starzel',
-        'codesyntax': 'CodeSyntax',
-        'syslab': 'Syslab',
-        'freitag': 'der Freitag',
-        'kombinat': 'Kombinat',
-        'agitator': 'Agitator',
-        'derico': 'Derico',
-        'rohberg': 'Rohberg',
-        'vangheem': 'Vangheem',
-        'serpro': 'SERPRO',
-        'iskra': 'Iskra',
-        'university-hospital-dresden': 'Uni. Hospital Dresden',
-        'dbain': 'DBA Informatica Notariaal',
-        'iham': 'IHAM',
-        'pretaweb': 'Pretaweb',
-        'zopyx': 'ZOPYX',
-        'tkimnguyen': 'Kim Nguyen',
-        'stevepiercy': 'Steve Piercy - Website Builder',
-        # Unmapped contributors are not an organisation (#53)
-        'independent': UNMAPPED,
-        'unmapped': UNMAPPED,
-        'mathematics institute unam': 'UNAM',
-        'mathematics institute at unam': 'UNAM',
-    }
-
-    # Try to find a mapping, otherwise return the original name
-    normalized = org_mapping.get(org_name.lower(), org_name)
-    # Spell it as in organisations.csv, so that one organisation gets one row
-    return load_organisation_names(organisations).get(normalized.lower(), normalized)
-
-
 def load_pr_data(years, data_dir=paths.ORGANISATION_CONTRIBUTORS_DIR):
     """Merged PRs per organisation over the years, from the yearly organisation files.
 
@@ -127,23 +69,18 @@ def load_pr_data(years, data_dir=paths.ORGANISATION_CONTRIBUTORS_DIR):
         with open(path, newline='', encoding='utf-8') as f:
             reader = csv.DictReader(f)
             for row in reader:
-                org = normalize_organization_name(row['organisation'].strip())
+                org = row['organisation'].strip()
                 totals[org] += int(row['total_pull_requests'])
                 rows[org].append((str(year), path, reader.line_num))
     return {org: {'total_prs': total, 'avg_per_year': total / len(years), 'rows': tuple(rows[org])}
             for org, total in totals.items()}
 
 
-def load_plip_data(years, plips_file=paths.PLIPS_DETAILED, organisations=paths.ORGANISATIONS,
-                   overrides=paths.OVERRIDES):
+def load_plip_data(years, plips_file=paths.PLIPS_DETAILED, registry=None):
     """PLIPs closed in the years, for the author's organisation in the year of closing (#95)."""
     plips = read_plips(plips_file)
-    groups = plips_by_organisation(plips, organisation_lookup(organisations, overrides), years=set(years),
-                                   closed_only=True)
-    closed = defaultdict(int)
-    for org, org_plips in groups.items():
-        closed[normalize_organization_name(org)] += len(org_plips)
-    return {org: {'closed_plips': count} for org, count in closed.items()}
+    groups = plips_by_organisation(plips, organisation_lookup(registry=registry), years=set(years), closed_only=True)
+    return {org: {'closed_plips': len(org_plips)} for org, org_plips in groups.items()}
 
 
 def require_community_year(community, year):
@@ -173,17 +110,156 @@ class Contribution:
     rows: tuple = ()
 
 
+def _items(year, kind, community_dir):
+    """The rows of a kind of the year; a warning and no rows when the file is missing.
+
+    Some kinds of community data didn't exist in every year, so a single missing file is not an error.
+    """
+    if not (Path(community_dir) / f'{year}-{kind}.csv').is_file():
+        print(f"Warning: {year}-{kind}.csv not found")
+        return []
+    return items(year, kind, community_dir)
+
+
+def _name(registry, person_id):
+    """The name of a person as the people register spells it; the id when the register does not know it."""
+    person = registry.people.get(person_id)
+    return person.name if person else person_id
+
+
+def _organisations(registry, item):
+    """The names of the organisations a row names, in its order; an empty cell names none."""
+    return [registry.organisation_name(org_id) for org_id in item.organisations if org_id]
+
+
+def strategic_sprint_points(rows, year, registry, add):
+    """12 points per strategic sprint, split among its organisations; one sprint per organisation and year."""
+    rewarded = set()
+    for item in rows:
+        if item.fields['level'] != 'strategic':
+            continue
+        orgs = _organisations(registry, item)
+        for org in orgs:
+            if org in rewarded:
+                continue
+            add(org, 'Strategic Sprint', item.key, 12 / len(orgs), item.file, item.line, item.source)
+        rewarded.update(orgs)
+
+
+def release_manager_points(rows, year, registry, add):
+    """12 points per release manager, for the organisation of the person in the year."""
+    for item in rows:
+        for person in item.people:
+            add(registry.organisation_of(person, year), 'Release Manager', _name(registry, person), 12,
+                item.file, item.line, item.source)
+
+
+def team_leader_points(rows, year, registry, add):
+    """6 points per team, split among its leaders, each share for the leader's organisation."""
+    teams = defaultdict(list)
+    for item in rows:
+        for person in item.people:
+            teams[(item.fields['team'] or '').strip()].append((person, item))
+    for team, leaders in teams.items():
+        for person, item in leaders:
+            add(registry.organisation_of(person, year), 'Team Leader', f"{_name(registry, person)} ({team})",
+                6 / len(leaders), item.file, item.line, item.source)
+
+
+def board_member_points(rows, year, registry, add):
+    """6 points per member of the Board, for the organisation of the person in the year."""
+    for item in rows:
+        for person in item.people:
+            add(registry.organisation_of(person, year), 'Board Member', _name(registry, person), 6,
+                item.file, item.line, item.source)
+
+
+def podcast_points(rows, year, registry, add):
+    """6 points per series with at least MIN_EPISODES episodes in the year, split among its hosts.
+
+    A row without a person records a series without a known host: it is no host and takes no share.
+    """
+    series = defaultdict(list)
+    for item in rows:
+        if (item.fields['episodes'] or 0) < MIN_EPISODES:
+            continue
+        for person in item.people:
+            series[item.key].append((person, item))
+    for name, hosts in series.items():
+        for person, item in hosts:
+            add(registry.organisation_of(person, year), 'Podcast Host', f'{_name(registry, person)} ({name})',
+                6 / len(hosts), item.file, item.line, item.source)
+
+
+def world_plone_day_event_points(rows, year, registry, add):
+    """3 points per local event held in person or hybrid, split among its organisations (#118)."""
+    for item in rows:
+        if (item.fields['format'] or '').strip() not in IN_PERSON:
+            continue
+        orgs = _organisations(registry, item)
+        for org in orgs:
+            add(org, 'WPD Event', f"Organized WPD Event in {item.key}", 3 / len(orgs), item.file, item.line,
+                item.source)
+
+
+def world_plone_day_talk_points(rows, year, registry, add):
+    """1 point per talk for each organisation behind it, at most 4 per organisation and year.
+
+    The organisations of a talk are those of its speakers in the year and those the row names, for a talk
+    by a team. Only talks count, not teasers, streams, openings or podcast episodes (#119).
+    """
+    talks = defaultdict(int)
+    for item in rows:
+        if (item.fields['type'] or '').strip() not in TALK_TYPES:
+            continue
+        speakers = [registry.organisation_of(person, year) for person in item.people]
+        for org in dict.fromkeys(speakers + _organisations(registry, item)):
+            if org == UNMAPPED or talks[org] >= 4:
+                continue
+            talks[org] += 1
+            add(org, 'WPD Talk', item.key, 1, item.file, item.line, item.source)
+
+
+def conference_points(rows, year, registry, add):
+    """24 points split among the rows that name an organisation; a row without one takes no share."""
+    organisers = [(org, item) for item in rows for org in _organisations(registry, item)]
+    for org, item in organisers:
+        add(org, 'Conference Organization', f'Organized Plone Conference {year}', 24 / len(organisers),
+            item.file, item.line, item.source)
+
+
+def training_points(rows, year, registry, add):
+    """4 points per training, split among its trainers, each share for the trainer's organisation in the year."""
+    for item in rows:
+        for person in item.people:
+            add(registry.organisation_of(person, year), 'Training Session', item.key, 4 / len(item.people),
+                item.file, item.line, item.source)
+
+
+# The points from the curated community files, by file kind, in the order of community-recognition-points.csv.
+# An organiser role (of a sprint or a conference) is no point source: the organisations of the event are.
+COMMUNITY_RULES = (
+    ('sprints', strategic_sprint_points),
+    ('release-managers', release_manager_points),
+    ('team-leaders', team_leader_points),
+    ('board-of-directors', board_member_points),
+    ('podcasts', podcast_points),
+    ('world-plone-day-event', world_plone_day_event_points),
+    ('world-plone-day-talks', world_plone_day_talk_points),
+    ('plone-conference', conference_points),
+    ('plone-conference-trainings', training_points),
+)
+
+
 def calculate_community_recognition_points(year=YEAR, data_dir=paths.ORGANISATION_CONTRIBUTORS_DIR,
                                            community_dir=paths.COMMUNITY, plips_file=paths.PLIPS_DETAILED,
-                                           organisations=paths.ORGANISATIONS, overrides=paths.OVERRIDES,
-                                           contributions=None):
+                                           registry=None, contributions=None):
     """Calculate the points of the recognition year, as community-recognition-points.csv says.
 
-    If `contributions` is a dict, it is filled with the Contribution behind each point:
+    People in the community files count for their organisation in the year, from the registers. If
+    `contributions` is a dict, it is filled with the Contribution behind each point:
     {organisation: {category: [Contribution, ...]}}.
     """
-
-    # Initialize points tracking
     org_points = defaultdict(lambda: defaultdict(float))
     org_details = defaultdict(lambda: defaultdict(list))
     found = defaultdict(lambda: defaultdict(list))
@@ -193,173 +269,20 @@ def calculate_community_recognition_points(year=YEAR, data_dir=paths.ORGANISATIO
         org_details[org][category].append(text)
         found[org][category].append(Contribution(text, points, file, line, source or None, rows))
 
-    community = community_dir
-    require_community_year(community, year)
+    require_community_year(community_dir, year)
+    registry = registry or load_registry()
 
     # Load code contribution data (PRs and PLIPs)
     pr_data = load_pr_data(five_years(year), data_dir)
-    plip_data = load_plip_data(five_years(year), plips_file, organisations, overrides)
+    plip_data = load_plip_data(five_years(year), plips_file, registry)
 
-    # 1. Strategic sprints - 12 points per sprint, split among its organising entities;
-    #    an entity gets points for at most one sprint per year
-    try:
-        rewarded = set()
-        path = f'{community}/{year}-sprints.csv'
-        with open(path, 'r') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                if row['Level'] != 'strategic':
-                    continue
-                orgs = [normalize_organization_name(o.strip()) for o in row['Organisation'].split(';') if o.strip()]
-                sprint = row['Sprint'].strip()
-                for org in orgs:
-                    if org in rewarded:
-                        continue
-                    add(org, 'Strategic Sprint', sprint, 12 / len(orgs), path, reader.line_num, row.get('Source'))
-                rewarded.update(orgs)
-    except FileNotFoundError:
-        print(f"Warning: {year}-sprints.csv not found")
-
-    # 2. Release Managers - 12 points per person
-    try:
-        path = f'{community}/{year}-release-managers.csv'
-        with open(path, 'r') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                org = normalize_organization_name(row['Organisation'].strip())
-                name = row['Name'].strip()
-                add(org, 'Release Manager', name, 12, path, reader.line_num, row.get('Source'))
-    except FileNotFoundError:
-        print(f"Warning: {year}-release-managers.csv not found")
-
-    # 3. Team Leaders - 6 points per team, split among leaders
-    try:
-        team_leaders = defaultdict(list)
-        path = f'{community}/{year}-team-leaders.csv'
-        with open(path, 'r') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                team = row['Team'].strip()
-                org = normalize_organization_name(row['Organisation'].strip())
-                name = row['Name'].strip()
-                team_leaders[team].append((org, name, reader.line_num, row.get('Source')))
-
-        for team, leaders in team_leaders.items():
-            points_per_leader = 6 / len(leaders)
-            for org, name, line, source in leaders:
-                add(org, 'Team Leader', f"{name} ({team})", points_per_leader, path, line, source)
-    except FileNotFoundError:
-        print(f"Warning: {year}-team-leaders.csv not found")
-
-    # 4. Board of Directors - 6 points per member
-    try:
-        path = f'{community}/{year}-board-of-directors.csv'
-        with open(path, 'r') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                org = normalize_organization_name(row['Organisation'].strip())
-                name = row['Name'].strip()
-                add(org, 'Board Member', name, 6, path, reader.line_num, row.get('Source'))
-    except FileNotFoundError:
-        print(f"Warning: {year}-board-of-directors.csv not found")
-
-    # 5. Podcasts and live series - 6 points per series with at least five episodes in the year,
-    #    split among its hosts
-    try:
-        path = f'{community}/{year}-podcasts.csv'
-        with open(path, 'r') as f:
-            reader = csv.DictReader(f)
-            series = defaultdict(list)
-            for row in reader:
-                if int(row['Episodes']) < MIN_EPISODES:
-                    continue
-                org = normalize_organization_name(row['Organisation'].strip())
-                host = row['Host'].strip()
-                series[row['Series'].strip()].append((org, host, reader.line_num, row.get('Source')))
-
-            for name, hosts in series.items():
-                for org, host, line, source in hosts:
-                    add(org, 'Podcast Host', f'{host} ({name})', 6 / len(hosts), path, line, source)
-    except FileNotFoundError:
-        print(f"Warning: {year}-podcasts.csv not found")
-
-    # 6. World Plone Day events - 3 points per local event held in person, split among its organising entities
-    try:
-        path = f'{community}/{year}-world-plone-day-event.csv'
-        with open(path, 'r') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                if row['Format'] not in IN_PERSON:
-                    continue
-                orgs = [normalize_organization_name(o.strip()) for o in row['Organisation'].split(';') if o.strip()]
-                for org in orgs:
-                    add(org, 'WPD Event', f"Organized WPD Event in {row['Location']}", 3 / len(orgs), path,
-                        reader.line_num, row.get('Source'))
-    except FileNotFoundError:
-        print(f"Warning: {year}-world-plone-day-event.csv not found")
-
-    # 7. World Plone Day Talks - 1 point per talk, max 4 per organization
-    try:
-        talk_count = defaultdict(int)
-        path = f'{community}/{year}-world-plone-day-talks.csv'
-        with open(path, 'r') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                orgs_raw = row['Organisation'].strip()
-                video_type = row.get('Type', '').strip()
-                video_title = row['Video Title'].strip()
-
-                # Only talks count, not teasers, streams, openings or podcast episodes (#119)
-                if video_type not in TALK_TYPES:
-                    continue
-
-                if not orgs_raw:
-                    continue
-
-                # One entry per speaker; a talk counts once for each of their organisations
-                orgs = dict.fromkeys(normalize_organization_name(o.strip()) for o in orgs_raw.split(';'))
-                for org in orgs:
-                    if talk_count[org] < 4:
-                        talk_count[org] += 1
-                        video = row.get('YouTube ID', '').strip()
-                        add(org, 'WPD Talk', video_title, 1, path, reader.line_num,
-                            f'https://www.youtube.com/watch?v={video}' if video else None)
-    except FileNotFoundError:
-        print(f"Warning: {year}-world-plone-day-talks.csv not found")
-
-    # 8. Conference Organization - 24 points split among organizers
-    try:
-        path = f'{community}/{year}-plone-conference.csv'
-        with open(path, 'r') as f:
-            reader = csv.DictReader(f)
-            organizers = [(normalize_organization_name(row['Organisation'].strip()), reader.line_num, row.get('Source'))
-                          for row in reader]
-
-            if organizers:
-                points_per_org = 24 / len(organizers)
-                for org, line, source in organizers:
-                    add(org, 'Conference Organization', f'Organized Plone Conference {year}', points_per_org, path,
-                        line, source)
-    except FileNotFoundError:
-        print(f"Warning: {year}-plone-conference.csv not found")
-
-    # 9. Training sessions - 4 points per training, split among the trainers' organisations
-    try:
-        path = f'{community}/{year}-plone-conference-trainings.csv'
-        with open(path, 'r') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                orgs_raw = row['Organisation'].strip()
-                title = row['Title'].strip()
-                orgs = [normalize_organization_name(o.strip()) for o in orgs_raw.split(';')]
-                points_per_org = 4 / len(orgs)
-                for org in orgs:
-                    add(org, 'Training Session', title, points_per_org, path, reader.line_num, row.get('Source'))
-    except FileNotFoundError:
-        print(f"Warning: {year}-plone-conference-trainings.csv not found")
+    # 1.-9. Community contributions
+    for kind, rule in COMMUNITY_RULES:
+        rule(_items(year, kind, community_dir), year, registry, add)
 
     # 10. Pull request contributions - average per year over the past five years
-    # Criteria: Lead (100+/yr=20pts), Core Member (50-99/yr=10pts), Active Member (20-49/yr=4pts), Team Member (10-19/yr=2pts)
+    # Criteria: Lead (100+/yr=20pts), Core Member (50-99/yr=10pts), Active Member (20-49/yr=4pts),
+    # Team Member (10-19/yr=2pts)
     for org, data in pr_data.items():
         avg_prs = data['avg_per_year']
         if avg_prs >= 100:
@@ -380,7 +303,8 @@ def calculate_community_recognition_points(year=YEAR, data_dir=paths.ORGANISATIO
         add(org, 'PR Contributions', f"{level} ({avg_prs:.1f} PRs/year)", points, str(data_dir), rows=data['rows'])
 
     # 11. PLIP contributions - PLIPs closed in the past five years
-    # Criteria: Significant PLIP Contributor (10+=15pts), Regular PLIP Contributor (6+=9pts), Occasional PLIP Contributor (2+=3pts)
+    # Criteria: Significant PLIP Contributor (10+=15pts), Regular PLIP Contributor (6+=9pts),
+    # Occasional PLIP Contributor (2+=3pts)
     for org, data in plip_data.items():
         total_plips = data['closed_plips']  # closed counts as "merged and released"
         if total_plips >= 10:
