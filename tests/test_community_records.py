@@ -41,13 +41,15 @@ def test_records_carry_file_line_and_source(folder):
     assert second.file.endswith('2025-team-leaders.csv')
 
 
-def test_world_plone_day_is_one_event_per_year(folder):
-    write(folder, '2025-world-plone-day-event.csv', 'Organisation,Reference\n'
-          'RedTurtle,https://plone.org/wpd\nSimples Consultoria,https://plone.org/wpd\nPloneGov-BR,https://plone.org/wpd\n')
-    [event] = community.events(2025, folder)
-    assert event.name == 'World Plone Day 2025'
-    assert event.organisations == ('RedTurtle', 'Simples Consultoria', 'PloneGov-BR')
-    assert event.sources == ('https://plone.org/wpd',)
+def test_world_plone_day_is_one_event_per_local_event_held_in_person(folder):
+    write(folder, '2025-world-plone-day-event.csv', 'Date,Location,Format,Organisation,Source,Notes\n'
+          '2025-04-10,Bologna,in person,RedTurtle,https://bologna,\n'
+          '2025-04-10,Brasília,in person,PloneGov-BR;Simples Consultoria,https://brasilia,\n'
+          '2025-04-10,Online,online,kitconcept GmbH,https://online,\n')
+    bologna, brasilia = community.events(2025, folder)
+    assert bologna.name == 'World Plone Day 2025, Bologna'
+    assert brasilia.organisations == ('PloneGov-BR', 'Simples Consultoria')
+    assert brasilia.sources == ('https://brasilia',)
 
 
 def test_every_recorded_sprint_is_an_event(folder):

@@ -26,6 +26,8 @@ from scripts.derive.plip_organisation_stats import organisation_lookup, plips_by
 UNMAPPED = 'Unmapped'
 
 # The recognition year: community work of this year, code of the five years up to it
+# World Plone Day events count when they were held in person (#118)
+IN_PERSON = ('in person', 'hybrid')
 YEAR = RECOGNITION_YEAR
 
 
@@ -263,16 +265,18 @@ def calculate_community_recognition_points(year=YEAR, data_dir=paths.ORGANISATIO
     except FileNotFoundError:
         print(f"Warning: {year}-podcasts.csv not found")
 
-    # 6. World Plone Day events - 3 points per event, split among its organising entities
+    # 6. World Plone Day events - 3 points per local event held in person, split among its organising entities
     try:
         path = f'{community}/{year}-world-plone-day-event.csv'
         with open(path, 'r') as f:
             reader = csv.DictReader(f)
             for row in reader:
+                if row['Format'] not in IN_PERSON:
+                    continue
                 orgs = [normalize_organization_name(o.strip()) for o in row['Organisation'].split(';') if o.strip()]
                 for org in orgs:
-                    add(org, 'WPD Event', 'Organized WPD Event', 3 / len(orgs), path, reader.line_num,
-                        row.get('Reference'))
+                    add(org, 'WPD Event', f"Organized WPD Event in {row['Location']}", 3 / len(orgs), path,
+                        reader.line_num, row.get('Source'))
     except FileNotFoundError:
         print(f"Warning: {year}-world-plone-day-event.csv not found")
 

@@ -57,11 +57,12 @@ def test_organisations_active_leave_out_unmapped_and_independents(repo):
     assert data['headline']['year']['organisations'] == 2
 
 
-def test_events_count_one_world_plone_day_per_year(repo):
+def test_events_count_each_local_world_plone_day(repo):
     write(paths.COMMUNITY / '2025-world-plone-day-event.csv',
-          'Organisation,Reference\nRedTurtle,https://w\nkitconcept GmbH,https://w\n')
+          'Date,Location,Format,Organisation,Source,Notes\n2025-04-10,Bologna,in person,RedTurtle,https://w,\n2025-04-10,Brasília,in person,PloneGov-BR,https://w,\n'
+          '2025-04-10,Online,online,kitconcept GmbH,https://w,\n')
     data = community_page.build_page_data(2025)
-    assert data['headline']['year']['events'] == 2  # the conference and one World Plone Day
+    assert data['headline']['year']['events'] == 3  # the conference and two local World Plone Days held in person
 
 
 def test_wall_lists_every_organisation_with_a_level(repo):
@@ -80,7 +81,7 @@ def test_points_to_next_level_with_fractions(repo):
           'Video Title,Speaker(s),Organisation,Event / Location,Type,YouTube ID\n'
           + ''.join(f'Talk {n},Mauro,RedTurtle,Online,Talk,v{n}\n' for n in range(4)))
     write(paths.COMMUNITY / '2025-world-plone-day-event.csv',
-          'Organisation,Reference\nRedTurtle;kitconcept GmbH,https://w\n')
+          'Date,Location,Format,Organisation,Source,Notes\n2025-04-10,Bologna,in person,RedTurtle;kitconcept GmbH,https://w,\n')
     write(paths.COMMUNITY / '2025-plone-conference.csv', 'Organisation\n')  # no conference points
     write(paths.COMMUNITY / '2025-team-leaders.csv',
           'Name,Team,Organisation,Source\nMauro,Volto Team,RedTurtle,https://t\n')

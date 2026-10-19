@@ -118,12 +118,15 @@ def _sprints(year, rows):
             for _, row in rows]
 
 
+# World Plone Day events count when they were held in person (#118)
+IN_PERSON = ('in person', 'hybrid')
+
+
 def _world_plone_day(year, rows):
-    if not rows:
-        return []
-    return [Event('world-plone-day-event', year, f'World Plone Day {year}',
-                  _unique(o for _, row in rows for o in split(row['Organisation'])),
-                  _unique(_source('world-plone-day-event', row) for _, row in rows))]
+    # One row per local event; online editions are recorded but are no gatherings
+    return [Event('world-plone-day-event', year, f"World Plone Day {year}, {row['Location'].strip()}",
+                  _unique(split(row['Organisation'])), _unique([_source('world-plone-day-event', row)]))
+            for _, row in rows if (row.get('Format') or '').strip() in IN_PERSON]
 
 
 # What counts as an event, per file kind. Add new kinds here, for example community sprints.

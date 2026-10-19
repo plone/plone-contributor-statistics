@@ -90,8 +90,10 @@ Several people or organisations in one cell are separated by semicolons.
     Columns: `Name`, `Organisation`.
 
 `curated/community-contributions/YYYY-world-plone-day-event.csv`
-:   One row per in-person World Plone Day event.
-    Columns: `Organisation`, `Reference`.
+:   One row per local World Plone Day event.
+    Columns: `Date`, `Location`, `Format`, `Organisation`, `Source`, `Notes`.
+    `Format` is `in person`, `hybrid` or `online`.
+    `Organisation` lists the organising organisations, not the venue or host.
 
 `curated/community-contributions/YYYY-world-plone-day-talks.csv`
 :   One row per World Plone Day talk.

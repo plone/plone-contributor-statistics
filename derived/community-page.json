@@ -1,7 +1,7 @@
 {
  "headline": {
   "five_years": {
-   "events": 59,
+   "events": 65,
    "organisations": 89,
    "people": 374
   },
@@ -9,7 +9,7 @@
    "people": 982
   },
   "year": {
-   "events": 9,
+   "events": 10,
    "organisations": 53,
    "people": 142
   }
@@ -4552,18 +4552,6 @@
      "sources": [
       "https://plone.org/news-and-events/events/sprints/classicui-weekly-sprint; organisation from the organisation mapping: https://github.com/MrTango"
      ]
-    },
-    {
-     "kind": "world-plone-day-event",
-     "level": "",
-     "name": "World Plone Day 2021",
-     "organisations": [
-      "RedTurtle",
-      "Eau de Web"
-     ],
-     "sources": [
-      "https://plone.org/news-and-events/events/wpd/2021/world-plone-day-2021"
-     ]
     }
    ],
    "people_active": 155,
@@ -4962,16 +4950,47 @@
     {
      "kind": "world-plone-day-event",
      "level": "",
-     "name": "World Plone Day 2022",
+     "name": "World Plone Day 2022, Gurugram, India",
      "organisations": [
-      "RedTurtle",
-      "Interlegis Program (Senado Federal)",
-      "Sixfeetup",
-      "Zest Software",
-      "Abstract IT"
+      "Eau de Web",
+      "kitconcept GmbH"
      ],
      "sources": [
-      "https://plone.org/news-and-events/events/wpd/2022/world-plone-day-2022"
+      "https://www.eventbrite.com/e/plone-6-and-volto-tickets-319652759007; organisation from the organisation mapping: https://github.com/nileshgulia1 ; https://github.com/iFlameing"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2022, Bucharest, Romania",
+     "organisations": [
+      "Eau de Web"
+     ],
+     "sources": [
+      "https://www.eventbrite.com/e/world-plone-day-registration-317547120987"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2022, Brasília, Brazil",
+     "organisations": [
+      "Interlegis Program (Senado Federal)"
+     ],
+     "sources": [
+      "https://plone.org.br/novidades/eventos/2022/world-plone-day-2022-brasilia; organiser: https://plone.org/foundation/meetings/membership/2024-membership-meeting/nominations/rafahela-bazzanella"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2022, Zürich, Switzerland",
+     "organisations": [
+      "Rohberg",
+      "Agitator"
+     ],
+     "sources": [
+      "https://www.meetup.com/plonemeetup/events/285201496/; organisation from the organisation mapping: https://github.com/ksuess ; https://2016.ploneconf.org/people/peter-holzer.html"
      ]
     }
    ],
@@ -5217,13 +5236,12 @@
     {
      "kind": "world-plone-day-event",
      "level": "",
-     "name": "World Plone Day 2023",
+     "name": "World Plone Day 2023, Brasília, Brazil",
      "organisations": [
-      "RedTurtle",
-      "Interlegis Program (Senado Federal)"
+      "PloneGov-BR"
      ],
      "sources": [
-      "https://plone.org/news-and-events/events/wpd/2023/world-plone-day-2023"
+      "https://plone.org.br/novidades/eventos/2023/world-plone-day-2023-brasilia"
      ]
     }
    ],
@@ -5442,24 +5460,46 @@
     {
      "kind": "world-plone-day-event",
      "level": "",
-     "name": "World Plone Day 2024",
+     "name": "World Plone Day 2024, Bologna, Italy",
      "organisations": [
-      "Eau de Web",
-      "Interlegis Program (Senado Federal)",
-      "Kombinat",
-      "Nuclia",
-      "PloneGov-BR",
-      "RedTurtle",
-      "Rohberg",
-      "Sixfeetup",
-      "Starzel",
-      "Steve Piercy - Website Builder",
+      "RedTurtle"
+     ],
+     "sources": [
+      "https://www.plonegov.it/notizie-ed-eventi/world-plone-day-2024"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2024, Brasília, Brazil",
+     "organisations": [
+      "PloneGov-BR"
+     ],
+     "sources": [
+      "https://plone.org.br/novidades/eventos/2024/world-plone-day-2024-brasilia"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2024, Mexico City, Mexico",
+     "organisations": [
       "UNAM",
-      "University of Jyväskylä",
       "kitconcept GmbH"
      ],
      "sources": [
-      "https://plone.org/news-and-events/events/wpd/2024/world-plone-day-2024"
+      "https://plone.org/news-and-events/news/2024/first-axolote-sprint-a-success"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2024, Tokyo, Japan",
+     "organisations": [
+      "Plone User's Group Japan"
+     ],
+     "sources": [
+      "https://plonejp.connpass.com/event/313480/"
      ]
     }
    ],
@@ -5666,14 +5706,23 @@
     {
      "kind": "world-plone-day-event",
      "level": "",
-     "name": "World Plone Day 2025",
+     "name": "World Plone Day 2025, Bologna, Italy",
      "organisations": [
-      "RedTurtle",
-      "Simples Consultoria",
-      "Interlegis Program (Senado Federal)"
+      "RedTurtle"
      ],
      "sources": [
-      "https://plone.org/news-and-events/events/wpd/2025/world-plone-day-2025"
+      "https://www.plonegov.it/notizie-ed-eventi/world-plone-day-2025"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2025, Brasília, Brazil",
+     "organisations": [
+      "PloneGov-BR"
+     ],
+     "sources": [
+      "https://plone.org.br/novidades/eventos/2025/wpd-2025-brasilia"
      ]
     }
    ],
@@ -6082,7 +6131,7 @@
     },
     "2022": {
      "commits": 194,
-     "events": 0,
+     "events": 1,
      "pull_requests": 47,
      "roles": 0
     },
@@ -7654,13 +7703,13 @@
     },
     "2021": {
      "commits": 346,
-     "events": 1,
+     "events": 0,
      "pull_requests": 149,
      "roles": 2
     },
     "2022": {
      "commits": 340,
-     "events": 0,
+     "events": 2,
      "pull_requests": 92,
      "roles": 3
     },
@@ -7672,7 +7721,7 @@
     },
     "2024": {
      "commits": 105,
-     "events": 1,
+     "events": 0,
      "pull_requests": 65,
      "roles": 6
     },
@@ -8366,18 +8415,6 @@
      ],
      "points": 6.0
     },
-    "WPD Event": {
-     "contributions": [
-      {
-       "file": "curated/community-contributions/2025-world-plone-day-event.csv",
-       "line": 4,
-       "points": 3.0,
-       "source": "https://plone.org/news-and-events/events/wpd/2025/world-plone-day-2025",
-       "text": "Organized WPD Event"
-      }
-     ],
-     "points": 3.0
-    },
     "WPD Talk": {
      "contributions": [
       {
@@ -8528,19 +8565,19 @@
     },
     "2023": {
      "commits": 13,
-     "events": 1,
+     "events": 0,
      "pull_requests": 2,
      "roles": 1
     },
     "2024": {
      "commits": 0,
-     "events": 2,
+     "events": 1,
      "pull_requests": 1,
      "roles": 0
     },
     "2025": {
      "commits": 0,
-     "events": 1,
+     "events": 0,
      "pull_requests": 0,
      "roles": 4
     }
@@ -8548,8 +8585,8 @@
    "level": "Silver Contributor",
    "name": "Interlegis Program (Senado Federal)",
    "next_level": "Gold Contributor",
-   "points": 24.0,
-   "points_to_next": 1.0
+   "points": 21.0,
+   "points_to_next": 4.0
   },
   "irr": {
    "categories": {
@@ -9339,7 +9376,7 @@
     },
     "2022": {
      "commits": 2751,
-     "events": 1,
+     "events": 2,
      "pull_requests": 523,
      "roles": 22
     },
@@ -9721,7 +9758,7 @@
     },
     "2024": {
      "commits": 526,
-     "events": 1,
+     "events": 0,
      "pull_requests": 141,
      "roles": 0
     },
@@ -10420,7 +10457,7 @@
     },
     "2024": {
      "commits": 46,
-     "events": 1,
+     "events": 0,
      "pull_requests": 38,
      "roles": 2
     },
@@ -10936,6 +10973,18 @@
   },
   "plonegov-br": {
    "categories": {
+    "WPD Event": {
+     "contributions": [
+      {
+       "file": "curated/community-contributions/2025-world-plone-day-event.csv",
+       "line": 3,
+       "points": 3.0,
+       "source": "https://plone.org.br/novidades/eventos/2025/wpd-2025-brasilia",
+       "text": "Organized WPD Event in Brasília, Brazil"
+      }
+     ],
+     "points": 3.0
+    },
     "WPD Talk": {
      "contributions": [
       {
@@ -11079,7 +11128,7 @@
     },
     "2023": {
      "commits": 0,
-     "events": 1,
+     "events": 2,
      "pull_requests": 0,
      "roles": 1
     },
@@ -11091,16 +11140,16 @@
     },
     "2025": {
      "commits": 0,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
      "roles": 1
     }
    },
-   "level": "Community Contributor",
+   "level": "Bronze Contributor",
    "name": "PloneGov-BR",
-   "next_level": "Bronze Contributor",
-   "points": 2.0,
-   "points_to_next": 1.0
+   "next_level": "Silver Contributor",
+   "points": 5.0,
+   "points_to_next": 5.0
   },
   "pretaweb": {
    "categories": {
@@ -11504,8 +11553,8 @@
        "file": "curated/community-contributions/2025-world-plone-day-event.csv",
        "line": 2,
        "points": 3.0,
-       "source": "https://plone.org/news-and-events/events/wpd/2025/world-plone-day-2025",
-       "text": "Organized WPD Event"
+       "source": "https://www.plonegov.it/notizie-ed-eventi/world-plone-day-2025",
+       "text": "Organized WPD Event in Bologna, Italy"
       }
      ],
      "points": 3.0
@@ -11641,19 +11690,19 @@
     },
     "2021": {
      "commits": 159,
-     "events": 1,
+     "events": 0,
      "pull_requests": 75,
      "roles": 1
     },
     "2022": {
      "commits": 193,
-     "events": 1,
+     "events": 0,
      "pull_requests": 73,
      "roles": 0
     },
     "2023": {
      "commits": 91,
-     "events": 1,
+     "events": 0,
      "pull_requests": 42,
      "roles": 3
     },
@@ -12291,7 +12340,7 @@
     },
     "2022": {
      "commits": 486,
-     "events": 0,
+     "events": 1,
      "pull_requests": 83,
      "roles": 1
     },
@@ -12303,7 +12352,7 @@
     },
     "2024": {
      "commits": 58,
-     "events": 1,
+     "events": 0,
      "pull_requests": 22,
      "roles": 0
     },
@@ -12483,18 +12532,6 @@
   },
   "simples-consultoria": {
    "categories": {
-    "WPD Event": {
-     "contributions": [
-      {
-       "file": "curated/community-contributions/2025-world-plone-day-event.csv",
-       "line": 3,
-       "points": 3.0,
-       "source": "https://plone.org/news-and-events/events/wpd/2025/world-plone-day-2025",
-       "text": "Organized WPD Event"
-      }
-     ],
-     "points": 3.0
-    },
     "WPD Talk": {
      "contributions": [
       {
@@ -12657,7 +12694,7 @@
     },
     "2025": {
      "commits": 0,
-     "events": 1,
+     "events": 0,
      "pull_requests": 0,
      "roles": 3
     }
@@ -12665,8 +12702,8 @@
    "level": "Bronze Contributor",
    "name": "Simples Consultoria",
    "next_level": "Silver Contributor",
-   "points": 6.0,
-   "points_to_next": 4.0
+   "points": 3.0,
+   "points_to_next": 7.0
   },
   "sixfeetup": {
    "categories": {
@@ -12800,7 +12837,7 @@
     },
     "2022": {
      "commits": 22,
-     "events": 1,
+     "events": 0,
      "pull_requests": 4,
      "roles": 5
     },
@@ -12812,7 +12849,7 @@
     },
     "2024": {
      "commits": 46,
-     "events": 1,
+     "events": 0,
      "pull_requests": 6,
      "roles": 3
     },
@@ -13009,7 +13046,7 @@
     },
     "2024": {
      "commits": 63,
-     "events": 1,
+     "events": 0,
      "pull_requests": 33,
      "roles": 4
     },
@@ -13206,7 +13243,7 @@
     },
     "2024": {
      "commits": 936,
-     "events": 1,
+     "events": 0,
      "pull_requests": 294,
      "roles": 2
     },
@@ -14085,7 +14122,7 @@
     },
     "2024": {
      "commits": 0,
-     "events": 1,
+     "events": 0,
      "pull_requests": 0,
      "roles": 3
     },
@@ -14246,7 +14283,7 @@
     },
     "2022": {
      "commits": 2137,
-     "events": 2,
+     "events": 1,
      "pull_requests": 238,
      "roles": 6
     },
@@ -35312,7 +35349,7 @@
     },
     {
      "name": "Interlegis Program (Senado Federal)",
-     "points": 24.0,
+     "points": 21.0,
      "slug": "interlegis-program-senado-federal"
     },
     {
@@ -35406,6 +35443,11 @@
      "slug": "plone-foundation"
     },
     {
+     "name": "PloneGov-BR",
+     "points": 5.0,
+     "slug": "plonegov-br"
+    },
+    {
      "name": "Pretaweb",
      "points": 3.0,
      "slug": "pretaweb"
@@ -35422,7 +35464,7 @@
     },
     {
      "name": "Simples Consultoria",
-     "points": 6.0,
+     "points": 3.0,
      "slug": "simples-consultoria"
     },
     {
@@ -35494,11 +35536,6 @@
      "name": "Plone Foundation (community volunteer)",
      "points": 1.0,
      "slug": "plone-foundation-community-volunteer"
-    },
-    {
-     "name": "PloneGov-BR",
-     "points": 2.0,
-     "slug": "plonegov-br"
     },
     {
      "name": "Regione Emilia-Romagna",

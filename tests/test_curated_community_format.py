@@ -18,7 +18,7 @@ KINDS = {
     'release-managers': [['Name', 'Github', 'Organisation', 'Source']],
     'sprints': [['Sprint', 'Start', 'End', 'Location', 'Organiser(s)', 'Organisation', 'Level', 'Source', 'Notes']],
     'team-leaders': [['Name', 'Team', 'Organisation', 'Source']],
-    'world-plone-day-event': [['Organisation', 'Reference']],
+    'world-plone-day-event': [['Date', 'Location', 'Format', 'Organisation', 'Source', 'Notes']],
     'world-plone-day-talks': [['Video Title', 'Speaker(s)', 'Organisation', 'Event / Location', 'Type', 'YouTube ID']],
 }
 # Columns with several people or handles, separated by semicolons; a comma there is a wrong

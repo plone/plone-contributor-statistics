@@ -38,7 +38,9 @@ Several kinds of curated data depend on a definition, and the definitions follow
   A team can have several leaders in a year.
   Board committees such as the IP or Trademark Committee, programmes such as Google Summer of Code, and the Release Team, whose release managers count on their own, are not teams in this sense.
 - An appointment by the Board counts until a source records a successor or an end.
-- World Plone Day events count when they were held in person.
+- World Plone Day events count when they were held in person, or hybrid with an in-person meeting.
+  Each local event is one event, with its own source; online editions are recorded, but don't count.
+  The organisers are the organisations that held the event, not the venue that hosted it.
 
 ## The rules for sprints changed over time
 
