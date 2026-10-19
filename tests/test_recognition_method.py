@@ -215,6 +215,16 @@ def test_wpd_talk_source_is_the_video(data):
     assert talk.source == 'https://www.youtube.com/watch?v=abc'
 
 
+def test_a_talk_counts_once_per_organisation(data):
+    # Speakers and organisations are listed in the same order, so two speakers can share one organisation
+    community(data, 'world-plone-day-talks', 'Video Title,Speaker(s),Organisation,Event / Location,Type,YouTube ID\n'
+                                             'A talk,Astrid; Karel,Juizi;Juizi,Online,Talk,a\n'
+                                             'Another,Astrid; Mauro,Juizi;RedTurtle,Online,Talk,b\n')
+    result = points(data)
+    assert result['Juizi']['WPD Talk'] == 2
+    assert result['RedTurtle']['WPD Talk'] == 1
+
+
 def test_contributions_match_points(data):
     community(data, 'sprints', 'Sprint,Start,End,Location,Organiser(s),Organisation,Level,Source,Notes\n'
                                'Beethoven Sprint,,,Bonn,Jakob Kahl,kitconcept GmbH;RedTurtle,strategic,https://s,\n')

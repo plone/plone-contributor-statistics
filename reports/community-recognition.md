@@ -1,12 +1,12 @@
 # Plone Community Recognition Program 2025
 
-*Generated: 2026-10-19 20:16:23*
+*Generated: 2026-10-19 21:34:25*
 
 ## Executive Summary
 
-- **Total Organizations**: 47
-- **Total Points Awarded**: 558.0
-- **Average Points per Organization**: 11.9
+- **Total Organizations**: 46
+- **Total Points Awarded**: 555.0
+- **Average Points per Organization**: 12.1
 
 ## Recognition Levels
 
@@ -15,7 +15,7 @@
 | Platinum Contributor | 35+ | 2 |
 | Gold Contributor | 25-34 | 4 |
 | Silver Contributor | 10-24 | 13 |
-| Bronze Contributor | 3-9 | 13 |
+| Bronze Contributor | 3-9 | 12 |
 | Community Contributor | 1-2 | 15 |
 
 ## Recognition Categories
@@ -59,7 +59,7 @@
 | 2 | RedTurtle | Platinum Contributor | 35.0 |
 | 3 | University of Jyväskylä | Gold Contributor | 34.0 |
 | 4 | Steve Piercy - Website Builder | Gold Contributor | 33.0 |
-| 5 | Eau de Web | Gold Contributor | 28.0 |
+| 5 | Eau de Web | Gold Contributor | 29.0 |
 | 6 | PY76 | Gold Contributor | 25.0 |
 | 7 | Codesyntax | Silver Contributor | 24.0 |
 | 8 | Zest Software | Silver Contributor | 23.0 |
@@ -80,28 +80,27 @@
 | 23 | Affinitic | Bronze Contributor | 6.0 |
 | 24 | Derico | Bronze Contributor | 6.0 |
 | 25 | KU Leuven | Bronze Contributor | 4.0 |
-| 26 | PloneGov-BR | Bronze Contributor | 4.0 |
-| 27 | Rohberg | Bronze Contributor | 4.0 |
-| 28 | Markus Hilbert (independent) | Bronze Contributor | 3.0 |
+| 26 | Rohberg | Bronze Contributor | 4.0 |
+| 27 | Markus Hilbert (independent) | Bronze Contributor | 3.0 |
+| 28 | PloneGov-BR | Bronze Contributor | 3.0 |
 | 29 | Pretaweb | Bronze Contributor | 3.0 |
 | 30 | Rob Gietema (independent) | Bronze Contributor | 3.0 |
-| 31 | Simples Consultoria | Bronze Contributor | 3.0 |
-| 32 | Sixfeetup | Bronze Contributor | 3.0 |
-| 33 | CCC | Community Contributor | 2.0 |
-| 34 | Iskra | Community Contributor | 2.0 |
-| 35 | Onna | Community Contributor | 2.0 |
-| 36 | Uni. Hospital Dresden | Community Contributor | 2.0 |
-| 37 | AUSL Romagna | Community Contributor | 1.0 |
-| 38 | BOSS | Community Contributor | 1.0 |
-| 39 | CMS Communications Inc. | Community Contributor | 1.0 |
-| 40 | Er.GO | Community Contributor | 1.0 |
-| 41 | Giallocobalto | Community Contributor | 1.0 |
-| 42 | IRR | Community Contributor | 1.0 |
+| 31 | Sixfeetup | Bronze Contributor | 3.0 |
+| 32 | CCC | Community Contributor | 2.0 |
+| 33 | Iskra | Community Contributor | 2.0 |
+| 34 | Onna | Community Contributor | 2.0 |
+| 35 | Uni. Hospital Dresden | Community Contributor | 2.0 |
+| 36 | AUSL Romagna | Community Contributor | 1.0 |
+| 37 | BOSS | Community Contributor | 1.0 |
+| 38 | CMS Communications Inc. | Community Contributor | 1.0 |
+| 39 | Er.GO | Community Contributor | 1.0 |
+| 40 | Giallocobalto | Community Contributor | 1.0 |
+| 41 | IRR | Community Contributor | 1.0 |
+| 42 | Plone User's Group Japan | Community Contributor | 1.0 |
 | 43 | RIOS (Rete Italiana Open Source) | Community Contributor | 1.0 |
 | 44 | Regione Emilia-Romagna | Community Contributor | 1.0 |
 | 45 | Università di Macerata | Community Contributor | 1.0 |
 | 46 | eCityclic | Community Contributor | 1.0 |
-| 47 | iMio | Community Contributor | 1.0 |
 
 ## Code Contribution Highlights
 
@@ -161,7 +160,7 @@
 | Strategic Sprint | 12.0 | • Beethoven Sprint 2025 |
 | Release Manager | 24.0 | • Víctor Fernández de Alba<br>• Timo Stollenwerk |
 | Team Leader | 6.0 | • Fred van Dijk (Admin & Infrastructure Team) |
-| WPD Talk | 4.0 | • Plone Hands On: Customize your site theme through the web with Volto!<br>• Tailwind CSS and Plone<br>• Codename Seven - Sneak Peek to the Successor of Volto<br>• Plone Hands On: Creating a new Plone project |
+| WPD Talk | 4.0 | • Plone Hands On: Customize your site theme through the web with Volto!<br>• Mão na Massa: Começando um projeto com Plone 6.1<br>• Tailwind CSS and Plone<br>• Codename Seven - Sneak Peek to the Successor of Volto |
 | Training Session | 14.0 | • Plone 6 Volto Customization for JavaScript Beginners<br>• Plone 6 Volto Customization for JavaScript Beginners<br>• Plone Seven: Fundamentals<br>• Installing and Deploying Plone<br>• Installing and Deploying Plone<br>• ... and 2 more |
 | PR Contributions | 20.0 | • Lead (534.0 PRs/year) |
 | PLIP Contributions | 15.0 | • Significant PLIP Contributor (34 PLIPs) |
@@ -203,12 +202,12 @@
 
 ### Eau de Web
 
-**Total Points: 28.0**
+**Total Points: 29.0**
 
 | Category | Points | Details |
 |----------|-------:|:--------|
 | Strategic Sprint | 12.0 | • Bucharest Plone Sprint 2025 |
-| WPD Talk | 3.0 | • Select user widget feature in Volto<br>• Volto block style: Start customizing your site through the web<br>• Dynamic Vocabulary Based on Context in Plone |
+| WPD Talk | 4.0 | • Plone Hands On: Customize your site theme through the web with Volto!<br>• Select user widget feature in Volto<br>• Volto block style: Start customizing your site through the web<br>• Dynamic Vocabulary Based on Context in Plone |
 | PR Contributions | 10.0 | • Core Member (77.4 PRs/year) |
 | PLIP Contributions | 3.0 | • Occasional PLIP Contributor (2 PLIPs) |
 
@@ -401,15 +400,6 @@
 |----------|-------:|:--------|
 | Training Session | 4.0 | • Training for Content Editing<br>• Content Management for Larger Plone Sites |
 
-### PloneGov-BR
-
-**Total Points: 4.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| WPD Event | 3.0 | • Organized WPD Event in Brasília, Brazil |
-| WPD Talk | 1.0 | • PortalBrasil Project |
-
 ### Rohberg
 
 **Total Points: 4.0**
@@ -426,6 +416,14 @@
 |----------|-------:|:--------|
 | PLIP Contributions | 3.0 | • Occasional PLIP Contributor (2 PLIPs) |
 
+### PloneGov-BR
+
+**Total Points: 3.0**
+
+| Category | Points | Details |
+|----------|-------:|:--------|
+| WPD Event | 3.0 | • Organized WPD Event in Brasília, Brazil |
+
 ### Pretaweb
 
 **Total Points: 3.0**
@@ -441,14 +439,6 @@
 | Category | Points | Details |
 |----------|-------:|:--------|
 | PLIP Contributions | 3.0 | • Occasional PLIP Contributor (2 PLIPs) |
-
-### Simples Consultoria
-
-**Total Points: 3.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| WPD Talk | 3.0 | • Mão na Massa: Começando um projeto com Plone 6.1<br>• Plone Distributions; the right way<br>• Bucharest Sprint Updates |
 
 ### Sixfeetup
 
@@ -538,6 +528,14 @@
 |----------|-------:|:--------|
 | WPD Talk | 1.0 | • An external to internal Plone support love story |
 
+### Plone User's Group Japan
+
+**Total Points: 1.0**
+
+| Category | Points | Details |
+|----------|-------:|:--------|
+| WPD Talk | 1.0 | • Exploring the Power of Plone: How Out-of-the-Box Features Simplify Content Management |
+
 ### RIOS (Rete Italiana Open Source)
 
 **Total Points: 1.0**
@@ -570,14 +568,6 @@
 |----------|-------:|:--------|
 | WPD Talk | 1.0 | • Construyendo una Intranet en Plone 6 / Building an Intranet with Plone 6 |
 
-### iMio
-
-**Total Points: 1.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| WPD Talk | 1.0 | • Love Story: When Designers Meet GitHub Actions |
-
 ## Statistics by Category
 
 | Category | Organizations | Total Points Awarded |
@@ -588,7 +578,7 @@
 | Board Member | 7 | 48.0 |
 | Podcast Host | 1 | 6.0 |
 | WPD Event | 2 | 6.0 |
-| WPD Talk | 26 | 41.0 |
+| WPD Talk | 24 | 38.0 |
 | Conference Organization | 1 | 24.0 |
 | Training Session | 7 | 36.0 |
 | PR Contributions | 20 | 190.0 |

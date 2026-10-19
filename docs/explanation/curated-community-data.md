@@ -43,6 +43,10 @@ Several kinds of curated data depend on a definition, and the definitions follow
 - An appointment by the Board counts until a source records a successor or an end.
 - A podcast or live series counts for a year with at least five episodes in that year, split among its hosts; every series is recorded, also with fewer episodes.
 - A World Plone Day talk is a video of the type `Talk`; teasers, streams, openings and podcast episodes are recorded, but are not talks.
+  A full stream doesn't count when its parts are published as talks of their own.
+  Only people speak: a talk counts for the organisations of its speakers.
+  What the talk itself says about a speaker's organisation comes first, in the title or description of the video or on the event page; otherwise the organisation mapping of the year applies.
+  A role in the Foundation or a community such as PloneGov-BR is not a speaker's organisation, and a talk that names no speaker stays `Unmapped`.
 - Work is attributed to the people who did it and their organisations, not to the Plone Foundation.
 - PloneGov-BR and the Interlegis Program are not the same.
   PloneGov-BR is the community of practice of Plone users in the Brazilian public sector; it organises the events in Brasília.

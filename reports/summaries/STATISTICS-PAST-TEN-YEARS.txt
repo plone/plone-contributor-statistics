@@ -1,6 +1,6 @@
 # Ten-Year Summary Results (2016-2025)
 
-- 99 total organisations tracked across the decade
+- 100 total organisations tracked across the decade
 - 83,175 total commits and 18,357 pull requests
 - 592 unique contributors across all organisations
 - File generated: derived/summaries/summary-past-ten-years-2016-2025.csv
@@ -44,7 +44,7 @@
 9. Eau de Web: 567 PRs
 10. Starzel: 542 PRs
 
-Not mapped to an organisation: 2,009 PRs
+Not mapped to an organisation: 2,007 PRs
 
 ## Top 10 organisations by commits (2016-2025)
 
@@ -59,4 +59,4 @@ Not mapped to an organisation: 2,009 PRs
 9. Syslab: 2,876 commits
 10. Salesforce: 2,357 commits
 
-Not mapped to an organisation: 5,540 commits
+Not mapped to an organisation: 5,521 commits

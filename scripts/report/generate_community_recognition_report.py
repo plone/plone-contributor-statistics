@@ -316,7 +316,8 @@ def calculate_community_recognition_points(year=YEAR, data_dir=paths.ORGANISATIO
                 if not orgs_raw:
                     continue
 
-                orgs = [normalize_organization_name(o.strip()) for o in orgs_raw.split(';')]
+                # One entry per speaker; a talk counts once for each of their organisations
+                orgs = dict.fromkeys(normalize_organization_name(o.strip()) for o in orgs_raw.split(';'))
                 for org in orgs:
                     if talk_count[org] < 4:
                         talk_count[org] += 1

@@ -20,7 +20,8 @@ KINDS = {
     'sprints': [['Sprint', 'Start', 'End', 'Location', 'Organiser(s)', 'Organisation', 'Level', 'Source', 'Notes']],
     'team-leaders': [['Name', 'Team', 'Organisation', 'Source']],
     'world-plone-day-event': [['Date', 'Location', 'Format', 'Organisation', 'Source', 'Notes']],
-    'world-plone-day-talks': [['Video Title', 'Speaker(s)', 'Organisation', 'Event / Location', 'Type', 'YouTube ID']],
+    'world-plone-day-talks': [['Video Title', 'Speaker(s)', 'Organisation', 'Event / Location', 'Type', 'YouTube ID', 'Source',
+                                'Notes']],
 }
 # Columns with several people or handles, separated by semicolons; a comma there is a wrong
 # separator. Organisation names may contain commas; test_curated_organisation_names checks them.
