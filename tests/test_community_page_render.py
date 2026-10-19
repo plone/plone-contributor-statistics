@@ -47,10 +47,12 @@ DATA = {
             'history': {'2025': {'commits': 0, 'pull_requests': 0, 'roles': 1, 'events': 0}},
         },
     },
-    'people': {'2025': [{'id': 'secretlogin', 'commits': 5, 'pull_requests': 2, 'roles': ['Board']},
-                        {'id': 'other', 'commits': 60, 'pull_requests': 12, 'roles': []},
-                        {'id': 'name:third', 'commits': 0, 'pull_requests': 0, 'roles': ['Talk']}]},
-    'people_names': {'secret person': 'secretlogin'},
+    'people': {'2025': [{'id': 'secret-person', 'name': 'Secret Person', 'commits': 5, 'pull_requests': 2,
+                         'roles': ['Board']},
+                        {'id': 'other', 'name': 'other', 'commits': 60, 'pull_requests': 12, 'roles': []},
+                        {'id': 'third-person', 'name': 'Third Person', 'commits': 0, 'pull_requests': 0,
+                         'roles': ['Talk']}]},
+    'people_names': {'secret person': 'secret-person', 'secretlogin': 'secret-person'},
     'history': {
         '2005': {'people_active': 40, 'commits': 1500, 'pull_requests': None, 'board': [], 'team_leads': [],
                  'events': [{'kind': 'plone-conference', 'level': '', 'name': 'Plone Conference 2005',
@@ -140,9 +142,10 @@ def test_no_external_assets(page):
 def test_people_are_not_listed_in_the_html(page):
     # Logins appear only in the embedded data for the search, never in the visible page
     data = page.split('<script type="application/json" id="people-data">')[1].split('</script>')[0]
-    assert json.loads(data)['years']['2025'][0]['id'] == 'secretlogin'
-    assert json.loads(data)['names'] == {'secret person': 'secretlogin'}
-    assert page.count('secretlogin') == 2  # both inside the data element
+    assert json.loads(data)['years']['2025'][0]['id'] == 'secret-person'
+    assert json.loads(data)['names'] == {'secret person': 'secret-person', 'secretlogin': 'secret-person'}
+    assert page.count('secretlogin') == 1  # inside the data element
+    assert page.count('Secret Person') == 1  # inside the data element
 
 
 def test_links_to_the_docs(page):

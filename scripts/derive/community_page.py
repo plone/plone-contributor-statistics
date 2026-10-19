@@ -14,7 +14,7 @@ import unicodedata
 from collections import defaultdict
 
 from scripts.lib import paths
-from scripts.lib.model import UNMAPPED, events, load_registry, roles
+from scripts.lib.model import TALK_TYPES, UNMAPPED, events, items, load_registry, roles
 from scripts.lib.model.names import fold
 from scripts.lib.years import RECOGNITION_YEAR
 from scripts.report import generate_community_recognition_report as recognition
@@ -65,8 +65,15 @@ def people_of_year(year, registry, year_roles):
         person['pull_requests'] += pulls
     for role in year_roles:
         found[role.person]['roles'].add(role.label)
-    return [{'id': key, 'commits': value['commits'], 'pull_requests': value['pull_requests'],
+    return [{'id': key, 'name': registry.people[key].name if key in registry.people else key,
+             'commits': value['commits'], 'pull_requests': value['pull_requests'],
              'roles': sorted(value['roles'])} for key, value in sorted(found.items())]
+
+
+def talk_organisations(year, registry):
+    """The names of the organisations named in the talks of the year, one per talk and organisation."""
+    return [registry.organisation_name(o) for item in items(year, 'world-plone-day-talks')
+            if item.fields['type'] in TALK_TYPES for o in item.organisations]
 
 
 def organisations_of_year(year, registry, year_roles, year_events):
@@ -74,6 +81,7 @@ def organisations_of_year(year, registry, year_roles, year_events):
     found = {organisation for organisation, _, _ in organisation_code_work(year)}
     found.update(registry.organisation_of(role.person, year) for role in year_roles)
     found.update(registry.organisation_name(o) for event in year_events for o in event.organisations)
+    found.update(talk_organisations(year, registry))
     return {o for o in found if registry.is_counted_organisation(o)}
 
 
@@ -143,6 +151,8 @@ def organisation_history(year, registry, year_roles, year_events):
     for event in year_events:
         for organisation in event.organisations:
             found[registry.organisation_name(organisation)]['events'] += 1
+    for organisation in talk_organisations(year, registry):
+        found[organisation]['roles'] += 1
     return found
 
 
@@ -166,10 +176,16 @@ def history_of_year(year, registry, people_list, year_roles, year_events):
 
 
 def people_names(registry):
-    """{folded name: person id} for the name and the other names of every registered person."""
-    names = {fold(person.name): person.id for person in registry.people.values()}
-    names.update({fold(i.value): i.person for i in registry.identities if i.kind == 'name'})
-    return dict(sorted(names.items()))
+    """{folded name or login: person id} of the registered people; a key that fits two people is left out."""
+    keys = defaultdict(set)
+    for person in registry.people.values():
+        keys[fold(person.name)].add(person.id)
+        if person.github:
+            keys[fold(person.github)].add(person.id)
+    for identity in registry.identities:
+        if identity.kind in ('name', 'login'):
+            keys[fold(identity.value)].add(identity.person)
+    return {key: next(iter(ids)) for key, ids in sorted(keys.items()) if len(ids) == 1}
 
 
 def build_page_data(year=RECOGNITION_YEAR):

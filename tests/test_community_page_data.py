@@ -62,13 +62,13 @@ def test_people_active_counts_a_person_once_across_code_and_roles(repo):
     write(paths.contributors_file(2025), CONTRIBUTORS + 'Tisto,10,5\n')
     write(paths.COMMUNITY / '2025-release-managers.csv', RELEASE_MANAGERS + 'timo,https://a,\n')
     [entry] = community_page.build_page_data(2025)['people']['2025']
-    assert entry == {'id': 'timo', 'commits': 10, 'pull_requests': 5, 'roles': ['Release manager']}
+    assert entry == {'id': 'timo', 'name': 'timo', 'commits': 10, 'pull_requests': 5, 'roles': ['Release manager']}
 
 
 def test_a_login_outside_the_register_is_keyed_by_the_login(repo):
     write(paths.contributors_file(2025), CONTRIBUTORS + 'Zed,1,1\nperson:anna,2,0\n')
     people = community_page.build_page_data(2025)['people']['2025']
-    assert [p['id'] for p in people] == ['anna', 'zed']
+    assert [(p['id'], p['name']) for p in people] == [('anna', 'anna'), ('zed', 'zed')]
 
 
 def test_organisations_active_leave_out_unmapped_and_independents(repo):
@@ -132,7 +132,7 @@ def test_people_are_sorted_by_id_and_carry_no_rank(repo):
     write(paths.contributors_file(2025), CONTRIBUTORS + 'zed,1,1\nalice,5,9\n')
     people = community_page.build_page_data(2025)['people']['2025']
     assert [p['id'] for p in people] == ['alice', 'zed']
-    assert set(people[0]) == {'id', 'commits', 'pull_requests', 'roles'}
+    assert set(people[0]) == {'id', 'name', 'commits', 'pull_requests', 'roles'}
 
 
 def test_data_is_deterministic(repo):
@@ -147,6 +147,34 @@ def test_organisation_of_a_speaker_counts_as_active(repo):
     data = community_page.build_page_data(2025)
     assert data['headline']['year']['organisations'] == 2  # RedTurtle (conference) and kitconcept (the speaker)
     assert data['history']['2025']['people_active'] == 1
+
+
+def test_organisation_only_talk_counts_the_organisation(repo):
+    # A company team gave the talk: no speakers, but the organisation is active and gets a role credit
+    write(paths.COMMUNITY / '2025-world-plone-day-talks.csv', TALKS + 'A talk,,kitconcept,Talk,Online,https://t,\n')
+    data = community_page.build_page_data(2025)
+    assert data['headline']['year']['organisations'] == 2  # RedTurtle (conference) and kitconcept (the talk)
+    assert data['organisations']['kitconcept-gmbh']['history']['2025']['roles'] == 1
+
+
+def test_a_second_login_is_keyed_to_the_same_person(repo):
+    write(paths.IDENTITIES, 'person,kind,value,source\ntimo,login,tisto-work,https://r\n')
+    write(paths.contributors_file(2025), CONTRIBUTORS + 'tisto,10,5\nTisto-Work,1,1\n')
+    [entry] = community_page.build_page_data(2025)['people']['2025']
+    assert (entry['id'], entry['commits'], entry['pull_requests']) == ('timo', 11, 6)
+
+
+def test_people_names_find_a_registered_person_by_login(repo):
+    write(paths.IDENTITIES, 'person,kind,value,source\ntimo,login,tisto-work,https://r\n')
+    names = community_page.build_page_data(2025)['people_names']
+    assert names['tisto'] == 'timo'
+    assert names[community_page.fold('tisto-work')] == 'timo'
+
+
+def test_people_names_drop_an_ambiguous_name(repo):
+    write(paths.PEOPLE, 'id,name,github,source\nana-1,Ana Silva,,https://r\nana-2,Ana Silva,,https://r\n'
+                        'bob,Bob Jones,,https://r\n')
+    assert community_page.build_page_data(2025)['people_names'] == {'bob jones': 'bob'}
 
 
 def test_organiser_role_counts_for_the_persons_organisation(repo):
@@ -198,4 +226,5 @@ def test_names_of_the_register_are_in_the_data(repo):
     write(paths.PEOPLE, 'id,name,github,source\ndavid-glick,David Glick,davisagli,https://r\n')
     write(paths.IDENTITIES, 'person,kind,value,source\ndavid-glick,name,D. Glick,https://r\n')
     assert community_page.build_page_data(2025)['people_names'] == {'david glick': 'david-glick',
-                                                                    'd glick': 'david-glick'}
+                                                                    'd glick': 'david-glick',
+                                                                    'davisagli': 'david-glick'}

@@ -96,7 +96,7 @@
       return;
     }
     var title = document.createElement('h3');
-    title.textContent = match.id + ' in ' + year;
+    title.textContent = (match.name || match.id) + ' in ' + year;
     var facts = document.createElement('dl');
     [['Merged pull requests', rank(list, match, 'pull_requests')],
      ['Commits', rank(list, match, 'commits')],
