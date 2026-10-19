@@ -66,7 +66,7 @@ Old changelogs often live in subfolders and on old release branches: the changel
 Many early entries exist only on release branches, so the collector reads them as well, and counts each entry once.
 
 An entry is dated by its release, not by the day the work was done.
-For entries that could be matched to the commit that added them, the release came a median of about two weeks later, and about one entry in eight falls into a later calendar year than its commit.
+For entries that could be matched to the commit that added them, the release usually came a few weeks later, and some entries fall into a later calendar year than their commit.
 Long release cycles, such as Plone 4.0, move more work into the next year.
 Compare the entries of neighbouring years with this in mind.
 

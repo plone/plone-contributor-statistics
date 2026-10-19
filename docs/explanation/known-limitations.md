@@ -44,7 +44,7 @@ Commits can name the committer instead of the author
 
 GNU-style ChangeLogs are not read
 :   A few old products kept a ChangeLog of dated records with a name and an email address, instead of release sections.
-    The collector skips these files, and with them a few hundred records from 2003 to 2006.
+    The collector skips these files, and with them their records from the early years.
 
 Zope and other Foundation projects are not counted
 :   Their repositories are outside the `plone` organisation, and how to count them is open ([#58](https://github.com/plone/plone-contributor-statistics/issues/58)).
