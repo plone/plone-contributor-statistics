@@ -22,14 +22,14 @@ Tishasoumya-02,44,23,2,"aurora, volto",2024-05-23,2024-10-29
 nilbacardit26,43,8,2,"guillotina, guillotina_elasticsearch",2024-01-05,2024-10-21
 tisto,39,8,7,"aurora, pastanaga-icons, plone.de, plone.distribution, plone.restapi, plone.volto, volto",2024-01-10,2024-10-23
 thet,37,22,13,"Products.CMFPlone, documentation, meta, mockup, plone.app.contenttypes, plone.app.event, plone.app.theming, plone.app.z3cform, plone.base, plone.formwidget.namedfile, plone.namedfile, plone.volto, plonetheme.barceloneta",2023-04-10,2024-11-26
-pnicolli,36,19,5,"aurora, container-frontend, cookieplone-templates, form-block, volto",2024-04-08,2024-12-08
 mpellerin42,36,36,1,pastanaga-angular,2024-01-04,2024-09-10
+pnicolli,36,19,5,"aurora, container-frontend, cookieplone-templates, form-block, volto",2024-04-08,2024-12-08
 jladage,27,3,3,"plone.app.layout, plone.app.upgrade, plone.base",2024-03-26,2024-04-04
 rohnsha0,26,5,3,"Products.CMFPlone, plone.app.contentmenu, plone.app.vocabularies",2024-06-09,2024-08-19
 dobri1408,24,15,3,"aurora, plone.namedfile, volto",2024-02-13,2024-10-24
 yurj,20,12,10,"Products.CMFPlone, aurora, documentation, plone.app.contenttypes, plone.app.event, plone.app.multilingual, plone.app.users, plone.org, plonetheme.barceloneta, volto",2024-03-30,2024-12-09
-mamico,19,9,9,"Products.CMFPlone, aurora, bobtemplates.plone, cookieplone-templates, form-block, plone.event, plone.namedfile, plone.restapi, volto",2024-02-04,2024-11-30
 jackahl,19,5,5,"Products.CMFPlone, aurora, plone.app.contenttypes, plone.restapi, volto",2024-01-16,2024-10-16
+mamico,19,9,9,"Products.CMFPlone, aurora, bobtemplates.plone, cookieplone-templates, form-block, plone.event, plone.namedfile, plone.restapi, volto",2024-02-04,2024-11-30
 nileshgulia1,18,3,3,"aurora, training, volto",2024-06-27,2024-11-14
 jnptk,17,6,2,"cookieplone-templates, plone.de",2024-03-08,2024-09-06
 JeffersonBledsoe,15,8,3,"aurora, plone.restapi, volto",2024-05-20,2024-10-29
@@ -37,81 +37,81 @@ Faakhir30,14,10,6,"Products.CMFPlone, aurora, documentation, plone.restapi, trai
 iRohitSingh,13,6,4,"aurora, plone.volto, training, volto",2024-05-27,2024-11-14
 iFlameing,12,8,2,"aurora, volto",2024-01-22,2024-10-29
 szakitibi,12,4,4,"Products.CMFPlone, plone.app.contentmenu, plone.app.multilingual, plone.app.registry",2024-02-05,2024-05-23
-Vivek-04022001,11,8,6,"aurora, documentation, plone.api, plone.restapi, training, volto",2024-01-14,2024-02-22
 cekk,11,8,3,"aurora, plone.restapi, volto",2024-03-28,2024-12-17
+Vivek-04022001,11,8,6,"aurora, documentation, plone.api, plone.restapi, training, volto",2024-01-14,2024-02-22
 gogobd,10,3,3,"cookiecutter-zope-instance, plone.api, plone.app.multilingual",2024-01-23,2024-04-23
 reinhardt,9,5,4,"Products.CMFPlone, Products.PortalTransforms, plone.app.content, plone.app.upgrade",2024-06-15,2024-08-08
-ghnire,8,3,2,"cookieplone-templates, training",2024-11-22,2024-12-19
 agan-k,8,3,3,"aurora, training, volto",2024-03-13,2024-03-31
-sabrina-bongiovanni,8,6,2,"aurora, volto",2024-03-16,2024-08-14
+ghnire,8,3,2,"cookieplone-templates, training",2024-11-22,2024-12-19
 reinout,8,2,1,meta,2024-02-03,2024-02-06
-Molochem,7,5,3,"aurora, plone.de, volto",2024-01-10,2024-02-27
+sabrina-bongiovanni,8,6,2,"aurora, volto",2024-03-16,2024-08-14
 ale-rt,7,6,6,"Products.CMFPlone, Products.PlonePAS, plone.app.contenttypes, plone.app.layout, plone.app.theming, plone.dexterity",2024-02-26,2024-12-20
-pgrunewald,7,3,1,plone.app.linkintegrity,2024-04-08,2024-05-14
-tedw87,7,7,3,"aurora, plone.restapi, volto",2024-01-26,2024-10-30
 bloodbare,7,0,1,guillotina,2024-01-23,2024-10-01
 gotcha,7,2,3,"plone.app.themingplugins, plone.recipe.zope2instance, plone.testing",2024-06-17,2024-10-21
 macagua,7,1,1,plone.app.debugtoolbar,2024-02-23,2024-02-23
+Molochem,7,5,3,"aurora, plone.de, volto",2024-01-10,2024-02-27
+pgrunewald,7,3,1,plone.app.linkintegrity,2024-04-08,2024-05-14
 SaraBianchi,7,0,1,form-block,2024-02-29,2024-07-01
-tomschall,6,3,2,"aurora, volto",2024-04-25,2024-07-26
+tedw87,7,7,3,"aurora, plone.restapi, volto",2024-01-26,2024-10-30
 avoinea,6,2,3,"aurora, container-historical, volto",2024-04-02,2024-10-31
-rboixaderg,6,1,1,guillotina,2024-01-19,2024-01-19
-polyester,6,0,3,"ai-team-private, plone-sphinx-theme, training",2024-05-16,2024-11-26
-MAX-786,6,3,2,"aurora, volto",2024-05-23,2024-09-09
 Gomez,6,3,2,"aurora, volto",2024-03-12,2024-09-24
-operramon,5,5,1,pastanaga-angular,2024-04-12,2024-11-26
+MAX-786,6,3,2,"aurora, volto",2024-05-23,2024-09-09
+polyester,6,0,3,"ai-team-private, plone-sphinx-theme, training",2024-05-16,2024-11-26
+rboixaderg,6,1,1,guillotina,2024-01-19,2024-01-19
+tomschall,6,3,2,"aurora, volto",2024-04-25,2024-07-26
+danalvrz,5,2,2,"plone.distribution, training",2024-05-17,2024-11-23
 djay,5,0,1,plone.namedfile,2024-11-26,2024-12-02
 Hrittik20,5,4,3,"aurora, plone.restapi, volto",2024-01-29,2024-04-04
-danalvrz,5,2,2,"plone.distribution, training",2024-05-17,2024-11-23
+operramon,5,5,1,pastanaga-angular,2024-04-12,2024-11-26
 rber474,5,2,2,"plone.app.users, plone.base",2024-02-23,2024-02-23
-kHAPPY2004,4,2,2,"aurora, volto",2024-04-12,2024-06-18
-folix-01,4,3,4,"aurora, plone.distribution, plone.restapi, volto",2024-03-03,2024-09-27
-samriddhi99,4,1,1,plone.api,2024-01-29,2024-02-05
 Adityaadpandey,4,1,1,plone.org,2024-12-01,2024-12-09
+folix-01,4,3,4,"aurora, plone.distribution, plone.restapi, volto",2024-03-03,2024-09-27
 gyst,4,2,2,"plone.app.event, plone.recipe.zope2instance",2024-04-19,2024-05-07
+kHAPPY2004,4,2,2,"aurora, volto",2024-04-12,2024-06-18
+samriddhi99,4,1,1,plone.api,2024-01-29,2024-02-05
 steffenri,4,2,2,"aurora, volto",2024-01-01,2024-03-19
 ebrehault,3,2,3,"aurora, pastanaga-angular, volto",2024-10-15,2024-11-04
 mbarde,3,0,1,form-block,2024-06-13,2024-09-12
-FritzHoing,2,1,2,"aurora, volto",2024-07-09,2024-07-09
-EshaanAgg,2,1,2,"aurora, volto",2024-07-25,2024-07-25
-aryan7081,2,1,2,"aurora, volto",2024-06-19,2024-06-19
 aadityaforwork,2,1,2,"aurora, volto",2024-10-02,2024-10-02
-ana-oprea,2,1,2,"aurora, volto",2024-11-26,2024-11-26
 Abhishek-17h,2,1,2,"aurora, volto",2024-12-19,2024-12-19
-Prince0906,2,1,2,"aurora, volto",2024-08-10,2024-08-10
-Raman-Luhach,2,1,2,"aurora, volto",2024-09-04,2024-09-04
-lorstenoplo,2,1,2,"aurora, volto",2024-09-05,2024-09-05
-tiberiuichim,2,1,2,"aurora, volto",2024-08-27,2024-08-27
-gianniftp,2,1,2,"aurora, volto",2024-09-29,2024-09-29
+ana-oprea,2,1,2,"aurora, volto",2024-11-26,2024-11-26
+animus888,2,1,2,"aurora, volto",2024-04-19,2024-04-19
+aryan7081,2,1,2,"aurora, volto",2024-06-19,2024-06-19
 bsuttor,2,2,1,code-quality,2024-07-24,2024-07-25
-pulkitxm,2,2,2,"documentation, training",2024-12-05,2024-12-08
-muditchoudhary,2,1,1,training,2024-02-21,2024-02-21
 erikriver,2,2,1,cookieplone,2024-04-24,2024-04-24
-libargutxi,2,1,1,training,2024-11-30,2024-11-30
+EshaanAgg,2,1,2,"aurora, volto",2024-07-25,2024-07-25
+ewohnlich,2,1,1,Products.CMFPlone,2024-03-05,2024-03-05
+FritzHoing,2,1,2,"aurora, volto",2024-07-09,2024-07-09
+gianniftp,2,1,2,"aurora, volto",2024-09-29,2024-09-29
 instification,2,1,2,"aurora, volto",2024-03-05,2024-03-05
 laulaz,2,1,2,"mockup, plone.formwidget.autocomplete",2024-05-08,2024-10-10
-svx,2,2,2,"cookieplone-templates, plone.distribution",2024-05-15,2024-05-16
+libargutxi,2,1,1,training,2024-11-30,2024-11-30
+lorstenoplo,2,1,2,"aurora, volto",2024-09-05,2024-09-05
 MostafaMagdyy,2,1,2,"aurora, volto",2024-03-17,2024-03-17
-victorchrollo14,2,1,2,"aurora, volto",2024-05-06,2024-05-06
-animus888,2,1,2,"aurora, volto",2024-04-19,2024-04-19
-razvanMiu,2,1,2,"aurora, volto",2024-03-31,2024-03-31
-Wagner3UB,2,1,2,"aurora, volto",2024-01-30,2024-01-30
-ewohnlich,2,1,1,Products.CMFPlone,2024-03-05,2024-03-05
+muditchoudhary,2,1,1,training,2024-02-21,2024-02-21
+Prince0906,2,1,2,"aurora, volto",2024-08-10,2024-08-10
+pulkitxm,2,2,2,"documentation, training",2024-12-05,2024-12-08
+Raman-Luhach,2,1,2,"aurora, volto",2024-09-04,2024-09-04
 Ravi-kumar9347,2,1,2,"aurora, volto",2024-01-05,2024-01-05
+razvanMiu,2,1,2,"aurora, volto",2024-03-31,2024-03-31
+svx,2,2,2,"cookieplone-templates, plone.distribution",2024-05-15,2024-05-16
+tiberiuichim,2,1,2,"aurora, volto",2024-08-27,2024-08-27
+victorchrollo14,2,1,2,"aurora, volto",2024-05-06,2024-05-06
+Wagner3UB,2,1,2,"aurora, volto",2024-01-30,2024-01-30
+07tAnYa,1,1,1,documentation,2024-01-23,2024-01-23
+Akshat2Jain,1,1,1,plone.restapi,2024-02-12,2024-02-12
+aniket7r,1,0,1,training,2024-12-10,2024-12-10
+devdanzin,1,1,1,mockup,2024-12-04,2024-12-04
+Fosten,1,1,1,cookieplone-templates,2024-11-21,2024-11-21
+frapell,1,2,1,Products.CMFPlone,2024-03-05,2024-03-05
+Sakoes,1,1,1,plone.recipe.zope2instance,2024-09-05,2024-09-05
+SarthakPaandey,1,1,1,Products.CMFPlone,2024-08-05,2024-08-05
 sauzher,1,1,1,plone.restapi,2024-09-04,2024-09-04
 spereverde,1,1,1,plone.app.iterate,2024-02-19,2024-02-19
-SarthakPaandey,1,1,1,Products.CMFPlone,2024-08-05,2024-08-05
-Fosten,1,1,1,cookieplone-templates,2024-11-21,2024-11-21
-devdanzin,1,1,1,mockup,2024-12-04,2024-12-04
-Akshat2Jain,1,1,1,plone.restapi,2024-02-12,2024-02-12
-07tAnYa,1,1,1,documentation,2024-01-23,2024-01-23
-frapell,1,2,1,Products.CMFPlone,2024-03-05,2024-03-05
-aniket7r,1,0,1,training,2024-12-10,2024-12-10
-UnaiEtxaburu,1,0,1,form-block,2024-04-29,2024-04-29
-Sakoes,1,1,1,plone.recipe.zope2instance,2024-09-05,2024-09-05
-xiru,1,2,1,helm-charts,2024-04-18,2024-04-18
 tschorr,1,1,1,helm-charts,2024-04-27,2024-04-27
-krissik,0,1,1,plone.app.multilingual,,
-miropaananen,0,1,1,plone.org,,
+UnaiEtxaburu,1,0,1,form-block,2024-04-29,2024-04-29
+xiru,1,2,1,helm-charts,2024-04-18,2024-04-18
 alexnuttinck,0,1,1,helm-charts,,
 fabiorauber,0,1,1,helm-charts,,
+krissik,0,1,1,plone.app.multilingual,,
+miropaananen,0,1,1,plone.org,,

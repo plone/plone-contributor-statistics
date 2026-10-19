@@ -12,8 +12,8 @@ Zest Software,169,9,2,"fredvd, mauritsvanrees",39,"Products.ATContentTypes, Prod
 Starzel,166,15,2,"Gomez, pbauer",21,"Products.Archetypes, Products.CMFPlone, Products.contentmigration, plone.act, plone.app.blob, plone.app.collection, plone.app.content, plone.app.contenttypes, plone.app.dexterity, plone.app.imaging, plone.app.layout, plone.app.portlets, plone.app.robotframework, plone.app.themeeditor, plone.app.upgrade, plone.app.vocabularies, plone.app.widgets, plone.formwidget.datetime, plone.formwidget.recurrence, plone.recipe.codeanalysis, training",2011-11-08,2013-11-18
 der Freitag,122,30,2,"gforcada, khink",20,"Products.ATContentTypes, Products.CMFPlone, buildout.coredev, performance-testing, plone.api, plone.app.contenttypes, plone.app.dexterity, plone.app.discussion, plone.app.event, plone.app.imaging, plone.app.querystring, plone.app.search, plone.app.upgrade, plone.app.users, plone.dotfiles, plone.formwidget.recurrence, plone.namedfile, plone.recipe.codeanalysis, plone.scale, plonedev.vagrant",2012-11-22,2013-11-14
 Sixfeetup,96,1,5,"calvinhp, cdw9, claytron, davidblewett, toastdriven",8,"buildout.coredev, buildout.deco, mockup, plone.app.blocks, plone.app.toolbar, plone.app.widgets, plone.tiles, security-mockups",2011-12-14,2013-11-22
-Ecréall,61,3,1,cedricmessiant,6,"Products.CMFPlone, bobtemplates.plone, plone.app.dexterity, plone.app.upgrade, plone.app.z3cform, plone.schemaeditor",2013-01-30,2013-09-22
 4Teamwork,61,27,4,"buchi, deiferni, jone, maethu",15,"Products.ATContentTypes, Products.CMFPlone, buildout.coredev, mockup, plone.act, plone.app.contenttypes, plone.app.controlpanel, plone.app.event, plone.app.linkintegrity, plone.app.lockingbehavior, plone.app.robotframework, plone.app.stagingbehavior, plone.app.widgets, plone.dotfiles, plone.formwidget.recurrence",2013-01-02,2013-12-09
+Ecréall,61,3,1,cedricmessiant,6,"Products.CMFPlone, bobtemplates.plone, plone.app.dexterity, plone.app.upgrade, plone.app.z3cform, plone.schemaeditor",2013-01-30,2013-09-22
 RedTurtle,56,3,2,"ale-rt, cekk",11,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, archetypes.referencebrowserwidget, borg.localrole, buildout.coredev, plone.app.discussion, plone.app.layout, plone.app.upgrade, plone.outputfilters, plone.recipe.zope2zeoserver",2013-03-08,2013-11-15
 Simples Consultoria,54,5,1,ericof,10,"Products.TinyMCE, buildout.coredev, plone.app.blocks, plone.app.contentrules, plone.app.contenttypes, plone.app.dexterity, plone.app.discussion, plone.app.event, plone.app.linkintegrity, plone.schemaeditor",2013-03-26,2013-07-24
 Codesyntax,51,0,1,erral,7,"Products.CMFPlone, archetypes.multilingual, planet.plone.org, plone.app.discussion, plone.app.multilingual, plone.app.workflowmanager, plone.formwidget.multifile",2012-07-02,2013-11-14
@@ -28,22 +28,22 @@ FHNW,20,2,1,tomgross,8,"Products.ATContentTypes, Products.Archetypes, Products.T
 Pretaweb,19,1,1,djay,5,"mockup, plone.app.blob, plone.app.toolbar, plone.app.widgets, plone.app.z3cform",2013-02-04,2013-09-16
 Affinitic,16,3,3,"jfroche, laulaz, mpeeters",3,"Products.Archetypes, Products.LinguaPlone, planet.plone.org",2013-02-06,2013-05-29
 Ludwig Maximilian University Munich,15,1,1,loechel,6,"plone.app.contenttypes, plone.app.vulnerabilities, plone.vulnerabilitychecks.buildout, plone.vulnerabilitychecks.core, plone.vulnerabilitychecks.instance_startup, plone.vulnerabilitychecks.tests",2013-01-24,2013-11-13
-Kombinat,11,1,1,petschki,3,"plone.app.event, plone.app.viewletmanager, plone.z3cform",2013-09-26,2013-12-30
 Four Digits,11,1,1,robgietema,4,"Products.CMFPlone, mockup, plone.app.layout, plonetheme.barceloneta",2013-10-05,2013-11-13
+Kombinat,11,1,1,petschki,3,"plone.app.event, plone.app.viewletmanager, plone.z3cform",2013-09-26,2013-12-30
 Rohberg,11,1,1,ksuess,1,plone.app.multilingual,2013-05-07,2013-05-21
-Soliton Consulting,10,0,1,fulv,3,"planet.plone.org, plone.app.contenttypes, plone.app.robotframework",2013-01-31,2013-05-03
 Jarn,10,0,1,hannosch,3,"buildout.coredev, plone.recipe.zope2instance, plone.z3cform",2013-02-10,2013-10-19
+Soliton Consulting,10,0,1,fulv,3,"planet.plone.org, plone.app.contenttypes, plone.app.robotframework",2013-01-31,2013-05-03
 CCC,9,0,1,polyester,2,"plonetheme.ploneorg, security-mockups",2013-08-10,2013-11-05
 Plone Venezuela,9,1,1,macagua,2,"buildout.coredev, plone.app.workflowmanager",2013-11-29,2013-12-08
-Simplon,7,0,1,wichert,5,"buildout.coredev, plone.app.portlets, plone.dexterity, plone.portlets, plone.recipe.zope2instance",2013-01-11,2013-02-18
-Bearstech,7,0,1,encolpe,2,"Products.ATContentTypes, Products.CMFPlone",2013-11-12,2013-11-14
 Agitator,7,1,1,agitator,3,"plone.app.contenttypes, plone.app.event, plone.app.multilingual",2013-06-18,2013-11-08
+Bearstech,7,0,1,encolpe,2,"Products.ATContentTypes, Products.CMFPlone",2013-11-12,2013-11-14
+Simplon,7,0,1,wichert,5,"buildout.coredev, plone.app.portlets, plone.dexterity, plone.portlets, plone.recipe.zope2instance",2013-01-11,2013-02-18
 acsr industrialdesign,5,0,1,acsr,1,communications.plone.com,2013-04-05,2013-04-09
 UNAM,3,0,1,gil-cano,1,mockup,2013-06-08,2013-06-08
-Juizi,2,0,1,jbeyers,1,Products.CMFPlone,2013-01-24,2013-01-24
-WebTide,2,0,1,mikejmets,2,"buildout.coredev, plone.app.testing",2013-01-25,2013-01-25
 CMS Communications Inc.,2,1,1,terapyon,1,plone.app.layout,2013-10-05,2013-10-05
 Jowett Enterprises Ltd,2,1,1,djowett,1,plone.app.themingplugins,2013-11-19,2013-11-19
+Juizi,2,0,1,jbeyers,1,Products.CMFPlone,2013-01-24,2013-01-24
+WebTide,2,0,1,mikejmets,2,"buildout.coredev, plone.app.testing",2013-01-25,2013-01-25
 cloud19,1,1,2,"faro, faro76",1,plone.app.registry,2013-12-18,2013-12-18
 Zopyx,1,1,1,zopyx,1,planet.plone.org,2013-04-25,2013-04-25
 Malthe Borch (independent),0,1,1,malthe,1,plone.dexterity,,

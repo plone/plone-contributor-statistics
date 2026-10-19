@@ -17,8 +17,8 @@ polyester,173,57,22,"Installers-UnifiedInstaller, Products.CMFPlone, aiteam.play
 obct537,130,37,6,"Products.CMFPlone, mockup, plone.app.contenttypes, plone.app.theming, plone.app.workflowmanager, plone.resourceeditor",2015-01-08,2015-12-31
 vincentfretin,126,0,23,"Products.Archetypes, Products.CMFPlone, archetypes.referencebrowserwidget, buildout.coredev, jenkins.plone.org, plone.app.content, plone.app.contentmenu, plone.app.contentrules, plone.app.contenttypes, plone.app.controlpanel, plone.app.dexterity, plone.app.event, plone.app.form, plone.app.layout, plone.app.linkintegrity, plone.app.portlets, plone.app.theming, plone.app.upgrade, plone.app.users, plone.app.versioningbehavior, plone.dexterity, plone.protect, plone.schemaeditor",2015-02-12,2015-12-04
 sneridagh,122,7,20,"Products.CMFPlone, Products.TinyMCE, buildout.coredev, documentation, mockup, plone.app.caching, plone.app.contentrules, plone.app.contenttypes, plone.app.dexterity, plone.app.discussion, plone.app.event, plone.app.layout, plone.app.mosaic, plone.app.multilingual, plone.app.registry, plone.app.theming, plone.app.upgrade, ploneorg.core, ploneorg.theme, plonetheme.barceloneta",2015-03-22,2015-12-08
-jcbrand,115,18,15,"Products.CMFPlone, buildout.coredev, documentation, mockup, mockup-core, planet.plone.org, plone.app.contentmenu, plone.app.contentrules, plone.app.dexterity, plone.app.layout, plone.app.portlets, plone.app.theming, plone.patternslib, plone.schemaeditor, plonetheme.barceloneta",2015-01-21,2015-12-07
 gotcha,115,16,18,"Products.CMFDynamicViewFTI, Products.CMFPlone, Products.MimetypesRegistry, Products.PortalTransforms, Products.TinyMCE, Products.validation, buildout.coredev, jenkins.plone.org, plone.app.dexterity, plone.app.relationfield, plone.app.robotframework, plone.app.testing, plone.app.users, plone.cachepurging, plone.namedfile, plone.recipe.zeoserver, plone.scale, plone.schemaeditor",2015-01-05,2015-12-07
+jcbrand,115,18,15,"Products.CMFPlone, buildout.coredev, documentation, mockup, mockup-core, planet.plone.org, plone.app.contentmenu, plone.app.contentrules, plone.app.dexterity, plone.app.layout, plone.app.portlets, plone.app.theming, plone.patternslib, plone.schemaeditor, plonetheme.barceloneta",2015-01-21,2015-12-07
 davisagli,113,16,29,"Products.CMFPlone, Products.CMFQuickInstallerTool, Products.PlonePAS, Products.PortalTransforms, aiteam.playbooks, ansible-playbook, ansible-playbook-ploneorg2019, buildout.coredev, mockup, plone.app.content, plone.app.dexterity, plone.app.discussion, plone.app.layout, plone.app.portlets, plone.app.robotframework, plone.app.testing, plone.app.textfield, plone.app.users, plone.app.vocabularies, plone.app.z3cform, plone.dexterity, plone.intelligenttext, plone.namedfile, plone.outputfilters, plone.portlet.collection, plone.protect, plone.schemaeditor, plone4.csrffixes, plonetheme.barceloneta",2014-08-11,2015-11-28
 saily,103,6,7,"Products.PlonePAS, archetypes.multilingual, documentation, plone.app.dexterity, plone.app.multilingual, plone.batching, plone.recipe.codeanalysis",2015-01-22,2015-09-03
 ebrehault,92,27,21,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, Products.PlonePAS, archetypes.multilingual, buildout.coredev, diazo, documentation, mockup, planet.plone.org, plone.app.controlpanel, plone.app.dexterity, plone.app.portlets, plone.app.querystring, plone.app.relationfield, plone.app.theming, plone.app.upgrade, plone.app.users, plone.app.widgets, plone.resourceeditor, plone.schemaeditor",2015-01-06,2015-12-11
@@ -38,10 +38,10 @@ sdelcourt,36,1,1,Products.MasterSelectWidget,2015-06-30,2015-08-06
 pilz,32,1,2,"mockup, plone.patternslib",2015-11-20,2015-12-02
 jcerjak,31,13,11,"Products.CMFPlone, Products.PasswordResetTool, buildout.coredev, plone.app.collection, plone.app.layout, plone.app.openid, plone.app.portlets, plone.app.robotframework, plone.app.search, plone.app.upgrade, plone.app.users",2015-01-24,2015-09-19
 Gagaro,29,26,10,"Products.CMFPlone, buildout.coredev, mockup, plone.app.content, plone.app.portlets, plone.app.theming, plone.app.upgrade, plone.app.vocabularies, plone.app.z3cform, plone.outputfilters",2015-07-16,2015-12-16
-simahawk,27,2,6,"plone.app.blocks, plone.app.layout, plone.app.mosaic, plone.app.standardtiles, training, training.plone.org",2014-06-11,2015-10-13
 rodfersou,27,22,10,"Products.CMFPlone, Products.TinyMCE, archetypes.querywidget, mockup, plone.app.dexterity, plone.app.imaging, plone.app.layout, plone.app.mosaic, plone.app.querystring, plonetheme.barceloneta",2015-04-24,2015-09-21
-frisi,23,11,8,"Products.ResourceRegistries, Products.TinyMCE, archetypes.referencebrowserwidget, documentation, plone.app.blob, plone.app.multilingual, plone.app.themingplugins, training",2014-11-25,2015-10-13
+simahawk,27,2,6,"plone.app.blocks, plone.app.layout, plone.app.mosaic, plone.app.standardtiles, training, training.plone.org",2014-06-11,2015-10-13
 davilima6,23,20,15,"Products.ATContentTypes, Products.CMFPlacefulWorkflow, Products.CMFPlone, Products.TinyMCE, documentation, mockup, plone.app.caching, plone.app.contentrules, plone.app.discussion, plone.app.multilingual, plone.app.registry, plone.app.theming, plone.app.users, plonetheme.barceloneta, training",2015-09-03,2015-11-23
+frisi,23,11,8,"Products.ResourceRegistries, Products.TinyMCE, archetypes.referencebrowserwidget, documentation, plone.app.blob, plone.app.multilingual, plone.app.themingplugins, training",2014-11-25,2015-10-13
 loechel,22,1,5,"diazo, plone.vulnerabilitychecks.buildout, plone.vulnerabilitychecks.core, plone.vulnerabilitychecks.instance_startup, sphinxtheme.plone",2015-03-02,2015-10-19
 pigeonflight,22,3,6,"Products.CMFPlone, buildout.coredev, planet.plone.org, plone.app.registry, plonetheme.barceloneta, training",2015-03-04,2015-10-24
 djowett,21,15,10,"aiteam.playbooks, ansible-playbook, ansible-playbook-ploneorg2019, ansible.plone_server, bobtemplates.plone, documentation, plone.app.collection, plone.app.contenttypes, plone.app.customerize, plone.app.multilingual",2015-01-08,2015-12-15
@@ -51,141 +51,141 @@ ale-rt,16,13,11,"bobtemplates.plone, buildout.coredev, mockup, plone.api, plone.
 gbastien,16,5,3,"Products.CMFPlone, archetypes.referencebrowserwidget, plone.batching",2015-03-18,2015-11-25
 petschki,16,9,6,"Products.CMFPlone, mockup, mockup-core, plone.app.content, plone.app.querystring, plone.app.widgets",2015-01-08,2015-10-15
 jpgimenez,15,3,3,"Products.CMFPlone, ansible.plone_server, plone.app.upgrade",2014-01-08,2015-08-25
-jone,14,7,4,"plone.app.textfield, plone.app.versioningbehavior, plone.rest, plone.restapi",2015-05-26,2015-11-23
 erral,14,1,7,"Products.TinyMCE, buildout.coredev, plone.app.dexterity, plone.app.discussion, plone.app.event, plone.app.multilingual, plone.app.versioningbehavior",2015-09-09,2015-09-21
-mamico,13,3,4,"plone.app.stagingbehavior, plone.formwidget.hcaptcha, plone.formwidget.recaptcha, plone.recipe.zeoserver",2015-01-26,2015-06-18
+jone,14,7,4,"plone.app.textfield, plone.app.versioningbehavior, plone.rest, plone.restapi",2015-05-26,2015-11-23
 davidjb,13,0,10,"Products.CMFPlone, Products.PasswordResetTool, buildout.coredev, heroku-buildpack-plone, mockup, plone.app.discussion, plone.formwidget.captcha, plone.formwidget.hcaptcha, plone.formwidget.recaptcha, plonetheme.barceloneta",2015-03-12,2015-07-01
+mamico,13,3,4,"plone.app.stagingbehavior, plone.formwidget.hcaptcha, plone.formwidget.recaptcha, plone.recipe.zeoserver",2015-01-26,2015-06-18
 fredvd,12,1,6,"Products.TinyMCE, buildout.coredev, plone.app.contenttypes, plone.caching, training, training.plone.org",2015-02-14,2015-11-18
 lrowe,12,2,2,"buildout.coredev, diazo",2015-03-02,2015-10-19
 bsuttor,11,8,5,"archetypes.multilingual, planet.plone.org, plone.app.multilingual, plone.multilingualbehavior, training",2015-01-29,2015-10-30
-tschorr,11,5,3,"Products.CMFEditions, Products.TinyMCE, documentation",2015-09-08,2015-11-07
 encolpe,11,0,6,"buildout.coredev, plone.app.dexterity, plone.app.discussion, plone.app.event, plone.app.multilingual, plone.app.versioningbehavior",2015-09-15,2015-09-20
 gyst,11,3,4,"Products.CMFPlone, plone.api, plone.app.blocks, plone.app.theming",2014-06-11,2015-07-10
+tschorr,11,5,3,"Products.CMFEditions, Products.TinyMCE, documentation",2015-09-08,2015-11-07
 l34marr,10,11,4,"Products.TinyMCE, documentation, plone.app.dexterity, plone.app.multilingual",2015-03-18,2015-11-27
 staeff,10,7,6,"Products.CMFPlone, buildout.coredev, documentation, plone.cachepurging, plone.directives.form, plone.schema",2015-04-24,2015-11-20
 jean,9,4,4,"plone.app.viewletmanager, ploneorg.admin, ploneorg.theme, training",2015-03-30,2015-10-18
 jlord,9,0,1,plone_manager,2015-10-17,2015-12-16
 terapyon,9,6,5,"plone.app.dexterity, plone.app.discussion, plone.app.event, plone.app.multilingual, plone.app.theming",2015-04-29,2015-10-17
-lukasgraf,8,6,3,"plone.protect, plone.rest, plone.restapi",2015-10-12,2015-11-26
+claytonc,8,4,3,"plone.app.dexterity, plone.app.lockingbehavior, plone.app.referenceablebehavior",2015-10-01,2015-11-06
 domruf,8,7,1,mockup,2015-05-05,2015-11-04
 keul,8,4,5,"Products.CMFDiffTool, Products.TinyMCE, archetypes.referencebrowserwidget, plone.app.form, plone.app.layout",2015-02-23,2015-09-18
-claytonc,8,4,3,"plone.app.dexterity, plone.app.lockingbehavior, plone.app.referenceablebehavior",2015-10-01,2015-11-06
 lentinj,8,3,2,"documentation, plone.app.dexterity",2014-03-07,2015-05-22
-cedricmessiant,7,3,3,"Products.CMFDiffTool, Products.CMFPlone, plone.dexterity",2015-01-22,2015-07-30
-adamcheasley,7,3,4,"buildout.coredev, documentation, plone.dexterity, plone.protect",2015-01-28,2015-09-14
+lukasgraf,8,6,3,"plone.protect, plone.rest, plone.restapi",2015-10-12,2015-11-26
 3dogMcNeill,7,5,3,"Products.CMFPlone, dev.plone.org, documentation",2015-08-05,2015-12-18
-thomasmassmann,7,4,3,"plone.app.theming, plone.restapi, training",2015-07-16,2015-09-28
+adamcheasley,7,3,4,"buildout.coredev, documentation, plone.dexterity, plone.protect",2015-01-28,2015-09-14
+cedricmessiant,7,3,3,"Products.CMFDiffTool, Products.CMFPlone, plone.dexterity",2015-01-22,2015-07-30
 instification,7,4,3,"Products.CMFPlone, documentation, plonetheme.barceloneta",2015-09-24,2015-10-12
 rockfruit,7,4,2,"ansible.plone_server, documentation",2015-01-26,2015-07-05
 sgeulette,7,5,3,"Products.PasswordResetTool, plone.app.users, plone.dexterity",2015-01-21,2015-12-22
-mitakas,6,3,3,"archetypes.referencebrowserwidget, plone.app.event, plone.formwidget.recurrence",2014-11-27,2015-03-22
-adaugherity,6,2,1,plone.app.ldap,2014-09-13,2015-11-16
-timitos,6,6,4,"Products.CMFPlone, documentation, mockup, training",2015-03-02,2015-10-18
+thomasmassmann,7,4,3,"plone.app.theming, plone.restapi, training",2015-07-16,2015-09-28
 aclark4life,6,2,4,"Products.CMFPlone, Products.PloneOrg, plone.com.ansible, plonetheme.ploneorg",2015-02-06,2015-09-11
-djay,6,2,3,"buildout.coredev, plone.app.layout, plonetheme.barceloneta",2015-07-18,2015-09-10
-buchi,6,3,1,plone.rest,2015-11-13,2015-12-18
 acsr,6,2,3,"communication.plone5-posters, documentation, training",2015-01-05,2015-10-27
+adaugherity,6,2,1,plone.app.ldap,2014-09-13,2015-11-16
+buchi,6,3,1,plone.rest,2015-11-13,2015-12-18
+djay,6,2,3,"buildout.coredev, plone.app.layout, plonetheme.barceloneta",2015-07-18,2015-09-10
+mitakas,6,3,3,"archetypes.referencebrowserwidget, plone.app.event, plone.formwidget.recurrence",2014-11-27,2015-03-22
 pabo3000,6,2,4,"Products.CMFPlone, bobtemplates.plone, documentation, plone.app.dexterity",2015-07-17,2015-11-09
-kevinsawicki,5,0,1,plone_manager,2015-10-19,2015-12-16
+timitos,6,6,4,"Products.CMFPlone, documentation, mockup, training",2015-03-02,2015-10-18
 cewing,5,3,3,"Products.CMFPlone, plone.app.content, plonetheme.barceloneta",2015-04-08,2015-05-07
 gaudenz,5,2,4,"borg.localrole, buildout.coredev, plone.app.discussion, plone.formwidget.contenttree",2015-05-27,2015-10-20
+hersonrodrigues,5,1,2,"mockup, plone.app.workflowmanager",2015-10-27,2015-11-06
+htgoebel,5,2,1,ansible.plone_server,2015-03-07,2015-03-08
+kevinsawicki,5,0,1,plone_manager,2015-10-19,2015-12-16
 lowks,5,1,5,"plone.app.discussion, plone.app.form, plone.app.querystring, plone.resourceeditor, plone.schema",2015-04-28,2015-09-27
 RobZoneNet,5,0,2,"mockup, ploneorg.theme",2015-02-19,2015-10-17
 winstonf88,5,3,1,plone.app.querystring,2015-09-01,2015-09-17
-htgoebel,5,2,1,ansible.plone_server,2015-03-07,2015-03-08
-hersonrodrigues,5,1,2,"mockup, plone.app.workflowmanager",2015-10-27,2015-11-06
-benniboy,4,1,1,mockup,2015-01-21,2015-01-21
-garbas,4,1,1,plone.app.event,2015-07-20,2015-07-22
-laulaz,4,2,2,"diazo, plone.formwidget.multifile",2015-07-20,2015-12-18
-vmaksymiv,4,1,1,plone.app.theming,2015-06-26,2015-07-02
-puittenbroek,4,2,2,"plone.app.caching, plone.session",2015-03-30,2015-04-09
-avoinea,4,3,3,"buildout.coredev, plone.app.users, plone.recipe.zope2instance",2015-04-16,2015-05-18
 acatlla,4,0,2,"plone.app.blocks, plone.app.event",2014-06-11,2015-05-13
-zopyx,4,1,3,"documentation, plone.api, plone.schemaeditor",2015-04-09,2015-09-01
-kiorky,4,4,4,"mockup, plone.app.contentlisting, plone.app.contenttypes, plone.app.widgets",2015-01-21,2015-01-27
-takanory,4,0,1,plone.app.discussion,2015-04-29,2015-05-09
+avoinea,4,3,3,"buildout.coredev, plone.app.users, plone.recipe.zope2instance",2015-04-16,2015-05-18
+benniboy,4,1,1,mockup,2015-01-21,2015-01-21
 cillianderoiste,4,3,4,"mockup, plone.app.content, plone.app.robotframework, plone.schema",2015-05-11,2015-09-20
-zupo,3,2,2,"Products.CMFEditions, planet.plone.org",2015-02-01,2015-10-14
+garbas,4,1,1,plone.app.event,2015-07-20,2015-07-22
+kiorky,4,4,4,"mockup, plone.app.contentlisting, plone.app.contenttypes, plone.app.widgets",2015-01-21,2015-01-27
+laulaz,4,2,2,"diazo, plone.formwidget.multifile",2015-07-20,2015-12-18
+puittenbroek,4,2,2,"plone.app.caching, plone.session",2015-03-30,2015-04-09
+takanory,4,0,1,plone.app.discussion,2015-04-29,2015-05-09
+vmaksymiv,4,1,1,plone.app.theming,2015-06-26,2015-07-02
+zopyx,4,1,3,"documentation, plone.api, plone.schemaeditor",2015-04-09,2015-09-01
+alecghica,3,2,1,plone.app.caching,2015-01-21,2015-01-21
+allusa,3,1,2,"Products.CMFPlone, plone.app.content",2015-04-15,2015-09-24
+cdw9,3,1,3,"Products.CMFPlacefulWorkflow, ploneorg.core, ploneorg.theme",2015-12-04,2015-12-12
+gil-cano,3,2,2,"bobtemplates.plone, plone.recipe.codeanalysis",2015-06-14,2015-06-20
 macagua,3,2,2,"plone.app.discussion, training",2015-05-31,2015-06-07
 rafaelbco,3,1,2,"documentation, plone.app.versioningbehavior",2015-10-19,2015-11-17
 sureshvv,3,1,2,"buildout.coredev, plone.scale",2015-03-05,2015-03-07
 tcyrus,3,0,1,plone_manager,2015-11-24,2015-11-24
-cdw9,3,1,3,"Products.CMFPlacefulWorkflow, ploneorg.core, ploneorg.theme",2015-12-04,2015-12-12
-alecghica,3,2,1,plone.app.caching,2015-01-21,2015-01-21
-gil-cano,3,2,2,"bobtemplates.plone, plone.recipe.codeanalysis",2015-06-14,2015-06-20
-allusa,3,1,2,"Products.CMFPlone, plone.app.content",2015-04-15,2015-09-24
-reinhardt,2,2,2,"plone.app.dexterity, plone.app.layout",2015-10-29,2015-11-06
-cguardia,2,1,1,plone.app.z3cform,2015-09-17,2015-09-17
-pysailor,2,2,3,"documentation, plone.app.versioningbehavior, plone.patternslib",2015-02-19,2015-11-21
-brunobbbs,2,1,1,plone.app.dexterity,2015-07-06,2015-07-06
-sunew,2,1,1,plone.app.theming,2014-10-27,2014-10-27
-raphael-ritz,2,2,1,documentation,2015-08-25,2015-08-26
-tcurvelo,2,1,2,"Products.CMFPlone, plone.app.upgrade",2015-03-25,2015-03-25
-ivanteoh,2,2,1,documentation,2015-11-12,2015-11-25
-martior,2,1,2,"Products.PloneOrg, plone.app.standardtiles",2015-04-12,2015-11-10
-joka,2,0,2,"plone.app.multilingual, plone.schema",2015-02-06,2015-02-07
-Gomez,2,1,1,plonetheme.barceloneta,2015-08-03,2015-09-19
-julianhandl,2,1,1,plone.formwidget.recurrence,2015-11-18,2015-11-18
-rnixx,2,1,1,plone.behavior,2014-11-09,2014-11-09
-gvizdyk,2,2,1,plonetheme.barceloneta,2015-04-15,2015-05-14
-ericof,2,0,1,Products.TinyMCE,2015-02-23,2015-02-23
+zupo,3,2,2,"Products.CMFEditions, planet.plone.org",2015-02-01,2015-10-14
 braytonosg,2,2,1,mockup,2015-07-16,2015-07-16
-witekdev,2,1,1,training,2015-10-11,2015-10-11
+brunobbbs,2,1,1,plone.app.dexterity,2015-07-06,2015-07-06
 cekk,2,1,1,Products.CMFFormController,2015-05-20,2015-05-20
-maethu,2,0,1,Products.TinyMCE,2015-05-05,2015-05-05
+cguardia,2,1,1,plone.app.z3cform,2015-09-17,2015-09-17
+ericof,2,0,1,Products.TinyMCE,2015-02-23,2015-02-23
+Gomez,2,1,1,plonetheme.barceloneta,2015-08-03,2015-09-19
+gvizdyk,2,2,1,plonetheme.barceloneta,2015-04-15,2015-05-14
+ivanteoh,2,2,1,documentation,2015-11-12,2015-11-25
 jladage,2,0,2,"buildout.coredev, plone.app.event",2015-11-09,2015-11-09
-fscherwi,1,0,1,plone_manager,2015-11-17,2015-11-17
-mgedmin,1,1,1,documentation,2015-04-01,2015-04-01
-daguar,1,1,1,documentation,2015-02-04,2015-02-04
-maartenkling,1,1,1,plone.app.upgrade,2015-06-17,2015-06-17
-ramiroluz,1,1,2,"plone.app.multilingual, plone.recipe.codeanalysis",2013-12-10,2013-12-10
-icemac,1,1,1,plone.testing,2015-04-27,2015-04-27
-dgroos,1,1,1,documentation,2015-10-17,2015-10-17
-robgietema,1,0,1,plone.app.blocks,2014-06-12,2014-06-12
-zanesterling,1,0,1,plone_manager,2015-10-25,2015-10-25
-huubbouma,1,1,1,diazo,2015-09-04,2015-09-04
-nightmarebadger,1,1,1,planet.plone.org,2015-05-06,2015-05-06
-tlyng,1,1,1,buildout.jenkins,2015-02-17,2015-02-17
-laiso,1,0,1,plone_manager,2015-11-24,2015-11-24
-jeanferri,1,0,1,plone.app.event,2015-03-26,2015-03-26
-rigarash,1,1,1,container-historical,2015-04-02,2015-04-02
-retsu,1,0,1,plone.app.event,2015-04-20,2015-04-20
-tsimkins,1,1,1,documentation,2015-06-26,2015-06-26
-tmog,1,1,1,plone.app.content,2015-10-20,2015-10-20
-miohtama,1,1,1,training,2015-11-22,2015-11-22
-petri,1,0,1,plone.formwidget.namedfile,2015-09-08,2015-09-08
-AnneGilles,1,1,1,plone.restapi,2015-07-23,2015-07-23
-marciomazza,1,0,1,training,2015-12-26,2015-12-26
-davisp1,1,0,1,mockup,2015-01-19,2015-01-19
-IonicaBizau,1,0,1,plone_manager,2015-10-21,2015-10-21
-phanect,1,0,1,plone_manager,2015-11-22,2015-11-22
-icoxfog417,1,0,1,plone_manager,2015-12-07,2015-12-07
+joka,2,0,2,"plone.app.multilingual, plone.schema",2015-02-06,2015-02-07
+julianhandl,2,1,1,plone.formwidget.recurrence,2015-11-18,2015-11-18
+maethu,2,0,1,Products.TinyMCE,2015-05-05,2015-05-05
+martior,2,1,2,"Products.PloneOrg, plone.app.standardtiles",2015-04-12,2015-11-10
+pysailor,2,2,3,"documentation, plone.app.versioningbehavior, plone.patternslib",2015-02-19,2015-11-21
+raphael-ritz,2,2,1,documentation,2015-08-25,2015-08-26
+reinhardt,2,2,2,"plone.app.dexterity, plone.app.layout",2015-10-29,2015-11-06
+rnixx,2,1,1,plone.behavior,2014-11-09,2014-11-09
+sunew,2,1,1,plone.app.theming,2014-10-27,2014-10-27
+tcurvelo,2,1,2,"Products.CMFPlone, plone.app.upgrade",2015-03-25,2015-03-25
+witekdev,2,1,1,training,2015-10-11,2015-10-11
 agentcoops,1,1,1,diazo,2015-04-24,2015-04-24
-davidemoro,1,1,1,planet.plone.org,2015-09-12,2015-09-12
-k-j-kleist,1,0,1,planet.plone.org,2015-05-10,2015-05-10
-elioschmutz,1,1,1,plone.formwidget.datetime,2015-10-12,2015-10-12
+AnneGilles,1,1,1,plone.restapi,2015-07-23,2015-07-23
 boulch,1,0,1,Products.MasterSelectWidget,2015-07-06,2015-07-06
+daguar,1,1,1,documentation,2015-02-04,2015-02-04
 david-batranu,1,1,1,plone.app.blob,2015-05-27,2015-05-27
-waffle-iron,1,1,1,plone.restapi,2015-05-12,2015-05-12
+davidemoro,1,1,1,planet.plone.org,2015-09-12,2015-09-12
+davisp1,1,0,1,mockup,2015-01-19,2015-01-19
+dgroos,1,1,1,documentation,2015-10-17,2015-10-17
+elioschmutz,1,1,1,plone.formwidget.datetime,2015-10-12,2015-10-12
+fscherwi,1,0,1,plone_manager,2015-11-17,2015-11-17
+huubbouma,1,1,1,diazo,2015-09-04,2015-09-04
+icemac,1,1,1,plone.testing,2015-04-27,2015-04-27
+icoxfog417,1,0,1,plone_manager,2015-12-07,2015-12-07
+IonicaBizau,1,0,1,plone_manager,2015-10-21,2015-10-21
+jeanferri,1,0,1,plone.app.event,2015-03-26,2015-03-26
+k-j-kleist,1,0,1,planet.plone.org,2015-05-10,2015-05-10
+laiso,1,0,1,plone_manager,2015-11-24,2015-11-24
 lukebrannon,1,1,1,plone4.csrffixes,2015-11-05,2015-11-05
-jochumdev,0,1,1,plone.app.dexterity,,
-sverbois,0,1,1,plone.portlet.static,,
-danboggins,0,1,1,documentation,,
-Schemata,0,1,1,documentation,,
-bogdangi,0,2,1,documentation,,
-hoka,0,1,1,Products.CMFPlone,,
-prakharjoshi,0,2,2,"Products.PortalTransforms, plone.app.robotframework",,
-neilferreira,0,1,1,plone.api,,
-kuetrzi,0,1,1,Products.CMFPlone,,
+maartenkling,1,1,1,plone.app.upgrade,2015-06-17,2015-06-17
+marciomazza,1,0,1,training,2015-12-26,2015-12-26
+mgedmin,1,1,1,documentation,2015-04-01,2015-04-01
+miohtama,1,1,1,training,2015-11-22,2015-11-22
+nightmarebadger,1,1,1,planet.plone.org,2015-05-06,2015-05-06
+petri,1,0,1,plone.formwidget.namedfile,2015-09-08,2015-09-08
+phanect,1,0,1,plone_manager,2015-11-22,2015-11-22
+ramiroluz,1,1,2,"plone.app.multilingual, plone.recipe.codeanalysis",2013-12-10,2013-12-10
+retsu,1,0,1,plone.app.event,2015-04-20,2015-04-20
+rigarash,1,1,1,container-historical,2015-04-02,2015-04-02
+robgietema,1,0,1,plone.app.blocks,2014-06-12,2014-06-12
+tlyng,1,1,1,buildout.jenkins,2015-02-17,2015-02-17
+tmog,1,1,1,plone.app.content,2015-10-20,2015-10-20
+tsimkins,1,1,1,documentation,2015-06-26,2015-06-26
+waffle-iron,1,1,1,plone.restapi,2015-05-12,2015-05-12
+zanesterling,1,0,1,plone_manager,2015-10-25,2015-10-25
 aleGpereira,0,1,1,buildout.coredev,,
-Killthebug,0,1,1,buildout.coredev,,
-ezvirtual,0,1,1,plone.app.querystring,,
-ltakens,0,1,1,mockup,,
-iham,0,1,1,Products.TinyMCE,,
-msom,0,1,1,Products.TinyMCE,,
-paulrentschler,0,1,1,Products.Archetypes,,
-seanupton,0,1,1,plone.app.widgets,,
-zylinx,0,1,1,ansible.plone_server,,
-mrcrilly,0,1,1,ansible-playbook,,
+bogdangi,0,2,1,documentation,,
 chris2fr,0,1,1,diazo,,
+danboggins,0,1,1,documentation,,
+ezvirtual,0,1,1,plone.app.querystring,,
+hoka,0,1,1,Products.CMFPlone,,
+iham,0,1,1,Products.TinyMCE,,
+jochumdev,0,1,1,plone.app.dexterity,,
+Killthebug,0,1,1,buildout.coredev,,
+kuetrzi,0,1,1,Products.CMFPlone,,
+ltakens,0,1,1,mockup,,
 mikejmets,0,1,1,plone.recipe.unifiedinstaller,,
+mrcrilly,0,1,1,ansible-playbook,,
+msom,0,1,1,Products.TinyMCE,,
+neilferreira,0,1,1,plone.api,,
+paulrentschler,0,1,1,Products.Archetypes,,
+prakharjoshi,0,2,2,"Products.PortalTransforms, plone.app.robotframework",,
+Schemata,0,1,1,documentation,,
+seanupton,0,1,1,plone.app.widgets,,
+sverbois,0,1,1,plone.portlet.static,,
+zylinx,0,1,1,ansible.plone_server,,

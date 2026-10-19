@@ -43,115 +43,115 @@ Gagaro,26,13,5,"Products.CMFPlone, mockup, plone.app.content, plone.restapi, plo
 ale-rt,23,17,19,"Products.ATContentTypes, Products.CMFPlone, Products.MimetypesRegistry, Products.i18ntestcase, bobtemplates.plone, buildout.coredev, documentation, plone.app.content, plone.app.contentlisting, plone.app.dexterity, plone.app.layout, plone.app.ldap, plone.app.portlets, plone.locking, plone.namedfile, plone.recipe.zope2instance, plone.resource, plone.supermodel, plone.testing",2017-04-06,2017-10-28
 sunew,22,9,2,"plone.app.debugtoolbar, plone.restapi-angular",2017-04-29,2017-11-30
 gotcha,19,12,6,"Products.Archetypes, buildout.coredev, guillotina, plone.api, plone.dexterity, plone.outputfilters",2016-08-31,2017-09-12
+avoinea,17,0,2,"container-historical, zeoserver.docker",2017-01-05,2017-09-13
 MatthewWilkes,17,4,10,"Products.CMFFormController, Products.CMFPlone, archetypes.referencebrowserwidget, buildout.coredev, plone.api, plone.app.blob, plone.app.standardtiles, plone.app.theming, plone.dexterity, plone.locking",2017-01-30,2017-11-28
 TakCastel,17,1,2,"pastanaga-angular, pastanaga-theme",2017-09-22,2017-09-25
-avoinea,17,0,2,"container-historical, zeoserver.docker",2017-01-05,2017-09-13
 jladage,16,3,5,"buildout.coredev, container-historical, plone.app.event, plone.app.layout, plone.app.multilingual",2017-02-28,2017-04-20
 frapell,15,12,7,"Products.CMFDiffTool, Products.CMFPlone, mockup, plone.app.contenttypes, plone.app.iterate, plone.app.mosaic, training",2017-01-05,2017-11-10
 VaysseB,14,0,2,"aurora, volto",2017-09-24,2017-09-24
-pigeonflight,13,4,5,"ansible-playbook, ansible-playbook-ploneorg2019, bobtemplates.plone, documentation, plonecli",2016-10-22,2017-11-06
 cekk,13,3,4,"Products.CMFPlone, aurora, plone.app.standardtiles, volto",2017-05-19,2017-10-22
-RobZoneNet,12,0,1,training,2017-09-29,2017-10-02
+pigeonflight,13,4,5,"ansible-playbook, ansible-playbook-ploneorg2019, bobtemplates.plone, documentation, plonecli",2016-10-22,2017-11-06
 albertcasado,12,0,2,"pastanaga, pastanaga-icons",2017-07-03,2017-07-07
+RobZoneNet,12,0,1,training,2017-09-29,2017-10-02
 witsch,12,3,2,"plone.restapi, plone.testing",2017-03-04,2017-03-05
-icemac,11,5,3,"plone.recipe.zeoserver, plone.recipe.zope2instance, plone.testing",2017-04-05,2017-11-07
 djowett,11,6,5,"Products.LinguaPlone, documentation, plone.app.discussion, plone.app.multilingual, training",2016-12-02,2017-07-21
+icemac,11,5,3,"plone.recipe.zeoserver, plone.recipe.zope2instance, plone.testing",2017-04-05,2017-11-07
 Diederik Veeze,10,0,7,"Products.CMFPlone, mockup, plone.app.contenttypes, plone.app.linkintegrity, plone.app.portlets, plone.app.upgrade, plone.namedfile",2016-04-15,2016-09-27
 nazrulworld,10,10,2,"guillotina, plone.restapi",2017-03-20,2017-10-22
 gitcarbs,9,1,3,"guillotina_elasticsearch, guillotina_gcloudstorage, guillotina_s3storage",2017-01-04,2017-08-10
 ksuess,9,3,2,"mockup, plone.app.discussion",2017-07-17,2017-12-14
 vincentfretin,9,0,5,"Products.LinguaPlone, Products.TinyMCE, buildout.coredev, plone.app.querystring, plone.app.registry",2017-01-11,2017-07-08
 obct537,8,0,4,"aurora, mockup, plone.app.workflowmanager, volto",2017-03-15,2017-10-22
+acsr,7,2,2,"plone.restapi, training.plone.org",2017-03-04,2017-03-24
 frisi,7,5,5,"Products.LinguaPlone, Products.TinyMCE, collective.monkeypatcher, plone.app.event, plone.app.testing",2017-02-24,2017-09-08
 Gomez,7,5,3,"ansible.plone_server, plonecli, training",2017-10-17,2017-10-26
-acsr,7,2,2,"plone.restapi, training.plone.org",2017-03-04,2017-03-24
 ivanteoh,7,1,1,plone.app.contentlisting,2017-04-04,2017-04-05
 seanupton,7,3,3,"Products.CMFPlone, mockup, plone.app.vocabularies",2017-02-27,2017-06-19
-pgrunewald,6,4,2,"Products.Archetypes, plone.memoize",2017-04-19,2017-06-28
 cdw9,6,4,2,"plone.app.contenttypes, ploneorg.core",2017-02-08,2017-09-19
-fschulze,6,5,2,"buildout.coredev, plone.scale",2017-02-28,2017-09-19
-tiberiuichim,6,1,4,"Products.CMFPlone, planet.plone.org, plone.app.iterate, plone.rest",2017-02-05,2017-06-10
-mamico,6,3,4,"plone.app.modernizr, plone.formwidget.datetime, plone.namedfile, plone.recipe.zeoserver",2017-03-31,2017-12-18
-fredvd,6,4,6,"papyrus, plone.app.contenttypes, plone.app.dexterity, plone.app.linkintegrity, plone.formwidget.contenttree, plone.formwidget.querystring",2017-08-09,2017-10-27
 cguardia,6,2,2,"plone.app.mosaic, plone.app.standardtiles",2017-05-05,2017-05-08
+fredvd,6,4,6,"papyrus, plone.app.contenttypes, plone.app.dexterity, plone.app.linkintegrity, plone.formwidget.contenttree, plone.formwidget.querystring",2017-08-09,2017-10-27
+fschulze,6,5,2,"buildout.coredev, plone.scale",2017-02-28,2017-09-19
+mamico,6,3,4,"plone.app.modernizr, plone.formwidget.datetime, plone.namedfile, plone.recipe.zeoserver",2017-03-31,2017-12-18
+pgrunewald,6,4,2,"Products.Archetypes, plone.memoize",2017-04-19,2017-06-28
+tiberiuichim,6,1,4,"Products.CMFPlone, planet.plone.org, plone.app.iterate, plone.rest",2017-02-05,2017-06-10
 bsuttor,5,6,6,"Products.CMFPlone, guillotina, plone.app.contenttypes, plone.app.event, plone.app.layout, plone.app.multilingual",2017-04-03,2017-10-16
+malthe,5,4,4,"Products.Archetypes, Products.CMFDynamicViewFTI, Products.CMFPlone, plone.app.contentrules",2017-02-03,2017-04-25
 sgrepos,5,3,3,"Products.CMFPlone, documentation, training",2017-04-09,2017-10-07
 zopyx,5,1,3,"Products.CMFPlone, planet.plone.org, plone.app.dexterity",2017-03-29,2017-11-09
-malthe,5,4,4,"Products.Archetypes, Products.CMFDynamicViewFTI, Products.CMFPlone, plone.app.contentrules",2017-02-03,2017-04-25
-witekdev,4,0,1,documentation,2017-01-12,2017-02-14
+gogobd,4,1,2,"Products.Archetypes, plone.instanceprofiling",2017-02-01,2017-02-13
 hannosch,4,0,1,plone.reload,2017-10-31,2017-10-31
-lukebrannon,4,1,1,documentation,2017-02-07,2017-02-10
-tobiasherp,4,0,1,Products.TinyMCE,2017-10-20,2017-10-20
 ju55i,4,1,1,container-historical,2017-07-03,2017-07-03
+lukebrannon,4,1,1,documentation,2017-02-07,2017-02-10
 ramiroluz,4,1,2,"ansible-playbook, ansible-playbook-ploneorg2019",2017-06-02,2017-06-02
 staeff,4,2,2,"buildout.coredev, training",2017-06-04,2017-10-16
-gogobd,4,1,2,"Products.Archetypes, plone.instanceprofiling",2017-02-01,2017-02-13
-jone,3,2,2,"plone.protect, plone.restapi",2017-01-17,2017-07-03
-arsenico13,3,3,3,"plone.app.content, plone.app.dexterity, plone.app.linkintegrity",2017-08-31,2017-10-04
-SyZn,3,1,2,"Products.PasswordResetTool, plone.restapi",2017-04-13,2017-07-06
-sdelcourt,3,0,1,Products.MasterSelectWidget,2017-02-03,2017-02-03
-rodfersou,3,6,5,"Products.CMFPlone, plone.app.layout, plone.namedfile, plonetheme.classic, plonetheme.sunburst",2017-01-03,2017-07-08
-prakharjoshi,3,1,2,"bobtemplates.plone, plone.restapi",2017-01-04,2017-05-06
-cillianderoiste,3,2,2,"mockup, plone.app.content",2017-08-25,2017-08-31
+tobiasherp,4,0,1,Products.TinyMCE,2017-10-20,2017-10-20
+witekdev,4,0,1,documentation,2017-01-12,2017-02-14
 adamcheasley,3,2,1,plone.api,2017-01-31,2017-02-03
-tareqalam,2,1,2,"aurora, volto",2017-12-12,2017-12-12
-robinsjm2,2,2,1,training,2017-06-27,2017-06-30
-karalics,2,2,2,"plone.app.caching, plone.formwidget.namedfile",2017-09-01,2017-10-17
-zupo,2,1,2,"heroku-buildpack-plone, planet.plone.org",2017-03-07,2017-03-15
-l00ptr,2,1,1,ansible.plone_server,2017-10-31,2017-10-31
-shentonfreude,2,1,1,plone.restapi-angular,2017-10-22,2017-10-22
-davidjb,2,0,1,plone.app.vulnerabilities,2017-11-29,2017-11-29
-rnunez80,2,0,1,plone.app.standardtiles,2017-08-24,2017-09-05
-pabo3000,2,1,1,Products.PortalTransforms,2017-02-12,2017-02-16
-cedricmessiant,2,1,2,"mockup, plone.app.contenttypes",2017-03-06,2017-03-31
+arsenico13,3,3,3,"plone.app.content, plone.app.dexterity, plone.app.linkintegrity",2017-08-31,2017-10-04
+cillianderoiste,3,2,2,"mockup, plone.app.content",2017-08-25,2017-08-31
+jone,3,2,2,"plone.protect, plone.restapi",2017-01-17,2017-07-03
+prakharjoshi,3,1,2,"bobtemplates.plone, plone.restapi",2017-01-04,2017-05-06
+rodfersou,3,6,5,"Products.CMFPlone, plone.app.layout, plone.namedfile, plonetheme.classic, plonetheme.sunburst",2017-01-03,2017-07-08
+sdelcourt,3,0,1,Products.MasterSelectWidget,2017-02-03,2017-02-03
+SyZn,3,1,2,"Products.PasswordResetTool, plone.restapi",2017-04-13,2017-07-06
 allusa,2,2,2,"Products.CMFPlone, plone.app.event",2017-01-30,2017-06-06
-vkarppinen,2,1,1,Products.Archetypes,2017-07-04,2017-07-06
 CaffeinatedStud,2,1,1,plone.app.openid,2017-03-15,2017-03-15
-sgeulette,2,2,1,plone.app.robotframework,2017-03-14,2017-03-16
-jackBzzz,2,2,1,documentation,2017-02-19,2017-02-25
+cedricmessiant,2,1,2,"mockup, plone.app.contenttypes",2017-03-06,2017-03-31
+davidjb,2,0,1,plone.app.vulnerabilities,2017-11-29,2017-11-29
 enkidulan,2,2,1,plonetheme.barceloneta,2017-07-24,2017-07-26
-mattss,1,1,1,plone.restapi-angular,2017-10-19,2017-10-19
-jfroche,1,1,1,guillotina,2017-10-16,2017-10-16
-cdevienne,1,1,1,guillotina,2017-12-14,2017-12-14
+jackBzzz,2,2,1,documentation,2017-02-19,2017-02-25
+karalics,2,2,2,"plone.app.caching, plone.formwidget.namedfile",2017-09-01,2017-10-17
+l00ptr,2,1,1,ansible.plone_server,2017-10-31,2017-10-31
+pabo3000,2,1,1,Products.PortalTransforms,2017-02-12,2017-02-16
+rnunez80,2,0,1,plone.app.standardtiles,2017-08-24,2017-09-05
+robinsjm2,2,2,1,training,2017-06-27,2017-06-30
+sgeulette,2,2,1,plone.app.robotframework,2017-03-14,2017-03-16
+shentonfreude,2,1,1,plone.restapi-angular,2017-10-22,2017-10-22
+tareqalam,2,1,2,"aurora, volto",2017-12-12,2017-12-12
+vkarppinen,2,1,1,Products.Archetypes,2017-07-04,2017-07-06
+zupo,2,1,2,"heroku-buildpack-plone, planet.plone.org",2017-03-07,2017-03-15
 awello,1,1,1,plone.subrequest,2017-07-06,2017-07-06
-rudaporto,1,1,1,plone.api,2017-10-22,2017-10-22
-dhavlik,1,1,2,"plone.i18n, plone.scale",2017-05-04,2017-05-04
-laulaz,1,0,1,buildout.coredev,2017-09-26,2017-09-26
-davilima6,1,1,1,plone.restapi,2017-11-15,2017-11-15
-Rotonen,1,3,2,"plone.app.versioningbehavior, plone.intelligenttext",2017-11-30,2017-11-30
-jnns,1,1,1,training,2017-11-23,2017-11-23
-nngu6036,1,1,1,plone.app.querystring,2017-08-13,2017-08-13
-newbazz514,1,0,1,Products.CMFPlone,2017-12-05,2017-12-05
-petschki,1,5,3,"plone.app.blocks, plone.app.multilingual, plone.app.widgets",2017-10-21,2017-10-21
-simon-previdente,1,1,1,plone.restapi-angular,2017-04-07,2017-04-07
-dmanchon,1,0,1,guillotina_elasticsearch,2017-02-16,2017-02-16
 batlock666,1,2,1,plone.app.blob,2017-05-23,2017-05-23
-gnafou,1,1,1,Installers-UnifiedInstaller,2017-03-24,2017-03-24
-mtrebron,1,0,1,plone.app.contentrules,2017-03-29,2017-03-29
-rristow,1,1,1,Products.CMFDiffTool,2017-02-27,2017-02-27
-streaps,1,1,1,training,2017-04-18,2017-04-18
-iham,1,1,1,plone.supermodel,2017-06-01,2017-06-01
-malloxpb,1,0,1,training,2017-03-16,2017-03-16
-deankarlen,1,0,1,documentation,2017-08-10,2017-08-10
+cdevienne,1,1,1,guillotina,2017-12-14,2017-12-14
 cleberjsantos,1,1,1,documentation,2017-08-12,2017-08-12
 dals83,1,1,1,documentation,2017-10-22,2017-10-22
-himanshu81494,1,1,1,documentation,2017-03-05,2017-03-05
-rioksane,1,1,1,documentation,2017-07-05,2017-07-05
+davilima6,1,1,1,plone.restapi,2017-11-15,2017-11-15
+deankarlen,1,0,1,documentation,2017-08-10,2017-08-10
+dhavlik,1,1,2,"plone.i18n, plone.scale",2017-05-04,2017-05-04
 djay,1,0,1,documentation,2016-03-21,2016-03-21
-rfleschenberg,1,1,1,training,2017-05-15,2017-05-15
-zemm,1,1,1,Products.Archetypes,2017-08-29,2017-08-29
-leplatrem,1,1,1,guillotina,2017-10-23,2017-10-23
-mbaechtold,1,1,1,Products.TinyMCE,2017-03-22,2017-03-22
+dmanchon,1,0,1,guillotina_elasticsearch,2017-02-16,2017-02-16
+gnafou,1,1,1,Installers-UnifiedInstaller,2017-03-24,2017-03-24
 hanirok,1,1,1,plone.formwidget.querystring,2017-04-26,2017-04-26
-ghost,0,47,12,"Products.CMFPlone, documentation, mockup, plone.app.contenttypes, plone.app.linkintegrity, plone.app.portlets, plone.app.upgrade, plone.intelligenttext, plone.namedfile, ploneorg.addonlisting, ploneorg.releasesecurityinfo, training",,
-displacedaussie,0,2,1,Products.CMFPlone,,
-tmog,0,1,1,plone.app.event,,
-lzdych,0,1,1,plone.app.querystring,,
-instification,0,1,1,Products.CMFPlone,,
-macagua,0,1,1,training,,
-mitakas,0,1,1,Products.MasterSelectWidget,,
-maethu,0,1,1,Products.TinyMCE,,
-brunobbbs,0,1,1,plone.directives.form,,
-tlotze,0,1,1,plone.recipe.zope2instance,,
+himanshu81494,1,1,1,documentation,2017-03-05,2017-03-05
+iham,1,1,1,plone.supermodel,2017-06-01,2017-06-01
+jfroche,1,1,1,guillotina,2017-10-16,2017-10-16
+jnns,1,1,1,training,2017-11-23,2017-11-23
+laulaz,1,0,1,buildout.coredev,2017-09-26,2017-09-26
+leplatrem,1,1,1,guillotina,2017-10-23,2017-10-23
+malloxpb,1,0,1,training,2017-03-16,2017-03-16
+mattss,1,1,1,plone.restapi-angular,2017-10-19,2017-10-19
+mbaechtold,1,1,1,Products.TinyMCE,2017-03-22,2017-03-22
+mtrebron,1,0,1,plone.app.contentrules,2017-03-29,2017-03-29
+newbazz514,1,0,1,Products.CMFPlone,2017-12-05,2017-12-05
+nngu6036,1,1,1,plone.app.querystring,2017-08-13,2017-08-13
+petschki,1,5,3,"plone.app.blocks, plone.app.multilingual, plone.app.widgets",2017-10-21,2017-10-21
+rfleschenberg,1,1,1,training,2017-05-15,2017-05-15
+rioksane,1,1,1,documentation,2017-07-05,2017-07-05
+Rotonen,1,3,2,"plone.app.versioningbehavior, plone.intelligenttext",2017-11-30,2017-11-30
+rristow,1,1,1,Products.CMFDiffTool,2017-02-27,2017-02-27
+rudaporto,1,1,1,plone.api,2017-10-22,2017-10-22
+simon-previdente,1,1,1,plone.restapi-angular,2017-04-07,2017-04-07
+streaps,1,1,1,training,2017-04-18,2017-04-18
+zemm,1,1,1,Products.Archetypes,2017-08-29,2017-08-29
 alorence,0,1,1,heroku-buildpack-plone,,
+brunobbbs,0,1,1,plone.directives.form,,
+displacedaussie,0,2,1,Products.CMFPlone,,
+ghost,0,47,12,"Products.CMFPlone, documentation, mockup, plone.app.contenttypes, plone.app.linkintegrity, plone.app.portlets, plone.app.upgrade, plone.intelligenttext, plone.namedfile, ploneorg.addonlisting, ploneorg.releasesecurityinfo, training",,
+instification,0,1,1,Products.CMFPlone,,
+lzdych,0,1,1,plone.app.querystring,,
+macagua,0,1,1,training,,
+maethu,0,1,1,Products.TinyMCE,,
+mitakas,0,1,1,Products.MasterSelectWidget,,
 msom,0,1,1,plone.app.jquerytools,,
+tlotze,0,1,1,plone.recipe.zope2instance,,
+tmog,0,1,1,plone.app.event,,

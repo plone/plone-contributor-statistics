@@ -33,48 +33,48 @@ Roel Bruggink (independent),45,18,1,jaroel,15,"Products.CMFPlone, aurora, buildo
 Interaktiv,82,15,3,"Thokas, jmevissen, mliebischer",11,"Products.CMFPlone, buildout.coredev, cookiecutter-zope-instance, mockup, plone.app.content, plone.app.multilingual, plone.app.upgrade, plone.app.z3cform, plone.namedfile, plone.staticresources, training","2021, 2022, 2023",2021-03-23,2023-08-22
 acsr industrialdesign,22,12,1,acsr,4,"cookieplone-templates, tagung.plone.de, training, volto",2025,2025-01-27,2025-10-19
 Academy of FA Vienna,34,11,1,gogobd,6,"cookiecutter-zope-instance, plone.api, plone.app.mosaic, plone.app.multilingual, plone.app.multilingualindexes, plone.event","2021, 2023, 2024, 2025",2021-06-01,2025-05-12
-TU Dresden,32,11,2,"pgrunewald, veritazx",9,"aurora, buildout.coredev, mockup, plone.app.caching, plone.app.linkintegrity, plone.app.multilingual, plone.restapi, plone.staticresources, volto","2021, 2022, 2023, 2024, 2025",2021-09-23,2025-06-17
 iMio,29,11,5,"alexnuttinck, bsuttor, duchenean, gbastien, sgeulette",12,"2023.ploneconf.org, Products.CMFPlone, buildout.coredev, code-quality, helm-charts, plone.app.contentlisting, plone.app.robotframework, plone.app.textfield, plone.app.z3cform, plone.nl, plone.restapi, ploneconf.org","2021, 2022, 2023, 2024",2021-09-24,2024-07-25
 operun,38,11,1,santonelli,9,"bobtemplates.plone, documentation, plone.app.contenttypes, plone.app.discussion, plone.app.layout, plone.app.viewletmanager, plonecli, plonetheme.barceloneta, training","2021, 2022",2021-02-13,2022-10-09
+TU Dresden,32,11,2,"pgrunewald, veritazx",9,"aurora, buildout.coredev, mockup, plone.app.caching, plone.app.linkintegrity, plone.app.multilingual, plone.restapi, plone.staticresources, volto","2021, 2022, 2023, 2024, 2025",2021-09-23,2025-06-17
 IMS Inc.,22,10,1,ewohnlich,5,"Products.CMFPlone, cookieplone, plone.exportimport, plone.locking, training","2023, 2024, 2025",2023-04-11,2025-09-12
 CCC,49,9,1,polyester,9,"Plone, ai-team-private, buildout.coredev, documentation, foundation, papyrus, plone-sphinx-theme, sphinxtheme.plone, training","2021, 2022, 2023, 2024, 2025",2021-10-23,2025-07-31
 KU Leuven,18,9,2,"Sakoes, spereverde",11,"Products.PloneTestCase, aurora, documentation, plone.app.blob, plone.app.dexterity, plone.app.iterate, plone.app.standardtiles, plone.dotfiles, plone.recipe.zope2instance, training, volto","2021, 2022, 2024",2021-03-23,2024-09-05
-squarewave engineering,26,8,2,"lenadax, rnixx",6,"buildout.coredev, documentation, mockup, plone.app.mosaic, plone.staticresources, plonetheme.barceloneta","2022, 2023",2022-03-24,2023-03-31
 Plone Venezuela,48,8,1,macagua,6,"aurora, form-block, plone.app.debugtoolbar, plone.restapi, plone.volto, volto","2021, 2022, 2023, 2024, 2025",2021-11-08,2025-07-03
 Soliton Consulting,23,8,1,fulv,6,"ai-team-private, plone.app.caching, plone.com, ploneorg.core, ploneorg.theme, sponsorships",2021,2020-10-14,2021-10-27
+squarewave engineering,26,8,2,"lenadax, rnixx",6,"buildout.coredev, documentation, mockup, plone.app.mosaic, plone.staticresources, plonetheme.barceloneta","2022, 2023",2022-03-24,2023-03-31
 Lovely Systems,5,7,1,frisi,3,"bobtemplates.plone, plone.app.event, plone.formwidget.namedfile",2021,2021-05-31,2021-08-18
-Ludwig Maximilian University Munich,17,6,1,loechel,5,"Products.CMFPlone, diazo, meta, plone.api, training","2021, 2022, 2023",2021-01-30,2023-10-09
 FHNW,9,6,2,"rristow, tomschall",3,"Products.CMFEditions, aurora, volto","2022, 2024, 2025",2018-04-25,2025-06-17
+Ludwig Maximilian University Munich,17,6,1,loechel,5,"Products.CMFPlone, diazo, meta, plone.api, training","2021, 2022, 2023",2021-01-30,2023-10-09
 Brian Davis (independent),10,5,1,Fosten,3,".github, cookieplone-templates, plone.org","2022, 2023, 2024, 2025",2022-11-05,2025-11-23
 Jens Vagelpohl (independent),60,5,1,dataflake,2,"meta, plone.recipe.zope2instance","2021, 2022, 2025",2021-02-12,2025-03-13
 Salesforce,202,5,1,esteele,44,"Products.CMFEditions, Products.CMFPlacefulWorkflow, Products.PlonePAS, aurora, buildout.coredev, documentation, plone.api, plone.app.caching, plone.app.content, plone.app.contentmenu, plone.app.contentrules, plone.app.contenttypes, plone.app.dexterity, plone.app.discussion, plone.app.event, plone.app.iterate, plone.app.layout, plone.app.multilingual, plone.app.portlets, plone.app.querystring, plone.app.registry, plone.app.users, plone.app.versioningbehavior, plone.app.workflow, plone.app.z3cform, plone.base, plone.batching, plone.contentrules, plone.dexterity, plone.folder, plone.formwidget.namedfile, plone.org, plone.portlet.collection, plone.portlet.static, plone.registry, plone.resource, plone.restapi, plone.schemaeditor, plone.session, plone.staticresources, plone.testing, plone.z3cform, plonetheme.barceloneta, volto","2021, 2022, 2025",2021-02-26,2025-10-18
 webcloud7 ag,5,5,1,maethu,4,"container-zeo, plone.formwidget.recaptcha, plone.namedfile, plone.restapi","2023, 2025",2023-04-26,2025-04-25
-Jowett Enterprises Ltd,4,4,1,djowett,3,"ansible-playbook, ansible.plone_server, plone.app.debugtoolbar",2021,2018-09-11,2021-07-26
-Werkbank GmbH,4,4,2,"AlexBueckig, woolyseal",4,"aurora, plone.app.portlets, plone.app.z3cform, volto","2021, 2023",2021-04-07,2023-01-09
 Cosent,6,4,1,gyst,4,"Products.CMFPlone, plone.app.event, plone.recipe.zope2instance, plone.restapi","2024, 2025",2024-04-19,2025-02-13
-Juizi,28,4,1,aboycalledhero,1,training,2025,2025-08-14,2025-09-09
-Zopyx,5,4,1,zopyx,5,"planet.plone.org, plone.api, plone.app.content, plone.restapi, training","2021, 2022, 2023",2021-10-14,2023-10-24
 gocept,161,4,1,icemac,4,"Products.PloneHotfix20210518, meta, plone.protect, plone.recipe.zope2instance","2021, 2022, 2023",2021-01-08,2023-08-28
 infoCatch,5,4,1,mtrebron,3,"plone.app.z3cform, ploneorg.core, ploneorg.theme","2021, 2022",2021-02-21,2022-08-14
+Jowett Enterprises Ltd,4,4,1,djowett,3,"ansible-playbook, ansible.plone_server, plone.app.debugtoolbar",2021,2018-09-11,2021-07-26
+Juizi,28,4,1,aboycalledhero,1,training,2025,2025-08-14,2025-09-09
 Markus Hilbert (independent),14,4,1,iham,9,"Products.CMFPlone, mockup, plone.app.caching, plone.app.contentmenu, plone.app.contenttypes, plone.app.mosaic, plone.app.registry, plone.app.widgets, plone.app.z3cform","2021, 2022",2019-10-09,2022-09-15
 Radio Free Asia,8,4,1,flipmcf,6,"2023.ploneconf.org, documentation, plone.app.dexterity, plone.app.vocabularies, plone.nl, ploneconf.org",2021,2021-01-21,2021-12-08
+Werkbank GmbH,4,4,2,"AlexBueckig, woolyseal",4,"aurora, plone.app.portlets, plone.app.z3cform, volto","2021, 2023",2021-04-07,2023-01-09
+Zopyx,5,4,1,zopyx,5,"planet.plone.org, plone.api, plone.app.content, plone.restapi, training","2021, 2022, 2023",2021-10-14,2023-10-24
 CMS Communications Inc.,4,3,1,terapyon,2,"aurora, volto","2021, 2022, 2025",2021-09-20,2022-11-10
-WebTide,5,3,1,mikejmets,3,"aurora, documentation, volto","2021, 2023",2023-08-17,2023-11-23
+Interlegis Program (Senado Federal),13,3,2,"fabiorauber, jhgouveia",3,"aurora, helm-charts, volto","2023, 2024",2023-06-28,2023-11-30
 UNAM,3,3,1,gil-cano,2,"cookieplone, cookieplone-templates",2025,2025-04-08,2025-05-02
 University of Koblenz,8,3,1,mbarde,2,"blocks-conversion-tool, form-block","2022, 2023, 2024",2022-04-20,2024-09-12
-Interlegis Program (Senado Federal),13,3,2,"fabiorauber, jhgouveia",3,"aurora, helm-charts, volto","2023, 2024",2023-06-28,2023-11-30
-Wildcard Corp,2,2,1,bduncan137,2,"plone.app.caching, plone.app.drafts",2021,2021-03-10,2021-09-24
-it-spirit,3,2,1,thomasmassmann,1,plone.app.layout,2022,2022-01-07,2022-01-07
+WebTide,5,3,1,mikejmets,3,"aurora, documentation, volto","2021, 2023",2023-08-17,2023-11-23
 4Teamwork,3,2,2,"deiferni, maethu",2,"plone.formwidget.recaptcha, plone.restapi",2021,2021-04-30,2021-07-23
-minddistrict,7,2,3,"icemac, janjaapdriessen, sallner",3,"five.intid, meta, plone.recipe.codeanalysis","2021, 2022, 2025",2021-02-01,2025-02-13
+it-spirit,3,2,1,thomasmassmann,1,plone.app.layout,2022,2022-01-07,2022-01-07
 Malthe Borch (independent),4,2,1,malthe,1,Products.CMFPlone,"2021, 2023",2017-04-18,2023-03-29
+minddistrict,7,2,3,"icemac, janjaapdriessen, sallner",3,"five.intid, meta, plone.recipe.codeanalysis","2021, 2022, 2025",2021-02-01,2025-02-13
 Nelen-Schuurmans,8,2,1,reinout,1,meta,2024,2024-02-03,2024-02-06
+Wildcard Corp,2,2,1,bduncan137,2,"plone.app.caching, plone.app.drafts",2021,2021-03-10,2021-09-24
 BlueDynamics KG,10,1,1,zworkb,5,"buildout.coredev, plone.app.blocks, plone.app.contenttypes, plone.app.dexterity, plone.app.event",2022,2022-03-21,2022-03-31
 cloud19,0,1,1,faro76,1,documentation,2022,,
 FH St. Pölten,4,1,1,2silver,1,plone.app.iterate,2021,2021-05-19,2021-05-20
 Geosphere,2,1,1,animus888,2,"aurora, volto",2024,2024-04-19,2024-04-19
 Reid-McMahon,0,1,1,smcmahon,1,ansible-playbook,2021,,
+cusy,1,0,1,veit,1,planet.plone.org,2021,2021-01-16,2021-01-16
 Ecréall,1,0,1,michaellaunay,1,plone.app.portlets,2021,2021-09-24,2021-09-24
 Makina Corpus,2,0,1,Gagaro,1,plone.restapi-angular,2022,2022-03-02,2022-03-02
 Vincent Fretin (independent),1,0,1,vincentfretin,1,buildout.coredev,2021,2021-07-28,2021-07-28
-cusy,1,0,1,veit,1,planet.plone.org,2021,2021-01-16,2021-01-16

@@ -23,12 +23,12 @@ Ludwig Maximilian University Munich,34,6,1,loechel,9,"buildout.coredev, plone.ap
 Vincent Fretin (independent),28,0,1,vincentfretin,12,"Products.CMFPlone, Products.TinyMCE, buildout.coredev, documentation, plone.app.contentmenu, plone.app.jquerytools, plone.app.portlets, plone.app.search, plone.app.vocabularies, plone.formwidget.captcha, plone.formwidget.contenttree, plone.formwidget.datetime",2016-02-09,2016-11-21
 Derico,27,3,1,MrTango,7,"Products.CMFPlone, ansible.plone_server, bobtemplates.plone, documentation, plone.app.multilingual, training, training.plone.org",2016-05-17,2016-10-25
 iMio,23,18,4,"DieKatze, bsuttor, gbastien, sgeulette",10,"Products.PlonePAS, Products.contentmigration, buildout.coredev, plone.app.contenttypes, plone.app.event, plone.app.layout, plone.app.multilingual, plone.app.robotframework, plone.app.vocabularies, plone.formwidget.querystring",2016-02-11,2016-10-22
-Soliton Consulting,16,3,1,fulv,7,"Products.CMFPlone, aiteam.playbooks, ansible-playbook, ansible-playbook-ploneorg2019, plone.scale, ploneorg.core, training",2016-01-11,2016-09-11
 Sixfeetup,16,2,2,"calvinhp, cdw9",3,"plone.app.relationfield, simple-plone-buildout, training",2016-05-25,2016-10-12
+Soliton Consulting,16,3,1,fulv,7,"Products.CMFPlone, aiteam.playbooks, ansible-playbook, ansible-playbook-ploneorg2019, plone.scale, ploneorg.core, training",2016-01-11,2016-09-11
 BubbleNet,15,4,1,gotcha,5,"Products.LinguaPlone, plone.app.form, plone.app.iterate, plone.app.jquerytools, plone.app.z3cform",2016-02-17,2016-06-27
+Affinitic,12,3,2,"laulaz, mpeeters",6,"bobtemplates.plone, documentation, plone.app.caching, plone.app.dexterity, plone.behavior, plone.formwidget.datetime",2016-01-06,2016-10-01
 CMS Communications Inc.,12,7,1,terapyon,5,"Installers-UnifiedInstaller, Products.CMFPlone, documentation, mockup, plone.app.content",2016-02-17,2016-06-16
 Plone Venezuela,12,2,1,macagua,4,"planet.plone.org, plone.app.blob, training, training.plone.org",2016-05-16,2016-10-28
-Affinitic,12,3,2,"laulaz, mpeeters",6,"bobtemplates.plone, documentation, plone.app.caching, plone.app.dexterity, plone.behavior, plone.formwidget.datetime",2016-01-06,2016-10-01
 Codesyntax,11,3,1,erral,2,"Products.LinguaPlone, plone.restapi",2016-03-01,2016-11-07
 Steve Piercy - Website Builder,11,3,1,stevepiercy,1,training,2016-11-10,2016-11-14
 Ecréall,8,0,1,cedricmessiant,1,plone.restapi,2016-03-08,2016-09-12
@@ -36,11 +36,11 @@ gocept,7,6,1,icemac,6,"Products.CMFPlone, buildout.coredev, documentation, plone
 Kombinat,6,6,1,petschki,4,"mockup, plone.app.content, plone.app.widgets, plone.z3cform",2013-09-26,2016-11-07
 Franco Pellegrini (independent),5,2,1,frapell,3,"Products.CMFDiffTool, buildout.coredev, plone.app.event",2016-02-23,2016-09-07
 Cosent,4,3,1,gyst,3,"Products.CMFPlone, buildout.coredev, plonetheme.barceloneta",2016-02-10,2016-09-28
-Netflix,3,1,1,lrowe,1,diazo,2016-10-11,2016-10-11
 Malthe Borch (independent),3,2,1,malthe,2,"Products.TinyMCE, plone.portlet.collection",2016-04-20,2016-08-09
+Netflix,3,1,1,lrowe,1,diazo,2016-10-11,2016-10-11
 Jarn,2,0,1,hannosch,1,Products.ExtendedPathIndex,2016-08-27,2016-08-27
-TU Dresden,1,2,1,pgrunewald,2,"documentation, plone.outputfilters",2016-08-12,2016-08-12
-squarewave engineering,1,1,1,rnixx,1,Products.CMFPlone,2016-04-05,2016-04-05
 acsr industrialdesign,1,0,1,acsr,1,ploneconf2016.policy,2016-04-24,2016-04-24
-Webmeisterei,0,1,1,frisi,1,plone.app.theming,,
+squarewave engineering,1,1,1,rnixx,1,Products.CMFPlone,2016-04-05,2016-04-05
+TU Dresden,1,2,1,pgrunewald,2,"documentation, plone.outputfilters",2016-08-12,2016-08-12
 Pretaweb,0,1,1,djay,1,plone.app.contentlistingtile,,
+Webmeisterei,0,1,1,frisi,1,plone.app.theming,,

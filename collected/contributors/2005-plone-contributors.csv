@@ -29,31 +29,31 @@ tesdal,17,0,6,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, 
 longsleep,14,0,1,Products.CMFPlone,2005-05-12,2005-09-02
 vinsci,11,0,2,"Products.CMFFormController, Products.CMFPlone",2005-06-11,2005-06-26
 jodok,10,0,5,"Products.ATContentTypes, Products.ATReferenceBrowserWidget, Products.CMFPlone, Products.PlacelessTranslationService, Products.ResourceRegistries",2005-02-01,2005-08-07
-jladage,9,0,1,Products.CMFPlone,2005-01-03,2005-06-01
-gotcha,9,0,2,"Products.Archetypes, Products.CMFPlone",2005-03-09,2005-07-28
 andymckay,9,0,3,"Products.Archetypes, Products.CMFPlone, Products.CMFQuickInstallerTool",2005-05-10,2005-11-30
-naro,8,0,1,Products.CMFPlone,2005-05-18,2005-10-15
+gotcha,9,0,2,"Products.Archetypes, Products.CMFPlone",2005-03-09,2005-07-28
+jladage,9,0,1,Products.CMFPlone,2005-01-03,2005-06-01
 joelburton,8,0,3,"Products.Archetypes, Products.CMFPlone, Products.PlonePAS",2005-01-20,2005-08-10
+naro,8,0,1,Products.CMFPlone,2005-05-18,2005-10-15
 ctheune,7,0,2,"Products.ATContentTypes, Products.CMFPlone",2005-02-22,2005-12-02
 Gregoire Weber,7,0,1,Products.CMFEditions,2005-06-30,2005-09-22
 bcsaller,6,0,2,"Products.Archetypes, Products.PlonePAS",2005-01-31,2005-12-01
-zworkb,6,0,2,"Products.Archetypes, Products.CMFQuickInstallerTool",2005-01-05,2005-10-01
 vds,6,0,1,Products.CMFEditions,2005-06-30,2005-07-02
-topiaruss,5,0,1,Products.ATContentTypes,2005-05-02,2005-05-02
-runyaga,5,0,2,"Products.Archetypes, Products.CMFPlone",2005-03-10,2005-12-05
+zworkb,6,0,2,"Products.Archetypes, Products.CMFQuickInstallerTool",2005-01-05,2005-10-01
 aburkhalter,5,0,1,Products.CMFPlone,2005-06-10,2005-06-13
-reinout,5,0,2,"Products.ATContentTypes, Products.Archetypes",2005-05-10,2005-05-27
 brianfive,5,0,1,Products.CMFPlone,2005-06-11,2005-06-13
-robertrottermann,5,0,2,"Products.ATContentTypes, Products.CMFPlone",2005-04-10,2005-04-20
 lrowe,5,0,3,"Products.Archetypes, Products.PlonePAS, Products.ResourceRegistries",2005-08-24,2005-12-26
-sthenault,4,0,2,"Products.Archetypes, Products.CMFEditions",2005-08-11,2005-10-14
+reinout,5,0,2,"Products.ATContentTypes, Products.Archetypes",2005-05-10,2005-05-27
+robertrottermann,5,0,2,"Products.ATContentTypes, Products.CMFPlone",2005-04-10,2005-04-20
+runyaga,5,0,2,"Products.Archetypes, Products.CMFPlone",2005-03-10,2005-12-05
+topiaruss,5,0,1,Products.ATContentTypes,2005-05-02,2005-05-02
 lalomartins,4,0,1,Products.Archetypes,2005-04-15,2005-08-05
+sthenault,4,0,2,"Products.Archetypes, Products.CMFEditions",2005-08-11,2005-10-14
 siebo,3,0,2,"Products.Archetypes, Products.CMFPlone",2005-11-28,2005-12-28
 bbuehlmann,2,0,1,Products.CMFPlone,2005-05-07,2005-05-07
 bitranch,2,0,1,Products.CMFPlone,2005-08-13,2005-08-13
 xiru,2,0,1,Products.CMFPlone,2005-03-11,2005-06-12
-zopyx,1,0,1,Products.CMFPlone,2005-10-01,2005-10-01
-glenfant,1,0,1,Products.ATContentTypes,2005-07-14,2005-07-14
-jfroche,1,0,1,Products.ATContentTypes,2005-12-04,2005-12-04
 csenger,1,0,1,Products.ATContentTypes,2005-12-18,2005-12-18
 dataflake,1,0,1,Products.ATContentTypes,2005-04-12,2005-04-12
+glenfant,1,0,1,Products.ATContentTypes,2005-07-14,2005-07-14
+jfroche,1,0,1,Products.ATContentTypes,2005-12-04,2005-12-04
+zopyx,1,0,1,Products.CMFPlone,2005-10-01,2005-10-01
