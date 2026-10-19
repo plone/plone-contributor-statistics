@@ -51,6 +51,7 @@ Several kinds of curated data depend on a definition, and the definitions follow
 - World Plone Day events count when they were held in person, or hybrid with an in-person meeting.
   Each local event is one event, with its own source; online editions are recorded, but don't count.
   The organisers are the organisations that held the event, not the venue that hosted it.
+  An event that was announced, but that no report confirms, is recorded with the note "announced, no report found"; reports after the event were not usual in the early years.
 
 ## The rules for sprints changed over time
 
@@ -80,7 +81,8 @@ They are curated now, with the Board page of each term as the source.
 The organising organisations of every Plone Conference since 2003 are recorded.
 The rows from 2003 to 2019 also name the organisers and a source.
 Board members, release managers and team leaders are recorded with sources from 2004 on ([#94](https://github.com/plone/plone-contributor-statistics/pull/94), [#99](https://github.com/plone/plone-contributor-statistics/pull/99), [#113](https://github.com/plone/plone-contributor-statistics/pull/113)).
-Sprints, trainings, podcasts and World Plone Day start in 2020 or 2021.
+Sprints are recorded from the first one in 2003, and the local World Plone Day events from the first World Plone Day in 2008.
+Trainings and podcasts start in 2020.
 Collecting their earlier years needs sources that are hard to find, and people who remember ([#72](https://github.com/plone/plone-contributor-statistics/issues/72)).
 
 ```{seealso}

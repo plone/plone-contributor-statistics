@@ -1485,6 +1485,679 @@
      "sources": [
       "https://web.archive.org/web/20081216160257/http://plone.org:80/events/community/python-and-plone-promotion-event-and-sprint-in-morocco"
      ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Chennai, India",
+     "organisations": [
+      "NRCFOSS"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081024060854/http://plone.org/events/wpd/2008/chennai-india"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Albuquerque, United States",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20081218065902/http://www.openplans.org/projects/plone-marketing/world-plone-day"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Atlanta, United States",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20081218065902/http://www.openplans.org/projects/plone-marketing/world-plone-day"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Auckland, New Zealand",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20081021003434/http://plone.org/events/wpd/2008/akl/"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Barcelona, Spain",
+     "organisations": [
+      "Barcelona Plone Meetup group"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081003042016/http://plone.org/events/wpd/2008/barcelona-spain/"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Berlin, Germany",
+     "organisations": [
+      "Berlin Zope User Group"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081109061052/http://plone.org/events/wpd/2008/berlin-germany"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Bern, Switzerland",
+     "organisations": [
+      "4Teamwork"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081024060849/http://plone.org/events/wpd/2008/berne-switzerland"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Boca Raton, United States",
+     "organisations": [
+      "Lynn University"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081218064657/http://plone.org/events/wpd/2008/boca-raton-florida"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Boston, United States",
+     "organisations": [
+      "Jazkarta"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081218065902/http://www.openplans.org/projects/plone-marketing/world-plone-day; organisation of Nate Aune from the Board page of the year: https://plone.org/foundation/board/2007-2008"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Brasília, Brazil",
+     "organisations": [
+      "ThreePointsWeb",
+      "Caixa Econômica Federal"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081102082008/http://plone.org/events/wpd/2008/brasilia-brazil"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Bristol, United Kingdom",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20081218065902/http://www.openplans.org/projects/plone-marketing/world-plone-day"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Brussels, Belgium",
+     "organisations": [
+      "Makina Corpus",
+      "May International"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081109074309/http://plone.org/events/wpd/2008/brussels-belgium/"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Budapest, Hungary",
+     "organisations": [
+      "Greenfinity LLC"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081218065902/http://www.openplans.org/projects/plone-marketing/world-plone-day"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Buenos Aires, Argentina",
+     "organisations": [
+      "Menttes"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081003042010/http://plone.org/events/wpd/2008/argentina-buenos-aires/"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Chapel Hill, United States",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20081218065902/http://www.openplans.org/projects/plone-marketing/world-plone-day"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Christchurch, New Zealand",
+     "organisations": [
+      "Emergetec"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081021003439/http://plone.org/events/wpd/2008/chc"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Córdoba, Argentina",
+     "organisations": [
+      "Universidad Nacional de Córdoba",
+      "Menttes",
+      "Plone Conosur"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081024060840/http://plone.org/events/wpd/2008/argentina-cordoba"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Davao, Philippines",
+     "organisations": [
+      "DabaweGNU"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081003042020/http://plone.org/events/wpd/2008/davao-philippines/"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Davis, United States",
+     "organisations": [
+      "Reid-McMahon"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081218065902/http://www.openplans.org/projects/plone-marketing/world-plone-day; organisation of Steve McMahon from the organisation mapping: https://github.com/smcmahon"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Eibar, Spain",
+     "organisations": [
+      "Codesyntax"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081026023704/http://plone.org/events/wpd/2008/eibar-basque-country-spain"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Evanston, United States",
+     "organisations": [
+      "3BL Executive Forum"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081022203748/http://plone.org/events/wpd/2008/wpd"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Ferrara, Italy",
+     "organisations": [
+      "RedTurtle"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081218065902/http://www.openplans.org/projects/plone-marketing/world-plone-day"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Hamburg, Germany",
+     "organisations": [
+      "DZUG",
+      "catWorkX",
+      "Prontonet"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081218065902/http://www.openplans.org/projects/plone-marketing/world-plone-day"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Hanoi, Vietnam",
+     "organisations": [
+      "NextG Solutions"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081106111929/http://plone.org/events/wpd/2008/ha-noi-vietnam"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Houston, United States",
+     "organisations": [
+      "Enfold"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081024060859/http://plone.org/events/wpd/2008/houston-texas"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Innsbruck, Austria",
+     "organisations": [
+      "Klein & Partner KG"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081023125644/http://plone.org/events/wpd/2008/austria-innsbruck-bfi-tirol-it; organisation of Jens Klein from the organisation mapping: https://github.com/jensens"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Isabela City, Philippines",
+     "organisations": [
+      "Mindanao Open Source Society"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081218065902/http://www.openplans.org/projects/plone-marketing/world-plone-day"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Istanbul, Turkey",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20081024060904/http://plone.org/events/wpd/2008/istanbul-turkiye"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Jakarta, Indonesia",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20081204080723/http://plone.org/events/wpd/2008/jakarta-indonesia/"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Khabarovsk, Russia",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20081024060931/http://plone.org/events/wpd/2008/russia-khabarovsk"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Kingston, Jamaica",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20100418225046/http://plone.org/events/wpd/2008/jamaica"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Leipzig, Germany",
+     "organisations": [
+      "DZUG",
+      "HTWK Leipzig"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081218065902/http://www.openplans.org/projects/plone-marketing/world-plone-day"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Ljubljana, Slovenia",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20081218065902/http://www.openplans.org/projects/plone-marketing/world-plone-day"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, London, United Kingdom",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20081023071409/http://plone.org/events/wpd/2008/london-united-kingdom"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Lugo, Spain",
+     "organisations": [
+      "Codigo23",
+      "Pexego"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081110062910/http://plone.org/events/wpd/2008/lugo-galicia-spain"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Lviv, Ukraine",
+     "organisations": [
+      "Quintagroup"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081108040208/http://plone.org/events/wpd/2008/lviv-ukraine"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Manila, Philippines",
+     "organisations": [
+      "International Open Source Network ASEAN+3"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081218065902/http://www.openplans.org/projects/plone-marketing/world-plone-day"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Mexico City, Mexico",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20081108040213/http://plone.org/events/wpd/2008/mexico-mexico"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Milan, Italy",
+     "organisations": [
+      "Abstract Open Solutions"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081218065902/http://www.openplans.org/projects/plone-marketing/world-plone-day"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Munich, Germany",
+     "organisations": [
+      "Zope User Group Munich"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081003023525/http://plone.org/events/wpd/2008/munich-germany/"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Mérida, Venezuela",
+     "organisations": [
+      "CENDITEL"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081218065902/http://www.openplans.org/projects/plone-marketing/world-plone-day"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Nantes, France",
+     "organisations": [
+      "Makina Corpus"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081024061004/http://plone.org/events/wpd/2008/nantes-france"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Naples, Italy",
+     "organisations": [
+      "Abstract Open Solutions"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081024060927/http://plone.org/events/wpd/2008/naples-italy"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, New York, United States",
+     "organisations": [
+      "Hunter College"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081102082223/http://plone.org/events/wpd/2008/nyc-hunter-college"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Oshkosh, United States",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20081218065902/http://www.openplans.org/projects/plone-marketing/world-plone-day"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Paris, France",
+     "organisations": [
+      "Pilot Systems"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081023125654/http://plone.org/events/wpd/2008/paris-france"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Pisa, Italy",
+     "organisations": [
+      "Reflab"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081003042025/http://plone.org/events/wpd/2008/pisa-italia/"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Portland, United States",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20081218065902/http://www.openplans.org/projects/plone-marketing/world-plone-day"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Poznań, Poland",
+     "organisations": [
+      "STX Next"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081004150135/http://plone.org/events/wpd/2008/poznan-poland/"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Rome, Italy",
+     "organisations": [
+      "Sapienza Università di Roma",
+      "Link srl"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081024060910/http://plone.org/events/wpd/2008/italy-rome"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Seattle, United States",
+     "organisations": [
+      "Seattle Plone user's group"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081003042035/http://plone.org/events/wpd/2008/seattle-wa/"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Stellenbosch, South Africa",
+     "organisations": [
+      "Upfront Systems"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081218065902/http://www.openplans.org/projects/plone-marketing/world-plone-day"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Sunnyvale, United States",
+     "organisations": [
+      "C Squared Enterprises"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081003042030/http://plone.org/events/wpd/2008/san-jose-california/"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Sydney, Australia",
+     "organisations": [
+      "Pretaweb"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081218065902/http://www.openplans.org/projects/plone-marketing/world-plone-day"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, São Paulo, Brazil",
+     "organisations": [
+      "Simples Consultoria"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081024060937/http://plone.org/events/wpd/2008/sao-paulo-brazil"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Taipei, Taiwan",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20081003042040/http://plone.org/events/wpd/2008/taipei-taiwan/"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Tallahassee, United States",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20081218065902/http://www.openplans.org/projects/plone-marketing/world-plone-day"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Toronto, Canada",
+     "organisations": [
+      "Toronto Plone Users",
+      "Scryent"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081101102452/http://plone.org/events/wpd/2008/toronto-canada"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Toulouse, France",
+     "organisations": [
+      "Makina Corpus"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081023125706/http://plone.org/events/wpd/2008/toulouse-france"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Turin, Italy",
+     "organisations": [
+      "Redomino"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081024060942/http://plone.org/events/wpd/2008/turin-italy"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Wellington, New Zealand",
+     "organisations": [
+      "3months"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081022095356/http://plone.org/events/wpd/2008/wlg/"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Salta, Argentina",
+     "organisations": [
+      "SaltaLug",
+      "Menttes",
+      "Plone Conosur"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081024060843/http://plone.org/events/wpd/2008/argentina-salta"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2008, Tokyo, Japan",
+     "organisations": [
+      "Plone Seminar"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20081031192127/http://plone.org/events/wpd/2008/tokyo-japan/"
+     ]
     }
    ],
    "people_active": 97,
@@ -1749,6 +2422,480 @@
      "sources": [
       "https://sourceforge.net/p/plone/mailman/message/21698393/"
      ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Albuquerque, United States",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20090424113124/http://plone.org/events/wpd/2009/albuquerque-nm"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Arnhem, Netherlands",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20090425230343/http://plone.org/events/wpd/2009/plone-day-at-han-university-of-applied-sciences"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Barcelona, Spain",
+     "organisations": [
+      "UPCnet, SLU",
+      "Plenty Solutions"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20090424084631/http://plone.org/events/wpd/2009/barcelona"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Berlin, Germany",
+     "organisations": [
+      "Berlin Zope User Group"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20090417124138/http://plone.org/events/wpd/2009/berlin-germany"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Bern, Switzerland",
+     "organisations": [
+      "4Teamwork"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20090425225633/http://plone.org/events/wpd/2009/berne-switzerland"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Brasília, Brazil",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20090424113129/http://plone.org/events/wpd/2009/brasilia-brazil"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Brisbane, Australia",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20090425230332/http://plone.org/events/wpd/2009/brisbane-australia"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Cambridge, United States",
+     "organisations": [
+      "Boston Plone User Group"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20111226175902/http://plone.org/events/wpd/2009/boston-wpd"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Cologne, Germany",
+     "organisations": [
+      "Regional Zope User Group Rhineland",
+      "DZUG"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20090425230359/http://plone.org/events/wpd/2009/world-plone-day-in-cologne"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Denver, United States",
+     "organisations": [
+      "Core Software Group",
+      "Denver Plone User Group"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20090425225700/http://plone.org/events/wpd/2009/world-plone-day-denver"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Eibar, Spain",
+     "organisations": [
+      "Codesyntax"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20090424080632/http://plone.org/events/wpd/2009/world-plone-day-in-eibar-basque-country"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Gothenburg, Sweden",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20090425230337/http://plone.org/events/wpd/2009/gothenburg-sweden"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Hamburg, Germany",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20090425225434/http://plone.org/events/wpd/2009/hamburg-germany"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Houston, United States",
+     "organisations": [
+      "Enfold"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20090425225039/http://plone.org/events/wpd/2009/houston-wpd"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Istanbul, Turkey",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20090425225440/http://plone.org/events/wpd/2009/istanbul-turkey"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Kingston, Jamaica",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20090425225655/http://plone.org/events/wpd/2009/world-plone-day-2009-jamaica"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Leipzig, Germany",
+     "organisations": [
+      "HTWK Leipzig"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20111226165643/http://plone.org/events/wpd/2009/leipzig-germany"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Lviv, Ukraine",
+     "organisations": [
+      "Quintagroup"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20090425225450/http://plone.org/events/wpd/2009/lviv-ukraine"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Mexico City, Mexico",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20090425153913/http://plone.org/events/wpd/2009/world-plone-day-2009-in-mexico"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Milan, Italy",
+     "organisations": [
+      "Abstract Open Solutions"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20111226171516/http://plone.org/events/wpd/2009/milan-italy"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Montreal, Canada",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20090425225456/http://plone.org/events/wpd/2009/ploneday-2009-montreal"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Munich, Germany",
+     "organisations": [
+      "Starzel"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20090327084546/http://plone.org/events/wpd/2009/munich-germany; organisation of Philip Bauer from the organisation mapping: https://github.com/pbauer"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Mérida, Venezuela",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20111226175823/http://plone.org/events/wpd/2009/merida-venezuela"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Naples, Italy",
+     "organisations": [
+      "Abstract Open Solutions"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20090503162952/http://plone.org/events/wpd/2009/naples-italy/"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Paris, France",
+     "organisations": [
+      "Pilot Systems"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20090425225432/http://plone.org/events/wpd/2009/france-paris"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Pisa, Italy",
+     "organisations": [
+      "Reflab"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20090424113136/http://plone.org/events/wpd/2009/pisa-italy"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Portland, United States",
+     "organisations": [
+      "Oregon State Library"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20090425225049/http://plone.org/events/wpd/2009/portland-or; organisation of Darci Hanning from the Board page of the year: https://plone.org/foundation/board/plone-foundation-board-for-2008-2009"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Poznań, Poland",
+     "organisations": [
+      "plone.org.pl",
+      "STX Next"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20111226172659/http://plone.org/events/wpd/2009/poznan-poland"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Rome, Italy",
+     "organisations": [
+      "Sapienza Università di Roma",
+      "Link srl",
+      "Redomino"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20111226172530/http://plone.org/events/wpd/2009/rome-italy"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Saint-Sébastien-sur-Loire (Nantes), France",
+     "organisations": [
+      "Makina Corpus"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20090425225104/http://plone.org/events/wpd/2009/world-plone-day-in-nantes-et-toulouse"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, San Jose, United States",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20090425225109/http://plone.org/events/wpd/2009/world-plone-day-san-jose-california"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Seattle, United States",
+     "organisations": [
+      "Seattle Plone user's group"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20090425225054/http://plone.org/events/wpd/2009/seattle-wa"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, State College, United States",
+     "organisations": [
+      "Penn State University"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20090425225705/http://plone.org/events/wpd/2009/world-plone-day-lunch-spats-cafe-and-speakeasy"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Sydney, Australia",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20090425225644/http://plone.org/events/wpd/2009/sydney-australia"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, São Paulo, Brazil",
+     "organisations": [
+      "Simples Consultoria"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20111226164843/http://plone.org/events/wpd/2009/sao-paulo-brazil"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Taipei, Taiwan",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20110106162542/http://plone.org/events/wpd/2009/taipei-taiwan"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Tokyo, Japan",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20131022195941/http://plone.org/events/wpd/previous-years/2009"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Toronto, Canada",
+     "organisations": [
+      "Toronto Plone Users"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20111226165157/http://plone.org/events/wpd/2009/world-plone-day-toronto"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Toulouse, France",
+     "organisations": [
+      "Makina Corpus"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20090425225650/http://plone.org/events/wpd/2009/toulouse-france"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Turin, Italy",
+     "organisations": [
+      "Redomino"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20111226171328/http://plone.org/events/wpd/2009/turin-italy"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Valletta, Malta",
+     "organisations": [
+      "2i Ltd"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20090425225425/http://plone.org/events/wpd/2009/first-wpd-event-hosted-in-malta-2009"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Yaoundé, Cameroon",
+     "organisations": [
+      "ACPROLL"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20090425230353/http://plone.org/events/wpd/2009/world-plone-day-in-cameroon"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Zamboanga City, Philippines",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20090425225058/http://plone.org/events/wpd/2009/world-plone-day"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Jakarta, Indonesia",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20090425225445/http://plone.org/events/wpd/2009/jakarta"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, La Rioja, Argentina",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20090425225044/http://plone.org/events/wpd/2009/la-rioja-argentina"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2009, Tokyo, Japan",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20090425230348/http://plone.org/events/wpd/2009/tokyo-japan-main-event"
+     ]
     }
    ],
    "people_active": 101,
@@ -1961,6 +3108,450 @@
      "sources": [
       "https://sourceforge.net/p/plone/mailman/message/26676338/"
      ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Singapore",
+     "organisations": [
+      "Singapore Python User Group"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20111026091815/http://plone.org/events/wpd/2010/singapore-pre-pycon-asia-pacific"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Albuquerque, United States",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20100430044904/http://plone.org/events/wpd/2010/albuquerque-new-mexico"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Arnhem, Netherlands",
+     "organisations": [
+      "Four Digits"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20111026091830/http://plone.org/events/wpd/2010/arnhem-the-netherlands"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Berlin, Germany",
+     "organisations": [
+      "cusy"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20100308235602/http://plone.org/events/wpd/2010/berlin-germany; organisation of Veit Schiele from the organisation mapping: https://github.com/veit"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Bonn, Germany",
+     "organisations": [
+      "acsr industrialdesign"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20100422031054/http://plone.org/events/wpd/2010/bonn-germany; organisation of Armin Stross-Radschinski from the organisation mapping: https://github.com/acsr"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Brasília, Brazil",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20111026084858/http://plone.org/events/wpd/2010/brasilia-brasil"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Brunswick (Melbourne), Australia",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20111026085749/http://plone.org/events/wpd/2010/melbourne-australia"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Buenos Aires, Argentina",
+     "organisations": [
+      "Menttes"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20100209013522/http://plone.org/events/wpd/2010/argentina-buenosaires"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Cambridge, United States",
+     "organisations": [
+      "Jazkarta",
+      "Harvard School of Engineering"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20111026090200/http://plone.org/events/wpd/2010/boston-ma"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Chicago, United States",
+     "organisations": [
+      "Contextual Corp",
+      "SPR Inc."
+     ],
+     "sources": [
+      "https://web.archive.org/web/20131022185350/http://plone.org/events/wpd/previous-years/2010"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Eibar, Spain",
+     "organisations": [
+      "Codesyntax"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20100430045037/http://plone.org/events/wpd/2010/eibar-basque-country-spain"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Ferrara, Italy",
+     "organisations": [
+      "Azienda USL di Ferrara",
+      "RedTurtle"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20111026091834/http://plone.org/events/wpd/2010/ferrara-italy"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Golden, United States",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20111026085207/http://plone.org/events/wpd/2010/colorado-world-plone-day"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Graz, Austria",
+     "organisations": [
+      "medienkunstlabor",
+      "d2m.at",
+      "mur.at",
+      "IEM"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20110728084753/http://plone.org/events/wpd/2010/graz-austria"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Houston, United States",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20131022185350/http://plone.org/events/wpd/previous-years/2010"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Indianapolis, United States",
+     "organisations": [
+      "Sixfeetup"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20111026084854/http://plone.org/events/wpd/2010/indianapolis-in-usa"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Kingston, Jamaica",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20100419142829/http://plone.org/events/wpd/2010/world-plone-day-jamaica"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, La Plata, Argentina",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20100430044909/http://plone.org/events/wpd/2010/argentina-laplata"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Leipzig, Germany",
+     "organisations": [
+      "HTWK Leipzig"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20131022205413/http://plone.org/events/wpd/previous-years/2010/leipzig-germany"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Los Angeles, United States",
+     "organisations": [
+      "Los Angeles Plone Users Group",
+      "UCLA Plone Users Group"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20131022185350/http://plone.org/events/wpd/previous-years/2010"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Lugano, Switzerland",
+     "organisations": [
+      "Domsense",
+      "Sketchin"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20131022185350/http://plone.org/events/wpd/previous-years/2010"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Lviv, Ukraine",
+     "organisations": [
+      "Quintagroup"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20131022185350/http://plone.org/events/wpd/previous-years/2010"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Macerata, Italy",
+     "organisations": [
+      "Università di Macerata",
+      "Abstract Open Solutions"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20100209014516/http://plone.org/events/wpd/2010/macerata-italy"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Malmö, Sweden",
+     "organisations": [
+      "Valentine Web Systems"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20100312103834/http://plone.org/events/wpd/2010/malmoe-sweden"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Malta",
+     "organisations": [
+      "2i Ltd"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20111026091856/http://plone.org/events/wpd/2010/malta"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Mexico City, Mexico",
+     "organisations": [
+      "UNAM"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20100430045042/http://plone.org/events/wpd/2010/mexico"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Milan, Italy",
+     "organisations": [
+      "Abstract Open Solutions",
+      "RedTurtle",
+      "BioDec"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20100209014521/http://plone.org/events/wpd/2010/milan-italy"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Munich, Germany",
+     "organisations": [
+      "Starzel"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20111026091904/http://plone.org/events/wpd/2010/munich-germany; organisation of Philip Bauer from the organisation mapping: https://github.com/pbauer"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Mérida, Venezuela",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20131022185350/http://plone.org/events/wpd/previous-years/2010"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Naples, Italy",
+     "organisations": [
+      "Abstract Open Solutions"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20100312103838/http://plone.org/events/wpd/2010/naples-italy"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Pau, France",
+     "organisations": [
+      "Makina Corpus"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20131022185350/http://plone.org/events/wpd/previous-years/2010"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Rome, Italy",
+     "organisations": [
+      "Sapienza Università di Roma",
+      "Link srl"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20100430044921/http://plone.org/events/wpd/2010/rome-italy"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Seattle, United States",
+     "organisations": [
+      "Seattle Plone user's group"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20111026091823/http://plone.org/events/wpd/2010/seattle-washington"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Sydney, Australia",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20131022185350/http://plone.org/events/wpd/previous-years/2010"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, São Paulo, Brazil",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20131022185350/http://plone.org/events/wpd/previous-years/2010"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Taipei, Taiwan",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20111026085840/http://plone.org/events/wpd/2010/taipei-taiwan"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Tokyo, Japan",
+     "organisations": [
+      "Plone User's Group Japan"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20100430045048/http://plone.org/events/wpd/2010/plone-world-day-2010-tokyo-japan"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Townsville, Australia",
+     "organisations": [
+      "James Cook University eResearch Centre"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20111026085440/http://plone.org/events/wpd/2010/townsville-australia"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Turin, Italy",
+     "organisations": [
+      "Redomino"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20100209013530/http://plone.org/events/wpd/2010/turin-italy"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Ulm, Germany",
+     "organisations": [
+      "brainson",
+      "InQuant GmbH",
+      "d9t"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20100422031059/http://plone.org/events/wpd/2010/ulm-germany"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2010, Wellington, New Zealand",
+     "organisations": [
+      "Emergetec",
+      "The Treasury"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20131223093737/http://plone.org/events/wpd/previous-years/2010/wellington-new-zealand"
+     ]
     }
    ],
    "people_active": 120,
@@ -2166,6 +3757,190 @@
      "organisations": [],
      "sources": [
       "https://plone.org/foundation/meetings/minutes/2011/minutes-2011-11-17"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2011, Aracaju, Brazil",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20111218101348/http://plone.org/events/wpd/2011/hosts/aracaju-sergipe-brazil"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2011, João Pessoa, Brazil",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20111218093021/http://plone.org/events/wpd/2011/hosts/joao-pessoa-paraiba-brazil"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2011, Albuquerque, United States",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20111218095909/http://plone.org/events/wpd/2011/hosts/albuquerque-nm-usa"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2011, Arnhem, Netherlands",
+     "organisations": [
+      "Four Digits"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20111218110634/http://plone.org/events/wpd/2011/hosts/arnhem-netherlands"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2011, Belo Horizonte, Brazil",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20111218111603/http://plone.org/events/wpd/2011/hosts/belo-horizonte-mg-brazil"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2011, Bologna, Italy",
+     "organisations": [
+      "Regione Emilia-Romagna"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20111218100207/http://plone.org/events/wpd/2011/hosts/regione-emilia-romagna-bologna-italy"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2011, Escazú, Costa Rica",
+     "organisations": [
+      "Propertyshelf"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20111218102447/http://plone.org/events/wpd/2011/hosts/plone-day-escazu-san-jose-costa-rica-central-america"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2011, Houston, United States",
+     "organisations": [
+      "Enfold"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20111218110731/http://plone.org/events/wpd/2011/hosts/world-plone-day-2011-houston-texas"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2011, Jakarta, Indonesia",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20110427212831/http://plone.org/events/wpd/2011/hosts/jakarta-indonesia"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2011, Leipzig, Germany",
+     "organisations": [
+      "Derico"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20111107081512/http://plone.org/events/wpd/2011/hosts/leipzig-germany; organisation of Maik Derstappen from the organisation mapping: https://github.com/MrTango"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2011, Los Angeles, United States",
+     "organisations": [
+      "UCLA Plone Users Group",
+      "Los Angeles Plone Users Group"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20111218094443/http://plone.org/events/wpd/2011/hosts/world-plone-day-at-ucla"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2011, Mons, Belgium",
+     "organisations": [
+      "Affinitic"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20111026085444/http://plone.org/events/wpd/2011/hosts/mons-belgium; organisation of Laurent Lasudry from the organisation mapping: https://github.com/laulaz"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2011, Munich, Germany",
+     "organisations": [
+      "Starzel"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20111026085214/http://plone.org/events/wpd/2011/hosts/munich-germany; organisation of Philip Bauer from the organisation mapping: https://github.com/pbauer"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2011, Pau, France",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20111218100115/http://plone.org/events/wpd/2011/hosts/wpd_2011_pau_france"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2011, São Paulo, Brazil",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20111218095244/http://plone.org/events/wpd/2011/hosts/sao-paulo-brazil"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2011, Taipei, Taiwan",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20111026091912/http://plone.org/events/wpd/2011/hosts/taipei-taiwan"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2011, Tokyo, Japan",
+     "organisations": [
+      "Plone User's Group Japan",
+      "Plone Seminar"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20111218100304/http://plone.org/events/wpd/2011/hosts/tokyo-japan"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2011, Zurich, Switzerland",
+     "organisations": [
+      "Rohberg"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20111026085646/http://plone.org/events/wpd/2011/hosts/zurich-switzerland; organisation of Katja Süss from the organisation mapping: https://github.com/ksuess"
      ]
     }
    ],
@@ -2375,6 +4150,382 @@
      ],
      "sources": [
       "https://web.archive.org/web/20120328182635/http://www.ploneconf.org:80/the-event/sprint; Board: https://plone.org/foundation/meetings/minutes/2012/minutes-2012-10-18"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Aracaju, Brazil",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20130902111608/http://plone.org/events/wpd/2012/hosts/iii-world-plone-day-aracaju"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Arnhem, Netherlands",
+     "organisations": [
+      "Four Digits"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20120426085348/http://plone.org/events/wpd/2012/hosts/arnhem-the-netherlands-world-plone-day-2012"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Barcelona, Spain",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20120605020131/http://plone.org/events/wpd/2012/hosts/barcelona-world-plone-day"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Bonn, Germany",
+     "organisations": [
+      "Python Software Verband e.V.",
+      "Computing Centre of the University of Bonn"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20120605024759/http://plone.org/events/wpd/2012/hosts/bonn-rhineland-germany-2013-world-plone-day-2012"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Brasília, Brazil",
+     "organisations": [
+      "PloneGov-BR"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20120605030317/http://plone.org/events/wpd/2012/hosts/brasilia"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Bristol, United Kingdom",
+     "organisations": [
+      "Netsight"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20120605002720/http://plone.org/events/wpd/2012/hosts/world-plone-day-2012-bristol-uk"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Cape Town, South Africa",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20120605020118/http://plone.org/events/wpd/2012/hosts/plone-meetup-at-open-innovation-studio-cape-town"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Caratinga, Brazil",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20120605013021/http://plone.org/events/wpd/2012/hosts/caratinga-mg"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Davis, United States",
+     "organisations": [
+      "Reid-McMahon"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20120605030326/http://plone.org/events/wpd/2012/hosts/davis-california; organisation of Steve McMahon from the organisation mapping: https://github.com/smcmahon"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Dornbirn, Austria",
+     "organisations": [
+      "Kombinat",
+      "Webmeisterei"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20120605011457/http://plone.org/events/wpd/2012/hosts/world-plone-day-dornbirn-2012"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Eibar, Spain",
+     "organisations": [
+      "Codesyntax"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20120605020134/http://plone.org/events/wpd/2012/hosts/world-plone-day-in-eibar-basque-country"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Fort Collins, United States",
+     "organisations": [
+      "Core Software Group"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20120605002740/http://plone.org/events/wpd/2012/hosts/fort-collins-colorado-world-plone-day-2012"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Henrico (Richmond), United States",
+     "organisations": [
+      "Net Easy, Inc."
+     ],
+     "sources": [
+      "https://web.archive.org/web/20120605020138/http://plone.org/events/wpd/2012/hosts/celebrate-world-plone-day-richmond-va"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, João Pessoa, Brazil",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20120605011502/http://plone.org/events/wpd/2012/hosts/world-plone-day-joao-pessoa"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Leipzig, Germany",
+     "organisations": [
+      "Inqbus"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20120605030312/http://plone.org/events/wpd/2012/hosts/world-plone-day-in-leipzig"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Maceió, Brazil",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20120605011443/http://plone.org/events/wpd/2012/hosts/maceio"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Mexico City, Mexico",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20120605024747/http://plone.org/events/wpd/2012/hosts/wpd-in-mexico-city"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Munich, Germany",
+     "organisations": [
+      "operun"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20120605020107/http://plone.org/events/wpd/2012/hosts/plone-dinner-in-munich; organisation of Stefan Antonelli from the organisation mapping: https://github.com/santonelli"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Namur, Belgium",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20120605013010/http://plone.org/events/wpd/2012/hosts/world-plone-day-belgium"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Pau, France",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20120605020115/http://plone.org/events/wpd/2012/hosts/world-plone-day-in-pau-france"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Potsdam, Germany",
+     "organisations": [
+      "Berlin-Brandenburg Plone Community"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20120605013029/http://plone.org/events/wpd/2012/hosts/world-plone-day-in-berlin-hosted-by-the-leibniz-institute-for-astrophysics-in-postdam"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Rosario, Argentina",
+     "organisations": [
+      "RCOM"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20120605020142/http://plone.org/events/wpd/2012/hosts/world-plone-day-rosario-argentina"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, State College, United States",
+     "organisations": [
+      "Penn State University"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20120605020147/http://plone.org/events/wpd/2012/hosts/state-college-pa"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, São Paulo, Brazil",
+     "organisations": [
+      "GruPy-SP"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20120605013014/http://plone.org/events/wpd/2012/hosts/sao-paulo"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Taipei, Taiwan",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20120605030330/http://plone.org/events/wpd/2012/hosts/taipei-taiwan"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Tokyo, Japan",
+     "organisations": [
+      "Plone User's Group Japan"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20120605024753/http://plone.org/events/wpd/2012/hosts/world-plone-day-2012-tokyo-1"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Warsaw, Poland",
+     "organisations": [
+      "NG Logic",
+      "Plonesoft"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20120605013039/http://plone.org/events/wpd/2012/hosts/plone-training-and-meeting"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Zurich, Switzerland",
+     "organisations": [
+      "Rohberg"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20120605013043/http://plone.org/events/wpd/2012/hosts/worldploneday_zuerich2012; organisation of Katja Süss from the organisation mapping: https://github.com/ksuess"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Bologna, Italy",
+     "organisations": [
+      "RedTurtle",
+      "Regione Emilia-Romagna"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20120429161941/http://plone.org/events/wpd/2012/hosts/bologna-italy"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Milan, Italy",
+     "organisations": [
+      "Redomino"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20120402193305/http://plone.org/events/wpd/2012/hosts/milan-italy-world-plone-day-2012"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Naples, Italy",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20120605002726/http://plone.org/events/wpd/2012/hosts/naples-italy"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Rome, Italy",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20120605024741/http://plone.org/events/wpd/2012/hosts/roma-italy"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, São Paulo, Brazil",
+     "organisations": [
+      "Simples Consultoria"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20120605020111/http://plone.org/events/wpd/2012/hosts/sao-paulo-breakfast"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Townsville, Australia",
+     "organisations": [
+      "James Cook University eResearch Centre"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20120605020127/http://plone.org/events/wpd/2012/hosts/townsville-queensland-australia-2012"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Turin, Italy",
+     "organisations": [
+      "Redomino"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20120605011448/http://plone.org/events/wpd/2012/hosts/turin-italy-world-plone-day-2012"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2012, Toulouse, France",
+     "organisations": [
+      "Makina Corpus"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20120605002733/http://plone.org/events/wpd/2012/hosts/world-plone-day-in-toulouse-france"
      ]
     }
    ],
@@ -2660,6 +4811,191 @@
      "organisations": [],
      "sources": [
       "https://plone.org/foundation/meetings/minutes/2013/minutes-for-august-8-2013; Board: https://plone.org/foundation/meetings/minutes/2013/minutes-for-july-25-2013"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2013, Arnhem, Netherlands",
+     "organisations": [
+      "Four Digits",
+      "studio ZOO"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20130723160035/http://plone.org/events/wpd/hosts/world-plone-day-arnhem-the-netherlands"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2013, Berlin, Germany",
+     "organisations": [
+      "Berlin-Brandenburg Plone Community"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20130720233251/http://plone.org/events/wpd/hosts/berlin-germany"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2013, Berlin, Germany",
+     "organisations": [
+      "Veit Schiele Communications GmbH"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20130720233251/http://plone.org/events/wpd/hosts/berlin-germany"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2013, Bologna, Italy",
+     "organisations": [
+      "RedTurtle",
+      "Regione Emilia-Romagna"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20130723193312/http://plone.org/events/wpd/hosts/bologna-italy"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2013, Brasília, Brazil",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20181229230355/https://colab.interlegis.leg.br/wiki/WorldPloneDay2013"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2013, Cologne, Germany",
+     "organisations": [
+      "Timo Stollenwerk (independent)"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20130721013530/http://plone.org/events/wpd/hosts/cologne-germany; organisation of Timo Stollenwerk from the organisation mapping: http://web.archive.org/web/20101230055743/http://timostollenwerk.net/"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2013, Córdoba, Argentina",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20130720233037/http://plone.org/events/wpd/hosts/world-plone-day-cordoba"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2013, Jyväskylä, Finland",
+     "organisations": [
+      "University of Jyväskylä"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20130720235225/http://plone.org/events/wpd/hosts/jyvaskyla-finland"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2013, Leipzig, Germany",
+     "organisations": [
+      "Derico"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20130720232444/http://plone.org/events/wpd/hosts/leipzig-germany; organisation of Maik Derstappen from the organisation mapping: https://github.com/MrTango"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2013, Munich, Germany",
+     "organisations": [
+      "Starzel"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20130823015243/http://plone.org/events/wpd/hosts/munich-germany; organisation of Philip Bauer from the organisation mapping: https://github.com/pbauer"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2013, Rome, Italy",
+     "organisations": [
+      "ENEA",
+      "Abstract Open Solutions"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20130823040949/http://plone.org/events/wpd/hosts/roma-italy"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2013, Taipei, Taiwan",
+     "organisations": [
+      "Academia Sinica"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20130720231829/http://plone.org/events/wpd/hosts/taipei-taiwan"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2013, Tokyo, Japan",
+     "organisations": [
+      "Plone User's Group Japan"
+     ],
+     "sources": [
+      "https://plonejp.connpass.com/event/2189/"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2013, Toulouse, France",
+     "organisations": [
+      "Ecreall",
+      "Makina Corpus"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20130823014137/http://plone.org/events/wpd/hosts/toulouse-france"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2013, Turin, Italy",
+     "organisations": [
+      "Redomino"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20130823040714/http://plone.org/events/wpd/hosts/torino-world-plone-day"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2013, São Paulo, Brazil",
+     "organisations": [
+      "Simples Consultoria"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20130723200040/http://plone.org/events/wpd/hosts/sao-paulo-brazil"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2013, Aracaju, Brazil",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20130723173249/http://plone.org/events/wpd/hosts/aracaju-sergipe-brasil"
      ]
     }
    ],
@@ -2956,6 +5292,158 @@
      "sources": [
       "https://plone.org/foundation/meetings/minutes/2014/minutes-for-april-17-2014; Board: https://plone.org/foundation/meetings/minutes/2014/minutes-for-april-3-2014"
      ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2014, Arnhem, Netherlands",
+     "organisations": [
+      "Four Digits"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20140714005759/http://plone.org/events/wpd/hosts/arnhem-netherlands"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2014, Berlin, Germany",
+     "organisations": [
+      "Berlin-Brandenburg Plone Community",
+      "Python Software Verband e.V."
+     ],
+     "sources": [
+      "https://web.archive.org/web/20140714005201/http://plone.org/events/wpd/hosts/berlin-germany-betahaus"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2014, Berlin, Germany",
+     "organisations": [
+      "Veit Schiele Communications GmbH"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20140714012005/http://plone.org/events/wpd/hosts/berlin-germany-veit-schiele-communications"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2014, Bologna, Italy",
+     "organisations": [
+      "Regione Emilia-Romagna"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20140714010644/http://plone.org/events/wpd/world-plone-day-april-30th-2014"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2014, Brasília, Brazil",
+     "organisations": [
+      "PloneGov-BR"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20181229225405/https://colab.interlegis.leg.br/wiki/WorldPloneDay2014"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2014, Caracas, Venezuela",
+     "organisations": [
+      "Plone Venezuela",
+      "Pythonistas de Venezuela"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20140714011900/http://plone.org/events/wpd/hosts/caracas-venezuela"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2014, Chennai, India",
+     "organisations": [
+      "C-DAC"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20140714011012/http://plone.org/events/wpd/hosts/world-plone-day-2014-at-chennai-india"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2014, Eibar, Spain",
+     "organisations": [
+      "Codesyntax"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20140714012036/http://plone.org/events/wpd/hosts/eibar-basque-country"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2014, Karlsruhe, Germany",
+     "organisations": [
+      "Zettwerk"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20140714010715/http://plone.org/events/wpd/hosts/world-plone-day-2014-in-karlsruhe-germany"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2014, Munich, Germany",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20140714010644/http://plone.org/events/wpd/world-plone-day-april-30th-2014"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2014, São Paulo, Brazil",
+     "organisations": [
+      "Simples Consultoria"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20140714010644/http://plone.org/events/wpd/world-plone-day-april-30th-2014"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2014, Taipei, Taiwan",
+     "organisations": [
+      "Academia Sinica"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20140714010644/http://plone.org/events/wpd/world-plone-day-april-30th-2014"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2014, Tokyo, Japan",
+     "organisations": [
+      "Plone User's Group Japan"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20140714011510/http://plone.org/events/wpd/hosts/tokyo-japan"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2014, Zurich, Switzerland",
+     "organisations": [],
+     "sources": [
+      "https://web.archive.org/web/20140714004916/http://plone.org/events/wpd/hosts/zurich-switzerland"
+     ]
     }
    ],
    "people_active": 224,
@@ -3135,6 +5623,95 @@
      "organisations": [],
      "sources": [
       "https://plone.org/foundation/meetings/minutes/2015/minutes-for-march-19-2015"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2015, Berlin, Germany",
+     "organisations": [],
+     "sources": [
+      "https://plone.org/news-and-events/events/wpd/2015/world-plone-day-2015-in-berlin-germany"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2015, Berlin, Germany",
+     "organisations": [
+      "Berlin-Brandenburg Plone Community"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20150919110251/https://plone.org/events/community/berlin-world-plone-day-2015"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2015, Bologna, Italy",
+     "organisations": [
+      "RedTurtle",
+      "Regione Emilia-Romagna"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/wpd/2015/world-plone-day-by-regione-emilia-romagna-bologna-italy"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2015, Brasília, Brazil",
+     "organisations": [
+      "PloneGov-BR"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/wpd/2015/brasilia"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2015, Karlsruhe, Germany",
+     "organisations": [
+      "Zettwerk"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20150915165450/https://plone.org/events/wpd/hosts/world-plone-day-2015-in-karlsruhe-germany-zettwerk"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2015, Kingston, Jamaica",
+     "organisations": [
+      "Alteroo",
+      "PythonJamaica"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20150915150903/https://plone.org/events/wpd/hosts/world-plone-day-event-in-jamaica"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2015, Taipei, Taiwan",
+     "organisations": [
+      "Academia Sinica",
+      "Taipei.py"
+     ],
+     "sources": [
+      "https://web.archive.org/web/20150919110206/https://plone.org/events/wpd/taipei-taiwan"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2015, Tokyo, Japan",
+     "organisations": [
+      "Plone User's Group Japan"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/wpd/2015/world-plone-day-2015-by-plone-users-group-japan-tokyo-japan"
      ]
     }
    ],
@@ -3429,6 +6006,18 @@
      "sources": [
       "https://plone.org/news-and-events/events/sprints/dragonsprint; Board: https://plone.org/foundation/meetings/minutes/2016/minutes-for-november-17-2016"
      ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2016, Bologna, Italy",
+     "organisations": [
+      "Regione Emilia-Romagna",
+      "RedTurtle"
+     ],
+     "sources": [
+      "https://www.plonegov.it/notizie-ed-eventi/world-plone-day-2016-28-aprile-regione-emilia-romagna"
+     ]
     }
    ],
    "people_active": 170,
@@ -3620,6 +6209,51 @@
      ],
      "sources": [
       "https://community.plone.org/t/plone-ui-shared-basis-for-react-angular-efforts/4941; Board: https://plone.org/foundation/meetings/minutes/2017/minutes-for-august-10-2017"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2017, Bologna, Italy",
+     "organisations": [
+      "Regione Emilia-Romagna",
+      "RedTurtle"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/wpd/2017/2017-world-plone-day-in-bologna-italy"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2017, Tokyo, Japan",
+     "organisations": [
+      "Plone User's Group Japan"
+     ],
+     "sources": [
+      "https://plonejp.connpass.com/event/51340/"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2017, Berlin, Germany",
+     "organisations": [
+      "cusy"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/wpd/2017/2017-world-plone-day-berlin-germany; organisation of Veit Schiele from the organisation mapping: https://github.com/veit"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2017, Munich, Germany",
+     "organisations": [
+      "Starzel"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/wpd/2017/world-plone-day-munich-germany; organisation of Philip Bauer from the organisation mapping: https://github.com/pbauer"
      ]
     }
    ],
@@ -3833,6 +6467,18 @@
      ],
      "sources": [
       "https://plone.org/news-and-events/news/2018/thank-you-plone-conference-2018-tokyo; organisation from the organisation mapping: https://github.com/terapyon"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2018, Bologna, Italy",
+     "organisations": [
+      "Regione Emilia-Romagna",
+      "RedTurtle"
+     ],
+     "sources": [
+      "https://www.plonegov.it/notizie-ed-eventi/wpd-2018-regione-emilia-romagna"
      ]
     }
    ],
@@ -4088,6 +6734,18 @@
      "organisations": [],
      "sources": [
       "https://plone.org/news-and-events/events/community/plone-tagung-2019-munich"
+     ]
+    },
+    {
+     "kind": "world-plone-day-event",
+     "level": "",
+     "name": "World Plone Day 2019, Bologna, Italy",
+     "organisations": [
+      "Regione Emilia-Romagna",
+      "RedTurtle"
+     ],
+     "sources": [
+      "https://plone.org/news-and-events/events/wpd/2019/world-plone-day-2019-bologna"
      ]
     }
    ],
@@ -5908,7 +8566,7 @@
     },
     "2011": {
      "commits": 17,
-     "events": 0,
+     "events": 1,
      "pull_requests": 5,
      "roles": 0
     },
@@ -7135,19 +9793,19 @@
     },
     "2008": {
      "commits": 0,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
      "roles": 0
     },
     "2009": {
      "commits": 1,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
      "roles": 0
     },
     "2010": {
      "commits": 13,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
      "roles": 0
     },
@@ -7159,7 +9817,7 @@
     },
     "2012": {
      "commits": 35,
-     "events": 0,
+     "events": 1,
      "pull_requests": 8,
      "roles": 0
     },
@@ -7171,7 +9829,7 @@
     },
     "2014": {
      "commits": 13,
-     "events": 0,
+     "events": 1,
      "pull_requests": 1,
      "roles": 0
     },
@@ -7726,7 +10384,7 @@
     },
     "2011": {
      "commits": 0,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
      "roles": 0
     },
@@ -7738,7 +10396,7 @@
     },
     "2013": {
      "commits": 0,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
      "roles": 0
     },
@@ -9889,7 +12547,7 @@
     },
     "2008": {
      "commits": 20,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
      "roles": 0
     },
@@ -10113,7 +12771,7 @@
     },
     "2012": {
      "commits": 10,
-     "events": 0,
+     "events": 1,
      "pull_requests": 2,
      "roles": 0
     },
@@ -11180,7 +13838,7 @@
     },
     "2012": {
      "commits": 0,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
      "roles": 0
     },
@@ -11192,13 +13850,13 @@
     },
     "2014": {
      "commits": 0,
-     "events": 1,
+     "events": 2,
      "pull_requests": 0,
      "roles": 1
     },
     "2015": {
      "commits": 0,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
      "roles": 0
     },
@@ -11317,7 +13975,7 @@
     },
     "2008": {
      "commits": 0,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
      "roles": 0
     },
@@ -11769,7 +14427,7 @@
     },
     "2008": {
      "commits": 0,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
      "roles": 0
     },
@@ -11781,7 +14439,7 @@
     },
     "2010": {
      "commits": 4,
-     "events": 0,
+     "events": 2,
      "pull_requests": 0,
      "roles": 0
     },
@@ -11793,13 +14451,13 @@
     },
     "2012": {
      "commits": 5,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
      "roles": 0
     },
     "2013": {
      "commits": 56,
-     "events": 0,
+     "events": 1,
      "pull_requests": 3,
      "roles": 0
     },
@@ -11811,31 +14469,31 @@
     },
     "2015": {
      "commits": 31,
-     "events": 0,
+     "events": 1,
      "pull_requests": 17,
      "roles": 0
     },
     "2016": {
      "commits": 0,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
      "roles": 0
     },
     "2017": {
      "commits": 19,
-     "events": 0,
+     "events": 1,
      "pull_requests": 6,
      "roles": 0
     },
     "2018": {
      "commits": 86,
-     "events": 0,
+     "events": 1,
      "pull_requests": 17,
      "roles": 0
     },
     "2019": {
      "commits": 116,
-     "events": 2,
+     "events": 3,
      "pull_requests": 44,
      "roles": 2
     },
@@ -11948,55 +14606,55 @@
     },
     "2011": {
      "commits": 0,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
      "roles": 0
     },
     "2012": {
      "commits": 0,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
      "roles": 0
     },
     "2013": {
      "commits": 0,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
      "roles": 0
     },
     "2014": {
      "commits": 0,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
      "roles": 0
     },
     "2015": {
      "commits": 0,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
      "roles": 0
     },
     "2016": {
      "commits": 0,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
      "roles": 0
     },
     "2017": {
      "commits": 0,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
      "roles": 0
     },
     "2018": {
      "commits": 0,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
      "roles": 0
     },
     "2019": {
      "commits": 0,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
      "roles": 0
     },
@@ -12458,13 +15116,13 @@
     },
     "2011": {
      "commits": 0,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
      "roles": 0
     },
     "2012": {
      "commits": 0,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
      "roles": 0
     },
@@ -12803,13 +15461,13 @@
     },
     "2008": {
      "commits": 0,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
      "roles": 0
     },
     "2009": {
      "commits": 0,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
      "roles": 0
     },
@@ -12827,19 +15485,19 @@
     },
     "2012": {
      "commits": 55,
-     "events": 1,
+     "events": 2,
      "pull_requests": 3,
      "roles": 3
     },
     "2013": {
      "commits": 54,
-     "events": 1,
+     "events": 2,
      "pull_requests": 5,
      "roles": 2
     },
     "2014": {
      "commits": 10,
-     "events": 0,
+     "events": 1,
      "pull_requests": 3,
      "roles": 1
     },
@@ -12976,7 +15634,7 @@
     },
     "2010": {
      "commits": 11,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
      "roles": 1
     },
@@ -13194,19 +15852,19 @@
     },
     "2009": {
      "commits": 0,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
      "roles": 0
     },
     "2010": {
      "commits": 3,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
      "roles": 0
     },
     "2011": {
      "commits": 22,
-     "events": 1,
+     "events": 2,
      "pull_requests": 0,
      "roles": 1
     },
@@ -13218,7 +15876,7 @@
     },
     "2013": {
      "commits": 166,
-     "events": 0,
+     "events": 1,
      "pull_requests": 15,
      "roles": 0
     },
@@ -13242,7 +15900,7 @@
     },
     "2017": {
      "commits": 328,
-     "events": 1,
+     "events": 2,
      "pull_requests": 73,
      "roles": 2
     },
@@ -13797,7 +16455,7 @@
     },
     "2010": {
      "commits": 0,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
      "roles": 0
     },
@@ -14146,7 +16804,7 @@
     },
     "2010": {
      "commits": 0,
-     "events": 0,
+     "events": 1,
      "pull_requests": 0,
      "roles": 0
     },
@@ -14375,7 +17033,7 @@
     },
     "2013": {
      "commits": 522,
-     "events": 0,
+     "events": 1,
      "pull_requests": 14,
      "roles": 0
     },

@@ -29,7 +29,7 @@ All curated files are in `curated/community-contributions/`, one file per year.
 | Team leaders | 2004–2025 | `curated/community-contributions/YYYY-team-leaders.csv` | 2004–2025 |
 | Sprints | 2003–2025 | `curated/community-contributions/YYYY-sprints.csv` | 2003–2025 |
 | Podcast hosts | 2020–2025 | `curated/community-contributions/YYYY-podcasts.csv` | 2020–2025 |
-| World Plone Day events | 2021–2025 | `curated/community-contributions/YYYY-world-plone-day-event.csv` | 2021–2025 |
+| World Plone Day events | 2008–2019, 2021–2025 | `curated/community-contributions/YYYY-world-plone-day-event.csv` | 2008–2019, 2021–2025 |
 | World Plone Day talks | 2021–2025 | `curated/community-contributions/YYYY-world-plone-day-talks.csv` | `YouTube ID` column |
 
 ## Derived from other files
