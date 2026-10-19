@@ -22,7 +22,8 @@ def test_every_row_has_a_login_a_name_and_a_public_record():
     for row in rows():
         assert LOGIN.fullmatch(row['github username']), row
         assert row['fullname'].strip() == row['fullname'] and row['fullname'], row
-        assert 'https://' in row['source'], f"no public record for {row['fullname']}"
+        # The record links the login's own profile, not someone else's
+        assert f"https://github.com/{row['github username']}".casefold() in row['source'].casefold(), row
 
 
 def test_each_name_maps_to_one_login():

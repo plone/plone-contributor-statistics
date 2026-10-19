@@ -3,10 +3,10 @@
   "five_years": {
    "events": 59,
    "organisations": 89,
-   "people": 373
+   "people": 374
   },
   "since_2003": {
-   "people": 978
+   "people": 982
   },
   "year": {
    "events": 9,
@@ -255,7 +255,7 @@
      ]
     }
    ],
-   "people_active": 51,
+   "people_active": 52,
    "pull_requests": null,
    "team_leads": [
     {
@@ -14597,9 +14597,7 @@
     "commits": 3,
     "id": "bbuehlmann",
     "pull_requests": 0,
-    "roles": [
-     "Board"
-    ]
+    "roles": []
    },
    {
     "commits": 59,
@@ -14743,6 +14741,14 @@
     "id": "myroslav",
     "pull_requests": 0,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "name:bernard buhlmann",
+    "pull_requests": 0,
+    "roles": [
+     "Board"
+    ]
    },
    {
     "commits": 0,
@@ -27672,6 +27678,15 @@
    },
    {
     "commits": 0,
+    "id": "name:takeshi yamamoto",
+    "pull_requests": 0,
+    "roles": [
+     "Conference organiser",
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:zenichiro yasuda",
     "pull_requests": 0,
     "roles": [
@@ -27793,15 +27808,6 @@
     "id": "reinhardt",
     "pull_requests": 22,
     "roles": []
-   },
-   {
-    "commits": 0,
-    "id": "retsu",
-    "pull_requests": 0,
-    "roles": [
-     "Conference organiser",
-     "Sprint organiser"
-    ]
    },
    {
     "commits": 0,
@@ -30649,6 +30655,14 @@
    },
    {
     "commits": 0,
+    "id": "name:sean kelly",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:stefano marchetti",
     "pull_requests": 0,
     "roles": [
@@ -30681,14 +30695,6 @@
     "commits": 59,
     "id": "nileshgulia1",
     "pull_requests": 20,
-    "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "nutjob4life",
-    "pull_requests": 0,
     "roles": [
      "Talk"
     ]
@@ -31529,14 +31535,6 @@
     "roles": []
    },
    {
-    "commits": 0,
-    "id": "luxcas",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
-    ]
-   },
-   {
     "commits": 20,
     "id": "macagua",
     "pull_requests": 2,
@@ -31670,6 +31668,22 @@
    },
    {
     "commits": 0,
+    "id": "name:lucas aquino",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:sean kelly",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "niglesiaszingoni",
     "pull_requests": 1,
     "roles": []
@@ -31685,14 +31699,6 @@
     "id": "nileshgulia1",
     "pull_requests": 11,
     "roles": []
-   },
-   {
-    "commits": 0,
-    "id": "nutjob4life",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
-    ]
    },
    {
     "commits": 7,
@@ -35132,7 +35138,6 @@
   "asko soukka": "datakurre",
   "astrid beyers": "astridjuizi",
   "ben saller": "bcsaller",
-  "bernard buhlmann": "bbuehlmann",
   "brian ledwell": "bledwell",
   "calvin hendryx-parker": "calvinhp",
   "chris calloway": "cbcunc",
@@ -35187,7 +35192,6 @@
   "kim nguyen": "tkimnguyen",
   "kim paulissen": "spereverde",
   "loechel": "loechel",
-  "lucas aquino": "luxcas",
   "maik derstappen": "mrtango",
   "maik derstappen (contact)": "mrtango",
   "malthe borch": "malthe",
@@ -35224,7 +35228,6 @@
   "rohit kumar": "irohitsingh",
   "sally kleinfeldt": "skleinfeldt",
   "sasha vincic": "vincic",
-  "sean kelly": "nutjob4life",
   "sidnei da silva": "sidnei",
   "simon eisenmann": "longsleep",
   "stefan antonelli": "santonelli",
@@ -35235,7 +35238,6 @@
   "sven strack": "svx",
   "t. kim nguyen": "tkimnguyen",
   "takanori suzuki": "takanory",
-  "takeshi yamamoto": "retsu",
   "tarek ziade": "tarekziade",
   "teodor voicu": "tedw87",
   "tiberiu ichim": "tiberiuichim",
