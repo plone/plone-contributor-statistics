@@ -48,8 +48,6 @@ from scripts.lib.tables import by_count
 
 EXCLUDED_REPOSITORIES_FILE = paths.EXCLUDED_REPOSITORIES
 BOT_ACCOUNTS_FILE = paths.BOT_ACCOUNTS
-COMMIT_AUTHORS_FILE = paths.COMMIT_AUTHORS
-ACCOUNT_ALIASES_FILE = paths.ACCOUNT_ALIASES
 REPORT_COLUMNS = ['username', 'total_commits', 'total_pull_requests', 'repositories_count',
                   'repositories', 'first_contribution', 'last_contribution']
 

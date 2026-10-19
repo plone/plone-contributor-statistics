@@ -29,7 +29,8 @@ def extractor(tmp_repo, monkeypatch):
         f'whit-morriss,email,linked@example.org,{SRC}\n'
         f'alan-runyan,login,bobdobbs666,{SRC}\n', encoding='utf-8')
 
-    linked = {'linked@example.org': 'alice', 'alan@enfoldsystems.com': 'bobdobbs666'}
+    linked = {'linked@example.org': 'alice', 'bot@example.org': 'pre-commit-ci[bot]',
+              'alan@enfoldsystems.com': 'bobdobbs666'}
 
     def fake_graphql(session, query, variables=None, **kwargs):
         shas = [part.split('"')[1] for part in query.split('object(oid: ')[1:]]
@@ -62,3 +63,11 @@ def test_second_accounts_count_for_the_main_account(extractor):
     extractor.process_pull_requests('Products.CMFPlone', [
         {'merged_at': '2003-05-01T12:00:00Z', 'user': {'login': 'bobdobbs666', 'type': 'User'}}])
     assert extractor.contributors_data['2003-plone-contributors']['runyaga']['pull_requests'] == 1
+
+
+def test_linked_bot_login_stays_a_bot(extractor):
+    commits = [local_commit('bot@example.org', 'bot@example.org')]
+    extractor.link_authors('Products.CMFPlone', commits)
+
+    assert commits[0]['author'] == {'login': 'pre-commit-ci[bot]', 'type': 'Bot'}
+    assert not extractor._is_person(commits[0]['author'])

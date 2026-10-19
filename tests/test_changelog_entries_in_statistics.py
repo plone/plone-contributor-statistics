@@ -24,7 +24,7 @@ def write(path, text):
 def test_entries_by_organisation():
     changelog = pd.DataFrame([
         {'username': 'hannosch', 'changelog_entries': 5, 'matched_by': 'login'},
-        {'username': 'alecpm', 'changelog_entries': 3, 'matched_by': 'changelog_names'},
+        {'username': 'alecpm', 'changelog_entries': 3, 'matched_by': 'identity'},
         # An unmatched name counts as Unmapped, even if it is spelled like a mapped login
         {'username': 'limi', 'changelog_entries': 2, 'matched_by': 'unmatched'},
         {'username': 'Andy McKay', 'changelog_entries': 1, 'matched_by': 'identity'},
