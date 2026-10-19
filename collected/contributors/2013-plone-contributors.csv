@@ -22,11 +22,11 @@ toutpt,88,3,25,"Products.ATContentTypes, Products.Archetypes, Products.CMFDynami
 khink,80,16,17,"Products.CMFPlone, buildout.coredev, plone.api, plone.app.contenttypes, plone.app.dexterity, plone.app.discussion, plone.app.event, plone.app.imaging, plone.app.querystring, plone.app.search, plone.app.upgrade, plone.app.users, plone.dotfiles, plone.formwidget.recurrence, plone.namedfile, plone.scale, plonedev.vagrant",2012-11-22,2013-11-14
 sneridagh,72,2,10,"Products.CMFPlone, archetypes.multilingual, communications.plone.org, planet.plone.org, plone.app.dexterity, plone.app.multilingual, plone.multilingual, plone.multilingualbehavior, ploneorg.core, ploneorg.theme",2013-01-05,2013-11-29
 miohtama,67,3,15,"Installers-UnifiedInstaller, Products.LinguaPlone, Products.PloneOrg, diazo, planet.plone.org, plone.api, plone.app.dexterity, plone.app.registry, plone.app.testing, plone.app.theming, plone.app.widgets, plone.app.z3cform, plone.autoform, plone.namedfile, ploneorg.admin",2013-01-21,2013-05-17
-rpatterson,61,0,14,"Products.CMFDiffTool, Products.CMFEditions, Products.CMFPlone, Products.TinyMCE, buildout.coredev, planet.plone.org, plone.app.dexterity, plone.app.layout, plone.app.redirector, plone.app.search, plone.app.testing, plone.app.toolbar, plone.app.versioningbehavior, plone.dexterity",2012-07-30,2013-12-01
 cedricmessiant,61,3,6,"Products.CMFPlone, bobtemplates.plone, plone.app.dexterity, plone.app.upgrade, plone.app.z3cform, plone.schemaeditor",2013-01-30,2013-09-22
+rpatterson,61,0,14,"Products.CMFDiffTool, Products.CMFEditions, Products.CMFPlone, Products.TinyMCE, buildout.coredev, planet.plone.org, plone.app.dexterity, plone.app.layout, plone.app.redirector, plone.app.search, plone.app.testing, plone.app.toolbar, plone.app.versioningbehavior, plone.dexterity",2012-07-30,2013-12-01
 aclark4life,58,0,10,"Products.PloneOrg, planet.plone.org, plone-devstart, plone-org-haproxy, plone-org-nginx, plone.app.multilingual, plone.github.com, ploneorg.admin, plonetheme.ploneorg, plonetheme.sunburst",2013-01-18,2013-12-31
-ale-rt,55,3,10,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, archetypes.referencebrowserwidget, borg.localrole, buildout.coredev, plone.app.layout, plone.app.upgrade, plone.outputfilters, plone.recipe.zope2zeoserver",2013-03-08,2013-11-15
 kroman0,55,6,17,"Products.TinyMCE, Products.contentmigration, buildout.coredev, plone.app.caching, plone.app.contenttypes, plone.app.customerize, plone.app.dexterity, plone.app.discussion, plone.app.imaging, plone.app.layout, plone.app.multilingual, plone.app.theming, plone.app.users, plone.app.z3cform, plone.scale, plone.schemaeditor, plone.z3cform",2013-02-04,2013-11-27
+ale-rt,55,3,10,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, archetypes.referencebrowserwidget, borg.localrole, buildout.coredev, plone.app.layout, plone.app.upgrade, plone.outputfilters, plone.recipe.zope2zeoserver",2013-03-08,2013-11-15
 ericof,54,5,10,"Products.TinyMCE, buildout.coredev, plone.app.blocks, plone.app.contentrules, plone.app.contenttypes, plone.app.dexterity, plone.app.discussion, plone.app.event, plone.app.linkintegrity, plone.schemaeditor",2013-03-26,2013-07-24
 ramiroluz,53,2,1,plone.recipe.codeanalysis,2013-10-05,2013-12-11
 erral,51,0,7,"Products.CMFPlone, archetypes.multilingual, planet.plone.org, plone.app.discussion, plone.app.multilingual, plone.app.workflowmanager, plone.formwidget.multifile",2012-07-02,2013-11-14
@@ -39,8 +39,8 @@ danjacka,41,3,13,"Products.CMFPlone, buildout.coredev, mockup, plone.api, plone.
 cillianderoiste,38,4,2,"plone.api, plone.app.event",2013-01-24,2013-10-20
 rnixx,37,1,8,"Products.Archetypes, plone.app.debugtoolbar, plone.app.event, plone.app.referenceablebehavior, plone.event, plone.formwidget.datetime, plone.formwidget.recurrence, plonetheme.sunburst",2013-01-15,2013-11-05
 cewing,36,1,5,"plone.api, plone.app.blocks, plone.app.tiles, plone.app.widgets, plone.tiles",2011-12-14,2013-10-09
-maartenkling,35,8,14,"Products.CMFEditions, Products.CMFPlone, Products.TinyMCE, buildout.coredev, mockup, plone.app.controlpanel, plone.app.discussion, plone.app.layout, plone.app.theming, plone.app.users, plone.app.widgets, plone.formwidget.namedfile, plone.stringinterp, plonetheme.barceloneta",2013-04-15,2013-11-14
 ichim-david,35,3,6,"Products.Archetypes, Products.TinyMCE, buildout.coredev, plone.app.discussion, plone.app.search, plone.stringinterp",2013-01-18,2013-09-20
+maartenkling,35,8,14,"Products.CMFEditions, Products.CMFPlone, Products.TinyMCE, buildout.coredev, mockup, plone.app.controlpanel, plone.app.discussion, plone.app.layout, plone.app.theming, plone.app.users, plone.app.widgets, plone.formwidget.namedfile, plone.stringinterp, plonetheme.barceloneta",2013-04-15,2013-11-14
 TH-code,34,1,4,"buildout.coredev, diazotheme.coolblue, planet.plone.org, plonetheme.classic",2013-01-15,2013-09-05
 evilbungle,34,0,3,"plone.app.discussion, plone.app.vulnerabilities, security-mockups",2013-08-10,2013-11-25
 MatthewWilkes,33,0,10,"Products.PloneOrg, Products.ResourceRegistries, buildout.coredev, plone.api, plone.app.vulnerabilities, plone.dotfiles, plone.recipe.unifiedinstaller, plone.schema, ploneorg.core, security-mockups",2013-01-04,2013-12-10
@@ -52,10 +52,10 @@ kiorky,25,1,12,"Products.Archetypes, Products.CMFPlone, Products.PloneTestCase, 
 gotcha,24,0,6,"Products.Archetypes, Products.LinguaPlone, buildout.coredev, plone.app.blob, plone.app.robotframework, plone.outputfilters",2013-01-09,2013-07-19
 gyst,23,2,5,"Products.LinguaPlone, planet.plone.org, plone.app.event, plone.app.widgets, plone.formwidget.recurrence",2013-02-12,2013-12-16
 jianaijun,23,12,13,"Products.TinyMCE, buildout.coredev, plone.app.content, plone.app.contentrules, plone.app.dexterity, plone.app.hud, plone.app.layout, plone.app.linkintegrity, plone.app.theming, plone.app.workflowmanager, plone.formwidget.namedfile, plone.i18n, plone.schemaeditor",2013-01-14,2013-12-08
-csenger,22,0,1,plone.app.contenttypes,2013-01-25,2013-03-16
 gbastien,22,7,7,"Products.Archetypes, plone.app.blob, plone.app.dexterity, plone.app.upgrade, plone.app.vocabularies, plone.app.z3cform, plonetheme.sunburst",2013-01-09,2013-11-18
-jean,21,7,5,"Installers-UnifiedInstaller, Products.Archetypes, Products.contentmigration, mockup, plone.api",2013-09-14,2013-11-25
+csenger,22,0,1,plone.app.contenttypes,2013-01-25,2013-03-16
 maethu,21,9,4,"Products.ATContentTypes, Products.CMFPlone, mockup, plone.app.contenttypes",2013-03-26,2013-10-10
+jean,21,7,5,"Installers-UnifiedInstaller, Products.Archetypes, Products.contentmigration, mockup, plone.api",2013-09-14,2013-11-25
 tomgross,20,2,8,"Products.ATContentTypes, Products.Archetypes, Products.TinyMCE, buildout.coredev, plone.app.layout, plone.app.upgrade, plone.outputfilters, plonetheme.sunburst",2013-01-10,2013-11-20
 djay,19,1,5,"mockup, plone.app.blob, plone.app.toolbar, plone.app.widgets, plone.app.z3cform",2013-02-04,2013-09-16
 davidjb,18,3,10,"Products.CMFPlone, Products.TinyMCE, archetypes.querywidget, buildout.coredev, buildout.deco, diazo, mockup, plone.app.contentrules, plone.app.portlets, plone.app.toolbar",2013-01-10,2013-09-26
@@ -63,181 +63,182 @@ reinhardt,18,3,2,"plone.api, plone.app.contenttypes",2013-01-25,2013-10-30
 jaroel,17,7,7,"Products.CMFPlone, buildout.coredev, plone.app.event, plone.app.imaging, plone.app.layout, plone.app.relationfield, plone.app.upgrade",2013-04-09,2013-11-14
 gaudenz,16,0,2,"plone.formwidget.contenttree, plone.formwidget.multifile",2013-06-06,2013-10-09
 ebrehault,16,2,3,"mockup-extra, plone.app.robotframework, plone.formwidget.contenttree",2013-03-01,2013-09-22
-loechel,15,1,6,"plone.app.contenttypes, plone.app.vulnerabilities, plone.vulnerabilitychecks.buildout, plone.vulnerabilitychecks.core, plone.vulnerabilitychecks.instance_startup, plone.vulnerabilitychecks.tests",2013-01-24,2013-11-13
 izak,15,3,3,"Products.TinyMCE, plone.app.jquerytools, plone.formwidget.autocomplete",2013-01-10,2013-03-19
-bledwell,14,0,1,mockup,2013-06-08,2013-06-09
-simahawk,14,1,3,"buildout.deco, diazo, mockup",2013-04-04,2013-07-12
+loechel,15,1,6,"plone.app.contenttypes, plone.app.vulnerabilities, plone.vulnerabilitychecks.buildout, plone.vulnerabilitychecks.core, plone.vulnerabilitychecks.instance_startup, plone.vulnerabilitychecks.tests",2013-01-24,2013-11-13
+jfroche,14,2,2,"Products.Archetypes, Products.LinguaPlone",2013-02-06,2013-02-06
 joka,14,1,1,plone.app.contenttypes,2013-10-08,2013-10-15
 seanupton,14,2,7,"Products.ATContentTypes, Products.CMFPlone, buildout.coredev, plone.app.event, plone.app.search, plone.app.z3cform, plone.autoform",2013-03-04,2013-09-21
-jfroche,14,2,2,"Products.Archetypes, Products.LinguaPlone",2013-02-06,2013-02-06
+simahawk,14,1,3,"buildout.deco, diazo, mockup",2013-04-04,2013-07-12
 pabo3000,14,0,4,"Products.contentmigration, plone.app.contenttypes, plone.app.layout, plone.dotfiles",2013-01-25,2013-07-25
-gborelli,13,3,5,"Products.PloneLanguageTool, plone.app.contenttypes, plone.app.deco, plone.app.multilingual, plone.multilingual",2013-01-14,2013-10-08
-rafaelbco,13,1,3,"plone.app.contenttypes, plone.app.event, plone.formwidget.multifile",2013-01-21,2013-12-17
+bledwell,14,0,1,mockup,2013-06-08,2013-06-09
 toastdriven,13,0,3,"mockup, plone.app.toolbar, plone.app.widgets",2013-07-14,2013-07-18
 jone,13,5,8,"buildout.coredev, plone.act, plone.app.event, plone.app.linkintegrity, plone.app.lockingbehavior, plone.app.robotframework, plone.app.stagingbehavior, plone.dotfiles",2013-01-02,2013-12-09
+rafaelbco,13,1,3,"plone.app.contenttypes, plone.app.event, plone.formwidget.multifile",2013-01-21,2013-12-17
+gborelli,13,3,5,"Products.PloneLanguageTool, plone.app.contenttypes, plone.app.deco, plone.app.multilingual, plone.multilingual",2013-01-14,2013-10-08
 StevenLooman,12,2,2,"plone.app.dexterity, plone.app.multilingual",2013-11-11,2013-11-13
-simonedeponti,12,0,4,"buildout.deco, mockup, plone.app.contenttypes, plone.app.widgets",2013-04-04,2013-04-06
 alecpm,12,1,3,"mockup, plone.app.widgets, plone.batching",2013-10-09,2013-12-19
-robgietema,11,1,4,"Products.CMFPlone, mockup, plone.app.layout, plonetheme.barceloneta",2013-10-05,2013-11-13
-ksuess,11,1,1,plone.app.multilingual,2013-05-07,2013-05-21
+simonedeponti,12,0,4,"buildout.deco, mockup, plone.app.contenttypes, plone.app.widgets",2013-04-04,2013-04-06
 albertcasado,11,0,1,ploneorg.theme,2013-10-27,2013-11-26
 petschki,11,1,3,"plone.app.event, plone.app.viewletmanager, plone.z3cform",2013-09-26,2013-12-30
+robgietema,11,1,4,"Products.CMFPlone, mockup, plone.app.layout, plonetheme.barceloneta",2013-10-05,2013-11-13
+ksuess,11,1,1,plone.app.multilingual,2013-05-07,2013-05-21
 fulv,10,0,3,"planet.plone.org, plone.app.contenttypes, plone.app.robotframework",2013-01-31,2013-05-03
 NataCot,10,0,1,plone.app.hud,2013-08-12,2013-09-17
 hannosch,10,0,3,"buildout.coredev, plone.recipe.zope2instance, plone.z3cform",2013-02-10,2013-10-19
 pjstevns,9,0,3,"Products.Archetypes, buildout.coredev, plone.app.discussion",2013-02-21,2013-11-13
-jessnorwood,9,0,2,"plone.api, plone.app.discussion",2013-01-26,2013-11-22
-keul,9,5,5,"Products.Archetypes, Products.TinyMCE, archetypes.querywidget, plone.app.z3cform, plone.recipe.zeoserver",2013-02-15,2013-11-13
 polyester,9,0,2,"plonetheme.ploneorg, security-mockups",2013-08-10,2013-11-05
-parruc,9,1,3,"plone.app.iterate, plone.app.lockingbehavior, plone.locking",2013-02-01,2013-07-17
 macagua,9,1,2,"buildout.coredev, plone.app.workflowmanager",2013-11-29,2013-12-08
-svx,8,5,4,"Installers-UnifiedInstaller, jenkins.plone.org, plone-org-nginx, plonedev.vagrant",2013-02-01,2013-12-19
+jessnorwood,9,0,2,"plone.api, plone.app.discussion",2013-01-26,2013-11-22
+parruc,9,1,3,"plone.app.iterate, plone.app.lockingbehavior, plone.locking",2013-02-01,2013-07-17
+keul,9,5,5,"Products.Archetypes, Products.TinyMCE, archetypes.querywidget, plone.app.z3cform, plone.recipe.zeoserver",2013-02-15,2013-11-13
 flohcim,8,3,2,"plone.api, plone.recipe.codeanalysis",2013-10-05,2013-10-09
+svx,8,5,4,"Installers-UnifiedInstaller, jenkins.plone.org, plone-org-nginx, plonedev.vagrant",2013-02-01,2013-12-19
 bosim,8,4,6,"Products.TinyMCE, planet.plone.org, plone.app.collection, plone.app.querystring, plone.app.search, plone.formwidget.querystring",2013-01-15,2013-12-29
 eleddy,8,5,7,"Products.CMFPlone, Products.ResourceRegistries, buildout.coredev, plone.app.caching, plone.app.controlpanel, plone.dexterity, plone.formwidget.datetime",2013-01-28,2013-10-15
 adamcheasley,8,5,4,"Products.Archetypes, plone.api, plone.app.imaging, plone.testing",2013-01-24,2013-09-10
-wichert,7,0,5,"buildout.coredev, plone.app.portlets, plone.dexterity, plone.portlets, plone.recipe.zope2instance",2013-01-11,2013-02-18
-domenkozar,7,1,2,"Products.TinyMCE, buildout.coredev",2013-01-04,2013-03-26
-agitator,7,1,3,"plone.app.contenttypes, plone.app.event, plone.app.multilingual",2013-06-18,2013-11-08
-href,7,2,3,"Products.CMFPlone, plone.formwidget.datetime, plone.formwidget.recurrence",2013-06-10,2013-07-24
 tmog,7,5,5,"Products.PortalTransforms, Products.TinyMCE, plone.app.portlets, plone.formwidget.querystring, plone.namedfile",2013-01-31,2013-05-15
+wichert,7,0,5,"buildout.coredev, plone.app.portlets, plone.dexterity, plone.portlets, plone.recipe.zope2instance",2013-01-11,2013-02-18
 encolpe,7,0,2,"Products.ATContentTypes, Products.CMFPlone",2013-11-12,2013-11-14
+href,7,2,3,"Products.CMFPlone, plone.formwidget.datetime, plone.formwidget.recurrence",2013-06-10,2013-07-24
+agitator,7,1,3,"plone.app.contenttypes, plone.app.event, plone.app.multilingual",2013-06-18,2013-11-08
+domenkozar,7,1,2,"Products.TinyMCE, buildout.coredev",2013-01-04,2013-03-26
 amleczko,6,0,2,"buildout.coredev, plone.app.contenttypes",2013-01-30,2013-03-05
-bogdangi,6,2,2,"Products.Archetypes, plone.app.multilingual",2013-02-08,2013-08-13
 warpr,6,0,1,mockup,2013-11-12,2013-11-14
+bogdangi,6,2,2,"Products.Archetypes, plone.app.multilingual",2013-02-08,2013-08-13
 mattss,6,3,2,"plone.api, plone.scale",2013-03-11,2013-12-20
 hersonrodrigues,6,1,3,"plone.app.dexterity, plone.app.workflowmanager, plone.schemaeditor",2013-09-21,2013-09-21
-acsr,5,0,1,communications.plone.com,2013-04-05,2013-04-09
-bsuttor,5,4,3,"plone.app.discussion, plone.app.form, plone.app.robotframework",2013-09-30,2013-10-07
-sunbit,5,0,1,Products.CMFPlone,2013-02-10,2013-02-10
 ivanteoh,5,2,1,mockup,2013-09-14,2013-09-15
-jnachtigall,5,2,3,"plone.app.controlpanel, plone.app.event, plone.i18n",2013-07-03,2013-12-20
+bsuttor,5,4,3,"plone.app.discussion, plone.app.form, plone.app.robotframework",2013-09-30,2013-10-07
 witekdev,5,1,4,"mockup, plone.api, plone.app.dexterity, ploneorg.admin",2013-01-27,2013-10-07
-fgrcon,4,1,1,plone.app.multilingual,2013-03-29,2013-03-29
-alecghica,4,2,2,"Products.CMFPlone, plone.recipe.zope2instance",2013-04-23,2013-10-09
-regebro,4,0,3,"Products.PasswordResetTool, planet.plone.org, plone.formwidget.namedfile",2013-02-26,2013-11-05
-giacomos85,4,0,3,"buildout.coredev, performance-testing, plone.resource",2013-10-06,2013-11-12
+jnachtigall,5,2,3,"plone.app.controlpanel, plone.app.event, plone.i18n",2013-07-03,2013-12-20
+acsr,5,0,1,communications.plone.com,2013-04-05,2013-04-09
+sunbit,5,0,1,Products.CMFPlone,2013-02-10,2013-02-10
+k-j-kleist,4,0,3,"planet.plone.org, plone.app.portlets, plone.app.upgrade",2013-03-08,2013-06-30
+calvinhp,4,1,2,"plone.app.blocks, plone.tiles",2013-11-22,2013-11-22
+Gomez,4,6,4,"plone.act, plone.app.collection, plone.app.contenttypes, plone.app.robotframework",2013-01-24,2013-01-27
 davisp1,4,0,2,"plone.app.contentrules, plone.schemaeditor",2013-03-18,2013-09-22
 l34marr,4,4,3,"Products.TinyMCE, plone.app.dexterity, plone.app.imaging",2013-01-05,2013-11-02
-david-batranu,4,1,1,plone.recipe.zope2instance,2013-06-24,2013-06-25
-agnogueira,4,0,2,"diazotheme.coolblue, plone.formwidget.captcha",2013-07-24,2013-10-31
-calvinhp,4,1,2,"plone.app.blocks, plone.tiles",2013-11-22,2013-11-22
-obct537,4,0,1,plone.app.workflowmanager,2013-12-17,2013-12-20
-k-j-kleist,4,0,3,"planet.plone.org, plone.app.portlets, plone.app.upgrade",2013-03-08,2013-06-30
-Gomez,4,6,4,"plone.act, plone.app.collection, plone.app.contenttypes, plone.app.robotframework",2013-01-24,2013-01-27
+alecghica,4,2,2,"Products.CMFPlone, plone.recipe.zope2instance",2013-04-23,2013-10-09
 sdelcourt,4,2,1,plone.api,2013-10-05,2013-10-06
-iescude,3,0,1,ploneorg.theme,2013-11-14,2013-11-14
-mihneasim,3,2,1,Products.ResourceRegistries,2013-11-04,2013-11-05
+giacomos85,4,0,3,"buildout.coredev, performance-testing, plone.resource",2013-10-06,2013-11-12
+regebro,4,0,3,"Products.PasswordResetTool, planet.plone.org, plone.formwidget.namedfile",2013-02-26,2013-11-05
+agnogueira,4,0,2,"diazotheme.coolblue, plone.formwidget.captcha",2013-07-24,2013-10-31
+obct537,4,0,1,plone.app.workflowmanager,2013-12-17,2013-12-20
+david-batranu,4,1,1,plone.recipe.zope2instance,2013-06-24,2013-06-25
+fgrcon,4,1,1,plone.app.multilingual,2013-03-29,2013-03-29
 jcbrand,3,1,2,"planet.plone.org, plone.app.contenttypes",2013-10-28,2013-12-31
-silviot,3,3,2,"plone.app.contenttypes, plone.app.robotframework",2013-04-09,2013-04-16
-radekj,3,2,1,plone.app.iterate,2013-02-27,2013-03-06
-jpgimenez,3,0,3,"plone.app.dexterity, plone.app.layout, plone.app.z3cform",2013-01-08,2013-10-08
+mihneasim,3,2,1,Products.ResourceRegistries,2013-11-04,2013-11-05
 nutjob4life,3,0,1,plone-org-nginx,2013-07-13,2013-07-17
+senny,3,3,1,planet.plone.org,2013-04-17,2013-05-10
+iescude,3,0,1,ploneorg.theme,2013-11-14,2013-11-14
+radekj,3,2,1,plone.app.iterate,2013-02-27,2013-03-06
 tlyng,3,3,3,"mockup, plone.app.themingplugins, plone.app.toolbar",2013-04-05,2013-06-06
 gil-cano,3,0,1,mockup,2013-06-08,2013-06-08
 tiazma,3,1,1,plone.app.contenttypes,2013-10-09,2013-10-11
+silviot,3,3,2,"plone.app.contenttypes, plone.app.robotframework",2013-04-09,2013-04-16
 runyaga,3,4,4,"mockup, plone-org-nginx, plone.app.contentrules, plone.app.theming",2013-06-13,2013-10-04
-senny,3,3,1,planet.plone.org,2013-04-17,2013-05-10
-winstonf88,2,2,1,plone.api,2013-10-05,2013-10-05
-witsch,2,1,1,plone.app.discussion,2013-08-14,2013-08-14
-vipod,2,0,2,"plone.app.portlets, plone.portlets",2013-02-23,2013-02-23
-lpmayos,2,1,1,mockup,2013-10-05,2013-10-06
-jbeyers,2,0,1,Products.CMFPlone,2013-01-24,2013-01-24
+jpgimenez,3,0,3,"plone.app.dexterity, plone.app.layout, plone.app.z3cform",2013-01-08,2013-10-08
 rudi-a,2,0,1,Products.CMFPlone,2013-01-25,2013-01-25
-gweis,2,0,1,plone.subrequest,2013-04-04,2013-04-04
+jbeyers,2,0,1,Products.CMFPlone,2013-01-24,2013-01-24
+lpmayos,2,1,1,mockup,2013-10-05,2013-10-06
+vipod,2,0,2,"plone.app.portlets, plone.portlets",2013-02-23,2013-02-23
+rodfersou,2,3,2,"plone.api, plone.app.discussion",2013-09-04,2013-09-04
 ableeb,2,1,2,"plone.app.z3cform, plonetheme.ploneorg",2013-08-30,2013-10-30
-emanlove,2,0,2,"plone.act, plone.app.robotframework",2013-01-20,2013-01-20
-mitakas,2,2,2,"plone.app.multilingual, plone.formwidget.autocomplete",2013-06-05,2013-08-12
-mikejmets,2,0,2,"buildout.coredev, plone.app.testing",2013-01-25,2013-01-25
 cdw9,2,0,2,"plone.app.blocks, plone.app.toolbar",2011-12-14,2013-07-17
+emanlove,2,0,2,"plone.act, plone.app.robotframework",2013-01-20,2013-01-20
+sunew,2,1,1,plone.app.z3cform,2013-08-20,2013-08-22
+winstonf88,2,2,1,plone.api,2013-10-05,2013-10-05
+mikejmets,2,0,2,"buildout.coredev, plone.app.testing",2013-01-25,2013-01-25
+witsch,2,1,1,plone.app.discussion,2013-08-14,2013-08-14
+gweis,2,0,1,plone.subrequest,2013-04-04,2013-04-04
 lrowe,2,0,1,plone.formwidget.contenttree,2013-07-01,2013-07-01
-tiberiuichim,2,1,1,Products.TinyMCE,2013-10-24,2013-10-25
-djowett,2,1,1,plone.app.themingplugins,2013-11-19,2013-11-19
+terapyon,2,1,1,plone.app.layout,2013-10-05,2013-10-05
+mitakas,2,2,2,"plone.app.multilingual, plone.formwidget.autocomplete",2013-06-05,2013-08-12
 seocam,2,1,1,diazo,2013-09-30,2013-10-14
 lukebrannon,2,1,1,planet.plone.org,2013-01-30,2013-01-31
-rodfersou,2,3,2,"plone.api, plone.app.discussion",2013-09-04,2013-09-04
-sunew,2,1,1,plone.app.z3cform,2013-08-20,2013-08-22
 espenmn,2,1,2,"planet.plone.org, plonetheme.classic",2013-02-13,2013-03-20
-terapyon,2,1,1,plone.app.layout,2013-10-05,2013-10-05
+djowett,2,1,1,plone.app.themingplugins,2013-11-19,2013-11-19
+tiberiuichim,2,1,1,Products.TinyMCE,2013-10-24,2013-10-25
 mgedmin,1,0,1,plone.z3cform,2013-03-12,2013-03-12
+huguei,1,1,1,Installers-UnifiedInstaller,2013-06-27,2013-06-27
 strichter,1,0,1,plone.z3cform,2013-03-13,2013-03-13
+vmaksymiv,1,0,1,plone.app.discussion,2013-09-24,2013-09-24
+cekk,1,0,1,plone.app.discussion,2013-08-20,2013-08-20
+puittenbroek,1,0,1,plone.app.linkintegrity,2013-02-01,2013-02-01
+adamtheturtle,1,1,1,plone.api,2013-01-24,2013-01-24
+huubbouma,1,0,1,plone.app.discussion,2013-09-20,2013-09-20
+felipeduardo,1,0,1,plone.app.discussion,2013-04-09,2013-04-09
+aputtu,1,1,1,plone.app.discussion,2013-10-22,2013-10-22
+davilima6,1,0,1,planet.plone.org,2013-02-26,2013-02-26
 pauloxnet,1,1,1,Installers-UnifiedInstaller,2013-01-31,2013-01-31
 faassen,1,1,1,planet.plone.org,2013-01-24,2013-01-24
-huguei,1,1,1,Installers-UnifiedInstaller,2013-06-27,2013-06-27
-davilima6,1,0,1,planet.plone.org,2013-02-26,2013-02-26
-mexicarne,1,1,1,buildout.coredev,2013-03-29,2013-03-29
-fredvd,1,0,1,buildout.coredev,2013-11-12,2013-11-12
-damilgra,1,1,1,plone.formwidget.namedfile,2013-07-10,2013-07-10
-misaelnieto,1,0,1,buildout.coredev,2013-12-09,2013-12-09
-Tamosauskas,1,1,1,Products.CMFPlone,2013-07-27,2013-07-27
-taito,1,0,1,Products.CMFPlone,2013-03-14,2013-03-14
 maikroeder,1,0,1,Installers-UnifiedInstaller,2013-10-10,2013-10-10
 peterreimer,1,1,1,plone.app.ldap,2013-07-26,2013-07-26
-zopyx,1,1,1,planet.plone.org,2013-04-25,2013-04-25
-markvl,1,0,1,planet.plone.org,2013-04-04,2013-04-04
-laulaz,1,1,1,planet.plone.org,2013-03-04,2013-03-04
-travacic,1,1,1,plone.app.workflow,2013-03-20,2013-03-20
+faro,1,0,1,plone.app.registry,2013-12-18,2013-12-18
+benniboy,1,1,1,plone.app.dexterity,2013-10-22,2013-10-22
 jcerjak,1,0,1,plone.api,2013-12-16,2013-12-16
-afrepues,1,1,1,plone.app.theming,2013-10-18,2013-10-18
-Rudd-O,1,1,1,Products.CMFPlone,2013-07-11,2013-07-11
+xiru,1,1,1,plone.api,2013-10-06,2013-10-06
+senner,1,1,1,plone.app.event,2013-02-05,2013-02-05
+damilgra,1,1,1,plone.formwidget.namedfile,2013-07-10,2013-07-10
+mexicarne,1,1,1,buildout.coredev,2013-03-29,2013-03-29
 kkdhanesh,1,1,1,mockup,2013-06-08,2013-06-08
 cleberjsantos,1,0,1,diazotheme.coolblue,2013-07-24,2013-07-24
 moorepants,1,1,1,Installers-UnifiedInstaller,2013-08-09,2013-08-09
-tkimnguyen,1,0,1,planet.plone.org,2013-12-20,2013-12-20
+barseghyanartur,1,1,1,plone.app.users,2013-12-04,2013-12-04
+afrepues,1,1,1,plone.app.theming,2013-10-18,2013-10-18
+fredvd,1,0,1,buildout.coredev,2013-11-12,2013-11-12
+Tamosauskas,1,1,1,Products.CMFPlone,2013-07-27,2013-07-27
+taito,1,0,1,Products.CMFPlone,2013-03-14,2013-03-14
+Rudd-O,1,1,1,Products.CMFPlone,2013-07-11,2013-07-11
+zopyx,1,1,1,planet.plone.org,2013-04-25,2013-04-25
+markvl,1,0,1,planet.plone.org,2013-04-04,2013-04-04
+laulaz,1,1,1,planet.plone.org,2013-03-04,2013-03-04
 brandon-rhodes,1,1,1,planet.plone.org,2013-08-04,2013-08-04
 avoinea,1,2,1,plone.app.collection,2013-07-25,2013-07-25
 tseaver,1,1,1,planet.plone.org,2013-09-26,2013-09-26
+tkimnguyen,1,0,1,planet.plone.org,2013-12-20,2013-12-20
 yangh,1,1,2,"plone.app.blob, plone.app.form",2013-07-05,2013-07-05
-senner,1,1,1,plone.app.event,2013-02-05,2013-02-05
-tcurvelo,1,1,1,plone.formwidget.captcha,2013-10-31,2013-10-31
-PenguinYang,1,0,1,plone.app.form,2013-01-23,2013-01-23
+misaelnieto,1,0,1,buildout.coredev,2013-12-09,2013-12-09
+travacic,1,1,1,plone.app.workflow,2013-03-20,2013-03-20
+lewicki,1,1,1,Products.TinyMCE,2013-03-20,2013-03-20
 alisuchan,1,0,1,uitesting,2013-04-23,2013-04-23
-barseghyanartur,1,1,1,plone.app.users,2013-12-04,2013-12-04
 avelino,1,0,1,plone.recipe.codeanalysis,2013-10-09,2013-10-09
 mpeeters,1,0,1,Products.Archetypes,2013-05-29,2013-05-29
-faro,1,0,1,plone.app.registry,2013-12-18,2013-12-18
-adamtheturtle,1,1,1,plone.api,2013-01-24,2013-01-24
-huubbouma,1,0,1,plone.app.discussion,2013-09-20,2013-09-20
-aputtu,1,1,1,plone.app.discussion,2013-10-22,2013-10-22
-benniboy,1,1,1,plone.app.dexterity,2013-10-22,2013-10-22
-vmaksymiv,1,0,1,plone.app.discussion,2013-09-24,2013-09-24
-cekk,1,0,1,plone.app.discussion,2013-08-20,2013-08-20
-xiru,1,1,1,plone.api,2013-10-06,2013-10-06
-felipeduardo,1,0,1,plone.app.discussion,2013-04-09,2013-04-09
-hnet,1,0,1,Products.TinyMCE,2013-03-01,2013-03-01
 prospchr,1,0,1,Products.LinguaPlone,2013-04-19,2013-04-19
+hnet,1,0,1,Products.TinyMCE,2013-03-01,2013-03-01
+tcurvelo,1,1,1,plone.formwidget.captcha,2013-10-31,2013-10-31
+PenguinYang,1,0,1,plone.app.form,2013-01-23,2013-01-23
+malthe,0,1,1,plone.dexterity,,
+hoka,0,1,1,plone.app.linkintegrity,,
+dr460neye,0,4,1,plone.app.portlets,,
+sjoerdvan,0,1,1,plone.app.dexterity,,
+bdbaddog,0,1,1,plone.app.discussion,,
+juh2,0,1,1,plone.app.discussion,,
+Gagaro,0,1,1,plone.app.robotframework,,
+faro76,0,1,1,plone.app.registry,,
+plamut,0,2,1,mockup,,
 pitonisaX,0,1,1,buildout.coredev,,
 danieljnowak,0,2,1,buildout.coredev,,
 somecallmetim,0,1,1,buildout.coredev,,
-hoka,0,1,1,plone.app.linkintegrity,,
+aaktaran,0,1,1,buildout.coredev,,
 msom,0,1,1,plone.formwidget.recurrence,,
 jsutterfield,0,1,1,buildout.coredev,,
-ghost,0,3,2,"plone.app.hud, plone.app.multilingual",,
-AlexStevens,0,1,1,Products.CMFPlone,,
 staeff,0,1,1,Products.CMFPlone,,
 abutton,0,1,1,Products.CMFPlone,,
-victor-bortone,0,2,1,mockup,,
-plamut,0,2,1,mockup,,
-squibobblepants,0,2,1,mockup,,
-aaktaran,0,1,1,buildout.coredev,,
-malthe,0,1,1,plone.dexterity,,
-marcosfromero,0,1,1,plone.app.layout,,
-davidwik,0,1,1,plone.app.querystring,,
-sjoerdvan,0,1,1,plone.app.dexterity,,
-bdbaddog,0,1,1,plone.app.discussion,,
-faro76,0,1,1,plone.app.registry,,
-juh2,0,1,1,plone.app.discussion,,
-dr460neye,0,4,1,plone.app.portlets,,
-Gagaro,0,1,1,plone.app.robotframework,,
 marciomazza,0,1,1,plone.api,,
 pingviini,0,2,1,plone.api,,
+AlexStevens,0,1,1,Products.CMFPlone,,
+ghost,0,3,2,"plone.app.hud, plone.app.multilingual",,
 myroslav,0,1,1,plone.app.users,,
+victor-bortone,0,2,1,mockup,,
+squibobblepants,0,2,1,mockup,,
+davidwik,0,1,1,plone.app.querystring,,
 danmur,0,1,1,plone.app.toolbar,,
 dbitouze,0,1,1,Products.TinyMCE,,
-lewicki,0,1,1,Products.TinyMCE,,
-grossmannmartin,0,1,1,Products.TinyMCE,,
-tschanzt,0,2,2,"Products.TinyMCE, plone.app.blob",,
 vincent-psarga,0,1,1,Products.TinyMCE,,
+grossmannmartin,0,1,1,Products.TinyMCE,,
+marcosfromero,0,1,1,plone.app.layout,,
+tschanzt,0,2,2,"Products.TinyMCE, plone.app.blob",,
 dokai,0,1,1,plone.app.caching,,
 cryu,0,1,1,plone.app.collection,,
 buchi,0,1,1,plone.app.controlpanel,,

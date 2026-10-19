@@ -6,7 +6,7 @@
    "people": 375
   },
   "since_2003": {
-   "people": 984
+   "people": 985
   },
   "year": {
    "events": 10,
@@ -158,7 +158,7 @@
      "source": "https://plone.org/foundation/board/list_board_0"
     }
    ],
-   "commits": 3048,
+   "commits": 3053,
    "events": [
     {
      "kind": "plone-conference",
@@ -255,7 +255,7 @@
      ]
     }
    ],
-   "people_active": 52,
+   "people_active": 53,
    "pull_requests": null,
    "team_leads": [
     {
@@ -721,7 +721,7 @@
      "source": "https://plone.org/foundation/board/list_board_2"
     }
    ],
-   "commits": 3541,
+   "commits": 3549,
    "events": [
     {
      "kind": "plone-conference",
@@ -817,7 +817,7 @@
      ]
     }
    ],
-   "people_active": 69,
+   "people_active": 70,
    "pull_requests": null,
    "team_leads": [
     {
@@ -991,7 +991,7 @@
      "source": "https://plone.org/foundation/board/list_board_4"
     }
    ],
-   "commits": 5369,
+   "commits": 5374,
    "events": [
     {
      "kind": "plone-conference",
@@ -1167,7 +1167,7 @@
      ]
     }
    ],
-   "people_active": 90,
+   "people_active": 91,
    "pull_requests": null,
    "team_leads": [
     {
@@ -1619,7 +1619,7 @@
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2008-2009"
     }
    ],
-   "commits": 6894,
+   "commits": 6912,
    "events": [
     {
      "kind": "plone-conference",
@@ -1751,7 +1751,7 @@
      ]
     }
    ],
-   "people_active": 98,
+   "people_active": 101,
    "pull_requests": null,
    "team_leads": [
     {
@@ -1829,7 +1829,7 @@
      "source": "https://plone.org/foundation/board/board-2009-2010"
     }
    ],
-   "commits": 8815,
+   "commits": 8821,
    "events": [
     {
      "kind": "plone-conference",
@@ -1963,7 +1963,7 @@
      ]
     }
    ],
-   "people_active": 118,
+   "people_active": 120,
    "pull_requests": null,
    "team_leads": [
     {
@@ -2029,7 +2029,7 @@
      "source": "https://plone.org/foundation/board/list"
     }
    ],
-   "commits": 7543,
+   "commits": 7546,
    "events": [
     {
      "kind": "plone-conference",
@@ -2451,7 +2451,7 @@
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2012-2013"
     }
    ],
-   "commits": 9668,
+   "commits": 9670,
    "events": [
     {
      "kind": "plone-conference",
@@ -2663,7 +2663,7 @@
      ]
     }
    ],
-   "people_active": 255,
+   "people_active": 256,
    "pull_requests": 512,
    "team_leads": [
     {
@@ -2801,7 +2801,7 @@
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2013-2014"
     }
    ],
-   "commits": 8594,
+   "commits": 8605,
    "events": [
     {
      "kind": "plone-conference",
@@ -3048,7 +3048,7 @@
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2014-2015"
     }
    ],
-   "commits": 11627,
+   "commits": 11631,
    "events": [
     {
      "kind": "plone-conference",
@@ -4812,7 +4812,7 @@
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2021-2022"
     }
    ],
-   "commits": 11271,
+   "commits": 11278,
    "events": [
     {
      "kind": "plone-conference",
@@ -9073,7 +9073,7 @@
         [
          "2022",
          "derived/organisation-contributors/2022-plone-organisation-contributors.csv",
-         37
+         38
         ],
         [
          "2023",
@@ -11762,7 +11762,7 @@
      "roles": 0
     },
     "2007": {
-     "commits": 0,
+     "commits": 5,
      "events": 0,
      "pull_requests": 0,
      "roles": 0
@@ -11774,13 +11774,13 @@
      "roles": 0
     },
     "2009": {
-     "commits": 0,
+     "commits": 10,
      "events": 0,
      "pull_requests": 0,
      "roles": 0
     },
     "2010": {
-     "commits": 0,
+     "commits": 4,
      "events": 0,
      "pull_requests": 0,
      "roles": 0
@@ -15260,6 +15260,12 @@
     ]
    },
    {
+    "commits": 5,
+    "id": "spanktar",
+    "pull_requests": 0,
+    "roles": []
+   },
+   {
     "commits": 427,
     "id": "stefanholek",
     "pull_requests": 0,
@@ -16203,6 +16209,12 @@
     "roles": []
    },
    {
+    "commits": 8,
+    "id": "spanktar",
+    "pull_requests": 0,
+    "roles": []
+   },
+   {
     "commits": 191,
     "id": "stefanholek",
     "pull_requests": 0,
@@ -16555,6 +16567,12 @@
    {
     "commits": 2,
     "id": "martior",
+    "pull_requests": 0,
+    "roles": []
+   },
+   {
+    "commits": 5,
+    "id": "massimoazzolini",
     "pull_requests": 0,
     "roles": []
    },
@@ -17742,6 +17760,12 @@
    },
    {
     "commits": 1,
+    "id": "evilbungle",
+    "pull_requests": 0,
+    "roles": []
+   },
+   {
+    "commits": 1,
     "id": "frisi",
     "pull_requests": 0,
     "roles": []
@@ -17784,6 +17808,12 @@
      "Release manager",
      "Team lead"
     ]
+   },
+   {
+    "commits": 7,
+    "id": "huubbouma",
+    "pull_requests": 0,
+    "roles": []
    },
    {
     "commits": 37,
@@ -17882,6 +17912,12 @@
    {
     "commits": 14,
     "id": "malthe",
+    "pull_requests": 0,
+    "roles": []
+   },
+   {
+    "commits": 10,
+    "id": "massimoazzolini",
     "pull_requests": 0,
     "roles": []
    },
@@ -18460,6 +18496,12 @@
     "roles": []
    },
    {
+    "commits": 2,
+    "id": "huubbouma",
+    "pull_requests": 0,
+    "roles": []
+   },
+   {
     "commits": 121,
     "id": "jaroel",
     "pull_requests": 0,
@@ -18574,6 +18616,12 @@
    {
     "commits": 1,
     "id": "martior",
+    "pull_requests": 0,
+    "roles": []
+   },
+   {
+    "commits": 4,
+    "id": "massimoazzolini",
     "pull_requests": 0,
     "roles": []
    },
@@ -19205,7 +19253,7 @@
     ]
    },
    {
-    "commits": 0,
+    "commits": 3,
     "id": "evilbungle",
     "pull_requests": 0,
     "roles": [
@@ -21954,7 +22002,7 @@
     "roles": []
    },
    {
-    "commits": 0,
+    "commits": 1,
     "id": "lewicki",
     "pull_requests": 1,
     "roles": []
@@ -22293,6 +22341,12 @@
    {
     "commits": 1,
     "id": "prospchr",
+    "pull_requests": 0,
+    "roles": []
+   },
+   {
+    "commits": 1,
+    "id": "puittenbroek",
     "pull_requests": 0,
     "roles": []
    },
@@ -23479,7 +23533,7 @@
     "roles": []
    },
    {
-    "commits": 0,
+    "commits": 2,
     "id": "lewicki",
     "pull_requests": 1,
     "roles": []
@@ -23798,7 +23852,7 @@
     "roles": []
    },
    {
-    "commits": 0,
+    "commits": 9,
     "id": "puittenbroek",
     "pull_requests": 6,
     "roles": []
@@ -25047,7 +25101,7 @@
     "roles": []
    },
    {
-    "commits": 0,
+    "commits": 4,
     "id": "puittenbroek",
     "pull_requests": 2,
     "roles": []
@@ -32480,7 +32534,7 @@
     "roles": []
    },
    {
-    "commits": 3,
+    "commits": 10,
     "id": "zworkb",
     "pull_requests": 1,
     "roles": []

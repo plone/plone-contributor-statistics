@@ -1,7 +1,7 @@
 # Ten-Year Summary Results (2016-2025)
 
 - 89 total organisations tracked across the decade
-- 83,168 total commits and 18,357 pull requests
+- 83,175 total commits and 18,357 pull requests
 - 583 unique contributors across all organisations
 - File generated: derived/summaries/summary-past-ten-years-2016-2025.csv
 
