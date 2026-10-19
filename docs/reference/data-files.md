@@ -14,6 +14,7 @@ The top-level folders follow their role in the pipeline:
 
 The code is in `scripts/`, one folder per stage, and `scripts/lib/paths.py` lists the location of every file.
 Each file pattern with `YYYY` exists once per year.
+Tables of people and organisations are sorted by their count, highest first, and rows with the same count by name, ignoring case, so that a new run only changes the rows whose data changed.
 The scripts that derive data and write reports stop with an error if a yearly file they need is missing, for example when the organisation statistics of a new year have not been written yet.
 
 See {doc}`/explanation/counting-rules` for why the files count the way they do.
