@@ -74,8 +74,7 @@ Several people or organisations in one cell are separated by semicolons.
 
 `curated/community-contributions/YYYY-plone-conference.csv`
 :   One row per organising organisation of the Plone Conference.
-    Columns 2003–2021 and 2024: `Organisation`, `Organiser(s)`, `Source`, `Notes`.
-    Columns 2022, 2023 and 2025: `Organisation`.
+    Columns: `Organisation`, `Organiser(s)`, `Source`, `Notes`.
     Supporters and venues are not organisers; the notes name them.
 
 `curated/community-contributions/YYYY-plone-conference-trainings.csv`
@@ -113,7 +112,9 @@ Several people or organisations in one cell are separated by semicolons.
 
 `curated/community-contributions/YYYY-world-plone-day-talks.csv`
 :   One row per World Plone Day talk.
-    Columns: `Video Title`, `Speaker(s)`, `Organisation`, `Event / Location`, `Type`, `YouTube ID`.
+    Columns: `Video Title`, `Speaker(s)`, `Organisation`, `Event / Location`, `Type`, `YouTube ID`, `Source`, `Notes`.
+    Speakers and organisations are listed in the same order; a talk without a named speaker has an empty `Speaker(s)` and the organisation `Unmapped`.
+    `Source` links the video, or the event page for a talk without a video, and the record for each speaker's organisation.
     `Type` is one of `Talk`, `Teaser`, `Announcement`, `Welcome`, `Recap`, `Duplicate`, `Opening`, `Full stream` and `Newsroom`; only `Talk` is a talk.
 
 `curated/plips/plone-plips-before-github.csv`

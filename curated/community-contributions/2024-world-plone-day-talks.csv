@@ -1,41 +1,41 @@
-Video Title,Speaker(s),Organisation,Event / Location,Type,YouTube ID
-The Plone Foundation,Martin Peeters,Affinitic,Online,Talk,izBunpM6C1o
-What is World Plone Day?,Rikupekka Oksanen; Astrid Beyers,Juizi; University of Jyväskylä,Online,Talk,Yk7tx2zgL98
-Plone Podcast - Paul Everitt Interview,Kim Nguyen,Sixfeetup,Online,Talk,sWZnSLIIwCA
-The Plone Newsroom Ausgabe #21D,Fred Van Dijk; Philip Bauer,Starzel; kitconcept GmbH,Online,Talk,IfoxlWFlk3k
-The Anatomy of a Block,Dante Alvarez,kitconcept GmbH,Online,Talk,Di3bh_1LZnQ
-Documentation Tools You Can Use in Your Project,Steve Piercy,Steve Piercy - Website Builder,Online,Talk,VUym125oQlo
-Testing your Plone codebase with pytest,Érico Andrei,kitconcept GmbH,Online,Talk,KAaZI08p7gs
-The power of Plone distributions,Philip Bauer,Starzel,Online,Talk,5pjgpAzjyjo
-Upgrading frontend addons from Volto 16 to Volto 17,Dana Comiselu,Eau de Web,Online,Talk,OfkhwHF0q_0
-Volto Table of Contents - make a new variation,Teodor Voicu,Eau de Web,Online,Talk,DkyhRkpll4E
-Customizing Volto Components,Ana-Maria Oprea,Eau de Web,Online,Talk,jxigJ0wKv1Q
-Enhancing HTML Comparison in Volto's History Feature,Dobricean Ioan Dorian,Eau de Web,Online,Talk,BMN9ySArktc
-Plone Multilingual - How Cool Is That!,Astrid Beyers; Karel Calitz,Juizi,Online,Talk,4XXjZ91uwYs
-Plone 6 -pohjainen kotisivukone,Rikupekka Oksanen,University of Jyväskylä,Online,Talk,Imq1zfFZ52o
-WPD 2024 - Google Summer of Code 2024 and Plone,Eric Bréhault,Nuclia,Online,Talk,sDWGwFLQfD8
-SEO with Plone,Tamara Eßer,Interaktiv,Online,Talk,kpkJ67ZmzuQ
-"Tutkimusmoniviestin - sensitiivisen videoaineiston jakaminen, Plone 6",,Unmapped,Online,Talk,JFLjLc1CJJ8
-Accessibility and Plone - How we implemented accessibility in Plone,,Unmapped,Online,Talk,UQjnQe-7OpY
-"World Plone Day: Brasília, Brazil",PloneGov-BR team,PloneGov-BR,Online,Talk,Ml3p-L6wnQI
-Quaive Demo,,Unmapped,Online,Talk,qCUqw-lkS7s
-EEA Volto Controlpanel Add-on,Alin Voinea,Eau de Web,Online,Talk,5n8vkljEA3E
-Volto Addons Examples,,Unmapped,Online,Talk,J1tphdYyIjg
-Plone 6: Transformando la comunicación digital,Marc Vicente,eCityclic,Online,Talk,I-lmwGOUyN8
-"World Plone Day: Ciudad de México, México",Gildardo Bautista,UNAM,Online,Talk,N32hUMZJnj0
-Introducing Volto Slots,Victor Fernandez De Alba,kitconcept GmbH,Online,Talk,Y8--H24lfak
-Building Plone’s Headless CMS Story,Victor Fernandez De Alba,kitconcept GmbH,Online,Talk,H9k6XrZ0d6g
-When you REALLY Need a Plone Site,Sally Kleinfeldt,Jazkarta,Online,Talk,P7MQQSqLmds
-Introducing Plone Components,Victor Fernandez De Alba,kitconcept GmbH,Online,Talk,FsR9rAa3P8Q
-Introducción a Plone CMS,,Unmapped,Online,Talk,JHFJ-ZuE7O0
-Plone 6 Themes,,Unmapped,Online,Talk,ozi7UGalJzs
-Plone Hands-On: Creating a new Volto Add-on!,Dante Alvarez; Érico Andrei; David Glick,Unmapped;kitconcept GmbH,Online,Talk,lzILjH7N-Hk
-Un saluto da Rios - World Plone Day 2024 Italia,,Unmapped,Online,Talk,kxIMDhJKSa0
-"Modello AgiD per i Comuni, un anno dopo - World Plone Day 2024 Italia",,RedTurtle,Online,Talk,if-51TOKMX0
-Unibo: migrare da Plone 4 a Plone 6 passando per il cloud - World Plone Day 2024 Italia,Valentina Bolognini,Unmapped,Online,Talk,0lbohbO6MR0
-Il PNRR per i siti dei Comuni dell’UCMAN: dalla teoria alla pratica - World Plone Day 2024 Italia,,Unmapped,Online,Talk,rOui8yCJwjY
-Utenti al centro: il nuovo sito di Biblioteche e Archivio storico del Comune di Modena - WPD Italia,,Unmapped,Online,Talk,gvQMjef7idc
-Standardizzazione dei Servizi Pubblici Digitali: un’analisi dei journey sull’App IO - WPD 24 Italia,,Unmapped,Online,Talk,LOmYeBtc5e8
-"Dal modello AgiD per i Comuni al modello per le ASL: nuove linee guida, stesso CMS - WPD 24 Italia",,RedTurtle,Online,Talk,JAd3w81djIM
-Le aziende sanitarie ferraresi sperimentano il nuovo modello ASL di Designers Italia - WPD 2024,,Unmapped,Online,Talk,zJQ8LvFxY2c
-Il nuovo Volto dei siti della Regione Emilia-Romagna - World Plone Day 2024 Italia,Tiziana Flamminj,Regione Emilia-Romagna,Online,Talk,t6oDQ7Gl0Qw
+Video Title,Speaker(s),Organisation,Event / Location,Type,YouTube ID,Source,Notes
+The Plone Foundation,Martin Peeters,Affinitic,Online,Talk,izBunpM6C1o,https://www.youtube.com/watch?v=izBunpM6C1o; Martin Peeters: https://github.com/mpeeters,"Foundation role, the work counts for the person (rule 2). desc: ""Plone Foundation president Martin Peeters summarizes ..."". Otherwise rule 2: Affinitic."
+What is World Plone Day?,Astrid Beyers; Rikupekka Oksanen,Juizi;University of Jyväskylä,Online,Talk,Yk7tx2zgL98,https://www.youtube.com/watch?v=Yk7tx2zgL98; Astrid Beyers: https://plone.org/news-and-events/news/2024/plone-foundation-welcomes-new-members-for-2024; Rikupekka Oksanen: https://github.com/rioksane,"desc: ""Astrid Beyers and Rikupekka Oksanen shortly describe ..."". File organisations were in the wrong order."
+Plone Podcast - Paul Everitt Interview,T. Kim Nguyen; Paul Everitt,Sixfeetup;Unmapped,Online,Talk,sWZnSLIIwCA,https://www.youtube.com/watch?v=sWZnSLIIwCA; T. Kim Nguyen: https://github.com/plone/training/commit/717d6519ef1194b31727bf27c577729e6eef60c6,"desc: ""Host Kim Nguyen discusses with Paul Everitt""; his bio names past roles (""co-founder of Zope Corporation, ZEA Partners, and Agendaless Consulting""), no current organisation. Guest Paul Everitt added; pauleveritt has no mapping entry."
+The Plone Newsroom Ausgabe #21D,Philip Bauer; Fred van Dijk,Starzel;kitconcept GmbH,Online,Talk,IfoxlWFlk3k,https://www.youtube.com/watch?v=IfoxlWFlk3k; Philip Bauer: https://github.com/pbauer; Fred van Dijk: https://github.com/fredvd,"desc: ""Philip Bauer aus München und Fred van Dijk aus Rotterdam"". File had Fred at Starzel (order mix-up)."
+The Anatomy of a Block,Dante Álvarez,kitconcept GmbH,Online,Talk,Di3bh_1LZnQ,https://www.youtube.com/watch?v=Di3bh_1LZnQ; Dante Álvarez: https://2024.ploneconf.org/en/schedule/speakers/danalvrz,"desc: ""Dante Alvarez presents ...""."
+Documentation Tools You Can Use in Your Project,Steve Piercy,Steve Piercy - Website Builder,Online,Talk,VUym125oQlo,https://www.youtube.com/watch?v=VUym125oQlo; Steve Piercy: https://github.com/stevepiercy,"desc: ""Steve Piercy showcases ...""."
+Testing your Plone codebase with pytest,Érico Andrei,kitconcept GmbH,Online,Talk,KAaZI08p7gs,https://www.youtube.com/watch?v=KAaZI08p7gs; Érico Andrei: https://speakerdeck.com/ericof/apresentando-o-plone-6,"desc: ""Érico Andrei talks about ...""."
+The power of Plone distributions,Philip Bauer,Starzel,Online,Talk,5pjgpAzjyjo,https://www.youtube.com/watch?v=5pjgpAzjyjo; Philip Bauer: https://github.com/pbauer,"desc: ""A talk by Philip Bauer ...""."
+Upgrading frontend addons from Volto 16 to Volto 17,Dana Comiselu,Eau de Web,Online,Talk,OfkhwHF0q_0,https://www.youtube.com/watch?v=OfkhwHF0q_0,"desc: ""Dana Comiselu from Eau de Web talks about ...""."
+Volto Table of Contents - make a new variation,Teodor Voicu,Eau de Web,Online,Talk,DkyhRkpll4E,https://www.youtube.com/watch?v=DkyhRkpll4E,"desc: ""Teodor Voicu from Eau de Web shows ...""."
+Customizing Volto Components,Ana-Maria Oprea,Eau de Web,Online,Talk,jxigJ0wKv1Q,https://www.youtube.com/watch?v=jxigJ0wKv1Q,"desc: ""Ana-Maria Oprea from Eau de Web talks about ...""."
+Enhancing HTML Comparison in Volto's History Feature,Ionuț Dobricean,Eau de Web,Online,Talk,BMN9ySArktc,https://www.youtube.com/watch?v=BMN9ySArktc,"desc: ""Dobricean Ioan Dorian from Eau de Web talks about ..."". Name normalised to ""Ionuț Dobricean"" (video: ""Dobricean Ioan Dorian"")."
+Plone Multilingual - How Cool Is That!,Astrid Beyers; Karel Calitz,Juizi;Juizi,Online,Talk,4XXjZ91uwYs,https://www.youtube.com/watch?v=4XXjZ91uwYs,"desc: ""Astrid Beyers and Karel Calitz from Juizi talk about ...""."
+Plone 6 -pohjainen kotisivukone,Rikupekka Oksanen,University of Jyväskylä,Online,Talk,Imq1zfFZ52o,https://www.youtube.com/watch?v=Imq1zfFZ52o,"desc: ""Rikupekka Oksanen from University of Jyväskylä (Finland) talks about ...""."
+WPD 2024 - Google Summer of Code 2024 and Plone,Eric Bréhault,Nuclia,Online,Talk,sDWGwFLQfD8,https://www.youtube.com/watch?v=sDWGwFLQfD8; Eric Bréhault: https://2023.ploneconf.org/speakers/eric-brehault,"desc: ""Eric Bréhault talks about ...""."
+SEO with Plone,Tamara Eßer,Interaktiv,Online,Talk,kpkJ67ZmzuQ,https://www.youtube.com/watch?v=kpkJ67ZmzuQ,"desc: ""Tamara Eßer from Interaktiv talks about SEO with Plone""."
+"Tutkimusmoniviestin - sensitiivisen videoaineiston jakaminen, Plone 6",Rikupekka Oksanen,University of Jyväskylä,Online,Talk,JFLjLc1CJJ8,https://www.youtube.com/watch?v=JFLjLc1CJJ8,"desc: ""Rikupekka Oksanen from University of Jyväskylä talks about their video portal"". File had no speaker."
+Accessibility and Plone - How we implemented accessibility in Plone,,Unmapped,Online,Talk,UQjnQe-7OpY,https://www.youtube.com/watch?v=UQjnQe-7OpY,"desc: ""Panel discussion on accessibility with Plone CMS"" - no person named."
+"World Plone Day: Brasília, Brazil",,Unmapped,Online,Talk,Ml3p-L6wnQI,https://www.youtube.com/watch?v=Ml3p-L6wnQI,"Brasília stream; description names no speaker or organiser (""transmitido ao vivo a partir do Tribunal Superior Eleitoral""). The event page https://plone.org.br/novidades/eventos/2024/world-plone-day-2024-brasilia lists Rafahela Bazzanella (PloneGov-BR), João Henrique Gouveia (PloneGov-BR), André Clímaco and Lucas Aquino (Justiça Eleitoral), Érico Andrei (PloneGov-Br). File had ""PloneGov-BR team"" / PloneGov-BR (the local event's)."
+Quaive Demo,Guido Stevens,Cosent,Online,Talk,qCUqw-lkS7s,https://www.youtube.com/watch?v=qCUqw-lkS7s; Guido Stevens: https://github.com/gyst,"desc: ""Quido Stevens talks about Quaive intranet"" (typo for Guido; about the product, not ""from""). File had no speaker."
+EEA Volto Controlpanel Add-on,Alin Voinea,Eau de Web,Online,Talk,5n8vkljEA3E,https://www.youtube.com/watch?v=5n8vkljEA3E,"desc: ""Alin Voinea from Eau de Web talks about ...""."
+Volto Addons Examples,CodeSyntax team,Codesyntax,Online,Talk,J1tphdYyIjg,https://www.youtube.com/watch?v=J1tphdYyIjg,"desc: ""WPD 2024 Some Volto Addons by CodeSyntax."" - group entry, no person named."
+Plone 6: Transformando la comunicación digital,Marc Vicente,Unmapped,Online,Talk,I-lmwGOUyN8,https://www.youtube.com/watch?v=I-lmwGOUyN8,"desc: ""Marc Vicente shares an interesting Plone use case (Spanish)"" (no organisation; the 2025 video says ""from eCityclic""). No login."
+"World Plone Day: Ciudad de México, México",Gildardo Bautista,UNAM,Online,Talk,N32hUMZJnj0,https://www.youtube.com/watch?v=N32hUMZJnj0; Gildardo Bautista: https://github.com/gil-cano,"desc: ""Live streaming of the World Plone Day session in México"" names no speaker; Gildardo Bautista kept from the file. Several presentations in the 3-hour stream (Axolote Sprint at UNAM)."
+Introducing Volto Slots,Víctor Fernández de Alba,kitconcept GmbH,Online,Talk,Y8--H24lfak,https://www.youtube.com/watch?v=Y8--H24lfak; Víctor Fernández de Alba: https://github.com/sneridagh,"desc: ""Victor Fernandez de Alba presents Volto Slots""."
+Building Plone’s Headless CMS Story,Víctor Fernández de Alba,kitconcept GmbH,Online,Talk,H9k6XrZ0d6g,https://www.youtube.com/watch?v=H9k6XrZ0d6g; Víctor Fernández de Alba: https://github.com/sneridagh,"desc: ""Presented by Victor Fernandez de Alba""."
+When you REALLY Need a Plone Site,Sally Kleinfeldt,Jazkarta,Online,Talk,P7MQQSqLmds,https://www.youtube.com/watch?v=P7MQQSqLmds; Sally Kleinfeldt: https://github.com/skleinfeldt,"desc: ""Sally Kleinfeldt explores ..."" (no organisation)."
+Introducing Plone Components,Víctor Fernández de Alba,kitconcept GmbH,Online,Talk,FsR9rAa3P8Q,https://www.youtube.com/watch?v=FsR9rAa3P8Q; Víctor Fernández de Alba: https://github.com/sneridagh,"desc: ""Victor Fernandez de Alba introduces @plone/components""."
+Introducción a Plone CMS,Leonardo Caballero,Plone Venezuela,Online,Talk,JHFJ-ZuE7O0,https://www.youtube.com/watch?v=JHFJ-ZuE7O0; Leonardo Caballero: https://github.com/macagua,"desc: ""Introducción a Plone CMS by Leonardo Caballero""."
+Plone 6 Themes,Leonardo Caballero,Plone Venezuela,Online,Talk,ozi7UGalJzs,https://www.youtube.com/watch?v=ozi7UGalJzs; Leonardo Caballero: https://github.com/macagua,"desc: ""Plone 6 Themes by Leonardo Caballero""."
+Plone Hands-On: Creating a new Volto Add-on!,Dante Álvarez; David Glick; Érico Andrei; Víctor Fernández de Alba,kitconcept GmbH;kitconcept GmbH;kitconcept GmbH;kitconcept GmbH,Online,Talk,lzILjH7N-Hk,https://www.youtube.com/watch?v=lzILjH7N-Hk; Dante Álvarez: https://2024.ploneconf.org/en/schedule/speakers/danalvrz; David Glick: https://2022.ploneconf.org/speakers/david-glick; Érico Andrei: https://speakerdeck.com/ericof/apresentando-o-plone-6; Víctor Fernández de Alba: https://github.com/sneridagh,"desc: ""Dante Alvarez, David Glick, Érico Andrei, and Victor Fernandes de Alba will create ..."" (no organisation). Víctor added."
+Un saluto da Rios - World Plone Day 2024 Italia,Valentina Del Prete,RIOS (Rete Italiana Open Source),Online,Talk,kxIMDhJKSa0,https://www.youtube.com/watch?v=kxIMDhJKSa0; Valentina Del Prete: https://www.plonegov.it/notizie-ed-eventi/world-plone-day-2024,"YouTube desc: ""Valentina Del Prete apre l'evento con una presentazione di RIOS""; event page: ""Valentina Del Prete - RIOS (Rete Italiana Open Source)""."
+"Modello AgiD per i Comuni, un anno dopo - World Plone Day 2024 Italia",Nicola Marighelli,RedTurtle,Online,Talk,if-51TOKMX0,https://www.youtube.com/watch?v=if-51TOKMX0,"desc: ""Nicola Marighelli di RedTurtle spiega ..."". File had no speaker."
+Unibo: migrare da Plone 4 a Plone 6 passando per il cloud - World Plone Day 2024 Italia,Valentina Bolognini,Università di Bologna,Online,Talk,0lbohbO6MR0,https://www.youtube.com/watch?v=0lbohbO6MR0,"desc: ""Valentina Bolognini, dell'Università di Bologna, ci spiega ...""."
+Il PNRR per i siti dei Comuni dell’UCMAN: dalla teoria alla pratica - World Plone Day 2024 Italia,Valentina Pini; Sonia Simonini,Unione Comuni Modenesi Area Nord;Unione Comuni Modenesi Area Nord,Online,Talk,rOui8yCJwjY,https://www.youtube.com/watch?v=rOui8yCJwjY,"desc: ""Valentina Pini e Sonia Simonini dell'Unione Comuni Modenesi Area Nord (UCMAN)""."
+Utenti al centro: il nuovo sito di Biblioteche e Archivio storico del Comune di Modena - WPD Italia,Angela Pacillo,Comune di Modena,Online,Talk,gvQMjef7idc,https://www.youtube.com/watch?v=gvQMjef7idc,"desc: ""Angela Pacillo delle Biblioteche Comunali e Archivio Storico del Comune di Modena"" (written as the municipality; the source names its libraries and archive)."
+Standardizzazione dei Servizi Pubblici Digitali: un’analisi dei journey sull’App IO - WPD 24 Italia,Ilaria Picchioni,Giallocobalto,Online,Talk,LOmYeBtc5e8,https://www.youtube.com/watch?v=LOmYeBtc5e8,"desc: ""Ilaria Picchioni di Giallocobalto parla ...""."
+"Dal modello AgiD per i Comuni al modello per le ASL: nuove linee guida, stesso CMS - WPD 24 Italia",Nicola Marighelli,RedTurtle,Online,Talk,JAd3w81djIM,https://www.youtube.com/watch?v=JAd3w81djIM,"desc: ""Nicola Marighelli di RedTurtle ci parla ..."". File had no speaker."
+Le aziende sanitarie ferraresi sperimentano il nuovo modello ASL di Designers Italia - WPD 2024,Luca Dall'Acqua,Azienda USL di Ferrara,Online,Talk,zJQ8LvFxY2c,https://www.youtube.com/watch?v=zJQ8LvFxY2c,"desc: ""Luca dall'Acqua dell'Azienda Ospedaliero-Universitaria di Ferrara - Azienda USL di Ferrara"" (two health authorities named; written as Azienda USL di Ferrara, which is in organisations.csv)."
+Il nuovo Volto dei siti della Regione Emilia-Romagna - World Plone Day 2024 Italia,Tiziana Flamminj,Regione Emilia-Romagna,Online,Talk,t6oDQ7Gl0Qw,https://www.youtube.com/watch?v=t6oDQ7Gl0Qw,"desc: ""Tiziana Flamminj della Regione Emilia-Romagna parla ...""."

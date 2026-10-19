@@ -1,47 +1,47 @@
-Video Title,Speaker(s),Organisation,Event / Location,Type,YouTube ID
-Preview of World Plone Day 2022,Rikupekka Oksanen; Érico Andrei,University of Jyväskylä; kitconcept GmbH,Online,Talk,KwRSRRyuk-Q
-The Plone Foundation,Érico Andrei,kitconcept GmbH,Online,Talk,vGG1VXexYrk
-Preview of Plone Conference 2022,,Unmapped,Online,Talk,y9GX69DfKj8
-What is Plone?,Alin Voinea,Eau de Web,Online,Talk,yCMI5RHQMYc
-Join the Plone Foundation,Víctor Fernández De Alba,kitconcept GmbH,Online,Talk,-wOdBy8x-OI
-Welcome to Plone 6,Érico Andrei,kitconcept GmbH,Online,Talk,16JZPRnkZ9w
-Lessons Learned from the Plone Community,Loechel,Ludwig Maximilian University Munich,Online,Talk,lKgwHIH4Mec
-Overview of Plone 6 Classic,Philip Bauer,Starzel,Online,Talk,IsOd2uwbwkQ
-Migrations with collective.exportimport,Fred Van Dijk,kitconcept GmbH,Online,Talk,uV_M-MRM4NU
-World Plone Day 2022 Tokyo,,Unmapped,Online,Talk,uoeR8CWhQnc
-"Plone 6 and Volto - World Plone Day 2022, India",,Unmapped,Online,Talk,P9j-xYdWT28
-World Plone Day 2022 Presentation,Ionut Dobricean,Eau de Web,Online,Talk,kxg2ErN0w1c
-"Plone 6 and Volto - World Plone Day 2022, India",,Unmapped,Online,Talk,zOFgg5NEa4w
-Volto & Volto Add-Ons,,Unmapped,Online,Talk,e0-kFJWDvd8
-Plone in Universities - Use Cases in Higher Education,Rikupekka Oksanen; Kim Paulissen,KU Leuven; University of Jyväskylä,Online,Talk,qMcsfHo5wCY
-Painel PloneGovBr,Lucas Aquino; Érico Andrei; Rafahela,Tribunal Superior Eleitoral (TSE); kitconcept GmbH; Interlegis Program (Senado Federal),Online,Talk,24xn1WZ9qUE
-kitconcept Volto Block: Slider,,Unmapped,Online,Talk,dK7AN5VXlts
-Experience with Plone as a non technical user,,Unmapped,Online,Talk,NTNL01_ZuI0
-World Plone Day 2022 - Italy,,Unmapped,Online,Talk,CCJUZg62gAA
-Dinamikus oldalak létrehozása Volto-ban,,Unmapped,Online,Talk,8hmfZolhF8M
-Google Summer of Code,Eric Bréhault,Nuclia,Online,Talk,_0iD_0Eq7YA
-New plone.org Built on Plone 6,Rikupekka Oksanen; Sally Kleinfeldt,Jazkarta; University of Jyväskylä,Online,Talk,nZZnZc19v80
-Typesense integration for Plone,,Unmapped,Online,Talk,22psJ8Xoo4Y
-Opiskelijan kompassi -hyvinvointipalvelu Plonella rakennettuna,Rikupekka Oksanen,University of Jyväskylä,Online,Talk,PHaUc53Siuo
-Plone 6 Volto's Seamless Mode,Víctor Fernández De Alba,kitconcept GmbH,Online,Talk,Mj8pHRBls-w
-Plone 6 Jyväskylän yliopistossa,,Unmapped,Online,Talk,P1qhIz0ROME
-World Plone Day 2022 - iMio cases,,Unmapped,Online,Talk,FpVYPShBpIM
-Plone 6 Classic UI Mockup,Maik Derstappen,Derico,Online,Talk,RnyHeQqCR8o
-Casual introduction of Plone 6 Classic for intranet use,Asko Soukka,University of Jyväskylä,Online,Talk,-xcvoS1qz4U
-Beethoven Sprint,Timo Stollenwerk,kitconcept GmbH,Online,Talk,z7sSSgalR74
-PloneGov - Securing the Most Secure CMS,Sean Kelly,Unmapped,Online,Talk,wUCkllENbMM
-Searching and Organizing Content using the Catalog,Jens Klein,Klein & Partner KG,Online,Talk,8LHDN21ID2I
-Adding a Full-Text Searchable Field Through-The-Web,Jens Klein,Klein & Partner KG,Online,Talk,enDxK003Fvw
-Configure Full-Text Search of Custom Fields with XML Based Profiles,Jens Klein,Klein & Partner KG,Online,Talk,LPP7awvOBRQ
-"Permissions to come aboard, new Plone user",,Unmapped,Online,Talk,NlWCVACtDGU
-Plone Release Management,Maurits Van Rees,PY76,Online,Talk,SDg4HhSuJG8
-Export/import of Versioned Content in Plone,Philip Bauer,Starzel,Online,Talk,uddN5NrFGWU
-Adding a Custom Criteria to a Collection,Jens Klein,Klein & Partner KG,Online,Talk,rWpTWjdfppE
-"Brasília, Brazil World Plone Day event",,Unmapped,Online,Talk,bgFucAUKRNw
-Volto add ons separator and carousel,Jakob Kahl,kitconcept GmbH,Online,Talk,eyTMI5TYcVg
-10 years of Quaive,Sally Kleinfeldt; Guido Stevens,Cosent; Jazkarta,Online,Talk,gyg5dgMq1Ks
-Migrating from Classic to Volto,Philip Bauer,Starzel,Online,Talk,09fg456T90s
-Overhauling the Plone 6 Documentation with MyST,Steve Piercy,Steve Piercy - Website Builder,Online,Talk,tUnT20aLhRA
-Plone ♥ Containers,Érico Andrei,kitconcept GmbH,Online,Talk,Dd4MtRS7LzI
-Plone for educational non profits,T. Kim Nguyen,Sixfeetup,Online,Talk,QFksGma6KlQ
-Weekly Volto Live – Retrospective,Victor Fernandez De Alba; Asko Soukka; Datakurre,University of Jyväskylä; kitconcept GmbH,Online,Talk,WT6OjkSrB20
+Video Title,Speaker(s),Organisation,Event / Location,Type,YouTube ID,Source,Notes
+Preview of World Plone Day 2022,Rikupekka Oksanen; Érico Andrei,University of Jyväskylä;kitconcept GmbH,Online,Talk,KwRSRRyuk-Q,https://www.youtube.com/watch?v=KwRSRRyuk-Q; Rikupekka Oksanen: https://github.com/rioksane; Érico Andrei: https://speakerdeck.com/ericof/apresentando-o-plone-6,"desc: ""Rikupekka Oksanen and Érico Andrei chat ...""."
+The Plone Foundation,Érico Andrei,kitconcept GmbH,Online,Talk,vGG1VXexYrk,https://www.youtube.com/watch?v=vGG1VXexYrk; Érico Andrei: https://speakerdeck.com/ericof/apresentando-o-plone-6,"desc: ""Presented by Érico Andrei""."
+Preview of Plone Conference 2022,,Unmapped,Online,Talk,y9GX69DfKj8,https://www.youtube.com/watch?v=y9GX69DfKj8,"desc: ""Presented by the organizers of the Plone Conference 2022"" - no person named."
+What is Plone?,Alin Voinea,Eau de Web,Online,Talk,yCMI5RHQMYc,https://www.youtube.com/watch?v=yCMI5RHQMYc; Alin Voinea: https://github.com/avoinea,"desc: ""Presented by Alin Voinea""."
+Join the Plone Foundation,Víctor Fernández de Alba,kitconcept GmbH,Online,Talk,-wOdBy8x-OI,https://www.youtube.com/watch?v=-wOdBy8x-OI; Víctor Fernández de Alba: https://github.com/sneridagh,"desc: ""Presented by Víctor Fernández de Alba""."
+Welcome to Plone 6,Érico Andrei,kitconcept GmbH,Online,Talk,16JZPRnkZ9w,https://www.youtube.com/watch?v=16JZPRnkZ9w; Érico Andrei: https://speakerdeck.com/ericof/apresentando-o-plone-6,"desc: ""Presented by Érico Andrei""."
+Lessons Learned from the Plone Community,Alexander Loechel,Ludwig Maximilian University Munich,Online,Talk,lKgwHIH4Mec,https://www.youtube.com/watch?v=lKgwHIH4Mec; Alexander Loechel: https://github.com/loechel,"desc: ""Alexander Loechel talks about ...""."
+Overview of Plone 6 Classic,Philip Bauer,Starzel,Online,Talk,IsOd2uwbwkQ,https://www.youtube.com/watch?v=IsOd2uwbwkQ; Philip Bauer: https://github.com/pbauer,"desc: ""Philip Bauer shows ...""."
+Migrations with collective.exportimport,Fred van Dijk,Zest Software,Online,Talk,uV_M-MRM4NU,https://www.youtube.com/watch?v=uV_M-MRM4NU; Fred van Dijk: https://github.com/plone/plone-contributor-statistics/commit/7ed781ae5418187b00a591d00d5f3080c9bea065,"desc: ""Presented by Fred van Dijk"". Mapping 2022: Zest Software (override to 2023), not kitconcept GmbH."
+World Plone Day 2022 Tokyo,Manabu Terada,CMS Communications Inc.,Online,Talk,uoeR8CWhQnc,https://www.youtube.com/watch?v=uoeR8CWhQnc; Manabu Terada: https://github.com/terapyon,"desc: ""Manabu Terada and friends discuss Plone ..."" - the friends are not named."
+"Plone 6 and Volto - World Plone Day 2022, India",Nilesh Gulia,Eau de Web,Online,Talk,P9j-xYdWT28,https://www.youtube.com/watch?v=P9j-xYdWT28; Nilesh Gulia: https://github.com/nileshgulia1,"desc: ""Nilesh Gulia talks about Plone 6 ...""."
+World Plone Day 2022 Presentation,Alexandru Medesan; Ionuț Dobricean,Unmapped;Eau de Web,Online,Talk,kxg2ErN0w1c,https://www.youtube.com/watch?v=kxg2ErN0w1c; Ionuț Dobricean: https://www.youtube.com/watch?v=BMN9ySArktc,"desc: ""Alex Medesan & Ionut Dobricean talk about Volto features"" (no organisation). Alexandru Medesan added (no login). Name normalised to ""Ionuț Dobricean"" (video: ""Ionut Dobricean"")."
+"Plone 6 and Volto - World Plone Day 2022, India",Alok Kumar,kitconcept GmbH,Online,Talk,zOFgg5NEa4w,https://www.youtube.com/watch?v=zOFgg5NEa4w; Alok Kumar: https://github.com/iFlameing,"desc: ""Alok Kumar talks about ...""."
+Volto & Volto Add-Ons,Miu Razvan Ionel; Andrei Grigore,Unmapped;Eau de Web,Online,Talk,e0-kFJWDvd8,https://www.youtube.com/watch?v=e0-kFJWDvd8; Andrei Grigore: https://docs.google.com/document/d/1JMxAhHrMIVMHf2xBfEjLKXYhkodTPigZQM9SmXABIUk,"desc: ""Miu Razvan Ionel and Grigore Andrei talk about Volto"" (no organisation). razvanMiu has no mapping entry; andreiggr 2022: Eau de Web."
+Plone in Universities - Use Cases in Higher Education,Kim Paulissen; Rikupekka Oksanen,KU Leuven;University of Jyväskylä,Online,Talk,qMcsfHo5wCY,https://www.youtube.com/watch?v=qMcsfHo5wCY,"desc: ""Kim Paulissen from KU Leuven, Belgium, and Rikupekka Oksanen from University of Jyväskylä"". File had the organisations in the wrong order."
+Painel PloneGovBr,Rafahela Bazzanella; Lucas Aquino; Érico Andrei,Interlegis Program (Senado Federal);Aquino.Com;kitconcept GmbH,Online,Talk,24xn1WZ9qUE,https://www.youtube.com/watch?v=24xn1WZ9qUE; Rafahela Bazzanella: https://github.com/rafahela; Lucas Aquino: https://github.com/luxcas; Érico Andrei: https://speakerdeck.com/ericof/apresentando-o-plone-6,"desc: ""Apresentado por Rafahela Bazzanela, Lucas Aquino e Érico Andrei"" (no organisation; the 2022 Brasília event page names none for them either). Lucas: mapping = Aquino.Com, not TSE."
+kitconcept Volto Block: Slider,Thomas Kindermann,kitconcept GmbH,Online,Talk,dK7AN5VXlts,https://www.youtube.com/watch?v=dK7AN5VXlts; Thomas Kindermann: https://github.com/ThomasKindermann,"desc: ""Presented by Thomas Kindermann""; ""kitconcept"" in the title names the block's author."
+Experience with Plone as a non technical user,Tomislav Juric,Unmapped,Online,Talk,NTNL01_ZuI0,https://www.youtube.com/watch?v=NTNL01_ZuI0,"desc: ""Tomislav Juric talks about how Plone is utilized in their company"" - company not named."
+World Plone Day 2022 - Italy,,Unmapped,Online,Talk,CCJUZg62gAA,https://www.youtube.com/watch?v=CCJUZg62gAA,Italian stream; no speaker named in the description (programme on https://www.plonegov.it/notizie-ed-eventi/world-plone-day-2022-online).
+Dinamikus oldalak létrehozása Volto-ban,Krisztina Elekes,Eau de Web,Online,Talk,8hmfZolhF8M,https://www.youtube.com/watch?v=8hmfZolhF8M; Krisztina Elekes: https://github.com/kreafox,"desc: ""Krisztina Elekes talks about dynamic views in Volto""."
+Google Summer of Code,Eric Bréhault,Nuclia,Online,Talk,_0iD_0Eq7YA,https://www.youtube.com/watch?v=_0iD_0Eq7YA; Eric Bréhault: https://2023.ploneconf.org/speakers/eric-brehault,"desc: ""Presented by Eric Bréhault""."
+New plone.org Built on Plone 6,Rikupekka Oksanen; Sally Kleinfeldt,University of Jyväskylä;Jazkarta,Online,Talk,nZZnZc19v80,https://www.youtube.com/watch?v=nZZnZc19v80; Rikupekka Oksanen: https://github.com/rioksane; Sally Kleinfeldt: https://github.com/skleinfeldt,"desc: ""Rikupekka Oksanen and Sally Kleinfeldt discuss ..."". File had Rikupekka at Jazkarta and Sally at University of Jyväskylä (order mix-up)."
+Typesense integration for Plone,Andreas Jung,Zopyx,Online,Talk,22psJ8Xoo4Y,https://www.youtube.com/watch?v=22psJ8Xoo4Y; Andreas Jung: https://github.com/zopyx,"desc: ""Presentation by Andreas Jung""."
+Opiskelijan kompassi -hyvinvointipalvelu Plonella rakennettuna,Rikupekka Oksanen; Erkka Heinilä,University of Jyväskylä;Unmapped,Online,Talk,PHaUc53Siuo,https://www.youtube.com/watch?v=PHaUc53Siuo; Rikupekka Oksanen: https://github.com/rioksane,"desc: ""Rikupekka Oksanen ja Erkka Heinilä kertovat Jyväskylän yliopiston ..."" (about the university's service, not ""from""). Erkka Heinilä added."
+Plone 6 Volto's Seamless Mode,Víctor Fernández de Alba,kitconcept GmbH,Online,Talk,Mj8pHRBls-w,https://www.youtube.com/watch?v=Mj8pHRBls-w; Víctor Fernández de Alba: https://github.com/sneridagh,"desc: ""Presented by Víctor Fernández de Alba""."
+Plone 6 Jyväskylän yliopistossa,,Unmapped,Online,Talk,P1qhIz0ROME,https://www.youtube.com/watch?v=P1qhIz0ROME,No speaker named.
+World Plone Day 2022 - iMio cases,,Unmapped,Online,Talk,FpVYPShBpIM,https://www.youtube.com/watch?v=FpVYPShBpIM,"desc: ""A short presentation (in French) of the new open source solution made by iMio"" - no presenter named; iMio is named as the maker of the solution."
+Plone 6 Classic UI Mockup,Maik Derstappen,Derico,Online,Talk,RnyHeQqCR8o,https://www.youtube.com/watch?v=RnyHeQqCR8o; Maik Derstappen: https://github.com/MrTango,"desc: ""Maik Derstappen talks about ...""."
+Casual introduction of Plone 6 Classic for intranet use,Asko Soukka; Markus Stahl,University of Jyväskylä;Unmapped,Online,Talk,-xcvoS1qz4U,https://www.youtube.com/watch?v=-xcvoS1qz4U; Asko Soukka: https://github.com/datakurre,"desc: ""World Plone Day 2022, Asko Soukka and Markus Stahl"". Markus Stahl added."
+Beethoven Sprint,Timo Stollenwerk,kitconcept GmbH,Online,Talk,z7sSSgalR74,https://www.youtube.com/watch?v=z7sSSgalR74; Timo Stollenwerk: https://github.com/tisto,"desc: ""Timo Stollenwerk presents ...""."
+PloneGov - Securing the Most Secure CMS,Sean Kelly,Sean Kelly Consulting,Online,Talk,wUCkllENbMM,https://www.youtube.com/watch?v=wUCkllENbMM; Sean Kelly: https://github.com/nutjob4life,"desc: ""Sean Kelly talks about ...""."
+Searching and Organizing Content using the Catalog,Jens Klein,Klein & Partner KG,Online,Talk,8LHDN21ID2I,https://www.youtube.com/watch?v=8LHDN21ID2I; Jens Klein: https://github.com/jensens,"desc: ""Presented by Jens Klein""."
+Adding a Full-Text Searchable Field Through-The-Web,Jens Klein,Klein & Partner KG,Online,Talk,enDxK003Fvw,https://www.youtube.com/watch?v=enDxK003Fvw; Jens Klein: https://github.com/jensens,"desc: ""Presented by Jens Klein""."
+Configure Full-Text Search of Custom Fields with XML Based Profiles,Jens Klein,Klein & Partner KG,Online,Talk,LPP7awvOBRQ,https://www.youtube.com/watch?v=LPP7awvOBRQ; Jens Klein: https://github.com/jensens,"desc: ""Presented by Jens Klein""."
+"Permissions to come aboard, new Plone user",Talya Beyers; Karel Calitz,Unmapped;Juizi,Online,Talk,NlWCVACtDGU,https://www.youtube.com/watch?v=NlWCVACtDGU; Karel Calitz: https://github.com/aboycalledhero,"desc: ""Presented by Talya Beyers and Karel Calitz"" (no organisation here)."
+Plone Release Management,Eric Steele; Maurits van Rees,Salesforce;Zest Software,Online,Talk,SDg4HhSuJG8,https://www.youtube.com/watch?v=SDg4HhSuJG8; Eric Steele: https://github.com/esteele; Maurits van Rees: https://py76.be/en,"desc: ""Presented by Eric Steele and Maurits van Rees"". Maurits: mapping 2022 = Zest Software."
+Export/import of Versioned Content in Plone,Philip Bauer,Starzel,Online,Talk,uddN5NrFGWU,https://www.youtube.com/watch?v=uddN5NrFGWU; Philip Bauer: https://github.com/pbauer,"desc: ""Philip Bauer shows ...""."
+Adding a Custom Criteria to a Collection,Jens Klein,Klein & Partner KG,Online,Talk,rWpTWjdfppE,https://www.youtube.com/watch?v=rWpTWjdfppE; Jens Klein: https://github.com/jensens,"desc: ""Jens Klein shows ...""."
+"Brasília, Brazil World Plone Day event",,Unmapped,Online,Talk,bgFucAUKRNw,https://www.youtube.com/watch?v=bgFucAUKRNw,"Brasília stream; description names no speaker. The linked event page https://plone.org/news-and-events/events/wpd/2022/brasilia lists ""O Estado do Plone - Érico Andrei (Presidente, Plone Foundation)"" and the PloneGovBr panel led by Rafahela Bazzanela."
+Volto add ons separator and carousel,Jakob Kahl,kitconcept GmbH,Online,Talk,eyTMI5TYcVg,https://www.youtube.com/watch?v=eyTMI5TYcVg; Jakob Kahl: https://github.com/jackahl,"desc: ""Jakob Kahl introduces ...""."
+10 years of Quaive,Guido Stevens; Sally Kleinfeldt,Cosent;Jazkarta,Online,Talk,gyg5dgMq1Ks,https://www.youtube.com/watch?v=gyg5dgMq1Ks; Guido Stevens: https://github.com/gyst; Sally Kleinfeldt: https://github.com/skleinfeldt,"desc: ""Guido Stevens talks with Sally Kleinfeldt about Quaive"". File had Sally at Cosent (order mix-up)."
+Migrating from Classic to Volto,Philip Bauer,Starzel,Online,Talk,09fg456T90s,https://www.youtube.com/watch?v=09fg456T90s; Philip Bauer: https://github.com/pbauer,"desc: ""Philip Bauer shows ...""."
+Overhauling the Plone 6 Documentation with MyST,Steve Piercy,Steve Piercy - Website Builder,Online,Talk,tUnT20aLhRA,https://www.youtube.com/watch?v=tUnT20aLhRA; Steve Piercy: https://github.com/stevepiercy,"desc: ""Presented by Steve Piercy""."
+Plone ♥ Containers,Érico Andrei,kitconcept GmbH,Online,Talk,Dd4MtRS7LzI,https://www.youtube.com/watch?v=Dd4MtRS7LzI; Érico Andrei: https://speakerdeck.com/ericof/apresentando-o-plone-6,"desc: ""Presented by Érico Andrei""."
+Plone for educational non profits,T. Kim Nguyen,Sixfeetup,Online,Talk,QFksGma6KlQ,https://www.youtube.com/watch?v=QFksGma6KlQ; T. Kim Nguyen: https://2019.ploneconf.org/people/t-kim-nguyen,"desc: ""Presented by T. Kim Nguyen""."
+Weekly Volto Live – Retrospective,Víctor Fernández de Alba; Asko Soukka,kitconcept GmbH;University of Jyväskylä,Online,Talk,WT6OjkSrB20,https://www.youtube.com/watch?v=WT6OjkSrB20; Víctor Fernández de Alba: https://github.com/sneridagh; Asko Soukka: https://github.com/datakurre,"desc: ""Victor Fernandez de Alba & Asko Soukka talk about Volto""; ""Datakurre"" in the file is Asko Soukka's login, removed. File organisations were in the wrong order."

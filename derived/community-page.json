@@ -2,16 +2,16 @@
  "headline": {
   "five_years": {
    "events": 65,
-   "organisations": 89,
-   "people": 375
+   "organisations": 102,
+   "people": 408
   },
   "since_2003": {
-   "people": 1004
+   "people": 1033
   },
   "year": {
    "events": 10,
-   "organisations": 52,
-   "people": 141
+   "organisations": 51,
+   "people": 140
   }
  },
  "history": {
@@ -736,9 +736,11 @@
      "kind": "sprints",
      "level": "",
      "name": "CMFEditions Pisa Sprint (Versioning sprint, Pisa)",
-     "organisations": [],
+     "organisations": [
+      "Reflab"
+     ],
      "sources": [
-      "https://sourceforge.net/p/plone/mailman/message/14256613/"
+      "https://sourceforge.net/p/plone/mailman/message/14256613/; organisation of Vincenzo Di Somma from the organisation mapping: https://sourceforge.net/p/plone/mailman/message/17491891/"
      ]
     },
     {
@@ -4113,9 +4115,11 @@
      "kind": "sprints",
      "level": "strategic",
      "name": "Belgian Beer Sprint",
-     "organisations": [],
+     "organisations": [
+      "Niteo"
+     ],
      "sources": [
-      "https://web.archive.org/web/20120805122844/http://plone.org/events/community/belgian-beer-sprint; Board: https://plone.org/foundation/meetings/minutes/2012/minutes-2012-05-31"
+      "https://web.archive.org/web/20120805122844/http://plone.org/events/community/belgian-beer-sprint; Board: https://plone.org/foundation/meetings/minutes/2012/minutes-2012-05-31; organisation of Nejc Zupan from the organisation mapping: https://sourceforge.net/p/plone/mailman/message/24597778/"
      ]
     },
     {
@@ -5978,9 +5982,11 @@
      "kind": "sprints",
      "level": "community",
      "name": "Castle Sprint 2016",
-     "organisations": [],
+     "organisations": [
+      "Klein & Partner KG"
+     ],
      "sources": [
-      "https://community.plone.org/t/castle-sprint-2016-report/2956; Board: https://plone.org/foundation/meetings/minutes/2016/minutes-for-september-29-2016"
+      "https://community.plone.org/t/castle-sprint-2016-report/2956; Board: https://plone.org/foundation/meetings/minutes/2016/minutes-for-september-29-2016; organisation of Christine Baumgartner from the organisation mapping: https://github.com/chrimba; organisation of Jens Klein from the organisation mapping: https://github.com/jensens"
      ]
     },
     {
@@ -6117,9 +6123,11 @@
      "kind": "sprints",
      "level": "strategic",
      "name": "Alpine City Sprint 2017",
-     "organisations": [],
+     "organisations": [
+      "Klein & Partner KG"
+     ],
      "sources": [
-      "https://plone.org/news-and-events/news/2017/porting-plone-and-zope-to-python-3-successful-alpine-city-sprint; Board: https://plone.org/foundation/meetings/minutes/2016/minutes-for-december-1-2016"
+      "https://plone.org/news-and-events/news/2017/porting-plone-and-zope-to-python-3-successful-alpine-city-sprint; Board: https://plone.org/foundation/meetings/minutes/2016/minutes-for-december-1-2016; organisation of Christine Baumgartner from the organisation mapping: https://github.com/chrimba; organisation of Jens Klein from the organisation mapping: https://github.com/jensens"
      ]
     },
     {
@@ -7117,9 +7125,11 @@
      "kind": "sprints",
      "level": "",
      "name": "\"Not-an-Alpine-City-Sprint\" Sprint 2021",
-     "organisations": [],
+     "organisations": [
+      "Klein & Partner KG"
+     ],
      "sources": [
-      "https://plone.org/news-and-events/news/2021/report-not-an-alpine-city-sprint-sprint"
+      "https://plone.org/news-and-events/news/2021/report-not-an-alpine-city-sprint-sprint; organisation of Jens Klein from the organisation mapping: https://github.com/jensens"
      ]
     },
     {
@@ -7238,7 +7248,7 @@
      ]
     }
    ],
-   "people_active": 155,
+   "people_active": 173,
    "pull_requests": 1630,
    "team_leads": [
     {
@@ -7488,7 +7498,9 @@
       "iMio",
       "Affinitic"
      ],
-     "sources": []
+     "sources": [
+      "https://plone.org/foundation/meetings/minutes/2022/plone-foundation-board-minutes-october-27-2022"
+     ]
     },
     {
      "kind": "sprints",
@@ -7678,7 +7690,7 @@
      ]
     }
    ],
-   "people_active": 154,
+   "people_active": 159,
    "pull_requests": 2227,
    "team_leads": [
     {
@@ -7819,7 +7831,9 @@
      "organisations": [
       "Codesyntax"
      ],
-     "sources": []
+     "sources": [
+      "https://2023.ploneconf.org/; https://plone.org/foundation/meetings/minutes/2023/plone-foundation-board-minutes-april-13-2023"
+     ]
     },
     {
      "kind": "sprints",
@@ -7929,7 +7943,7 @@
      ]
     }
    ],
-   "people_active": 173,
+   "people_active": 192,
    "pull_requests": 2205,
    "team_leads": [
     {
@@ -8185,7 +8199,7 @@
      ]
     }
    ],
-   "people_active": 134,
+   "people_active": 141,
    "pull_requests": 1748,
    "team_leads": [
     {
@@ -8307,7 +8321,9 @@
      "organisations": [
       "University of Jyväskylä"
      ],
-     "sources": []
+     "sources": [
+      "https://plone.org/news-and-events/events/plone-conferences/plone-conference-2025; https://2025.ploneconf.org/"
+     ]
     },
     {
      "kind": "sprints",
@@ -8408,7 +8424,7 @@
      ]
     }
    ],
-   "people_active": 141,
+   "people_active": 140,
    "pull_requests": 2107,
    "team_leads": [
     {
@@ -8642,7 +8658,7 @@
      "commits": 91,
      "events": 1,
      "pull_requests": 39,
-     "roles": 0
+     "roles": 1
     },
     "2023": {
      "commits": 5,
@@ -9656,13 +9672,13 @@
      "commits": 2,
      "events": 0,
      "pull_requests": 1,
-     "roles": 0
+     "roles": 1
     },
     "2023": {
      "commits": 0,
      "events": 0,
      "pull_requests": 0,
-     "roles": 0
+     "roles": 1
     },
     "2024": {
      "commits": 0,
@@ -9881,7 +9897,7 @@
      "commits": 37,
      "events": 0,
      "pull_requests": 30,
-     "roles": 1
+     "roles": 2
     },
     "2022": {
      "commits": 161,
@@ -9893,13 +9909,13 @@
      "commits": 191,
      "events": 2,
      "pull_requests": 52,
-     "roles": 2
+     "roles": 4
     },
     "2024": {
      "commits": 98,
      "events": 0,
      "pull_requests": 37,
-     "roles": 2
+     "roles": 3
     },
     "2025": {
      "commits": 295,
@@ -10072,7 +10088,7 @@
      "commits": 4,
      "events": 0,
      "pull_requests": 2,
-     "roles": 1
+     "roles": 2
     },
     "2025": {
      "commits": 2,
@@ -10556,6 +10572,13 @@
      "contributions": [
       {
        "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
+       "line": 3,
+       "points": 1,
+       "source": "https://www.youtube.com/watch?v=in6Qz3oWbao",
+       "text": "Plone Hands On: Customize your site theme through the web with Volto!"
+      },
+      {
+       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
        "line": 15,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=jAlwtcNyzH0",
@@ -10576,7 +10599,7 @@
        "text": "Dynamic Vocabulary Based on Context in Plone"
       }
      ],
-     "points": 3.0
+     "points": 4.0
     }
    },
    "history": {
@@ -10698,13 +10721,13 @@
      "commits": 340,
      "events": 2,
      "pull_requests": 92,
-     "roles": 3
+     "roles": 6
     },
     "2023": {
      "commits": 146,
      "events": 0,
      "pull_requests": 51,
-     "roles": 4
+     "roles": 6
     },
     "2024": {
      "commits": 105,
@@ -10716,14 +10739,14 @@
      "commits": 31,
      "events": 1,
      "pull_requests": 30,
-     "roles": 5
+     "roles": 6
     }
    },
    "level": "Gold Contributor",
    "name": "Eau de Web",
    "next_level": "Platinum Contributor",
-   "points": 28.0,
-   "points_to_next": 7.0
+   "points": 29.0,
+   "points_to_next": 6.0
   },
   "ecityclic": {
    "categories": {
@@ -10871,7 +10894,7 @@
      "commits": 0,
      "events": 0,
      "pull_requests": 0,
-     "roles": 1
+     "roles": 0
     },
     "2025": {
      "commits": 0,
@@ -11187,13 +11210,13 @@
      "commits": 0,
      "events": 0,
      "pull_requests": 0,
-     "roles": 0
+     "roles": 1
     },
     "2024": {
      "commits": 0,
      "events": 0,
      "pull_requests": 0,
-     "roles": 0
+     "roles": 1
     },
     "2025": {
      "commits": 0,
@@ -11204,167 +11227,6 @@
    },
    "level": "Community Contributor",
    "name": "Giallocobalto",
-   "next_level": "Bronze Contributor",
-   "points": 1.0,
-   "points_to_next": 2.0
-  },
-  "imio": {
-   "categories": {
-    "WPD Talk": {
-     "contributions": [
-      {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 10,
-       "points": 1,
-       "source": "https://www.youtube.com/watch?v=qwI2UL8zuZc",
-       "text": "Love Story: When Designers Meet GitHub Actions"
-      }
-     ],
-     "points": 1.0
-    }
-   },
-   "history": {
-    "2003": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2004": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2005": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2006": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2007": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2008": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2009": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2010": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2011": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2012": {
-     "commits": 12,
-     "events": 0,
-     "pull_requests": 9,
-     "roles": 0
-    },
-    "2013": {
-     "commits": 27,
-     "events": 0,
-     "pull_requests": 11,
-     "roles": 0
-    },
-    "2014": {
-     "commits": 29,
-     "events": 0,
-     "pull_requests": 6,
-     "roles": 0
-    },
-    "2015": {
-     "commits": 35,
-     "events": 0,
-     "pull_requests": 18,
-     "roles": 0
-    },
-    "2016": {
-     "commits": 23,
-     "events": 0,
-     "pull_requests": 18,
-     "roles": 0
-    },
-    "2017": {
-     "commits": 7,
-     "events": 0,
-     "pull_requests": 8,
-     "roles": 0
-    },
-    "2018": {
-     "commits": 25,
-     "events": 0,
-     "pull_requests": 9,
-     "roles": 0
-    },
-    "2019": {
-     "commits": 4,
-     "events": 0,
-     "pull_requests": 2,
-     "roles": 0
-    },
-    "2020": {
-     "commits": 5,
-     "events": 0,
-     "pull_requests": 4,
-     "roles": 0
-    },
-    "2021": {
-     "commits": 6,
-     "events": 0,
-     "pull_requests": 2,
-     "roles": 0
-    },
-    "2022": {
-     "commits": 16,
-     "events": 2,
-     "pull_requests": 6,
-     "roles": 1
-    },
-    "2023": {
-     "commits": 5,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2024": {
-     "commits": 2,
-     "events": 0,
-     "pull_requests": 3,
-     "roles": 0
-    },
-    "2025": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 1
-    }
-   },
-   "level": "Community Contributor",
-   "name": "iMio",
    "next_level": "Bronze Contributor",
    "points": 1.0,
    "points_to_next": 2.0
@@ -12108,13 +11970,13 @@
      "commits": 0,
      "events": 0,
      "pull_requests": 0,
-     "roles": 0
+     "roles": 1
     },
     "2023": {
      "commits": 0,
      "events": 0,
      "pull_requests": 0,
-     "roles": 1
+     "roles": 2
     },
     "2024": {
      "commits": 0,
@@ -12275,6 +12137,13 @@
       },
       {
        "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
+       "line": 4,
+       "points": 1,
+       "source": "https://www.youtube.com/watch?v=x7QX9tQxEBc",
+       "text": "Mão na Massa: Começando um projeto com Plone 6.1"
+      },
+      {
+       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
        "line": 28,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=sqPtMBCgbOY",
@@ -12286,13 +12155,6 @@
        "points": 1,
        "source": "https://www.youtube.com/watch?v=vc6li2NtNj8",
        "text": "Codename Seven - Sneak Peek to the Successor of Volto"
-      },
-      {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 34,
-       "points": 1,
-       "source": "https://www.youtube.com/watch?v=cMJOBrfZGe4",
-       "text": "Plone Hands On: Creating a new Plone project"
       }
      ],
      "points": 4.0
@@ -12411,31 +12273,31 @@
      "commits": 2381,
      "events": 3,
      "pull_requests": 378,
-     "roles": 23
+     "roles": 24
     },
     "2022": {
      "commits": 2751,
      "events": 2,
      "pull_requests": 523,
-     "roles": 23
+     "roles": 22
     },
     "2023": {
      "commits": 1953,
      "events": 1,
      "pull_requests": 675,
-     "roles": 16
+     "roles": 19
     },
     "2024": {
      "commits": 1866,
      "events": 2,
      "pull_requests": 522,
-     "roles": 21
+     "roles": 22
     },
     "2025": {
      "commits": 1799,
      "events": 2,
      "pull_requests": 572,
-     "roles": 24
+     "roles": 26
     }
    },
    "level": "Platinum Contributor",
@@ -12603,15 +12465,15 @@
     },
     "2016": {
      "commits": 651,
-     "events": 1,
+     "events": 2,
      "pull_requests": 167,
-     "roles": 2
+     "roles": 4
     },
     "2017": {
      "commits": 334,
-     "events": 0,
+     "events": 1,
      "pull_requests": 107,
-     "roles": 0
+     "roles": 2
     },
     "2018": {
      "commits": 445,
@@ -12633,9 +12495,9 @@
     },
     "2021": {
      "commits": 363,
-     "events": 0,
+     "events": 1,
      "pull_requests": 60,
-     "roles": 6
+     "roles": 8
     },
     "2022": {
      "commits": 434,
@@ -13573,7 +13435,7 @@
      "commits": 57,
      "events": 0,
      "pull_requests": 45,
-     "roles": 1
+     "roles": 2
     },
     "2024": {
      "commits": 46,
@@ -13762,6 +13624,167 @@
    "points": 2.0,
    "points_to_next": 1.0
   },
+  "plone-user-s-group-japan": {
+   "categories": {
+    "WPD Talk": {
+     "contributions": [
+      {
+       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
+       "line": 32,
+       "points": 1,
+       "source": "https://www.youtube.com/watch?v=oZYtTu1Ckdo",
+       "text": "Exploring the Power of Plone: How Out-of-the-Box Features Simplify Content Management"
+      }
+     ],
+     "points": 1.0
+    }
+   },
+   "history": {
+    "2003": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2004": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2005": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2006": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2007": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2008": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2009": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2010": {
+     "commits": 0,
+     "events": 1,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2011": {
+     "commits": 0,
+     "events": 1,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2012": {
+     "commits": 0,
+     "events": 1,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2013": {
+     "commits": 0,
+     "events": 1,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2014": {
+     "commits": 0,
+     "events": 1,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2015": {
+     "commits": 0,
+     "events": 1,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2016": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2017": {
+     "commits": 0,
+     "events": 1,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2018": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2019": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2020": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2021": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 1
+    },
+    "2022": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2023": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2024": {
+     "commits": 0,
+     "events": 1,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2025": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 1
+    }
+   },
+   "level": "Community Contributor",
+   "name": "Plone User's Group Japan",
+   "next_level": "Bronze Contributor",
+   "points": 1.0,
+   "points_to_next": 2.0
+  },
   "plonegov-br": {
    "categories": {
     "WPD Event": {
@@ -13775,18 +13798,6 @@
       }
      ],
      "points": 3.0
-    },
-    "WPD Talk": {
-     "contributions": [
-      {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 54,
-       "points": 1,
-       "source": null,
-       "text": "PortalBrasil Project"
-      }
-     ],
-     "points": 1.0
     }
    },
    "history": {
@@ -13920,20 +13931,20 @@
      "commits": 0,
      "events": 2,
      "pull_requests": 0,
-     "roles": 2
+     "roles": 1
     },
     "2025": {
      "commits": 0,
      "events": 1,
      "pull_requests": 0,
-     "roles": 1
+     "roles": 0
     }
    },
    "level": "Bronze Contributor",
    "name": "PloneGov-BR",
    "next_level": "Silver Contributor",
-   "points": 4.0,
-   "points_to_next": 6.0
+   "points": 3.0,
+   "points_to_next": 7.0
   },
   "pretaweb": {
    "categories": {
@@ -14063,7 +14074,7 @@
      "commits": 22,
      "events": 0,
      "pull_requests": 2,
-     "roles": 1
+     "roles": 0
     },
     "2022": {
      "commits": 55,
@@ -14260,19 +14271,19 @@
      "commits": 0,
      "events": 0,
      "pull_requests": 0,
-     "roles": 1
+     "roles": 0
     },
     "2022": {
      "commits": 0,
      "events": 0,
      "pull_requests": 0,
-     "roles": 1
+     "roles": 0
     },
     "2023": {
      "commits": 0,
      "events": 0,
      "pull_requests": 0,
-     "roles": 1
+     "roles": 0
     },
     "2024": {
      "commits": 1193,
@@ -14676,7 +14687,7 @@
      "commits": 0,
      "events": 0,
      "pull_requests": 0,
-     "roles": 0
+     "roles": 1
     },
     "2022": {
      "commits": 0,
@@ -14688,7 +14699,7 @@
      "commits": 0,
      "events": 0,
      "pull_requests": 0,
-     "roles": 0
+     "roles": 1
     },
     "2024": {
      "commits": 0,
@@ -14837,7 +14848,7 @@
      "commits": 0,
      "events": 0,
      "pull_requests": 0,
-     "roles": 0
+     "roles": 1
     },
     "2022": {
      "commits": 0,
@@ -14849,13 +14860,13 @@
      "commits": 0,
      "events": 0,
      "pull_requests": 0,
-     "roles": 0
+     "roles": 1
     },
     "2024": {
      "commits": 0,
      "events": 0,
      "pull_requests": 0,
-     "roles": 0
+     "roles": 1
     },
     "2025": {
      "commits": 0,
@@ -15386,7 +15397,7 @@
      "commits": 15,
      "events": 0,
      "pull_requests": 11,
-     "roles": 0
+     "roles": 1
     },
     "2024": {
      "commits": 90,
@@ -15406,181 +15417,6 @@
    "next_level": "Gold Contributor",
    "points": 10.0,
    "points_to_next": 15.0
-  },
-  "simples-consultoria": {
-   "categories": {
-    "WPD Talk": {
-     "contributions": [
-      {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 4,
-       "points": 1,
-       "source": "https://www.youtube.com/watch?v=x7QX9tQxEBc",
-       "text": "Mão na Massa: Começando um projeto com Plone 6.1"
-      },
-      {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 40,
-       "points": 1,
-       "source": "https://www.youtube.com/watch?v=W0gDKhuIXPk",
-       "text": "Plone Distributions; the right way"
-      },
-      {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 52,
-       "points": 1,
-       "source": null,
-       "text": "Bucharest Sprint Updates"
-      }
-     ],
-     "points": 3.0
-    }
-   },
-   "history": {
-    "2003": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2004": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2005": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2006": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2007": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2008": {
-     "commits": 0,
-     "events": 1,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2009": {
-     "commits": 0,
-     "events": 1,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2010": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2011": {
-     "commits": 14,
-     "events": 0,
-     "pull_requests": 2,
-     "roles": 0
-    },
-    "2012": {
-     "commits": 55,
-     "events": 2,
-     "pull_requests": 3,
-     "roles": 3
-    },
-    "2013": {
-     "commits": 175,
-     "events": 2,
-     "pull_requests": 16,
-     "roles": 2
-    },
-    "2014": {
-     "commits": 10,
-     "events": 1,
-     "pull_requests": 3,
-     "roles": 1
-    },
-    "2015": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2016": {
-     "commits": 21,
-     "events": 0,
-     "pull_requests": 21,
-     "roles": 0
-    },
-    "2017": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2018": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2019": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2020": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2021": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2022": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2023": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2024": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2025": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 3
-    }
-   },
-   "level": "Bronze Contributor",
-   "name": "Simples Consultoria",
-   "next_level": "Silver Contributor",
-   "points": 3.0,
-   "points_to_next": 7.0
   },
   "sixfeetup": {
    "categories": {
@@ -15710,7 +15546,7 @@
      "commits": 28,
      "events": 1,
      "pull_requests": 9,
-     "roles": 9
+     "roles": 12
     },
     "2022": {
      "commits": 22,
@@ -15722,7 +15558,7 @@
      "commits": 0,
      "events": 0,
      "pull_requests": 0,
-     "roles": 2
+     "roles": 1
     },
     "2024": {
      "commits": 46,
@@ -15934,7 +15770,7 @@
      "commits": 100,
      "events": 1,
      "pull_requests": 14,
-     "roles": 6
+     "roles": 7
     },
     "2022": {
      "commits": 286,
@@ -15946,7 +15782,7 @@
      "commits": 47,
      "events": 0,
      "pull_requests": 25,
-     "roles": 5
+     "roles": 6
     },
     "2024": {
      "commits": 63,
@@ -16921,7 +16757,7 @@
        "file": "curated/community-contributions/2025-plone-conference.csv",
        "line": 2,
        "points": 24.0,
-       "source": null,
+       "source": "https://plone.org/news-and-events/events/plone-conferences/plone-conference-2025; https://2025.ploneconf.org/",
        "text": "Organized Plone Conference 2025"
       }
      ],
@@ -17097,25 +16933,25 @@
      "commits": 12,
      "events": 6,
      "pull_requests": 5,
-     "roles": 16
+     "roles": 14
     },
     "2023": {
      "commits": 10,
      "events": 1,
      "pull_requests": 0,
-     "roles": 2
+     "roles": 3
     },
     "2024": {
      "commits": 0,
      "events": 0,
      "pull_requests": 0,
-     "roles": 3
+     "roles": 4
     },
     "2025": {
      "commits": 24,
      "events": 2,
      "pull_requests": 17,
-     "roles": 7
+     "roles": 8
     }
    },
    "level": "Gold Contributor",
@@ -17286,19 +17122,19 @@
      "commits": 1066,
      "events": 0,
      "pull_requests": 143,
-     "roles": 5
+     "roles": 6
     },
     "2022": {
      "commits": 2137,
      "events": 1,
      "pull_requests": 238,
-     "roles": 6
+     "roles": 8
     },
     "2023": {
      "commits": 1717,
      "events": 0,
      "pull_requests": 191,
-     "roles": 3
+     "roles": 7
     },
     "2024": {
      "commits": 27,
@@ -27403,6 +27239,14 @@
    },
    {
     "commits": 0,
+    "id": "chrimba",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "chris2fr",
     "pull_requests": 1,
     "roles": []
@@ -28031,14 +27875,6 @@
    },
    {
     "commits": 0,
-    "id": "name:christine baumgartner",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:jennifer myers",
     "pull_requests": 0,
     "roles": [
@@ -28632,6 +28468,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "chrimba",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
     "commits": 21,
     "id": "cleberjsantos",
     "pull_requests": 2,
@@ -29180,14 +29024,6 @@
     ]
    },
    {
-    "commits": 0,
-    "id": "name:christine baumgartner",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
     "commits": 15,
     "id": "name:diederik veeze",
     "pull_requests": 0,
@@ -29725,6 +29561,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "chrimba",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
     "commits": 3,
     "id": "cillianderoiste",
     "pull_requests": 2,
@@ -30213,14 +30057,6 @@
    {
     "commits": 0,
     "id": "name:christian kreutzer",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:christine baumgartner",
     "pull_requests": 0,
     "roles": [
      "Sprint organiser"
@@ -31801,6 +31637,14 @@
     ]
    },
    {
+    "commits": 0,
+    "id": "chrimba",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
     "commits": 2,
     "id": "cillianderoiste",
     "pull_requests": 1,
@@ -32227,14 +32071,6 @@
     "pull_requests": 0,
     "roles": [
      "Board"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:christine baumgartner",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
     ]
    },
    {
@@ -32800,6 +32636,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "chrimba",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
     "commits": 1,
     "id": "cillianderoiste",
     "pull_requests": 1,
@@ -33227,14 +33071,6 @@
    {
     "commits": 0,
     "id": "name:christian kreutzer",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:christine baumgartner",
     "pull_requests": 0,
     "roles": [
      "Sprint organiser"
@@ -33688,7 +33524,9 @@
     "commits": 13,
     "id": "alecpm",
     "pull_requests": 1,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 2,
@@ -33768,6 +33606,14 @@
     "id": "cekk",
     "pull_requests": 15,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "chrimba",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 1,
@@ -33889,6 +33735,7 @@
     "pull_requests": 0,
     "roles": [
      "Release manager",
+     "Talk",
      "Team lead"
     ]
    },
@@ -34095,10 +33942,20 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "ju55i",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
     "commits": 7,
     "id": "jugmac00",
     "pull_requests": 4,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 1,
@@ -34143,10 +34000,20 @@
     ]
    },
    {
+    "commits": 0,
+    "id": "luistxo",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
     "commits": 6,
     "id": "macagua",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 1,
@@ -34248,6 +34115,86 @@
    },
    {
     "commits": 0,
+    "id": "name:alexandru medesan",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:beatrice maroni",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:carla ragazzi",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:dean ericksen",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:emily hamilton",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:federica gozza",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:francesca soffici",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:giovanni bertugli",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:japanese plone community",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:jeff bowman",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:jennifer myers",
     "pull_requests": 0,
     "roles": [
@@ -34272,7 +34219,23 @@
    },
    {
     "commits": 0,
-    "id": "name:sean kelly",
+    "id": "name:loren drummond",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:paola bonetti",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:sara turra",
     "pull_requests": 0,
     "roles": [
      "Talk"
@@ -34288,7 +34251,23 @@
    },
    {
     "commits": 0,
+    "id": "name:stefano pagani",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:tom elliot",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:valentina del prete",
     "pull_requests": 0,
     "roles": [
      "Talk"
@@ -34312,6 +34291,14 @@
     "commits": 59,
     "id": "nileshgulia1",
     "pull_requests": 20,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "nutjob4life",
+    "pull_requests": 0,
     "roles": [
      "Talk"
     ]
@@ -34632,7 +34619,9 @@
     "commits": 13,
     "id": "veritazx",
     "pull_requests": 2,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 1,
@@ -34695,6 +34684,14 @@
     ]
    },
    {
+    "commits": 0,
+    "id": "aboycalledhero",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
     "commits": 2,
     "id": "adam139",
     "pull_requests": 1,
@@ -34724,7 +34721,9 @@
     "commits": 4,
     "id": "andreiggr",
     "pull_requests": 2,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 9,
@@ -34861,7 +34860,9 @@
     "commits": 6,
     "id": "dobri1408",
     "pull_requests": 3,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 3,
@@ -34900,7 +34901,8 @@
     "id": "esteele",
     "pull_requests": 4,
     "roles": [
-     "Release manager"
+     "Release manager",
+     "Talk"
     ]
    },
    {
@@ -35014,6 +35016,7 @@
     "id": "iflameing",
     "pull_requests": 20,
     "roles": [
+     "Talk",
      "Trainer"
     ]
    },
@@ -35112,7 +35115,9 @@
     "commits": 6,
     "id": "kreafox",
     "pull_requests": 3,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 2,
@@ -35154,6 +35159,14 @@
     "id": "luispalomo",
     "pull_requests": 1,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "luxcas",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 20,
@@ -35273,6 +35286,14 @@
    },
    {
     "commits": 0,
+    "id": "name:alexandru medesan",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:beth smith",
     "pull_requests": 0,
     "roles": [
@@ -35281,7 +35302,7 @@
    },
    {
     "commits": 0,
-    "id": "name:ionut dobricean",
+    "id": "name:erkka heinila",
     "pull_requests": 0,
     "roles": [
      "Talk"
@@ -35289,7 +35310,7 @@
    },
    {
     "commits": 0,
-    "id": "name:lucas aquino",
+    "id": "name:markus stahl",
     "pull_requests": 0,
     "roles": [
      "Talk"
@@ -35297,7 +35318,15 @@
    },
    {
     "commits": 0,
-    "id": "name:sean kelly",
+    "id": "name:talya beyers",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:tomislav juric",
     "pull_requests": 0,
     "roles": [
      "Talk"
@@ -35319,7 +35348,17 @@
     "commits": 32,
     "id": "nileshgulia1",
     "pull_requests": 11,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "nutjob4life",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 7,
@@ -35395,7 +35434,9 @@
     "commits": 11,
     "id": "razvanmiu",
     "pull_requests": 5,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 1,
@@ -35578,7 +35619,9 @@
     "commits": 2,
     "id": "terapyon",
     "pull_requests": 1,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 418,
@@ -35599,7 +35642,9 @@
     "commits": 5,
     "id": "thomaskindermann",
     "pull_requests": 2,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 3,
@@ -35701,7 +35746,9 @@
     "commits": 1,
     "id": "zopyx",
     "pull_requests": 1,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 10,
@@ -35771,7 +35818,9 @@
     "commits": 1,
     "id": "alecpm",
     "pull_requests": 1,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 5,
@@ -35852,6 +35901,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "chrimba",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
     "commits": 4,
     "id": "cillianderoiste",
     "pull_requests": 2,
@@ -35889,7 +35946,9 @@
     "commits": 10,
     "id": "datakurre",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 192,
@@ -35915,7 +35974,9 @@
     "commits": 22,
     "id": "dobri1408",
     "pull_requests": 11,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 5,
@@ -35948,6 +36009,14 @@
     "pull_requests": 29,
     "roles": [
      "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "esteele",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
     ]
    },
    {
@@ -36100,6 +36169,7 @@
     "pull_requests": 3,
     "roles": [
      "Sprint organiser",
+     "Talk",
      "Trainer"
     ]
    },
@@ -36163,6 +36233,14 @@
     "id": "justdaksh",
     "pull_requests": 1,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "jzellinter",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 2,
@@ -36234,7 +36312,9 @@
     "commits": 2,
     "id": "luxcas",
     "pull_requests": 1,
-    "roles": []
+    "roles": [
+     "Podcast"
+    ]
    },
    {
     "commits": 8,
@@ -36279,6 +36359,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "massimoazzolini",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
     "commits": 1398,
     "id": "mauritsvanrees",
     "pull_requests": 171,
@@ -36315,7 +36403,9 @@
     "commits": 4,
     "id": "mihaelacretu11",
     "pull_requests": 2,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 5,
@@ -36364,10 +36454,26 @@
    },
    {
     "commits": 0,
+    "id": "name:ana-maria oprea",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:andre climaco",
     "pull_requests": 0,
     "roles": [
      "Podcast"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:angelo bovina",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
     ]
    },
    {
@@ -36380,14 +36486,6 @@
    },
    {
     "commits": 0,
-    "id": "name:christine baumgartner",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:clayton souza",
     "pull_requests": 0,
     "roles": [
@@ -36396,15 +36494,63 @@
    },
    {
     "commits": 0,
-    "id": "name:lucas aquino",
+    "id": "name:cristina benvegnu",
     "pull_requests": 0,
     "roles": [
-     "Podcast"
+     "Talk"
     ]
    },
    {
     "commits": 0,
-    "id": "name:luciano ramalho",
+    "id": "name:ilaria grandinetti",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:luis flavio loreto rocha",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:magnilson sodre costa",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:marco souza",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:marina mingozzi",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:markus stahl",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:mike kuhnapfel",
     "pull_requests": 0,
     "roles": [
      "Talk"
@@ -36420,7 +36566,47 @@
    },
    {
     "commits": 0,
+    "id": "name:sibilla gobbi",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:silvia barbieri",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:stefano marchetti",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:taku fujita",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:talya beyers",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:valentina del prete",
     "pull_requests": 0,
     "roles": [
      "Talk"
@@ -36543,6 +36729,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "ramalho",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
     "commits": 2,
     "id": "ravi-kumar9347",
     "pull_requests": 1,
@@ -36645,6 +36839,14 @@
    },
    {
     "commits": 0,
+    "id": "silviot",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "skleinfeldt",
     "pull_requests": 0,
     "roles": [
@@ -36711,6 +36913,14 @@
     "commits": 8,
     "id": "tedw87",
     "pull_requests": 4,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "terapyon",
+    "pull_requests": 0,
     "roles": [
      "Talk"
     ]
@@ -36982,6 +37192,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "chrimba",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
     "commits": 5,
     "id": "danalvrz",
     "pull_requests": 2,
@@ -37015,7 +37233,9 @@
     "commits": 24,
     "id": "dobri1408",
     "pull_requests": 15,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 3,
@@ -37167,7 +37387,8 @@
     "id": "gyst",
     "pull_requests": 2,
     "roles": [
-     "Board"
+     "Board",
+     "Talk"
     ]
    },
    {
@@ -37286,7 +37507,9 @@
     "commits": 7,
     "id": "macagua",
     "pull_requests": 1,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 19,
@@ -37379,18 +37602,18 @@
    },
    {
     "commits": 0,
-    "id": "name:beth smith",
+    "id": "name:angela pacillo",
     "pull_requests": 0,
     "roles": [
-     "Board"
+     "Talk"
     ]
    },
    {
     "commits": 0,
-    "id": "name:christine baumgartner",
+    "id": "name:beth smith",
     "pull_requests": 0,
     "roles": [
-     "Sprint organiser"
+     "Board"
     ]
    },
    {
@@ -37403,7 +37626,15 @@
    },
    {
     "commits": 0,
-    "id": "name:dobricean ioan dorian",
+    "id": "name:ilaria picchioni",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:luca dall'acqua",
     "pull_requests": 0,
     "roles": [
      "Talk"
@@ -37412,6 +37643,22 @@
    {
     "commits": 0,
     "id": "name:marc vicente",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:nicola marighelli",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:sonia simonini",
     "pull_requests": 0,
     "roles": [
      "Talk"
@@ -37442,6 +37689,22 @@
     ]
    },
    {
+    "commits": 0,
+    "id": "name:valentina del prete",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:valentina pini",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
     "commits": 43,
     "id": "nilbacardit26",
     "pull_requests": 8,
@@ -37460,6 +37723,14 @@
     "id": "operramon",
     "pull_requests": 5,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "pauleveritt",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 57,
@@ -37896,6 +38167,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "chrimba",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
     "commits": 10,
     "id": "cihanandac",
     "pull_requests": 5,
@@ -37956,7 +38235,9 @@
     "commits": 1,
     "id": "dobri1408",
     "pull_requests": 3,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 2,
@@ -38283,6 +38564,14 @@
    },
    {
     "commits": 0,
+    "id": "name:ana-maria oprea",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:angelo croatti",
     "pull_requests": 0,
     "roles": [
@@ -38295,22 +38584,6 @@
     "pull_requests": 0,
     "roles": [
      "Board"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:christine baumgartner",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:dobricean ionut",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
     ]
    },
    {
@@ -38371,14 +38644,6 @@
    },
    {
     "commits": 0,
-    "id": "name:oprea ana maria",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:paolo roganti",
     "pull_requests": 0,
     "roles": [
@@ -38395,7 +38660,7 @@
    },
    {
     "commits": 0,
-    "id": "name:talya (irr)",
+    "id": "name:talya beyers",
     "pull_requests": 0,
     "roles": [
      "Talk"
@@ -38786,6 +39051,8 @@
   "alok kumar": "iflameing",
   "andre nogueira": "agnogueira",
   "andrea cecchi": "cekk",
+  "andreas jung": "zopyx",
+  "andrei grigore": "andreiggr",
   "andrew mleczko": "amleczko",
   "andy leeb": "ableeb",
   "andy mckay": "andymckay",
@@ -38801,12 +39068,12 @@
   "chris calloway": "cbcunc",
   "chrissy wainwright": "cdw9",
   "christian heimes": "tiran",
+  "christine baumgartner": "chrimba",
   "claudia ifrim": "claudiaifrim",
   "clayton parker": "claytron",
   "craig haynal": "cah190",
   "cris ewing": "cewing",
   "dante alvarez": "danalvrz",
-  "datakurre": "datakurre",
   "david bain": "pigeonflight",
   "david brenneman": "dbrenneman",
   "david glick": "davisagli",
@@ -38835,6 +39102,7 @@
   "hanno schlichting": "hannosch",
   "hector velarde": "hvelarde",
   "helge tesdal": "tesdal",
+  "ionut dobricean": "dobri1408",
   "jakob kahl": "jackahl",
   "jan murre": "jjmurre",
   "jc brand": "jcbrand",
@@ -38852,15 +39120,22 @@
   "jon stahl": "jonstahl",
   "joni orponen": "rotonen",
   "jordi masip": "masipcat",
+  "jorg zell": "jzellinter",
   "juan pablo gimenez": "jpgimenez",
   "jure cerjak": "jcerjak",
+  "jurgen gmach": "jugmac00",
+  "jussi talaskivi": "ju55i",
   "kapil thangavelu": "kapilt",
   "karel calitz": "aboycalledhero",
   "katja suss": "ksuess",
   "kim nguyen": "tkimnguyen",
   "kim paulissen": "spereverde",
+  "krisztina elekes": "kreafox",
   "laurence rowe": "lrowe",
-  "loechel": "loechel",
+  "leonardo caballero": "macagua",
+  "lucas aquino": "luxcas",
+  "luciano ramalho": "ramalho",
+  "luistxo fernandez": "luistxo",
   "maarten kling": "maartenkling",
   "maik derstappen": "mrtango",
   "maik derstappen (contact)": "mrtango",
@@ -38871,13 +39146,16 @@
   "martin aspeli": "optilude",
   "martin opstad reistadbakk": "martior",
   "martin peeters": "mpeeters",
+  "massimo azzolini": "massimoazzolini",
   "matthew wilkes": "matthewwilkes",
   "maurits van rees": "mauritsvanrees",
   "maurizio delmonte": "miziodel",
   "max jakob": "vincero",
   "michael howitz": "icemac",
+  "mihaela cretu": "mihaelacretu11",
   "mike metcalfe": "mikejmets",
   "mikel larreategi": "erral",
+  "miu razvan ionel": "razvanmiu",
   "nate aune": "natea",
   "nathan van gheem": "vangheem",
   "nejc zupan": "zupo",
@@ -38889,11 +39167,11 @@
   "paul roeland": "polyester",
   "peter holzer": "agitator",
   "peter mathis": "petschki",
+  "peter seifert": "veritazx",
   "philip bauer": "pbauer",
   "philipp auersperg": "zworkb",
   "philipp von weitershausen": "philikon",
   "piero nicolli": "pnicolli",
-  "rafahela": "rafahela",
   "rafahela bazzanela": "rafahela",
   "rafahela bazzanella": "rafahela",
   "rafahela garcia bazzanella": "rafahela",
@@ -38910,8 +39188,10 @@
   "sally kleinfeldt": "skleinfeldt",
   "sam schwartz": "obct537",
   "sasha vincic": "vincic",
+  "sean kelly": "nutjob4life",
   "serg melikyan": "sergmelikyan",
   "sidnei da silva": "sidnei",
+  "silvio tomatis": "silviot",
   "simon eisenmann": "longsleep",
   "simone orsi": "simahawk",
   "stefan antonelli": "santonelli",
@@ -38925,6 +39205,7 @@
   "takanori suzuki": "takanory",
   "tarek ziade": "tarekziade",
   "teodor voicu": "tedw87",
+  "thomas kindermann": "thomaskindermann",
   "thomas massmann": "thomasmassmann",
   "thomas schorr": "tschorr",
   "tiberiu ichim": "tiberiuichim",
@@ -38965,7 +39246,7 @@
    "organisations": [
     {
      "name": "Eau de Web",
-     "points": 28.0,
+     "points": 29.0,
      "slug": "eau-de-web"
     },
     {
@@ -39095,7 +39376,7 @@
     },
     {
      "name": "PloneGov-BR",
-     "points": 4.0,
+     "points": 3.0,
      "slug": "plonegov-br"
     },
     {
@@ -39112,11 +39393,6 @@
      "name": "Rohberg",
      "points": 4.0,
      "slug": "rohberg"
-    },
-    {
-     "name": "Simples Consultoria",
-     "points": 3.0,
-     "slug": "simples-consultoria"
     },
     {
      "name": "Sixfeetup",
@@ -39164,11 +39440,6 @@
      "slug": "giallocobalto"
     },
     {
-     "name": "iMio",
-     "points": 1.0,
-     "slug": "imio"
-    },
-    {
      "name": "IRR",
      "points": 1.0,
      "slug": "irr"
@@ -39182,6 +39453,11 @@
      "name": "Onna",
      "points": 2.0,
      "slug": "onna"
+    },
+    {
+     "name": "Plone User's Group Japan",
+     "points": 1.0,
+     "slug": "plone-user-s-group-japan"
     },
     {
      "name": "Regione Emilia-Romagna",

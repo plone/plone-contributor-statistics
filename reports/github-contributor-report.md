@@ -1,6 +1,6 @@
 # Plone Core Contributor Statistics Report
 
-Generated on: 2026-10-19 20:16:22
+Generated on: 2026-10-19 21:34:24
 
 This report shows the top contributors and organizations in the Plone ecosystem across different time periods.
 
@@ -117,7 +117,7 @@ Not mapped to an organisation: 124 PRs, 266 commits by 39 contributors.
 | 9 | Codesyntax | 171 | 584 | 4 | 38 |
 | 10 | RedTurtle | 163 | 304 | 9 | 22 |
 
-Not mapped to an organisation: 367 PRs, 769 commits by 125 contributors.
+Not mapped to an organisation: 366 PRs, 767 commits by 124 contributors.
 
 
 ### Top 10 Organisation Contributors (Past 5 Years: 2021-2025)
@@ -135,7 +135,7 @@ Not mapped to an organisation: 367 PRs, 769 commits by 125 contributors.
 | 9 | RedTurtle | 311 | 656 | 9 | 30 |
 | 10 | Codesyntax | 289 | 782 | 4 | 48 |
 
-Not mapped to an organisation: 652 PRs, 1,801 commits by 186 contributors.
+Not mapped to an organisation: 651 PRs, 1,799 commits by 185 contributors.
 
 
 ### Top 10 Organisation Contributors (Past 10 Years: 2016-2025)
@@ -153,7 +153,7 @@ Not mapped to an organisation: 652 PRs, 1,801 commits by 186 contributors.
 | 9 | Eau de Web | 567 | 1,649 | 18 | 37 |
 | 10 | Starzel | 542 | 2,298 | 3 | 142 |
 
-Not mapped to an organisation: 2,009 PRs, 5,540 commits by 382 contributors.
+Not mapped to an organisation: 2,007 PRs, 5,521 commits by 380 contributors.
 
 
 ---
@@ -197,7 +197,7 @@ See [how contributions are counted](https://plone.github.io/plone-contributor-st
 | 9 | ONE/Northwest | 170 | 681 | 1 |
 | 10 | Four Digits | 166 | 1,286 | 3 |
 
-Not mapped to an organisation: 4,808 changelog entries, 10,152 commits.
+Not mapped to an organisation: 4,808 changelog entries, 10,135 commits.
 
 
 ---
