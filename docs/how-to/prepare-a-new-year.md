@@ -33,7 +33,15 @@ You need a GitHub personal access token, see {doc}`collect-data-again` for how t
     Map those you can support with a public record, as described in {doc}`correct-an-organisation-mapping`.
     Then regenerate as described in {doc}`regenerate-after-a-mapping-change`.
 
-4.  Run the tests and review the changed files:
+4.  List the people in the community data of the year whose name isn't linked to a GitHub login yet, with proposals from GitHub profile names:
+
+    ```shell
+    python -m scripts.tools.unmatched_names --since 2025 --propose
+    ```
+
+    Add the proposals you can confirm to `curated/mappings/mapping-github-username-to-fullname.csv`, see {doc}`/reference/mapping-files`, and run `make community-page` again.
+
+5.  Run the tests and review the changed files:
 
     ```shell
     make test
@@ -42,4 +50,4 @@ You need a GitHub personal access token, see {doc}`collect-data-again` for how t
 
     The summaries of the new year are new files, because their names contain the years they cover.
 
-5.  Commit the collected data, the derived data and the reports together, and open a pull request.
+6.  Commit the collected data, the derived data and the reports together, and open a pull request.

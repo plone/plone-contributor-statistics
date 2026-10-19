@@ -31,8 +31,8 @@ Unmapped people and self-employed people count.
 Entries in person columns that are groups, such as a team or an organisation, don't count as people; they count for their organisation.
 
 Code work identifies people by their GitHub login, but most community roles name a person without a login.
-A person is matched to their login where the data links the two: a login column, a link to the person's GitHub profile in the source, the commit author mapping, or the name mapping.
-A person without such a link counts by name, so someone who did both code and community work can be counted twice ([#117](https://github.com/plone/plone-contributor-statistics/issues/117)).
+A person is matched to their login where the data links the two: a login column, a link to the person's GitHub profile in the source of a row that names only them, the commit author mapping, or the name mapping in `curated/mappings/mapping-github-username-to-fullname.csv`, which links names to logins with public records.
+A person without such a link counts by name, so someone who did both code and community work without a recorded link can still be counted twice ([#117](https://github.com/plone/plone-contributor-statistics/issues/117)).
 
 ## Organisations active
 

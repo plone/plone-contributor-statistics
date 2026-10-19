@@ -156,11 +156,26 @@ Rules
 
 ## `curated/mappings/mapping-github-username-to-fullname.csv`
 
-Full names for some GitHub logins, used by hand when filling in curated data.
-No script reads it.
+Names of people in the curated community data, linked to their GitHub login.
+Community roles mostly name a person; this file lets the scripts count a person who did both code and community work once, see {doc}`/explanation/community-page`.
+`scripts/lib/people.py` reads it.
 
 Columns
-:   `github username`, `fullname`.
+:   `github username`, `fullname`, `source`.
+
+`fullname`
+:   The name as the community data spells it.
+    A person can have several rows, one per spelling, for example with and without a middle name.
+
+`source`
+:   The public record that links the name to the login, usually the GitHub profile, whose public name is the same.
+    A spelling that differs from the profile name needs a record that connects the two, such as the login itself or the same organisation.
+
+Rules
+:   The file is sorted by login.
+    Each name maps to one login.
+    `tests/test_person_names_format.py` checks the format.
+    `python -m scripts.tools.unmatched_names` lists the names in the community data without a login; with `--propose`, it proposes rows from exact matches with GitHub profile names, to check before adding them.
 
 ## Conventions for all CSV files
 

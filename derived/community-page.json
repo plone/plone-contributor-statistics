@@ -3,15 +3,15 @@
   "five_years": {
    "events": 59,
    "organisations": 89,
-   "people": 395
+   "people": 373
   },
   "since_2003": {
-   "people": 1049
+   "people": 978
   },
   "year": {
    "events": 9,
    "organisations": 53,
-   "people": 149
+   "people": 142
   }
  },
  "history": {
@@ -96,7 +96,7 @@
      ]
     }
    ],
-   "people_active": 48,
+   "people_active": 47,
    "pull_requests": null,
    "team_leads": []
   },
@@ -255,7 +255,7 @@
      ]
     }
    ],
-   "people_active": 56,
+   "people_active": 51,
    "pull_requests": null,
    "team_leads": [
     {
@@ -543,7 +543,7 @@
      ]
     }
    ],
-   "people_active": 76,
+   "people_active": 71,
    "pull_requests": null,
    "team_leads": [
     {
@@ -817,7 +817,7 @@
      ]
     }
    ],
-   "people_active": 75,
+   "people_active": 69,
    "pull_requests": null,
    "team_leads": [
     {
@@ -1167,7 +1167,7 @@
      ]
     }
    ],
-   "people_active": 93,
+   "people_active": 90,
    "pull_requests": null,
    "team_leads": [
     {
@@ -1751,7 +1751,7 @@
      ]
     }
    ],
-   "people_active": 100,
+   "people_active": 98,
    "pull_requests": null,
    "team_leads": [
     {
@@ -1963,7 +1963,7 @@
      ]
     }
    ],
-   "people_active": 123,
+   "people_active": 118,
    "pull_requests": null,
    "team_leads": [
     {
@@ -2169,7 +2169,7 @@
      ]
     }
    ],
-   "people_active": 144,
+   "people_active": 138,
    "pull_requests": 142,
    "team_leads": [
     {
@@ -2378,7 +2378,7 @@
      ]
     }
    ],
-   "people_active": 214,
+   "people_active": 206,
    "pull_requests": 414,
    "team_leads": [
     {
@@ -2663,7 +2663,7 @@
      ]
     }
    ],
-   "people_active": 261,
+   "people_active": 255,
    "pull_requests": 512,
    "team_leads": [
     {
@@ -2958,7 +2958,7 @@
      ]
     }
    ],
-   "people_active": 232,
+   "people_active": 224,
    "pull_requests": 807,
    "team_leads": [
     {
@@ -3138,7 +3138,7 @@
      ]
     }
    ],
-   "people_active": 205,
+   "people_active": 198,
    "pull_requests": 1602,
    "team_leads": [
     {
@@ -3431,7 +3431,7 @@
      ]
     }
    ],
-   "people_active": 171,
+   "people_active": 170,
    "pull_requests": 1758,
    "team_leads": [
     {
@@ -3623,7 +3623,7 @@
      ]
     }
    ],
-   "people_active": 162,
+   "people_active": 161,
    "pull_requests": 1676,
    "team_leads": [
     {
@@ -3836,7 +3836,7 @@
      ]
     }
    ],
-   "people_active": 165,
+   "people_active": 162,
    "pull_requests": 1695,
    "team_leads": [
     {
@@ -4091,7 +4091,7 @@
      ]
     }
    ],
-   "people_active": 152,
+   "people_active": 147,
    "pull_requests": 1623,
    "team_leads": [
     {
@@ -4307,7 +4307,7 @@
      ]
     }
    ],
-   "people_active": 152,
+   "people_active": 150,
    "pull_requests": 1688,
    "team_leads": [
     {
@@ -4566,7 +4566,7 @@
      ]
     }
    ],
-   "people_active": 160,
+   "people_active": 155,
    "pull_requests": 1630,
    "team_leads": [
     {
@@ -4975,7 +4975,7 @@
      ]
     }
    ],
-   "people_active": 160,
+   "people_active": 154,
    "pull_requests": 2227,
    "team_leads": [
     {
@@ -5227,7 +5227,7 @@
      ]
     }
    ],
-   "people_active": 176,
+   "people_active": 169,
    "pull_requests": 2205,
    "team_leads": [
     {
@@ -5463,7 +5463,7 @@
      ]
     }
    ],
-   "people_active": 141,
+   "people_active": 135,
    "pull_requests": 1748,
    "team_leads": [
     {
@@ -5677,7 +5677,7 @@
      ]
     }
    ],
-   "people_active": 149,
+   "people_active": 142,
    "pull_requests": 2107,
    "team_leads": [
     {
@@ -14420,14 +14420,6 @@
    },
    {
     "commits": 0,
-    "id": "name:alan runyan",
-    "pull_requests": 0,
-    "roles": [
-     "Conference organiser"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:alexander limi (sprint lead)",
     "pull_requests": 0,
     "roles": [
@@ -14520,7 +14512,9 @@
     "commits": 319,
     "id": "runyaga",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Conference organiser"
+    ]
    },
    {
     "commits": 384,
@@ -14603,7 +14597,9 @@
     "commits": 3,
     "id": "bbuehlmann",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Board"
+    ]
    },
    {
     "commits": 59,
@@ -14653,7 +14649,9 @@
     "commits": 81,
     "id": "geoff-davis",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Board"
+    ]
    },
    {
     "commits": 31,
@@ -14685,13 +14683,19 @@
     "commits": 9,
     "id": "jodok",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Sprint organiser",
+     "Team lead"
+    ]
    },
    {
     "commits": 14,
     "id": "joelburton",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Board",
+     "Team lead"
+    ]
    },
    {
     "commits": 14,
@@ -14742,23 +14746,6 @@
    },
    {
     "commits": 0,
-    "id": "name:alan runyan",
-    "pull_requests": 0,
-    "roles": [
-     "Board",
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:bernard buhlmann",
-    "pull_requests": 0,
-    "roles": [
-     "Board"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:bernhard buehlmann",
     "pull_requests": 0,
     "roles": [
@@ -14775,14 +14762,6 @@
    },
    {
     "commits": 0,
-    "id": "name:geoff davis",
-    "pull_requests": 0,
-    "roles": [
-     "Board"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:george donnely",
     "pull_requests": 0,
     "roles": [
@@ -14794,24 +14773,6 @@
     "id": "name:gregoire weber",
     "pull_requests": 0,
     "roles": []
-   },
-   {
-    "commits": 0,
-    "id": "name:jodok batlogg",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser",
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:joel burton",
-    "pull_requests": 0,
-    "roles": [
-     "Board",
-     "Team lead"
-    ]
    },
    {
     "commits": 0,
@@ -14901,7 +14862,10 @@
     "commits": 114,
     "id": "runyaga",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Board",
+     "Team lead"
+    ]
    },
    {
     "commits": 194,
@@ -15093,7 +15057,9 @@
     "commits": 27,
     "id": "geoff-davis",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Board"
+    ]
    },
    {
     "commits": 1,
@@ -15145,13 +15111,21 @@
     "commits": 10,
     "id": "jodok",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Board",
+     "Sprint organiser",
+     "Team lead"
+    ]
    },
    {
     "commits": 8,
     "id": "joelburton",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Board",
+     "Sprint organiser",
+     "Team lead"
+    ]
    },
    {
     "commits": 35,
@@ -15205,15 +15179,6 @@
    },
    {
     "commits": 0,
-    "id": "name:alan runyan",
-    "pull_requests": 0,
-    "roles": [
-     "Board",
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:andrew burkhalter",
     "pull_requests": 0,
     "roles": [
@@ -15230,26 +15195,10 @@
    },
    {
     "commits": 0,
-    "id": "name:christian heimes",
-    "pull_requests": 0,
-    "roles": [
-     "Board"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:danny",
     "pull_requests": 0,
     "roles": [
      "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:geoff davis",
-    "pull_requests": 0,
-    "roles": [
-     "Board"
     ]
    },
    {
@@ -15276,26 +15225,6 @@
    },
    {
     "commits": 0,
-    "id": "name:jodok batlogg",
-    "pull_requests": 0,
-    "roles": [
-     "Board",
-     "Sprint organiser",
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:joel burton",
-    "pull_requests": 0,
-    "roles": [
-     "Board",
-     "Sprint organiser",
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:marcel den hartog",
     "pull_requests": 0,
     "roles": [
@@ -15309,14 +15238,6 @@
     "roles": [
      "Board",
      "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:nate aune",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
     ]
    },
    {
@@ -15346,18 +15267,18 @@
     ]
    },
    {
-    "commits": 0,
-    "id": "name:tom 'spanky' kapanka",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
     "commits": 8,
     "id": "naro",
     "pull_requests": 0,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "natea",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 131,
@@ -15408,7 +15329,10 @@
     "commits": 5,
     "id": "runyaga",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Board",
+     "Team lead"
+    ]
    },
    {
     "commits": 200,
@@ -15421,6 +15345,14 @@
     "id": "siebo",
     "pull_requests": 0,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "spanktar",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 363,
@@ -15447,7 +15379,9 @@
     "commits": 406,
     "id": "tiran",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Board"
+    ]
    },
    {
     "commits": 5,
@@ -15528,7 +15462,9 @@
     "commits": 4,
     "id": "bcsaller",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Board"
+    ]
    },
    {
     "commits": 1,
@@ -15575,6 +15511,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "geoff-davis",
+    "pull_requests": 0,
+    "roles": [
+     "Board"
+    ]
+   },
+   {
     "commits": 3,
     "id": "gotcha",
     "pull_requests": 0,
@@ -15600,7 +15544,9 @@
     "commits": 157,
     "id": "jensens",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 18,
@@ -15624,13 +15570,29 @@
     "commits": 5,
     "id": "jodok",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Board",
+     "Sprint organiser",
+     "Team lead"
+    ]
    },
    {
     "commits": 3,
     "id": "joelburton",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Board",
+     "Sprint organiser",
+     "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "jonstahl",
+    "pull_requests": 0,
+    "roles": [
+     "Conference organiser"
+    ]
    },
    {
     "commits": 6,
@@ -15695,26 +15657,10 @@
    },
    {
     "commits": 0,
-    "id": "name:alan runyan",
-    "pull_requests": 0,
-    "roles": [
-     "Board"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:andrew burkhalter (contact)",
     "pull_requests": 0,
     "roles": [
      "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:ben saller",
-    "pull_requests": 0,
-    "roles": [
-     "Board"
     ]
    },
    {
@@ -15731,14 +15677,6 @@
     "pull_requests": 0,
     "roles": [
      "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:geoff davis",
-    "pull_requests": 0,
-    "roles": [
-     "Board"
     ]
    },
    {
@@ -15773,42 +15711,6 @@
    },
    {
     "commits": 0,
-    "id": "name:jens w. klein",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:jodok batlogg",
-    "pull_requests": 0,
-    "roles": [
-     "Board",
-     "Sprint organiser",
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:joel burton",
-    "pull_requests": 0,
-    "roles": [
-     "Board",
-     "Sprint organiser",
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:jon stahl",
-    "pull_requests": 0,
-    "roles": [
-     "Conference organiser"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:jonah bossewitch (page)",
     "pull_requests": 0,
     "roles": [
@@ -15829,14 +15731,6 @@
     "pull_requests": 0,
     "roles": [
      "Board"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:vincenzo di somma",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
     ]
    },
    {
@@ -15908,7 +15802,9 @@
     "commits": 1,
     "id": "runyaga",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Board"
+    ]
    },
    {
     "commits": 31,
@@ -15971,7 +15867,9 @@
     "commits": 5,
     "id": "vds",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 3,
@@ -16061,7 +15959,9 @@
     "commits": 22,
     "id": "baekholt",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Board"
+    ]
    },
    {
     "commits": 1,
@@ -16215,6 +16115,22 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "jodok",
+    "pull_requests": 0,
+    "roles": [
+     "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "joelburton",
+    "pull_requests": 0,
+    "roles": [
+     "Team lead"
+    ]
+   },
+   {
     "commits": 4,
     "id": "kapilt",
     "pull_requests": 0,
@@ -16248,7 +16164,9 @@
     "commits": 27,
     "id": "malthe",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 2,
@@ -16356,14 +16274,6 @@
    },
    {
     "commits": 0,
-    "id": "name:geir bækholt",
-    "pull_requests": 0,
-    "roles": [
-     "Board"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:jan ulrich hasecke (contact)",
     "pull_requests": 0,
     "roles": [
@@ -16388,30 +16298,6 @@
    },
    {
     "commits": 0,
-    "id": "name:jodok batlogg",
-    "pull_requests": 0,
-    "roles": [
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:joel burton",
-    "pull_requests": 0,
-    "roles": [
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:malthe borch",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:maria-anna lang (contact)",
     "pull_requests": 0,
     "roles": [
@@ -16420,28 +16306,9 @@
    },
    {
     "commits": 0,
-    "id": "name:nate aune",
-    "pull_requests": 0,
-    "roles": [
-     "Board",
-     "Sprint organiser",
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:rocky burt (sprint leaders)",
     "pull_requests": 0,
     "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:sasha vincic",
-    "pull_requests": 0,
-    "roles": [
-     "Board",
      "Sprint organiser"
     ]
    },
@@ -16462,18 +16329,20 @@
     ]
    },
    {
-    "commits": 0,
-    "id": "name:tom 'spanky' kapanka",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
     "commits": 24,
     "id": "naro",
     "pull_requests": 0,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "natea",
+    "pull_requests": 0,
+    "roles": [
+     "Board",
+     "Sprint organiser",
+     "Team lead"
+    ]
    },
    {
     "commits": 629,
@@ -16577,6 +16446,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "spanktar",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
     "commits": 79,
     "id": "stefanholek",
     "pull_requests": 0,
@@ -16606,7 +16483,10 @@
     "commits": 1,
     "id": "vincic",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Board",
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 5,
@@ -16677,6 +16557,14 @@
     "pull_requests": 0,
     "roles": [
      "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "baekholt",
+    "pull_requests": 0,
+    "roles": [
+     "Board"
     ]
    },
    {
@@ -16837,6 +16725,31 @@
    },
    {
     "commits": 0,
+    "id": "jodok",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "joelburton",
+    "pull_requests": 0,
+    "roles": [
+     "Board",
+     "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "jonstahl",
+    "pull_requests": 0,
+    "roles": [
+     "Board"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "kapilt",
     "pull_requests": 0,
     "roles": [
@@ -16981,43 +16894,10 @@
    },
    {
     "commits": 0,
-    "id": "name:geir bækholt",
-    "pull_requests": 0,
-    "roles": [
-     "Board"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:joanna springsteen",
     "pull_requests": 0,
     "roles": [
      "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:jodok batlogg",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:joel burton",
-    "pull_requests": 0,
-    "roles": [
-     "Board",
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:jon stahl",
-    "pull_requests": 0,
-    "roles": [
-     "Board"
     ]
    },
    {
@@ -17042,14 +16922,6 @@
     "pull_requests": 0,
     "roles": [
      "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:nate aune",
-    "pull_requests": 0,
-    "roles": [
-     "Board"
     ]
    },
    {
@@ -17086,14 +16958,6 @@
    },
    {
     "commits": 0,
-    "id": "name:vincenzo barone",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:vincenzo barone (contact)",
     "pull_requests": 0,
     "roles": [
@@ -17105,6 +16969,14 @@
     "id": "naro",
     "pull_requests": 0,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "natea",
+    "pull_requests": 0,
+    "roles": [
+     "Board"
+    ]
    },
    {
     "commits": 325,
@@ -17269,6 +17141,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "vbarone",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
     "commits": 1,
     "id": "vedaw",
     "pull_requests": 0,
@@ -17355,7 +17235,10 @@
     "commits": 81,
     "id": "baekholt",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Board",
+     "Team lead"
+    ]
    },
    {
     "commits": 1,
@@ -17552,7 +17435,9 @@
     "commits": 7,
     "id": "jonstahl",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Board"
+    ]
    },
    {
     "commits": 7,
@@ -17679,23 +17564,6 @@
    },
    {
     "commits": 0,
-    "id": "name:geir bækholt",
-    "pull_requests": 0,
-    "roles": [
-     "Board",
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:jon stahl",
-    "pull_requests": 0,
-    "roles": [
-     "Board"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:mark corum",
     "pull_requests": 0,
     "roles": [
@@ -17717,14 +17585,6 @@
     "pull_requests": 0,
     "roles": [
      "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:nate aune",
-    "pull_requests": 0,
-    "roles": [
-     "Board"
     ]
    },
    {
@@ -17756,6 +17616,14 @@
     "id": "naro",
     "pull_requests": 0,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "natea",
+    "pull_requests": 0,
+    "roles": [
+     "Board"
+    ]
    },
    {
     "commits": 615,
@@ -18007,7 +17875,9 @@
     "commits": 70,
     "id": "baekholt",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Board"
+    ]
    },
    {
     "commits": 4,
@@ -18028,6 +17898,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "calvinhp",
+    "pull_requests": 0,
+    "roles": [
+     "Board"
+    ]
+   },
+   {
     "commits": 11,
     "id": "cdw9",
     "pull_requests": 0,
@@ -18037,7 +17915,9 @@
     "commits": 18,
     "id": "chaoflow",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 1,
@@ -18073,7 +17953,9 @@
     "commits": 7,
     "id": "dbrenneman",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 2,
@@ -18227,7 +18109,9 @@
     "commits": 19,
     "id": "jonstahl",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Team lead"
+    ]
    },
    {
     "commits": 60,
@@ -18361,22 +18245,6 @@
    },
    {
     "commits": 0,
-    "id": "name:calvin hendryx-parker",
-    "pull_requests": 0,
-    "roles": [
-     "Board"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:david brenneman",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:duane raymond (contact)",
     "pull_requests": 0,
     "roles": [
@@ -18393,22 +18261,6 @@
    },
    {
     "commits": 0,
-    "id": "name:florian friesdorf",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:geir bækholt",
-    "pull_requests": 0,
-    "roles": [
-     "Board"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:heather wozniak (page)",
     "pull_requests": 0,
     "roles": [
@@ -18418,22 +18270,6 @@
    {
     "commits": 0,
     "id": "name:jan ulrich hasecke",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:jon stahl",
-    "pull_requests": 0,
-    "roles": [
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:joni orponen",
     "pull_requests": 0,
     "roles": [
      "Sprint organiser"
@@ -18467,14 +18303,6 @@
    },
    {
     "commits": 0,
-    "id": "name:nejc zupan",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:roberto allende",
     "pull_requests": 0,
     "roles": [
@@ -18487,14 +18315,6 @@
     "pull_requests": 0,
     "roles": [
      "Board"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:vilmos somogyi",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
     ]
    },
    {
@@ -18574,6 +18394,14 @@
     "id": "robgietema",
     "pull_requests": 0,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "rotonen",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 131,
@@ -18711,6 +18539,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "vsomogyi",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
     "commits": 87,
     "id": "wichert",
     "pull_requests": 0,
@@ -18740,7 +18576,9 @@
     "commits": 25,
     "id": "zupo",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    }
   ],
   "2011": [
@@ -18775,6 +18613,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "amleczko",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
     "commits": 4,
     "id": "asigottech",
     "pull_requests": 0,
@@ -18790,7 +18636,9 @@
     "commits": 12,
     "id": "baekholt",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Board"
+    ]
    },
    {
     "commits": 27,
@@ -18814,7 +18662,9 @@
     "commits": 2,
     "id": "calvinhp",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Board"
+    ]
    },
    {
     "commits": 7,
@@ -18934,7 +18784,9 @@
     "commits": 31,
     "id": "eleddy",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Conference organiser"
+    ]
    },
    {
     "commits": 32,
@@ -19037,6 +18889,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "gogobd",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
     "commits": 116,
     "id": "gotcha",
     "pull_requests": 4,
@@ -19082,7 +18942,9 @@
     "commits": 1,
     "id": "jcerjak",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 3,
@@ -19124,7 +18986,10 @@
     "commits": 19,
     "id": "jonstahl",
     "pull_requests": 2,
-    "roles": []
+    "roles": [
+     "Board",
+     "Team lead"
+    ]
    },
    {
     "commits": 50,
@@ -19267,6 +19132,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "miziodel",
+    "pull_requests": 0,
+    "roles": [
+     "Team lead"
+    ]
+   },
+   {
     "commits": 30,
     "id": "mjpieters",
     "pull_requests": 0,
@@ -19292,63 +19165,6 @@
    },
    {
     "commits": 0,
-    "id": "name:andrew mleczko",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:calvin hendryx-parker",
-    "pull_requests": 0,
-    "roles": [
-     "Board"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:elizabeth leddy",
-    "pull_requests": 0,
-    "roles": [
-     "Conference organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:geir bækholt",
-    "pull_requests": 0,
-    "roles": [
-     "Board"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:georg bernhard",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:jon stahl",
-    "pull_requests": 0,
-    "roles": [
-     "Board",
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:jure cerjak",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:mark corum",
     "pull_requests": 0,
     "roles": [
@@ -19362,22 +19178,6 @@
     "pull_requests": 0,
     "roles": [
      "Board",
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:maurizio delmonte",
-    "pull_requests": 0,
-    "roles": [
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:nejc zupan",
-    "pull_requests": 0,
-    "roles": [
      "Sprint organiser"
     ]
    },
@@ -19650,7 +19450,9 @@
     "commits": 13,
     "id": "zupo",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    }
   ],
   "2012": [
@@ -19694,7 +19496,9 @@
     "commits": 4,
     "id": "agnogueira",
     "pull_requests": 2,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 5,
@@ -19719,6 +19523,14 @@
     "id": "avelino",
     "pull_requests": 1,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "baekholt",
+    "pull_requests": 0,
+    "roles": [
+     "Board"
+    ]
    },
    {
     "commits": 4,
@@ -19754,13 +19566,23 @@
     "commits": 11,
     "id": "cah190",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 12,
     "id": "calvinhp",
     "pull_requests": 0,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "cbcunc",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 1,
@@ -19779,6 +19601,14 @@
     "id": "cguardia",
     "pull_requests": 1,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "chaoflow",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 0,
@@ -19832,7 +19662,9 @@
     "commits": 541,
     "id": "davisagli",
     "pull_requests": 8,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 0,
@@ -19880,7 +19712,10 @@
     "commits": 55,
     "id": "eleddy",
     "pull_requests": 2,
-    "roles": []
+    "roles": [
+     "Sprint organiser",
+     "Team lead"
+    ]
    },
    {
     "commits": 28,
@@ -20037,6 +19872,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "gogobd",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
     "commits": 75,
     "id": "gotcha",
     "pull_requests": 0,
@@ -20094,7 +19937,9 @@
     "commits": 62,
     "id": "hvelarde",
     "pull_requests": 7,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 13,
@@ -20328,7 +20173,9 @@
     "commits": 5,
     "id": "matthewwilkes",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Team lead"
+    ]
    },
    {
     "commits": 2,
@@ -20370,7 +20217,10 @@
     "commits": 1,
     "id": "miziodel",
     "pull_requests": 1,
-    "roles": []
+    "roles": [
+     "Board",
+     "Team lead"
+    ]
    },
    {
     "commits": 17,
@@ -20398,83 +20248,10 @@
    },
    {
     "commits": 0,
-    "id": "name:andre nogueira",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:carol ganz",
     "pull_requests": 0,
     "roles": [
      "Board"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:chris calloway",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:craig haynal",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:david glick",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:elizabeth leddy",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser",
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:florian friesdorf",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:geir bækholt",
-    "pull_requests": 0,
-    "roles": [
-     "Board"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:georg bernhard",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:hector velarde",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
     ]
    },
    {
@@ -20496,32 +20273,7 @@
    },
    {
     "commits": 0,
-    "id": "name:matthew wilkes",
-    "pull_requests": 0,
-    "roles": [
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:maurizio delmonte",
-    "pull_requests": 0,
-    "roles": [
-     "Board",
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:michael halm",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:nejc zupan",
     "pull_requests": 0,
     "roles": [
      "Sprint organiser"
@@ -20991,7 +20743,9 @@
     "commits": 204,
     "id": "zupo",
     "pull_requests": 3,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    }
   ],
   "2013": [
@@ -21376,7 +21130,10 @@
     "commits": 8,
     "id": "eleddy",
     "pull_requests": 5,
-    "roles": []
+    "roles": [
+     "Board",
+     "Team lead"
+    ]
    },
    {
     "commits": 2,
@@ -21476,7 +21233,9 @@
     "commits": 10,
     "id": "fulv",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 0,
@@ -21537,6 +21296,14 @@
     "id": "gil-cano",
     "pull_requests": 0,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "gogobd",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 4,
@@ -21614,7 +21381,9 @@
     "commits": 121,
     "id": "hvelarde",
     "pull_requests": 11,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 35,
@@ -21656,7 +21425,9 @@
     "commits": 3,
     "id": "jcbrand",
     "pull_requests": 1,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 1,
@@ -21877,6 +21648,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "martior",
+    "pull_requests": 0,
+    "roles": [
+     "Team lead"
+    ]
+   },
+   {
     "commits": 147,
     "id": "matejc",
     "pull_requests": 1,
@@ -21886,7 +21665,11 @@
     "commits": 33,
     "id": "matthewwilkes",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Board",
+     "Sprint organiser",
+     "Team lead"
+    ]
    },
    {
     "commits": 6,
@@ -21943,6 +21726,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "miziodel",
+    "pull_requests": 0,
+    "roles": [
+     "Team lead"
+    ]
+   },
+   {
     "commits": 1,
     "id": "moorepants",
     "pull_requests": 1,
@@ -21977,56 +21768,7 @@
    },
    {
     "commits": 0,
-    "id": "name:elizabeth leddy",
-    "pull_requests": 0,
-    "roles": [
-     "Board",
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:eric rozeboom",
-    "pull_requests": 0,
-    "roles": [
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:fulvio casali",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:georg bernhard",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:hector velarde",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:jc brand",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:martin opstad reistadbakk",
     "pull_requests": 0,
     "roles": [
      "Team lead"
@@ -22043,24 +21785,6 @@
    },
    {
     "commits": 0,
-    "id": "name:matthew wilkes",
-    "pull_requests": 0,
-    "roles": [
-     "Board",
-     "Sprint organiser",
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:maurizio delmonte",
-    "pull_requests": 0,
-    "roles": [
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:rosario savarese",
     "pull_requests": 0,
     "roles": [
@@ -22070,14 +21794,6 @@
    {
     "commits": 0,
     "id": "name:rose pruyne",
-    "pull_requests": 0,
-    "roles": [
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:vincent fretin",
     "pull_requests": 0,
     "roles": [
      "Team lead"
@@ -22553,7 +22269,9 @@
     "commits": 49,
     "id": "vincentfretin",
     "pull_requests": 1,
-    "roles": []
+    "roles": [
+     "Team lead"
+    ]
    },
    {
     "commits": 2,
@@ -22827,7 +22545,9 @@
     "commits": 27,
     "id": "cewing",
     "pull_requests": 1,
-    "roles": []
+    "roles": [
+     "Board"
+    ]
    },
    {
     "commits": 1,
@@ -22941,7 +22661,10 @@
     "commits": 16,
     "id": "djay",
     "pull_requests": 5,
-    "roles": []
+    "roles": [
+     "Sprint organiser",
+     "Team lead"
+    ]
    },
    {
     "commits": 6,
@@ -23253,7 +22976,9 @@
     "commits": 14,
     "id": "jcerjak",
     "pull_requests": 6,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 11,
@@ -23447,7 +23172,9 @@
     "commits": 12,
     "id": "martior",
     "pull_requests": 3,
-    "roles": []
+    "roles": [
+     "Team lead"
+    ]
    },
    {
     "commits": 1,
@@ -23519,23 +23246,6 @@
    },
    {
     "commits": 0,
-    "id": "name:cris ewing",
-    "pull_requests": 0,
-    "roles": [
-     "Board"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:dylan jay",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser",
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:gabrijel persin",
     "pull_requests": 0,
     "roles": [
@@ -23560,35 +23270,11 @@
    },
    {
     "commits": 0,
-    "id": "name:jure cerjak",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:martin opstad reistadbakk",
-    "pull_requests": 0,
-    "roles": [
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:matt hamilton",
     "pull_requests": 0,
     "roles": [
      "Conference organiser",
      "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:max jakob",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
     ]
    },
    {
@@ -23613,30 +23299,6 @@
     "pull_requests": 0,
     "roles": [
      "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:sven strack",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:tom \"spanky\" kapanka",
-    "pull_requests": 0,
-    "roles": [
-     "Board"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:vincent fretin",
-    "pull_requests": 0,
-    "roles": [
-     "Team lead"
     ]
    },
    {
@@ -23898,6 +23560,7 @@
     "id": "spanktar",
     "pull_requests": 0,
     "roles": [
+     "Board",
      "Team lead"
     ]
    },
@@ -23941,7 +23604,9 @@
     "commits": 414,
     "id": "svx",
     "pull_requests": 45,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 2,
@@ -24036,13 +23701,17 @@
     "commits": 37,
     "id": "vincentfretin",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Team lead"
+    ]
    },
    {
     "commits": 15,
     "id": "vincero",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 1,
@@ -24134,7 +23803,9 @@
     "commits": 3,
     "id": "alecghica",
     "pull_requests": 2,
-    "roles": []
+    "roles": [
+     "Conference organiser"
+    ]
    },
    {
     "commits": 17,
@@ -24177,6 +23848,14 @@
     "id": "benniboy",
     "pull_requests": 1,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "bledwell",
+    "pull_requests": 0,
+    "roles": [
+     "Team lead"
+    ]
    },
    {
     "commits": 259,
@@ -24244,7 +23923,9 @@
     "commits": 5,
     "id": "cewing",
     "pull_requests": 3,
-    "roles": []
+    "roles": [
+     "Board"
+    ]
    },
    {
     "commits": 2,
@@ -24790,13 +24471,17 @@
     "commits": 2,
     "id": "martior",
     "pull_requests": 1,
-    "roles": []
+    "roles": [
+     "Team lead"
+    ]
    },
    {
     "commits": 18,
     "id": "matthewwilkes",
     "pull_requests": 4,
-    "roles": []
+    "roles": [
+     "Team lead"
+    ]
    },
    {
     "commits": 1325,
@@ -24830,6 +24515,14 @@
    },
    {
     "commits": 0,
+    "id": "miziodel",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "mrcrilly",
     "pull_requests": 1,
     "roles": []
@@ -24845,22 +24538,6 @@
     "id": "msom",
     "pull_requests": 1,
     "roles": []
-   },
-   {
-    "commits": 0,
-    "id": "name:alec ghica",
-    "pull_requests": 0,
-    "roles": [
-     "Conference organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:brian ledwell",
-    "pull_requests": 0,
-    "roles": [
-     "Team lead"
-    ]
    },
    {
     "commits": 0,
@@ -24888,14 +24565,6 @@
    },
    {
     "commits": 0,
-    "id": "name:cris ewing",
-    "pull_requests": 0,
-    "roles": [
-     "Board"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:jennifer myers",
     "pull_requests": 0,
     "roles": [
@@ -24904,66 +24573,10 @@
    },
    {
     "commits": 0,
-    "id": "name:manabu terada",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:martin opstad reistadbakk",
-    "pull_requests": 0,
-    "roles": [
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:matthew wilkes",
-    "pull_requests": 0,
-    "roles": [
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:maurizio delmonte",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:max jakob",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:rosario savarese",
     "pull_requests": 0,
     "roles": [
      "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:sven strack",
-    "pull_requests": 0,
-    "roles": [
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:vincent fretin",
-    "pull_requests": 0,
-    "roles": [
-     "Team lead"
     ]
    },
    {
@@ -25208,7 +24821,9 @@
     "commits": 313,
     "id": "svx",
     "pull_requests": 66,
-    "roles": []
+    "roles": [
+     "Team lead"
+    ]
    },
    {
     "commits": 4,
@@ -25232,7 +24847,9 @@
     "commits": 9,
     "id": "terapyon",
     "pull_requests": 6,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 463,
@@ -25311,7 +24928,17 @@
     "commits": 126,
     "id": "vincentfretin",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "vincero",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 4,
@@ -25446,6 +25073,14 @@
     "id": "bhaveshgohel",
     "pull_requests": 0,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "bledwell",
+    "pull_requests": 0,
+    "roles": [
+     "Team lead"
+    ]
    },
    {
     "commits": 581,
@@ -25710,6 +25345,14 @@
     "id": "ghost",
     "pull_requests": 2,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "gogobd",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 4,
@@ -25999,6 +25642,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "miziodel",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
     "commits": 7,
     "id": "mpeeters",
     "pull_requests": 3,
@@ -26017,14 +25668,6 @@
     "id": "msom",
     "pull_requests": 3,
     "roles": []
-   },
-   {
-    "commits": 0,
-    "id": "name:brian ledwell",
-    "pull_requests": 0,
-    "roles": [
-     "Team lead"
-    ]
    },
    {
     "commits": 0,
@@ -26058,14 +25701,6 @@
    },
    {
     "commits": 0,
-    "id": "name:georg bernhard",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:gil forcada",
     "pull_requests": 0,
     "roles": [
@@ -26082,31 +25717,7 @@
    },
    {
     "commits": 0,
-    "id": "name:maurizio delmonte",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:nejc zupan",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:rosario savarese",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:sven strack",
     "pull_requests": 0,
     "roles": [
      "Sprint organiser"
@@ -26331,7 +25942,9 @@
     "commits": 266,
     "id": "svx",
     "pull_requests": 70,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 8,
@@ -26438,6 +26051,14 @@
     "id": "zmijunkie",
     "pull_requests": 1,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "zupo",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
    }
   ],
   "2017": [
@@ -26668,7 +26289,9 @@
     "commits": 188,
     "id": "ebrehault",
     "pull_requests": 8,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 2,
@@ -27068,14 +26691,6 @@
     "id": "name:diederik veeze",
     "pull_requests": 0,
     "roles": []
-   },
-   {
-    "commits": 0,
-    "id": "name:eric brehault",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
    },
    {
     "commits": 0,
@@ -28049,53 +27664,10 @@
    },
    {
     "commits": 0,
-    "id": "name:manabu terada",
-    "pull_requests": 0,
-    "roles": [
-     "Conference organiser",
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:ramon navarro",
     "pull_requests": 0,
     "roles": [
      "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:sven strack",
-    "pull_requests": 0,
-    "roles": [
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:takanori suzuki",
-    "pull_requests": 0,
-    "roles": [
-     "Conference organiser",
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:takeshi yamamoto",
-    "pull_requests": 0,
-    "roles": [
-     "Conference organiser",
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:vincent fretin",
-    "pull_requests": 0,
-    "roles": [
-     "Team lead"
     ]
    },
    {
@@ -28221,6 +27793,15 @@
     "id": "reinhardt",
     "pull_requests": 22,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "retsu",
+    "pull_requests": 0,
+    "roles": [
+     "Conference organiser",
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 0,
@@ -28351,7 +27932,18 @@
     "commits": 154,
     "id": "svx",
     "pull_requests": 13,
-    "roles": []
+    "roles": [
+     "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "takanory",
+    "pull_requests": 0,
+    "roles": [
+     "Conference organiser",
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 22,
@@ -28363,7 +27955,10 @@
     "commits": 3,
     "id": "terapyon",
     "pull_requests": 4,
-    "roles": []
+    "roles": [
+     "Conference organiser",
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 144,
@@ -28467,7 +28062,9 @@
     "commits": 13,
     "id": "vincentfretin",
     "pull_requests": 1,
-    "roles": []
+    "roles": [
+     "Team lead"
+    ]
    },
    {
     "commits": 8,
@@ -28705,7 +28302,9 @@
     "commits": 74,
     "id": "ebrehault",
     "pull_requests": 38,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 5,
@@ -28777,7 +28376,9 @@
     "commits": 19,
     "id": "fulv",
     "pull_requests": 11,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 4,
@@ -29050,50 +28651,10 @@
    },
    {
     "commits": 0,
-    "id": "name:eric brehault",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:fulvio casali",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:jennifer myers",
     "pull_requests": 0,
     "roles": [
      "Board"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:kim nguyen",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:sally kleinfeldt",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:sven strack",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
     ]
    },
    {
@@ -29297,7 +28858,9 @@
     "commits": 3,
     "id": "skleinfeldt",
     "pull_requests": 1,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 4,
@@ -29355,7 +28918,9 @@
     "commits": 171,
     "id": "svx",
     "pull_requests": 18,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 2,
@@ -29762,7 +29327,9 @@
     "commits": 43,
     "id": "fulv",
     "pull_requests": 11,
-    "roles": []
+    "roles": [
+     "Board"
+    ]
    },
    {
     "commits": 3,
@@ -30065,14 +29632,6 @@
    },
    {
     "commits": 0,
-    "id": "name:fulvio casali",
-    "pull_requests": 0,
-    "roles": [
-     "Board"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:jennifer myers",
     "pull_requests": 0,
     "roles": [
@@ -30081,26 +29640,10 @@
    },
    {
     "commits": 0,
-    "id": "name:kim nguyen",
-    "pull_requests": 0,
-    "roles": [
-     "Podcast"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:plone-team tud",
     "pull_requests": 0,
     "roles": [
      "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:rob porter",
-    "pull_requests": 0,
-    "roles": [
-     "Team lead"
     ]
    },
    {
@@ -30244,6 +29787,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "robzonenet",
+    "pull_requests": 0,
+    "roles": [
+     "Team lead"
+    ]
+   },
+   {
     "commits": 6,
     "id": "rodfersou",
     "pull_requests": 4,
@@ -30385,6 +29936,7 @@
     "id": "tkimnguyen",
     "pull_requests": 19,
     "roles": [
+     "Podcast",
      "Team lead"
     ]
    },
@@ -30685,7 +30237,9 @@
     "commits": 27,
     "id": "ebrehault",
     "pull_requests": 27,
-    "roles": []
+    "roles": [
+     "Team lead"
+    ]
    },
    {
     "commits": 303,
@@ -30961,6 +30515,7 @@
     "id": "loechel",
     "pull_requests": 3,
     "roles": [
+     "Talk",
      "Team lead"
     ]
    },
@@ -31070,14 +30625,6 @@
    },
    {
     "commits": 0,
-    "id": "name:eric brehault",
-    "pull_requests": 0,
-    "roles": [
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:jennifer myers",
     "pull_requests": 0,
     "roles": [
@@ -31094,41 +30641,7 @@
    },
    {
     "commits": 0,
-    "id": "name:kim nguyen",
-    "pull_requests": 0,
-    "roles": [
-     "Podcast"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:lain wilson",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:loechel",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:sally kleinfeldt",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser",
-     "Talk",
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:sean kelly",
     "pull_requests": 0,
     "roles": [
      "Talk"
@@ -31144,26 +30657,10 @@
    },
    {
     "commits": 0,
-    "id": "name:sven strack",
-    "pull_requests": 0,
-    "roles": [
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:tom elliot",
     "pull_requests": 0,
     "roles": [
      "Talk"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:william fennie",
-    "pull_requests": 0,
-    "roles": [
-     "Board"
     ]
    },
    {
@@ -31184,6 +30681,14 @@
     "commits": 59,
     "id": "nileshgulia1",
     "pull_requests": 20,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "nutjob4life",
+    "pull_requests": 0,
     "roles": [
      "Talk"
     ]
@@ -31355,6 +30860,16 @@
    },
    {
     "commits": 0,
+    "id": "skleinfeldt",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser",
+     "Talk",
+     "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "smcmahon",
     "pull_requests": 1,
     "roles": []
@@ -31389,7 +30904,9 @@
     "commits": 10,
     "id": "svx",
     "pull_requests": 5,
-    "roles": []
+    "roles": [
+     "Team lead"
+    ]
    },
    {
     "commits": 8,
@@ -31450,6 +30967,7 @@
     "id": "tkimnguyen",
     "pull_requests": 7,
     "roles": [
+     "Podcast",
      "Talk",
      "Team lead"
     ]
@@ -31506,7 +31024,9 @@
     "commits": 1,
     "id": "wfennie",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Board"
+    ]
    },
    {
     "commits": 3,
@@ -31608,7 +31128,9 @@
     "commits": 46,
     "id": "avoinea",
     "pull_requests": 10,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 5,
@@ -31724,7 +31246,9 @@
     "commits": 3,
     "id": "ebrehault",
     "pull_requests": 4,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 635,
@@ -31994,6 +31518,7 @@
     "id": "loechel",
     "pull_requests": 2,
     "roles": [
+     "Talk",
      "Team lead"
     ]
    },
@@ -32002,6 +31527,14 @@
     "id": "luispalomo",
     "pull_requests": 1,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "luxcas",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 20,
@@ -32121,14 +31654,6 @@
    },
    {
     "commits": 0,
-    "id": "name:alin voinea",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:beth smith",
     "pull_requests": 0,
     "roles": [
@@ -32137,90 +31662,10 @@
    },
    {
     "commits": 0,
-    "id": "name:datakurre",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:eric brehault",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:ionut dobricean",
     "pull_requests": 0,
     "roles": [
      "Talk"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:kim nguyen",
-    "pull_requests": 0,
-    "roles": [
-     "Podcast"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:loechel",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:lucas aquino",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:rafahela",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:rafahela bazzanela",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:sally kleinfeldt",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:sean kelly",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:william fennie",
-    "pull_requests": 0,
-    "roles": [
-     "Board"
     ]
    },
    {
@@ -32240,6 +31685,14 @@
     "id": "nileshgulia1",
     "pull_requests": 11,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "nutjob4life",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 7,
@@ -32294,6 +31747,15 @@
     "pull_requests": 3,
     "roles": [
      "Board"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "rafahela",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser",
+     "Talk"
     ]
    },
    {
@@ -32417,6 +31879,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "skleinfeldt",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
     "commits": 1626,
     "id": "sneridagh",
     "pull_requests": 329,
@@ -32537,6 +32007,7 @@
     "id": "tkimnguyen",
     "pull_requests": 4,
     "roles": [
+     "Podcast",
      "Talk",
      "Team lead",
      "Trainer"
@@ -32577,6 +32048,14 @@
     "id": "wesleybl",
     "pull_requests": 30,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "wfennie",
+    "pull_requests": 0,
+    "roles": [
+     "Board"
+    ]
    },
    {
     "commits": 20,
@@ -32788,7 +32267,9 @@
     "commits": 192,
     "id": "davisagli",
     "pull_requests": 98,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 16,
@@ -32812,7 +32293,9 @@
     "commits": 5,
     "id": "ebrehault",
     "pull_requests": 4,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 1,
@@ -32900,7 +32383,9 @@
     "commits": 21,
     "id": "gogobd",
     "pull_requests": 6,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 2,
@@ -33002,6 +32487,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "jean",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
     "commits": 9,
     "id": "jeffersonbledsoe",
     "pull_requests": 4,
@@ -33020,7 +32513,9 @@
     "commits": 2,
     "id": "jhgouveia",
     "pull_requests": 1,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 209,
@@ -33083,6 +32578,14 @@
     "id": "libargutxi",
     "pull_requests": 16,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "limi",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 1,
@@ -33204,6 +32707,15 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "mpeeters",
+    "pull_requests": 0,
+    "roles": [
+     "Board",
+     "Talk"
+    ]
+   },
+   {
     "commits": 41,
     "id": "mpellerin42",
     "pull_requests": 41,
@@ -33223,14 +32735,6 @@
    },
    {
     "commits": 0,
-    "id": "name:alex limi",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:beth smith",
     "pull_requests": 0,
     "roles": [
@@ -33247,66 +32751,9 @@
    },
    {
     "commits": 0,
-    "id": "name:david glick",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:eric brehault",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:gogo",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:jean jordaan",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:joao henrique gouveia",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:kim nguyen",
-    "pull_requests": 0,
-    "roles": [
-     "Podcast"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:luciano ramalho",
     "pull_requests": 0,
     "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:martin peeters",
-    "pull_requests": 0,
-    "roles": [
-     "Board",
      "Talk"
     ]
    },
@@ -33320,42 +32767,10 @@
    },
    {
     "commits": 0,
-    "id": "name:robert niederreiter",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:sally kleinfeldt",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:stefano marchetti",
     "pull_requests": 0,
     "roles": [
      "Talk"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:teodor voicu",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:william fennie",
-    "pull_requests": 0,
-    "roles": [
-     "Board"
     ]
    },
    {
@@ -33521,7 +32936,9 @@
     "commits": 5,
     "id": "rnixx",
     "pull_requests": 3,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 49,
@@ -33564,6 +32981,14 @@
     "id": "shibbu264",
     "pull_requests": 1,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "skleinfeldt",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 880,
@@ -33625,7 +33050,9 @@
     "commits": 8,
     "id": "tedw87",
     "pull_requests": 4,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 130,
@@ -33661,6 +33088,7 @@
     "pull_requests": 0,
     "roles": [
      "Board",
+     "Podcast",
      "Talk",
      "Team lead",
      "Trainer"
@@ -33719,6 +33147,14 @@
     "id": "wesleybl",
     "pull_requests": 11,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "wfennie",
+    "pull_requests": 0,
+    "roles": [
+     "Board"
+    ]
    },
    {
     "commits": 0,
@@ -33862,7 +33298,9 @@
     "commits": 6,
     "id": "avoinea",
     "pull_requests": 2,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 7,
@@ -33896,7 +33334,9 @@
     "commits": 269,
     "id": "davisagli",
     "pull_requests": 92,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 1,
@@ -33920,7 +33360,10 @@
     "commits": 3,
     "id": "ebrehault",
     "pull_requests": 2,
-    "roles": []
+    "roles": [
+     "Board",
+     "Talk"
+    ]
    },
    {
     "commits": 260,
@@ -34021,6 +33464,15 @@
     "id": "gianniftp",
     "pull_requests": 1,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "gil-cano",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser",
+     "Talk"
+    ]
    },
    {
     "commits": 62,
@@ -34217,6 +33669,15 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "mpeeters",
+    "pull_requests": 0,
+    "roles": [
+     "Board",
+     "Talk"
+    ]
+   },
+   {
     "commits": 36,
     "id": "mpellerin42",
     "pull_requests": 36,
@@ -34242,14 +33703,6 @@
     "pull_requests": 0,
     "roles": [
      "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:alin voinea",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
     ]
    },
    {
@@ -34294,48 +33747,7 @@
    },
    {
     "commits": 0,
-    "id": "name:david glick",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:dobricean ioan dorian",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:eric brehault",
-    "pull_requests": 0,
-    "roles": [
-     "Board",
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:gil bautista",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:gildardo bautista",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:kim nguyen",
     "pull_requests": 0,
     "roles": [
      "Talk"
@@ -34351,40 +33763,7 @@
    },
    {
     "commits": 0,
-    "id": "name:martin peeters",
-    "pull_requests": 0,
-    "roles": [
-     "Board",
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:rafahela bazzanella",
-    "pull_requests": 0,
-    "roles": [
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:sally kleinfeldt",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:tamara eßer",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:teodor voicu",
     "pull_requests": 0,
     "roles": [
      "Talk"
@@ -34477,6 +33856,14 @@
     "id": "pulkitxm",
     "pull_requests": 2,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "rafahela",
+    "pull_requests": 0,
+    "roles": [
+     "Team lead"
+    ]
    },
    {
     "commits": 2,
@@ -34578,6 +33965,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "skleinfeldt",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
     "commits": 1001,
     "id": "sneridagh",
     "pull_requests": 284,
@@ -34626,7 +34021,9 @@
     "commits": 7,
     "id": "tedw87",
     "pull_requests": 7,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 37,
@@ -34661,6 +34058,7 @@
     "id": "tkimnguyen",
     "pull_requests": 6,
     "roles": [
+     "Talk",
      "Team lead",
      "Trainer"
     ]
@@ -34759,6 +34157,14 @@
     "id": "ale-rt",
     "pull_requests": 29,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "alecghica",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 8,
@@ -34871,7 +34277,9 @@
     "commits": 355,
     "id": "davisagli",
     "pull_requests": 110,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 4,
@@ -34895,7 +34303,10 @@
     "commits": 2,
     "id": "ebrehault",
     "pull_requests": 2,
-    "roles": []
+    "roles": [
+     "Board",
+     "Talk"
+    ]
    },
    {
     "commits": 200,
@@ -34972,7 +34383,9 @@
     "commits": 3,
     "id": "gil-cano",
     "pull_requests": 3,
-    "roles": []
+    "roles": [
+     "Sprint organiser"
+    ]
    },
    {
     "commits": 11,
@@ -35017,7 +34430,9 @@
     "commits": 5,
     "id": "ichim-david",
     "pull_requests": 3,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 12,
@@ -35061,6 +34476,15 @@
     "pull_requests": 5,
     "roles": [
      "Sprint organiser",
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "jhgouveia",
+    "pull_requests": 0,
+    "roles": [
+     "Board",
      "Talk"
     ]
    },
@@ -35154,6 +34578,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "mpeeters",
+    "pull_requests": 0,
+    "roles": [
+     "Board"
+    ]
+   },
+   {
     "commits": 10,
     "id": "mpellerin42",
     "pull_requests": 10,
@@ -35170,14 +34602,6 @@
    {
     "commits": 0,
     "id": "name:adriana ramirez vigueras",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:alec ghica",
     "pull_requests": 0,
     "roles": [
      "Sprint organiser"
@@ -35226,22 +34650,6 @@
    },
    {
     "commits": 0,
-    "id": "name:david glick",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:david ichim",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:dobricean ionut",
     "pull_requests": 0,
     "roles": [
@@ -35258,15 +34666,6 @@
    },
    {
     "commits": 0,
-    "id": "name:eric brehault",
-    "pull_requests": 0,
-    "roles": [
-     "Board",
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:erika cavallo",
     "pull_requests": 0,
     "roles": [
@@ -35275,26 +34674,9 @@
    },
    {
     "commits": 0,
-    "id": "name:gil bautista",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:giulia nieddu",
     "pull_requests": 0,
     "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:joao henrique gouveia",
-    "pull_requests": 0,
-    "roles": [
-     "Board",
      "Talk"
     ]
    },
@@ -35312,14 +34694,6 @@
     "pull_requests": 0,
     "roles": [
      "Talk"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:martin peeters",
-    "pull_requests": 0,
-    "roles": [
-     "Board"
     ]
    },
    {
@@ -35356,30 +34730,6 @@
    },
    {
     "commits": 0,
-    "id": "name:rafahela bazzanella",
-    "pull_requests": 0,
-    "roles": [
-     "Team lead"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:rafahela garcia bazzanella",
-    "pull_requests": 0,
-    "roles": [
-     "Board"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:robert niederreiter",
-    "pull_requests": 0,
-    "roles": [
-     "Sprint organiser"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:simone carletti",
     "pull_requests": 0,
     "roles": [
@@ -35396,23 +34746,7 @@
    },
    {
     "commits": 0,
-    "id": "name:teodor voicu",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:tiziana flamminj",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:ujjwal kala",
     "pull_requests": 0,
     "roles": [
      "Talk"
@@ -35522,6 +34856,15 @@
    },
    {
     "commits": 0,
+    "id": "rafahela",
+    "pull_requests": 0,
+    "roles": [
+     "Board",
+     "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "rber474",
     "pull_requests": 1,
     "roles": []
@@ -35545,6 +34888,14 @@
     "roles": [
      "Sprint organiser",
      "Talk"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "rnixx",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
     ]
    },
    {
@@ -35639,7 +34990,9 @@
     "commits": 1,
     "id": "tedw87",
     "pull_requests": 3,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 0,
@@ -35711,7 +35064,9 @@
     "commits": 47,
     "id": "ujsquared",
     "pull_requests": 7,
-    "roles": []
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 1,
@@ -35759,45 +35114,96 @@
  },
  "people_names": {
   "alan hoey": "evilbungle",
+  "alan runyan": "runyaga",
+  "alec ghica": "alecghica",
   "alec mitchell": "alecpm",
   "alessandro pisa": "ale-rt",
   "alex clark": "aclark4life",
+  "alex limi": "limi",
   "alexander limi": "limi",
   "alexander loechel": "loechel",
   "alexander pilz": "pilz",
+  "alin voinea": "avoinea",
   "alok kumar": "iflameing",
+  "andre nogueira": "agnogueira",
+  "andrew mleczko": "amleczko",
   "andy leeb": "ableeb",
   "andy mckay": "andymckay",
   "asko soukka": "datakurre",
   "astrid beyers": "astridjuizi",
+  "ben saller": "bcsaller",
+  "bernard buhlmann": "bbuehlmann",
+  "brian ledwell": "bledwell",
+  "calvin hendryx-parker": "calvinhp",
+  "chris calloway": "cbcunc",
   "chrissy wainwright": "cdw9",
+  "christian heimes": "tiran",
   "claudia ifrim": "claudiaifrim",
+  "craig haynal": "cah190",
+  "cris ewing": "cewing",
   "dante alvarez": "danalvrz",
+  "datakurre": "datakurre",
   "david bain": "pigeonflight",
+  "david brenneman": "dbrenneman",
+  "david glick": "davisagli",
+  "david ichim": "ichim-david",
   "dorneles tremea": "dorneles",
+  "dylan jay": "djay",
+  "elizabeth leddy": "eleddy",
+  "eric brehault": "ebrehault",
   "eric steele": "esteele",
   "erico andrei": "ericof",
+  "florian friesdorf": "chaoflow",
   "fred van dijk": "fredvd",
+  "fulvio casali": "fulv",
+  "geir bækholt": "baekholt",
+  "geoff davis": "geoff-davis",
+  "georg bernhard": "gogobd",
+  "gil bautista": "gil-cano",
+  "gildardo bautista": "gil-cano",
   "godefroid chapelle": "gotcha",
+  "gogo": "gogobd",
   "guido stevens": "gyst",
   "hanno schlichting": "hannosch",
+  "hector velarde": "hvelarde",
   "jakob kahl": "jackahl",
+  "jc brand": "jcbrand",
+  "jean jordaan": "jean",
   "jens klein": "jensens",
   "jens vagelpohl": "dataflake",
+  "jens w. klein": "jensens",
+  "joao henrique gouveia": "jhgouveia",
+  "jodok batlogg": "jodok",
+  "joel burton": "joelburton",
   "johannes raggam": "thet",
+  "jon stahl": "jonstahl",
+  "joni orponen": "rotonen",
   "jordi masip": "masipcat",
   "juan pablo gimenez": "jpgimenez",
+  "jure cerjak": "jcerjak",
   "kapil thangavelu": "kapilt",
   "karel calitz": "aboycalledhero",
   "katja suss": "ksuess",
+  "kim nguyen": "tkimnguyen",
   "kim paulissen": "spereverde",
+  "loechel": "loechel",
+  "lucas aquino": "luxcas",
   "maik derstappen": "mrtango",
   "maik derstappen (contact)": "mrtango",
+  "malthe borch": "malthe",
+  "manabu terada": "terapyon",
   "martin aspeli": "optilude",
+  "martin opstad reistadbakk": "martior",
+  "martin peeters": "mpeeters",
+  "matthew wilkes": "matthewwilkes",
   "maurits van rees": "mauritsvanrees",
+  "maurizio delmonte": "miziodel",
+  "max jakob": "vincero",
   "michael howitz": "icemac",
   "mikel larreategi": "erral",
+  "nate aune": "natea",
   "nathan van gheem": "vangheem",
+  "nejc zupan": "zupo",
   "nil bacardit": "nilbacardit26",
   "nilesh gulia": "nileshgulia1",
   "paul everitt": "pauleveritt",
@@ -35806,10 +35212,19 @@
   "peter mathis": "petschki",
   "philip bauer": "pbauer",
   "piero nicolli": "pnicolli",
+  "rafahela": "rafahela",
+  "rafahela bazzanela": "rafahela",
+  "rafahela bazzanella": "rafahela",
+  "rafahela garcia bazzanella": "rafahela",
   "ramon navarro bosch": "bloodbare",
   "rikupekka oksanen": "rioksane",
+  "rob porter": "robzonenet",
+  "robert niederreiter": "rnixx",
   "roger boixader guell": "rboixaderg",
   "rohit kumar": "irohitsingh",
+  "sally kleinfeldt": "skleinfeldt",
+  "sasha vincic": "vincic",
+  "sean kelly": "nutjob4life",
   "sidnei da silva": "sidnei",
   "simon eisenmann": "longsleep",
   "stefan antonelli": "santonelli",
@@ -35817,15 +35232,27 @@
   "steve mcmahon": "smcmahon",
   "steve mcmahon (page)": "smcmahon",
   "steve piercy": "stevepiercy",
+  "sven strack": "svx",
   "t. kim nguyen": "tkimnguyen",
+  "takanori suzuki": "takanory",
+  "takeshi yamamoto": "retsu",
   "tarek ziade": "tarekziade",
+  "teodor voicu": "tedw87",
   "tiberiu ichim": "tiberiuichim",
   "timo stollenwerk": "tisto",
   "tisha soumya": "tishasoumya-02",
+  "tom \"spanky\" kapanka": "spanktar",
+  "tom 'spanky' kapanka": "spanktar",
   "tom kapanka": "spanktar",
+  "ujjwal kala": "ujsquared",
   "victor fernandez de alba": "sneridagh",
+  "vilmos somogyi": "vsomogyi",
+  "vincent fretin": "vincentfretin",
+  "vincenzo barone": "vbarone",
+  "vincenzo di somma": "vds",
   "whit morriss": "whitmo",
-  "wichert akkerman": "wichert"
+  "wichert akkerman": "wichert",
+  "william fennie": "wfennie"
  },
  "wall": [
   {
