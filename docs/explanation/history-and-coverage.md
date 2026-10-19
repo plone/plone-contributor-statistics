@@ -35,7 +35,7 @@ GitHub links a commit to an account by the author's email address.
 The Subversion migration had no file that mapped Subversion users to email addresses.
 Their commits carry addresses like `name@localhost`, which no GitHub account has.
 
-`curated/mappings/commit_authors.csv` names the people behind these addresses, where a source says who they are.
+Identities of the kind `email` in `curated/mappings/identities.csv` name the people behind these addresses, where a source says who they are.
 Sources are the same name in commits that are linked to an account, the nicknames in the [credits of Plone 2.0](https://github.com/plone/Products.CMFPlone/blob/2.0/CREDITS.txt), account profiles, and confirmations by people who were there.
 People without a GitHub account are counted under their name ([#77](https://github.com/plone/plone-contributor-statistics/pull/77)).
 
@@ -78,9 +78,9 @@ Many records lack a date or the names of the implementers, and the Trac list is 
 
 ## Organisations in the early years
 
-The {doc}`organisation mapping <attribution>` records where people work today, with exceptions for past years.
-For the years before 2010, few of these past affiliations are known with a source ([#70](https://github.com/plone/plone-contributor-statistics/issues/70)).
-Organisation statistics of the early years therefore show today's organisations of the people, unless an override says otherwise.
+The {doc}`affiliations <attribution>` record where people worked, and for which years.
+For the years before 2010, few affiliations are known with a source ([#70](https://github.com/plone/plone-contributor-statistics/issues/70)).
+The commits and pull requests of a person in a year that no affiliation covers are Unmapped, so the early years show many Unmapped contributors.
 
 The email addresses in commits from the Subversion period don't help here.
 The conversion to Git assigned them, not the developers at the time of the commit.
@@ -103,7 +103,7 @@ Where no source supports an entry, it stays out, and the data misses that part o
 The people best placed to fill the gaps are the ones the data describes, and those who worked with them.
 Their knowledge turns an unknown address into a person, and a guess about an employer into a fact with a source.
 {doc}`/how-to/find-a-contributor` shows how to look someone up.
-{doc}`/how-to/link-old-commits-to-a-person` and {doc}`/how-to/correct-an-organisation-mapping` show how to send a correction.
+{doc}`/how-to/link-old-commits-to-a-person` and {doc}`/how-to/add-an-affiliation` show how to send a correction.
 Comments in [#69](https://github.com/plone/plone-contributor-statistics/issues/69), about who is behind an address, and in [#70](https://github.com/plone/plone-contributor-statistics/issues/70), about organisations in the early years, help just as much.
 
 ## What this means for comparisons

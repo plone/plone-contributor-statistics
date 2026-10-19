@@ -31,20 +31,22 @@ You need a GitHub personal access token, see {doc}`collect-data-again` for how t
     make analyze-independent
     ```
 
-    Map those you can support with a public record, as described in {doc}`correct-an-organisation-mapping`.
+    Add an affiliation for those you can support with a public record, as described in {doc}`add-an-affiliation`.
     Then regenerate as described in {doc}`regenerate-after-a-mapping-change`.
 
-4.  List the people in the community data of the year whose name isn't linked to a GitHub login yet, with proposals from GitHub profile names:
+4.  List the people of the register without a GitHub login who appear as a login, with proposals from GitHub profile names:
 
     ```shell
-    python -m scripts.tools.unmatched_names --since 2025 --propose
+    python -m scripts.tools.unmatched_names --propose
     ```
 
-    Add the proposals you can confirm to `curated/mappings/mapping-github-username-to-fullname.csv`, see {doc}`/reference/mapping-files`, and run `make community-page` again.
+    The tool prints rows for `curated/mappings/identities.csv`.
+    Add the proposals you can confirm, see {doc}`link-old-commits-to-a-person`, and run `make community-page` again.
 
-5.  Run the tests and review the changed files:
+5.  Validate the curated files, run the tests and review the changed files:
 
     ```shell
+    make check
     make test
     git status
     ```

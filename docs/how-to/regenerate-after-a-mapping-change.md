@@ -2,7 +2,7 @@
 
 # Regenerate the statistics after a mapping change
 
-This guide shows you how to update the organisation statistics and reports after a change to the mapping files.
+This guide shows you how to update the organisation statistics and reports after a change to the registers.
 You don't need a GitHub token, because nothing is collected from GitHub again.
 
 1.  Install the dependencies, if you haven't yet:
@@ -11,7 +11,7 @@ You don't need a GitHub token, because nothing is collected from GitHub again.
     make install
     ```
 
-    A change to `curated/mappings/changelog_names.csv` needs `make run-changelogs` first, because the changelog collector maps the names, as the commit collector does with `curated/mappings/commit_authors.csv`.
+    A change to the identities in `curated/mappings/identities.csv` needs `make run-changelogs` first, because the changelog collector maps the names, as the commit collector does with the email addresses.
 
 2.  Regenerate the organisation statistics of all years:
 

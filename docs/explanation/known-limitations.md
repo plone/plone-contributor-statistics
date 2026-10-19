@@ -9,12 +9,13 @@ Most of them have an open issue, and each fix will update this page.
 ## Coverage
 
 Commits of unidentified authors don't count
-:   Commits whose author email neither GitHub nor `curated/mappings/commit_authors.csv` links to a person are left out.
+:   Commits whose author email neither GitHub nor an identity in `curated/mappings/identities.csv` links to a person are left out.
     This hits the CVS and Subversion years hardest ([#69](https://github.com/plone/plone-contributor-statistics/issues/69)).
     Early years may undercount people, especially the early core developers.
 
-People without a GitHub account have no organisation
-:   People counted under their name can't be listed in `curated/mappings/organisations.csv`, which holds GitHub logins, so they are Unmapped.
+People without an affiliation are Unmapped
+:   A person has an organisation only in the years that an affiliation row covers.
+    People without any row, among them many people without a GitHub account, are Unmapped.
 
 Duplicates are recognized by date and message
 :   Two different commits in one repository with the same author date and message would count as one.
@@ -33,7 +34,7 @@ Organisations of the early years are mostly unknown
     The email addresses of the Subversion period don't help, because the conversion to Git assigned them ({doc}`history-and-coverage`).
 
 Changelog names without a mapping
-:   Many early changelog entries are signed with a nickname, such as `alecm` or `timo`, that no mapping file links to a person yet.
+:   Many early changelog entries are signed with a nickname, such as `alecm` or `timo`, that no identity links to a person yet.
     They count under the name as written and belong to no organisation, so one person can appear twice, under a nickname and under a login ([#71](https://github.com/plone/plone-contributor-statistics/issues/71)).
     {doc}`/how-to/link-old-commits-to-a-person` shows how to link a name.
 
@@ -79,7 +80,7 @@ Multi-year summaries split people who moved
 :   A person who changed organisations appears under each organisation, for the years they were there.
 
 Login lookup is case-sensitive
-:   A login with the wrong case in `curated/mappings/organisations.csv` leaves its owner Unmapped.
+:   A login with the wrong case in `curated/mappings/people.csv` leaves its owner Unmapped.
 
 ## Parts with a different method
 

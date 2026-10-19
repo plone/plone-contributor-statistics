@@ -80,7 +80,7 @@ History:
 - The collector had read only the default branch, so most of the early years of `Products.CMFPlone` were missing.
   Commits are now read from local clones, including the history that exists only on old release branches ([#75](https://github.com/plone/plone-contributor-statistics/pull/75)).
 - Many commit addresses from the Subversion years, and old company addresses, belonged to no GitHub account, so their commits were left out.
-  `curated/mappings/commit_authors.csv` now names the people behind them, each with a source, and `curated/mappings/account_aliases.csv` merges second accounts ([#77](https://github.com/plone/plone-contributor-statistics/pull/77)).
+  A mapping file now named the people behind them, each with a source, and another merged second accounts ([#77](https://github.com/plone/plone-contributor-statistics/pull/77)).
 - Commits that existed twice had been counted twice: the automatic `[fc]` copies in `buildout.coredev`, rebased branches that were merged as well, and history imported twice.
   Each change now counts once ([#79](https://github.com/plone/plone-contributor-statistics/pull/79)).
 
@@ -95,6 +95,9 @@ Tooling:
   Dead and experimental scripts moved to `archive/`, and a missing input file now stops a run instead of being skipped ([#101](https://github.com/plone/plone-contributor-statistics/pull/101), [#105](https://github.com/plone/plone-contributor-statistics/pull/105), [#106](https://github.com/plone/plone-contributor-statistics/pull/106)).
   The method and the numbers didn't change.
 - The separate Volto statistics and report moved to `archive/volto-statistics/`: Volto is counted with all other repositories, and views per project are an open question ([#108](https://github.com/plone/plone-contributor-statistics/issues/108)).
+- The hand-edited data was restructured into registers of people, identities, affiliations and organisations with opaque ids, a Table Schema for every curated file, and checks.
+  The community files refer to people by id, and the organisation of a person comes from the affiliations only.
+  Affiliations have no default: a year that no row covers is Unmapped ([#139](https://github.com/plone/plone-contributor-statistics/issues/139)).
 
 ## Which files are comparable
 

@@ -12,13 +12,13 @@ GitHub links a commit to the account whose email address is the commit's author 
 The collector does the same: it reads the commits from local clones and asks the GitHub GraphQL API which account each new email address belongs to.
 
 Many old addresses belong to no account today: Subversion users like `name@localhost`, or company addresses that people no longer use.
-For these, `curated/mappings/commit_authors.csv` names the person behind the address, each entry with a source ([#77](https://github.com/plone/plone-contributor-statistics/pull/77)).
-A person with a GitHub account is counted under their login, a person without one under their name.
-Commits whose address is neither linked by GitHub nor listed in the file are left out, because there is no way to tell who made them.
+For these, an identity of the kind `email` in `curated/mappings/identities.csv` names the person behind the address, each with a source ([#77](https://github.com/plone/plone-contributor-statistics/pull/77)).
+A person with a GitHub account is counted under their login, a person without one as `person:<id>`.
+Commits whose address is neither linked by GitHub nor an identity are left out, because there is no way to tell who made them.
 {doc}`history-and-coverage` explains why this matters most for the early years.
 
 Some people have a second GitHub account that GitHub links to an old address.
-`curated/mappings/account_aliases.csv` counts such an account for the person's main account, for commits and pull requests.
+An identity of the kind `login` counts such an account for the person's main account, for commits and pull requests.
 
 A commit counts for the year of its committer date.
 The committer date is when the commit was added to the history, the author date is when the change was first written.
@@ -73,8 +73,14 @@ A backport whose text was edited counts twice, in line with the rule that a back
 An entry with several names counts in full for each person, as joint work does elsewhere in the statistics.
 Names that are no person, such as `[plone devs]`, placeholders such as "Nothing changed yet", and bots don't count.
 
-The names are mapped to people with the mapping files, see {doc}`attribution` and {doc}`/reference/mapping-files`.
-A name that no file maps counts as written, like a person without a GitHub account, and belongs to no organisation.
+The names are mapped to people with the identities, see {doc}`attribution` and {ref}`reference-curated-files`.
+One register replaces the four files that earlier mapped names, addresses and second accounts.
+A name maps through the layers named in the `matched_by` column: `identity` for a name, an address, a login or a second account that the registers know, `login` for a login with commits or pull requests, and `bot` for a bot, which is left out.
+A name that nothing maps counts as written, as `unmatched`, and belongs to no organisation.
+
+Names of one word, such as the nicknames of the Subversion years, match as well, if the registers list them as an identity of the kind `name`.
+The policy for short names governs them: a short name that several people may have used, such as a first name, is added only when the records show that one person used it in the changelogs.
+Two rules stay in the collector and are not identities: a name that equals a login with commits, and the part before the `@` of a Subversion address.
 
 ## Changelog entries are shown, not added
 

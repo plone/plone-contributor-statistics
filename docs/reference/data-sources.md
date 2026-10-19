@@ -11,7 +11,7 @@ See {doc}`/explanation/scope` for why these sources were chosen, and {doc}`/expl
 
 | Source | Origin | Years covered | Script | Output | Make target |
 |---|---|---|---|---|---|
-| Commits | Local bare clones of all repositories of the `plone` GitHub organisation, accounts linked through the GitHub GraphQL API and `curated/mappings/commit_authors.csv` | 2003–2025 | `scripts/collect/plone_contributors.py`, `scripts/lib/git_history.py` | `collected/contributors/YYYY-plone-contributors.csv` | `make run-stats-all-years`, `make run-stats` |
+| Commits | Local bare clones of all repositories of the `plone` GitHub organisation, accounts linked through the GitHub GraphQL API and the identities in `curated/mappings/identities.csv` | 2003–2025 | `scripts/collect/plone_contributors.py`, `scripts/lib/git_history.py` | `collected/contributors/YYYY-plone-contributors.csv` | `make run-stats-all-years`, `make run-stats` |
 | Merged pull requests | GitHub REST API, pull requests of all repositories of the `plone` organisation | 2003–2025 | `scripts/collect/plone_contributors.py` | `collected/contributors/YYYY-plone-contributors.csv` | `make run-stats-all-years`, `make run-stats` |
 | Pull request interactions | GitHub GraphQL API, with the REST API for long threads and code review comments | 2010–2025 | `scripts/collect/plone_pr_interactions.py` | `collected/pr-interactions/YYYY-plone-pr-interactions.csv`, `reports/pr-interactions/github-pr-interactions-report-YYYY.md` | `make pr-interactions-all-years`, `make pr-interactions` |
 | Changelog entries | The changelog files at the tips of the default branch and the release branches of all repositories of the `plone` organisation, in the same local clones as the commits | 2002–2025 | `scripts/collect/plone_changelogs.py`, `scripts/lib/changelogs.py`, `scripts/lib/git_history.py` | `collected/changelogs/YYYY-plone-changelog-entries.csv` | `make run-changelogs` |
@@ -38,9 +38,9 @@ The curated community data is in `curated/community-contributions/`, one file pe
 
 | Data | Inputs | Script | Output | Make target |
 |---|---|---|---|---|
-| Organisation statistics per year | contributor and changelog files, {doc}`mapping files </reference/mapping-files>` | `scripts/derive/organisation_stats.py` | `derived/organisation-contributors/YYYY-plone-organisation-contributors.csv` | `make run-organisation-stats`, `make run-organisation-stats-year` |
+| Organisation statistics per year | contributor and changelog files, the {doc}`registers </reference/mapping-files>` | `scripts/derive/organisation_stats.py` | `derived/organisation-contributors/YYYY-plone-organisation-contributors.csv` | `make run-organisation-stats`, `make run-organisation-stats-year` |
 | Multi-year summaries | organisation and contributor files | `scripts/derive/multi_year_summary.py` | `derived/summaries/summary-past-*-years-*.csv`, `reports/summaries/STATISTICS-PAST-*-YEARS.txt` | `make three-year-summary`, `make five-year-summary`, `make ten-year-summary` |
 | Contributor report | contributor, changelog and organisation files | `scripts/report/generate_contributor_report.py` | `reports/github-contributor-report.md` | `make generate-report` |
-| PLIPs per organisation | `collected/plips/plone-plips-detailed.csv`, mapping files | `scripts/derive/plip_organisation_stats.py` | `derived/plone-plip-organisations.csv` | `make run-plip-organisations` |
+| PLIPs per organisation | `collected/plips/plone-plips-detailed.csv`, the registers | `scripts/derive/plip_organisation_stats.py` | `derived/plone-plip-organisations.csv` | `make run-plip-organisations` |
 | Community recognition | curated files, yearly organisation files, PLIP files, recognition files | `scripts/report/generate_community_recognition_report.py` | `reports/community-recognition.md`, `derived/community-recognition/YYYY-community-recognition-report.csv` | `make community-recognition` |
 | Yearly activity and graphs | contributor and organisation files | `scripts/derive/yearly_activity_analysis.py`, `scripts/report/generate_yearly_graphs.py` | `derived/yearly-activity-statistics.csv`, `reports/graphs/` | `make yearly-activity`, `make yearly-graphs` |
