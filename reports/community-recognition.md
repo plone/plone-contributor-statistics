@@ -1,12 +1,12 @@
 # Plone Community Recognition Program 2025
 
-*Generated: 2026-10-19 21:34:25*
+*Generated: 2026-10-19 21:48:03*
 
 ## Executive Summary
 
-- **Total Organizations**: 46
-- **Total Points Awarded**: 555.0
-- **Average Points per Organization**: 12.1
+- **Total Organizations**: 47
+- **Total Points Awarded**: 556.0
+- **Average Points per Organization**: 11.8
 
 ## Recognition Levels
 
@@ -16,7 +16,7 @@
 | Gold Contributor | 25-34 | 4 |
 | Silver Contributor | 10-24 | 13 |
 | Bronze Contributor | 3-9 | 12 |
-| Community Contributor | 1-2 | 15 |
+| Community Contributor | 1-2 | 16 |
 
 ## Recognition Categories
 
@@ -101,6 +101,7 @@
 | 44 | Regione Emilia-Romagna | Community Contributor | 1.0 |
 | 45 | Università di Macerata | Community Contributor | 1.0 |
 | 46 | eCityclic | Community Contributor | 1.0 |
+| 47 | iMio | Community Contributor | 1.0 |
 
 ## Code Contribution Highlights
 
@@ -568,6 +569,14 @@
 |----------|-------:|:--------|
 | WPD Talk | 1.0 | • Construyendo una Intranet en Plone 6 / Building an Intranet with Plone 6 |
 
+### iMio
+
+**Total Points: 1.0**
+
+| Category | Points | Details |
+|----------|-------:|:--------|
+| WPD Talk | 1.0 | • Love Story: When Designers Meet GitHub Actions |
+
 ## Statistics by Category
 
 | Category | Organizations | Total Points Awarded |
@@ -578,7 +587,7 @@
 | Board Member | 7 | 48.0 |
 | Podcast Host | 1 | 6.0 |
 | WPD Event | 2 | 6.0 |
-| WPD Talk | 24 | 38.0 |
+| WPD Talk | 25 | 39.0 |
 | Conference Organization | 1 | 24.0 |
 | Training Session | 7 | 36.0 |
 | PR Contributions | 20 | 190.0 |
