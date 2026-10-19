@@ -1,11 +1,11 @@
 # Plone Community Recognition Program 2025
 
-*Generated: 2026-10-19 01:25:17*
+*Generated: 2026-10-19 12:29:56*
 
 ## Executive Summary
 
 - **Total Organizations**: 48
-- **Total Points Awarded**: 554.0
+- **Total Points Awarded**: 551.0
 - **Average Points per Organization**: 11.5
 
 ## Recognition Levels
@@ -15,8 +15,8 @@
 | Platinum Contributor | 35+ | 2 |
 | Gold Contributor | 25-34 | 4 |
 | Silver Contributor | 10-24 | 13 |
-| Bronze Contributor | 3-9 | 12 |
-| Community Contributor | 1-2 | 17 |
+| Bronze Contributor | 3-9 | 13 |
+| Community Contributor | 1-2 | 16 |
 
 ## Recognition Categories
 
@@ -62,10 +62,10 @@
 | 5 | Eau de Web | Gold Contributor | 28.0 |
 | 6 | PY76 | Gold Contributor | 25.0 |
 | 7 | Codesyntax | Silver Contributor | 24.0 |
-| 8 | Interlegis Program (Senado Federal) | Silver Contributor | 24.0 |
-| 9 | Zest Software | Silver Contributor | 23.0 |
-| 10 | der Freitag | Silver Contributor | 23.0 |
-| 11 | Kombinat | Silver Contributor | 22.0 |
+| 8 | Zest Software | Silver Contributor | 23.0 |
+| 9 | der Freitag | Silver Contributor | 23.0 |
+| 10 | Kombinat | Silver Contributor | 22.0 |
+| 11 | Interlegis Program (Senado Federal) | Silver Contributor | 21.0 |
 | 12 | Klein & Partner KG | Silver Contributor | 20.0 |
 | 13 | Starzel | Silver Contributor | 17.0 |
 | 14 | Juizi | Silver Contributor | 16.0 |
@@ -78,18 +78,18 @@
 | 21 | Cosent | Bronze Contributor | 7.0 |
 | 22 | Affinitic | Bronze Contributor | 6.0 |
 | 23 | Derico | Bronze Contributor | 6.0 |
-| 24 | Simples Consultoria | Bronze Contributor | 6.0 |
+| 24 | PloneGov-BR | Bronze Contributor | 5.0 |
 | 25 | KU Leuven | Bronze Contributor | 4.0 |
 | 26 | Rohberg | Bronze Contributor | 4.0 |
 | 27 | Markus Hilbert (independent) | Bronze Contributor | 3.0 |
 | 28 | Plone Foundation | Bronze Contributor | 3.0 |
 | 29 | Pretaweb | Bronze Contributor | 3.0 |
 | 30 | Rob Gietema (independent) | Bronze Contributor | 3.0 |
-| 31 | Sixfeetup | Bronze Contributor | 3.0 |
-| 32 | CCC | Community Contributor | 2.0 |
-| 33 | Iskra | Community Contributor | 2.0 |
-| 34 | Onna | Community Contributor | 2.0 |
-| 35 | PloneGov-BR | Community Contributor | 2.0 |
+| 31 | Simples Consultoria | Bronze Contributor | 3.0 |
+| 32 | Sixfeetup | Bronze Contributor | 3.0 |
+| 33 | CCC | Community Contributor | 2.0 |
+| 34 | Iskra | Community Contributor | 2.0 |
+| 35 | Onna | Community Contributor | 2.0 |
 | 36 | Uni. Hospital Dresden | Community Contributor | 2.0 |
 | 37 | AUSL Romagna | Community Contributor | 1.0 |
 | 38 | BOSS | Community Contributor | 1.0 |
@@ -175,7 +175,7 @@
 |----------|-------:|:--------|
 | Strategic Sprint | 12.0 | • Salamina Sprint 2025 |
 | Team Leader | 6.0 | • Piero Nicolli (Volto Team) |
-| WPD Event | 3.0 | • Organized WPD Event |
+| WPD Event | 3.0 | • Organized WPD Event in Bologna, Italy |
 | WPD Talk | 2.0 | • Plone & PWA: il caso Lignano Sabbiadoro - WPD2025 Italia<br>• AUSL Ferrara - uno dei primi siti conformi al modello ASL di Designers Italia - WPD 2025 Italia |
 | Training Session | 2.0 | • Plone Seven: Fundamentals |
 | PR Contributions | 10.0 | • Core Member (62.2 PRs/year) |
@@ -234,17 +234,6 @@
 | WPD Talk | 2.0 | • Deploy Cookieplone Based Projects With GitLab CI/CD<br>• Volto Bootstrap Theme |
 | PR Contributions | 10.0 | • Core Member (57.8 PRs/year) |
 
-### Interlegis Program (Senado Federal)
-
-**Total Points: 24.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| Team Leader | 6.0 | • Rafahela Bazzanella (Membership Committee) |
-| Board Member | 12.0 | • Rafahela Garcia Bazzanella<br>• João Henrique Gouveia |
-| WPD Event | 3.0 | • Organized WPD Event |
-| WPD Talk | 3.0 | • World Plone Day: Brasília; Brazil<br>• Event Opening<br>• PloneGov-BR Community |
-
 ### Zest Software
 
 **Total Points: 23.0**
@@ -271,6 +260,16 @@
 |----------|-------:|:--------|
 | Team Leader | 2.0 | • Peter Mathis (Classic UI Team) |
 | PR Contributions | 20.0 | • Lead (130.6 PRs/year) |
+
+### Interlegis Program (Senado Federal)
+
+**Total Points: 21.0**
+
+| Category | Points | Details |
+|----------|-------:|:--------|
+| Team Leader | 6.0 | • Rafahela Bazzanella (Membership Committee) |
+| Board Member | 12.0 | • Rafahela Garcia Bazzanella<br>• João Henrique Gouveia |
+| WPD Talk | 3.0 | • World Plone Day: Brasília; Brazil<br>• Event Opening<br>• PloneGov-BR Community |
 
 ### Klein & Partner KG
 
@@ -385,14 +384,14 @@
 | Team Leader | 2.0 | • Maik Derstappen (Classic UI Team) |
 | PR Contributions | 4.0 | • Active Member (23.0 PRs/year) |
 
-### Simples Consultoria
+### PloneGov-BR
 
-**Total Points: 6.0**
+**Total Points: 5.0**
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| WPD Event | 3.0 | • Organized WPD Event |
-| WPD Talk | 3.0 | • Mão na Massa: Começando um projeto com Plone 6.1<br>• Plone Distributions; the right way<br>• Bucharest Sprint Updates |
+| WPD Event | 3.0 | • Organized WPD Event in Brasília, Brazil |
+| WPD Talk | 2.0 | • World Plone Day: Brasília; Brazil<br>• PortalBrasil Project |
 
 ### KU Leuven
 
@@ -442,6 +441,14 @@
 |----------|-------:|:--------|
 | PLIP Contributions | 3.0 | • Occasional PLIP Contributor (2 PLIPs) |
 
+### Simples Consultoria
+
+**Total Points: 3.0**
+
+| Category | Points | Details |
+|----------|-------:|:--------|
+| WPD Talk | 3.0 | • Mão na Massa: Começando um projeto com Plone 6.1<br>• Plone Distributions; the right way<br>• Bucharest Sprint Updates |
+
 ### Sixfeetup
 
 **Total Points: 3.0**
@@ -473,14 +480,6 @@
 | Category | Points | Details |
 |----------|-------:|:--------|
 | PR Contributions | 2.0 | • Team Member (15.8 PRs/year) |
-
-### PloneGov-BR
-
-**Total Points: 2.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| WPD Talk | 2.0 | • World Plone Day: Brasília; Brazil<br>• PortalBrasil Project |
 
 ### Uni. Hospital Dresden
 
@@ -595,7 +594,7 @@
 | Team Leader | 11 | 54.0 |
 | Board Member | 6 | 42.0 |
 | Podcast Host | 0 | 0.0 |
-| WPD Event | 3 | 9.0 |
+| WPD Event | 2 | 6.0 |
 | WPD Talk | 27 | 46.0 |
 | Conference Organization | 1 | 24.0 |
 | Training Session | 7 | 36.0 |

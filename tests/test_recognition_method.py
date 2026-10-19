@@ -56,8 +56,19 @@ def test_strategic_sprint_points_are_split_and_given_once_per_year(data):
 
 
 def test_world_plone_day_event_points_are_split(data):
-    community(data, 'world-plone-day-event', 'Organisation,Reference\nRedTurtle;kitconcept GmbH,https://plone.org\n')
+    community(data, 'world-plone-day-event', 'Date,Location,Format,Organisation,Source,Notes\n'
+                                             '2025-04-10,Bologna,in person,RedTurtle;kitconcept GmbH,https://plone.org,\n')
     assert points(data)['RedTurtle']['WPD Event'] == 1.5
+
+
+def test_only_world_plone_day_events_held_in_person_count(data):
+    # Online editions are recorded, but only events held in person or hybrid get points (#118)
+    community(data, 'world-plone-day-event', 'Date,Location,Format,Organisation,Source,Notes\n'
+                                             '2025-04-10,Online,online,RedTurtle,https://plone.org,\n'
+                                             '2025-04-10,Tokyo,hybrid,kitconcept GmbH,https://plone.org,\n')
+    result = points(data)
+    assert 'RedTurtle' not in result
+    assert result['kitconcept GmbH']['WPD Event'] == 3
 
 
 def test_a_training_gives_four_points_split_among_trainers(data):
