@@ -215,3 +215,26 @@ def test_contributions_match_points(data):
     for org, categories in points(data).items():
         for category, value in categories.items():
             assert sum(c.points for c in found[org][category]) == pytest.approx(value), (org, category)
+
+
+def test_only_world_plone_day_talks_count_as_talks(data):
+    # Streams, openings and podcast episodes are not talks (#119)
+    community(data, 'world-plone-day-talks', 'Video Title,Speaker(s),Organisation,Event / Location,Type,YouTube ID\n'
+                                             'A talk,Mauro,RedTurtle,Online,Talk,a\n'
+                                             'Newsroom,Philip Bauer,Starzel,Online,Newsroom,b\n'
+                                             'Stream,,RedTurtle,Bologna,Full stream,c\n')
+    result = points(data)
+    assert result['RedTurtle']['WPD Talk'] == 1
+    assert 'Starzel' not in result
+
+
+def test_a_podcast_counts_with_five_episodes_split_among_its_hosts(data):
+    community(data, 'podcasts', 'Series,Host,Organisation,Episodes,Source\n'
+                                'The Plone Newsroom,Philip Bauer,Starzel,5,https://n\n'
+                                'The Plone Newsroom,Fred van Dijk,kitconcept GmbH,5,https://n\n'
+                                'The Plone Podcast,T. Kim Nguyen,Sixfeetup,4,https://p\n'
+                                'Plone Ask Me Anything,Astrid Beyers,Juizi,8,https://a\n')
+    result = points(data)
+    assert result['Starzel']['Podcast Host'] == 3
+    assert result['Juizi']['Podcast Host'] == 6
+    assert 'Sixfeetup' not in result  # four episodes are not enough

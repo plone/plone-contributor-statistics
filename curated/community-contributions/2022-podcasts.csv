@@ -1,4 +1,7 @@
-Name,Organisation
-Philip Bauer,Starzel
-Fred van Dijk,Zest Software
-Kim Nguyen,Sixfeetup
+Series,Host,Organisation,Episodes,Source
+Mão na Massa,,PloneGov-BR,3,episodes: https://www.youtube.com/watch?v=mrGZQsndiFQ https://www.youtube.com/watch?v=UPDnzYTdZLM https://www.youtube.com/watch?v=E799Q2TmXY4
+The Plone Newsroom,Philip Bauer,Starzel,8,https://plone.org/news-and-events/plone-newsroom; episodes: https://www.youtube.com/watch?v=X4KdPndbUso https://www.youtube.com/watch?v=1ND68gu56rQ https://www.youtube.com/watch?v=54ne9S-BeNo https://www.youtube.com/watch?v=-ZUQ-9DSVf4 https://www.youtube.com/watch?v=Xp5NWFxmMW4 https://www.youtube.com/watch?v=PVarYOrQ64g https://www.youtube.com/watch?v=UCztXyZtvFY https://www.youtube.com/watch?v=8NXpy7va_zU; organisation from the organisation mapping: https://github.com/pbauer
+The Plone Newsroom,Fred van Dijk,Zest Software,8,https://plone.org/news-and-events/plone-newsroom; episodes: https://www.youtube.com/watch?v=X4KdPndbUso https://www.youtube.com/watch?v=1ND68gu56rQ https://www.youtube.com/watch?v=54ne9S-BeNo https://www.youtube.com/watch?v=-ZUQ-9DSVf4 https://www.youtube.com/watch?v=Xp5NWFxmMW4 https://www.youtube.com/watch?v=PVarYOrQ64g https://www.youtube.com/watch?v=UCztXyZtvFY https://www.youtube.com/watch?v=8NXpy7va_zU; organisation from the organisation mapping: https://github.com/plone/plone-contributor-statistics/commit/7ed781ae5418187b00a591d00d5f3080c9bea065
+The Plone Podcast,T. Kim Nguyen,Sixfeetup,5,https://www.youtube.com/playlist?list=PLt4L3V8wVnF6YaLFggRM0sGif22avkfc6; episodes: https://www.youtube.com/watch?v=zBburVmj_I4 https://www.youtube.com/watch?v=6KN-KcQ48pg https://www.youtube.com/watch?v=nzDni5qBwFI https://www.youtube.com/watch?v=MdCXSPDtmq8 https://www.youtube.com/watch?v=41UGAHwKaX0; organisation from the organisation mapping: https://2019.ploneconf.org/people/t-kim-nguyen
+Weekly Volto Live,Víctor Fernández de Alba,kitconcept GmbH,1,episodes: https://www.youtube.com/watch?v=WT6OjkSrB20; organisation from the organisation mapping: https://github.com/sneridagh
+Weekly Volto Live,Asko Soukka,University of Jyväskylä,1,episodes: https://www.youtube.com/watch?v=WT6OjkSrB20; organisation from the organisation mapping: https://github.com/datakurre

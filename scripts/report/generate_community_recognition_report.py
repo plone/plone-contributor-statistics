@@ -26,6 +26,10 @@ from scripts.derive.plip_organisation_stats import organisation_lookup, plips_by
 UNMAPPED = 'Unmapped'
 
 # The recognition year: community work of this year, code of the five years up to it
+# Only these World Plone Day videos are talks (#119)
+TALK_TYPES = ('Talk',)
+# A podcast or live series counts with at least this many episodes in the year
+MIN_EPISODES = 5
 # World Plone Day events count when they were held in person (#118)
 IN_PERSON = ('in person', 'hybrid')
 YEAR = RECOGNITION_YEAR
@@ -247,21 +251,23 @@ def calculate_community_recognition_points(year=YEAR, data_dir=paths.ORGANISATIO
     except FileNotFoundError:
         print(f"Warning: {year}-board-of-directors.csv not found")
 
-    # 5. Podcasts - 6 points per series, split among hosts
+    # 5. Podcasts and live series - 6 points per series with at least five episodes in the year,
+    #    split among its hosts
     try:
         path = f'{community}/{year}-podcasts.csv'
         with open(path, 'r') as f:
             reader = csv.DictReader(f)
-            hosts = []
+            series = defaultdict(list)
             for row in reader:
+                if int(row['Episodes']) < MIN_EPISODES:
+                    continue
                 org = normalize_organization_name(row['Organisation'].strip())
-                name = row['Name'].strip()
-                hosts.append((org, name, reader.line_num, row.get('Source')))
+                host = row['Host'].strip()
+                series[row['Series'].strip()].append((org, host, reader.line_num, row.get('Source')))
 
-            if hosts:
-                points_per_host = 6 / len(hosts)
-                for org, name, line, source in hosts:
-                    add(org, 'Podcast Host', name, points_per_host, path, line, source)
+            for name, hosts in series.items():
+                for org, host, line, source in hosts:
+                    add(org, 'Podcast Host', f'{host} ({name})', 6 / len(hosts), path, line, source)
     except FileNotFoundError:
         print(f"Warning: {year}-podcasts.csv not found")
 
@@ -291,8 +297,8 @@ def calculate_community_recognition_points(year=YEAR, data_dir=paths.ORGANISATIO
                 video_type = row.get('Type', '').strip()
                 video_title = row['Video Title'].strip()
 
-                # Skip duplicates, teasers, announcements, welcomes, recaps
-                if video_type in ['Duplicate', 'Teaser', 'Announcement', 'Welcome', 'Recap']:
+                # Only talks count, not teasers, streams, openings or podcast episodes (#119)
+                if video_type not in TALK_TYPES:
                     continue
 
                 if not orgs_raw:
@@ -482,7 +488,7 @@ def write_markdown_report(org_points, org_details, results, levels, output_file,
         f.write("### Marketing Contributions\n\n")
         f.write("| Category | Points | Description |\n")
         f.write("|----------|--------|-------------|\n")
-        f.write("| Podcast Host | 6 | Host Plone podcast/live event (split among hosts) |\n")
+        f.write("| Podcast Host | 6 | Host a Plone podcast or live series with at least five episodes in the year (split among hosts) |\n")
         f.write("| WPD Event | 3 | Organize World Plone Day event (split among organizers) |\n")
         f.write("| WPD Talk | 1 | Give World Plone Day talk (max 4 per org) |\n\n")
         f.write(f"### Code Contributions ({year - 4}–{year})\n\n")

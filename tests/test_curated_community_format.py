@@ -14,7 +14,7 @@ KINDS = {
     'plone-conference': [['Organisation', 'Organiser(s)', 'Source', 'Notes'], ['Organisation']],
     'plone-conference-trainings': [['Title', 'Trainer(s)', 'GitHub Handle(s)', 'Organisation', 'Source'],
                                    ['Title', 'Trainer(s)', 'GitHub Handle(s)', 'Organisation']],
-    'podcasts': [['Name', 'Organisation']],
+    'podcasts': [['Series', 'Host', 'Organisation', 'Episodes', 'Source']],
     'release-managers': [['Name', 'Github', 'Organisation', 'Source']],
     'sprints': [['Sprint', 'Start', 'End', 'Location', 'Organiser(s)', 'Organisation', 'Level', 'Source', 'Notes']],
     'team-leaders': [['Name', 'Team', 'Organisation', 'Source']],

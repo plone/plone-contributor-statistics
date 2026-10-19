@@ -18,7 +18,7 @@ ROLE_KINDS = {
     'plone-conference-trainings': ('Trainer', 'Trainer(s)', 'GitHub Handle(s)', 'Title'),
     'world-plone-day-talks': ('Talk', 'Speaker(s)', None, 'Video Title'),
     'sprints': ('Sprint organiser', 'Organiser(s)', None, 'Sprint'),
-    'podcasts': ('Podcast', 'Name', None, None),
+    'podcasts': ('Podcast', 'Host', None, 'Series'),
     'plone-conference': ('Conference organiser', 'Organiser(s)', None, None),
 }
 # Only these World Plone Day videos are talks (#119)
