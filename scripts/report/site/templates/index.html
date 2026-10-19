@@ -1,0 +1,193 @@
+{% extends "base.html" %}
+{% macro source_links(contribution) %}
+  {% set urls = contribution.source | links %}
+  {% if urls %}
+    {% for url, label in urls %}<a class="record" href="{{ url }}">{{ label }}</a>{% endfor %}
+  {% elif contribution.file and contribution.file.startswith('curated/') %}
+    <span class="pending">public record pending (<a href="{{ repository }}/issues/46">#46</a>)</span>
+  {% endif %}
+  {% if contribution.file %}<a class="row" href="{{ data_link(contribution.file, contribution.line) }}">data</a>{% endif %}
+{% endmacro %}
+{% macro record_links(source) %}
+  {% for url, label in source | links %}<a class="record" href="{{ url }}">{{ label }}</a>{% endfor %}
+{% endmacro %}
+{% block content %}
+<section class="hero">
+  <div class="wrap">
+    <h1>Plone is built by a living community</h1>
+    <p class="lead">People and organisations around the world develop Plone together, in code and in the community.</p>
+    <div class="periods">
+      {% for key, label in [('year', data.year | string), ('five_years', data.years[0] | string ~ '–' ~ data.year | string)] %}
+      {% set period = data.headline[key] %}
+      <div class="period">
+        <h2>{{ label }}</h2>
+        <dl class="numbers">
+          <div><dt>people active</dt><dd>{{ period.people | number }}</dd></div>
+          <div><dt>organisations active</dt><dd>{{ period.organisations | number }}</dd></div>
+          <div><dt>events</dt><dd>{{ period.events | number }}</dd></div>
+        </dl>
+      </div>
+      {% endfor %}
+    </div>
+    <p class="since">Since the first Plone release in 2003, <strong>{{ data.headline.since_2003.people | number }}</strong> people have contributed.
+      <a href="{{ docs_url }}explanation/community-page.html">How these numbers are counted</a>, and why some people may be counted twice.</p>
+  </div>
+</section>
+
+<section id="public-records" class="public-records">
+  <div class="wrap">
+    <p><strong>All data comes from <a href="{{ docs_url }}index.html#public-records-only">public records</a></strong>, each linked to its source,
+      with <a href="{{ docs_url }}how-to/link-old-commits-to-a-person.html">one exception</a> for early CVS and Subversion commits.</p>
+  </div>
+</section>
+
+<section id="wall" class="wall">
+  <div class="wrap">
+    <h2>Who builds Plone</h2>
+    <p class="intro">Every organisation with a community recognition level for {{ data.year }}, for its code and community work in {{ data.years[0] }}–{{ data.year }}.
+      The levels follow the <a href="{{ docs_url }}explanation/community-recognition.html">community recognition program</a> and can differ from the list on plone.org.</p>
+    {% for group in data.wall %}
+    <div class="level level-{{ loop.index }}">
+      <h3>{{ group.level }}</h3>
+      <ul class="orgs">
+        {% for organisation in group.organisations %}
+        <li><a href="#org-{{ organisation.slug }}">{{ organisation.name }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<nav class="tabs wrap" aria-label="Sections" hidden>
+  <a href="#organisations" data-tab="organisations">Organisations</a>
+  <a href="#people" data-tab="people">People</a>
+  <a href="#history" data-tab="history">History</a>
+</nav>
+
+<section id="organisations" class="panel">
+  <div class="wrap">
+    <h2>Organisations</h2>
+    <p class="intro">Why an organisation has its level: its points per category, and the contributions behind them, each linked to its row in the data and its public record.
+      The rules are in the <a href="{{ data_link('curated/community-contributions/community-recognition-points.csv') }}">points file</a>.</p>
+    {% for group in data.wall %}
+    {% set level_index = loop.index %}
+    {% for entry in group.organisations %}
+    {% set organisation = data.organisations[entry.slug] %}
+    <details class="org" id="org-{{ entry.slug }}">
+      <summary><span class="name">{{ organisation.name }}</span>
+        <span class="badge level-{{ level_index }}">{{ organisation.level }}</span>
+        <span class="pts">{{ organisation.points | points }} points</span></summary>
+      <div class="org-body">
+        {% if organisation.next_level %}
+        <p class="next">{{ organisation.points_to_next | points }} points to {{ organisation.next_level }}.</p>
+        {% endif %}
+        <table class="categories">
+          <thead><tr><th>Category</th><th class="num">Points</th></tr></thead>
+          <tbody>
+          {% for category, details in organisation.categories.items() | sort(attribute='1.points', reverse=true) %}
+            <tr><td>
+              <details>
+                <summary>{{ category }}</summary>
+                <ul class="contributions">
+                  {% for contribution in details.contributions %}
+                  <li><span class="what">{{ contribution.text }}</span>
+                    <span class="cpts">{{ contribution.points | points }}</span>
+                    <span class="links">{{ source_links(contribution) }}</span></li>
+                  {% endfor %}
+                </ul>
+              </details>
+            </td><td class="num">{{ details.points | points }}</td></tr>
+          {% endfor %}
+          </tbody>
+        </table>
+        <figure class="graph">
+          <figcaption>{{ history_years[0] }}–{{ data.year }}, per year</figcaption>
+          {% for area, label in areas %}
+          {% set series = bars(organisation.history, history_years, area) %}
+          <div class="series">
+            <span class="label">{{ label }}</span>
+            <svg viewBox="0 0 {{ history_years | length * 5 }} 28" preserveAspectRatio="none" role="img" aria-label="{{ label }} per year">
+              {% for bar in series %}<rect x="{{ bar.x }}" y="{{ 28 - bar.height }}" width="4" height="{{ bar.height }}"><title>{{ bar.year }}: {{ bar.value | number }}</title></rect>{% endfor %}
+            </svg>
+          </div>
+          {% endfor %}
+        </figure>
+      </div>
+    </details>
+    {% endfor %}
+    {% endfor %}
+  </div>
+</section>
+
+<section id="people" class="panel">
+  <div class="wrap">
+    <h2>People</h2>
+    <p class="intro">Find yourself, or someone you know, by GitHub login or name, and see where they stand in a year.
+      The page doesn't list people in a ranking.</p>
+    <form class="search" id="people-search" autocomplete="off">
+      <label>GitHub login or name <input type="search" name="person" placeholder="e.g. jensens"></label>
+      <label>Year <select name="year">
+        {% for year in history_years | reverse %}<option>{{ year }}</option>{% endfor %}
+      </select></label>
+    </form>
+    <div id="people-result" class="result" aria-live="polite"></div>
+    {% set year_people = data.people[data.year | string] %}
+    <table class="distribution" id="people-distribution">
+      <caption>How many people did how much in <span class="dy">{{ data.year }}</span>, without names</caption>
+      <thead><tr><th></th>{% for label, low, high in buckets %}<th>{{ label }}</th>{% endfor %}</tr></thead>
+      <tbody>
+        {% for field, label in [('pull_requests', 'Merged pull requests'), ('commits', 'Commits')] %}
+        <tr data-field="{{ field }}"><th>{{ label }}</th>{% for count in distribution(year_people, field) %}<td>{{ count }}</td>{% endfor %}</tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <noscript><p class="note">The search needs JavaScript. The underlying numbers are in the <a href="{{ data_url }}">data file</a>.</p></noscript>
+    <script type="application/json" id="people-data">{{ people_json }}</script>
+  </div>
+</section>
+
+<section id="history" class="panel">
+  <div class="wrap">
+    <h2>History</h2>
+    <p class="intro">Page through Plone's years: the Board, the team leads, the people active, the code, and the events, each with its source.</p>
+    {% for year in history_years | reverse %}
+    {% set item = data.history[year | string] %}
+    <details class="year" id="year-{{ year }}">
+      <summary><span class="y">{{ year }}</span>
+        <span class="facts">{{ item.people_active | number }} people active ·
+          {{ item.commits | number }} commits ·
+          {% if item.pull_requests is none %}no pull requests yet{% else %}{{ item.pull_requests | number }} merged pull requests{% endif %}
+          {% if item.events %} · {{ item.events | length }} events{% endif %}</span></summary>
+      <div class="year-body">
+        {% if item.events %}
+        <h3>Events</h3>
+        <ul class="events">
+          {% for event in item.events %}
+          <li><strong>{{ event.name }}</strong>{% if event.level %} <span class="tag">{{ event.level }}</span>{% endif %}
+            {% if event.organisations %}<span class="by">{{ event.organisations | join(', ') }}</span>{% endif %}
+            {% for source in event.sources %}{{ record_links(source) }}{% endfor %}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+        {% if item.board %}
+        <h3>Board of Directors</h3>
+        <ul class="people-list">
+          {% for member in item.board %}<li>{{ member.name }}{% if member.organisation not in ('', 'Unmapped') %} <span class="by">{{ member.organisation }}</span>{% endif %}{{ record_links(member.source) }}</li>{% endfor %}
+        </ul>
+        {% endif %}
+        {% if item.team_leads %}
+        <h3>Team leads</h3>
+        <ul class="people-list">
+          {% for lead in item.team_leads %}<li>{{ lead.name }} <span class="by">{{ lead.team }}{% if lead.organisation not in ('', 'Unmapped') %}, {{ lead.organisation }}{% endif %}</span>{{ record_links(lead.source) }}</li>{% endfor %}
+        </ul>
+        {% endif %}
+        {% if not item.events and not item.board and not item.team_leads %}
+        <p class="note">No community records for this year yet.</p>
+        {% endif %}
+      </div>
+    </details>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

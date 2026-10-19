@@ -16,7 +16,7 @@ summary_years = $(shell seq $$(($(SUMMARY_END) - $(1) + 1)) $(SUMMARY_END))
 	three-year-summary five-year-summary ten-year-summary yearly-activity \
 	yearly-graphs generate-report community-recognition community-page \
 	analyze-independent clean lint format check test status \
-	docs-install docs docs-linkcheck docs-clean
+	docs-install docs docs-linkcheck docs-clean site site-serve
 
 help:
 	@echo "Plone contributor statistics"
@@ -66,6 +66,10 @@ help:
 	@echo "  docs              Build the documentation (warnings are errors)"
 	@echo "  docs-linkcheck    Check the links in the documentation"
 	@echo "  docs-clean        Remove the built documentation"
+	@echo ""
+	@echo "Site (the community page at /, the documentation at /docs/):"
+	@echo "  site              Build the community page and the documentation into _site"
+	@echo "  site-serve        Serve _site at http://localhost:8000 to preview it"
 	@echo ""
 	@echo "Examples:"
 	@echo "  make year YEAR=2025"
@@ -181,7 +185,7 @@ analyze-independent:
 
 clean:
 	rm -f collected/contributors/*_checkpoint.csv
-	rm -rf .pytest_cache docs/_build
+	rm -rf .pytest_cache docs/_build _site
 	find . -name "*.pyc" -delete
 	find . -name "__pycache__" -type d -exec rm -rf {} +
 
@@ -237,3 +241,15 @@ docs-linkcheck:
 
 docs-clean:
 	rm -rf docs/_build
+
+# Site: the community page at the root, the documentation below docs/
+
+site:
+	rm -rf _site
+	python -m scripts.report.community_page --out _site
+	python -m sphinx -W --keep-going -n -b html -d docs/_build/doctrees docs _site/docs
+
+site-serve:
+	@echo "Serving the site at http://localhost:8000 (Ctrl+C to stop)"
+	python -m http.server --directory _site 8000
+

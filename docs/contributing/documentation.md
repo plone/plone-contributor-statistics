@@ -35,7 +35,8 @@ A reviewer should not merge a pull request that changes the method without chang
     ```
 
 Every pull request builds the documentation in GitHub Actions.
-Every change on `main` publishes it to https://plone.github.io/plone-contributor-statistics/.
+Every change on `main` publishes it to https://plone.github.io/plone-contributor-statistics/docs/, below the community page at https://plone.github.io/plone-contributor-statistics/.
+To preview both together, run `make site site-serve`.
 
 ## Style
 

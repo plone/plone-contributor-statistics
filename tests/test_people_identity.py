@@ -4,7 +4,7 @@ from collections import namedtuple
 
 from scripts.lib import people
 
-Row = namedtuple('Row', 'person handle source')
+Row = namedtuple('Row', 'person handle source shared', defaults=(False,))
 
 
 def index(rows, tmp_path, authors='email,github_username,name,source\n', fullnames='github username,fullname\n'):
@@ -59,3 +59,11 @@ def test_unknown_and_empty_names(tmp_path):
 def test_logins_ignore_case(tmp_path):
     found = index([Row('David Glick', 'DavisAgli', ''), Row('David Glick', 'davisagli', '')], tmp_path)
     assert found.key('David Glick') == found.key('', 'davisagli') == 'davisagli'
+
+
+def test_profile_links_of_rows_with_several_people_are_ignored(tmp_path):
+    # A sprint row with several organisers and one profile link: the link belongs to one of them
+    rows = [Row('David Glick', '', 'https://example.org; mapping: https://github.com/smcmahon', shared=True),
+            Row('Steve McMahon', '', 'https://example.org; mapping: https://github.com/smcmahon', shared=True)]
+    found = index(rows, tmp_path)
+    assert found.key('David Glick') == 'name:david glick'

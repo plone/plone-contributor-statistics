@@ -1,6 +1,7 @@
 """Checks that keep the archive and the docs honest (docs cleanup)."""
 
 import re
+import subprocess
 from pathlib import Path
 
 import pytest
@@ -179,3 +180,22 @@ def test_docs_workflow_deploys_only_from_main():
     assert "github.event_name != 'pull_request'" in condition
     assert "github.repository == 'plone/plone-contributor-statistics'" in condition
     assert "github.ref == 'refs/heads/main'" in condition
+
+
+def test_docs_workflow_publishes_the_site():
+    # The community page at the root, the docs below docs/
+    build = _workflow_jobs('docs.yml')['build']
+    assert 'make site' in build
+    assert re.search(r'^\s+path: _site$', build, re.M)
+
+
+def test_absolute_docs_urls_point_below_docs():
+    site = 'plone.github.io/plone-contributor-statistics/'
+    tracked = subprocess.run(['git', 'ls-files'], cwd=ROOT, capture_output=True, text=True, check=True).stdout.split()
+    for name in tracked:
+        if name.startswith('archive/') or not name.endswith(('.md', '.py', '.yml', '.html', '.txt')):
+            continue
+        text = (ROOT / name).read_text(encoding='utf-8')
+        for match in re.finditer(re.escape(site) + r'(\S*)', text):
+            path = match.group(1).rstrip('.,;:)*>`\'"')
+            assert path == '' or path.startswith('docs/'), f'{name}: {match.group(0)}'

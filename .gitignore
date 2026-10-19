@@ -5,3 +5,4 @@ __pycache__/
 collected/contributors/*_checkpoint.csv
 docs/_build/
 .DS_Store
+_site/

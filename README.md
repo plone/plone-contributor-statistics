@@ -3,7 +3,9 @@
 Statistics about who contributes to Plone and which organisations sponsor that work, from 2003 to today.
 They count commits and merged pull requests in the repositories of the [`plone` GitHub organisation](https://github.com/plone), pull request reviews and comments, PLIPs, and curated community work such as conferences, sprints, trainings and release management.
 
-**Documentation: https://plone.github.io/plone-contributor-statistics/** (source in [`docs/`](docs/))
+**Community page: https://plone.github.io/plone-contributor-statistics/**: who builds Plone, generated from the data in this repository.
+
+**Documentation: https://plone.github.io/plone-contributor-statistics/docs/** (source in [`docs/`](docs/))
 
 **All data comes from public records, with linked sources.**
 The commits and pull requests are public on GitHub.
@@ -27,17 +29,18 @@ make setup        # install the dependencies, create .env for the GitHub token
 make test         # run the offline tests
 make docs-install # install the documentation dependencies
 make docs         # build the documentation to docs/_build/html
+make site site-serve # build and preview the community page and the docs
 make help         # list all targets
 make year YEAR=2025 # collect, derive and report a completed year
 ```
 
 Collecting data from GitHub needs a token in `.env`.
-See [Prepare the numbers for a new year](https://plone.github.io/plone-contributor-statistics/how-to/prepare-a-new-year.html) and [Collect the data again](https://plone.github.io/plone-contributor-statistics/how-to/collect-data-again.html).
+See [Prepare the numbers for a new year](https://plone.github.io/plone-contributor-statistics/docs/how-to/prepare-a-new-year.html) and [Collect the data again](https://plone.github.io/plone-contributor-statistics/docs/how-to/collect-data-again.html).
 
 ## Where things live
 
 The folders follow the pipeline: curated input and collected data go into the scripts, which write derived data and reports.
-Each folder has a README; the [data files reference](https://plone.github.io/plone-contributor-statistics/reference/data-files.html) describes every file.
+Each folder has a README; the [data files reference](https://plone.github.io/plone-contributor-statistics/docs/reference/data-files.html) describes every file.
 
 ```text
 scripts/     the code, by stage: collect/, derive/, report/, tools/, and shared code in lib/
@@ -56,7 +59,7 @@ They are no longer updated; their scripts are in `archive/flourish/`.
 ## Contributing
 
 Corrections are welcome as pull requests, with a link to a public record, or with a confirmation by the person in the pull request.
-See [Correct an organisation mapping](https://plone.github.io/plone-contributor-statistics/how-to/correct-an-organisation-mapping.html) and [Contribute to the documentation](https://plone.github.io/plone-contributor-statistics/contributing/documentation.html).
+See [Correct an organisation mapping](https://plone.github.io/plone-contributor-statistics/docs/how-to/correct-an-organisation-mapping.html) and [Contribute to the documentation](https://plone.github.io/plone-contributor-statistics/docs/contributing/documentation.html).
 
 Code changes get tests; data files get format checks ([#52](https://github.com/plone/plone-contributor-statistics/issues/52)).
 GitHub Actions runs the tests and builds the documentation on every pull request.
