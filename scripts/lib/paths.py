@@ -19,6 +19,7 @@ ACCOUNT_ALIASES = MAPPINGS_DIR / 'account_aliases.csv'
 FULLNAMES = MAPPINGS_DIR / 'mapping-github-username-to-fullname.csv'
 COMMUNITY = Path('curated/community-contributions')
 RECOGNITION_LEVELS = COMMUNITY / 'community-recognition-levels.csv'
+PLIPS_BEFORE_GITHUB = Path('curated/plips/plone-plips-before-github.csv')
 
 # Collected by the collectors; never edit by hand
 CONTRIBUTORS_DIR = Path('collected/contributors')
