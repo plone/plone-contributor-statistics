@@ -23,6 +23,7 @@ ALLOWED = {
     # check.py and datapackage.py validate and describe the curated files against their schemas
     'scripts/tools/check.py': {'paths.SCHEMAS_DIR', 'paths.DATAPACKAGE', "'curated/", '"curated/'},
     'scripts/tools/datapackage.py': {'paths.SCHEMAS_DIR', 'paths.DATAPACKAGE', "'curated/", '"curated/'},
+    'scripts/tools/schema_docs.py': {'paths.SCHEMAS_DIR', 'paths.DATAPACKAGE', "'curated/", '"curated/'},
     # Reads the recognition levels, which only this script uses; community files come through the model
     'scripts/report/generate_community_recognition_report.py': {'paths.RECOGNITION_LEVELS'},
     # Names the two files that the model's loaders read, so that the tests can write them

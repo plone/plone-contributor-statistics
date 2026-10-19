@@ -199,3 +199,11 @@ def test_absolute_docs_urls_point_below_docs():
         for match in re.finditer(re.escape(site) + r'(\S*)', text):
             path = match.group(1).rstrip('.,;:)*>`\'"')
             assert path == '' or path.startswith('docs/'), f'{name}: {match.group(0)}'
+
+
+def test_curated_files_reference_is_current():
+    # docs/reference/curated-files.md is generated from the schemas: python -m scripts.tools.schema_docs
+    from scripts.tools import schema_docs
+
+    page = (ROOT / 'docs' / 'reference' / 'curated-files.md').read_text(encoding='utf-8')
+    assert page == schema_docs.render()
