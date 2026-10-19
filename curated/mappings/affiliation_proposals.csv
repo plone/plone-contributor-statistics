@@ -1,5 +1,5 @@
 person,organisation,from,to,evidence
-albertcasado,onna,2018,2018,Company address @onna.com in commits 2018 (example: https://github.com/plone/pastanaga-angular/commit/9350614b02b7d2260da843a758e6109bcefa8e39)
+albert-casado,onna,2018,2018,Company address @onna.com in commits 2018 (example: https://github.com/plone/pastanaga-angular/commit/9350614b02b7d2260da843a758e6109bcefa8e39)
 alex-catlla,onna,2020,2020,Company address @onna.com in commits 2020 (example: https://github.com/plone/guillotina_elasticsearch/commit/ec76982a2a11084829695de38979df9a80cacb21)
 alex-juizi,juizi,2025,2025,curated/community-contributions/2025-world-plone-day-talks.csv:11; https://www.youtube.com/watch?v=UzBwfVuoCDE
 alex-juizi,juizi,2025,2025,curated/community-contributions/2025-world-plone-day-talks.csv:12; https://www.youtube.com/watch?v=NlNFCyGwEMc
@@ -16,7 +16,6 @@ andy-mckay,blue-fountain,2007,2007,curated/community-contributions/2007-board-of
 angela-pacillo,comune-di-modena,2024,2024,curated/community-contributions/2024-world-plone-day-talks.csv:37; https://www.youtube.com/watch?v=gvQMjef7idc
 angelo-bovina,bibest,2023,2023,curated/community-contributions/2023-world-plone-day-talks.csv:44; https://www.youtube.com/watch?v=3A_AscJjEyk
 angelo-croatti,ausl-romagna,2025,2025,curated/community-contributions/2025-world-plone-day-talks.csv:44; https://www.plonegov.it/notizie-ed-eventi/world-plone-day-2025
-barcafa,onna,2019,2021,Company address @onna.com in commits 2019-2021 (example: https://github.com/plone/pastanaga-angular/commit/3390cc82a7a815869fc0bba6b8bf9145598a6d02)
 beatrice-maroni,universita-di-bologna,2021,2021,curated/community-contributions/2021-world-plone-day-talks.csv:14; https://www.youtube.com/watch?v=U-FhRkNYu58
 beatrice-maroni,universita-di-bologna,2021,2021,curated/community-contributions/2021-world-plone-day-talks.csv:54; https://www.youtube.com/watch?v=EEOnfk7jtP8
 ben-saller,objectrealms,2006,2006,curated/community-contributions/2006-board-of-directors.csv:3; https://plone.org/foundation/board/list_board_2
@@ -24,6 +23,7 @@ bernard-buhlmann,4teamwork,2004,2004,curated/community-contributions/2004-board-
 calvin-hendryx-parker,sixfeetup,2010,2010,curated/community-contributions/2010-board-of-directors.csv:3; https://plone.org/foundation/board/board-2009-2010
 carla-ragazzi,comune-di-mirandola,2021,2021,curated/community-contributions/2021-world-plone-day-talks.csv:14; https://www.youtube.com/watch?v=U-FhRkNYu58
 carla-ragazzi,comune-di-mirandola,2021,2021,curated/community-contributions/2021-world-plone-day-talks.csv:56; https://www.youtube.com/watch?v=VBzwP7XGZj8
+carles-farre,onna,2019,2021,Company address @onna.com in commits 2019-2021 (example: https://github.com/plone/pastanaga-angular/commit/3390cc82a7a815869fc0bba6b8bf9145598a6d02)
 carol-ganz,sixfeetup,2012,2012,curated/community-contributions/2012-board-of-directors.csv:3; https://plone.org/foundation/board/plone-foundation-board-for-2011-2012
 carol-ganz,sixfeetup,2013,2013,curated/community-contributions/2013-board-of-directors.csv:8; https://plone.org/foundation/board/plone-foundation-board-for-2012-2013
 carol-ganz,sixfeetup,2015,2015,curated/community-contributions/2015-board-of-directors.csv:5; https://plone.org/foundation/board/plone-foundation-board-for-2014-2015
@@ -38,12 +38,12 @@ cris-ewing,cris-ewing-independent,2015,2015,curated/community-contributions/2015
 cristina-benvegnu,camera-di-commercio-di-padova,2023,2023,curated/community-contributions/2023-world-plone-day-talks.csv:47; https://www.youtube.com/watch?v=79N0CJ1xS7I
 dana-comiselu,eau-de-web,2024,2024,curated/community-contributions/2024-world-plone-day-talks.csv:10; https://www.youtube.com/watch?v=OfkhwHF0q_0
 daniel-havlik,gocept,2017,2019,Company address @gocept.com in commits 2017-2019 (example: https://github.com/plone/plone.scale/commit/fceec22438266ab93d0250ccbee07ac9dac4f0af)
+daniel-manchon,atlasense,2017,2017,Company address @atlasense.com in commits 2017 (example: https://github.com/plone/guillotina_elasticsearch/commit/7349a1a57d3ba1aff78234c015ff26b6b8763331)
 darci-hanning,oregon-state-library,2008,2008,curated/community-contributions/2008-board-of-directors.csv:2; https://plone.org/foundation/board/2007-2008
 darci-hanning,oregon-state-library,2008,2008,curated/community-contributions/2008-team-leaders.csv:14; https://plone.org/foundation/board/2007-2008
 darci-hanning,oregon-state-library,2009,2009,curated/community-contributions/2009-board-of-directors.csv:6; https://plone.org/foundation/board/plone-foundation-board-for-2008-2009
 darci-hanning,oregon-state-library,2009,2009,curated/community-contributions/2009-team-leaders.csv:5; https://plone.org/foundation/board/plone-foundation-board-for-2008-2009
 diederik-veeze,zest-software,2016,2017,Company address @zestsoftware.nl in commits 2016-2017 (example: https://github.com/plone/buildout.coredev/commit/0a2d9d83202a48ed9812c55c032aa473ba6d53b0)
-dmanchon,atlasense,2017,2017,Company address @atlasense.com in commits 2017 (example: https://github.com/plone/guillotina_elasticsearch/commit/7349a1a57d3ba1aff78234c015ff26b6b8763331)
 elizabeth-leddy,elizabeth-leddy-independent,2013,2013,curated/community-contributions/2013-board-of-directors.csv:5; https://plone.org/foundation/board/plone-foundation-board-for-2012-2013
 emme-menezes,boss,2025,2025,curated/community-contributions/2025-world-plone-day-talks.csv:53; https://plone.org.br/novidades/eventos/2025/wpd-2025-brasilia
 erico-andrei,wundertax,2019,2019,curated/community-contributions/2019-board-of-directors.csv:5; https://plone.org/foundation/board/plone-foundation-board-for-2018-2019
@@ -54,6 +54,7 @@ federica-gozza,qubicaamf,2021,2021,curated/community-contributions/2021-world-pl
 francesca-soffici,comune-di-modena,2021,2021,curated/community-contributions/2021-world-plone-day-talks.csv:14; https://www.youtube.com/watch?v=U-FhRkNYu58
 francesca-soffici,comune-di-modena,2021,2021,curated/community-contributions/2021-world-plone-day-talks.csv:55; https://www.youtube.com/watch?v=9XeRtOvdb_U
 francesco-ciriaci,reflab,2007,2007,curated/community-contributions/2007-board-of-directors.csv:4; https://plone.org/foundation/board/list_board_4
+franklin-kingma,four-digits,2011,2012,Company address @fourdigits.nl in commits 2011-2012 (example: https://github.com/plone/buildout.deco/commit/a77de132f0800b976f6df58365bf4df24fffbade)
 geoff-davis,geoff-davis-independent,2006,2006,curated/community-contributions/2006-board-of-directors.csv:5; https://plone.org/foundation/board/list_board_2
 georg-bernhard,bluedynamics-kg,2004,2004,curated/community-contributions/2004-plone-conference-trainings.csv:11; https://plone.org/news-and-events/events/plone-conferences/vienna-2004/program
 giovanni-bertugli,comune-di-modena,2021,2021,curated/community-contributions/2021-world-plone-day-talks.csv:14; https://www.youtube.com/watch?v=U-FhRkNYu58
@@ -82,7 +83,6 @@ jordi-masip,iskra,2020,2020,curated/community-contributions/2020-plone-conferenc
 kim-nguyen,jazkarta,2015,2015,curated/community-contributions/2015-board-of-directors.csv:4; https://plone.org/foundation/board/plone-foundation-board-for-2014-2015
 kim-nguyen,wildcard-corp,2019,2019,curated/community-contributions/2019-board-of-directors.csv:8; https://plone.org/foundation/board/plone-foundation-board-for-2018-2019
 kim-nguyen,sixfeetup,2023,2023,curated/community-contributions/2023-plone-conference-trainings.csv:5; https://2023.ploneconf.org/training/learn-plone-for-content-editors-and-managers
-kingel,four-digits,2011,2012,Company address @fourdigits.nl in commits 2011-2012 (example: https://github.com/plone/buildout.deco/commit/a77de132f0800b976f6df58365bf4df24fffbade)
 luca-dall-acqua,azienda-usl-di-ferrara,2024,2024,curated/community-contributions/2024-world-plone-day-talks.csv:40; https://www.youtube.com/watch?v=zJQ8LvFxY2c
 luis-flavio-loreto-rocha,ebc,2023,2023,curated/community-contributions/2023-world-plone-day-talks.csv:53; https://plone.org.br/novidades/eventos/2023/world-plone-day-2023-brasilia
 magnilson-sodre-costa,correios,2023,2023,curated/community-contributions/2023-world-plone-day-talks.csv:52; https://plone.org.br/novidades/eventos/2023/world-plone-day-2023-brasilia
@@ -148,14 +148,13 @@ ramon-navarro-bosch,intranetum,2016,2016,curated/community-contributions/2016-pl
 ramon-navarro-bosch,intranetum,2017,2017,curated/community-contributions/2017-plone-conference-trainings.csv:9; https://web.archive.org/web/20171001011500/https://2017.ploneconf.org/training
 ramon-navarro-bosch,iskra,2018,2018,curated/community-contributions/2018-plone-conference-trainings.csv:6; https://web.archive.org/web/20190918184706/https://2018.ploneconf.org/training.html
 ramon-navarro-bosch,iskra,2019,2019,curated/community-contributions/2019-plone-conference-trainings.csv:4; https://web.archive.org/web/20191118223700/https://2019.ploneconf.org/training/
-raulclay,onna,2019,2020,Company address @onna.com in commits 2019-2020 (example: https://github.com/plone/pastanaga-angular/commit/b263ba3f7e03b63f7bc2e40027f0e904800947ba)
+raul-clemente-ayats,onna,2019,2020,Company address @onna.com in commits 2019-2020 (example: https://github.com/plone/pastanaga-angular/commit/b263ba3f7e03b63f7bc2e40027f0e904800947ba)
 richard-amerman,7technw,2006,2006,curated/community-contributions/2006-plone-conference-trainings.csv:2; https://plone.org/news-and-events/events/plone-conferences/seattle-2006/training-classes/related-events
 rob-porter,penn-state-university,2008,2008,curated/community-contributions/2008-plone-conference-trainings.csv:10; https://plone.org/news-and-events/events/plone-conferences/washington-dc-2008/agenda/theming-a-plone-3.1-site-from-start-to-finish/conference_session
 rob-porter,wildcard-corp,2017,2017,curated/community-contributions/2017-plone-conference-trainings.csv:5; https://web.archive.org/web/20171001011500/https://2017.ploneconf.org/training
 robert-boulanger,bluedynamics-kg,2004,2004,curated/community-contributions/2004-board-of-directors.csv:6; https://plone.org/foundation/board/list_board_0
 robert-boulanger,bluedynamics-kg,2005,2005,curated/community-contributions/2005-board-of-directors.csv:8; https://web.archive.org/web/20050404020626/http://plone.org/foundation/about/board/list
 roberto-allende,menttes,2010,2010,curated/community-contributions/2010-board-of-directors.csv:5; https://plone.org/foundation/board/board-2009-2010
-sallner,gocept,2018,2021,Company address @gocept.com in commits 2018-2021 (example: https://github.com/plone/buildout.coredev/commit/438723ae83ff48ae0638970e1fb3f81418cf3f91)
 sam-greenblatt,computer-associates,2004,2004,curated/community-contributions/2004-board-of-directors.csv:10; https://plone.org/foundation/board/list_board_0
 sara-turra,regione-emilia-romagna,2021,2021,curated/community-contributions/2021-world-plone-day-talks.csv:14; https://www.youtube.com/watch?v=U-FhRkNYu58
 sara-turra,regione-emilia-romagna,2021,2021,curated/community-contributions/2021-world-plone-day-talks.csv:51; https://www.youtube.com/watch?v=G857LOhJw1k
@@ -171,6 +170,7 @@ stefano-marchetti,redturtle,2021,2021,curated/community-contributions/2021-world
 stefano-marchetti,redturtle,2023,2023,curated/community-contributions/2023-world-plone-day-talks.csv:49; https://www.youtube.com/watch?v=He06LqzMDLg
 stefano-pagani,qubicaamf,2021,2021,curated/community-contributions/2021-world-plone-day-talks.csv:14; https://www.youtube.com/watch?v=U-FhRkNYu58
 stefano-pagani,qubicaamf,2021,2021,curated/community-contributions/2021-world-plone-day-talks.csv:53; https://www.youtube.com/watch?v=tbupJUmO1Ws
+steffen-allner,gocept,2018,2021,Company address @gocept.com in commits 2018-2021 (example: https://github.com/plone/buildout.coredev/commit/438723ae83ff48ae0638970e1fb3f81418cf3f91)
 talya-beyers,juizi,2023,2023,curated/community-contributions/2023-world-plone-day-talks.csv:20; https://www.youtube.com/watch?v=jItQKENMG14
 talya-beyers,irr,2025,2025,curated/community-contributions/2025-world-plone-day-talks.csv:12; https://www.youtube.com/watch?v=NlNFCyGwEMc
 tamara-eer,interaktiv,2024,2024,curated/community-contributions/2024-world-plone-day-talks.csv:17; https://www.youtube.com/watch?v=kpkJ67ZmzuQ
