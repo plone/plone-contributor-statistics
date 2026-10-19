@@ -30,78 +30,78 @@ pigeonflight,55,0,1,plone.app.themeeditor,2010-06-01,2010-11-03
 zopyx,53,0,4,"Products.Archetypes, buildout.coredev, plone.app.discussion, plone.app.event",2010-03-13,2010-10-11
 garbas,40,0,10,"archetypes.referencebrowserwidget, buildout.deco, plone.app.jquerytools, plone.app.registry, plone.app.standardtiles, plone.app.testing, plone.app.versioningbehavior, plone.app.viewletmanager, plone.app.z3cform, plone.registry",2010-02-14,2010-12-15
 khink,39,0,5,"buildout.coredev, buildout.deco, plone.app.controlpanel, plone.app.standardtiles, plone.app.users",2010-02-05,2010-12-17
-do3cc,38,0,15,"Plone, Products.ATContentTypes, Products.Archetypes, Products.CMFEditions, Products.LinguaPlone, Products.PlonePAS, archetypes.referencebrowserwidget, buildout.coredev, plone.app.blob, plone.app.content, plone.app.discussion, plone.app.form, plone.app.iterate, plone.app.relations, plone.app.users",2010-02-07,2010-10-31
 alecpm,38,0,7,"Products.CMFDiffTool, Products.CMFEditions, Products.MasterSelectWidget, buildout.coredev, five.intid, plone.app.intid, plone.app.relationfield",2010-02-06,2010-12-07
-mjpieters,36,0,9,"Plone, Products.ATContentTypes, Products.CMFPlone, Products.PasswordResetTool, buildout.coredev, plone.app.layout, plone.app.users, plone.autoform, plone.dexterity",2010-01-15,2010-10-04
+do3cc,38,0,15,"Plone, Products.ATContentTypes, Products.Archetypes, Products.CMFEditions, Products.LinguaPlone, Products.PlonePAS, archetypes.referencebrowserwidget, buildout.coredev, plone.app.blob, plone.app.content, plone.app.discussion, plone.app.form, plone.app.iterate, plone.app.relations, plone.app.users",2010-02-07,2010-10-31
 kcleong,36,0,9,"Plone, Products.ATContentTypes, buildout.coredev, buildout.deco, plone.app.controlpanel, plone.app.discussion, plone.app.standardtiles, plone.app.users, plone.formwidget.querystring",2010-02-05,2010-08-26
+mjpieters,36,0,9,"Plone, Products.ATContentTypes, Products.CMFPlone, Products.PasswordResetTool, buildout.coredev, plone.app.layout, plone.app.users, plone.autoform, plone.dexterity",2010-01-15,2010-10-04
 gotcha,32,0,10,"Plone, Products.Archetypes, archetypes.kss, buildout.coredev, diazo, plone.app.kss, plone.app.testing, plone.app.upgrade, plone.recipe.zope2install, plone.testing",2010-01-20,2010-12-14
 toutpt,27,0,11,"Products.ATContentTypes, Products.Archetypes, Products.TinyMCE, archetypes.referencebrowserwidget, buildout.coredev, buildout.dexterity, plone.app.contentrules, plone.app.dexterity, plone.app.referenceablebehavior, plone.dexterity, plone.uuid",2010-05-11,2010-12-17
 zupo,25,0,3,"buildout.coredev, plone.app.search, plone.app.testing",2010-03-15,2010-11-03
 maartenkling,23,0,1,plone.app.collection,2010-03-15,2010-03-19
 naro,22,0,8,"Products.ATContentTypes, Products.MasterSelectWidget, Products.TinyMCE, buildout.coredev, plone.app.async, plone.app.discussion, plone.app.intid, plone.app.jquerytools",2010-01-17,2010-12-12
-vangheem,21,0,8,"buildout.coredev, plone.app.async, plone.app.collection, plone.app.contentrules, plone.app.dexterity, plone.app.themeeditor, plone.app.workflowmanager, plone.recipe.zeoserver",2010-05-24,2010-12-13
 cah190,21,0,5,"Plone, Products.Archetypes, archetypes.referencebrowserwidget, buildout.coredev, plone.app.controlpanel",2010-01-25,2010-12-15
-simonedeponti,19,0,3,"buildout.deco, plone.app.deco, plone.app.standardtiles",2010-06-06,2010-08-29
+vangheem,21,0,8,"buildout.coredev, plone.app.async, plone.app.collection, plone.app.contentrules, plone.app.dexterity, plone.app.themeeditor, plone.app.workflowmanager, plone.recipe.zeoserver",2010-05-24,2010-12-13
 jonstahl,19,0,6,"Plone, Products.PloneOrg, planet.plone.org, plone.app.portlets, ploneorg.admin, plonetheme.sunburst",2010-04-16,2010-09-08
+simonedeponti,19,0,3,"buildout.deco, plone.app.deco, plone.app.standardtiles",2010-06-06,2010-08-29
 stefanholek,19,0,9,"Products.CMFTestCase, Products.PloneTestCase, Products.PortalTransforms, buildout.coredev, collective.indexing, plone.app.layout, plone.app.portlets, plone.app.testing, plone.testing",2010-01-19,2010-12-10
+chaoflow,18,0,5,"buildout.coredev, buildout.deco, plone.app.discussion, plone.app.folder, plone.app.standardtiles",2010-03-15,2010-08-25
 miohtama,18,0,6,"Products.PloneOrg, archetypes.schemaextender, plone.app.registry, plone.app.z3cform, plone.directives.form, plone.registry",2010-04-13,2010-09-24
 pellekrogholt,18,0,7,"Plone, Products.ATContentTypes, plone.app.discussion, plone.app.imaging, plone.app.layout, plonetheme.classic, plonetheme.sunburst",2010-01-15,2010-06-04
-chaoflow,18,0,5,"buildout.coredev, buildout.deco, plone.app.discussion, plone.app.folder, plone.app.standardtiles",2010-03-15,2010-08-25
 tomster,18,0,6,"Plone, Products.Marshall, buildout.coredev, plone.app.content, plone.app.workflow, plone.scale",2010-02-26,2010-08-18
 vipod,15,0,2,"Plone, plone.event",2010-10-14,2010-11-03
 woutervh,15,0,9,"Plone, Products.CMFEditions, plone.app.blob, plone.app.content, plone.app.contentmenu, plone.app.imaging, plone.app.layout, plone.app.portlets, plone.app.vocabularies",2010-02-18,2010-12-06
 eleddy,14,0,6,"Plone, Products.CMFQuickInstallerTool, Products.PloneOrg, buildout.coredev, plone.app.layout, plonetheme.sunburst",2010-07-29,2010-12-18
 erral,13,0,1,Products.TinyMCE,2010-03-23,2010-11-15
+csenger,12,0,7,"Products.Marshall, Products.PloneLanguageTool, plone.app.controlpanel, plone.app.intid, plone.app.relationfield, plone.app.z3cform, plone.formwidget.contenttree",2010-01-10,2010-04-29
 dorneles,12,0,7,"Products.Archetypes, Products.CMFPlacefulWorkflow, archetypes.referencebrowserwidget, plone.app.lockingbehavior, plone.app.portlets, plone.app.referenceablebehavior, plone.app.stagingbehavior",2010-05-28,2010-12-24
 frisi,12,0,5,"Products.ATContentTypes, Products.MasterSelectWidget, Products.TinyMCE, plone.app.blob, plone.testing",2010-01-08,2010-06-29
-csenger,12,0,7,"Products.Marshall, Products.PloneLanguageTool, plone.app.controlpanel, plone.app.intid, plone.app.relationfield, plone.app.z3cform, plone.formwidget.contenttree",2010-01-10,2010-04-29
-ggozad,11,0,5,"Plone, plone.app.async, plone.app.discussion, plone.app.layout, plone.formwidget.autocomplete",2010-01-15,2010-11-10
-davidblewett,11,0,2,"Products.CMFDiffTool, Products.CMFEditions",2010-05-13,2010-06-21
 agitator,11,0,7,"Plone, Products.LinguaPlone, Products.Relations, Products.TinyMCE, plone.app.blob, plone.app.portlets, plonetheme.sunburst",2010-03-03,2010-10-05
 cdw9,11,0,5,"Plone, plone.app.controlpanel, plone.app.layout, plonetheme.classic, plonetheme.sunburst",2010-07-16,2010-10-19
+davidblewett,11,0,2,"Products.CMFDiffTool, Products.CMFEditions",2010-05-13,2010-06-21
+ggozad,11,0,5,"Plone, plone.app.async, plone.app.discussion, plone.app.layout, plone.formwidget.autocomplete",2010-01-15,2010-11-10
 gaudenz,10,0,4,"plone.app.dexterity, plone.dexterity, plone.formwidget.autocomplete, plone.formwidget.contenttree",2010-06-09,2010-08-25
 gborelli,10,0,5,"Plone, Products.TinyMCE, plone.app.discussion, plone.app.layout, plonetheme.sunburst",2010-02-26,2010-08-28
+aaronvanderlip,9,0,2,"Plone, plone.app.upgrade",2010-01-16,2010-01-17
 encolpe,9,0,7,"Plone, Products.CMFPlacefulWorkflow, Products.LinguaPlone, Products.TinyMCE, buildout.coredev, plone.app.form, plone.app.portlets",2010-02-10,2010-09-08
 keul,9,0,2,"Products.TinyMCE, plone.app.discussion",2010-01-24,2010-11-16
-aaronvanderlip,9,0,2,"Plone, plone.app.upgrade",2010-01-16,2010-01-17
 malthe,8,0,4,"archetypes.referencebrowserwidget, plone.app.portlets, plone.app.z3cform, plone.protect",2010-01-13,2010-12-23
-terapyon,8,0,3,"Plone, plone.app.users, plone.i18n",2010-01-06,2010-03-23
 mrsavage,8,0,5,"Plone, Products.PlonePAS, plone.app.folder, plone.app.portlets, plone.app.users",2010-07-07,2010-08-26
-dbrenneman,7,0,2,"Plone, buildout.dexterity",2010-01-16,2010-03-18
+terapyon,8,0,3,"Plone, plone.app.users, plone.i18n",2010-01-06,2010-03-23
 amleczko,7,0,3,"Plone, Products.PasswordResetTool, buildout.coredev",2010-01-15,2010-11-29
-emanlove,6,0,1,plonetheme.sunburst,2010-01-07,2010-08-20
+dbrenneman,7,0,2,"Plone, buildout.dexterity",2010-01-16,2010-03-18
 awello,6,0,3,"plone.app.page, plone.app.standardtiles, plone.subrequest",2010-07-16,2010-11-25
-regebro,5,0,4,"plone.app.blob, plone.app.discussion, plone.app.upgrade, plone.z3cform",2010-03-24,2010-07-02
-silviot,5,0,3,"Plone, plone.app.layout, plonetheme.sunburst",2010-02-26,2010-02-28
+emanlove,6,0,1,plonetheme.sunburst,2010-01-07,2010-08-20
 ableeb,5,0,1,plone.app.themeeditor,2010-05-29,2010-05-30
-RMattB,5,0,2,"Products.Archetypes, buildout.coredev",2010-09-21,2010-10-19
 kiorky,5,0,2,"Plone, plone.app.layout",2010-10-05,2010-10-16
 pilz,5,0,4,"plone.app.caching, plone.app.controlpanel, plone.app.ldap, plone.app.viewletmanager",2010-05-13,2010-05-21
+regebro,5,0,4,"plone.app.blob, plone.app.discussion, plone.app.upgrade, plone.z3cform",2010-03-24,2010-07-02
+RMattB,5,0,2,"Products.Archetypes, buildout.coredev",2010-09-21,2010-10-19
+silviot,5,0,3,"Plone, plone.app.layout, plonetheme.sunburst",2010-02-26,2010-02-28
 bloodbare,4,0,3,"Products.LinguaPlone, plone.formwidget.hcaptcha, plone.formwidget.recaptcha",2010-03-29,2010-06-08
 massimoazzolini,4,0,3,"Plone, Products.PasswordResetTool, buildout.coredev",2010-01-15,2010-11-05
 sylvainb,4,0,3,"buildout.dexterity, plone.app.referenceablebehavior, plone.behavior",2010-10-30,2010-10-30
-sidnei,3,0,1,plone.recipe.zope2instance,2010-07-31,2010-07-31
 pbauer,3,0,2,"buildout.coredev, plone.event",2010-10-26,2010-10-30
 retsu,3,0,1,Products.TinyMCE,2010-04-10,2010-08-23
-macadames,2,0,1,plone.app.portlets,2010-05-15,2010-05-15
-sneridagh,2,0,1,plone.app.discussion,2010-11-17,2010-11-17
-fschulze,2,0,1,buildout.coredev,2010-01-10,2010-01-11
+sidnei,3,0,1,plone.recipe.zope2instance,2010-07-31,2010-07-31
 dnouri,2,0,2,"Products.PloneLanguageTool, plone.testing",2010-11-05,2010-12-06
-sureshvv,2,0,1,Products.Archetypes,2010-06-26,2010-06-30
-jensens,2,0,2,"Products.LinguaPlone, Products.TinyMCE",2010-02-02,2010-06-11
+fschulze,2,0,1,buildout.coredev,2010-01-10,2010-01-11
 huubbouma,2,0,2,"Plone, Products.LinguaPlone",2010-01-15,2010-02-12
-petschki,2,0,1,Products.ATContentTypes,2010-08-17,2010-08-17
+jensens,2,0,2,"Products.LinguaPlone, Products.TinyMCE",2010-02-02,2010-06-11
 lentinj,2,0,1,diazo,2010-11-11,2010-11-12
-laurenskling,1,0,1,plone.app.deco,2010-08-29,2010-08-29
-martior,1,0,1,plone.transforms,2010-01-21,2010-01-21
-jfroche,1,0,1,Products.PloneTestCase,2010-09-02,2010-09-02
-nk24i,1,0,1,Products.TinyMCE,2010-04-19,2010-04-19
-tesdal,1,0,1,plone.recipe.zope2instance,2010-12-20,2010-12-20
+macadames,2,0,1,plone.app.portlets,2010-05-15,2010-05-15
+petschki,2,0,1,Products.ATContentTypes,2010-08-17,2010-08-17
+sneridagh,2,0,1,plone.app.discussion,2010-11-17,2010-11-17
+sureshvv,2,0,1,Products.Archetypes,2010-06-26,2010-06-30
 asigottech,1,0,1,ploneorg.admin,2010-09-04,2010-09-04
-tarekziade,1,0,1,ploneorg.admin,2010-04-06,2010-04-06
-vincic,1,0,1,plonetheme.sunburst,2010-01-10,2010-01-10
 buchi,1,0,1,plone.app.stagingbehavior,2010-07-28,2010-07-28
 claytron,1,0,1,Plone,2010-07-16,2010-07-16
+ctheune,1,0,1,plone.z3cform,2010-06-17,2010-06-17
 gogobd,1,0,1,Plone,2010-11-16,2010-11-16
 jcbrand,1,0,1,archetypes.referencebrowserwidget,2010-05-21,2010-05-21
-ctheune,1,0,1,plone.z3cform,2010-06-17,2010-06-17
+jfroche,1,0,1,Products.PloneTestCase,2010-09-02,2010-09-02
+laurenskling,1,0,1,plone.app.deco,2010-08-29,2010-08-29
+martior,1,0,1,plone.transforms,2010-01-21,2010-01-21
+nk24i,1,0,1,Products.TinyMCE,2010-04-19,2010-04-19
+tarekziade,1,0,1,ploneorg.admin,2010-04-06,2010-04-06
+tesdal,1,0,1,plone.recipe.zope2instance,2010-12-20,2010-12-20
+vincic,1,0,1,plonetheme.sunburst,2010-01-10,2010-01-10

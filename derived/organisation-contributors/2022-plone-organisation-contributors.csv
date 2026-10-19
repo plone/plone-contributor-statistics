@@ -34,21 +34,21 @@ BubbleNet,12,10,1,gotcha,9,"Products.ATContentTypes, Products.CMFPlone, Products
 Markus Hilbert (independent),12,3,1,iham,8,"Products.CMFPlone, mockup, plone.app.caching, plone.app.contentmenu, plone.app.mosaic, plone.app.registry, plone.app.widgets, plone.app.z3cform",2019-10-09,2022-09-15
 University of Jyväskylä,12,5,2,"datakurre, rioksane",2,"Products.CMFPlone, plone.app.robotframework",2022-02-18,2022-06-08
 BlueDynamics KG,10,1,1,zworkb,5,"buildout.coredev, plone.app.blocks, plone.app.contenttypes, plone.app.dexterity, plone.app.event",2022-03-21,2022-03-31
-RawMaterial,7,7,1,nzambello,5,"aurora, form-block, plone.org, plone.volto, volto",2022-01-28,2022-12-21
 Iskra,7,6,2,"nilbacardit26, rboixaderg",2,"guillotina, guillotina_elasticsearch",2022-07-25,2022-11-23
+RawMaterial,7,7,1,nzambello,5,"aurora, form-block, plone.org, plone.volto, volto",2022-01-28,2022-12-21
 operun,6,4,1,santonelli,4,"bobtemplates.plone, plone.app.viewletmanager, plonecli, training",2022-09-01,2022-10-09
 Ludwig Maximilian University Munich,4,2,1,loechel,1,training,2022-10-10,2022-11-07
 it-spirit,3,2,1,thomasmassmann,1,plone.app.layout,2022-01-07,2022-01-07
-Makina Corpus,2,0,1,Gagaro,1,plone.restapi-angular,2022-03-02,2022-03-02
 CMS Communications Inc.,2,1,1,terapyon,2,"aurora, volto",2022-11-10,2022-11-10
 infoCatch,2,1,1,mtrebron,1,plone.app.z3cform,2022-08-14,2022-08-14
 KU Leuven,2,1,1,spereverde,2,"aurora, volto",2022-10-12,2022-10-12
-FHNW,1,1,1,rristow,1,Products.CMFEditions,2018-04-25,2018-04-25
-University of Koblenz,1,0,1,mbarde,1,form-block,2022-04-20,2022-04-20
-squarewave engineering,1,1,1,rnixx,1,buildout.coredev,2022-03-24,2022-03-24
-Roel Bruggink (independent),1,1,1,jaroel,1,plone.base,2022-06-10,2022-06-10
-Zopyx,1,1,1,zopyx,1,plone.restapi,2022-04-30,2022-04-30
+Makina Corpus,2,0,1,Gagaro,1,plone.restapi-angular,2022-03-02,2022-03-02
 Brian Davis (independent),1,1,1,Fosten,1,plone.org,2022-11-05,2022-11-05
-TU Dresden,0,1,1,pgrunewald,1,plone.staticresources,,
+FHNW,1,1,1,rristow,1,Products.CMFEditions,2018-04-25,2018-04-25
+Roel Bruggink (independent),1,1,1,jaroel,1,plone.base,2022-06-10,2022-06-10
+squarewave engineering,1,1,1,rnixx,1,buildout.coredev,2022-03-24,2022-03-24
+University of Koblenz,1,0,1,mbarde,1,form-block,2022-04-20,2022-04-20
+Zopyx,1,1,1,zopyx,1,plone.restapi,2022-04-30,2022-04-30
 cloud19,0,1,1,faro76,1,documentation,,
 minddistrict,0,1,1,janjaapdriessen,1,plone.recipe.codeanalysis,,
+TU Dresden,0,1,1,pgrunewald,1,plone.staticresources,,

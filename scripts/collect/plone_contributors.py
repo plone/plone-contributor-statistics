@@ -43,6 +43,7 @@ from scripts.lib import git_history
 from scripts.lib import paths
 from scripts.lib.github_api import GitHubAPIError, github_get, github_graphql, is_merge_commit
 from scripts.lib.mappings import load_account_aliases, load_bot_accounts, load_commit_authors, load_excluded_repositories
+from scripts.lib.tables import by_count
 
 
 EXCLUDED_REPOSITORIES_FILE = paths.EXCLUDED_REPOSITORIES
@@ -403,7 +404,7 @@ class PloneStatsExtractor:
         if not data:
             print(f"No data collected for {label}. Creating empty report.")
             return pd.DataFrame(columns=REPORT_COLUMNS)
-        return pd.DataFrame(data).sort_values('total_commits', ascending=False)
+        return by_count(pd.DataFrame(data), 'total_commits', 'username')
 
     def save_report(self, df: pd.DataFrame, filename: str = None):
         """Save the report to CSV file."""

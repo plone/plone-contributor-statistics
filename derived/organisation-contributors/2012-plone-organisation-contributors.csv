@@ -25,26 +25,26 @@ Soliton Consulting,29,0,1,fulv,6,"buildout.deco, plone.api, plone.app.dexterity,
 Four Digits,25,1,1,robgietema,2,"buildout.deco, plone.app.deco",2012-09-22,2012-09-23
 Pretaweb,23,0,1,djay,6,"Products.CMFPlone, Products.PlonePAS, buildout.coredev, diazo, plone.app.toolbar, plone.app.users",2012-01-03,2012-09-28
 Eau de Web,17,8,3,"alecghica, ichim-david, zotya",7,"Products.CMFPlacefulWorkflow, archetypes.querywidget, plone.act, plone.app.collection, plone.app.robotframework, plone.i18n, plone.portlet.static",2012-09-27,2012-12-07
-Zopyx,16,4,1,zopyx,5,"Products.Archetypes, Products.ResourceRegistries, Products.TinyMCE, planet.plone.org, plone.app.event",2012-01-27,2012-12-30
 Sixfeetup,16,0,3,"calvinhp, claytron, davidblewett",7,"Products.Archetypes, buildout.deco, plone.app.blocks, plone.app.deco, plone.app.tiles, plone.app.toolbar, plone.tiles",2012-09-21,2012-09-23
+Zopyx,16,4,1,zopyx,5,"Products.Archetypes, Products.ResourceRegistries, Products.TinyMCE, planet.plone.org, plone.app.event",2012-01-27,2012-12-30
 der Freitag,15,10,2,"gforcada, khink",10,"Products.CMFPlone, Products.TinyMCE, buildout.coredev, buildout.jenkins, plone.app.async, plone.app.collection, plone.app.discussion, plone.recipe.haproxy, plone.registry, plone.relations",2012-04-17,2012-12-11
 CCC,13,0,1,polyester,8,"Products.CMFPlone, plone.app.collection, plone.app.layout, plone.app.portlets, plone.app.search, plone.portlet.collection, plonetheme.classic, plonetheme.sunburst",2012-05-24,2012-10-14
 cloud19,12,0,1,faro,2,"plone.app.event, plone.formwidget.recurrence",2012-06-12,2012-06-13
 iMio,12,9,2,"gbastien, sgeulette",5,"Products.Archetypes, Products.CMFPlone, Products.TinyMCE, archetypes.referencebrowserwidget, plone.dexterity",2012-07-20,2012-12-17
 Klein & Partner KG,12,0,1,jensens,5,"archetypes.querywidget, buildout.coredev, buildout.deco, plone.app.jquerytools, plone.registry",2012-05-04,2012-11-04
 Kombinat,10,2,1,petschki,2,"archetypes.querywidget, plone.app.querystring",2012-07-04,2012-07-12
-Ravvit,9,2,1,frapell,5,"buildout.coredev, plone.app.linkintegrity, plone.app.portlets, plone.app.referenceablebehavior, plone.app.stagingbehavior",2012-04-25,2012-08-20
 Affinitic,9,2,2,"jfroche, laulaz",4,"Products.Archetypes, Products.CMFPlone, plone.app.tiles, plone.tiles",2012-07-09,2012-12-06
+Ravvit,9,2,1,frapell,5,"buildout.coredev, plone.app.linkintegrity, plone.app.portlets, plone.app.referenceablebehavior, plone.app.stagingbehavior",2012-04-25,2012-08-20
 Juizi,8,0,1,jbeyers,3,"plone.act, plone.app.robotframework, plone.app.theming",2012-10-13,2012-10-14
 RedTurtle,5,0,1,ale-rt,2,"plone.app.layout, plone.recipe.zope2zeoserver",2012-03-28,2012-09-21
 Plone Venezuela,3,1,1,macagua,2,"plone.api, plone.app.debugtoolbar",2012-08-26,2012-08-26
 Bearstech,2,1,1,encolpe,2,"Products.CMFPlacefulWorkflow, buildout.coredev",2012-07-14,2012-10-19
-Greenfinity LLC,2,2,1,reebalazs,2,"Products.CMFPlone, planet.plone.org",2012-01-11,2012-11-14
 CMS Communications Inc.,2,1,1,terapyon,1,plone.app.search,2012-10-13,2012-10-13
+Greenfinity LLC,2,2,1,reebalazs,2,"Products.CMFPlone, planet.plone.org",2012-01-11,2012-11-14
 Simplon,2,0,1,wichert,1,planet.plone.org,2012-05-09,2012-05-09
 Agitator,1,0,1,agitator,1,plonetheme.sunburst,2012-11-22,2012-11-22
 Ecréall,1,0,1,cedricmessiant,1,plone.app.dexterity,2012-12-12,2012-12-12
 Florian Schulze (independent),1,0,1,fschulze,1,plone.app.users,2012-10-17,2012-10-17
 Penn State University,1,1,1,Fosten,1,planet.plone.org,2012-03-09,2012-03-09
-KU Leuven,0,1,1,spereverde,1,plone.portlet.collection,,
 it-spirit,0,1,1,thomasmassmann,1,plone.app.vocabularies,,
+KU Leuven,0,1,1,spereverde,1,plone.portlet.collection,,

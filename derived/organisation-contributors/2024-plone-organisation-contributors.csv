@@ -16,22 +16,22 @@ Starzel,63,33,2,"Gomez, pbauer",19,"Plone, Products.CMFDiffTool, Products.CMFPlo
 Rohberg,58,22,1,ksuess,11,"aurora, cookieplone-templates, demo.plone.org, documentation, plone.app.discussion, plone.app.z3cform, plone.exportimport, plone.formwidget.hcaptcha, plone.volto, training, volto",2024-02-29,2024-12-22
 Syslab,53,33,3,"ale-rt, reinhardt, thet",19,"Products.CMFPlone, Products.PlonePAS, Products.PortalTransforms, documentation, meta, mockup, plone.app.content, plone.app.contenttypes, plone.app.event, plone.app.layout, plone.app.theming, plone.app.upgrade, plone.app.z3cform, plone.base, plone.dexterity, plone.formwidget.namedfile, plone.namedfile, plone.volto, plonetheme.barceloneta",2023-04-10,2024-12-20
 Iskra,49,9,2,"nilbacardit26, rboixaderg",2,"guillotina, guillotina_elasticsearch",2024-01-05,2024-10-21
-Sixfeetup,46,6,1,tkimnguyen,2,"2024.ploneconf.org, training",2024-07-22,2024-12-31
 Nuclia,46,38,3,"bloodbare, ebrehault, mpellerin42",4,"aurora, guillotina, pastanaga-angular, volto",2024-01-04,2024-11-04
+Sixfeetup,46,6,1,tkimnguyen,2,"2024.ploneconf.org, training",2024-07-22,2024-12-31
 Zest Software,27,3,1,jladage,3,"plone.app.layout, plone.app.upgrade, plone.base",2024-03-26,2024-04-04
 Pretaweb,22,9,3,"JeffersonBledsoe, djay, instification",4,"aurora, plone.namedfile, plone.restapi, volto",2024-03-05,2024-12-02
 Academy of FA Vienna,10,3,1,gogobd,3,"cookiecutter-zope-instance, plone.api, plone.app.multilingual",2024-01-23,2024-04-23
 Nelen-Schuurmans,8,2,1,reinout,1,meta,2024-02-03,2024-02-06
-TU Dresden,7,3,1,pgrunewald,1,plone.app.linkintegrity,2024-04-08,2024-05-14
 BubbleNet,7,2,1,gotcha,3,"plone.app.themingplugins, plone.recipe.zope2instance, plone.testing",2024-06-17,2024-10-21
 Plone Venezuela,7,1,1,macagua,1,plone.app.debugtoolbar,2024-02-23,2024-02-23
-FHNW,6,3,1,tomschall,2,"aurora, volto",2024-04-25,2024-07-26
+TU Dresden,7,3,1,pgrunewald,1,plone.app.linkintegrity,2024-04-08,2024-05-14
 CCC,6,0,1,polyester,3,"ai-team-private, plone-sphinx-theme, training",2024-05-16,2024-11-26
+FHNW,6,3,1,tomschall,2,"aurora, volto",2024-04-25,2024-07-26
 Cosent,4,2,1,gyst,2,"plone.app.event, plone.recipe.zope2instance",2024-04-19,2024-05-07
 University of Koblenz,3,0,1,mbarde,1,form-block,2024-06-13,2024-09-12
-iMio,2,3,2,"alexnuttinck, bsuttor",2,"code-quality, helm-charts",2024-07-24,2024-07-25
 Affinitic,2,1,1,laulaz,2,"mockup, plone.formwidget.autocomplete",2024-05-08,2024-10-10
 Geosphere,2,1,1,animus888,2,"aurora, volto",2024-04-19,2024-04-19
+iMio,2,3,2,"alexnuttinck, bsuttor",2,"code-quality, helm-charts",2024-07-24,2024-07-25
 IMS Inc.,2,1,1,ewohnlich,1,Products.CMFPlone,2024-03-05,2024-03-05
 KU Leuven,2,2,2,"Sakoes, spereverde",2,"plone.app.iterate, plone.recipe.zope2instance",2024-02-19,2024-09-05
 Brian Davis (independent),1,1,1,Fosten,1,cookieplone-templates,2024-11-21,2024-11-21

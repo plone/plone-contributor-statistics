@@ -36,26 +36,26 @@ Franco Pellegrini (independent),11,8,1,frapell,6,"guillotina, guillotina-volto, 
 University of Jyväskylä,9,2,1,datakurre,2,"plone.app.versioningbehavior, plone.formwidget.namedfile",2020-04-22,2021-07-07
 Radio Free Asia,8,4,1,flipmcf,6,"2023.ploneconf.org, documentation, plone.app.dexterity, plone.app.vocabularies, plone.nl, ploneconf.org",2021-01-21,2021-12-08
 Affinitic,7,1,2,"daggelpop, laulaz",6,"Products.CMFPlone, buildout.coredev, plone.app.content, plone.app.contenttypes, plone.app.theming, plone.gallery",2021-03-05,2021-12-02
-Plone Venezuela,6,0,1,macagua,2,"aurora, volto",2021-11-08,2021-11-08
 iMio,6,2,3,"duchenean, gbastien, sgeulette",4,"plone.app.robotframework, plone.app.textfield, plone.app.z3cform, plone.restapi",2021-09-24,2021-10-15
+Plone Venezuela,6,0,1,macagua,2,"aurora, volto",2021-11-08,2021-11-08
 Lovely Systems,5,7,1,frisi,3,"bobtemplates.plone, plone.app.event, plone.formwidget.namedfile",2021-05-31,2021-08-18
 FH St. Pölten,4,1,1,2silver,1,plone.app.iterate,2021-05-19,2021-05-20
 Jowett Enterprises Ltd,4,4,1,djowett,3,"ansible-playbook, ansible.plone_server, plone.app.debugtoolbar",2018-09-11,2021-07-26
-minddistrict,3,0,1,sallner,1,meta,2021-02-01,2021-03-19
+4Teamwork,3,2,2,"deiferni, maethu",2,"plone.formwidget.recaptcha, plone.restapi",2021-04-30,2021-07-23
 CCC,3,2,1,polyester,4,"buildout.coredev, documentation, papyrus, training",2021-10-23,2021-10-29
 infoCatch,3,3,1,mtrebron,2,"ploneorg.core, ploneorg.theme",2021-02-21,2021-03-27
-4Teamwork,3,2,2,"deiferni, maethu",2,"plone.formwidget.recaptcha, plone.restapi",2021-04-30,2021-07-23
-Greenfinity LLC,2,1,1,reebalazs,2,"aurora, volto",2021-12-01,2021-12-01
-Wildcard Corp,2,2,1,bduncan137,2,"plone.app.caching, plone.app.drafts",2021-03-10,2021-09-24
+minddistrict,3,0,1,sallner,1,meta,2021-02-01,2021-03-19
 Academy of FA Vienna,2,1,1,gogobd,1,plone.app.multilingualindexes,2021-06-01,2021-06-01
+CMS Communications Inc.,2,1,1,terapyon,2,"aurora, volto",2021-09-20,2021-09-20
+Greenfinity LLC,2,1,1,reebalazs,2,"aurora, volto",2021-12-01,2021-12-01
 Markus Hilbert (independent),2,1,1,iham,1,plone.app.contenttypes,2021-10-30,2021-11-05
 Roel Bruggink (independent),2,6,1,jaroel,7,"Products.CMFPlone, buildout.coredev, plone.app.contenttypes, plone.app.multilingual, plone.app.testing, plone.dexterity, plone.supermodel",2021-01-26,2021-08-18
-CMS Communications Inc.,2,1,1,terapyon,2,"aurora, volto",2021-09-20,2021-09-20
 Werkbank GmbH,2,2,2,"AlexBueckig, woolyseal",3,"aurora, plone.app.z3cform, volto",2021-04-07,2021-04-07
+Wildcard Corp,2,2,1,bduncan137,2,"plone.app.caching, plone.app.drafts",2021-03-10,2021-09-24
 cusy,1,0,1,veit,1,planet.plone.org,2021-01-16,2021-01-16
+Ecréall,1,0,1,michaellaunay,1,plone.app.portlets,2021-09-24,2021-09-24
+Malthe Borch (independent),1,0,1,malthe,1,Products.CMFPlone,2017-04-18,2017-04-18
 Vincent Fretin (independent),1,0,1,vincentfretin,1,buildout.coredev,2021-07-28,2021-07-28
 Zopyx,1,0,1,zopyx,1,planet.plone.org,2021-10-14,2021-10-14
-Malthe Borch (independent),1,0,1,malthe,1,Products.CMFPlone,2017-04-18,2017-04-18
-Ecréall,1,0,1,michaellaunay,1,plone.app.portlets,2021-09-24,2021-09-24
-WebTide,0,1,1,mikejmets,1,documentation,,
 Reid-McMahon,0,1,1,smcmahon,1,ansible-playbook,,
+WebTide,0,1,1,mikejmets,1,documentation,,

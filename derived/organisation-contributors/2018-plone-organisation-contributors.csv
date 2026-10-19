@@ -31,26 +31,26 @@ Sixfeetup,24,4,1,cdw9,4,"documentation, ploneorg.core, training, training.plone.
 it-spirit,19,10,1,thomasmassmann,7,"Products.CMFPlone, buildout.coredev, documentation, mockup, plone.recipe.codeanalysis, plone.resourceeditor, plonetheme.barceloneta",2018-01-03,2018-10-03
 Rohberg,15,5,1,ksuess,5,"Products.CMFPlone, plone.app.content, plone.app.robotframework, plone.app.testing, plone.app.upgrade",2018-01-28,2018-10-05
 CCC,14,1,1,polyester,6,"Products.CMFPlone, ai-team-private, archive.plone.org, documentation, documentation-roboshots, papyrus",2018-01-08,2018-11-11
-Vincent Fretin (independent),13,1,1,vincentfretin,6,"Products.Archetypes, buildout.coredev, documentation, plone.app.content, plone.app.event, plone.app.linkintegrity",2018-02-21,2018-11-20
 Interaktiv,13,5,1,jmevissen,5,"Products.CMFPlone, plone.app.debugtoolbar, plone.app.folder, plone.folder, plone.reload",2018-05-18,2018-10-05
 Steve Piercy - Website Builder,13,11,1,stevepiercy,3,"documentation, pylons-project-assimilation, training",2018-04-25,2018-11-28
+Vincent Fretin (independent),13,1,1,vincentfretin,6,"Products.Archetypes, buildout.coredev, documentation, plone.app.content, plone.app.event, plone.app.linkintegrity",2018-02-21,2018-11-20
 Matthew Wilkes (independent),9,3,1,MatthewWilkes,6,"documentation, plone.app.caching, plone.app.z3cform, plone.namedfile, plone.protect, plone.registry",2018-05-07,2018-06-19
 Plone Venezuela,7,0,1,macagua,2,"planet.plone.org, plone.app.modernizr",2018-04-23,2018-07-22
-Webmeisterei,6,2,1,frisi,2,"documentation, plone.protect",2018-01-11,2018-10-07
 Soliton Consulting,6,1,1,fulv,2,"ansible.plone_server, training",2018-03-22,2018-12-28
+Webmeisterei,6,2,1,frisi,2,"documentation, plone.protect",2018-01-11,2018-10-07
 Radio Free Asia,5,1,1,flipmcf,2,"documentation, training",2018-08-30,2018-10-03
-squarewave engineering,4,0,1,rnixx,1,Products.MimetypesRegistry,2018-06-12,2018-06-13
 BubbleNet,4,0,1,gotcha,2,"plone.api, plone.testing",2018-01-29,2018-03-12
-Wundertax,3,2,1,ericof,2,"guillotina, ploneorg.core",2018-11-06,2018-12-06
-minddistrict,3,1,1,sallner,3,"Products.CMFPlone, buildout.coredev, plone.app.z3cform",2018-05-18,2018-05-18
+squarewave engineering,4,0,1,rnixx,1,Products.MimetypesRegistry,2018-06-12,2018-06-13
 CMS Communications Inc.,3,4,1,terapyon,4,"Products.CMFDiffTool, Products.CMFPlone, documentation, guillotina",2018-02-07,2018-11-19
-Pretaweb,3,1,1,djay,1,plone.app.theming,2018-02-18,2018-03-23
 KU Leuven,3,0,1,spereverde,1,plone.app.dexterity,2018-12-14,2018-12-22
-UNAM,2,1,1,gil-cano,2,"documentation, mockup",2018-03-19,2018-05-29
+minddistrict,3,1,1,sallner,3,"Products.CMFPlone, buildout.coredev, plone.app.z3cform",2018-05-18,2018-05-18
+Pretaweb,3,1,1,djay,1,plone.app.theming,2018-02-18,2018-03-23
+Wundertax,3,2,1,ericof,2,"guillotina, ploneorg.core",2018-11-06,2018-12-06
 Academy of FA Vienna,2,1,1,gogobd,1,plone.resource,2018-01-27,2018-01-27
 Iskra,2,3,1,allusa,2,"Products.CMFPlone, plone.app.z3cform",2018-02-06,2018-04-10
 TU Dresden,2,0,2,"pgrunewald, veritazx",2,"buildout.coredev, documentation",2018-05-18,2018-11-11
-Zopyx,1,0,1,zopyx,1,bobtemplates.plone,2018-02-19,2018-02-19
-WebTide,1,1,1,mikejmets,1,plone.app.dexterity,2018-10-22,2018-10-22
-Jowett Enterprises Ltd,1,1,1,djowett,1,plone.autoform,2018-06-23,2018-06-23
+UNAM,2,1,1,gil-cano,2,"documentation, mockup",2018-03-19,2018-05-29
 Affinitic,1,1,2,"laulaz, mpeeters",2,"pastanaga, plone.formwidget.datetime",2018-11-06,2018-11-06
+Jowett Enterprises Ltd,1,1,1,djowett,1,plone.autoform,2018-06-23,2018-06-23
+WebTide,1,1,1,mikejmets,1,plone.app.dexterity,2018-10-22,2018-10-22
+Zopyx,1,0,1,zopyx,1,bobtemplates.plone,2018-02-19,2018-02-19

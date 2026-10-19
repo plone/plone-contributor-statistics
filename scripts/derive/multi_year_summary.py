@@ -15,6 +15,7 @@ from pathlib import Path
 from scripts.lib import paths
 from scripts.lib.years import window
 from scripts.derive.organisation_stats import UNMAPPED
+from scripts.lib.tables import by_count
 
 
 def load_organisation_file(year):
@@ -132,7 +133,7 @@ def combine_multi_year_stats(years):
     result = aggregated[column_order]
     
     # Sort by total pull requests descending
-    result = result.sort_values('total_pull_requests', ascending=False).reset_index(drop=True)
+    result = by_count(result, 'total_pull_requests', 'organisation').reset_index(drop=True)
     
     return result
 

@@ -18,26 +18,26 @@ gotcha,31,0,4,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, 
 vinsci,31,0,1,Products.CMFPlone,2004-01-06,2004-05-11
 dannybloe,26,0,2,"Products.Archetypes, Products.CMFPlone",2004-01-12,2004-12-01
 baekholt,19,0,3,"Products.Archetypes, Products.CMFPlone, Products.PloneLanguageTool",2004-02-04,2004-10-25
-kapilt,14,0,3,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone",2004-04-01,2004-12-11
-joelburton,14,0,3,"Products.Archetypes, Products.CMFPlone, Products.PlacelessTranslationService",2004-02-09,2004-08-12
-Michael Zeltner,14,0,1,Products.CMFPlone,2004-01-17,2004-04-22
 JimRoepcke,14,0,4,"Products.Archetypes, Products.CMFFormController, Products.CMFPlone, Products.PlacelessTranslationService",2004-01-07,2004-03-12
-rafrombrc,12,0,2,"Products.Archetypes, Products.PasswordResetTool",2004-05-05,2004-12-23
+joelburton,14,0,3,"Products.Archetypes, Products.CMFPlone, Products.PlacelessTranslationService",2004-02-09,2004-08-12
+kapilt,14,0,3,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone",2004-04-01,2004-12-11
+Michael Zeltner,14,0,1,Products.CMFPlone,2004-01-17,2004-04-22
 ctheune,12,0,1,Products.ATContentTypes,2004-11-24,2004-12-14
+rafrombrc,12,0,2,"Products.Archetypes, Products.PasswordResetTool",2004-05-05,2004-12-23
 panjunyong,11,0,4,"Products.Archetypes, Products.CMFPlone, Products.MimetypesRegistry, Products.PlacelessTranslationService",2004-02-19,2004-09-15
+bitranch,10,0,2,"Products.Archetypes, Products.CMFPlone",2004-02-20,2004-05-08
 jladage,10,0,1,Products.CMFPlone,2004-10-07,2004-12-07
 xiru,10,0,1,Products.Archetypes,2004-05-28,2004-08-28
-bitranch,10,0,2,"Products.Archetypes, Products.CMFPlone",2004-02-20,2004-05-08
 jodok,9,0,3,"Products.Archetypes, Products.CMFPlone, Products.PloneLanguageTool",2004-02-26,2004-10-19
 maikroeder,9,0,1,Products.CMFPlone,2004-01-20,2004-01-20
 whitmo,8,0,1,Products.Archetypes,2004-03-30,2004-11-30
 chadwhitacre,5,0,1,Products.CMFPlone,2004-02-29,2004-10-06
 spanktar,5,0,1,Products.Archetypes,2004-06-08,2004-06-10
 vincic,5,0,1,Products.CMFPlone,2004-01-20,2004-01-21
-myroslav,4,0,1,Products.CMFPlone,2004-03-02,2004-04-20
 mcdonc,4,0,1,Products.Archetypes,2004-03-26,2004-03-26
-mrtopf,3,0,1,Products.CMFPlone,2004-04-19,2004-04-20
+myroslav,4,0,1,Products.CMFPlone,2004-03-02,2004-04-20
 bbuehlmann,3,0,1,Products.CMFPlone,2004-02-13,2004-04-14
+mrtopf,3,0,1,Products.CMFPlone,2004-04-19,2004-04-20
 sthenault,3,0,1,Products.Archetypes,2004-02-06,2004-02-06
-robertrottermann,1,0,1,Products.CMFPlone,2004-01-03,2004-01-03
 Gregoire Weber,1,0,1,Products.CMFPlone,2004-02-02,2004-02-02
+robertrottermann,1,0,1,Products.CMFPlone,2004-01-03,2004-01-03

@@ -27,29 +27,29 @@ CMS Communications Inc.,22,11,1,terapyon,2,"aurora, volto",2020-02-18,2020-12-11
 Steve Piercy - Website Builder,22,4,1,stevepiercy,3,"ansible-playbook, ansible.plone_server, training",2020-01-24,2020-07-09
 Reid-McMahon,20,3,1,smcmahon,3,"Installers-UnifiedInstaller, ansible-playbook, ansible.plone_server",2019-12-01,2020-07-27
 minddistrict,19,1,2,"janjaapdriessen, sallner",2,"meta, plone.recipe.codeanalysis",2020-05-13,2020-11-04
-University of Jyväskylä,18,7,1,datakurre,6,"aurora, plone.app.versioningbehavior, plone.jsonserializer, plone.namedfile, training, volto",2020-01-28,2020-06-12
 der Freitag,18,5,1,gforcada,4,"jenkins.plone.org, mr.roboto, plone.scale, plone.stringinterp",2020-01-06,2020-12-18
+University of Jyväskylä,18,7,1,datakurre,6,"aurora, plone.app.versioningbehavior, plone.jsonserializer, plone.namedfile, training, volto",2020-01-28,2020-06-12
 Academy of FA Vienna,16,3,2,"gogobd, iham",4,"Products.Archetypes, plone.app.multilingual, plone.app.multilingualindexes, plone.app.querystring",2020-05-07,2020-10-23
-Salesforce,11,2,1,esteele,6,"Products.CMFPlone, aurora, buildout.coredev, plone.restapi, plone.staticresources, volto",2020-01-07,2020-05-06
 operun,11,8,1,santonelli,5,"Products.CMFPlone, buildout.coredev, plone.app.theming, plone.staticresources, plonetheme.barceloneta",2020-04-20,2020-11-11
+Salesforce,11,2,1,esteele,6,"Products.CMFPlone, aurora, buildout.coredev, plone.restapi, plone.staticresources, volto",2020-01-07,2020-05-06
 Franco Pellegrini (independent),9,7,1,frapell,6,"Products.CMFPlone, mockup, plone.app.iterate, plone.app.upgrade, plone.patternslib, plone.staticresources",2020-01-02,2020-09-25
 Makina Corpus,9,0,2,"Gagaro, tdesvenain",2,"mockup, plone.restapi-angular",2019-02-05,2020-06-23
-Serpro,8,10,1,wesleybl,3,"bobtemplates.plone, buildout.coredev, plone.restapi",2020-10-31,2020-12-30
 it-spirit,8,3,1,thomasmassmann,4,"Products.CMFPlone, Products.PortalTransforms, plone.app.upgrade, training.plone.org",2020-04-08,2020-05-25
+Serpro,8,10,1,wesleybl,3,"bobtemplates.plone, buildout.coredev, plone.restapi",2020-10-31,2020-12-30
 Radio Free Asia,7,2,1,flipmcf,3,"mockup, plone.app.vocabularies, plone.outputfilters",2020-08-13,2020-11-04
-Onna,5,90,1,mpellerin42,1,pastanaga-angular,2020-12-10,2020-12-22
+Affinitic,5,5,2,"laulaz, mpeeters",4,"mockup, plone.app.versioningbehavior, plone.recipe.zope2instance, plone.restapi",2020-02-05,2020-09-17
 CCC,5,1,1,polyester,3,"foundation, papyrus, sphinxtheme.plone",2020-02-24,2020-07-01
 Florian Schulze (independent),5,0,1,fschulze,1,plone.scale,2017-09-19,2020-02-11
 iMio,5,4,2,"bsuttor, gbastien",3,"aurora, plone.restapi, volto",2020-06-15,2020-06-29
-Affinitic,5,5,2,"laulaz, mpeeters",4,"mockup, plone.app.versioningbehavior, plone.recipe.zope2instance, plone.restapi",2020-02-05,2020-09-17
+Onna,5,90,1,mpellerin42,1,pastanaga-angular,2020-12-10,2020-12-22
+4Teamwork,3,3,2,"buchi, lukasgraf",1,plone.restapi,2020-01-22,2020-03-20
+Iskra,3,1,1,allusa,1,guillotina,2020-07-08,2020-07-09
 Jens Vagelpohl (independent),3,1,1,dataflake,2,"meta, plone.recipe.zope2instance",2020-02-15,2020-02-17
+KU Leuven,3,0,1,spereverde,2,"documentation, training",2020-02-13,2020-06-08
 Uni. Hospital Dresden,3,3,1,1letter,3,"Products.ResourceRegistries, plone.app.event, plonetheme.barceloneta",2020-03-11,2020-07-28
 WebTide,3,1,1,mikejmets,3,"aurora, documentation, volto",2020-01-30,2020-10-24
-KU Leuven,3,0,1,spereverde,2,"documentation, training",2020-02-13,2020-06-08
-Iskra,3,1,1,allusa,1,guillotina,2020-07-08,2020-07-09
-4Teamwork,3,3,2,"buchi, lukasgraf",1,plone.restapi,2020-01-22,2020-03-20
 Zopyx,2,1,1,zopyx,3,"Products.MimetypesRegistry, planet.plone.org, plone.app.portlets",2020-07-15,2020-10-14
-IMS Inc.,1,0,1,ewohnlich,1,Products.CMFPlone,2020-12-23,2020-12-23
 acsr industrialdesign,1,1,1,acsr,1,documentation,2020-09-01,2020-09-01
+IMS Inc.,1,0,1,ewohnlich,1,Products.CMFPlone,2020-12-23,2020-12-23
 BubbleNet,0,2,1,gotcha,1,Products.CMFPlone,,
 Pretaweb,0,2,2,"JeffersonBledsoe, instification",2,"plone.app.contentrules, plone.app.iterate",,
