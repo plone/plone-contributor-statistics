@@ -1,7 +1,6 @@
 """The registers: typed reading through the schema, and the lookups of the Registry."""
 
 import datetime
-import shutil
 from pathlib import Path
 
 import pytest
@@ -42,12 +41,6 @@ enfold,Enfold,organisation,,
 thomas-schorr-independent,Thomas Schorr (independent),independent,,
 plone-foundation,Plone Foundation,foundation,,
 """
-
-
-@pytest.fixture
-def schemas(tmp_repo):
-    shutil.copytree(REPO / 'curated/schemas', tmp_repo / 'curated/schemas', dirs_exist_ok=True)
-    return tmp_repo
 
 
 @pytest.fixture
@@ -129,6 +122,7 @@ def test_read_rows_does_not_guess_the_delimiter(schemas):
 
 
 def test_read_rows_missing_file(schemas):
+    paths.PEOPLE.unlink()
     with pytest.raises(FileNotFoundError):
         read_rows(paths.PEOPLE)
 

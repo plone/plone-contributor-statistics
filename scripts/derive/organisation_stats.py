@@ -3,7 +3,7 @@
 Organisation Statistics Aggregator for Plone GitHub Statistics
 
 Reads the output from plone_contributors.py and aggregates statistics by organisation
-using the mapping defined in organisations.csv
+using the affiliations of the registers (curated/mappings/)
 
 The changelog entries of the year (plone_changelogs.py, #71) are shown in a
 column of their own, next to commits and pull requests, and never added to
@@ -20,13 +20,8 @@ import sys
 import argparse
 
 from scripts.lib import paths
-from scripts.lib.mappings import load_bot_accounts, load_organisation_mapping  # noqa: F401 (imported from here by other scripts)
+from scripts.lib.model import UNMAPPED, load_bot_accounts, load_registry  # noqa: F401 (UNMAPPED is imported from here)
 from scripts.lib.tables import by_count
-
-# Contributors who are not mapped to an organisation. This is not an
-# organisation: it gets no recognition points or level (#53). Self-employed
-# people and volunteers have their own entry, e.g. "Name (independent)".
-UNMAPPED = 'Unmapped'
 
 
 def get_stats_file(year=None):
@@ -102,10 +97,11 @@ def load_changelog_entries(year):
     return pd.read_csv(path, keep_default_na=False)
 
 
-def changelog_entries_by_organisation(changelog_df, organisation_mapping, bots=frozenset()):
+def changelog_entries_by_organisation(changelog_df, organisation_of, bots=frozenset()):
     """{organisation: changelog entries} of the people of each organisation.
 
-    Names that no mapping file maps are no login, so they count as UNMAPPED.
+    organisation_of(username) gives the organisation name. Names that no
+    mapping file maps are no login, so they count as UNMAPPED.
     """
     entries = defaultdict(int)
     if changelog_df is None:
@@ -115,15 +111,16 @@ def changelog_entries_by_organisation(changelog_df, organisation_mapping, bots=f
         if username in bots:
             continue
         unmatched = 'unmatched' in str(row['matched_by']).split(';')
-        organisation = UNMAPPED if unmatched else organisation_mapping.get(username, UNMAPPED)
+        organisation = UNMAPPED if unmatched else organisation_of(username)
         entries[organisation] += int(row['changelog_entries'])
     return entries
 
 
-def aggregate_organisation_stats(stats_df, organisation_mapping, bots=None, changelog_df=None):
+def aggregate_organisation_stats(stats_df, organisation_of, bots=None, changelog_df=None):
     """Aggregate individual contributor stats by organisation.
 
-    Bot accounts are left out; unmapped contributors go to UNMAPPED. The
+    organisation_of(username) gives the organisation name of a login or
+    'person:<id>'. Bot accounts are left out; unmapped contributors go to UNMAPPED. The
     changelog entries go to the organisations that have code work in the
     year; they don't add rows.
     """
@@ -142,7 +139,7 @@ def aggregate_organisation_stats(stats_df, organisation_mapping, bots=None, chan
         username = row['username']
         if username in bots:
             continue
-        organisation = organisation_mapping.get(username, UNMAPPED)
+        organisation = organisation_of(username)
         
         # Aggregate stats
         organisation_stats[organisation]['total_commits'] += row['total_commits']
@@ -167,7 +164,7 @@ def aggregate_organisation_stats(stats_df, organisation_mapping, bots=None, chan
                 last_date > organisation_stats[organisation]['last_contribution']):
                 organisation_stats[organisation]['last_contribution'] = last_date
 
-    for organisation, entries in changelog_entries_by_organisation(changelog_df, organisation_mapping, bots).items():
+    for organisation, entries in changelog_entries_by_organisation(changelog_df, organisation_of, bots).items():
         if organisation in organisation_stats:
             organisation_stats[organisation]['changelog_entries'] += entries
 
@@ -227,8 +224,11 @@ def main():
     # Parse command line arguments
     args = parse_arguments()
     
-    # Load organisation mapping
-    organisation_mapping = load_organisation_mapping(year=args.year)
+    # Load the registers
+    registry = load_registry()
+
+    def organisation_of(username):
+        return registry.organisation_for_username(username, args.year)
     
     # Find and load stats file (specific year or latest)
     stats_file = get_stats_file(args.year)
@@ -248,7 +248,7 @@ def main():
     
     # Aggregate by organisation
     changelog_df = load_changelog_entries(date_range) if date_range and '-' not in date_range else None
-    organisation_stats = aggregate_organisation_stats(stats_df, organisation_mapping, changelog_df=changelog_df)
+    organisation_stats = aggregate_organisation_stats(stats_df, organisation_of, changelog_df=changelog_df)
     
     # Create DataFrame
     organisation_df = create_organisation_dataframe(organisation_stats)
@@ -262,7 +262,7 @@ def main():
     csv_file = save_organisation_report(organisation_df, date_range=date_range)
     
     print(f"\nProcessed {len(organisation_df)} organisations")
-    print(f"Total mapped contributors: {sum(len(set(organisation_mapping[k] for k in organisation_mapping if organisation_mapping[k] == organisation)) for organisation in set(organisation_mapping.values()))}")
+    print(f"Logins with an organisation in {args.year}: {len(registry.login_organisations(args.year))}")
 
 
 if __name__ == "__main__":

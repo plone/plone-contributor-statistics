@@ -6,6 +6,7 @@ import pandas as pd
 
 from scripts.derive import multi_year_summary, organisation_stats
 from scripts.derive.organisation_stats import UNMAPPED
+from scripts.lib.model import load_registry
 from scripts.lib import paths
 from scripts.report import generate_contributor_report as report
 
@@ -28,9 +29,10 @@ def test_entries_by_organisation():
         {'username': 'Andy McKay', 'changelog_entries': 1, 'matched_by': 'commit_authors'},
         {'username': 'mister-roboto', 'changelog_entries': 9, 'matched_by': 'login'},
     ])
-    mapping = {'hannosch': 'Jarn', 'alecpm': 'Jarn', 'limi': 'Plone Solutions'}
+    mapping = {'hannosch': 'Jarn', 'alecpm': 'Jarn', 'limi': 'Plone Solutions'}.get
 
-    entries = organisation_stats.changelog_entries_by_organisation(changelog, mapping, {'mister-roboto': 'bot'})
+    entries = organisation_stats.changelog_entries_by_organisation(
+        changelog, lambda username: mapping(username, UNMAPPED), {'mister-roboto': 'bot'})
 
     assert dict(entries) == {'Jarn': 8, UNMAPPED: 3}
 
@@ -51,9 +53,10 @@ def test_the_column_is_next_to_commits_and_never_added_to_them():
         # The only person of an organisation without code work in the year: no new row
         {'username': 'limi', 'changelog_entries': 7, 'matched_by': 'login'},
     ])
-    mapping = {'hannosch': 'Jarn', 'limi': 'Plone Solutions'}
+    mapping = {'hannosch': 'Jarn', 'limi': 'Plone Solutions'}.get
 
-    grouped = organisation_stats.aggregate_organisation_stats(stats(), mapping, bots={}, changelog_df=changelog)
+    grouped = organisation_stats.aggregate_organisation_stats(
+        stats(), lambda username: mapping(username, UNMAPPED), bots={}, changelog_df=changelog)
     df = organisation_stats.create_organisation_dataframe(grouped)
 
     assert list(df.columns[:4]) == ['organisation', 'total_commits', 'total_pull_requests', 'changelog_entries']
@@ -62,10 +65,10 @@ def test_the_column_is_next_to_commits_and_never_added_to_them():
         [UNMAPPED, 20, 4], ['Jarn', 10, 50]]
 
 
-def test_a_year_without_changelog_file_gets_zero(tmp_repo, monkeypatch):
+def test_a_year_without_changelog_file_gets_zero(write_registers, monkeypatch):
     write(paths.contributors_file(2026), CONTRIBUTORS + 'hannosch,3,1,1,a,2026-01-01,2026-01-02\n')
-    write(paths.ORGANISATIONS, 'Organisation,Team\nJarn,hannosch\n')
-    write(paths.OVERRIDES, 'github_username,organisation,from_year,to_year,source\n')
+    write_registers(people=[('hannosch', 'hannosch')], affiliations=[('hannosch', 'jarn', 2002, '')],
+                    organisations=[('jarn', 'Jarn')])
     monkeypatch.setattr(sys, 'argv', ['organisation_stats', '--year', '2026'])
 
     organisation_stats.main()
@@ -74,11 +77,11 @@ def test_a_year_without_changelog_file_gets_zero(tmp_repo, monkeypatch):
     assert df[['organisation', 'total_commits', 'changelog_entries']].values.tolist() == [['Jarn', 3, 0]]
 
 
-def test_the_yearly_file_takes_the_entries_of_the_year(tmp_repo, monkeypatch):
+def test_the_yearly_file_takes_the_entries_of_the_year(write_registers, monkeypatch):
     write(paths.contributors_file(2008), CONTRIBUTORS + 'hannosch,3,0,1,a,2008-01-01,2008-01-02\n')
     write(paths.changelog_entries_file(2008), CHANGELOG + 'hannosch,12,2,"a, b",hannosch,login\n')
-    write(paths.ORGANISATIONS, 'Organisation,Team\nJarn,hannosch\n')
-    write(paths.OVERRIDES, 'github_username,organisation,from_year,to_year,source\n')
+    write_registers(people=[('hannosch', 'hannosch')], affiliations=[('hannosch', 'jarn', 2002, '')],
+                    organisations=[('jarn', 'Jarn')])
     monkeypatch.setattr(sys, 'argv', ['organisation_stats', '--year', '2008'])
 
     organisation_stats.main()
@@ -122,6 +125,20 @@ def test_report_section(tmp_repo):
     assert '| 2 | *timo* | 1 | 0 |' in section
     assert '| 1 | Jarn | 36 | 90 | 1 |' in section
     assert 'Not mapped to an organisation: 9 changelog entries, 0 commits.' in section
+
+
+def test_person_without_login_counts_for_the_organisation(write_registers):
+    write_registers(people=[('timo-stollenwerk', '')], affiliations=[('timo-stollenwerk', 'jarn', 2002, '')],
+                    organisations=[('jarn', 'Jarn')])
+    registry = load_registry()
+    stats = pd.DataFrame([
+        {'username': 'person:timo-stollenwerk', 'total_commits': 7, 'total_pull_requests': 1, 'repositories': 'a',
+         'first_contribution': '2008-01-01', 'last_contribution': '2008-02-01'}])
+
+    grouped = organisation_stats.aggregate_organisation_stats(
+        stats, lambda username: registry.organisation_for_username(username, 2008), bots={})
+
+    assert {name: values['total_commits'] for name, values in grouped.items()} == {'Jarn': 7}
 
 
 def test_no_report_section_without_changelog_files(tmp_repo):
