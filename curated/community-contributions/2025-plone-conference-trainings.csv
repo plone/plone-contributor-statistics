@@ -1,10 +1,10 @@
-Title,Trainer(s),GitHub Handle(s),Organisation
-Introduction to Advanced Workflows with BPMN 2.0,Asko Soukka,datakurre,University of Jyväskylä
-Training for Content Editing,Karel Calitz;Kim Paulissen,aboycalledhero;spereverde,Juizi;KU Leuven
-Plone Migrations: Theory and Practice,Philip Bauer,pbauer,Starzel
-Plone 6 Volto Customization for JavaScript Beginners,Alok Kumar;Tisha Soumya,iFlameing;Tishasoumya-02,kitconcept GmbH;kitconcept GmbH
-Content Management for Larger Plone Sites,Kim Paulissen;Paul Roeland,spereverde;polyester,KU Leuven;CCC
-Plone Seven: Fundamentals,Víctor Fernández de Alba;Piero Nicolli,sneridagh;pnicolli,kitconcept GmbH;RedTurtle
-Installing and Deploying Plone,Érico Andrei;Fred van Dijk,ericof;fredvd,kitconcept GmbH;kitconcept GmbH
-Customizing the Volto Light Theme,Dante Alvarez;Rohit Kumar,danalvrz;iRohitSingh,kitconcept GmbH;kitconcept GmbH
-Create your Customer Avatar: Do you know who you're coding for?,Astrid Beyers,astridjuizi,Juizi
+Title,Trainer(s),GitHub Handle(s),Organisation,Source
+Introduction to Advanced Workflows with BPMN 2.0,Asko Soukka,datakurre,University of Jyväskylä,https://2025.ploneconf.org/schedule/training/introduction-to-advanced-workflows-with-bpmn-2.0
+Training for Content Editing,Karel Calitz;Kim Paulissen,aboycalledhero;spereverde,Juizi;KU Leuven,https://2025.ploneconf.org/schedule/training/training-for-content-editing
+Plone Migrations: Theory and Practice,Philip Bauer,pbauer,Starzel,https://2025.ploneconf.org/schedule/training/plone-migrations-theory-and-practice
+Plone 6 Volto Customization for JavaScript Beginners,Alok Kumar;Tisha Soumya,iFlameing;Tishasoumya-02,kitconcept GmbH;kitconcept GmbH,https://2025.ploneconf.org/schedule/training/plone-6-volto-customization-for-javascript-beginners
+Content Management for Larger Plone Sites,Kim Paulissen;Paul Roeland,spereverde;polyester,KU Leuven;CCC,https://2025.ploneconf.org/schedule/training/content-management-for-larger-plone-sites
+Plone Seven: Fundamentals,Víctor Fernández de Alba;Piero Nicolli,sneridagh;pnicolli,kitconcept GmbH;RedTurtle,https://2025.ploneconf.org/schedule/training/plone-seven-fundamentals
+Installing and Deploying Plone,Érico Andrei;Fred van Dijk,ericof;fredvd,kitconcept GmbH;kitconcept GmbH,https://2025.ploneconf.org/schedule/training/installing-and-deploying-plone
+Customizing the Volto Light Theme,Dante Alvarez;Rohit Kumar,danalvrz;iRohitSingh,kitconcept GmbH;kitconcept GmbH,https://2025.ploneconf.org/schedule/training/customizing-the-volto-light-theme
+Create your Customer Avatar: Do you know who you're coding for?,Astrid Beyers,astridjuizi,Juizi,https://2025.ploneconf.org/schedule/training/create-your-customer-avatar

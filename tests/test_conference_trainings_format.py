@@ -26,7 +26,7 @@ def test_one_handle_and_organisation_per_trainer(path):
         assert 'Independent' not in row['Organisation'].split(';'), row
 
 
-@pytest.mark.parametrize('path', [p for p in FILES if p.name < '2025'], ids=lambda p: p.name)
+@pytest.mark.parametrize('path', FILES, ids=lambda p: p.name)
 def test_sources(path):
     with open(path, newline='', encoding='utf-8') as f:
         for row in csv.DictReader(f):
