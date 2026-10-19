@@ -49,6 +49,12 @@ Before that, developers committed directly to trunk, and changes were discussed 
 For the years before 2011, the data therefore has commits but no pull requests, reviews or comments.
 Changelog entries could serve as a measure for those years ([#71](https://github.com/plone/plone-contributor-statistics/issues/71)).
 
+PLIPs are older than GitHub, too.
+From 2004 they were pages on plone.org, first in a wiki and then on the roadmap, and from 2008 tickets in Trac; they moved to GitHub issues at the end of 2013.
+`curated/plips/plone-plips-before-github.csv` records the PLIPs of that time from archived copies of these pages.
+The two numberings overlap, so some PLIPs appear twice, once as a roadmap PLIP and once as a Trac ticket.
+Many records lack a date or the names of the implementers, and the Trac list is incomplete, so the PLIP statistics and the recognition don't use the file.
+
 ## Organisations in the early years
 
 The {doc}`organisation mapping <attribution>` records where people work today, with exceptions for past years.

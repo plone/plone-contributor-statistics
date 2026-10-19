@@ -18,7 +18,7 @@ See {doc}`/explanation/scope` for why these sources were chosen, and {doc}`/expl
 
 ## Curated by hand
 
-All curated files are in `curated/community-contributions/`, one file per year.
+The curated community data is in `curated/community-contributions/`, one file per year; the PLIPs before GitHub are in one file in `curated/plips/`.
 
 | Data | Years covered | File | Source column |
 |---|---|---|---|
@@ -31,6 +31,7 @@ All curated files are in `curated/community-contributions/`, one file per year.
 | Podcast hosts | 2020–2025 | `curated/community-contributions/YYYY-podcasts.csv` | 2020–2025 |
 | World Plone Day events | 2008–2019, 2021–2025 | `curated/community-contributions/YYYY-world-plone-day-event.csv` | 2008–2019, 2021–2025 |
 | World Plone Day talks | 2021–2025 | `curated/community-contributions/YYYY-world-plone-day-talks.csv` | `YouTube ID` column |
+| PLIPs before GitHub | 2004–2013 | `curated/plips/plone-plips-before-github.csv` | all rows |
 
 ## Derived from other files
 

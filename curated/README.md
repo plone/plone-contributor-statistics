@@ -8,5 +8,6 @@ Without one, an entry stays out, and a contributor stays Unmapped.
 |---|---|
 | `mappings/` | Which accounts, repositories and organisations the statistics use: `organisations.csv`, the overrides, sources and proposals, bots, excluded repositories, commit authors and account aliases. See [Mapping and configuration files](https://plone.github.io/plone-contributor-statistics/docs/reference/mapping-files.html). |
 | `community-contributions/` | Community work per year and kind, such as conferences, trainings, sprints, release managers and the Board, plus the recognition points and levels. See [Add curated community data](https://plone.github.io/plone-contributor-statistics/docs/how-to/add-curated-community-data.html). |
+| `plips/` | The PLIPs from before GitHub, on the plone.org roadmap and in Trac. See [Data files](https://plone.github.io/plone-contributor-statistics/docs/reference/data-files.html). |
 
 The scripts stop with an error if a mapping file is missing.

@@ -61,6 +61,7 @@ PLIPs
 :   PLIPs are read from the four repositories where a PLIP can live: `Products.CMFPlone`, `volto`, `plone.restapi` and `aurora`, the new UI after Volto, where the PLIPs of Seven moved from Volto.
     Other repositories of the `plone` organisation use the PLIP label for issues related to a PLIP; those issues are not PLIPs themselves and are not counted.
     A closed PLIP stands in for a merged and released one, although most PLIPs are closed as completed ([#14](https://github.com/plone/plone-contributor-statistics/issues/14)).
+    The PLIPs from before GitHub are recorded in `curated/plips/plone-plips-before-github.csv`, but not counted.
 
 Community recognition
 :   The levels published in August 2026 were calculated outside the repository, and they differ from the script's levels on the current data ({doc}`community-recognition`).

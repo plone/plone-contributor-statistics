@@ -104,6 +104,17 @@ Several people or organisations in one cell are separated by semicolons.
     Columns: `Video Title`, `Speaker(s)`, `Organisation`, `Event / Location`, `Type`, `YouTube ID`.
     `Type` is one of `Talk`, `Teaser`, `Announcement`, `Welcome`, `Recap`, `Duplicate`, `Opening`, `Full stream` and `Newsroom`; only `Talk` is a talk.
 
+`curated/plips/plone-plips-before-github.csv`
+:   One row per PLIP from before the PLIPs moved to GitHub issues, as the plone.org roadmap or a Trac ticket recorded it.
+    Columns: `Number`, `Numbering`, `Title`, `Proposer`, `Implementers`, `State`, `Proposed`, `Completed`, `Release`, `Same as`, `Source`, `Quote`, `Notes`.
+    `Numbering` is `roadmap`, for the PLIP numbers of the plone.org roadmap and of the wiki pages before it, or `trac`, for the ticket numbers of dev.plone.org.
+    `Same as` names the other row where a source says that a roadmap PLIP and a Trac ticket are the same PLIP; both rows are kept.
+    `Proposer` and `Implementers` are names or logins as the source gives them.
+    `State` is the state as the source gives it, at the date of the archived copy.
+    `Proposed` and `Completed` are dates as `YYYY-MM-DD`, or shorter where the source gives less.
+    `Quote` is the passage of the source that the row rests on.
+    No script reads this file yet.
+
 ## Derived data
 
 `derived/organisation-contributors/YYYY-plone-organisation-contributors.csv`
