@@ -38821,14 +38821,6 @@
    },
    {
     "commits": 0,
-    "id": "name:remi",
-    "pull_requests": 0,
-    "roles": [
-     "Talk"
-    ]
-   },
-   {
-    "commits": 0,
     "id": "name:simone carletti",
     "pull_requests": 0,
     "roles": [
@@ -38980,6 +38972,14 @@
     "id": "reebalazs",
     "pull_requests": 4,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "remdub",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 0,
@@ -39353,6 +39353,7 @@
   "rafahela bazzanella": "rafahela",
   "rafahela garcia bazzanella": "rafahela",
   "ramon navarro bosch": "bloodbare",
+  "remi dubois": "remdub",
   "rikupekka oksanen": "rioksane",
   "rob gietema": "robgietema",
   "rob porter": "robzonenet",
