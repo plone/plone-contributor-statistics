@@ -41,6 +41,13 @@ Several kinds of curated data depend on a definition, and the definitions follow
   A team can have several leaders in a year.
   Board committees such as the IP or Trademark Committee, programmes such as Google Summer of Code, and the Release Team, whose release managers count on their own, are not teams in this sense.
 - An appointment by the Board counts until a source records a successor or an end.
+- A podcast or live series counts for a year with at least five episodes in that year, split among its hosts; every series is recorded, also with fewer episodes.
+- A World Plone Day talk is a video of the type `Talk`; teasers, streams, openings and podcast episodes are recorded, but are not talks.
+- Work is attributed to the people who did it and their organisations, not to the Plone Foundation.
+- PloneGov-BR and the Interlegis Program are not the same.
+  PloneGov-BR is the community of practice of Plone users in the Brazilian public sector; it organises the events in Brasília.
+  The Interlegis Program of the Federal Senate is an employer and one of PloneGov-BR's founding members; its staff count for Interlegis in their personal roles, such as Board seats and talks, while public bodies that host an event are its venue, not its organiser ([ILB annual report 2023](https://www12.senado.leg.br/interlegis/relatorios-ilb/relatorio-ilb-2023.pdf), p. 22).
+  When the Foundation organised the online conferences of 2020 and 2021, the organisers are the people who did the organising work, found in the Board minutes and announcements.
 - World Plone Day events count when they were held in person, or hybrid with an in-person meeting.
   Each local event is one event, with its own source; online editions are recorded, but don't count.
   The organisers are the organisations that held the event, not the venue that hosted it.
