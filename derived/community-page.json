@@ -3,15 +3,15 @@
   "five_years": {
    "events": 65,
    "organisations": 102,
-   "people": 408
+   "people": 410
   },
   "since_2003": {
-   "people": 1033
+   "people": 1035
   },
   "year": {
    "events": 10,
-   "organisations": 51,
-   "people": 140
+   "organisations": 52,
+   "people": 142
   }
  },
  "history": {
@@ -8424,7 +8424,7 @@
      ]
     }
    ],
-   "people_active": 140,
+   "people_active": 142,
    "pull_requests": 2107,
    "team_leads": [
     {
@@ -11227,6 +11227,167 @@
    },
    "level": "Community Contributor",
    "name": "Giallocobalto",
+   "next_level": "Bronze Contributor",
+   "points": 1.0,
+   "points_to_next": 2.0
+  },
+  "imio": {
+   "categories": {
+    "WPD Talk": {
+     "contributions": [
+      {
+       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
+       "line": 10,
+       "points": 1,
+       "source": "https://www.youtube.com/watch?v=qwI2UL8zuZc",
+       "text": "Love Story: When Designers Meet GitHub Actions"
+      }
+     ],
+     "points": 1.0
+    }
+   },
+   "history": {
+    "2003": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2004": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2005": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2006": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2007": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2008": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2009": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2010": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2011": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2012": {
+     "commits": 12,
+     "events": 0,
+     "pull_requests": 9,
+     "roles": 0
+    },
+    "2013": {
+     "commits": 27,
+     "events": 0,
+     "pull_requests": 11,
+     "roles": 0
+    },
+    "2014": {
+     "commits": 29,
+     "events": 0,
+     "pull_requests": 6,
+     "roles": 0
+    },
+    "2015": {
+     "commits": 35,
+     "events": 0,
+     "pull_requests": 18,
+     "roles": 0
+    },
+    "2016": {
+     "commits": 23,
+     "events": 0,
+     "pull_requests": 18,
+     "roles": 0
+    },
+    "2017": {
+     "commits": 7,
+     "events": 0,
+     "pull_requests": 8,
+     "roles": 0
+    },
+    "2018": {
+     "commits": 25,
+     "events": 0,
+     "pull_requests": 9,
+     "roles": 0
+    },
+    "2019": {
+     "commits": 4,
+     "events": 0,
+     "pull_requests": 2,
+     "roles": 0
+    },
+    "2020": {
+     "commits": 5,
+     "events": 0,
+     "pull_requests": 4,
+     "roles": 0
+    },
+    "2021": {
+     "commits": 6,
+     "events": 0,
+     "pull_requests": 2,
+     "roles": 0
+    },
+    "2022": {
+     "commits": 16,
+     "events": 2,
+     "pull_requests": 6,
+     "roles": 2
+    },
+    "2023": {
+     "commits": 5,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2024": {
+     "commits": 2,
+     "events": 0,
+     "pull_requests": 3,
+     "roles": 0
+    },
+    "2025": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 2
+    }
+   },
+   "level": "Community Contributor",
+   "name": "iMio",
    "next_level": "Bronze Contributor",
    "points": 1.0,
    "points_to_next": 2.0
@@ -38612,6 +38773,14 @@
    },
    {
     "commits": 0,
+    "id": "name:jeremy",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:maik",
     "pull_requests": 0,
     "roles": [
@@ -38803,6 +38972,14 @@
     "id": "reebalazs",
     "pull_requests": 4,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "remdub",
+    "pull_requests": 0,
+    "roles": [
+     "Talk"
+    ]
    },
    {
     "commits": 0,
@@ -39176,6 +39353,7 @@
   "rafahela bazzanella": "rafahela",
   "rafahela garcia bazzanella": "rafahela",
   "ramon navarro bosch": "bloodbare",
+  "remi dubois": "remdub",
   "rikupekka oksanen": "rioksane",
   "rob gietema": "robgietema",
   "rob porter": "robzonenet",
@@ -39438,6 +39616,11 @@
      "name": "Giallocobalto",
      "points": 1.0,
      "slug": "giallocobalto"
+    },
+    {
+     "name": "iMio",
+     "points": 1.0,
+     "slug": "imio"
     },
     {
      "name": "IRR",
