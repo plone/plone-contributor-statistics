@@ -1,5 +1,18 @@
 """The model library: the registers of people and organisations, and reading curated files through their schema."""
 
+from scripts.lib.model.community import (  # noqa: F401
+    EVENT_KINDS,
+    IN_PERSON,
+    MIN_EPISODES,
+    ROLE_KINDS,
+    TALK_TYPES,
+    Event,
+    Item,
+    Role,
+    events,
+    items,
+    roles,
+)
 from scripts.lib.model.registers import (  # noqa: F401
     UNMAPPED,
     Affiliation,
