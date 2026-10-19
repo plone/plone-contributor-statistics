@@ -8,5 +8,6 @@ Collect again with `make year YEAR=2025` or the single collection targets; see [
 | `contributors/` | Commits and merged pull requests per person, one file per year. | `run-stats`, `run-stats-all-years` |
 | `pr-interactions/` | Comments and reviews per pull request, one file per year. | `pr-interactions`, `pr-interactions-all-years` |
 | `plips/` | All PLIPs, per author and per PLIP. | `run-plips` |
+| `changelogs/` | Changelog entries per person, one file per year. | `run-changelogs` |
 
 See [Data files](https://plone.github.io/plone-contributor-statistics/docs/reference/data-files.html) for the columns.

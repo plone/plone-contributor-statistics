@@ -11,7 +11,7 @@ summary_years = $(shell seq $$(($(SUMMARY_END) - $(1) + 1)) $(SUMMARY_END))
 
 .PHONY: help install setup dev-setup year \
 	run-stats run-stats-all-years run-stats-custom pr-interactions pr-interactions-all-years \
-	run-plips \
+	run-plips run-changelogs \
 	run-organisation-stats run-organisation-stats-year run-plip-organisations \
 	three-year-summary five-year-summary ten-year-summary yearly-activity \
 	yearly-graphs generate-report community-recognition community-page \
@@ -29,13 +29,14 @@ help:
 	@echo "A whole year (YEAR, default: the last completed year):"
 	@echo "  year              Collect, derive and report YEAR, in pipeline order"
 	@echo ""
-	@echo "Collect (needs a GitHub token):"
+	@echo "Collect (needs a GitHub token; run-changelogs works without one):"
 	@echo "  run-stats         Commits and merged pull requests of YEAR"
 	@echo "  run-stats-all-years Commits and merged pull requests, 2003 to now, in one run"
 	@echo "  run-stats-custom  Print how to collect a custom date range"
 	@echo "  pr-interactions   Pull request interactions of YEAR"
 	@echo "  pr-interactions-all-years Pull request interactions, 2010 to now, in one run"
 	@echo "  run-plips         All PLIPs"
+	@echo "  run-changelogs    Changelog entries per person, 2002 to the last completed year"
 	@echo ""
 	@echo "Derive:"
 	@echo "  run-organisation-stats Organisation statistics of every year with a contributor file"
@@ -130,6 +131,10 @@ pr-interactions-all-years:
 
 run-plips:
 	python -m scripts.collect.plone_plips
+
+# All years in one run; the names in changelogs are a measure of their own in 2004-2012 (#71)
+run-changelogs:
+	python -m scripts.collect.plone_changelogs
 
 # Derive
 

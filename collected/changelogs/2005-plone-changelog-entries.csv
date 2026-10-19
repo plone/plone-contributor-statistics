@@ -1,0 +1,70 @@
+username,changelog_entries,repositories_count,repositories,changelog_names,matched_by
+alecm,232,7,"Products.ATContentTypes, Products.ATReferenceBrowserWidget, Products.Archetypes, Products.CMFPlone, Products.ExtendedPathIndex, Products.MasterSelectWidget, Products.PlacelessTranslationService",alecm,unmatched
+tiran,147,8,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.MimetypesRegistry, Products.PlacelessTranslationService, Products.PortalTransforms, Products.validation",tiran,login
+hannosch,94,9,"Products.ATContentTypes, Products.Archetypes, Products.CMFFormController, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.PlacelessTranslationService, Products.PloneLanguageTool, Products.PortalTransforms, Products.i18ntestcase",hannosch,commit_authors
+limi,55,5,"Products.ATReferenceBrowserWidget, Products.Archetypes, Products.CMFPlone, Products.LinguaPlone, Products.ResourceRegistries",limi,commit_authors
+stefan,54,5,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.LinguaPlone",stefan,unmatched
+yenzenz,49,4,"Products.Archetypes, Products.MimetypesRegistry, Products.PortalTransforms, Products.validation",yenzenz,unmatched
+deo,41,6,"Products.ATContentTypes, Products.Archetypes, Products.CMFDynamicViewFTI, Products.CMFPlone, Products.LinguaPlone, Products.PloneLanguageTool",deo,unmatched
+optilude,41,4,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, Products.CMFQuickInstallerTool",optilude,commit_authors
+panjunyong,39,5,"Products.ATContentTypes, Products.Archetypes, Products.CMFDynamicViewFTI, Products.CMFPlone, Products.PortalTransforms",panjunyong,commit_authors
+fschulze,31,4,"Products.ATContentTypes, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.ResourceRegistries",fschulze,login
+rafrombrc,28,4,"Products.ATContentTypes, Products.Archetypes, Products.CMFDynamicViewFTI, Products.CMFPlone",rafrombrc,login
+elvix,24,3,"Products.Archetypes, Products.CMFPlone, Products.ResourceRegistries",elvix,unmatched
+ender,20,3,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone",ender,unmatched
+dreamcatcher,17,3,"Products.Archetypes, Products.MimetypesRegistry, Products.PortalTransforms",dreamcatcher,unmatched
+sidnei,11,3,"Products.CMFPlone, Products.ExtendedPathIndex, Products.PortalTransforms",sidnei,login
+dnouri,9,2,"Products.Archetypes, Products.CMFPlone",dpunktnpunkt,commit_authors
+bmh,8,1,Products.CMFPlone,bmh,unmatched
+geoffd,7,2,"Products.CMFPlone, Products.CMFQuickInstallerTool",geoffd,unmatched
+mrtopf,7,1,Products.CMFPlone,mrtopf,login
+madduck,6,2,"Products.Archetypes, Products.CMFPlone",madduck,unmatched
+naro,6,1,Products.CMFPlone,naro,login
+turgmr2,6,1,Products.TinyMCE,turgmr2,unmatched
+davconvent,5,1,Products.CMFPlone,davconvent,login
+_ender_,4,2,"Products.Archetypes, Products.CMFPlone",_ender_,unmatched
+batlogg,4,3,"Products.ATContentTypes, Products.CMFPlone, Products.PlacelessTranslationService",batlogg,unmatched
+dom,4,1,Products.ResourceRegistries,dom,unmatched
+jladage,4,1,Products.CMFPlone,jladage,login
+jok2,4,1,Products.CMFPlone,jok2,unmatched
+tesdal,4,4,"Products.ATContentTypes, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.ExtendedPathIndex",tesdal,commit_authors
+whit537,4,1,Products.CMFPlone,whit537,unmatched
+ctheune,3,1,Products.ATContentTypes,ctheune,login
+dan_t,3,2,"Products.Archetypes, Products.PortalTransforms",dan_t,unmatched
+duncanb,3,3,"Products.Archetypes, Products.CMFPlone, Products.PortalTransforms",duncanb,unmatched
+gotcha,3,2,"Products.Archetypes, Products.CMFPlone",gotcha,login
+zopyx,3,1,Products.CMFPlone,ajung,commit_authors
+zwork,3,3,"Products.Archetypes, Products.CMFQuickInstallerTool, Products.validation",zwork,unmatched
+andym,2,2,"Products.CMFPlone, Products.CMFQuickInstallerTool",andym,unmatched
+briang,2,1,Products.CMFPlone,briang,unmatched
+csenger,2,1,Products.PortalTransforms,csenger,login
+dmaurer,2,1,Products.Archetypes,dmaurer,unmatched
+elro,2,1,Products.Archetypes,elro,unmatched
+gerry_kirk,2,1,Products.CMFPlone,gerry_kirk,unmatched
+gkirk,2,1,Products.CMFPlone,gkirk,unmatched
+jenner,2,2,"Products.ATContentTypes, Products.ResourceRegistries",jenner,unmatched
+longsleep,2,1,Products.CMFPlone,longsleep,commit_authors
+plonista,2,1,Products.ResourceRegistries,plonista,unmatched
+rochael,2,1,Products.CMFPlone,rochael,unmatched
+ryuuguu,2,1,Products.PortalTransforms,ryuuguu,unmatched
+spliter,2,1,Products.CMFPlone,spliter,unmatched
+__gotcha,1,1,Products.Archetypes,__gotcha,unmatched
+andrewb,1,1,Products.CMFPlone,andrewb,unmatched
+arjen,1,1,Products.CMFPlone,arjen,unmatched
+axa,1,1,Products.CMFPlone,axa,unmatched
+bitranch,1,1,Products.CMFPlone,bitranch,login
+biza,1,1,Products.Archetypes,biza,unmatched
+brcwhit,1,1,Products.Archetypes,brcwhit,unmatched
+db,1,1,Products.CMFPlone,db,unmatched
+flacoste,1,1,Products.PortalTransforms,flacoste,unmatched
+gogobd,1,1,Products.PortalTransforms,gogo,fullname
+hahnfeld,1,1,Products.ATContentTypes,hahnfeld,unmatched
+jjmurre,1,1,Products.CMFPlone,jjmurre,commit_authors
+lucas,1,1,Products.CMFPlone,lucas,unmatched
+mohsen,1,1,Products.CMFPlone,mohsen,unmatched
+neaj,1,1,Products.CMFPlone,neaj,unmatched
+thx to Nikos Papagrigoriou,1,1,Products.PlacelessTranslationService,thx to Nikos Papagrigoriou,unmatched
+vinsci,1,1,Products.CMFPlone,vinsci,login
+VladDrac,1,1,Products.CMFPlone,VladDrac,unmatched
+wichert,1,1,Products.CMFQuickInstallerTool,wichert,login
+zopezen,1,1,Products.Archetypes,zopezen,unmatched

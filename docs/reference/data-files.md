@@ -35,6 +35,17 @@ See {doc}`/explanation/counting-rules` for why the files count the way they do.
     Columns: `repo`, `pr_number`, `title`, `author`, `created_at`, `merged_at`, `state`, `merged`, `issue_comments_count`, `review_comments_count`, `reviews_count`, `total_comments`, `participants_count`, `reviewers_count`, `commenters_count`, `approved_reviews`, `changes_requested_reviews`, `comment_reviews`, `reactions_total`, `first_response_time`.
     `first_response_time` is in hours.
 
+`collected/changelogs/YYYY-plone-changelog-entries.csv`
+:   Written by `scripts/collect/plone_changelogs.py`.
+    One row per person named in at least one changelog entry of a release in the year.
+    `username` is the GitHub login, the name of a person without a GitHub account, or the name as the changelog writes it if no mapping file maps it.
+    Columns: `username`, `changelog_entries`, `repositories_count`, `repositories`, `changelog_names`, `matched_by`.
+    `changelog_entries` counts each entry once, in full for every person it names.
+    `changelog_names` lists the names in the changelogs that were mapped to the person, separated by semicolons.
+    `matched_by` lists the mapping files or rules that mapped them, separated by semicolons: `changelog_names`, `commit_authors`, `account_aliases`, `login`, `fullname`, or `unmatched` for a name that no file maps.
+    A year without entries has a file with the header only.
+    {doc}`/explanation/counting-rules` explains the dating and the deduplication.
+
 `collected/plips/plone-plips.csv`
 :   Written by `scripts/collect/plone_plips.py`.
     One row per PLIP author, over all years.
@@ -119,8 +130,12 @@ Several people or organisations in one cell are separated by semicolons.
 
 `derived/organisation-contributors/YYYY-plone-organisation-contributors.csv`
 :   Written by `scripts/derive/organisation_stats.py`.
-    One row per organisation, plus one row `Unmapped`.
-    Columns: `organisation`, `total_commits`, `total_pull_requests`, `contributors_count`, `contributors`, `repositories_count`, `repositories`, `first_contribution`, `last_contribution`.
+    One row per organisation with commits or pull requests in the year, plus one row `Unmapped`.
+    Columns: `organisation`, `total_commits`, `total_pull_requests`, `changelog_entries`, `contributors_count`, `contributors`, `repositories_count`, `repositories`, `first_contribution`, `last_contribution`.
+    `changelog_entries` are the changelog entries of the organisation's people in the year, from `collected/changelogs/YYYY-plone-changelog-entries.csv`; they are not part of the other counts.
+    Names that no mapping file maps count for `Unmapped`.
+    The column is 0 in a year without a changelog file.
+    `contributors` lists the people with commits or pull requests.
 
 `derived/community-page.json`
 :   Written by `scripts/derive/community_page.py`.
@@ -130,7 +145,7 @@ Several people or organisations in one cell are separated by semicolons.
 `derived/summaries/summary-past-*-years-*.csv`
 :   Written by `scripts/derive/multi_year_summary.py`.
     One row per organisation over the years in the file name.
-    Columns: `organisation`, `total_commits`, `total_pull_requests`, `contributors_count`, `contributors`, `repositories_count`, `repositories`, `years_active`, `first_contribution`, `last_contribution`.
+    Columns: `organisation`, `total_commits`, `total_pull_requests`, `changelog_entries`, `contributors_count`, `contributors`, `repositories_count`, `repositories`, `years_active`, `first_contribution`, `last_contribution`.
 
 `derived/yearly-activity-statistics.csv`
 :   Written by `scripts/derive/yearly_activity_analysis.py`.
@@ -144,7 +159,7 @@ Several people or organisations in one cell are separated by semicolons.
 
 `reports/github-contributor-report.md`
 :   Written by `scripts/report/generate_contributor_report.py`.
-    Contributors and organisations per year and over all years.
+    Contributors and organisations per year and over all years, and the changelog entries of 2004 to 2012 per person and per organisation.
 
 `reports/pr-interactions/github-pr-interactions-report-YYYY.md`
 :   Written by `scripts/collect/plone_pr_interactions.py`.

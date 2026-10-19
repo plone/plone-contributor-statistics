@@ -84,6 +84,9 @@ History:
 - Commits that existed twice had been counted twice: the automatic `[fc]` copies in `buildout.coredev`, rebased branches that were merged as well, and history imported twice.
   Each change now counts once ([#79](https://github.com/plone/plone-contributor-statistics/pull/79)).
 
+- The changelogs record who made a change in the years before pull requests.
+  Their entries are now collected for all years, dated by their release and counted once, and shown next to the commits for 2004 to 2012 ([#71](https://github.com/plone/plone-contributor-statistics/issues/71)).
+
 Tooling:
 
 - The tests run in GitHub Actions on every pull request ([#73](https://github.com/plone/plone-contributor-statistics/pull/73)).

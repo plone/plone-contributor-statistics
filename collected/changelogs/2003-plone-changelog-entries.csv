@@ -1,0 +1,6 @@
+username,changelog_entries,repositories_count,repositories,changelog_names,matched_by
+limi,4,1,Products.CMFPlone,limi,commit_authors
+sh1mmer,2,1,Products.CMFPlone,sh1mmer,unmatched
+gdavis,1,1,Products.CMFPlone,gdavis,unmatched
+geoffd,1,1,Products.CMFPlone,geoffd,unmatched
+runyaga,1,1,Products.CMFPlone,runyaga,login

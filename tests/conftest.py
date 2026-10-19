@@ -14,6 +14,8 @@ EMPTY_MAPPINGS = {
     paths.BOT_ACCOUNTS: 'login,reason\n',
     paths.COMMIT_AUTHORS: 'email,github_username,name,source\n',
     paths.ACCOUNT_ALIASES: 'alias,github_username,source\n',
+    paths.CHANGELOG_NAMES: 'changelog_name,github_username,name,source\n',
+    paths.FULLNAMES: 'github username,fullname,source\n',
 }
 
 

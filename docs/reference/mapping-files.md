@@ -108,7 +108,7 @@ Columns
 :   `repository`, `reason`.
 
 All other repositories of the organisation are collected, including archived repositories and forks.
-The commit and the pull request interaction collectors use the same list.
+The commit, the pull request interaction and the changelog collectors use the same list.
 
 ## `curated/mappings/commit_authors.csv`
 
@@ -176,6 +176,37 @@ Rules
     Each name maps to one login.
     `tests/test_person_names_format.py` checks the format.
     `python -m scripts.tools.unmatched_names` lists the names in the community data without a login; with `--propose`, it proposes rows from exact matches with GitHub profile names, to check before adding them.
+
+## `curated/mappings/changelog_names.csv`
+
+The people behind names in changelog entries that no other mapping file maps, such as nicknames from the Subversion years ([#71](https://github.com/plone/plone-contributor-statistics/issues/71)).
+`scripts/collect/plone_changelogs.py` reads it, see {doc}`/explanation/counting-rules`.
+
+Columns
+:   `changelog_name`, `github_username`, `name`, `source`.
+
+`changelog_name`
+:   The name as the changelog writes it, without brackets or `@`.
+    The lookup ignores case.
+
+`github_username`
+:   The person's GitHub login, with the case it has on GitHub, or empty if they have no GitHub account.
+
+`name`
+:   The person's name, if they have no GitHub account; their entries then count under this name.
+
+`source`
+:   Two public records: a link to a changelog entry with the name, as a file and line on GitHub at a fixed commit, and a record that links the name to the person.
+    Such a record is a commit that repeats the entry and that GitHub links to the login, the GitHub profile, or a credits file such as the [credits of Plone 2.0](https://github.com/plone/Products.CMFPlone/blob/2.0/CREDITS.txt).
+    As for early commit authors, an identification from the Subversion years without a public record says what it rests on.
+
+Rules
+:   Each name appears once, ignoring case, and the file is sorted by name.
+    A short name that several people may have used, such as a first name, is added only when the records show that one person used it in the changelogs.
+    The collector looks up a name in this file first, then in `curated/mappings/commit_authors.csv` (the part before the `@` of a Subversion address, the address itself, or the full name), `curated/mappings/account_aliases.csv`, `curated/mappings/bot_accounts.csv` (bots are left out), the logins with commits or pull requests in `collected/contributors/`, and `curated/mappings/mapping-github-username-to-fullname.csv`.
+    A change to this file takes effect with the next `make run-changelogs`.
+    `tests/test_changelog_names_format.py` checks the format.
+    `python -m scripts.tools.unmatched_changelog_names` lists the names without a mapping; with `--propose`, it proposes rows from the commits that repeat the entries, to check before adding them, see {doc}`/how-to/link-old-commits-to-a-person`.
 
 ## Conventions for all CSV files
 

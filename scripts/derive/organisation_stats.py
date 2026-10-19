@@ -4,6 +4,10 @@ Organisation Statistics Aggregator for Plone GitHub Statistics
 
 Reads the output from plone_contributors.py and aggregates statistics by organisation
 using the mapping defined in organisations.csv
+
+The changelog entries of the year (plone_changelogs.py, #71) are shown in a
+column of their own, next to commits and pull requests, and never added to
+them. The rows and their order stay those of the code work.
 """
 
 import pandas as pd
@@ -89,15 +93,45 @@ def extract_date_range_from_filename(filename):
     return None
 
 
-def aggregate_organisation_stats(stats_df, organisation_mapping, bots=None):
+def load_changelog_entries(year):
+    """The changelog entries per person of the year, or None if the year has no file."""
+    path = paths.changelog_entries_file(year)
+    if not os.path.exists(path):
+        print(f"No changelog entries for {year} ({path}); the column is 0. Run: make run-changelogs")
+        return None
+    return pd.read_csv(path, keep_default_na=False)
+
+
+def changelog_entries_by_organisation(changelog_df, organisation_mapping, bots=frozenset()):
+    """{organisation: changelog entries} of the people of each organisation.
+
+    Names that no mapping file maps are no login, so they count as UNMAPPED.
+    """
+    entries = defaultdict(int)
+    if changelog_df is None:
+        return entries
+    for _, row in changelog_df.iterrows():
+        username = row['username']
+        if username in bots:
+            continue
+        unmatched = 'unmatched' in str(row['matched_by']).split(';')
+        organisation = UNMAPPED if unmatched else organisation_mapping.get(username, UNMAPPED)
+        entries[organisation] += int(row['changelog_entries'])
+    return entries
+
+
+def aggregate_organisation_stats(stats_df, organisation_mapping, bots=None, changelog_df=None):
     """Aggregate individual contributor stats by organisation.
 
-    Bot accounts are left out; unmapped contributors go to UNMAPPED.
+    Bot accounts are left out; unmapped contributors go to UNMAPPED. The
+    changelog entries go to the organisations that have code work in the
+    year; they don't add rows.
     """
     bots = load_bot_accounts() if bots is None else bots
     organisation_stats = defaultdict(lambda: {
         'total_commits': 0,
         'total_pull_requests': 0,
+        'changelog_entries': 0,
         'contributors': set(),
         'repositories': set(),
         'first_contribution': None,
@@ -132,7 +166,11 @@ def aggregate_organisation_stats(stats_df, organisation_mapping, bots=None):
             if (organisation_stats[organisation]['last_contribution'] is None or 
                 last_date > organisation_stats[organisation]['last_contribution']):
                 organisation_stats[organisation]['last_contribution'] = last_date
-    
+
+    for organisation, entries in changelog_entries_by_organisation(changelog_df, organisation_mapping, bots).items():
+        if organisation in organisation_stats:
+            organisation_stats[organisation]['changelog_entries'] += entries
+
     return organisation_stats
 
 
@@ -145,6 +183,7 @@ def create_organisation_dataframe(organisation_stats):
             'organisation': organisation,
             'total_commits': stats['total_commits'],
             'total_pull_requests': stats['total_pull_requests'],
+            'changelog_entries': stats['changelog_entries'],
             'contributors_count': len(stats['contributors']),
             'contributors': ', '.join(sorted(stats['contributors'])),
             'repositories_count': len(stats['repositories']),
@@ -208,7 +247,8 @@ def main():
         sys.exit(1)
     
     # Aggregate by organisation
-    organisation_stats = aggregate_organisation_stats(stats_df, organisation_mapping)
+    changelog_df = load_changelog_entries(date_range) if date_range and '-' not in date_range else None
+    organisation_stats = aggregate_organisation_stats(stats_df, organisation_mapping, changelog_df=changelog_df)
     
     # Create DataFrame
     organisation_df = create_organisation_dataframe(organisation_stats)

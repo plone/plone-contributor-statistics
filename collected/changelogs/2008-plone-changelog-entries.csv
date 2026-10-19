@@ -1,0 +1,99 @@
+username,changelog_entries,repositories_count,repositories,changelog_names,matched_by
+hannosch,241,49,"Products.ATContentTypes, Products.ATReferenceBrowserWidget, Products.Archetypes, Products.CMFDiffTool, Products.CMFDynamicViewFTI, Products.CMFEditions, Products.CMFFormController, Products.CMFPlacefulWorkflow, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.FoundationMember, Products.LinguaPlone, Products.MimetypesRegistry, Products.PasswordResetTool, Products.PlacelessTranslationService, Products.PlonePAS, Products.PortalTransforms, Products.ResourceRegistries, Products.i18ntestcase, Products.validation, archetypes.kss, five.intid, plone.app.content, plone.app.contentmenu, plone.app.contentrules, plone.app.controlpanel, plone.app.form, plone.app.i18n, plone.app.iterate, plone.app.kss, plone.app.layout, plone.app.linkintegrity, plone.app.openid, plone.app.portlets, plone.app.vocabularies, plone.app.z3cform, plone.contentrules, plone.fieldsets, plone.i18n, plone.memoize, plone.portlet.collection, plone.portlet.static, plone.portlets, plone.recipe.zope2install, plone.recipe.zope2instance, plone.recipe.zope2zeoserver, plone.relations, plone.reload, plone.transforms",hannosch,commit_authors
+wichert,116,31,"Products.ATContentTypes, Products.ATReferenceBrowserWidget, Products.Archetypes, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.LinguaPlone, Products.PasswordResetTool, Products.PloneLanguageTool, Products.PlonePAS, Products.ResourceRegistries, Products.contentmigration, five.intid, plone.app.content, plone.app.contentmenu, plone.app.controlpanel, plone.app.i18n, plone.app.iterate, plone.app.layout, plone.app.openid, plone.app.portlets, plone.app.redirector, plone.app.viewletmanager, plone.app.workflow, plone.browserlayer, plone.keyring, plone.openid, plone.portlet.static, plone.protect, plone.recipe.zope2instance, plone.recipe.zope2zeoserver, plone.relations",wichert,login
+witsch,58,20,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, archetypes.referencebrowserwidget, borg.localrole, collective.indexing, five.intid, plone.app.blob, plone.app.content, plone.app.contentmenu, plone.app.controlpanel, plone.app.customerize, plone.app.imaging, plone.app.linkintegrity, plone.app.redirector, plone.app.workflow, plone.folder, plone.keyring, plone.pony, plone.session",witsch,login
+robgietema,51,1,Products.TinyMCE,robgietema,commit_authors
+optilude,40,16,"Products.CMFPlone, borg.localrole, plone.app.content, plone.app.contentmenu, plone.app.contentrules, plone.app.form, plone.app.iterate, plone.app.layout, plone.app.portlets, plone.app.redirector, plone.folder, plone.portlet.collection, plone.portlet.static, plone.portlets, plone.relations, plone.reload",optilude,commit_authors
+mauritsvanrees,37,16,"Products.Archetypes, Products.CMFPlacefulWorkflow, Products.CMFPlone, Products.LinguaPlone, Products.PlonePAS, Products.ResourceRegistries, five.intid, plone.app.i18n, plone.app.iterate, plone.app.kss, plone.app.layout, plone.app.linkintegrity, plone.app.openid, plone.app.portlets, plone.intelligenttext, plone.portlet.static",maurits,commit_authors
+davisagli,30,12,"Products.ATContentTypes, Products.CMFPlacefulWorkflow, Products.CMFPlone, plone.app.customerize, plone.app.layout, plone.app.openid, plone.app.viewletmanager, plone.app.workflow, plone.openid, plone.pony, plone.portlet.collection, plone.z3cform",davisagli,commit_authors
+fschulze,27,16,"Products.ATReferenceBrowserWidget, Products.CMFPlone, Products.PortalTransforms, Products.ResourceRegistries, archetypes.kss, archetypes.referencebrowserwidget, collective.indexing, plone.app.controlpanel, plone.app.layout, plone.app.portlets, plone.app.viewletmanager, plone.app.vocabularies, plone.i18n, plone.portlet.collection, plone.recipe.zope2install, plone.recipe.zope2zeoserver",fschulze,login
+mj,20,10,"Products.CMFPlone, Products.ExtendedPathIndex, Products.LinguaPlone, Products.ResourceRegistries, collective.indexing, five.intid, plone.i18n, plone.keyring, plone.protect, plone.recipe.zope2instance",mj,unmatched
+stefan,20,10,"Products.CMFPlone, Products.CMFTestCase, Products.LinguaPlone, Products.PloneTestCase, collective.indexing, plone.app.i18n, plone.i18n, plone.protect, plone.recipe.zope2install, plone.recipe.zope2instance",stefan,unmatched
+alecm,18,5,"Products.CMFEditions, Products.CMFPlone, archetypes.kss, five.intid, plone.relations",alecm,unmatched
+sidnei,17,5,"Products.Archetypes, plone.i18n, plone.recipe.zope2install, plone.recipe.zope2instance, plone.recipe.zope2zeoserver",sidnei,login
+nouri,16,5,"Products.Archetypes, Products.LinguaPlone, plone.app.iterate, plone.transforms, plone.z3cform",nouri,unmatched
+dunlapm,14,5,"Products.ATContentTypes, Products.CMFPlone, Products.ResourceRegistries, plone.app.iterate, plone.app.layout",dunlapm,unmatched
+encolpe,13,6,"Products.CMFEditions, Products.CMFPlacefulWorkflow, Products.CMFQuickInstallerTool, plone.app.iterate, plone.app.layout, plone.recipe.zope2instance",encolpe,login
+calvinhp,10,3,"Products.ATContentTypes, Products.CMFPlone, plone.app.layout",calvinhp,login
+csenger,9,4,"Products.MimetypesRegistry, plone.app.controlpanel, plone.app.form, plone.app.workflow",csenger,login
+limi,9,5,"Products.CMFPlone, Products.PortalTransforms, plone.app.layout, plone.app.openid, plone.i18n",limi,commit_authors
+rochael,9,3,"plone.app.blob, plone.recipe.zope2instance, plone.recipe.zope2zeoserver",rochael,unmatched
+tarek,9,3,"plone.recipe.zope2install, plone.recipe.zope2instance, plone.recipe.zope2zeoserver",tarek,unmatched
+tesdal,9,6,"Products.LinguaPlone, collective.indexing, five.intid, plone.app.relations, plone.folder, plone.recipe.haproxy",tesdal,commit_authors
+emanlove,8,2,"Products.CMFPlone, plone.app.layout",emanlove,login
+jensens,7,4,"Products.Archetypes, Products.LinguaPlone, archetypes.schemaextender, plone.recipe.zope2instance",jensens,login
+rsantos,7,6,"Products.ATReferenceBrowserWidget, Products.Archetypes, Products.CMFEditions, Products.CMFPlone, Products.PlonePAS, plone.app.layout",rsantos,unmatched
+deo,6,5,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, plone.app.contentmenu, plone.app.form",deo,unmatched
+garbas,6,3,"Products.ATContentTypes, Products.ATReferenceBrowserWidget, Products.CMFPlone",garbas,login
+smcmahon,6,4,"Products.ATReferenceBrowserWidget, Products.CMFPlone, plone.recipe.zope2install, plone.recipe.zope2instance",smcmahon,login
+spliter,6,3,"Products.ATContentTypes, Products.CMFPlone, plone.app.layout",spliter,unmatched
+jfroche,5,3,"plone.locking, plone.recipe.zope2install, plone.z3cform",jfroche,login
+jvloothuis,5,2,"plone.app.content, plone.recipe.zope2zeoserver",jvloothuis,unmatched
+naro,5,5,"Products.CMFPlone, Products.CMFQuickInstallerTool, plone.app.content, plone.app.iterate, plone.app.portlets",naro,login
+thefunny42,5,1,plone.z3cform,thefunny42,login
+tomgross,5,1,archetypes.referencebrowserwidget,tom_gross,commit_authors
+drjnut,4,2,"Products.CMFEditions, plone.transforms",drjnut,unmatched
+regebro,4,4,"Products.LinguaPlone, archetypes.referencebrowserwidget, plone.app.vocabularies, plone.relations",regebro,login
+elro,3,3,"Products.ResourceRegistries, plone.app.form, plone.app.ldap",elro,unmatched
+erikrose,3,2,"plone.app.layout, plone.app.workflow",erikrose,login
+kdeldycke,3,1,plone.recipe.zope2instance,kdeldycke,unmatched
+klm,3,1,plone.recipe.zope2instance,klm,unmatched
+mborch,3,3,"archetypes.kss, five.intid, plone.transforms",mborch,unmatched
+ree,3,2,"Products.ExtendedPathIndex, plone.app.kss",ree,unmatched
+sirgarr,3,2,"Products.ATContentTypes, Products.CMFPlone",sirgarr,unmatched
+tbenita,3,2,"Products.CMFEditions, plone.transforms",tbenita,unmatched
+andrewb,2,2,"Products.ATReferenceBrowserWidget, plone.openid",andrewb,unmatched
+claytron,2,1,plone.recipe.zope2instance,claytron,login
+dannybloe,2,2,"Products.Archetypes, Products.CMFPlone",dannyb,commit_authors
+dataflake,2,1,plone.recipe.zope2zeoserver,dataflake,login
+duncan,2,1,Products.CMFPlone,duncan,unmatched
+gogobd,2,1,Products.CMFQuickInstallerTool,gogobd,login
+gotcha,2,1,plone.z3cform,gotcha,login
+igbun,2,2,"Products.CMFPlone, plone.app.contentmenu",igbun,unmatched
+jlagarde,2,1,Products.ATContentTypes,jlagarde,unmatched
+kaell311,2,1,Products.PlacelessTranslationService,kaell311,unmatched
+ldr,2,2,"Products.Archetypes, Products.CMFPlone",ldr,unmatched
+maerteijn,2,1,Products.TinyMCE,maerteijn,unmatched
+malthe,2,2,"Products.CMFPlone, plone.z3cform",malthe,login
+pbugni,2,2,"Products.CMFPlone, Products.contentmigration",pbugni,unmatched
+rafrombrc,2,2,"Products.CMFQuickInstallerTool, borg.localrole",rafrombrc,login
+raphael,2,2,"Products.Archetypes, archetypes.kss",raphael,unmatched
+shh42,2,2,"Products.PloneLanguageTool, plone.app.controlpanel",shh42,unmatched
+siebo,2,1,Products.CMFPlone,siebo,login
+bostrick,1,1,Products.validation,bostrick,unmatched
+daftdog,1,1,Products.Archetypes,daftdog,unmatched
+dbaty,1,1,plone.i18n,dbaty,unmatched
+derek_richardson,1,1,Products.CMFPlone,derek_richardson,unmatched
+dreamcatcher,1,1,plone.app.contentmenu,dreamcatcher,unmatched
+duffyd,1,1,plone.recipe.zope2instance,duffyd,login
+dukebody,1,1,Products.Archetypes,dukebody,login
+dunny,1,1,plone.app.linkintegrity,dunny,unmatched
+esteele,1,1,Products.CMFPlone,esteele,commit_authors
+gotti,1,1,plone.recipe.zope2instance,gotti,unmatched
+hexsprite,1,1,Products.CMFPlone,hexsprite,login
+icemac,1,1,plone.recipe.zope2install,icemac,login
+Ingeniweb,1,1,Products.CMFPlacefulWorkflow,Ingeniweb,unmatched
+kingel,1,1,Products.TinyMCE,kingel,login
+KurtB,1,1,Products.CMFPlone,KurtB,unmatched
+laz,1,1,Products.CMFPlone,laz,unmatched
+lucie,1,1,Products.CMFPlone,lucie,unmatched
+martior,1,1,Products.PasswordResetTool,martior,login
+massimo,1,1,plone.relations,massimo,unmatched
+mr_savage,1,1,collective.indexing,mr_savage,unmatched
+mrtopf,1,1,plone.app.portlets,mrtopf,login
+mustapha,1,1,plone.recipe.zope2instance,mustapha,unmatched
+ramon,1,1,plone.relations,ramon,unmatched
+reinout,1,1,five.intid,reinout,login
+rockt,1,1,five.intid,rockt,unmatched
+saily,1,1,plone.z3cform,saily,login
+sbruno,1,1,Products.CMFPlone,sbruno,unmatched
+seletz,1,1,Products.CMFPlone,seletz,login
+skatja,1,1,plone.z3cform,skatja,unmatched
+ssh42,1,1,plone.app.customerize,ssh42,unmatched
+stonor,1,1,Products.contentmigration,stonor,login
+tiazma,1,1,plone.transforms,tiazma,login
+timte,1,1,plone.recipe.zope2instance,timte,unmatched
+tomster,1,1,plone.relations,tomster,login
+triquetra,1,1,Products.ATReferenceBrowserWidget,triquetra,unmatched
+wiggy,1,1,plone.app.linkintegrity,wiggy,unmatched
+younga3,1,1,plone.app.layout,younga3,unmatched

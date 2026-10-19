@@ -49,6 +49,7 @@ Set a variable on the command line to use another year, for example `make five-y
 | `make pr-interactions-all-years` | Collects pull request interactions from 2010 to the current year in one run. | works |
 | `make pr-interactions` | Collects pull request interactions of `YEAR`. | works |
 | `make run-plips` | Collects all PLIPs. | works |
+| `make run-changelogs` | Collects the changelog entries per person of all years, from 2002 to the last completed year, in one run. | works |
 
 ## Aggregation and reports
 

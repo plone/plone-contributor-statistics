@@ -47,7 +47,28 @@ In the early years, they are still a noticeable share of the commits ([#69](http
 Pull requests on GitHub started for Plone around 2011.
 Before that, developers committed directly to trunk, and changes were discussed on mailing lists and in the Trac ticket system.
 For the years before 2011, the data therefore has commits but no pull requests, reviews or comments.
-Changelog entries could serve as a measure for those years ([#71](https://github.com/plone/plone-contributor-statistics/issues/71)).
+
+## Changelog entries before pull requests
+
+The changelogs of the packages are a second record of those years ([#71](https://github.com/plone/plone-contributor-statistics/issues/71)).
+The convention of ending an entry with the name of the person in brackets started in `Products.CMFPlone` in mid-2003, and from 2004 on almost every entry names a person.
+The entries are collected for all years, but they say something of their own only from 2004 to 2012.
+
+- **Before 2004**, few entries have a name, and big releases such as Plone 2.0 in March 2004 carry the work of the year before.
+- **From 2004 to 2012**, the entries are the only record of who made a change besides the commits, and they credit people whose patches others committed.
+- **From 2013 to 2015**, pull requests take over, and the entries begin to repeat them.
+- **From 2016 on**, towncrier writes the entries from pull requests, mostly with the login of the pull request's author, so the entries repeat the pull request counts.
+
+The contributor report therefore shows the changelog entries of 2004 to 2012.
+The yearly files and the organisation statistics have them for all years.
+
+Old changelogs often live in subfolders and on old release branches: the changelog of `Products.CMFPlone` moved between several files and folders over the years, and each release branch keeps the file of its time.
+Many early entries exist only on release branches, so the collector reads them as well, and counts each entry once.
+
+An entry is dated by its release, not by the day the work was done.
+For entries that could be matched to the commit that added them, the release came a median of about two weeks later, and about one entry in eight falls into a later calendar year than its commit.
+Long release cycles, such as Plone 4.0, move more work into the next year.
+Compare the entries of neighbouring years with this in mind.
 
 PLIPs are older than GitHub, too.
 From 2004 they were pages on plone.org, first in a wiki and then on the roadmap, and from 2008 tickets in Trac; they moved to GitHub issues at the end of 2013.
