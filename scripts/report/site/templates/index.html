@@ -128,7 +128,7 @@
     <p class="intro">Find yourself, or someone you know, by GitHub login or name, and see where they stand in a year.
       The page doesn't list people in a ranking.</p>
     <form class="search" id="people-search" autocomplete="off">
-      <label>GitHub login or name <input type="search" name="person" placeholder="e.g. jensens"></label>
+      <label>GitHub login or name <input type="search" name="person"></label>
       <label>Year <select name="year">
         {% for year in history_years | reverse %}<option>{{ year }}</option>{% endfor %}
       </select></label>
