@@ -1,6 +1,6 @@
 # Plone Core Contributor Statistics Report
 
-Generated on: 2026-10-19 18:18:42
+Generated on: 2026-10-19 20:16:22
 
 This report shows the top contributors and organizations in the Plone ecosystem across different time periods.
 
@@ -135,7 +135,7 @@ Not mapped to an organisation: 367 PRs, 769 commits by 125 contributors.
 | 9 | RedTurtle | 311 | 656 | 9 | 30 |
 | 10 | Codesyntax | 289 | 782 | 4 | 48 |
 
-Not mapped to an organisation: 661 PRs, 1,822 commits by 188 contributors.
+Not mapped to an organisation: 652 PRs, 1,801 commits by 186 contributors.
 
 
 ### Top 10 Organisation Contributors (Past 10 Years: 2016-2025)
@@ -147,13 +147,13 @@ Not mapped to an organisation: 661 PRs, 1,822 commits by 188 contributors.
 | 3 | der Freitag | 1,201 | 5,882 | 3 | 274 |
 | 4 | Syslab | 1,068 | 2,876 | 6 | 141 |
 | 5 | Steve Piercy - Website Builder | 909 | 3,242 | 1 | 38 |
-| 6 | Onna | 777 | 3,428 | 5 | 26 |
+| 6 | Onna | 869 | 3,574 | 7 | 28 |
 | 7 | Kombinat | 754 | 2,882 | 1 | 85 |
 | 8 | Klein & Partner KG | 725 | 3,125 | 2 | 149 |
 | 9 | Eau de Web | 567 | 1,649 | 18 | 37 |
 | 10 | Starzel | 542 | 2,298 | 3 | 142 |
 
-Not mapped to an organisation: 2,272 PRs, 6,399 commits by 386 contributors.
+Not mapped to an organisation: 2,009 PRs, 5,540 commits by 382 contributors.
 
 
 ---
@@ -186,18 +186,18 @@ See [how contributions are counted](https://plone.github.io/plone-contributor-st
 
 | Rank | Organization | Changelog entries | Commits | Contributors |
 |------|-------------|-------------------|---------|--------------|
-| 1 | Jarn | 1,776 | 7,725 | 12 |
+| 1 | Jarn | 1,778 | 8,990 | 14 |
 | 2 | Groundwire | 575 | 1,904 | 1 |
 | 3 | Simplon | 397 | 1,714 | 1 |
 | 4 | Deloitte Digital | 360 | 2,820 | 1 |
-| 5 | Zest Software | 237 | 974 | 4 |
-| 6 | Penn State University | 198 | 1,771 | 2 |
-| 7 | ONE/Northwest | 170 | 681 | 1 |
-| 8 | Google | 146 | 782 | 1 |
-| 9 | Four Digits | 124 | 1,145 | 2 |
-| 10 | Enfold | 109 | 906 | 4 |
+| 5 | Christian Heimes (independent) | 258 | 849 | 1 |
+| 6 | ZITC | 240 | 1,543 | 1 |
+| 7 | Zest Software | 237 | 974 | 4 |
+| 8 | Penn State University | 198 | 1,771 | 2 |
+| 9 | ONE/Northwest | 170 | 681 | 1 |
+| 10 | Four Digits | 166 | 1,286 | 3 |
 
-Not mapped to an organisation: 5,877 changelog entries, 18,483 commits.
+Not mapped to an organisation: 4,808 changelog entries, 10,152 commits.
 
 
 ---

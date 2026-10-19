@@ -2,7 +2,7 @@
  "headline": {
   "five_years": {
    "events": 65,
-   "organisations": 88,
+   "organisations": 89,
    "people": 375
   },
   "since_2003": {
@@ -858,8 +858,8 @@
     },
     {
      "name": "Alec Mitchell",
-     "organisation": "Unmapped",
-     "source": "https://web.archive.org/web/20060415004110/http://plone.org/development/teams/",
+     "organisation": "Alec Mitchell (independent)",
+     "source": "https://web.archive.org/web/20060415004110/http://plone.org/development/teams/; organisation of Alec Mitchell from the organisation mapping: https://plone.org/news-and-events/events/plone-conferences/seattle-2006/first-batch-of-plone-conference-videos-available",
      "team": "Installers Team"
     },
     {
@@ -1099,9 +1099,11 @@
      "kind": "sprints",
      "level": "",
      "name": "ArlingtonSprint (CanDo summer kick-off sprint)",
-     "organisations": [],
+     "organisations": [
+      "ACLARK.NET, LLC"
+     ],
      "sources": [
-      "https://web.archive.org/web/20131022224951/http://plone.org/events/sprints/past-sprints/arlington-2007"
+      "https://web.archive.org/web/20131022224951/http://plone.org/events/sprints/past-sprints/arlington-2007; organisation of Alex Clark from the organisation mapping: https://web.archive.org/web/20070110221435/http://aclark.net:80/"
      ]
     },
     {
@@ -2386,9 +2388,11 @@
      "kind": "sprints",
      "level": "",
      "name": "Plone 3.4 i18n and French l10n sprint (Paris)",
-     "organisations": [],
+     "organisations": [
+      "Ecréall"
+     ],
      "sources": [
-      "https://sourceforge.net/p/plone/mailman/message/23732642/"
+      "https://sourceforge.net/p/plone/mailman/message/23732642/; organisation of Vincent Fretin (announced it) from the organisation mapping: http://vincentfretin.ecreall.com"
      ]
     },
     {
@@ -4118,9 +4122,11 @@
      "kind": "sprints",
      "level": "",
      "name": "Jamaica Jerk Sprint",
-     "organisations": [],
+     "organisations": [
+      "Alteroo"
+     ],
      "sources": [
-      "https://web.archive.org/web/20170412095135/https://www.coactivate.org/projects/jamaica-jerk-sprint/project-home/"
+      "https://web.archive.org/web/20170412095135/https://www.coactivate.org/projects/jamaica-jerk-sprint/project-home/; organisation of David Bain from the organisation mapping: https://web.archive.org/web/20101104095552/http://www.ploneconf2010.org/the-event/talks/plone-theme-creation-simplified"
      ]
     },
     {
@@ -4960,7 +4966,7 @@
      "level": "",
      "name": "World Plone Day 2013, Toulouse, France",
      "organisations": [
-      "Ecreall",
+      "Ecréall",
       "Makina Corpus"
      ],
      "sources": [
@@ -5165,9 +5171,11 @@
      "kind": "sprints",
      "level": "community",
      "name": "Stroopwafel Sprint",
-     "organisations": [],
+     "organisations": [
+      "Friends of the Earth Netherlands"
+     ],
      "sources": [
-      "https://plone.org/news-and-events/news/2014/plone-docs-get-monumental-overhaul; Board: https://plone.org/foundation/meetings/minutes/2014/minutes-for-january-9-2014"
+      "https://plone.org/news-and-events/news/2014/plone-docs-get-monumental-overhaul; Board: https://plone.org/foundation/meetings/minutes/2014/minutes-for-january-9-2014; organisation of Sven Strack from the organisation mapping: https://web.archive.org/web/20141113061401/http://2014.ploneconf.org:80/talks/@@list"
      ]
     },
     {
@@ -5768,8 +5776,8 @@
     },
     {
      "name": "Víctor Fernández de Alba",
-     "organisation": "Unmapped",
-     "source": "https://community.plone.org/t/plone-team-leader-meeting-report-april-2015/557",
+     "organisation": "Universitat Politècnica de Catalunya · BarcelonaTech",
+     "source": "https://community.plone.org/t/plone-team-leader-meeting-report-april-2015/557; organisation of Víctor Fernández de Alba from the organisation mapping: https://sourceforge.net/p/plone/mailman/message/25012980/",
      "team": "plone.org Web Team"
     },
     {
@@ -13598,11 +13606,11 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         19
+         17
         ]
        ],
        "source": null,
-       "text": "Team Member (15.8 PRs/year)"
+       "text": "Team Member (17.4 PRs/year)"
       }
      ],
      "points": 2.0
@@ -13700,27 +13708,27 @@
      "roles": 1
     },
     "2018": {
-     "commits": 1298,
+     "commits": 1303,
      "events": 0,
-     "pull_requests": 201,
+     "pull_requests": 206,
      "roles": 0
     },
     "2019": {
-     "commits": 738,
+     "commits": 776,
      "events": 1,
-     "pull_requests": 253,
+     "pull_requests": 273,
      "roles": 2
     },
     "2020": {
-     "commits": 5,
+     "commits": 90,
      "events": 0,
-     "pull_requests": 90,
+     "pull_requests": 149,
      "roles": 1
     },
     "2021": {
-     "commits": 83,
+     "commits": 101,
      "events": 0,
-     "pull_requests": 79,
+     "pull_requests": 87,
      "roles": 1
     },
     "2022": {
@@ -15490,9 +15498,9 @@
      "roles": 3
     },
     "2013": {
-     "commits": 54,
+     "commits": 175,
      "events": 2,
-     "pull_requests": 5,
+     "pull_requests": 16,
      "roles": 2
     },
     "2014": {
@@ -15508,9 +15516,9 @@
      "roles": 0
     },
     "2016": {
-     "commits": 0,
+     "commits": 21,
      "events": 0,
-     "pull_requests": 0,
+     "pull_requests": 21,
      "roles": 0
     },
     "2017": {
@@ -15759,7 +15767,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         17
+         18
         ],
         [
          "2022",
@@ -15881,9 +15889,9 @@
      "roles": 1
     },
     "2014": {
-     "commits": 547,
+     "commits": 634,
      "events": 0,
-     "pull_requests": 36,
+     "pull_requests": 47,
      "roles": 2
     },
     "2015": {
@@ -16323,9 +16331,9 @@
      "roles": 2
     },
     "2015": {
-     "commits": 503,
+     "commits": 618,
      "events": 0,
-     "pull_requests": 80,
+     "pull_requests": 98,
      "roles": 1
     },
     "2016": {

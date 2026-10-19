@@ -1,6 +1,6 @@
 # Plone Community Recognition Program 2025
 
-*Generated: 2026-10-19 15:21:54*
+*Generated: 2026-10-19 20:16:23*
 
 ## Executive Summary
 
@@ -126,8 +126,8 @@
 | 15 | Starzel | 4 | Active Member | 29.2 |
 | 16 | Agitator | 4 | Active Member | 23.8 |
 | 17 | Derico | 4 | Active Member | 23.0 |
-| 18 | Uni. Hospital Dresden | 2 | Team Member | 16.4 |
-| 19 | Onna | 2 | Team Member | 15.8 |
+| 18 | Onna | 2 | Team Member | 17.4 |
+| 19 | Uni. Hospital Dresden | 2 | Team Member | 16.4 |
 | 20 | Iskra | 2 | Team Member | 12.6 |
 
 ### PLIP Contributors
@@ -480,7 +480,7 @@
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| PR Contributions | 2.0 | • Team Member (15.8 PRs/year) |
+| PR Contributions | 2.0 | • Team Member (17.4 PRs/year) |
 
 ### Uni. Hospital Dresden
 
