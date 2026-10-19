@@ -3,6 +3,7 @@
 import sys
 
 import pandas as pd
+import pytest
 
 from scripts.derive import multi_year_summary, organisation_stats
 from scripts.derive.organisation_stats import UNMAPPED
@@ -139,6 +140,14 @@ def test_person_without_login_counts_for_the_organisation(write_registers):
         stats, lambda username: registry.organisation_for_username(username, 2008), bots={})
 
     assert {name: values['total_commits'] for name, values in grouped.items()} == {'Jarn': 7}
+
+
+def test_the_year_is_required(capsys):
+    with pytest.raises(SystemExit) as error:
+        organisation_stats.parse_arguments([])
+
+    assert error.value.code == 2
+    assert '--year' in capsys.readouterr().err
 
 
 def test_no_report_section_without_changelog_files(tmp_repo):

@@ -120,9 +120,9 @@ def aggregate_organisation_stats(stats_df, organisation_of, bots=None, changelog
     """Aggregate individual contributor stats by organisation.
 
     organisation_of(username) gives the organisation name of a login or
-    'person:<id>'. Bot accounts are left out; unmapped contributors go to UNMAPPED. The
-    changelog entries go to the organisations that have code work in the
-    year; they don't add rows.
+    'person:<id>'. Bot accounts are left out; unmapped contributors go to
+    UNMAPPED. The changelog entries go to the organisations that have code
+    work in the year; they don't add rows.
     """
     bots = load_bot_accounts() if bots is None else bots
     organisation_stats = defaultdict(lambda: {
@@ -210,11 +210,12 @@ def save_organisation_report(df, filename=None, date_range=None):
     return csv_file
 
 
-def parse_arguments():
-    """Parse command line arguments"""
+def parse_arguments(argv=None):
+    """Parse command line arguments; the year is required, as the organisation of a login depends on it."""
     parser = argparse.ArgumentParser(description='Generate organisation statistics from individual contributor data')
-    parser.add_argument('--year', type=int, help='Generate statistics for specific year (e.g., 2024)')
-    return parser.parse_args()
+    parser.add_argument('--year', type=int, required=True,
+                        help='Year of the statistics (e.g., 2024); the organisation of a login depends on the year')
+    return parser.parse_args(argv)
 
 def main():
     """Main function to generate organisation statistics."""
