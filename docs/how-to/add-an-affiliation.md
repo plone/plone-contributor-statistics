@@ -14,7 +14,7 @@ You need a GitHub account, and a public record for the affiliation: a link, or a
 
     The tool finds a person by id, name, login or email, and prints their rows of the registers.
     If the person is not in the register, add them first, see {doc}`add-a-person`.
-    If the organisation is not in `curated/mappings/organisations.csv`, add a row for it: a new id in lower-case letters, digits and hyphens, the name, and the kind `organisation`.
+    If the organisation is not in `curated/mappings/organisations.csv`, add a row for it, in its place sorted by id, with the columns `id,name,kind,aliases,notes`: a new id in lower-case letters, digits and hyphens, the name, the kind `organisation`, and empty `aliases` and `notes`.
     A person who contributes privately or as a volunteer gets an organisation of the kind `independent`, named after them, such as `Jane Doe (independent)`.
 
 2.  Add a row to `curated/mappings/affiliations.csv`, in its place sorted by person and first year:
@@ -25,7 +25,7 @@ You need a GitHub account, and a public record for the affiliation: a link, or a
     ```
 
     `from` is the first year and `to` the last.
-    Leave `to` empty if the affiliation lasts up to the present, and fill in `checked` with the date you read the record.
+    Leave `to` empty if the affiliation lasts up to the present, and fill in `checked` with the date you read the record, as `YYYY-MM-DD`.
     In `source`, put a link to the public record: a profile, a company page, an archived page or a speaker biography.
     If the record covers only some of the years, say which in `notes`.
 

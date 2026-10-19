@@ -6,7 +6,10 @@ This guide shows you how to add a person to the register, so that data can refer
 Do this before you add an affiliation or a row of community data that names a person who is not in the register yet.
 You need a public record that connects the person to their name and, if they have one, their GitHub login.
 
-1.  Check that the person is not in the register yet, under another spelling:
+1.  Decide on the spelling of the name: the one the person uses in public, usually the name on their GitHub profile.
+    A different spelling in a source, an email address of old commits or a second GitHub account is an identity, see {doc}`link-old-commits-to-a-person`.
+
+2.  Check that the person is not in the register yet, under another spelling:
 
     ```shell
     python -m scripts.tools.person "Jane Doe"
@@ -14,7 +17,7 @@ You need a public record that connects the person to their name and, if they hav
 
     The tool finds a person by id, name, login or email.
 
-2.  Add the person with the tool:
+3.  Add the person with the tool:
 
     ```shell
     python -m scripts.tools.person --add "Jane Doe" --github janedoe --source https://github.com/janedoe
@@ -23,9 +26,6 @@ You need a public record that connects the person to their name and, if they hav
     Leave out `--github` for a person without a GitHub account.
     The tool creates a row in `curated/mappings/people.csv` with a generated id, such as `jane-doe`, and prints it.
     Do not choose or change an id by hand: ids are opaque, and once a row exists its id is never renamed.
-
-3.  Use the name in the spelling the person uses in public, usually the name on their GitHub profile.
-    A different spelling in a source, an email address of old commits or a second GitHub account is an identity, see {doc}`link-old-commits-to-a-person`.
 
 4.  Validate the files:
 

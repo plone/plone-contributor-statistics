@@ -31,7 +31,7 @@ One row is one person.
 
 | Field | Type | Constraints | Description |
 |---|---|---|---|
-| `id` | string | required; unique; pattern `^[a-z0-9][a-z0-9-]*$` | Opaque, stable identifier of the person; it never encodes the name. |
+| `id` | string | required; unique; pattern `^[a-z0-9][a-z0-9-]*$` | Opaque, stable identifier of the person: made once from the name when the row is created, and kept when the name changes. It is a key, not a spelling. |
 | `name` | string | required | The name the person is published under. |
 | `github` | string | pattern `^[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?$` | The GitHub login of the person, with the case it has on GitHub. |
 | `source` | string | required; contains a web address | A public record, linked as a web address, that connects the person to the name and login. |
@@ -92,7 +92,7 @@ One row is one organisation.
 
 | Field | Type | Constraints | Description |
 |---|---|---|---|
-| `id` | string | required; unique; pattern `^[a-z0-9][a-z0-9-]*$` | Opaque, stable identifier of the organisation. |
+| `id` | string | required; unique; pattern `^[a-z0-9][a-z0-9-]*$` | Opaque, stable identifier of the organisation: made once from the name when the row is created, and kept when the name changes. It is a key, not a spelling. |
 | `name` | string | required; unique | The name the organisation is published under. |
 | `kind` | string | required; one of `organisation`, `independent`, `foundation` | The kind of the organisation: a company, an independent or a foundation. |
 | `aliases` | string |  | Other spellings of the name, separated by semicolons; free text, not keys. |

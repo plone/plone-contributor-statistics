@@ -58,7 +58,7 @@ Data sources, files, registers and Make targets.
 :link: how-to/index
 :link-type: doc
 
-Correct a mapping, add curated data, regenerate the statistics.
+Add a person or an affiliation, add curated data, regenerate the statistics.
 ```
 
 ```{grid-item-card} Contributing

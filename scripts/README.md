@@ -15,7 +15,7 @@ Running a file directly (`python scripts/collect/plone_contributors.py`) fails w
 | Folder | Holds |
 |---|---|
 | `collect/` | Collectors: fetch commits, pull requests, pull request interactions, PLIPs and changelog entries from GitHub; most of them need a GitHub token. |
-| `derive/` | Compute organisation statistics, summaries, yearly totals and PLIPs per organisation from the collected data and the mapping files. |
+| `derive/` | Compute organisation statistics, summaries, yearly totals and PLIPs per organisation from the collected data and the registers. |
 | `report/` | Write the human-facing reports and graphs. |
 | `tools/` | Helpers for maintainers, for example to find a person in the registers, check the curated data, generate the reference of the curated files, or list unmapped contributors. |
 | `lib/` | Shared code: `paths.py` (where every file lives), `model/` (the only reader of `curated/`: the registers and the community data), `years.py` (default years), `github_api.py`, `git_history.py` and `changelogs.py` (reading changelog entries). |

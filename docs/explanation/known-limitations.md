@@ -29,8 +29,9 @@ No pull requests before about 2011
     Pull request counts and interactions of the early years are zero by method, not by lack of activity ([#71](https://github.com/plone/plone-contributor-statistics/issues/71)).
 
 Organisations of the early years are mostly unknown
-:   The mapping records today's organisations, with few known exceptions before 2010 ([#70](https://github.com/plone/plone-contributor-statistics/issues/70)).
-    Early organisation statistics reflect where people are today.
+:   Few affiliations before 2010 are known with a source ([#70](https://github.com/plone/plone-contributor-statistics/issues/70)).
+    A year that no affiliation row covers is Unmapped, so early organisation statistics show many Unmapped contributors.
+    The migration to the registers wrote the result of the old default, today's organisation for every year, as explicit rows; those that only the old default produced are marked in `notes` and stay until a follow-up trims them to the years their records support ([#139](https://github.com/plone/plone-contributor-statistics/issues/139)).
     The email addresses of the Subversion period don't help, because the conversion to Git assigned them ({doc}`history-and-coverage`).
 
 Changelog names without a mapping
@@ -79,8 +80,9 @@ The committer date decides the year
 Multi-year summaries split people who moved
 :   A person who changed organisations appears under each organisation, for the years they were there.
 
-Login lookup is case-sensitive
-:   A login with the wrong case in `curated/mappings/people.csv` leaves its owner Unmapped.
+A mistyped login leaves its owner Unmapped
+:   Logins are compared ignoring case, but a typo in `curated/mappings/people.csv` sends the person's work to Unmapped.
+    The checks cannot catch a typo that is itself a valid login.
 
 ## Parts with a different method
 

@@ -3,7 +3,7 @@
     {
       "name": "id",
       "type": "string",
-      "description": "Opaque, stable identifier of the person; it never encodes the name.",
+      "description": "Opaque, stable identifier of the person: made once from the name when the row is created, and kept when the name changes. It is a key, not a spelling.",
       "constraints": {
         "required": true,
         "unique": true,

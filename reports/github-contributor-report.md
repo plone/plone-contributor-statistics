@@ -1,6 +1,6 @@
 # Plone Core Contributor Statistics Report
 
-Generated on: 2026-10-19 21:34:24
+Generated on: 2026-10-20 01:35:11
 
 This report shows the top contributors and organizations in the Plone ecosystem across different time periods.
 
@@ -163,7 +163,7 @@ Not mapped to an organisation: 2,007 PRs, 5,521 commits by 380 contributors.
 Before pull requests, Plone's changelogs said who made a change: from 2004 on, almost every entry ends with the name of the person who made it.
 Each entry counts once, in the year of the release it is listed under, and for every person it names.
 The entries are shown next to the commits of the same years, not added to them.
-Names that no mapping file links to a person yet are shown as written in the changelogs, in italics.
+Names that no identity links to a person yet are shown as written in the changelogs, in italics.
 See [how contributions are counted](https://plone.github.io/plone-contributor-statistics/docs/explanation/counting-rules.html).
 
 ### Top 10 Contributors by Changelog Entries (2004–2012)

@@ -160,7 +160,7 @@ def top_organisations_table(df, n=10):
 def combine_changelog_entries(years):
     """Changelog entries and commits per person over the years, for the people with entries.
 
-    `unmatched` is True for names that no mapping file links to a person.
+    `unmatched` is True for names that no identity links to a person.
     """
     frames = [pd.read_csv(paths.changelog_entries_file(year), keep_default_na=False)
               for year in years if paths.changelog_entries_file(year).exists()]
@@ -214,7 +214,7 @@ def changelog_section(available_years):
                  "almost every entry ends with the name of the person who made it.")
     lines.append("Each entry counts once, in the year of the release it is listed under, and for every person it names.")
     lines.append("The entries are shown next to the commits of the same years, not added to them.")
-    lines.append("Names that no mapping file links to a person yet are shown as written in the changelogs, in italics.")
+    lines.append("Names that no identity links to a person yet are shown as written in the changelogs, in italics.")
     lines.append(f"See [how contributions are counted]({COUNTING_RULES}).")
     lines.append("")
     lines.append(f"### Top 10 Contributors by Changelog Entries ({label})")

@@ -37,7 +37,7 @@ Their commits carry addresses like `name@localhost`, which no GitHub account has
 
 Identities of the kind `email` in `curated/mappings/identities.csv` name the people behind these addresses, where a source says who they are.
 Sources are the same name in commits that are linked to an account, the nicknames in the [credits of Plone 2.0](https://github.com/plone/Products.CMFPlone/blob/2.0/CREDITS.txt), account profiles, and confirmations by people who were there.
-People without a GitHub account are counted under their name ([#77](https://github.com/plone/plone-contributor-statistics/pull/77)).
+People without a GitHub account are counted under `person:<id>` and shown by their name ([#77](https://github.com/plone/plone-contributor-statistics/pull/77)).
 
 Commits whose address nobody could identify yet are left out.
 In the early years, they are still a noticeable share of the commits ([#69](https://github.com/plone/plone-contributor-statistics/issues/69)).
@@ -111,7 +111,7 @@ Comments in [#69](https://github.com/plone/plone-contributor-statistics/issues/6
 Comparisons between recent years are on firm ground: the same sources, the same rules, and accounts for almost everyone.
 Comparisons that reach back before 2011 compare commits only.
 Comparisons that reach back before 2006 may still miss some authors.
-And organisation statistics of the early years say more about where people are today than about who sponsored their work then.
+And organisation statistics of the early years rest on few known affiliations, and the work of everyone else is Unmapped; until a follow-up trims them, some early affiliation rows only repeat today's organisation, and `notes` marks them.
 
 ```{seealso}
 {doc}`method-history` shows when each of these limits was found and addressed.

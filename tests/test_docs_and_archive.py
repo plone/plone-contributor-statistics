@@ -207,3 +207,10 @@ def test_curated_files_reference_is_current():
 
     page = (ROOT / 'docs' / 'reference' / 'curated-files.md').read_text(encoding='utf-8')
     assert page == schema_docs.render()
+
+
+def test_every_schema_kind_is_in_the_curated_files_reference():
+    from scripts.tools import schema_docs
+
+    listed = {kind for _, _, kinds in schema_docs.GROUPS for kind, _ in kinds}
+    assert listed == {p.stem for p in (ROOT / 'curated' / 'schemas').glob('*.json')}
