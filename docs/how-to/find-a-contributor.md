@@ -22,7 +22,7 @@ To see who the person is and which organisations they belonged to, find them in 
 python -m scripts.tools.person janedoe
 ```
 
-The tool finds a person by id, name, login or email, and prints their rows of the registers.
+The tool finds a person by id, name, login or email, and prints their rows of `curated/mappings/people.csv`, `curated/mappings/identities.csv` and `curated/mappings/affiliations.csv`, each group under the name of its file.
 To see which affiliation row gives the organisation in a year, run:
 
 ```shell

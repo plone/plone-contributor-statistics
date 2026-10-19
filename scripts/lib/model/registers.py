@@ -181,9 +181,13 @@ PEOPLE_FIELDS = ('id', 'name', 'github', 'source')
 
 
 def append_person(mappings_dir, person):
-    """Add the person to people.csv, which stays sorted by id."""
+    """Add the person to people.csv, which stays sorted by id; ValueError for an existing id or login."""
     path = mappings_dir / paths.PEOPLE.name
     rows = [{field: row[field] or '' for field in PEOPLE_FIELDS} for row in read_rows(path)]
+    if any(row['id'] == person.id for row in rows):
+        raise ValueError(f'The id {person.id} exists already')
+    if person.github and any(row['github'].casefold() == person.github.casefold() for row in rows):
+        raise ValueError(f'The login {person.github} exists already')
     rows.append({'id': person.id, 'name': person.name, 'github': person.github or '', 'source': person.source})
     rows.sort(key=lambda row: row['id'])
     with open(path, 'w', newline='', encoding='utf-8') as f:

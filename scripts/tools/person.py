@@ -14,6 +14,7 @@ LINK = re.compile(r'https?://\S+')
 
 def find(registry, query):
     """The people matching the query by id, name, GitHub login or email, in id order."""
+    query = query.strip()
     found = set()
     if query in registry.people:
         found.add(query)
@@ -32,11 +33,16 @@ def find(registry, query):
 
 
 def add(mappings_dir, name, github, source):
-    """Add a person to people.csv with a generated id and return them."""
+    """Add a person to people.csv with a generated id and return them.
+
+    A link anywhere in the source is enough (the record convention of the repository).
+    """
     name = ' '.join(name.split())
+    github = (github or '').strip()
+    source = (source or '').strip()
     if not name:
         raise ValueError('The name is empty')
-    if not LINK.search(source or ''):
+    if not LINK.search(source):
         raise ValueError('The source needs a link to a public record (https://...)')
     registry = load_registry(mappings_dir)
     if github:
@@ -50,8 +56,32 @@ def add(mappings_dir, name, github, source):
     return person
 
 
+def _cells(*values):
+    return ['' if value is None else str(value) for value in values]
+
+
 def _row(person):
-    return [person.id, person.name, person.github or '', person.source]
+    return _cells(person.id, person.name, person.github, person.source)
+
+
+def _print_group(writer, filename, header, rows):
+    print(f'# curated/mappings/{filename}')
+    writer.writerow(header)
+    for row in rows:
+        writer.writerow(row)
+
+
+def _print_person(writer, registry, person):
+    """The rows of the person in the three registers, each group under the name of its file."""
+    _print_group(writer, 'people.csv', ['id', 'name', 'github', 'source'], [_row(person)])
+    identities = [_cells(i.person, i.kind, i.value, i.source) for i in registry.identities if i.person == person.id]
+    if identities:
+        _print_group(writer, 'identities.csv', ['person', 'kind', 'value', 'source'], identities)
+    affiliations = [_cells(a.person, a.organisation, a.from_year, a.to_year, a.source, a.checked, a.notes)
+                    for a in registry.affiliations if a.person == person.id]
+    if affiliations:
+        _print_group(writer, 'affiliations.csv',
+                     ['person', 'organisation', 'from', 'to', 'source', 'checked', 'notes'], affiliations)
 
 
 def main(argv=None):
@@ -73,9 +103,12 @@ def main(argv=None):
         return 0
     if not args.query:
         parser.error('give a QUERY or use --add')
-    people = find(load_registry(MAPPINGS_DIR), args.query)
-    for person in people:
-        writer.writerow(_row(person))
+    registry = load_registry(MAPPINGS_DIR)
+    people = find(registry, args.query)
+    for number, person in enumerate(people):
+        if number:
+            print()
+        _print_person(writer, registry, person)
     return 0 if people else 1
 
 

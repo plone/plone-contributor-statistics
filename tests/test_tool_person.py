@@ -1,7 +1,7 @@
 import pytest
 
 from scripts.lib import paths
-from scripts.lib.model import load_registry
+from scripts.lib.model import Person, append_person, load_registry
 from scripts.lib.model.names import unique_slug
 from scripts.tools import check, datapackage, person
 
@@ -79,6 +79,34 @@ def test_main_add_prints_the_row(registers, capsys):
 
 def test_main_find_prints_rows_and_fails_without_match(registers, capsys):
     assert person.main(['Jane Doe']) == 0
-    assert capsys.readouterr().out.strip() == f'jane-doe,Jane Doe,JaneDoe,{SRC}'
+    assert capsys.readouterr().out == (
+        f'# curated/mappings/people.csv\nid,name,github,source\njane-doe,Jane Doe,JaneDoe,{SRC}\n')
     assert person.main(['nobody']) == 1
     assert capsys.readouterr().out == ''
+
+
+def test_main_prints_identities_and_affiliations_of_the_match(registers, capsys):
+    paths.AFFILIATIONS.write_text(
+        'person,organisation,from,to,source,checked,notes\n'
+        f'zed,zeta,2015,,{SRC},2024-05-01,"one, two"\n', encoding='utf-8')
+    paths.ORGANISATIONS.write_text('id,name,kind,aliases,notes\nzeta,Zeta,organisation,,\n', encoding='utf-8')
+    assert person.main(['  zed ']) == 0
+    assert capsys.readouterr().out == (
+        '# curated/mappings/people.csv\n'
+        'id,name,github,source\n'
+        f'zed,Zed Zeta,,{SRC}\n'
+        '# curated/mappings/identities.csv\n'
+        'person,kind,value,source\n'
+        f'zed,email,Zed@Example.org,{SRC}\n'
+        f'zed,name,Zédd Zeta,{SRC}\n'
+        '# curated/mappings/affiliations.csv\n'
+        'person,organisation,from,to,source,checked,notes\n'
+        f'zed,zeta,2015,,{SRC},2024-05-01,"one, two"\n')
+
+
+def test_append_person_refuses_an_existing_id_or_login(registers):
+    with pytest.raises(ValueError, match='id zed'):
+        append_person(paths.MAPPINGS_DIR, Person('zed', 'Another', None, SRC))
+    with pytest.raises(ValueError, match='login JANEDOE'):
+        append_person(paths.MAPPINGS_DIR, Person('new', 'New', 'JANEDOE', SRC))
+    assert 'new' not in load_registry().people

@@ -12,7 +12,7 @@ You need a GitHub account, and a public record for the affiliation: a link, or a
     grep -i "example" curated/mappings/organisations.csv
     ```
 
-    The tool finds a person by id, name, login or email, and prints their rows of the registers.
+    The tool finds a person by id, name, login or email, and prints their rows of `curated/mappings/people.csv`, `curated/mappings/identities.csv` and `curated/mappings/affiliations.csv`, each group under the name of its file.
     If the person is not in the register, add them first, see {doc}`add-a-person`.
     If the organisation is not in `curated/mappings/organisations.csv`, add a row for it, in its place sorted by id, with the columns `id,name,kind,aliases,notes`: a new id in lower-case letters, digits and hyphens, the name, the kind `organisation`, and empty `aliases` and `notes`.
     A person who contributes privately or as a volunteer gets an organisation of the kind `independent`, named after them, such as `Jane Doe (independent)`.
