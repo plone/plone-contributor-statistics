@@ -1,0 +1,176 @@
+person,kind,value,source
+adam-forsythe-cheasley,email,adam@netsight.co.uk,Same name in commits linked to this account; example commit: https://github.com/plone/plone.api/commit/13e2ea9b1a6ad38125b9d9576c8311a781582a95
+alan-hoey,email,alan.hoey@teamrubber.com,Same name as the GitHub profile https://github.com/evilbungle ; example commit: https://github.com/plone/buildout.coredev/commit/2f436b8cf4745ffdac83b209f32679275d41b4b7
+alan-runyan,login,bobdobbs666,"GitHub links alan@enfoldsystems.com, the address of the commits by Alan Runyan, to this account; it has no name or repositories; example commit: https://github.com/plone/Products.CMFPlone/commit/d6fe0a4f9a9e06a329b83d5b281ba9a2e4cc4dc4"
+aleix-llusa-serra,email,a.llusa@iskra.cat,Review in #69; same name in commits linked to this account; example commit: https://github.com/plone/plone.app.content/commit/f7817510ee3a222971afe9559a978fae61451e8f
+alessandro-pisa,email,alessandro.pisa@redturtle.it,Same name in commits linked to this account; example commit: https://github.com/plone/plone.app.layout/commit/ccb7a6f0d9e20aa95af70b04111de5274c881e35
+alex-catlla,email,a.catlla@iskra.cat,Same name in commits linked to this account; example commit: https://github.com/plone/mockup/commit/919f94339b23d3fa55d642d50257f9807ef1cd4f
+alex-clark,email,aclark@3b4cdb85-528f-c531-b63d-5919d5b1aa08,Review in #69; SVN user aclark; example commit: https://github.com/plone/ploneorg.admin/commit/d6d320e958c72db552288b7c2bf85c29c8fd1ecf
+alex-clark,email,aclark@db7f04ef-aaf3-0310-a811-c281ed44c4ad,Review in #69; SVN user aclark; example commit: https://github.com/plone/plone.recipe.haproxy/commit/6e474e23ef11e8b1dd42052e08b1828780cddca1
+alex-limi,email,limi@3b4cdb85-528f-c531-b63d-5919d5b1aa08,Review in #69; example commit: https://github.com/plone/plonetheme.classic-recreate/commit/5a9fbce937fb30c819f8b17b5757c85c62732465
+alex-limi,email,limi@db7f04ef-aaf3-0310-a811-c281ed44c4ad,Review in #69; example commit: https://github.com/plone/Products.TinyMCE/commit/5cba27b92c5433a54c0d2d510a22b61988cfee2b
+alex-limi,name,Alexander Limi,Review in #69; example commit: https://github.com/plone/plonetheme.classic-recreate/commit/5a9fbce937fb30c819f8b17b5757c85c62732465
+andreas-jung,email,ajung@3b4cdb85-528f-c531-b63d-5919d5b1aa08,Review in #69; SVN user ajung (the GitHub account ajung is someone else); example commit: https://github.com/plone/plone.app.event/commit/02faa1941cb2449bf78409c5b49e608ba144d1a0
+andreas-jung,email,zopyxfilter@gmail.com,Same name in commits linked to this account; example commit: https://github.com/plone/Products.Archetypes/commit/69b3e4ba7500a2fb80734664f3b8db3d5d558b42
+andreas-zeidler,email,zeidler@jarn.com,Same name in commits linked to this account; example commit: https://github.com/plone/collective.indexing/commit/a641da5773788ff5657829a02429643ba8642669
+andy-dawkins,email,andyd_@localhost,Nickname andyd in https://github.com/plone/Products.CMFPlone/blob/2.0/CREDITS.txt
+andy-leeb,email,ableeb@andersonleeb.com,Same name in commits linked to this account; example commit: https://github.com/plone/planet.plone.org/commit/1ce78ccbd45fbdff6c1c284a57361e81fdbeb81e
+andy-mckay,email,andy@enfoldsystems.com,Review in #69; example commit: https://github.com/plone/Products.CMFPlone/commit/d7abca52d4ab8ba089921dbd30f6996d6b6f4adb
+armin-stross-radschinski,email,acsr.github@dev.acsr.de,Same name in commits linked to this account; example commit: https://github.com/plone/communications.plone.com/commit/bd7dd4323f13740691b07cfaed78b41c02c4c000
+asko-soukka,name,Datakurre,"GitHub profile name ""Asko Soukka"", login datakurre: https://github.com/datakurre"
+ben-saller,email,bcsaller@objectrealms.net,"Review in #69; ObjectRealms address, user part is this login; example commit: https://github.com/plone/Products.Archetypes/commit/e01b28c70b453adde7f0e78e028ccf2b540bba5a"
+ben-saller,name,Benjamin Saller,"Review in #69; ObjectRealms address, user part is this login; example commit: https://github.com/plone/Products.Archetypes/commit/e01b28c70b453adde7f0e78e028ccf2b540bba5a"
+chris-shenton,email,chris@koansys.com,Same name in commits linked to this account; example commit: https://github.com/plone/plone.act/commit/136be0398f4078a33e253a6fcc11bba1d57cd826
+chrissy-wainwright,email,cwainwright@gmail.com,Same name in commits linked to this account; example commit: https://github.com/plone/plone.app.blocks/commit/aa6ae36e105d8035726ed99849213bd1f8137331
+christian-theune,email,ct@gocept.com,"Review in #69; gocept address; account of Christian Theune, Halle; example commit: https://github.com/plone/Products.ATContentTypes/commit/ad55f698c83d079a6b7ad0b7029e747788e3ff33"
+coen-van-der-kamp,email,c.van.der.kamp@zestsoftware.nl,Same name in commits linked to this account; example commit: https://github.com/plone/plone.app.dexterity/commit/b0efe07444997ad55714d45e1328a83ad2066e57
+daniel-havlik,email,dh@gocept.com,"Review in #69; gocept address; commits also signed dhavlik, which is this login; example commit: https://github.com/plone/plone.scale/commit/fceec22438266ab93d0250ccbee07ac9dac4f0af"
+daniel-nouri,email,dpunktnpunkt@users.sourceforge.net,Same name in commits linked to this account; example commit: https://github.com/plone/Products.Archetypes/commit/ed2b2001662b4519263b457f93bba2b6f03123b9
+daniel-widerin,email,daniel.widerin@zumtobelgroup.com,Same name in commits linked to this account; example commit: https://github.com/plone/buildout.coredev/commit/603f549372aeb06ea912c394eb4b3eda467f8ed7
+danny-bloemendaal,email,danny.bloemendaal@companion.nl,Review in #69; account of Danny Bloemendaal; example commit: https://github.com/plone/Products.CMFPlone/commit/4ddf554b8305342701a74fa4585c075e7d0b6202
+danny-bloemendaal,email,danny.bloemendaal@informaat.nl,Review in #69; account of Danny Bloemendaal; example commit: https://github.com/plone/Products.ATContentTypes/commit/ed80eaa51b73c8bfa976fcc05cd79aa20a8d5763
+danny-bloemendaal,email,dannyb@localhost,"Review in #69; account of Danny Bloemendaal; SVN user DannyB, same repositories and time as his other commits (the GitHub account dannyb is someone else); example commit: https://github.com/plone/Products.ATContentTypes/commit/46da2f9cfe355feed274f272207e04b9c1d27eea"
+dante-alvarez,name,Dante Alvarez,https://2024.ploneconf.org/en/schedule/training/training-customizing-the-volto-light-theme
+david-glick,email,davisagli@db7f04ef-aaf3-0310-a811-c281ed44c4ad,Same name in commits linked to this account; example commit: https://github.com/plone/Products.TinyMCE/commit/280883bed488f27bba78517bd4f63da9757dcf3a
+david-glick,email,dglick@salesforce.com,Same name in commits linked to this account; example commit: https://github.com/plone/buildout.coredev/commit/f5115f4b21375547766b92cf35f952ae19d492ea
+david-glick,name,davisagli,Same name in commits linked to this account; example commit: https://github.com/plone/Products.TinyMCE/commit/280883bed488f27bba78517bd4f63da9757dcf3a
+diederik-veeze,email,d.veeze@zestsoftware.nl,Review in #69; Zest Software address; no GitHub account found; example commit: https://github.com/plone/buildout.coredev/commit/0a2d9d83202a48ed9812c55c032aa473ba6d53b0
+dorneles-tremea,email,dtremea@localhost,SVN user dtremea; later commits of Dorneles Tremea are linked to this account; https://plone.org/news-and-events/news/2011/community-mourns-dorneles-tremea
+eric-brehault,name,Eric Brehault,https://plone.org/foundation/board/plone-foundation-board-for-2023-2024
+eric-brehault,name,Éric Bréhault,https://web.archive.org/web/20120625013644/http://www.ploneconf.org:80/the-event/training/conference-trainings
+eric-steele,email,ems174@pdsteele2.local,Same name in commits linked to this account; example commit: https://github.com/plone/buildout.coredev/commit/ea0caca3b34c69f6f310d67f902d9eee03ffb7b6
+eric-steele,email,ems174@psu.edu,Same name in commits linked to this account; example commit: https://github.com/plone/plone.z3cform/commit/54877e2bc19f8071aaf14c28298388ce06d24fc7
+eric-steele,email,esteele@3b4cdb85-528f-c531-b63d-5919d5b1aa08,Same name in commits linked to this account; example commit: https://github.com/plone/plonetheme.classic-recreate/commit/eb17ee1c3eed364f6bc53114841fd88c1284b1e8
+eric-steele,email,esteele@db7f04ef-aaf3-0310-a811-c281ed44c4ad,Same name in commits linked to this account; example commit: https://github.com/plone/Products.TinyMCE/commit/46bd0030f3c5e41ea97ce9cb2cbb4b8904bec202
+eric-steele,name,esteele,Same name in commits linked to this account; example commit: https://github.com/plone/plonetheme.classic-recreate/commit/eb17ee1c3eed364f6bc53114841fd88c1284b1e8
+ferran-llamas,email,ferran@onna.com,Same name in commits linked to this account; example commit: https://github.com/plone/guillotina_gcloudstorage/commit/6f3f0d5549340af8b5ba1f1b0da5f965fc90874e
+florian-schulze,email,fschulze@jarn.com,https://github.com/plone/Products.CMFPlone/blob/3.0/CREDITS.txt; his other commits are linked to this account
+gaudenz-steinlin,email,gaudenz.steinlin@bz-gs.so.ch,Same name in commits linked to this account; example commit: https://github.com/plone/plone.dexterity/commit/2233d0b53500b7aaa5395cda3e1076db19d7409f
+georg-bernhard,name,Gogo,"GitHub profile name ""Georg Gogo. BERNHARD"", login gogobd: https://github.com/gogobd"
+gildardo-bautista,name,Gil Bautista,"GitHub profile name ""Gildardo Bautista"", login gil-cano: https://github.com/gil-cano"
+gildardo-bautista,name,Gildardo Bautista García Cano,https://plone.org/foundation/board/plone-foundation-board-for-2025-2026
+giorgio-borelli,email,giorgio@giorgioborelli.it,Same name in commits linked to this account; example commit: https://github.com/plone/plone.app.discussion/commit/38b5f7dbaee03a9d0faab891819b6cedb1a9baa6
+gregoire-weber,email,gregweb@incept.ch,Review in #69; CMFEditions developer; no GitHub account found; example commit: https://github.com/plone/Products.CMFPlone/commit/3b6ac4c0462f344bfbe28dee0217ab3d0b71cbfb
+hanno-schlichting,email,hanno@jarn.com,Same name in commits linked to this account; example commit: https://github.com/plone/plone.reload/commit/f0a71e894925a1e9573321233ffbcda17e852c65
+hanno-schlichting,email,hannosch@3b4cdb85-528f-c531-b63d-5919d5b1aa08,Same name in commits linked to this account; example commit: https://github.com/plone/plonetheme.classic-recreate/commit/51c137fcc76d64101d7167b138b4816dcba2fe57
+hanno-schlichting,email,hannosch@db7f04ef-aaf3-0310-a811-c281ed44c4ad,Same name in commits linked to this account; example commit: https://github.com/plone/Products.TinyMCE/commit/d44b7c1a8f38d55871d46b9ef2bef5f88b192d49
+hanno-schlichting,name,hannosch,Same name in commits linked to this account; example commit: https://github.com/plone/plonetheme.classic-recreate/commit/51c137fcc76d64101d7167b138b4816dcba2fe57
+helge-tesdal,email,tesdal@db7f04ef-aaf3-0310-a811-c281ed44c4ad,Nickname tesdal in https://github.com/plone/Products.CMFPlone/blob/2.0/CREDITS.txt
+helge-tesdal,email,tesdal@jarn.com,Nickname tesdal in https://github.com/plone/Products.CMFPlone/blob/2.0/CREDITS.txt
+huub-bouma,email,bouma@gw20e.com,"Goldmund, Wyldebeast & Wunderliebe address; his bouma@w20e.com commits are linked to this account; example commit: https://github.com/plone/buildout.coredev/commit/888a0dbe14bdecb23c8c1c35e9637f43c64bbb60"
+ian-anderson,email,ianderso@med.unc.edu,Same name in commits linked to this account; example commit: https://github.com/plone/buildout.coredev/commit/5b6917e6e3a0b87b4c0aa8ba5f9fb948eb97dd05
+ismael,email,ismael@atlasense.com,Same name in commits linked to this account; example commit: https://github.com/plone/guillotina_elasticsearch/commit/c23a36d48479f9cf41952793a67faeb5d7b518ac
+jan-murre,email,jjmurre@localhost,Review in #69; SVN user is this login; example commit: https://github.com/plone/Products.CMFPlone/commit/a141fca09d03036c0081a5acb1be03c8a7ac69f0
+jan-murre,name,jjmurre,Review in #69; SVN user is this login; example commit: https://github.com/plone/Products.CMFPlone/commit/a141fca09d03036c0081a5acb1be03c8a7ac69f0
+janina-hard,email,hard@werkbank.de,"Review in #69; account of Janina Hard, with PRs in the plone organisation; example commit: https://github.com/plone/aurora/commit/3db2fdcd185378768538c8c5a68b0cd77ee9ffc3"
+jean-francois-roche,email,jfroche@jfroche.be,Same name in commits linked to this account; example commit: https://github.com/plone/Products.ATContentTypes/commit/dcb2acd161824c4311cc06c52fe538ee5d0c89ce
+jens-w-klein,name,Jens Klein,https://plone.org/news-and-events/events/plone-conferences/vienna-2005/talks/schedule
+jim-roepcke,email,jimroepcke@localhost,Review in #69; SVN user jimroepcke; example commit: https://github.com/plone/Products.CMFPlone/commit/bb2a893c423ee8b9efa2961dfb74c2b8e8111d04
+johannes-raggam,email,thet@3b4cdb85-528f-c531-b63d-5919d5b1aa08,Same name in commits linked to this account; example commit: https://github.com/plone/plone.app.event/commit/e7093a3800efcf7948083ea22ad437c77b686994
+johannes-raggam,name,thet,Same name in commits linked to this account; example commit: https://github.com/plone/plone.app.event/commit/e7093a3800efcf7948083ea22ad437c77b686994
+jonas-baumann,email,j.baumann@4teamwork.ch,Same name in commits linked to this account; example commit: https://github.com/plone/plone.app.dexterity/commit/60ce149a38586b4f73716236513a4cf61e7860ad
+juan-pablo-gimenez,email,jpg@rcom.com.ar,Same name in commits linked to this account; example commit: https://github.com/plone/plone.api/commit/21bb01da3834e281c895880795d17855972d1589
+kapil-thangavelu,email,hazmat@localhost,Nickname hazmat in https://github.com/plone/Products.CMFPlone/blob/2.0/CREDITS.txt
+kapil-thangavelu,email,k_vertigo@users.sourceforge.net,Review in #69; SourceForge user k_vertigo; example commit: https://github.com/plone/Products.CMFPlone/commit/87dc6b874981f68f3923283e2228bfad6ffbfe77
+kees-hink,email,hink@gw20e.com,"Review in #69; account of Kees Hink, Four Digits, Arnhem; example commit: https://github.com/plone/buildout.coredev/commit/5c97de145e3a50f3925490c3fef50873e21390e7"
+kees-hink,email,kees.hink@freitag.de,"Review in #69; account of Kees Hink, Four Digits, Arnhem; example commit: https://github.com/plone/buildout.coredev/commit/abfdd48d454687cec0f8b498a3b8420d7857a9bf"
+kees-hink,email,keeshink@gmail.com,"Review in #69; account of Kees Hink, Four Digits, Arnhem; example commit: https://github.com/plone/buildout.coredev/commit/8110af77e1a9a0031cd97975de5c61f99b161945"
+kim-chee-leong,email,leong@gw20e.com,Same name in commits linked to this account; example commit: https://github.com/plone/buildout.coredev/commit/a7e4c7b66338b6f96997004f78209b8073383215
+kim-nguyen,name,T. Kim Nguyen,https://plone.org/news-and-events/news/2014/2014-2015-foundation-membership-committee
+lalo-martins,email,lalo@laranja.org,Nickname lalo and laranja.org in https://github.com/plone/Products.CMFPlone/blob/2.0/CREDITS.txt (the GitHub account lalo is someone else)
+loechel,name,Alexander Loechel,https://plone.org/foundation/board/plone-foundation-board-for-2013-2014
+luca-fabbri,email,keul@db7f04ef-aaf3-0310-a811-c281ed44c4ad,SVN user is this login; his luca@keul.it commits are linked to this account; example commit: https://github.com/plone/Products.TinyMCE/commit/95f72b0809ab997dad88b3cd8c00921f73581b8f
+magnus-heino,email,magnusheino@users.sourceforge.net,Review in #69; SourceForge user magnusheino; example commit: https://github.com/plone/Products.CMFPlone/commit/c427b492f0e0a72d3d7ba7915b52d72b977c5bde
+maik-derstappen,name,Maik Derstappen (contact),https://web.archive.org/web/20130820202122/http://plone.org/events/community/easyshop-sprint-in-essen-germany
+maik-roder,email,roeder@localhost,Review in #69; SVN user roeder; example commit: https://github.com/plone/Products.Archetypes/commit/b7deb48b3b5d8a2ed84c1a5190be458a79665315
+maisa-fonseca,email,devgirl@localhost,Nickname devgirl in https://github.com/plone/Products.CMFPlone/blob/2.0/CREDITS.txt; the GitHub account DevGirl has no name
+markus-hilbert,email,m.hilbert@akbild.ac.at,Same name in commits linked to this account; example commit: https://github.com/plone/Products.TinyMCE/commit/ffe92545857c98e0b53621066c76fbfccdb8cdd8
+martijn-jacobs,email,martijn@fourdigits.nl,"Review in #69; account of Martijn Jacobs, Arnhem; example commit: https://github.com/plone/Products.TinyMCE/commit/a1ce028ddac763e8bebcea4f80c4e57c88330d61"
+martijn-pieters,email,plone.org@zopatista.com,Same name in commits linked to this account; example commit: https://github.com/plone/Products.Archetypes/commit/5dcfb25822360a84226a5a4472c3031f87d749d5
+martin-aspeli,email,optilude@3b4cdb85-528f-c531-b63d-5919d5b1aa08,Nickname optilude in https://github.com/plone/Products.CMFPlone/blob/3.0/CREDITS.txt
+martin-aspeli,email,optilude@db7f04ef-aaf3-0310-a811-c281ed44c4ad,Review in #69; SVN user is this login; example commit: https://github.com/plone/Products.TinyMCE/commit/d50963cf20e5ed53c06c049dbfd6fcf71beafe0e
+massimo-azzolini,email,massimo@redturtle.net,"RedTurtle address; account of Massimo Azzolini, RedTurtle, Ferrara; example commit: https://github.com/plone/plone.app.kss/commit/67fdcc9c0defc275cf4cee41ab76dbacbd21503b"
+mat-pellerin,email,mat@onna.com,Same name in commits linked to this account; example commit: https://github.com/plone/pastanaga-angular/commit/4024b77b4fc0245c4c5716e68059bcebcb7e06a8
+mathias-leimgruber,email,m.leimgruber@4teamwork.ch,Same name in commits linked to this account; example commit: https://github.com/plone/mockup/commit/6a568c935603b7fea8c5e114e9ab37b8d6591eaf
+matthew-wilkes,email,matthewwilkes@db7f04ef-aaf3-0310-a811-c281ed44c4ad,Same name in commits linked to this account; example commit: https://github.com/plone/Products.TinyMCE/commit/af2eb6a0387168abc645d0f747f28c230af464fb
+matthew-wilkes,name,matthewwilkes,Same name in commits linked to this account; example commit: https://github.com/plone/Products.TinyMCE/commit/af2eb6a0387168abc645d0f747f28c230af464fb
+maurits-van-rees,email,maurits@3b4cdb85-528f-c531-b63d-5919d5b1aa08,Review in #69; SVN user maurits; example commit: https://github.com/plone/plonetheme.classic-recreate/commit/3b74c5b5b78aa51b4e92126ab34b79f4f9945526
+maurits-van-rees,email,maurits@db7f04ef-aaf3-0310-a811-c281ed44c4ad,Review in #69; SVN user maurits; example commit: https://github.com/plone/Products.TinyMCE/commit/4e29c05b522379e411a6b4b97e6b1f2b56975f1e
+mauro-amico,email,mauro.amico@unibo.it,Review in #69; example commit: https://github.com/plone/plone.formwidget.hcaptcha/commit/b99e0b1540c84b68cc20d7c8c4958c083ad59d5d
+mauro-amico,email,mauro@biodec.com,Same name in commits linked to this account; example commit: https://github.com/plone/plone.protect/commit/5d6b1a0a28c31bdac768e894bf6ec5e4d4950efe
+mauro-amico,name,mamico,Same name in commits linked to this account; example commit: https://github.com/plone/plone.protect/commit/5d6b1a0a28c31bdac768e894bf6ec5e4d4950efe
+michael-howitz,email,mh@gocept.com,Same name in commits linked to this account; example commit: https://github.com/plone/plone.testing/commit/aff9b28e0151ec2db004193d291c5f78a29fae2c
+michael-zeltner,email,eaon@localhost,Nickname eaon in https://github.com/plone/Products.CMFPlone/blob/2.0/CREDITS.txt; the GitHub account eaon has no name
+mikel-larreategi,email,erral@db7f04ef-aaf3-0310-a811-c281ed44c4ad,Same name in commits linked to this account; example commit: https://github.com/plone/Products.TinyMCE/commit/7c2fce4df10b3908bdf5d2c2e5e5c35ea19a80f3
+mikel-larreategi,email,erral@localhost,Same name in commits linked to this account; example commit: https://github.com/plone/Products.TinyMCE/commit/d9066fa70c212f38f6c9881bb1f44b6b4292ea5d
+mikel-larreategi,name,erral,Same name in commits linked to this account; example commit: https://github.com/plone/Products.TinyMCE/commit/7c2fce4df10b3908bdf5d2c2e5e5c35ea19a80f3
+mikko-ohtamaa,email,mikko+plone@redinnovation.com,Same name in commits linked to this account; example commit: https://github.com/plone/archetypes.schemaextender/commit/38e8948f03275e8c161356e29851a4d3ab5d96ab
+nathan-van-gheem,email,nathan.vangheem@wildcardcorp.com,Review in #69; his other commits are linked to this account; example commit: https://github.com/plone/buildout.coredev/commit/984ee246b288ebdc30df3f5e0de175b0ba9ff84e
+nzambello,email,nicola.zambello@redturtle.it,Same name in commits linked to this account; example commit: https://github.com/plone/plone.app.content/commit/61c3b9918d79451aeceed63969cde930c70e2cef
+pan-junyong,email,panjunyong@localhost,"SVN user panjunyong; the GitHub account panjunyong is 潘俊勇 (Pan Junyong), easydo.cn; full-name match, not confirmed from memory (#69); example commit: https://github.com/plone/Products.CMFPlone/commit/4602aef2c6f9742509a806876594d70e482a8759"
+patrick-gerken,email,patrick.gerken@computer.org,Same name in commits linked to this account; example commit: https://github.com/plone/plone.app.blob/commit/0c1825b145f6ef2b13f8736942a3b67fa3281a84
+patrick-gerken,email,patrick.gerken@zumtobelgroup.com,Same name in commits linked to this account; example commit: https://github.com/plone/bobtemplates.plone/commit/7f7220e7f902890fedab6591bc123e7dab76c004
+paul-everitt,email,paul@localhost,"SVN user paul: in diazo the same commits exist as zopepaul (Paul Everitt), same time and message; example commit: https://github.com/plone/diazo/commit/dbb675386d2033e5ddfcbfe17ff1116c4bb4cfc2"
+paul-everitt,email,zopepaul@localhost,"Review in #69; SVN user zopepaul, founder of Zope Corporation; example commit: https://github.com/plone/Products.Marshall/commit/bd93c403341221e9fe72cc9ab0ed6775f9fc9c6a"
+paul-roeland,email,paula@polyester.org,Same name in commits linked to this account; example commit: https://github.com/plone/plone.app.collection/commit/7b81c4d2b2ebb8e8acfe165527bd6f16e8925ad2
+pawel-lewicki,email,lewicki@gw20e.com,"Goldmund, Wyldebeast & Wunderliebe address; account of Pawel Lewicki with issues and PRs in the plone organisation; example commit: https://github.com/plone/plone.app.workflowmanager/commit/696617c87a1b84b6d983be459269a2180ee2d964"
+pawel-lewicki,email,pawel@pawel-dell.(none),Commit signed Pawel Lewicki; account of Pawel Lewicki with issues and PRs in the plone organisation; example commit: https://github.com/plone/Products.TinyMCE/commit/90fd519e6f34fb8cb1838681cb455c9f90633de6
+peter-uittenbroek,email,uittenbroek@goldmund-wyldebeast-wunderliebe.com,"Goldmund, Wyldebeast & Wunderliebe address; account of Peter Uittenbroek with issues and PRs in the plone organisation; example commit: https://github.com/plone/plone.app.linkintegrity/commit/8ba94720f634532936495f4acc5f3838044a1400"
+philipp-auersperg,email,philk@bluedynamics.com,"Review in #69; BlueDynamics address, probably a typo for phil@bluedynamics.com, which is linked to this account; example commit: https://github.com/plone/buildout.coredev/commit/23095ff1f8c1587b664504b5d31d30aa41e74a3d"
+philipp-auersperg,email,zworkb@localhost,Review in #69; SVN user is this login; example commit: https://github.com/plone/Products.CMFPlone/commit/09bdf1e34f4b41741f76081f934ac51520974a58
+philipp-auersperg,name,zworkb,Review in #69; SVN user is this login; example commit: https://github.com/plone/Products.CMFPlone/commit/09bdf1e34f4b41741f76081f934ac51520974a58
+rafahela,name,Rafahela Bazzanela,"GitHub profile name ""Rafahela"", company Interlegis/ILB/Senado Federal, as in her 2025 Board, team lead and World Plone Day rows: https://github.com/rafahela"
+rafahela,name,Rafahela Bazzanella,"GitHub profile name ""Rafahela"", company Interlegis/ILB/Senado Federal, as in her 2025 Board, team lead and World Plone Day rows: https://github.com/rafahela"
+rafahela,name,Rafahela Garcia Bazzanella,"GitHub profile name ""Rafahela"", company Interlegis/ILB/Senado Federal, as in her 2025 Board, team lead and World Plone Day rows: https://github.com/rafahela"
+ralph-jacobs,email,ralphjacobs@db7f04ef-aaf3-0310-a811-c281ed44c4ad,SVN user is this login; his ralph@fourdigits.nl commits are linked to this account; example commit: https://github.com/plone/Products.TinyMCE/commit/a2a0c36ab27d5462c6e5d56fee1213b905f12c6e
+ramon-navarro-bosch,email,ramon@atlasense.com,Same name in commits linked to this account; example commit: https://github.com/plone/guillotina_elasticsearch/commit/8e3c726286ef9207a25e063898221c6a6b41bacf
+ramon-navarro-bosch,email,ramon@imac-de-ramon.local,Same name in commits linked to this account; example commit: https://github.com/plone/buildout.coredev/commit/2eb19e8cee1410bc309445cba86ed4f3cb6e5d7e
+ramon-navarro-bosch,email,ramon@macbook-air-de-ramon.local,Same name in commits linked to this account; example commit: https://github.com/plone/guillotina_elasticsearch/commit/e4aa105a59fc90f9ac328c8da46a8ee844e8fad1
+ramon-navarro-bosch,email,ramon@onna.com,Same name in commits linked to this account; example commit: https://github.com/plone/guillotina_elasticsearch/commit/851f6a63bcf1bcc10b5bea07610bd5fc284a5a91
+raphael-ritz,email,raphael.ritz@incf.org,Same name in commits linked to this account; example commit: https://github.com/plone/Products.Archetypes/commit/cede1c156eb842582abb29ba15ddba09bbcfa3eb
+rob-gietema,email,rob@fourdigits.nl,Same name in commits linked to this account; example commit: https://github.com/plone/Products.TinyMCE/commit/654294f1ab7d31f626025d6154145a2e18dbbf71
+rob-gietema,email,robgietema@db7f04ef-aaf3-0310-a811-c281ed44c4ad,Same name in commits linked to this account; example commit: https://github.com/plone/Products.TinyMCE/commit/4245e8d651b521fb4e521417aed8c3ae3c81f1a7
+rob-gietema,name,robgietema,Same name in commits linked to this account; example commit: https://github.com/plone/Products.TinyMCE/commit/4245e8d651b521fb4e521417aed8c3ae3c81f1a7
+rob-miller,email,ra@burningman.com,Commits signed Rob Miller; account of Rob Miller; example commit: https://github.com/plone/Products.Archetypes/commit/946a6411c122ae18085929be2214ba87cc9196ed
+rob-miller,email,rob@localhost,"Review in #69; SVN user rob, worked on wicked with Whit Morriss; his ra@burningman.com commits are also in wicked (the GitHub account rob is someone else); example commit: https://github.com/plone/txtfilter/commit/1bb78302d6351fa14904da9d3ca53c25815bc9a2"
+roel-bruggink,email,jaroel@db7f04ef-aaf3-0310-a811-c281ed44c4ad,Same name in commits linked to this account; example commit: https://github.com/plone/Products.TinyMCE/commit/8754eeaac621889a14965919a9c8965585a4f2a9
+roel-bruggink,email,roel+plone.org@fourdigits.nl,Same name in commits linked to this account; example commit: https://github.com/plone/buildout.coredev/commit/62eb13733999b6c6dc20b6acde4e54f0fd8ef8bd
+roel-bruggink,name,jaroel,Same name in commits linked to this account; example commit: https://github.com/plone/Products.TinyMCE/commit/8754eeaac621889a14965919a9c8965585a4f2a9
+roman-joost,email,roman@mooball.com,Same name in commits linked to this account; example commit: https://github.com/plone/plone.app.event/commit/10a3ca2c5ab2ece4628322bef4021e9e37f2826a
+russ-ferriday,email,russf@localhost,"Review in #69; SVN user russf; account of Russ Ferriday, Topia Systems (the GitHub account russf has no name); example commit: https://github.com/plone/Products.ATContentTypes/commit/b5807311e8ae789fdb5e6ffe133a9d7e854a0204"
+sam-schwartz,email,schwas45@uwosh.edu,Same name in commits linked to this account; example commit: https://github.com/plone/buildout.coredev/commit/5334f5478db6be85d3aea7e008ba714edb4fdca1
+sasha-vincic,name,Sasha Vincic,https://plone.org/news-and-events/news/2007/snowsprint-thanks
+simon-eisenmann,email,longsleep@localhost,Review in #69; SVN user longsleep; example commit: https://github.com/plone/Products.Archetypes/commit/f807bf9d44cd95bb34100883baead0aa98931500
+simone-deponti,email,shywolf9982@gmail.com,Same name in commits linked to this account; example commit: https://github.com/plone/archetypes.kss/commit/21e7d50f4413d9414dcc75c691dc4a0537be3699
+stefan-holek,email,stefan@jarn.com,Same name in commits linked to this account; example commit: https://github.com/plone/collective.indexing/commit/eab93502eb418edf7178bb1e2207f9f755c41640
+stefan-holek,name,Stefan H. Holek,Same name in commits linked to this account; example commit: https://github.com/plone/collective.indexing/commit/eab93502eb418edf7178bb1e2207f9f755c41640
+stephan-klinger,email,stephan.klinger@freitag.de,Same name in commits linked to this account; example commit: https://github.com/plone/plone.cachepurging/commit/3c9c8875a0202b0f29213b38fa7af040c27bb60f
+steve-mcmahon,name,Steve McMahon (page),https://plone.org/news-and-events/news/2008/science-and-doc-sprint-wrap-up
+sven-strack,email,sven@so36.net,Same name in commits linked to this account; example commit: https://github.com/plone/Installers-UnifiedInstaller/commit/20599bc6eb16414b268ce1101c8d507319880221
+sven-strack,name,sven,Same name in commits linked to this account; example commit: https://github.com/plone/Installers-UnifiedInstaller/commit/20599bc6eb16414b268ce1101c8d507319880221
+sylvain-thenault,email,syt@localhost,"Review in #69; SVN user syt, Logilab; his commits are mostly the Debian packaging of Archetypes; example commit: https://github.com/plone/Products.Archetypes/commit/39f340c06e0bcb72163c3f83ef4e614df4075fe2"
+taito-horiuchi,email,taito.horiuchi@hexagonit.fi,Same name in commits linked to this account; example commit: https://github.com/plone/plone.event/commit/0e6a1a6cebd6a85fe2d3d49b5b24ef6573b17f3a
+tarek-ziade,email,ziade.tarek@gmail.com,Review in #69; account of Tarek Ziadé (https://ziade.org)
+tarek-ziade,name,Tarek Ziade,https://sourceforge.net/p/plone/mailman/message/19727302/
+thomas-lotze,email,tl@gocept.com,Review in #69; gocept address; account of Thomas Lotze; example commit: https://github.com/plone/Products.ATContentTypes/commit/28040f31366fc0e81ad8c9f599f607515d3e7f09
+timo-stollenwerk,email,conact@timostollenwerk.net,Same name in commits linked to this account; example commit: https://github.com/plone/buildout.jenkins/commit/20576e6951a5a1331e500face88a147fbd95af67
+timo-stollenwerk,email,contact@timostollenwerk.net,Same name in commits linked to this account; example commit: https://github.com/plone/buildout.coredev/commit/c4b0ddd36ec7edc1b79b612192af7b820cb5481f
+timo-stollenwerk,email,timo@blake.fritz.box,Same name in commits linked to this account; example commit: https://github.com/plone/jenkins.plone.org/commit/166f9881bc96d965a174e640394850718c880d8f
+timo-stollenwerk,email,timo@macbook-air.local,Same name in commits linked to this account; example commit: https://github.com/plone/buildout.coredev/commit/661cc9c962c645f00ef4bfe662e4957f47a5d8db
+timo-stollenwerk,email,timo@rudolf.(none),Same name in commits linked to this account; example commit: https://github.com/plone/plone.app.contenttypes/commit/3ecea4b1744c5746dc3743b904875edd5ec04a86
+timo-stollenwerk,email,timo@zmag.de,Same name in commits linked to this account; example commit: https://github.com/plone/buildout.coredev/commit/d3adaf60b56d29838e91980fb4a4c6b7958b488e
+tom-gross,email,tom@toms-projekte.de,Review in #69; same name in commits linked to this account; example commit: https://github.com/plone/plone.event/commit/9f899230669ee44bc876679859df266a8e0b0a00
+tom-gross,email,tom_gross@3b4cdb85-528f-c531-b63d-5919d5b1aa08,Same name in commits linked to this account; example commit: https://github.com/plone/plone.app.event/commit/9fcf196d86a307e2447a5217dc7aa7e66f43a338
+tom-gross,name,tom_gross,Same name in commits linked to this account; example commit: https://github.com/plone/plone.app.event/commit/9fcf196d86a307e2447a5217dc7aa7e66f43a338
+tom-spanky-kapanka,email,spankyfrombrc@localhost,Review in #69; SVN user spankyfrombrc; his spanky@kapanka.com commits are linked to this account; example commit: https://github.com/plone/Products.Archetypes/commit/9966db11b0c1f4e5841bda32cb8048ae612d4e8b
+tom-spanky-kapanka,name,Tom 'Spanky' Kapanka,"GitHub profile name ""Tom Kapanka"", login spanktar: https://github.com/spanktar"
+tom-spanky-kapanka,name,Tom Kapanka,Review in #69; SVN user spankyfrombrc; his spanky@kapanka.com commits are linked to this account; example commit: https://github.com/plone/Products.Archetypes/commit/9966db11b0c1f4e5841bda32cb8048ae612d4e8b
+toutpt,email,toutpt@db7f04ef-aaf3-0310-a811-c281ed44c4ad,Same name in commits linked to this account; example commit: https://github.com/plone/Products.TinyMCE/commit/bccaf8a42b4aadca767b30ad73eb92baf5be967c
+victor-fernandez-de-alba,name,Victor Fernández de Alba,https://plone.org/foundation/meetings/minutes/2016/minutes-for-february-18-2016
+vincent-fretin,email,vincentfretin@3b4cdb85-528f-c531-b63d-5919d5b1aa08,Same name in commits linked to this account; example commit: https://github.com/plone/plone.app.event/commit/5e21c41d5fc098856df5f878d70d135c9b9fe23c
+vincent-fretin,email,vincentfretin@db7f04ef-aaf3-0310-a811-c281ed44c4ad,Same name in commits linked to this account; example commit: https://github.com/plone/Products.TinyMCE/commit/d5b95a42f6ea283dbd6f8423117f375720e1718e
+vincent-fretin,name,vincentfretin,Same name in commits linked to this account; example commit: https://github.com/plone/plone.app.event/commit/5e21c41d5fc098856df5f878d70d135c9b9fe23c
+whit-morriss,email,whit@localhost,Review in #69; example commit: https://github.com/plone/txtfilter/commit/9fef587ffad164620805b99f47e312032f0a953f
+whit-morriss,email,whit@openplans.org,Review in #69; example commit: https://github.com/plone/Products.Archetypes/commit/03687d30cf2990d4bb7f122f9b71f27134a0eba5
+woutervh,email,woutervh@localhost,Same name in commits linked to this account; example commit: https://github.com/plone/plone.app.blob/commit/d5dbdd8ab37b6a679ae423f71c1dd94ae193057b
+yiorgis-gozadinos,email,ggozad@jarn.com,"Review in #69; Jarn address, user part is this login; example commit: https://github.com/plone/plone.app.blob/commit/1c344db7a6a5c3bba533acb5e8a42787a665f5cf"

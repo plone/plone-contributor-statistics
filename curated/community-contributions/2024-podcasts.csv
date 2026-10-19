@@ -1,6 +1,6 @@
-Series,Host,Organisation,Episodes,Source
-Mão na Massa,Érico Andrei,kitconcept GmbH,1,episodes: https://www.youtube.com/watch?v=dVUuOe40mZU; organisation from the organisation mapping: https://speakerdeck.com/ericof/apresentando-o-plone-6
-Plone Hands-On,Víctor Fernández de Alba,kitconcept GmbH,1,episodes: https://www.youtube.com/watch?v=cMJOBrfZGe4; organisation from the organisation mapping: https://github.com/sneridagh
-The Plone Newsroom,Philip Bauer,Starzel,3,https://plone.org/news-and-events/plone-newsroom; episodes: https://www.youtube.com/watch?v=f5EM7gy3BZY https://www.youtube.com/watch?v=PArJl3bOYSA https://www.youtube.com/watch?v=IfoxlWFlk3k; organisation from the organisation mapping: https://github.com/pbauer
-The Plone Newsroom,Fred van Dijk,kitconcept GmbH,3,https://plone.org/news-and-events/plone-newsroom; episodes: https://www.youtube.com/watch?v=f5EM7gy3BZY https://www.youtube.com/watch?v=PArJl3bOYSA https://www.youtube.com/watch?v=IfoxlWFlk3k; organisation from the organisation mapping: https://github.com/fredvd
-The Plone Podcast,T. Kim Nguyen,Sixfeetup,1,https://www.youtube.com/playlist?list=PLt4L3V8wVnF6YaLFggRM0sGif22avkfc6; episodes: https://www.youtube.com/watch?v=sWZnSLIIwCA; organisation from the organisation mapping: https://github.com/plone/training/commit/717d6519ef1194b31727bf27c577729e6eef60c6
+series,person,episodes,source,notes
+Mão na Massa,erico-andrei,1,episodes: https://www.youtube.com/watch?v=dVUuOe40mZU,
+Plone Hands-On,victor-fernandez-de-alba,1,episodes: https://www.youtube.com/watch?v=cMJOBrfZGe4,
+The Plone Newsroom,philip-bauer,3,https://plone.org/news-and-events/plone-newsroom; episodes: https://www.youtube.com/watch?v=f5EM7gy3BZY https://www.youtube.com/watch?v=PArJl3bOYSA https://www.youtube.com/watch?v=IfoxlWFlk3k,
+The Plone Newsroom,fred-van-dijk,3,https://plone.org/news-and-events/plone-newsroom; episodes: https://www.youtube.com/watch?v=f5EM7gy3BZY https://www.youtube.com/watch?v=PArJl3bOYSA https://www.youtube.com/watch?v=IfoxlWFlk3k,
+The Plone Podcast,kim-nguyen,1,https://www.youtube.com/playlist?list=PLt4L3V8wVnF6YaLFggRM0sGif22avkfc6; episodes: https://www.youtube.com/watch?v=sWZnSLIIwCA,

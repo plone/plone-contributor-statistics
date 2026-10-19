@@ -1,12 +1,12 @@
-Name,Organisation,Source,Role
-Alan Runyan,Enfold,https://plone.org/foundation/board/list_board_0,voting
-Alexander Limi,Jarn,https://plone.org/foundation/board/list_board_0,voting
-Matt Hamilton,Netsight,https://plone.org/foundation/board/list_board_0,voting
-Geoff Davis,Geoff Davis (independent),https://plone.org/foundation/board/list_board_0,voting
-Robert Boulanger,BlueDynamics KG,https://plone.org/foundation/board/list_board_0,voting
-Bernard Bühlmann,4Teamwork,https://plone.org/foundation/board/list_board_0,voting
-Mark Murphy,Tyrell,https://plone.org/foundation/board/list_board_0,voting
-Mark Barrenechea,Computer Associates,https://plone.org/foundation/board/list_board_0,voting
-Sam Greenblatt,Computer Associates,https://plone.org/foundation/board/list_board_0,voting
-Paul Everitt,Zope Europe,https://plone.org/foundation/board/list_board_0,non-voting
-Joel Burton,Joel Burton (independent),https://plone.org/foundation/board/list_board_0,non-voting
+person,role,source,notes
+alan-runyan,voting,https://plone.org/foundation/board/list_board_0,
+alex-limi,voting,https://plone.org/foundation/board/list_board_0,
+matt-hamilton,voting,https://plone.org/foundation/board/list_board_0,
+geoff-davis,voting,https://plone.org/foundation/board/list_board_0,
+robert-boulanger,voting,https://plone.org/foundation/board/list_board_0,
+bernard-buhlmann,voting,https://plone.org/foundation/board/list_board_0,
+mark-murphy,voting,https://plone.org/foundation/board/list_board_0,
+mark-barrenechea,voting,https://plone.org/foundation/board/list_board_0,
+sam-greenblatt,voting,https://plone.org/foundation/board/list_board_0,
+paul-everitt,non-voting,https://plone.org/foundation/board/list_board_0,
+joel-burton,non-voting,https://plone.org/foundation/board/list_board_0,

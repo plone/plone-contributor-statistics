@@ -1,10 +1,10 @@
-Name,Team,Organisation,Source
-Érico Andrei,Admin & Infrastructure Team,Pendect,https://community.plone.org/t/minutes-of-plone-steering-circle-first-meeting-2020-09-22/12879; organisation from the organisation mapping: https://2020.ploneconf.org/speakers/erico-andrei
-Rikupekka Oksanen,Marketing Team,University of Jyväskylä,https://plone.org/foundation/meetings/minutes/2020/plone-foundation-board-minutes-may-07-2020; organisation from the organisation mapping: https://github.com/rioksane
-T. Kim Nguyen,Marketing Team,Sixfeetup,https://community.plone.org/t/plone-communications-and-marketing-team-meeting-2020-05-07/12264; organisation from the organisation mapping: https://2019.ploneconf.org/people/t-kim-nguyen
-T. Kim Nguyen,Membership Committee,Sixfeetup,https://community.plone.org/t/foundation-membership-committee-for-2019-2020/11014; organisation from the organisation mapping: https://2019.ploneconf.org/people/t-kim-nguyen
-Érico Andrei,Membership Committee,Pendect,https://community.plone.org/t/foundation-membership-committee-for-2019-2020/11014; organisation from the organisation mapping: https://2020.ploneconf.org/speakers/erico-andrei
-Alexander Loechel,Security Team,Ludwig Maximilian University Munich,https://plone.org/foundation/meetings/minutes/2017/minutes-for-november-2-2017; organisation from the organisation mapping: https://github.com/loechel
-Rob Porter,Usability Team,Unmapped,https://community.plone.org/t/minutes-of-plone-steering-circle-first-meeting-2020-09-22/12879
-Víctor Fernández de Alba,Volto Team,kitconcept GmbH,https://plone.org/foundation/meetings/minutes/2017/minutes-for-november-2-2017; organisation from the organisation mapping: https://github.com/sneridagh
-Jens Vagelpohl,Zope Team,Jens Vagelpohl (independent),https://community.plone.org/t/minutes-of-plone-steering-circle-first-meeting-2020-09-22/12879; organisation from the organisation mapping: https://github.com/dataflake
+person,team,source,notes
+erico-andrei,Admin & Infrastructure Team,https://community.plone.org/t/minutes-of-plone-steering-circle-first-meeting-2020-09-22/12879,
+rikupekka-oksanen,Marketing Team,https://plone.org/foundation/meetings/minutes/2020/plone-foundation-board-minutes-may-07-2020,
+kim-nguyen,Marketing Team,https://community.plone.org/t/plone-communications-and-marketing-team-meeting-2020-05-07/12264,
+kim-nguyen,Membership Committee,https://community.plone.org/t/foundation-membership-committee-for-2019-2020/11014,
+erico-andrei,Membership Committee,https://community.plone.org/t/foundation-membership-committee-for-2019-2020/11014,
+loechel,Security Team,https://plone.org/foundation/meetings/minutes/2017/minutes-for-november-2-2017,
+rob-porter,Usability Team,https://community.plone.org/t/minutes-of-plone-steering-circle-first-meeting-2020-09-22/12879,
+victor-fernandez-de-alba,Volto Team,https://plone.org/foundation/meetings/minutes/2017/minutes-for-november-2-2017,
+jens-vagelpohl,Zope Team,https://community.plone.org/t/minutes-of-plone-steering-circle-first-meeting-2020-09-22/12879,

@@ -1,9 +1,9 @@
-Name,Organisation,Source,Role
-Chrissy Wainwright,Sixfeetup,https://plone.org/foundation/board/plone-foundation-board-for-2015-2016,voting
-Paul Roeland,CCC,https://plone.org/foundation/board/plone-foundation-board-for-2015-2016,voting
-T. Kim Nguyen,Wildcard Corp,https://plone.org/foundation/board/plone-foundation-board-for-2015-2016,voting
-Carol Ganz,Sixfeetup,https://plone.org/foundation/board/plone-foundation-board-for-2015-2016,voting
-Philip Bauer,Starzel,https://plone.org/foundation/board/plone-foundation-board-for-2015-2016,voting
-Víctor Fernández de Alba,Víctor Fernández de Alba (independent),https://plone.org/foundation/board/plone-foundation-board-for-2015-2016,voting
-Alexander Loechel,Ludwig Maximilian University Munich,https://plone.org/foundation/board/plone-foundation-board-for-2015-2016,voting
-Jennifer Myers,Unmapped,https://plone.org/foundation/board/plone-foundation-board-for-2015-2016,non-voting
+person,role,source,notes
+chrissy-wainwright,voting,https://plone.org/foundation/board/plone-foundation-board-for-2015-2016,
+paul-roeland,voting,https://plone.org/foundation/board/plone-foundation-board-for-2015-2016,
+kim-nguyen,voting,https://plone.org/foundation/board/plone-foundation-board-for-2015-2016,
+carol-ganz,voting,https://plone.org/foundation/board/plone-foundation-board-for-2015-2016,
+philip-bauer,voting,https://plone.org/foundation/board/plone-foundation-board-for-2015-2016,
+victor-fernandez-de-alba,voting,https://plone.org/foundation/board/plone-foundation-board-for-2015-2016,
+loechel,voting,https://plone.org/foundation/board/plone-foundation-board-for-2015-2016,
+jennifer-myers,non-voting,https://plone.org/foundation/board/plone-foundation-board-for-2015-2016,

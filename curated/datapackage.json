@@ -2013,6 +2013,30 @@
    },
    "encoding": "utf-8",
    "format": "csv",
+   "name": "affiliation-proposals",
+   "path": "mappings/affiliation_proposals.csv",
+   "schema": "schemas/affiliation-proposals.json"
+  },
+  {
+   "dialect": {
+    "csv": {
+     "delimiter": ","
+    }
+   },
+   "encoding": "utf-8",
+   "format": "csv",
+   "name": "affiliations",
+   "path": "mappings/affiliations.csv",
+   "schema": "schemas/affiliations.json"
+  },
+  {
+   "dialect": {
+    "csv": {
+     "delimiter": ","
+    }
+   },
+   "encoding": "utf-8",
+   "format": "csv",
    "name": "bot-accounts",
    "path": "mappings/bot_accounts.csv",
    "schema": "schemas/bot-accounts.json"
@@ -2037,9 +2061,33 @@
    },
    "encoding": "utf-8",
    "format": "csv",
+   "name": "identities",
+   "path": "mappings/identities.csv",
+   "schema": "schemas/identities.json"
+  },
+  {
+   "dialect": {
+    "csv": {
+     "delimiter": ","
+    }
+   },
+   "encoding": "utf-8",
+   "format": "csv",
    "name": "organisations",
    "path": "mappings/organisations.csv",
    "schema": "schemas/organisations.json"
+  },
+  {
+   "dialect": {
+    "csv": {
+     "delimiter": ","
+    }
+   },
+   "encoding": "utf-8",
+   "format": "csv",
+   "name": "people",
+   "path": "mappings/people.csv",
+   "schema": "schemas/people.json"
   },
   {
    "dialect": {

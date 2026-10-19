@@ -1,6 +1,6 @@
-Date,Location,Format,Organisation,Source,Notes
-2022-04-20,"Gurugram, India",in person,Eau de Web;kitconcept GmbH,https://www.eventbrite.com/e/plone-6-and-volto-tickets-319652759007; organisation from the organisation mapping: https://github.com/nileshgulia1 ; https://github.com/iFlameing,organisers Nilesh Gulia and Alok Kumar
-2022-04-27,"Bucharest, Romania",in person,Eau de Web,https://www.eventbrite.com/e/world-plone-day-registration-317547120987,
-2022-04-27,"Brasília, Brazil",in person,PloneGov-BR,https://plone.org.br/novidades/eventos/2022/world-plone-day-2022-brasilia,organised by the PloneGov-BR community; venue: Instituto Serzedello Corrêa (TCU)
-2022-04-27,"Ferrara, Italy, online edition",online,RedTurtle,https://www.plonegov.it/notizie-ed-eventi/world-plone-day-2022-online,
-2022-04-27,"Zürich, Switzerland",in person,Rohberg;Agitator,https://www.meetup.com/plonemeetup/events/285201496/; organisation from the organisation mapping: https://github.com/ksuess ; https://2016.ploneconf.org/people/peter-holzer.html,"Plone Meetup Switzerland, hosted by Katja Süss and Peter Holzer"
+date,location,format,organisations,organisers,source,notes
+2022-04-20,"Gurugram, India",in person,eau-de-web;kitconcept-gmbh,,https://www.eventbrite.com/e/plone-6-and-volto-tickets-319652759007,organisers Nilesh Gulia and Alok Kumar
+2022-04-27,"Bucharest, Romania",in person,eau-de-web,,https://www.eventbrite.com/e/world-plone-day-registration-317547120987,
+2022-04-27,"Brasília, Brazil",in person,plonegov-br,,https://plone.org.br/novidades/eventos/2022/world-plone-day-2022-brasilia,organised by the PloneGov-BR community; venue: Instituto Serzedello Corrêa (TCU)
+2022-04-27,"Ferrara, Italy, online edition",online,redturtle,,https://www.plonegov.it/notizie-ed-eventi/world-plone-day-2022-online,
+2022-04-27,"Zürich, Switzerland",in person,rohberg;agitator,,https://www.meetup.com/plonemeetup/events/285201496/,"Plone Meetup Switzerland, hosted by Katja Süss and Peter Holzer"

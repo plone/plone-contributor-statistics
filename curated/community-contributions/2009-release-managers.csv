@@ -1,4 +1,4 @@
-Name,Github,Organisation,Source
-Wichert Akkerman,wichert,Simplon,https://plone.org/news-and-events/news/2009/plone-3.3-released; organisation from the organisation mapping: https://github.com/wichert
-Hanno Schlichting,hannosch,Jarn,https://plone.org/news-and-events/news/2009/plone-4-release-manager-hanno-schlichting; organisation from the organisation mapping: https://plone.org/news-and-events/news/2009/plone-4-release-manager-hanno-schlichting
-Eric Steele,esteele,Penn State University,https://plone.org/foundation/meetings/minutes/2009/minutes-for-may-28-2009; organisation from the organisation mapping: https://2017.ploneconf.org/talks/keynotes/eric-steele.html
+person,source,notes
+wichert-akkerman,https://plone.org/news-and-events/news/2009/plone-3.3-released,
+hanno-schlichting,https://plone.org/news-and-events/news/2009/plone-4-release-manager-hanno-schlichting,
+eric-steele,https://plone.org/foundation/meetings/minutes/2009/minutes-for-may-28-2009,

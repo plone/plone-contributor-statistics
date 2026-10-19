@@ -43,7 +43,7 @@ metatoaster,18,6,3,"mockup, plone.app.registry, plone.supermodel",2015-11-13,201
 fulv,16,3,7,"Products.CMFPlone, aiteam.playbooks, ansible-playbook, ansible-playbook-ploneorg2019, plone.scale, ploneorg.core, training",2016-01-11,2016-09-11
 bsuttor,15,14,8,"Products.contentmigration, buildout.coredev, plone.app.contenttypes, plone.app.event, plone.app.layout, plone.app.multilingual, plone.app.vocabularies, plone.formwidget.querystring",2016-02-11,2016-10-22
 calvinhp,15,2,3,"plone.app.relationfield, simple-plone-buildout, training",2016-05-25,2016-10-12
-Diederik Veeze,15,0,4,"buildout.coredev, plone.app.caching, plone.app.linkintegrity, plone.scale",2016-04-18,2016-09-06
+person:diederik-veeze,15,0,4,"buildout.coredev, plone.app.caching, plone.app.linkintegrity, plone.scale",2016-04-18,2016-09-06
 Gagaro,15,15,7,"Products.CMFPlone, mockup, plone.app.content, plone.app.querystring, plone.app.theming, plone.app.widgets, plone.app.z3cform",2015-10-16,2016-07-07
 gotcha,15,4,5,"Products.LinguaPlone, plone.app.form, plone.app.iterate, plone.app.jquerytools, plone.app.z3cform",2016-02-17,2016-06-27
 ivanteoh,15,4,5,"Products.CMFPlone, plone.app.contentlisting, plone.app.controlpanel, plone.app.i18n, plone.app.z3cform",2016-10-22,2016-11-06

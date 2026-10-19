@@ -1,9 +1,9 @@
-Name,Organisation,Source,Role
-Jon Stahl,ONE/Northwest,https://plone.org/foundation/board/plone-foundation-board-for-2008-2009,voting
-Geir Bækholt,Jarn,https://plone.org/foundation/board/plone-foundation-board-for-2008-2009,voting
-Nate Aune,Jazkarta,https://plone.org/foundation/board/plone-foundation-board-for-2008-2009,voting
-Matt Hamilton,Netsight,https://plone.org/foundation/board/plone-foundation-board-for-2008-2009,voting
-Darci Hanning,Oregon State Library,https://plone.org/foundation/board/plone-foundation-board-for-2008-2009,voting
-Alexander Limi,Mozilla,https://plone.org/foundation/board/plone-foundation-board-for-2008-2009,voting
-Steve McMahon,Reid-McMahon,https://plone.org/foundation/board/plone-foundation-board-for-2008-2009,voting
-Toby Roberts,Enfold,https://plone.org/foundation/board/plone-foundation-board-for-2008-2009,non-voting
+person,role,source,notes
+jon-stahl,voting,https://plone.org/foundation/board/plone-foundation-board-for-2008-2009,
+geir-bkholt,voting,https://plone.org/foundation/board/plone-foundation-board-for-2008-2009,
+nate-aune,voting,https://plone.org/foundation/board/plone-foundation-board-for-2008-2009,
+matt-hamilton,voting,https://plone.org/foundation/board/plone-foundation-board-for-2008-2009,
+darci-hanning,voting,https://plone.org/foundation/board/plone-foundation-board-for-2008-2009,
+alex-limi,voting,https://plone.org/foundation/board/plone-foundation-board-for-2008-2009,
+steve-mcmahon,voting,https://plone.org/foundation/board/plone-foundation-board-for-2008-2009,
+toby-roberts,non-voting,https://plone.org/foundation/board/plone-foundation-board-for-2008-2009,

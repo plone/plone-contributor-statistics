@@ -1,6 +1,6 @@
-Name,Team,Organisation,Source
-Mark Corum,Marketing Team,Unmapped,https://web.archive.org/web/20120130192414/http://plone.org/foundation/committees/marketing-committee
-Matt Hamilton,Marketing Team,Netsight,https://plone.org/foundation/meetings/minutes/2012/minutes-2012-10-18; organisation from the Board page of the year: https://plone.org/foundation/board/plone-foundation-board-for-2011-2012
-Matthew Wilkes,Membership Committee,Unmapped,https://plone.org/foundation/meetings/minutes/2012/minutes-2012-10-18
-Maurizio Delmonte,Membership Committee,Unmapped,https://web.archive.org/web/20120119140148/http://plone.org/foundation/committees/membership
-Elizabeth Leddy,Quality Assurance Team,Unmapped,https://plone.org/news-and-events/news/2012/plonetuneup-march162012
+person,team,source,notes
+mark-corum,Marketing Team,https://web.archive.org/web/20120130192414/http://plone.org/foundation/committees/marketing-committee,
+matt-hamilton,Marketing Team,https://plone.org/foundation/meetings/minutes/2012/minutes-2012-10-18,
+matthew-wilkes,Membership Committee,https://plone.org/foundation/meetings/minutes/2012/minutes-2012-10-18,
+maurizio-delmonte,Membership Committee,https://web.archive.org/web/20120119140148/http://plone.org/foundation/committees/membership,
+elizabeth-leddy,Quality Assurance Team,https://plone.org/news-and-events/news/2012/plonetuneup-march162012,

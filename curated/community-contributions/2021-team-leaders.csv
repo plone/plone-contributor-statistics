@@ -1,33 +1,33 @@
-Name,Team,Organisation,Source
-Fred van Dijk,Admin & Infrastructure Team,Zest Software,https://plone.org/foundation/meetings/minutes/2021/plone-foundation-board-minutes-april-15-2021; organisation from the organisation mapping: https://github.com/plone/plone-contributor-statistics/commit/7ed781ae5418187b00a591d00d5f3080c9bea065
-Érico Andrei,Admin & Infrastructure Team,kitconcept GmbH,https://community.plone.org/t/steering-circle-meeting-minutes-2020-04-20/13736; organisation from the organisation mapping: https://speakerdeck.com/ericof/apresentando-o-plone-6
-Maik Derstappen,Classic UI Team,Derico,https://community.plone.org/t/steering-circle-meeting-minutes-2021-06-15/13980; organisation from the organisation mapping: https://github.com/MrTango
-Peter Holzer,Classic UI Team,Agitator,https://community.plone.org/t/steering-circle-meeting-minutes-2020-04-20/13736; organisation from the organisation mapping: https://2016.ploneconf.org/people/peter-holzer.html
-Chrissy Wainwright,Conference Team,Sixfeetup,https://community.plone.org/t/steering-circle-meeting-minutes-2020-04-20/13736; organisation from the organisation mapping: https://github.com/cdw9
-T. Kim Nguyen,Conference Team,Sixfeetup,https://web.archive.org/web/20221212191829/https://plone.org/community/teams/conference; organisation from the organisation mapping: https://2019.ploneconf.org/people/t-kim-nguyen
-Kim Paulissen,Documentation Team,KU Leuven,https://community.plone.org/t/steering-circle-meeting-minutes-2021-12-14/14832; organisation from the organisation mapping: https://github.com/spereverde
-Paul Roeland,Documentation Team,CCC,https://community.plone.org/t/steering-circle-meeting-minutes-2021-06-15/13980; organisation from the organisation mapping: https://plone.org/foundation/meetings/membership/2023-membership-meeting/nominations/paul-roeland
-Sven Strack,Documentation Team,Unmapped,https://community.plone.org/t/steering-circle-meeting-minutes-2020-04-20/13736
-Alessandro Pisa,Framework Team,Syslab,https://community.plone.org/t/steering-circle-meeting-minutes-2021-12-14/14832; organisation from the organisation mapping: https://2017.ploneconf.org/people/alessandro-pisa.html
-Eric Steele,Framework Team,Salesforce,https://community.plone.org/t/steering-circle-meeting-minutes-2020-02-16/13504; organisation from the organisation mapping: https://github.com/esteele
-Eric Bréhault,Guillotina Team,Nuclia,https://community.plone.org/t/steering-circle-meeting-minutes-2021-06-15/13980; organisation from the organisation mapping: https://2023.ploneconf.org/speakers/eric-brehault
-Ramon Navarro Bosch,Guillotina Team,Nuclia,https://community.plone.org/t/steering-circle-meeting-minutes-2021-06-15/13980; organisation from the organisation mapping: https://github.com/bloodbare
-Jens Klein,Installers Team,Klein & Partner KG,https://community.plone.org/t/steering-circle-meeting-minutes-2020-04-20/13736; organisation from the organisation mapping: https://github.com/jensens
-Mikel Larreategi,Internationalization Team,Codesyntax,https://community.plone.org/t/steering-circle-meeting-minutes-2020-04-20/13736; organisation from the organisation mapping: https://github.com/erral
-Rikupekka Oksanen,Marketing Team,University of Jyväskylä,https://plone.org/foundation/meetings/minutes/2021/plone-foundation-board-minutes-november-11-2021; organisation from the organisation mapping: https://github.com/rioksane
-Sally Kleinfeldt,Marketing Team,Unmapped,https://community.plone.org/t/steering-circle-meeting-minutes-2021-06-15/13980
-Érico Andrei,Marketing Team,kitconcept GmbH,https://community.plone.org/t/steering-circle-meeting-minutes-2021-06-15/13980; organisation from the organisation mapping: https://speakerdeck.com/ericof/apresentando-o-plone-6
-T. Kim Nguyen,Membership Committee,Sixfeetup,https://plone.org/foundation/meetings/minutes/2021/2021-annual-meeting; organisation from the organisation mapping: https://2019.ploneconf.org/people/t-kim-nguyen
-Víctor Fernández de Alba,Membership Committee,kitconcept GmbH,https://plone.org/foundation/meetings/minutes/2021/plone-foundation-board-minutes-november-11-2021; organisation from the organisation mapping: https://github.com/sneridagh
-Érico Andrei,Membership Committee,kitconcept GmbH,https://plone.org/foundation/meetings/minutes/2021/2021-annual-meeting; organisation from the organisation mapping: https://speakerdeck.com/ericof/apresentando-o-plone-6
-Alexander Loechel,PloneEdu,Ludwig Maximilian University Munich,https://community.plone.org/t/steering-circle-meeting-minutes-2021-12-14/14832; organisation from the organisation mapping: https://github.com/loechel
-Timo Stollenwerk,REST API Team,kitconcept GmbH,https://community.plone.org/t/steering-circle-meeting-minutes-2021-06-15/13980; organisation from the organisation mapping: https://github.com/tisto
-Alexander Loechel,Security Team,Ludwig Maximilian University Munich,https://web.archive.org/web/20210812174802/https://plone.org/community/security; organisation from the organisation mapping: https://github.com/loechel
-Maurits van Rees,Security Team,Zest Software,https://community.plone.org/t/steering-circle-meeting-minutes-2020-04-20/13736; organisation from the organisation mapping: https://py76.be/en
-T. Kim Nguyen,Security Team,Sixfeetup,https://community.plone.org/t/steering-circle-meeting-minutes-2021-06-15/13980; organisation from the organisation mapping: https://2019.ploneconf.org/people/t-kim-nguyen
-Philip Bauer,Training Team,Starzel,https://plone.org/news-and-events/news/2021/happy-birthday-philip; organisation from the organisation mapping: https://github.com/pbauer
-Timo Stollenwerk,Volto Team,kitconcept GmbH,https://community.plone.org/t/steering-circle-meeting-minutes-2021-10-29/14469; organisation from the organisation mapping: https://github.com/tisto
-Víctor Fernández de Alba,Volto Team,kitconcept GmbH,https://community.plone.org/t/steering-circle-meeting-minutes-2020-04-20/13736; organisation from the organisation mapping: https://github.com/sneridagh
-Alexander Loechel,Zope Team,Ludwig Maximilian University Munich,https://community.plone.org/t/steering-circle-meeting-minutes-2020-02-16/13504; organisation from the organisation mapping: https://github.com/loechel
-Maurits van Rees,Zope Team,Zest Software,https://community.plone.org/t/steering-circle-meeting-minutes-2021-10-29/14469; organisation from the organisation mapping: https://py76.be/en
-Michael Howitz,Zope Team,gocept,https://community.plone.org/t/steering-circle-meeting-minutes-2020-02-16/13504; organisation from the organisation mapping: https://github.com/plone/plone.testing/commit/15e865d2e1dfd28a772bd84d42bab5cea48fd28d
+person,team,source,notes
+fred-van-dijk,Admin & Infrastructure Team,https://plone.org/foundation/meetings/minutes/2021/plone-foundation-board-minutes-april-15-2021,
+erico-andrei,Admin & Infrastructure Team,https://community.plone.org/t/steering-circle-meeting-minutes-2020-04-20/13736,
+maik-derstappen,Classic UI Team,https://community.plone.org/t/steering-circle-meeting-minutes-2021-06-15/13980,
+peter-holzer,Classic UI Team,https://community.plone.org/t/steering-circle-meeting-minutes-2020-04-20/13736,
+chrissy-wainwright,Conference Team,https://community.plone.org/t/steering-circle-meeting-minutes-2020-04-20/13736,
+kim-nguyen,Conference Team,https://web.archive.org/web/20221212191829/https://plone.org/community/teams/conference,
+kim-paulissen,Documentation Team,https://community.plone.org/t/steering-circle-meeting-minutes-2021-12-14/14832,
+paul-roeland,Documentation Team,https://community.plone.org/t/steering-circle-meeting-minutes-2021-06-15/13980,
+sven-strack,Documentation Team,https://community.plone.org/t/steering-circle-meeting-minutes-2020-04-20/13736,
+alessandro-pisa,Framework Team,https://community.plone.org/t/steering-circle-meeting-minutes-2021-12-14/14832,
+eric-steele,Framework Team,https://community.plone.org/t/steering-circle-meeting-minutes-2020-02-16/13504,
+eric-brehault,Guillotina Team,https://community.plone.org/t/steering-circle-meeting-minutes-2021-06-15/13980,
+ramon-navarro-bosch,Guillotina Team,https://community.plone.org/t/steering-circle-meeting-minutes-2021-06-15/13980,
+jens-w-klein,Installers Team,https://community.plone.org/t/steering-circle-meeting-minutes-2020-04-20/13736,
+mikel-larreategi,Internationalization Team,https://community.plone.org/t/steering-circle-meeting-minutes-2020-04-20/13736,
+rikupekka-oksanen,Marketing Team,https://plone.org/foundation/meetings/minutes/2021/plone-foundation-board-minutes-november-11-2021,
+sally-kleinfeldt,Marketing Team,https://community.plone.org/t/steering-circle-meeting-minutes-2021-06-15/13980,
+erico-andrei,Marketing Team,https://community.plone.org/t/steering-circle-meeting-minutes-2021-06-15/13980,
+kim-nguyen,Membership Committee,https://plone.org/foundation/meetings/minutes/2021/2021-annual-meeting,
+victor-fernandez-de-alba,Membership Committee,https://plone.org/foundation/meetings/minutes/2021/plone-foundation-board-minutes-november-11-2021,
+erico-andrei,Membership Committee,https://plone.org/foundation/meetings/minutes/2021/2021-annual-meeting,
+loechel,PloneEdu,https://community.plone.org/t/steering-circle-meeting-minutes-2021-12-14/14832,
+timo-stollenwerk,REST API Team,https://community.plone.org/t/steering-circle-meeting-minutes-2021-06-15/13980,
+loechel,Security Team,https://web.archive.org/web/20210812174802/https://plone.org/community/security,
+maurits-van-rees,Security Team,https://community.plone.org/t/steering-circle-meeting-minutes-2020-04-20/13736,
+kim-nguyen,Security Team,https://community.plone.org/t/steering-circle-meeting-minutes-2021-06-15/13980,
+philip-bauer,Training Team,https://plone.org/news-and-events/news/2021/happy-birthday-philip,
+timo-stollenwerk,Volto Team,https://community.plone.org/t/steering-circle-meeting-minutes-2021-10-29/14469,
+victor-fernandez-de-alba,Volto Team,https://community.plone.org/t/steering-circle-meeting-minutes-2020-04-20/13736,
+loechel,Zope Team,https://community.plone.org/t/steering-circle-meeting-minutes-2020-02-16/13504,
+maurits-van-rees,Zope Team,https://community.plone.org/t/steering-circle-meeting-minutes-2021-10-29/14469,
+michael-howitz,Zope Team,https://community.plone.org/t/steering-circle-meeting-minutes-2020-02-16/13504,

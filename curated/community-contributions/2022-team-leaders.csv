@@ -1,15 +1,15 @@
-Name,Team,Organisation,Source
-Fred van Dijk,Admin & Infrastructure Team,Zest Software,https://web.archive.org/web/20220705131252/https://plone.org/community/admin-and-infrastructure; organisation from the organisation mapping: https://github.com/plone/plone-contributor-statistics/commit/7ed781ae5418187b00a591d00d5f3080c9bea065
-Steve Piercy,Community Discussion Team,Steve Piercy - Website Builder,https://plone.org/foundation/meetings/minutes/2022/plone-foundation-board-minutes-december-22-2022; organisation from the organisation mapping: https://github.com/stevepiercy
-T. Kim Nguyen,Conference Team,Sixfeetup,https://plone.org/foundation/meetings/minutes/2022/plone-foundation-board-minutes-march-17-2022; organisation from the organisation mapping: https://2019.ploneconf.org/people/t-kim-nguyen
-Steve Piercy,Documentation Team,Steve Piercy - Website Builder,https://web.archive.org/web/20220524162223/https://plone.org/community/documentation; organisation from the organisation mapping: https://github.com/stevepiercy
-Alessandro Pisa,Framework Team,Syslab,https://community.plone.org/t/steering-circle-meeting-minutes-2022-02-16/14833; organisation from the organisation mapping: https://2017.ploneconf.org/people/alessandro-pisa.html
-Mikel Larreategi,Internationalization Team,Codesyntax,https://web.archive.org/web/20220523181641/https://plone.org/community/internationalization; organisation from the organisation mapping: https://github.com/erral
-Rikupekka Oksanen,Marketing Team,University of Jyväskylä,https://plone.org/foundation/meetings/minutes/2022/plone-foundation-board-minutes-october-27-2022; organisation from the organisation mapping: https://github.com/rioksane
-T. Kim Nguyen,Membership Committee,Sixfeetup,https://plone.org/foundation/meetings/membership/2023-membership-meeting/annual-report-2022-2023/pf-activities-review-2022-2023.pdf; organisation from the organisation mapping: https://2019.ploneconf.org/people/t-kim-nguyen
-Víctor Fernández de Alba,Membership Committee,kitconcept GmbH,https://plone.org/foundation/meetings/minutes/2022/plone-foundation-board-minutes-october-27-2022; organisation from the organisation mapping: https://github.com/sneridagh
-Alexander Loechel,Security Team,Ludwig Maximilian University Munich,https://web.archive.org/web/20221212191827/https://plone.org/community/teams/security; organisation from the organisation mapping: https://github.com/loechel
-Maurits van Rees,Security Team,Zest Software,https://community.plone.org/t/steering-circle-meeting-minutes-2022-02-16/14833; organisation from the organisation mapping: https://py76.be/en
-Philip Bauer,Training Team,Starzel,https://web.archive.org/web/20221212191825/https://plone.org/community/teams/training; organisation from the organisation mapping: https://github.com/pbauer
-Víctor Fernández de Alba,Volto Team,kitconcept GmbH,https://community.plone.org/t/steering-circle-meeting-minutes-2022-02-16/14833; organisation from the organisation mapping: https://github.com/sneridagh
-Michael Howitz,Zope Team,gocept,https://community.plone.org/t/steering-circle-meeting-minutes-2022-02-16/14833; organisation from the organisation mapping: https://github.com/plone/plone.testing/commit/15e865d2e1dfd28a772bd84d42bab5cea48fd28d
+person,team,source,notes
+fred-van-dijk,Admin & Infrastructure Team,https://web.archive.org/web/20220705131252/https://plone.org/community/admin-and-infrastructure,
+steve-piercy,Community Discussion Team,https://plone.org/foundation/meetings/minutes/2022/plone-foundation-board-minutes-december-22-2022,
+kim-nguyen,Conference Team,https://plone.org/foundation/meetings/minutes/2022/plone-foundation-board-minutes-march-17-2022,
+steve-piercy,Documentation Team,https://web.archive.org/web/20220524162223/https://plone.org/community/documentation,
+alessandro-pisa,Framework Team,https://community.plone.org/t/steering-circle-meeting-minutes-2022-02-16/14833,
+mikel-larreategi,Internationalization Team,https://web.archive.org/web/20220523181641/https://plone.org/community/internationalization,
+rikupekka-oksanen,Marketing Team,https://plone.org/foundation/meetings/minutes/2022/plone-foundation-board-minutes-october-27-2022,
+kim-nguyen,Membership Committee,https://plone.org/foundation/meetings/membership/2023-membership-meeting/annual-report-2022-2023/pf-activities-review-2022-2023.pdf,
+victor-fernandez-de-alba,Membership Committee,https://plone.org/foundation/meetings/minutes/2022/plone-foundation-board-minutes-october-27-2022,
+loechel,Security Team,https://web.archive.org/web/20221212191827/https://plone.org/community/teams/security,
+maurits-van-rees,Security Team,https://community.plone.org/t/steering-circle-meeting-minutes-2022-02-16/14833,
+philip-bauer,Training Team,https://web.archive.org/web/20221212191825/https://plone.org/community/teams/training,
+victor-fernandez-de-alba,Volto Team,https://community.plone.org/t/steering-circle-meeting-minutes-2022-02-16/14833,
+michael-howitz,Zope Team,https://community.plone.org/t/steering-circle-meeting-minutes-2022-02-16/14833,
