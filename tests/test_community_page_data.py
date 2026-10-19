@@ -148,6 +148,15 @@ def test_unmapped_is_not_listed_as_an_event_organiser(repo):
     assert conference['organisations'] == ['RedTurtle']
 
 
+def test_pull_request_contributions_link_the_row_of_each_year(repo):
+    for year in range(2021, 2026):
+        write(paths.organisation_contributors_file(year), ORGANISATIONS + 'RedTurtle,1,150,1\n')
+    [prs] = community_page.build_page_data(2025)['organisations']['redturtle']['categories'][
+        'PR Contributions']['contributions']
+    assert prs['rows'] == [[str(year), str(paths.organisation_contributors_file(year)), 2]
+                           for year in range(2021, 2026)]
+
+
 def test_equal_contributions_are_merged(repo):
     write(paths.COMMUNITY / '2025-plone-conference-trainings.csv',
           'Title,Trainer(s),GitHub Handle(s),Organisation,Source\n'

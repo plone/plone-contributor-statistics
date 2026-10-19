@@ -6023,6 +6023,23 @@
        "file": "derived/organisation-contributors",
        "line": null,
        "points": 4,
+       "rows": [
+        [
+         "2021",
+         "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
+         8
+        ],
+        [
+         "2022",
+         "derived/organisation-contributors/2022-plone-organisation-contributors.csv",
+         14
+        ],
+        [
+         "2023",
+         "derived/organisation-contributors/2023-plone-organisation-contributors.csv",
+         41
+        ]
+       ],
        "source": null,
        "text": "Active Member (23.8 PRs/year)"
       }
@@ -7020,6 +7037,33 @@
        "file": "derived/organisation-contributors",
        "line": null,
        "points": 10,
+       "rows": [
+        [
+         "2021",
+         "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
+         21
+        ],
+        [
+         "2022",
+         "derived/organisation-contributors/2022-plone-organisation-contributors.csv",
+         17
+        ],
+        [
+         "2023",
+         "derived/organisation-contributors/2023-plone-organisation-contributors.csv",
+         8
+        ],
+        [
+         "2024",
+         "derived/organisation-contributors/2024-plone-organisation-contributors.csv",
+         12
+        ],
+        [
+         "2025",
+         "derived/organisation-contributors/2025-plone-organisation-contributors.csv",
+         7
+        ]
+       ],
        "source": null,
        "text": "Core Member (57.8 PRs/year)"
       }
@@ -7397,6 +7441,33 @@
        "file": "derived/organisation-contributors",
        "line": null,
        "points": 20,
+       "rows": [
+        [
+         "2021",
+         "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
+         29
+        ],
+        [
+         "2022",
+         "derived/organisation-contributors/2022-plone-organisation-contributors.csv",
+         16
+        ],
+        [
+         "2023",
+         "derived/organisation-contributors/2023-plone-organisation-contributors.csv",
+         3
+        ],
+        [
+         "2024",
+         "derived/organisation-contributors/2024-plone-organisation-contributors.csv",
+         6
+        ],
+        [
+         "2025",
+         "derived/organisation-contributors/2025-plone-organisation-contributors.csv",
+         4
+        ]
+       ],
        "source": null,
        "text": "Lead (141.2 PRs/year)"
       }
@@ -7558,6 +7629,33 @@
        "file": "derived/organisation-contributors",
        "line": null,
        "points": 4,
+       "rows": [
+        [
+         "2021",
+         "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
+         11
+        ],
+        [
+         "2022",
+         "derived/organisation-contributors/2022-plone-organisation-contributors.csv",
+         10
+        ],
+        [
+         "2023",
+         "derived/organisation-contributors/2023-plone-organisation-contributors.csv",
+         10
+        ],
+        [
+         "2024",
+         "derived/organisation-contributors/2024-plone-organisation-contributors.csv",
+         14
+        ],
+        [
+         "2025",
+         "derived/organisation-contributors/2025-plone-organisation-contributors.csv",
+         9
+        ]
+       ],
        "source": null,
        "text": "Active Member (23.0 PRs/year)"
       }
@@ -7743,6 +7841,33 @@
        "file": "derived/organisation-contributors",
        "line": null,
        "points": 10,
+       "rows": [
+        [
+         "2021",
+         "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
+         6
+        ],
+        [
+         "2022",
+         "derived/organisation-contributors/2022-plone-organisation-contributors.csv",
+         11
+        ],
+        [
+         "2023",
+         "derived/organisation-contributors/2023-plone-organisation-contributors.csv",
+         13
+        ],
+        [
+         "2024",
+         "derived/organisation-contributors/2024-plone-organisation-contributors.csv",
+         11
+        ],
+        [
+         "2025",
+         "derived/organisation-contributors/2025-plone-organisation-contributors.csv",
+         18
+        ]
+       ],
        "source": null,
        "text": "Core Member (77.4 PRs/year)"
       }
@@ -8939,6 +9064,33 @@
        "file": "derived/organisation-contributors",
        "line": null,
        "points": 2,
+       "rows": [
+        [
+         "2021",
+         "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
+         26
+        ],
+        [
+         "2022",
+         "derived/organisation-contributors/2022-plone-organisation-contributors.csv",
+         37
+        ],
+        [
+         "2023",
+         "derived/organisation-contributors/2023-plone-organisation-contributors.csv",
+         22
+        ],
+        [
+         "2024",
+         "derived/organisation-contributors/2024-plone-organisation-contributors.csv",
+         18
+        ],
+        [
+         "2025",
+         "derived/organisation-contributors/2025-plone-organisation-contributors.csv",
+         17
+        ]
+       ],
        "source": null,
        "text": "Team Member (12.6 PRs/year)"
       }
@@ -9337,6 +9489,33 @@
        "file": "derived/organisation-contributors",
        "line": null,
        "points": 20,
+       "rows": [
+        [
+         "2021",
+         "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
+         2
+        ],
+        [
+         "2022",
+         "derived/organisation-contributors/2022-plone-organisation-contributors.csv",
+         2
+        ],
+        [
+         "2023",
+         "derived/organisation-contributors/2023-plone-organisation-contributors.csv",
+         2
+        ],
+        [
+         "2024",
+         "derived/organisation-contributors/2024-plone-organisation-contributors.csv",
+         2
+        ],
+        [
+         "2025",
+         "derived/organisation-contributors/2025-plone-organisation-contributors.csv",
+         2
+        ]
+       ],
        "source": null,
        "text": "Lead (534.0 PRs/year)"
       }
@@ -9619,6 +9798,33 @@
        "file": "derived/organisation-contributors",
        "line": null,
        "points": 4,
+       "rows": [
+        [
+         "2021",
+         "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
+         5
+        ],
+        [
+         "2022",
+         "derived/organisation-contributors/2022-plone-organisation-contributors.csv",
+         9
+        ],
+        [
+         "2023",
+         "derived/organisation-contributors/2023-plone-organisation-contributors.csv",
+         11
+        ],
+        [
+         "2024",
+         "derived/organisation-contributors/2024-plone-organisation-contributors.csv",
+         8
+        ],
+        [
+         "2025",
+         "derived/organisation-contributors/2025-plone-organisation-contributors.csv",
+         12
+        ]
+       ],
        "source": null,
        "text": "Active Member (49.4 PRs/year)"
       }
@@ -9804,6 +10010,33 @@
        "file": "derived/organisation-contributors",
        "line": null,
        "points": 20,
+       "rows": [
+        [
+         "2021",
+         "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
+         14
+        ],
+        [
+         "2022",
+         "derived/organisation-contributors/2022-plone-organisation-contributors.csv",
+         6
+        ],
+        [
+         "2023",
+         "derived/organisation-contributors/2023-plone-organisation-contributors.csv",
+         5
+        ],
+        [
+         "2024",
+         "derived/organisation-contributors/2024-plone-organisation-contributors.csv",
+         5
+        ],
+        [
+         "2025",
+         "derived/organisation-contributors/2025-plone-organisation-contributors.csv",
+         5
+        ]
+       ],
        "source": null,
        "text": "Lead (130.6 PRs/year)"
       }
@@ -10503,6 +10736,33 @@
        "file": "derived/organisation-contributors",
        "line": null,
        "points": 4,
+       "rows": [
+        [
+         "2021",
+         "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
+         10
+        ],
+        [
+         "2022",
+         "derived/organisation-contributors/2022-plone-organisation-contributors.csv",
+         20
+        ],
+        [
+         "2023",
+         "derived/organisation-contributors/2023-plone-organisation-contributors.csv",
+         15
+        ],
+        [
+         "2024",
+         "derived/organisation-contributors/2024-plone-organisation-contributors.csv",
+         20
+        ],
+        [
+         "2025",
+         "derived/organisation-contributors/2025-plone-organisation-contributors.csv",
+         22
+        ]
+       ],
        "source": null,
        "text": "Active Member (43.4 PRs/year)"
       }
@@ -10676,6 +10936,13 @@
        "file": "derived/organisation-contributors",
        "line": null,
        "points": 2,
+       "rows": [
+        [
+         "2021",
+         "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
+         19
+        ]
+       ],
        "source": null,
        "text": "Team Member (15.8 PRs/year)"
       }
@@ -11183,6 +11450,18 @@
        "file": "derived/organisation-contributors",
        "line": null,
        "points": 10,
+       "rows": [
+        [
+         "2024",
+         "derived/organisation-contributors/2024-plone-organisation-contributors.csv",
+         3
+        ],
+        [
+         "2025",
+         "derived/organisation-contributors/2025-plone-organisation-contributors.csv",
+         3
+        ]
+       ],
        "source": null,
        "text": "Core Member (71.8 PRs/year)"
       }
@@ -11356,6 +11635,33 @@
        "file": "derived/organisation-contributors",
        "line": null,
        "points": 10,
+       "rows": [
+        [
+         "2021",
+         "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
+         13
+        ],
+        [
+         "2022",
+         "derived/organisation-contributors/2022-plone-organisation-contributors.csv",
+         15
+        ],
+        [
+         "2023",
+         "derived/organisation-contributors/2023-plone-organisation-contributors.csv",
+         14
+        ],
+        [
+         "2024",
+         "derived/organisation-contributors/2024-plone-organisation-contributors.csv",
+         9
+        ],
+        [
+         "2025",
+         "derived/organisation-contributors/2025-plone-organisation-contributors.csv",
+         13
+        ]
+       ],
        "source": null,
        "text": "Core Member (62.2 PRs/year)"
       }
@@ -12067,6 +12373,33 @@
        "file": "derived/organisation-contributors",
        "line": null,
        "points": 4,
+       "rows": [
+        [
+         "2021",
+         "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
+         9
+        ],
+        [
+         "2022",
+         "derived/organisation-contributors/2022-plone-organisation-contributors.csv",
+         7
+        ],
+        [
+         "2023",
+         "derived/organisation-contributors/2023-plone-organisation-contributors.csv",
+         9
+        ],
+        [
+         "2024",
+         "derived/organisation-contributors/2024-plone-organisation-contributors.csv",
+         16
+        ],
+        [
+         "2025",
+         "derived/organisation-contributors/2025-plone-organisation-contributors.csv",
+         15
+        ]
+       ],
        "source": null,
        "text": "Active Member (46.0 PRs/year)"
       }
@@ -12228,6 +12561,33 @@
        "file": "derived/organisation-contributors",
        "line": null,
        "points": 10,
+       "rows": [
+        [
+         "2021",
+         "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
+         30
+        ],
+        [
+         "2022",
+         "derived/organisation-contributors/2022-plone-organisation-contributors.csv",
+         25
+        ],
+        [
+         "2023",
+         "derived/organisation-contributors/2023-plone-organisation-contributors.csv",
+         24
+        ],
+        [
+         "2024",
+         "derived/organisation-contributors/2024-plone-organisation-contributors.csv",
+         13
+        ],
+        [
+         "2025",
+         "derived/organisation-contributors/2025-plone-organisation-contributors.csv",
+         11
+        ]
+       ],
        "source": null,
        "text": "Core Member (50.2 PRs/year)"
       }
@@ -12737,6 +13097,33 @@
        "file": "derived/organisation-contributors",
        "line": null,
        "points": 4,
+       "rows": [
+        [
+         "2021",
+         "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
+         17
+        ],
+        [
+         "2022",
+         "derived/organisation-contributors/2022-plone-organisation-contributors.csv",
+         13
+        ],
+        [
+         "2023",
+         "derived/organisation-contributors/2023-plone-organisation-contributors.csv",
+         16
+        ],
+        [
+         "2024",
+         "derived/organisation-contributors/2024-plone-organisation-contributors.csv",
+         15
+        ],
+        [
+         "2025",
+         "derived/organisation-contributors/2025-plone-organisation-contributors.csv",
+         16
+        ]
+       ],
        "source": null,
        "text": "Active Member (29.2 PRs/year)"
       }
@@ -12934,6 +13321,33 @@
        "file": "derived/organisation-contributors",
        "line": null,
        "points": 20,
+       "rows": [
+        [
+         "2021",
+         "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
+         15
+        ],
+        [
+         "2022",
+         "derived/organisation-contributors/2022-plone-organisation-contributors.csv",
+         4
+        ],
+        [
+         "2023",
+         "derived/organisation-contributors/2023-plone-organisation-contributors.csv",
+         6
+        ],
+        [
+         "2024",
+         "derived/organisation-contributors/2024-plone-organisation-contributors.csv",
+         4
+        ],
+        [
+         "2025",
+         "derived/organisation-contributors/2025-plone-organisation-contributors.csv",
+         6
+        ]
+       ],
        "source": null,
        "text": "Lead (169.2 PRs/year)"
       }
@@ -13131,6 +13545,33 @@
        "file": "derived/organisation-contributors",
        "line": null,
        "points": 10,
+       "rows": [
+        [
+         "2021",
+         "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
+         4
+        ],
+        [
+         "2022",
+         "derived/organisation-contributors/2022-plone-organisation-contributors.csv",
+         8
+        ],
+        [
+         "2023",
+         "derived/organisation-contributors/2023-plone-organisation-contributors.csv",
+         12
+        ],
+        [
+         "2024",
+         "derived/organisation-contributors/2024-plone-organisation-contributors.csv",
+         17
+        ],
+        [
+         "2025",
+         "derived/organisation-contributors/2025-plone-organisation-contributors.csv",
+         10
+        ]
+       ],
        "source": null,
        "text": "Core Member (73.0 PRs/year)"
       }
@@ -13465,6 +13906,33 @@
        "file": "derived/organisation-contributors",
        "line": null,
        "points": 2,
+       "rows": [
+        [
+         "2021",
+         "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
+         23
+        ],
+        [
+         "2022",
+         "derived/organisation-contributors/2022-plone-organisation-contributors.csv",
+         22
+        ],
+        [
+         "2023",
+         "derived/organisation-contributors/2023-plone-organisation-contributors.csv",
+         18
+        ],
+        [
+         "2024",
+         "derived/organisation-contributors/2024-plone-organisation-contributors.csv",
+         10
+        ],
+        [
+         "2025",
+         "derived/organisation-contributors/2025-plone-organisation-contributors.csv",
+         14
+        ]
+       ],
        "source": null,
        "text": "Team Member (16.4 PRs/year)"
       }
@@ -14010,6 +14478,28 @@
        "file": "derived/organisation-contributors",
        "line": null,
        "points": 20,
+       "rows": [
+        [
+         "2021",
+         "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
+         3
+        ],
+        [
+         "2022",
+         "derived/organisation-contributors/2022-plone-organisation-contributors.csv",
+         3
+        ],
+        [
+         "2023",
+         "derived/organisation-contributors/2023-plone-organisation-contributors.csv",
+         4
+        ],
+        [
+         "2024",
+         "derived/organisation-contributors/2024-plone-organisation-contributors.csv",
+         21
+        ]
+       ],
        "source": null,
        "text": "Lead (115.0 PRs/year)"
       }

@@ -6,7 +6,9 @@
   {% elif contribution.file and contribution.file.startswith('curated/') %}
     <span class="pending">public record pending (<a href="{{ repository }}/issues/46">#46</a>)</span>
   {% endif %}
-  {% if contribution.file %}<a class="row" href="{{ data_link(contribution.file, contribution.line) }}">data</a>{% endif %}
+  {% if contribution.rows %}
+    {% for label, file, line in contribution.rows %}<a class="row" href="{{ data_link(file, line) }}">{{ label }}</a>{% endfor %}
+  {% elif contribution.file %}<a class="row" href="{{ data_link(contribution.file, contribution.line) }}">data</a>{% endif %}
 {% endmacro %}
 {% macro record_links(source) %}
   {% for url, label in source | links %}<a class="record" href="{{ url }}">{{ label }}</a>{% endfor %}

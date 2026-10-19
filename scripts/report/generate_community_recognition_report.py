@@ -116,14 +116,22 @@ def normalize_organization_name(org_name, organisations=paths.ORGANISATIONS):
 
 
 def load_pr_data(years, data_dir=paths.ORGANISATION_CONTRIBUTORS_DIR):
-    """Merged PRs per organisation over the years, from the yearly organisation files."""
+    """Merged PRs per organisation over the years, from the yearly organisation files.
+
+    `rows` says where each count comes from: (year, file, line) for each row of the organisation.
+    """
     totals = defaultdict(int)
+    rows = defaultdict(list)
     for year in years:
         path = f'{data_dir}/{year}-plone-organisation-contributors.csv'
         with open(path, newline='', encoding='utf-8') as f:
-            for row in csv.DictReader(f):
-                totals[normalize_organization_name(row['organisation'].strip())] += int(row['total_pull_requests'])
-    return {org: {'total_prs': total, 'avg_per_year': total / len(years)} for org, total in totals.items()}
+            reader = csv.DictReader(f)
+            for row in reader:
+                org = normalize_organization_name(row['organisation'].strip())
+                totals[org] += int(row['total_pull_requests'])
+                rows[org].append((str(year), path, reader.line_num))
+    return {org: {'total_prs': total, 'avg_per_year': total / len(years), 'rows': tuple(rows[org])}
+            for org, total in totals.items()}
 
 
 def load_plip_data(years, plips_file=paths.PLIPS_DETAILED, organisations=paths.ORGANISATIONS,
@@ -153,12 +161,16 @@ def require_community_year(community, year):
 
 @dataclass(frozen=True)
 class Contribution:
-    """Where points come from: the row of a file, and its public record if it has one."""
+    """Where points come from: the row of a file, and its public record if it has one.
+
+    Points that add up several files list their rows as (label, file, line) in `rows`.
+    """
     text: str
     points: float
     file: str = None
     line: int = None
     source: str = None
+    rows: tuple = ()
 
 
 def calculate_community_recognition_points(year=YEAR, data_dir=paths.ORGANISATION_CONTRIBUTORS_DIR,
@@ -176,10 +188,10 @@ def calculate_community_recognition_points(year=YEAR, data_dir=paths.ORGANISATIO
     org_details = defaultdict(lambda: defaultdict(list))
     found = defaultdict(lambda: defaultdict(list))
 
-    def add(org, category, text, points, file=None, line=None, source=None):
+    def add(org, category, text, points, file=None, line=None, source=None, rows=()):
         org_points[org][category] += points
         org_details[org][category].append(text)
-        found[org][category].append(Contribution(text, points, file, line, source or None))
+        found[org][category].append(Contribution(text, points, file, line, source or None, rows))
 
     community = community_dir
     require_community_year(community, year)
@@ -364,7 +376,7 @@ def calculate_community_recognition_points(year=YEAR, data_dir=paths.ORGANISATIO
         else:
             continue  # Less than 10 PRs/year, no points
 
-        add(org, 'PR Contributions', f"{level} ({avg_prs:.1f} PRs/year)", points, str(data_dir))
+        add(org, 'PR Contributions', f"{level} ({avg_prs:.1f} PRs/year)", points, str(data_dir), rows=data['rows'])
 
     # 11. PLIP contributions - PLIPs closed in the past five years
     # Criteria: Significant PLIP Contributor (10+=15pts), Regular PLIP Contributor (6+=9pts), Occasional PLIP Contributor (2+=3pts)

@@ -25,6 +25,11 @@ DATA = {
                 'Conference Organization': {'points': 12.0, 'contributions': [
                     {'text': 'Organized Plone Conference 2025', 'points': 12.0,
                      'file': 'curated/community-contributions/2025-plone-conference.csv', 'line': 2, 'source': None}]},
+                'PR Contributions': {'points': 2.0, 'contributions': [
+                    {'text': 'Team Member (15.0 PRs/year)', 'points': 2.0,
+                     'file': 'derived/organisation-contributors', 'line': None, 'source': None,
+                     'rows': [[str(year), f'derived/organisation-contributors/{year}-plone-organisation-contributors.csv', 7]
+                              for year in range(2021, 2026)]}]},
             },
             'history': {'2024': {'commits': 10, 'pull_requests': 4, 'roles': 1, 'events': 0},
                         '2025': {'commits': 20, 'pull_requests': 8, 'roles': 2, 'events': 1}},
@@ -98,6 +103,14 @@ def test_contribution_without_source_links_its_row(page):
     assert 'public record pending' in page
     assert ('https://github.com/plone/plone-contributor-statistics/blob/main/'
             'curated/community-contributions/2025-plone-conference.csv#L2') in page
+
+
+def test_pull_request_points_link_the_row_of_each_year(page):
+    contribution = page.split('Team Member (15.0 PRs/year)')[1].split('</li>')[0]
+    for year in range(2021, 2026):
+        assert (f'href="https://github.com/plone/plone-contributor-statistics/blob/main/derived/organisation-contributors/'
+                f'{year}-plone-organisation-contributors.csv#L7">{year}</a>') in contribution
+    assert 'tree/main/derived/organisation-contributors"' not in contribution
 
 
 def test_every_link_in_a_source_is_linked(page):

@@ -196,6 +196,18 @@ def test_contributions_carry_file_line_and_source(data):
     assert sprint.text == 'Beethoven Sprint'
 
 
+def test_pull_request_points_link_the_row_of_each_year(data):
+    # The points add up five yearly files; each year's row is linked, not a summary
+    for year in range(2021, 2026):
+        other = 'kitconcept GmbH,9,90\n' if year == 2023 else ''
+        write(data / 'data' / f'{year}-plone-organisation-contributors.csv',
+              f'organisation,total_commits,total_pull_requests\n{other}RedTurtle,1,150\n')
+    [prs] = contributions(data)['RedTurtle']['PR Contributions']
+    folder = str(data / 'data')
+    assert prs.rows == tuple((str(year), f'{folder}/{year}-plone-organisation-contributors.csv',
+                              3 if year == 2023 else 2) for year in range(2021, 2026))
+
+
 def test_wpd_talk_source_is_the_video(data):
     community(data, 'world-plone-day-talks', 'Video Title,Speaker(s),Organisation,Event / Location,Type,YouTube ID\n'
                                              'A talk,Mauro,RedTurtle,Online,Talk,abc\n')
