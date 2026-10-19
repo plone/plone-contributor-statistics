@@ -1,6 +1,6 @@
 # Three-Year Summary Results (2023-2025)
 
-- 57 total organisations tracked across 3 years
+- 58 total organisations tracked across 3 years
 - 22,390 total commits and 6,060 pull requests
 - 238 unique contributors across all organisations
 - File generated: derived/summaries/summary-past-three-years-2023-2025.csv
@@ -44,7 +44,7 @@
 9. Codesyntax: 171 PRs
 10. RedTurtle: 163 PRs
 
-Not mapped to an organisation: 371 PRs
+Not mapped to an organisation: 367 PRs
 
 ## Top 10 organisations by commits (2023-2025)
 
@@ -59,4 +59,4 @@ Not mapped to an organisation: 371 PRs
 9. Klein & Partner KG: 400 commits
 10. Syslab: 384 commits
 
-Not mapped to an organisation: 778 commits
+Not mapped to an organisation: 769 commits
