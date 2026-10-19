@@ -3,15 +3,15 @@
   "five_years": {
    "events": 65,
    "organisations": 89,
-   "people": 374
+   "people": 373
   },
   "since_2003": {
-   "people": 982
+   "people": 981
   },
   "year": {
    "events": 10,
    "organisations": 53,
-   "people": 142
+   "people": 141
   }
  },
  "history": {
@@ -5341,8 +5341,8 @@
     },
     {
      "name": "Brian Davis",
-     "organisation": "Unmapped",
-     "source": "https://plone.org/foundation/board/plone-foundation-board-for-2023-2024"
+     "organisation": "Brian Davis (independent)",
+     "source": "https://plone.org/foundation/board/plone-foundation-board-for-2023-2024; organisation from the organisation mapping: https://github.com/Fosten"
     },
     {
      "name": "Mikel Larreategi",
@@ -5503,7 +5503,7 @@
      ]
     }
    ],
-   "people_active": 135,
+   "people_active": 134,
    "pull_requests": 1748,
    "team_leads": [
     {
@@ -5582,8 +5582,8 @@
     },
     {
      "name": "Brian Davis",
-     "organisation": "Unmapped",
-     "source": "https://plone.org/foundation/board/plone-foundation-board-for-2024-2025"
+     "organisation": "Brian Davis (independent)",
+     "source": "https://plone.org/foundation/board/plone-foundation-board-for-2024-2025; organisation from the organisation mapping: https://github.com/Fosten"
     },
     {
      "name": "Rafahela Garcia Bazzanella",
@@ -5726,7 +5726,7 @@
      ]
     }
    ],
-   "people_active": 142,
+   "people_active": 141,
    "pull_requests": 2107,
    "team_leads": [
     {
@@ -6481,6 +6481,167 @@
    "next_level": "Bronze Contributor",
    "points": 1.0,
    "points_to_next": 2.0
+  },
+  "brian-davis-independent": {
+   "categories": {
+    "Board Member": {
+     "contributions": [
+      {
+       "file": "curated/community-contributions/2025-board-of-directors.csv",
+       "line": 4,
+       "points": 6,
+       "source": "https://plone.org/foundation/board/plone-foundation-board-for-2024-2025; organisation from the organisation mapping: https://github.com/Fosten",
+       "text": "Brian Davis"
+      }
+     ],
+     "points": 6.0
+    }
+   },
+   "history": {
+    "2003": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2004": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2005": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2006": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2007": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2008": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2009": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2010": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2011": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2012": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2013": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2014": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2015": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2016": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2017": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2018": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2019": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2020": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2021": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2022": {
+     "commits": 1,
+     "events": 0,
+     "pull_requests": 1,
+     "roles": 0
+    },
+    "2023": {
+     "commits": 2,
+     "events": 0,
+     "pull_requests": 2,
+     "roles": 0
+    },
+    "2024": {
+     "commits": 1,
+     "events": 0,
+     "pull_requests": 1,
+     "roles": 1
+    },
+    "2025": {
+     "commits": 6,
+     "events": 0,
+     "pull_requests": 1,
+     "roles": 1
+    }
+   },
+   "level": "Bronze Contributor",
+   "name": "Brian Davis (independent)",
+   "next_level": "Silver Contributor",
+   "points": 6.0,
+   "points_to_next": 4.0
   },
   "ccc": {
    "categories": {
@@ -33466,7 +33627,9 @@
     "commits": 1,
     "id": "fosten",
     "pull_requests": 1,
-    "roles": []
+    "roles": [
+     "Board"
+    ]
    },
    {
     "commits": 1,
@@ -33759,14 +33922,6 @@
    {
     "commits": 0,
     "id": "name:beth smith",
-    "pull_requests": 0,
-    "roles": [
-     "Board"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:brian davis",
     "pull_requests": 0,
     "roles": [
      "Board"
@@ -34392,7 +34547,10 @@
     "commits": 6,
     "id": "fosten",
     "pull_requests": 1,
-    "roles": []
+    "roles": [
+     "Board",
+     "Talk"
+    ]
    },
    {
     "commits": 3,
@@ -34672,15 +34830,6 @@
     "pull_requests": 0,
     "roles": [
      "Board"
-    ]
-   },
-   {
-    "commits": 0,
-    "id": "name:brian davis",
-    "pull_requests": 0,
-    "roles": [
-     "Board",
-     "Talk"
     ]
    },
    {
@@ -35175,6 +35324,7 @@
   "asko soukka": "datakurre",
   "astrid beyers": "astridjuizi",
   "ben saller": "bcsaller",
+  "brian davis": "fosten",
   "brian ledwell": "bledwell",
   "calvin hendryx-parker": "calvinhp",
   "chris calloway": "cbcunc",
@@ -35416,6 +35566,11 @@
      "name": "Agitator",
      "points": 7.0,
      "slug": "agitator"
+    },
+    {
+     "name": "Brian Davis (independent)",
+     "points": 6.0,
+     "slug": "brian-davis-independent"
     },
     {
      "name": "Cosent",

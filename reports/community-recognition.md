@@ -1,12 +1,12 @@
 # Plone Community Recognition Program 2025
 
-*Generated: 2026-10-19 12:29:56*
+*Generated: 2026-10-19 13:15:29*
 
 ## Executive Summary
 
-- **Total Organizations**: 48
-- **Total Points Awarded**: 551.0
-- **Average Points per Organization**: 11.5
+- **Total Organizations**: 49
+- **Total Points Awarded**: 557.0
+- **Average Points per Organization**: 11.4
 
 ## Recognition Levels
 
@@ -15,7 +15,7 @@
 | Platinum Contributor | 35+ | 2 |
 | Gold Contributor | 25-34 | 4 |
 | Silver Contributor | 10-24 | 13 |
-| Bronze Contributor | 3-9 | 13 |
+| Bronze Contributor | 3-9 | 14 |
 | Community Contributor | 1-2 | 16 |
 
 ## Recognition Categories
@@ -77,32 +77,33 @@
 | 20 | Agitator | Bronze Contributor | 7.0 |
 | 21 | Cosent | Bronze Contributor | 7.0 |
 | 22 | Affinitic | Bronze Contributor | 6.0 |
-| 23 | Derico | Bronze Contributor | 6.0 |
-| 24 | PloneGov-BR | Bronze Contributor | 5.0 |
-| 25 | KU Leuven | Bronze Contributor | 4.0 |
-| 26 | Rohberg | Bronze Contributor | 4.0 |
-| 27 | Markus Hilbert (independent) | Bronze Contributor | 3.0 |
-| 28 | Plone Foundation | Bronze Contributor | 3.0 |
-| 29 | Pretaweb | Bronze Contributor | 3.0 |
-| 30 | Rob Gietema (independent) | Bronze Contributor | 3.0 |
-| 31 | Simples Consultoria | Bronze Contributor | 3.0 |
-| 32 | Sixfeetup | Bronze Contributor | 3.0 |
-| 33 | CCC | Community Contributor | 2.0 |
-| 34 | Iskra | Community Contributor | 2.0 |
-| 35 | Onna | Community Contributor | 2.0 |
-| 36 | Uni. Hospital Dresden | Community Contributor | 2.0 |
-| 37 | AUSL Romagna | Community Contributor | 1.0 |
-| 38 | BOSS | Community Contributor | 1.0 |
-| 39 | CMS Communications Inc. | Community Contributor | 1.0 |
-| 40 | Er.GO | Community Contributor | 1.0 |
-| 41 | Giallocobalto | Community Contributor | 1.0 |
-| 42 | IRR | Community Contributor | 1.0 |
-| 43 | Plone Foundation (community volunteer) | Community Contributor | 1.0 |
-| 44 | RIOS (Rete Italiana Open Source) | Community Contributor | 1.0 |
-| 45 | Regione Emilia-Romagna | Community Contributor | 1.0 |
-| 46 | Università di Macerata | Community Contributor | 1.0 |
-| 47 | eCityclic | Community Contributor | 1.0 |
-| 48 | iMio | Community Contributor | 1.0 |
+| 23 | Brian Davis (independent) | Bronze Contributor | 6.0 |
+| 24 | Derico | Bronze Contributor | 6.0 |
+| 25 | PloneGov-BR | Bronze Contributor | 5.0 |
+| 26 | KU Leuven | Bronze Contributor | 4.0 |
+| 27 | Rohberg | Bronze Contributor | 4.0 |
+| 28 | Markus Hilbert (independent) | Bronze Contributor | 3.0 |
+| 29 | Plone Foundation | Bronze Contributor | 3.0 |
+| 30 | Pretaweb | Bronze Contributor | 3.0 |
+| 31 | Rob Gietema (independent) | Bronze Contributor | 3.0 |
+| 32 | Simples Consultoria | Bronze Contributor | 3.0 |
+| 33 | Sixfeetup | Bronze Contributor | 3.0 |
+| 34 | CCC | Community Contributor | 2.0 |
+| 35 | Iskra | Community Contributor | 2.0 |
+| 36 | Onna | Community Contributor | 2.0 |
+| 37 | Uni. Hospital Dresden | Community Contributor | 2.0 |
+| 38 | AUSL Romagna | Community Contributor | 1.0 |
+| 39 | BOSS | Community Contributor | 1.0 |
+| 40 | CMS Communications Inc. | Community Contributor | 1.0 |
+| 41 | Er.GO | Community Contributor | 1.0 |
+| 42 | Giallocobalto | Community Contributor | 1.0 |
+| 43 | IRR | Community Contributor | 1.0 |
+| 44 | Plone Foundation (community volunteer) | Community Contributor | 1.0 |
+| 45 | RIOS (Rete Italiana Open Source) | Community Contributor | 1.0 |
+| 46 | Regione Emilia-Romagna | Community Contributor | 1.0 |
+| 47 | Università di Macerata | Community Contributor | 1.0 |
+| 48 | eCityclic | Community Contributor | 1.0 |
+| 49 | iMio | Community Contributor | 1.0 |
 
 ## Code Contribution Highlights
 
@@ -375,6 +376,14 @@
 |----------|-------:|:--------|
 | Board Member | 6.0 | • Martin Peeters |
 
+### Brian Davis (independent)
+
+**Total Points: 6.0**
+
+| Category | Points | Details |
+|----------|-------:|:--------|
+| Board Member | 6.0 | • Brian Davis |
+
 ### Derico
 
 **Total Points: 6.0**
@@ -592,7 +601,7 @@
 | Strategic Sprint | 5 | 60.0 |
 | Release Manager | 2 | 36.0 |
 | Team Leader | 11 | 54.0 |
-| Board Member | 6 | 42.0 |
+| Board Member | 7 | 48.0 |
 | Podcast Host | 0 | 0.0 |
 | WPD Event | 2 | 6.0 |
 | WPD Talk | 27 | 46.0 |

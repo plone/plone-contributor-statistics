@@ -5,7 +5,8 @@
 This guide shows you how to add a completed year to the statistics.
 You need a GitHub personal access token, see {doc}`collect-data-again` for how to set it up.
 
-1.  Add the curated community data of the year, each row with a public record, as described in {doc}`add-curated-community-data`.
+1.  Add or complete the curated community data of the year, each row with a public record, as described in {doc}`add-curated-community-data`.
+    Some files of the year may have been started during the year; check them for events that were still missing or had not happened yet.
 
 2.  Collect, derive and report the year in one run:
 
