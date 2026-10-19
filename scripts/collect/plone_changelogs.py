@@ -31,9 +31,7 @@ from dotenv import load_dotenv
 
 from scripts.lib import changelogs, git_history, paths
 from scripts.lib.github_api import GitHubAPIError, github_get
-from scripts.lib.mappings import (load_account_aliases, load_bot_accounts, load_changelog_names,
-                                  load_commit_author_names, load_commit_authors, load_excluded_repositories,
-                                  load_fullnames)
+from scripts.lib.model import load_bot_accounts, load_excluded_repositories, load_registry
 from scripts.lib.tables import by_count
 from scripts.lib.years import last_completed_year
 
@@ -109,14 +107,11 @@ def collect(repositories, cache_dir=git_history.CACHE_DIR, token=None, update=Tr
 
 
 def name_mapper(contributors_dir=paths.CONTRIBUTORS_DIR):
-    """The NameMapper from the curated mapping files and the logins with code work."""
+    """The NameMapper from the registers and the logins with code work."""
     logins = set()
     for path in sorted(contributors_dir.glob('*-plone-contributors.csv')):
         logins.update(pd.read_csv(path, usecols=['username'])['username'].dropna().astype(str))
-    return changelogs.NameMapper(
-        changelog_names=load_changelog_names(), commit_authors=load_commit_authors(),
-        commit_author_names=load_commit_author_names(), aliases=load_account_aliases(),
-        bots=load_bot_accounts(), logins=sorted(logins), fullnames=load_fullnames())
+    return changelogs.NameMapper(load_registry(), sorted(logins), load_bot_accounts())
 
 
 def count(entries, mapper):

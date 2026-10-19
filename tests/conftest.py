@@ -32,6 +32,8 @@ def tmp_repo(tmp_path, monkeypatch):
     for path, header in EMPTY_MAPPINGS.items():
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(header, encoding='utf-8')
+    # The registers are read through their schemas
+    shutil.copytree(REPO / 'curated/schemas', tmp_path / 'curated/schemas', dirs_exist_ok=True)
     return tmp_path
 
 

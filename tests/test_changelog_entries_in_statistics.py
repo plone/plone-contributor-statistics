@@ -27,7 +27,7 @@ def test_entries_by_organisation():
         {'username': 'alecpm', 'changelog_entries': 3, 'matched_by': 'changelog_names'},
         # An unmatched name counts as Unmapped, even if it is spelled like a mapped login
         {'username': 'limi', 'changelog_entries': 2, 'matched_by': 'unmatched'},
-        {'username': 'Andy McKay', 'changelog_entries': 1, 'matched_by': 'commit_authors'},
+        {'username': 'Andy McKay', 'changelog_entries': 1, 'matched_by': 'identity'},
         {'username': 'mister-roboto', 'changelog_entries': 9, 'matched_by': 'login'},
     ])
     mapping = {'hannosch': 'Jarn', 'alecpm': 'Jarn', 'limi': 'Plone Solutions'}.get

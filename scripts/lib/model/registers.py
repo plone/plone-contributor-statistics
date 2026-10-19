@@ -99,6 +99,10 @@ class Registry:
             return self.people.get(username[len(PERSON_PREFIX):])
         return self.person_for(login=username)
 
+    def username_of(self, person):
+        """The username the collected files count the person under: the GitHub login, else `person:<id>`."""
+        return person.github or f'{PERSON_PREFIX}{person.id}'
+
     def organisation_of(self, person_id, year):
         """The name of the organisation the person belonged to in the year, else UNMAPPED."""
         for affiliation in self.affiliations:
