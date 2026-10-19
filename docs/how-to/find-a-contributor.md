@@ -30,7 +30,7 @@ Curated data lists people by name, for example conference organisers, trainers, 
 grep -ri "jane doe" curated/community-contributions/
 ```
 
-`curated/mappings/mapping-github-username-to-fullname.csv` has full names for some logins.
+`curated/mappings/mapping-github-username-to-fullname.csv` links names in the community data to GitHub logins, so you can look up a login by name, or a name by login.
 
 ## Browse a year
 

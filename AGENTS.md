@@ -48,5 +48,6 @@ Each top-level folder has a README that says what it holds and whether to edit i
 
 ## Looking up names
 
-`curated/mappings/mapping-github-username-to-fullname.csv` maps some GitHub logins to full names.
-For other logins, `python -m scripts.tools.get_github_name <login>` asks the GitHub API; add new results to the mapping file.
+`curated/mappings/mapping-github-username-to-fullname.csv` links names in the community data to GitHub logins, each with its public record (the GitHub profile, or a record that connects a different spelling).
+`python -m scripts.tools.unmatched_names` lists community names without a login, and `--propose` suggests rows from GitHub profile names; check each before adding it.
+For a single login, `python -m scripts.tools.get_github_name <login>` asks the GitHub API for the profile name.
