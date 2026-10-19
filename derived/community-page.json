@@ -5677,7 +5677,7 @@
       "UNAM"
      ],
      "sources": [
-      "https://plone.org/news-and-events/news/news-for-2025/axolote-sprint-2025-report; Board: https://plone.org/foundation/meetings/minutes/2025/plone-foundation-board-minutes-april-17-2025"
+      "https://plone.org/news-and-events/news/news-for-2025/axolote-sprint-2025-report; Board: https://plone.org/foundation/meetings/minutes/2025/plone-foundation-board-minutes-april-17-2025; reimbursed: https://plone.org/foundation/meetings/minutes/2025/plone-foundation-board-minutes-september-4-2025"
      ]
     },
     {
@@ -6490,7 +6490,7 @@
        "file": "curated/community-contributions/2025-plone-conference-trainings.csv",
        "line": 6,
        "points": 2.0,
-       "source": null,
+       "source": "https://2025.ploneconf.org/schedule/training/content-management-for-larger-plone-sites",
        "text": "Content Management for Larger Plone Sites"
       }
      ],
@@ -8930,14 +8930,14 @@
        "file": "curated/community-contributions/2025-plone-conference-trainings.csv",
        "line": 3,
        "points": 2.0,
-       "source": null,
+       "source": "https://2025.ploneconf.org/schedule/training/training-for-content-editing",
        "text": "Training for Content Editing"
       },
       {
        "file": "curated/community-contributions/2025-plone-conference-trainings.csv",
        "line": 10,
        "points": 4.0,
-       "source": null,
+       "source": "https://2025.ploneconf.org/schedule/training/create-your-customer-avatar",
        "text": "Create your Customer Avatar: Do you know who you're coding for?"
       }
      ],
@@ -9198,28 +9198,28 @@
        "file": "curated/community-contributions/2025-plone-conference-trainings.csv",
        "line": 5,
        "points": 4.0,
-       "source": null,
+       "source": "https://2025.ploneconf.org/schedule/training/plone-6-volto-customization-for-javascript-beginners",
        "text": "Plone 6 Volto Customization for JavaScript Beginners"
       },
       {
        "file": "curated/community-contributions/2025-plone-conference-trainings.csv",
        "line": 7,
        "points": 2.0,
-       "source": null,
+       "source": "https://2025.ploneconf.org/schedule/training/plone-seven-fundamentals",
        "text": "Plone Seven: Fundamentals"
       },
       {
        "file": "curated/community-contributions/2025-plone-conference-trainings.csv",
        "line": 8,
        "points": 4.0,
-       "source": null,
+       "source": "https://2025.ploneconf.org/schedule/training/installing-and-deploying-plone",
        "text": "Installing and Deploying Plone"
       },
       {
        "file": "curated/community-contributions/2025-plone-conference-trainings.csv",
        "line": 9,
        "points": 4.0,
-       "source": null,
+       "source": "https://2025.ploneconf.org/schedule/training/customizing-the-volto-light-theme",
        "text": "Customizing the Volto Light Theme"
       }
      ],
@@ -9783,14 +9783,14 @@
        "file": "curated/community-contributions/2025-plone-conference-trainings.csv",
        "line": 3,
        "points": 2.0,
-       "source": null,
+       "source": "https://2025.ploneconf.org/schedule/training/training-for-content-editing",
        "text": "Training for Content Editing"
       },
       {
        "file": "curated/community-contributions/2025-plone-conference-trainings.csv",
        "line": 6,
        "points": 2.0,
-       "source": null,
+       "source": "https://2025.ploneconf.org/schedule/training/content-management-for-larger-plone-sites",
        "text": "Content Management for Larger Plone Sites"
       }
      ],
@@ -11541,7 +11541,7 @@
        "file": "curated/community-contributions/2025-plone-conference-trainings.csv",
        "line": 7,
        "points": 2.0,
-       "source": null,
+       "source": "https://2025.ploneconf.org/schedule/training/plone-seven-fundamentals",
        "text": "Plone Seven: Fundamentals"
       }
      ],
@@ -12910,7 +12910,7 @@
        "file": "curated/community-contributions/2025-plone-conference-trainings.csv",
        "line": 4,
        "points": 4.0,
-       "source": null,
+       "source": "https://2025.ploneconf.org/schedule/training/plone-migrations-theory-and-practice",
        "text": "Plone Migrations: Theory and Practice"
       }
      ],
@@ -13453,7 +13453,7 @@
        "file": "curated/community-contributions/2025-sprints.csv",
        "line": 6,
        "points": 12.0,
-       "source": "https://plone.org/news-and-events/news/news-for-2025/axolote-sprint-2025-report; Board: https://plone.org/foundation/meetings/minutes/2025/plone-foundation-board-minutes-april-17-2025",
+       "source": "https://plone.org/news-and-events/news/news-for-2025/axolote-sprint-2025-report; Board: https://plone.org/foundation/meetings/minutes/2025/plone-foundation-board-minutes-april-17-2025; reimbursed: https://plone.org/foundation/meetings/minutes/2025/plone-foundation-board-minutes-september-4-2025",
        "text": "Axolote Sprint 2025"
       }
      ],
@@ -13960,7 +13960,7 @@
        "file": "curated/community-contributions/2025-plone-conference-trainings.csv",
        "line": 2,
        "points": 4.0,
-       "source": null,
+       "source": "https://2025.ploneconf.org/schedule/training/introduction-to-advanced-workflows-with-bpmn-2.0",
        "text": "Introduction to Advanced Workflows with BPMN 2.0"
       }
      ],
