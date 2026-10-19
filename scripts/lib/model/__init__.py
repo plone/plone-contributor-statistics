@@ -15,12 +15,14 @@ from scripts.lib.model.community import (  # noqa: F401
     roles,
 )
 from scripts.lib.model.registers import (  # noqa: F401
+    MAPPINGS_DIR,
     UNMAPPED,
     Affiliation,
     Identity,
     Organisation,
     Person,
     Registry,
+    append_person,
     load_bot_accounts,
     load_excluded_repositories,
     load_registry,

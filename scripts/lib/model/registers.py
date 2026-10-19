@@ -174,3 +174,19 @@ def load_excluded_repositories(path=paths.EXCLUDED_REPOSITORIES):
 def load_bot_accounts(path=paths.BOT_ACCOUNTS):
     """Load bot accounts that the GitHub API lists as type User, mapped to a reason."""
     return {row['login'].strip(): row['reason'].strip() for row in _list_rows(path)}
+
+
+MAPPINGS_DIR = paths.MAPPINGS_DIR  # where the tools write, so that they need not name curated/
+PEOPLE_FIELDS = ('id', 'name', 'github', 'source')
+
+
+def append_person(mappings_dir, person):
+    """Add the person to people.csv, which stays sorted by id."""
+    path = mappings_dir / paths.PEOPLE.name
+    rows = [{field: row[field] or '' for field in PEOPLE_FIELDS} for row in read_rows(path)]
+    rows.append({'id': person.id, 'name': person.name, 'github': person.github or '', 'source': person.source})
+    rows.sort(key=lambda row: row['id'])
+    with open(path, 'w', newline='', encoding='utf-8') as f:
+        writer = csv.DictWriter(f, fieldnames=PEOPLE_FIELDS, quoting=csv.QUOTE_MINIMAL, lineterminator='\n')
+        writer.writeheader()
+        writer.writerows(rows)
