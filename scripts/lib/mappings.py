@@ -34,6 +34,27 @@ def load_commit_authors(path=paths.COMMIT_AUTHORS):
             for row in _rows(path)}
 
 
+def load_commit_author_names(path=paths.COMMIT_AUTHORS):
+    """The names in commit_authors.csv, mapped to the GitHub login, or to the name if there is none."""
+    return {row['name'].strip(): row['github_username'].strip() or row['name'].strip()
+            for row in _rows(path) if row['name'].strip()}
+
+
+def load_changelog_names(path=paths.CHANGELOG_NAMES):
+    """Load the people behind names in changelog entries (#71).
+
+    Maps the name as the changelog spells it to the GitHub login, or to the
+    person's name if they have no GitHub account.
+    """
+    return {row['changelog_name'].strip(): row['github_username'].strip() or row['name'].strip()
+            for row in _rows(path)}
+
+
+def load_fullnames(path=paths.FULLNAMES):
+    """The names of mapping-github-username-to-fullname.csv, mapped to the GitHub login."""
+    return {row['fullname'].strip(): row['github username'].strip() for row in _rows(path)}
+
+
 def load_account_aliases(path=paths.ACCOUNT_ALIASES):
     """Load second GitHub accounts of a person, mapped to their main account (#69)."""
     return {row['alias'].strip(): row['github_username'].strip() for row in _rows(path)}

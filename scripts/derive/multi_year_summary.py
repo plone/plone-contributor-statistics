@@ -30,6 +30,8 @@ def load_organisation_file(year):
     
     try:
         df = pd.read_csv(filepath)
+        if 'changelog_entries' not in df.columns:  # written before the changelog entries (#71)
+            df['changelog_entries'] = 0
         df['year'] = year
         return df
     except Exception as e:
@@ -64,6 +66,7 @@ def combine_multi_year_stats(years):
     aggregated = all_data.groupby('organisation').agg({
         'total_commits': 'sum',
         'total_pull_requests': 'sum',
+        'changelog_entries': 'sum',
         'contributors_count': lambda x: len(set(str(contributors) for contributors in x if pd.notna(contributors))),
         'repositories_count': lambda x: len(set(str(repos) for repos in x if pd.notna(repos))),
         'year': lambda x: sorted(x.unique())
@@ -121,6 +124,7 @@ def combine_multi_year_stats(years):
         'organisation',
         'total_commits', 
         'total_pull_requests',
+        'changelog_entries',
         'contributors_count',
         'contributors',
         'repositories_count', 

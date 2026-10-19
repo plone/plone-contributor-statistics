@@ -2,7 +2,7 @@
 
 # Collect the data again
 
-This guide shows you how to collect commits, pull requests and pull request interactions from GitHub again.
+This guide shows you how to collect commits, pull requests, pull request interactions and changelog entries from GitHub again.
 You need a GitHub personal access token, git, and a few hundred megabytes of disk space.
 
 ## Set up the token
@@ -48,6 +48,17 @@ make pr-interactions-all-years
 ```
 
 To collect one year, run `make pr-interactions YEAR=2025` with that year instead.
+
+## Collect changelog entries
+
+To collect the changelog entries of all years in one run:
+
+```shell
+make run-changelogs
+```
+
+The collector reads the changelog files from the clones in `.cache/repositories/`, and fetches only the files it needs into them.
+It uses the token only to list the repositories, so it also works without one.
 
 ## If a run stops
 

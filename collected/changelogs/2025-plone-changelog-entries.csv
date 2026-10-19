@@ -1,0 +1,176 @@
+username,changelog_entries,repositories_count,repositories,changelog_names,matched_by
+sneridagh,301,4,"aurora, cookieplone, form-block, plone.i18n",sneridagh,login
+mauritsvanrees,108,42,"Plone, Products.CMFPlone, Products.ExtendedPathIndex, Products.PlonePAS, aurora, borg.localrole, collective.monkeypatcher, five.intid, meta, mr.roboto, plone.api, plone.app.discussion, plone.app.drafts, plone.app.event, plone.app.iterate, plone.app.mosaic, plone.app.querystring, plone.app.registry, plone.app.robotframework, plone.app.standardtiles, plone.app.theming, plone.app.upgrade, plone.app.users, plone.autoinclude, plone.browserlayer, plone.classicui, plone.exportimport, plone.i18n, plone.namedfile, plone.protect, plone.recipe.zeoserver, plone.recipe.zope2instance, plone.releaser, plone.rest, plone.restapi, plone.scale, plone.schema, plone.staticresources, plone.testing, plone.versioncheck, plone.volto, zodbverify",maurits;mauritsvanrees,commit_authors;login
+ericof,102,10,"2025.ploneconf.org, aurora, cookieplone, meta, plone.api, plone.distribution, plone.exportimport, plone.volto, pytest-plone, repoplone",ericof,login
+petschki,78,18,"Products.CMFPlone, meta, plone.app.contentrules, plone.app.contenttypes, plone.app.mosaic, plone.app.multilingual, plone.app.standardtiles, plone.app.tiles, plone.app.upgrade, plone.app.vocabularies, plone.app.z3cform, plone.base, plone.jsonserializer, plone.restapi, plone.schemaeditor, plone.staticresources, plone.tiles, plonetheme.barceloneta",petschki,login
+davisagli,70,17,"2023.ploneconf.org, Plone, Products.CMFPlone, aurora, cookieplone, plone.api, plone.app.dexterity, plone.app.discussion, plone.app.iterate, plone.app.multilingual, plone.app.querystring, plone.browserlayer, plone.org, plone.rest, plone.restapi, plone.volto, repoplone",davisagli,commit_authors
+gforcada,67,33,"Products.CMFDynamicViewFTI, Products.CMFPlone, Products.ExtendedPathIndex, Products.MimetypesRegistry, Products.PortalTransforms, Products.validation, collective.monkeypatcher, diazo, five.intid, meta, mr.roboto, plone.api, plone.app.caching, plone.app.contenttypes, plone.app.discussion, plone.app.layout, plone.app.linkintegrity, plone.app.multilingual, plone.app.relationfield, plone.app.upgrade, plone.app.users, plone.autoinclude, plone.distribution, plone.formwidget.autocomplete, plone.intelligenttext, plone.memoize, plone.namedfile, plone.recipe.zeoserver, plone.recipe.zope2instance, plone.restapi, plone.scale, plone.testing, plonetheme.barceloneta",gforcada,login
+stevepiercy,66,9,"aurora, cookieplone, plone-sphinx-theme, plone.api, plone.classicui, plone.distribution, plone.exportimport, plone.restapi, pytest-plone",stevepiercy,login
+fredvd,64,9,"2023.ploneconf.org, 2024.ploneconf.org, 2025.ploneconf.org, aurora, mr.roboto, plone.de, plone.org, sign.plone.org, tagung.plone.de",fredvd,login
+wesleybl,61,9,"aurora, meta, plone.app.iterate, plone.app.multilingual, plone.distribution, plone.formwidget.hcaptcha, plone.rest, plone.restapi, plone.schemaeditor",wesleybl,login
+erral,42,15,"Products.CMFPlone, aurora, bobtemplates.plone, container-backend, mr.roboto, plone.app.contenttypes, plone.app.discussion, plone.app.layout, plone.app.multilingual, plone.app.z3cform, plone.base, plone.formwidget.hcaptcha, plone.namedfile, plone.recipe.zeoserver, plone.restapi",erral,commit_authors
+MrTango,41,6,"bobtemplates.plone, plone.app.layout, plone.classicui, plone.restapi, plone.scale, tagung.plone.de",MrTango,login
+pnicolli,37,1,aurora,pnicolli,login
+thet,29,14,"bobtemplates.plone, meta, plone.app.content, plone.app.contenttypes, plone.app.event, plone.app.layout, plone.app.mosaic, plone.app.standardtiles, plone.app.theming, plone.app.tiles, plone.patternslib, plone.staticresources, plone.volto, plonetheme.barceloneta",thet,commit_authors
+jensens,26,3,"cookiecutter-zope-instance, plone.namedfile, plone.versioncheck",jensens,login
+ksuess,18,3,"aurora, plone.api, plone.distribution",ksuess,login
+rohnsha0,14,8,"Products.CMFPlone, plone.api, plone.app.content, plone.app.discussion, plone.restapi, plone.scale, plone.session, plone.volto",rohnsha0,login
+ale-rt,12,11,"Products.CMFPlone, Products.PlonePAS, plone.api, plone.app.content, plone.app.discussion, plone.app.layout, plone.app.users, plone.autoinclude, plone.protect, plone.restapi, plone.z3cform",ale-rt,login
+deodorhunter,11,1,aurora,deodorhunter,login
+nilbacardit26,11,2,"guillotina, guillotina_elasticsearch",nilbacardit26,login
+nileshgulia1,10,3,"Products.CMFEditions, aurora, volto",nileshgulia1,login
+1letter,9,7,"Products.CMFPlone, plone.app.layout, plone.app.multilingual, plone.app.robotframework, plone.app.upgrade, plone.base, plone.schemaeditor",1letter,login
+giuliaghisini,9,1,aurora,giuliaghisini,login
+Abhishek-17h,7,1,aurora,Abhishek-17h,login
+alexandreIFB,7,2,"aurora, plone.formwidget.hcaptcha",alexandreIFB,login
+aryan7081,7,1,aurora,aryan7081,login
+Tishasoumya-02,7,1,aurora,Tishasoumya-02,login
+Wagner3UB,7,1,aurora,Wagner3UB,login
+iFlameing,6,1,aurora,iFlameing,login
+datakurre,5,1,2025.ploneconf.org,datakurre,login
+ewohnlich,5,2,"cookieplone, plone.exportimport",ewohnlich,login
+Manas-Kenge,5,2,"aurora, plone-sphinx-theme",Manas-Kenge,login
+rboixaderg,5,2,"aurora, guillotina",rboixaderg,login
+robgietema,5,1,aurora,robgietema,commit_authors
+ujsquared,5,3,"plone-sphinx-theme, plone.api, plone.restapi",ujsquared,login
+kittauri,4,2,"aurora, tagung.plone.de",kittauri,login
+mamico,4,3,"plone.app.caching, plone.namedfile, plone.restapi",mamico,login
+pgrunewald,4,4,"plone.app.caching, plone.app.multilingual, plone.restapi, plone.staticresources",pgrunewald,login
+reebalazs,4,1,aurora,reebalazs,login
+Shyam-Raghuwanshi,4,1,aurora,Shyam-Raghuwanshi,login
+silviubogan,4,1,aurora,silviubogan,login
+cihanandac,3,2,"plone.app.layout, plone.protect",cihanandac,login
+djay,3,1,plone.restapi,djay,login
+frapell,3,2,"aurora, plone.app.mosaic",frapell,login
+ionlizarazu,3,1,aurora,ionlizarazu,login
+iRohitSingh,3,1,aurora,iRohitSingh,login
+pbauer,3,2,"plone.api, plone.app.upgrade",pbauer,login
+reinout,3,1,meta,reinout,login
+2025-03-25,2,1,cookiecutter-zope-instance,2025-03-25,unmatched
+ad0cf17,2,1,mockup,ad0cf17,unmatched
+ana-oprea,2,2,"aurora, plone.volto",ana-oprea,login
+avoinea,2,1,aurora,avoinea,login
+boss6825,2,1,aurora,boss6825,login
+cekk,2,2,"plone.app.dexterity, plone.restapi",cekk,login
+ebrehault,2,1,aurora,ebrehault,login
+f9d017a,2,1,mockup,f9d017a,unmatched
+Faakhir30,2,1,plone.restapi,Faakhir30,login
+gil-cano,2,1,cookieplone,gil-cano,login
+gyst,2,2,"Products.CMFPlone, plone.restapi",gyst,login
+ichim-david,2,2,"aurora, plone.volto",ichim-david,login
+JeffersonBledsoe,2,1,aurora,JeffersonBledsoe,login
+jnptk,2,1,aurora,jnptk,login
+Narcis2005,2,1,aurora,Narcis2005;narcis2005,login
+rioksane,2,1,2025.ploneconf.org,rioksane,login
+szakitibi,2,2,"plone.app.multilingual, plone.behavior",szakitibi,login
+tomschall,2,1,aurora,tomschall,login
+yurj,2,2,"plone.app.multilingual, plone.app.z3cform",yurj,login
+051438b,1,1,mockup,051438b,unmatched
+0619eb6,1,1,mockup,0619eb6,unmatched
+069eae0,1,1,mockup,069eae0,unmatched
+06a40c9,1,1,mockup,06a40c9,unmatched
+0990b2c,1,1,mockup,0990b2c,unmatched
+0e77a7d,1,1,mockup,0e77a7d,unmatched
+12f2127,1,1,mockup,12f2127,unmatched
+154bf8b,1,1,mockup,154bf8b,unmatched
+15741f7,1,1,mockup,15741f7,unmatched
+15a8ca0,1,1,mockup,15a8ca0,unmatched
+2025-03-03,1,1,cookiecutter-zope-instance,2025-03-03,unmatched
+2efdb94,1,1,mockup,2efdb94,unmatched
+333b2d7,1,1,mockup,333b2d7,unmatched
+3425b0d,1,1,mockup,3425b0d,unmatched
+3b68fbe,1,1,mockup,3b68fbe,unmatched
+45533f3,1,1,mockup,45533f3,unmatched
+493ae5c,1,1,mockup,493ae5c,unmatched
+49f7020,1,1,mockup,49f7020,unmatched
+5146f4b,1,1,mockup,5146f4b,unmatched
+5882f82,1,1,mockup,5882f82,unmatched
+5a89ef7,1,1,mockup,5a89ef7,unmatched
+5c5dcf8,1,1,mockup,5c5dcf8,unmatched
+5e45332,1,1,mockup,5e45332,unmatched
+61f76d4,1,1,mockup,61f76d4,unmatched
+653484b,1,1,mockup,653484b,unmatched
+653766d,1,1,mockup,653766d,unmatched
+66d3d41,1,1,mockup,66d3d41,unmatched
+678696b,1,1,mockup,678696b,unmatched
+6c60eba,1,1,mockup,6c60eba,unmatched
+6e5c1bd,1,1,mockup,6e5c1bd,unmatched
+747b267,1,1,mockup,747b267,unmatched
+77ad7d3,1,1,mockup,77ad7d3,unmatched
+78c4163,1,1,mockup,78c4163,unmatched
+804bcf8,1,1,mockup,804bcf8,unmatched
+83922ea,1,1,mockup,83922ea,unmatched
+83bf52c,1,1,mockup,83bf52c,unmatched
+84a5a1f,1,1,mockup,84a5a1f,unmatched
+857ac3d,1,1,mockup,857ac3d,unmatched
+863c255,1,1,mockup,863c255,unmatched
+88c1ec5,1,1,mockup,88c1ec5,unmatched
+8a1f7c2,1,1,mockup,8a1f7c2,unmatched
+91419b3,1,1,mockup,91419b3,unmatched
+9224c39,1,1,mockup,9224c39,unmatched
+99a434c,1,1,mockup,99a434c,unmatched
+9fe9527,1,1,mockup,9fe9527,unmatched
+a7fe23a,1,1,mockup,a7fe23a,unmatched
+acsr,1,1,cookieplone,acsr,login
+addbacf,1,1,mockup,addbacf,unmatched
+af38348,1,1,mockup,af38348,unmatched
+afd8870,1,1,mockup,afd8870,unmatched
+Akshat2Jain,1,1,meta,Akshat2Jain,login
+ale,1,1,plone.patternslib,ale,unmatched
+b9d401e,1,1,mockup,b9d401e,unmatched
+ba03b43,1,1,mockup,ba03b43,unmatched
+bc7c25a,1,1,mockup,bc7c25a,unmatched
+c21c4ff,1,1,mockup,c21c4ff,unmatched
+c454a40,1,1,mockup,c454a40,unmatched
+c4deddb,1,1,mockup,c4deddb,unmatched
+c5add32,1,1,mockup,c5add32,unmatched
+calinvladth,1,1,aurora,calinvladth,login
+cfc8e0a,1,1,mockup,cfc8e0a,unmatched
+cookieplone,1,1,tagung.plone.de,cookieplone,unmatched
+d413842,1,1,mockup,d413842,unmatched
+d645c10,1,1,mockup,d645c10,unmatched
+d67a618,1,1,mockup,d67a618,unmatched
+d822df5,1,1,mockup,d822df5,unmatched
+d89637c,1,1,mockup,d89637c,unmatched
+da7f5f5,1,1,mockup,da7f5f5,unmatched
+danalvrz,1,1,aurora,danalvrz,login
+db84db6,1,1,mockup,db84db6,unmatched
+dcca49d,1,1,mockup,dcca49d,unmatched
+de8a1a0,1,1,mockup,de8a1a0,unmatched
+dobri1408,1,1,aurora,dobri1408,login
+e0a78f6,1,1,mockup,e0a78f6,unmatched
+e3f7c0d,1,1,mockup,e3f7c0d,unmatched
+e746402,1,1,mockup,e746402,unmatched
+e7a410d,1,1,mockup,e7a410d,unmatched
+e976163,1,1,mockup,e976163,unmatched
+ea329e2,1,1,mockup,ea329e2,unmatched
+eb65930,1,1,mockup,eb65930,unmatched
+ec95477,1,1,mockup,ec95477,unmatched
+ef589e7,1,1,mockup,ef589e7,unmatched
+f2631a7,1,1,mockup,f2631a7,unmatched
+f54c5b3,1,1,mockup,f54c5b3,unmatched
+fc88196,1,1,mockup,fc88196,unmatched
+fdf3e84,1,1,mockup,fdf3e84,unmatched
+gogobd,1,1,plone.app.mosaic,gogobd,login
+kreafox,1,1,aurora,kreafox,login
+laulaz,1,1,plone.formwidget.autocomplete,laulaz,login
+lyralemos,1,1,plone.distribution,lyralemos,login
+macagua,1,1,plone.volto,macagua,login
+maethu,1,1,plone.restapi,maethu,login
+Manik-Khajuria-5,1,1,aurora,Manik-Khajuria-5,login
+nileshgulia,1,1,plone.restapi,nileshgulia,unmatched
+ompharate,1,1,aurora,ompharate,login
+parruc,1,1,plone.app.vocabularies,parruc,login
+pilz,1,1,plone.app.users,pilz,login
+pratyush07-hub,1,1,aurora,pratyush07-hub,login
+rexalex,1,1,aurora,rexalex,login
+Rudd-O,1,1,container-backend,Rudd-O,login
+sabrina-bongiovanni,1,1,aurora,sabrina-bongiovanni,login
+SaraBianchi,1,1,aurora,SaraBianchi,login
+snerida,1,1,plone.restapi,snerida,unmatched
+sverbois,1,1,plone.base,sverbois,login
+TechSubham,1,1,aurora,TechSubham,login
+tedw87,1,1,aurora,tedw87,login
+Thanush-03,1,1,plone.distribution,Thanush-03,login
+tiberiuichim,1,1,aurora,tiberiuichim,login
+toropok,1,1,aurora,toropok,login

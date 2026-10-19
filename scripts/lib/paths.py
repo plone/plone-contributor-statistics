@@ -17,6 +17,7 @@ EXCLUDED_REPOSITORIES = MAPPINGS_DIR / 'excluded_repositories.csv'
 COMMIT_AUTHORS = MAPPINGS_DIR / 'commit_authors.csv'
 ACCOUNT_ALIASES = MAPPINGS_DIR / 'account_aliases.csv'
 FULLNAMES = MAPPINGS_DIR / 'mapping-github-username-to-fullname.csv'
+CHANGELOG_NAMES = MAPPINGS_DIR / 'changelog_names.csv'
 COMMUNITY = Path('curated/community-contributions')
 RECOGNITION_LEVELS = COMMUNITY / 'community-recognition-levels.csv'
 PLIPS_BEFORE_GITHUB = Path('curated/plips/plone-plips-before-github.csv')
@@ -24,6 +25,7 @@ PLIPS_BEFORE_GITHUB = Path('curated/plips/plone-plips-before-github.csv')
 # Collected by the collectors; never edit by hand
 CONTRIBUTORS_DIR = Path('collected/contributors')
 PR_INTERACTIONS_DIR = Path('collected/pr-interactions')
+CHANGELOGS_DIR = Path('collected/changelogs')
 PLIPS = Path('collected/plips/plone-plips.csv')
 PLIPS_DETAILED = Path('collected/plips/plone-plips-detailed.csv')
 
@@ -52,6 +54,11 @@ def contributors_file(label):
 def checkpoint_file(label):
     """The checkpoint the contributors collector writes while it runs; label is the output file name."""
     return CONTRIBUTORS_DIR / f'{label}_checkpoint.csv'
+
+
+def changelog_entries_file(year):
+    """The changelog entries per person of a year (#71)."""
+    return CHANGELOGS_DIR / f'{year}-plone-changelog-entries.csv'
 
 
 def pr_interactions_file(label):

@@ -186,3 +186,70 @@ def test_copies_and_duplicates_are_counted_once(tmp_path):
         ('2008-07-29T12:00:00Z', 'Prototype with mod_transform'),
         ('2015-06-01T10:05:00Z', 'Pin plone.keyring'),
     ]
+
+
+# Files at the branch tips (#71)
+
+
+@pytest.fixture
+def upstream_with_files(tmp_path):
+    """A repository with changelog files on two branches, served with partial clone support like GitHub."""
+    path = tmp_path / 'files-upstream'
+    path.mkdir()
+    git(path, 'init', '-q', '-b', 'master')
+    git(path, 'config', 'uploadpack.allowFilter', 'true')
+    git(path, 'config', 'uploadpack.allowAnySHA1InWant', 'true')
+    (path / 'docs').mkdir()
+    (path / 'docs' / 'HISTORY.txt').write_text('1.0 (2008-01-01)\n\n- Old [limi]\n')
+    (path / 'setup.py').write_text('setup()\n')
+    git(path, 'add', '.')
+    git(path, 'commit', '-q', '-m', 'Release 1.0', date='2008-01-01T12:00:00+00:00')
+    git(path, 'tag', '-a', 'v1.0', '-m', 'Release 1.0', date='2008-01-02T12:00:00+00:00')
+    git(path, 'branch', '1.x')
+    (path / 'CHANGES.rst').write_text('2.0 (2010-01-01)\n\n- New [hannosch]\n')
+    git(path, 'add', '.')
+    git(path, 'commit', '-q', '-m', 'Release 2.0', date='2010-01-01T23:30:00-02:00')
+    git(path, 'tag', '2.0')
+    return path
+
+
+def test_files_at_tips_fetches_only_the_selected_files(upstream_with_files, tmp_path):
+    clone = str(tmp_path / 'cache' / 'r.git')
+    git_history.update_clone(f'file://{upstream_with_files}', clone, tags=True)
+
+    files = git_history.files_at_tips(clone, ['master', '1.x'], lambda name: name.endswith(('.txt', '.rst')))
+
+    tips = git_history.branch_tips(clone, ['master', '1.x'])
+    assert files == {
+        ('master', 'CHANGES.rst'): (tips['master'], b'2.0 (2010-01-01)\n\n- New [hannosch]\n'),
+        ('master', 'docs/HISTORY.txt'): (tips['master'], b'1.0 (2008-01-01)\n\n- Old [limi]\n'),
+        ('1.x', 'docs/HISTORY.txt'): (tips['1.x'], b'1.0 (2008-01-01)\n\n- Old [limi]\n'),
+    }
+    present = git_history._present_objects(clone)
+    setup_py = git(upstream_with_files, 'rev-parse', 'master:setup.py')
+    assert setup_py not in present, 'files that are not selected are not fetched'
+
+    # A second run finds everything in the clone
+    assert git_history.files_at_tips(clone, ['master', '1.x'], lambda name: name.endswith('.rst')) == {
+        ('master', 'CHANGES.rst'): (tips['master'], b'2.0 (2010-01-01)\n\n- New [hannosch]\n')}
+
+
+def test_tag_dates(upstream_with_files, tmp_path):
+    clone = str(tmp_path / 'cache' / 'r.git')
+    git_history.update_clone(f'file://{upstream_with_files}', clone)
+    commit(upstream_with_files, 'Later', '2011-01-01T12:00:00+00:00')
+    git(upstream_with_files, 'tag', '3.0')
+    git_history.update_clone(f'file://{upstream_with_files}', clone, tags=True)
+
+    # The tagger date of an annotated tag, the commit date of a lightweight one, in UTC; without a leading "v"
+    assert git_history.tag_dates(clone) == {'1.0': '2008-01-02', '2.0': '2010-01-02', '3.0': '2011-01-01'}
+
+
+def test_commit_messages(upstream_with_files, tmp_path):
+    clone = str(tmp_path / 'cache' / 'r.git')
+    git_history.update_clone(f'file://{upstream_with_files}', clone)
+
+    messages = git_history.commit_messages(clone, ['1.x'])
+
+    assert [(m['author_email'], m['date'], m['message'].strip()) for m in messages] == [
+        ('alice@example.org', '2008-01-01T12:00:00Z', 'Release 1.0')]

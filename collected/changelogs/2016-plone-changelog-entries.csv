@@ -1,0 +1,124 @@
+username,changelog_entries,repositories_count,repositories,changelog_names,matched_by
+jensens,195,55,"Products.Archetypes, Products.CMFEditions, Products.CMFPlone, Products.MimetypesRegistry, Products.PortalTransforms, archetypes.multilingual, bobtemplates.plone, five.intid, plone.app.blob, plone.app.blocks, plone.app.collection, plone.app.content, plone.app.contentlisting, plone.app.contentmenu, plone.app.contenttypes, plone.app.dexterity, plone.app.drafts, plone.app.event, plone.app.layout, plone.app.lockingbehavior, plone.app.mosaic, plone.app.multilingual, plone.app.multilingualindexes, plone.app.querystring, plone.app.registry, plone.app.relationfield, plone.app.standardtiles, plone.app.tiles, plone.app.upgrade, plone.app.versioningbehavior, plone.app.viewletmanager, plone.app.vocabularies, plone.app.z3cform, plone.autoform, plone.behavior, plone.cachepurging, plone.caching, plone.dexterity, plone.formwidget.recaptcha, plone.i18n, plone.namedfile, plone.outputfilters, plone.protect, plone.recipe.zope2instance, plone.registry, plone.resource, plone.rfc822, plone.scale, plone.session, plone.subrequest, plone.supermodel, plone.tiles, plone.transformchain, plone.versioncheck, plone.z3cform",jensens,login
+mauritsvanrees,180,57,"Products.ATContentTypes, Products.Archetypes, Products.CMFDiffTool, Products.CMFEditions, Products.CMFFormController, Products.CMFPlacefulWorkflow, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.LinguaPlone, Products.PlonePAS, Products.TinyMCE, bobtemplates.plone, borg.localrole, experimental.nodtml, experimental.publishtraverse, plone.app.blob, plone.app.caching, plone.app.collection, plone.app.content, plone.app.contentlisting, plone.app.contenttypes, plone.app.dexterity, plone.app.discussion, plone.app.event, plone.app.iterate, plone.app.layout, plone.app.ldap, plone.app.mosaic, plone.app.multilingual, plone.app.openid, plone.app.portlets, plone.app.robotframework, plone.app.search, plone.app.testing, plone.app.theming, plone.app.upgrade, plone.app.users, plone.app.widgets, plone.app.z3cform, plone.browserlayer, plone.dexterity, plone.formwidget.datetime, plone.formwidget.namedfile, plone.memoize, plone.portlet.collection, plone.portlets, plone.protect, plone.releaser, plone.reload, plone.resource, plone.scale, plone.supermodel, plone.tiles, plone.versioncheck, plone.z3cform, plone4.csrffixes, plonetheme.barceloneta",maurits;mauritsvanrees,commit_authors;login
+thet,160,51,"Products.Archetypes, Products.CMFPlone, Products.LinguaPlone, Products.PasswordResetTool, archetypes.referencebrowserwidget, bobtemplates.plone, five.intid, mockup, plone.api, plone.app.caching, plone.app.content, plone.app.contentrules, plone.app.contenttypes, plone.app.debugtoolbar, plone.app.discussion, plone.app.event, plone.app.i18n, plone.app.imaging, plone.app.layout, plone.app.mosaic, plone.app.multilingual, plone.app.portlets, plone.app.registry, plone.app.robotframework, plone.app.standardtiles, plone.app.testing, plone.app.theming, plone.app.tiles, plone.app.upgrade, plone.app.widgets, plone.app.z3cform, plone.autoform, plone.batching, plone.behavior, plone.formwidget.multifile, plone.formwidget.namedfile, plone.formwidget.recurrence, plone.indexer, plone.memoize, plone.namedfile, plone.outputfilters, plone.portlet.static, plone.resource, plone.rfc822, plone.scale, plone.schemaeditor, plone.supermodel, plone.testing, plone.z3cform, plonetheme.barceloneta, plonetheme.sunburst",thet,commit_authors
+vangheem,128,24,"Products.ATContentTypes, Products.CMFPlone, archetypes.referencebrowserwidget, mockup, plone.app.blocks, plone.app.content, plone.app.contenttypes, plone.app.drafts, plone.app.event, plone.app.linkintegrity, plone.app.mosaic, plone.app.querystring, plone.app.registry, plone.app.standardtiles, plone.app.testing, plone.app.theming, plone.app.upgrade, plone.app.vocabularies, plone.app.z3cform, plone.dexterity, plone.namedfile, plone.outputfilters, plone.server, plone.tiles",vangheem,login
+gforcada,99,62,"Products.ATContentTypes, Products.Archetypes, Products.CMFEditions, Products.CMFFormController, Products.CMFPlone, Products.LinguaPlone, Products.MimetypesRegistry, Products.PlonePAS, Products.validation, aiteam.playbooks, archetypes.multilingual, archetypes.referencebrowserwidget, bobtemplates.plone, borg.localrole, plone.api, plone.app.blob, plone.app.blocks, plone.app.caching, plone.app.collection, plone.app.content, plone.app.contentrules, plone.app.contenttypes, plone.app.customerize, plone.app.discussion, plone.app.drafts, plone.app.folder, plone.app.i18n, plone.app.imaging, plone.app.intid, plone.app.iterate, plone.app.layout, plone.app.linkintegrity, plone.app.lockingbehavior, plone.app.mosaic, plone.app.portlets, plone.app.querystring, plone.app.referenceablebehavior, plone.app.registry, plone.app.standardtiles, plone.app.testing, plone.app.theming, plone.app.tiles, plone.app.uuid, plone.app.vocabularies, plone.contentrules, plone.event, plone.folder, plone.namedfile, plone.recipe.codeanalysis, plone.recipe.zeoserver, plone.recipe.zope2instance, plone.releaser, plone.reload, plone.resource, plone.resourceeditor, plone.schema, plone.schemaeditor, plone.server, plone.theme, plone.tiles, plone4.csrffixes, plonetheme.barceloneta",gforcada,login
+datakurre,61,20,"mockup, plone.alterego, plone.app.blocks, plone.app.content, plone.app.controlpanel, plone.app.drafts, plone.app.mosaic, plone.app.portlets, plone.app.registry, plone.app.standardtiles, plone.app.theming, plone.app.tiles, plone.app.workflow, plone.jsonserializer, plone.recipe.codeanalysis, plone.registry, plone.synchronize, plone.tiles, plone.uuid, plonetheme.barceloneta",Asko Soukka;datakurre,fullname;login
+smcmahon,56,5,"aiteam.playbooks, ansible-playbook, ansible.plone_server, plone.app.dexterity, plone.namedfile",smcmahon,login
+ebrehault,30,12,"Products.CMFPlone, mockup, plone.api, plone.app.contenttypes, plone.app.testing, plone.app.users, plone.app.vocabularies, plone.app.z3cform, plone.resource, plone.resourceeditor, plone.restapi, plonetheme.barceloneta",ebrehault,login
+esteele,24,11,"Plone, Products.CMFPlone, Products.MimetypesRegistry, plone.app.collection, plone.app.controlpanel, plone.app.upgrade, plone.autoform, plone.formwidget.autocomplete, plone.schemaeditor, plone.supermodel, plone.uuid",esteele,commit_authors
+pbauer,24,18,"Products.ATContentTypes, Products.Archetypes, Products.CMFDiffTool, Products.CMFEditions, Products.PlonePAS, Products.PortalTransforms, Products.ResourceRegistries, bobtemplates.plone, plone.app.contentmenu, plone.app.contenttypes, plone.app.customerize, plone.app.lockingbehavior, plone.app.upgrade, plone.app.users, plone.app.z3cform, plone.dexterity, plone.stringinterp, plone.supermodel",pbauer,login
+seanupton,21,7,"Products.Archetypes, Products.PortalTransforms, mockup, plone.app.widgets, plone.app.z3cform, plone.portlet.static, plone.schemaeditor",seanupton,login
+agitator,18,9,"Products.CMFPlone, plone.app.blocks, plone.app.contenttypes, plone.app.mosaic, plone.app.multilingual, plone.app.portlets, plone.app.standardtiles, plone.formwidget.autocomplete, plonetheme.barceloneta",agitator,login
+davisagli,18,18,"Products.ATContentTypes, Products.Archetypes, Products.CMFDiffTool, Products.CMFEditions, Products.contentmigration, plone.app.content, plone.app.contentmenu, plone.app.dexterity, plone.app.event, plone.app.imaging, plone.app.linkintegrity, plone.app.multilingual, plone.app.vocabularies, plone.behavior, plone.dexterity, plone.event, plone.portlet.collection, plone.portlets",davisagli,commit_authors
+hvelarde,18,9,"Products.CMFPlone, Products.ResourceRegistries, Products.TinyMCE, bobtemplates.plone, plone.app.contenttypes, plone.app.layout, plone.app.ldap, plone.app.multilingual, plone.app.querystring",hvelarde,login
+staeff,18,15,"Products.CMFFormController, Products.CMFPlone, bobtemplates.plone, plone.app.contentrules, plone.app.discussion, plone.app.mosaic, plone.app.robotframework, plone.app.theming, plone.app.widgets, plone.formwidget.autocomplete, plone.formwidget.contenttree, plone.formwidget.namedfile, plone.schema, plone.stringinterp, plonetheme.barceloneta",staeff,login
+Gagaro,17,7,"Products.CMFPlone, mockup, plone.app.content, plone.app.querystring, plone.app.theming, plone.app.widgets, plone.app.z3cform",Gagaro,login
+ale-rt,16,7,"five.intid, plone.api, plone.app.linkintegrity, plone.app.theming, plone.app.versioningbehavior, plone.cachepurging, plonetheme.barceloneta",ale-rt,login
+tomgross,16,13,"Products.ATContentTypes, Products.CMFPlone, Products.ResourceRegistries, plone.app.contenttypes, plone.app.portlets, plone.app.standardtiles, plone.app.z3cform, plone.formwidget.multifile, plone.memoize, plone.outputfilters, plone.registry, plone.rest, plone.tiles",tomgross,login
+alecm,15,12,"Products.Archetypes, Products.CMFPlone, mockup, plone.app.content, plone.app.contentmenu, plone.app.dexterity, plone.app.layout, plone.app.multilingual, plone.app.vocabularies, plone.app.widgets, plone.app.z3cform, plonetheme.barceloneta",alecm,unmatched
+buchi,14,2,"plone.rest, plone.restapi",buchi,login
+allcaps,13,1,plonetheme.barceloneta,allcaps,login
+davilima6,13,7,"Products.CMFPlone, plone.app.customerize, plone.app.layout, plone.app.portlets, plone.app.registry, plone.batching, plonetheme.barceloneta",davilima6,login
+djowett,13,4,"ansible.plone_server, plone.app.layout, plone.app.multilingual, plone.locking",djowett,login
+do3cc,11,9,"Products.CMFDiffTool, Products.CMFPlone, Products.PortalTransforms, Products.statusmessages, plone.app.event, plone.dexterity, plone.i18n, plone.recipe.codeanalysis, plone.testing",do3cc,login
+bsuttor,10,6,"Products.contentmigration, plone.app.contenttypes, plone.app.event, plone.app.multilingual, plone.app.vocabularies, plone.formwidget.querystring",bsuttor,login
+iham,9,4,"Products.CMFEditions, Products.CMFPlone, plone.app.iterate, plone.app.multilingual",iham,login
+keul,9,5,"Products.CMFPlone, Products.TinyMCE, plone.app.content, plone.app.multilingual, plonetheme.barceloneta",keul,commit_authors
+lgraf,9,3,"plone.rest, plone.restapi, plone4.csrffixes",lgraf,unmatched
+gotcha,8,6,"Products.LinguaPlone, plone.app.form, plone.app.iterate, plone.app.jquerytools, plone.app.z3cform, plone.namedfile",gotcha,login
+metatoaster,8,2,"mockup, plone.supermodel",metatoaster,login
+petschki,8,4,"mockup, plone.app.content, plone.app.widgets, plone.z3cform",petschki,login
+rodfersou,8,6,"archetypes.querywidget, plone.app.blocks, plone.app.controlpanel, plone.app.iterate, plone.app.layout, plone.app.search",rodfersou,login
+tkimnguyen,8,4,"Products.CMFPlone, plone.api, plone.app.layout, ploneconf2016.policy",tkimnguyen,login
+loechel,7,4,"plone.app.content, plone.app.dexterity, plone.versioncheck, plone4.csrffixes",loechel,login
+ramonnb,7,2,"guillotina, plone.server",ramonnb,unmatched
+timo,7,4,"bobtemplates.plone, plone.portlet.static, plone.rest, plone.restapi",timo,unmatched
+pcdummy,6,5,"Products.CMFPlone, Products.PlonePAS, Products.PortalTransforms, plone.app.content, plonetheme.barceloneta",pcdummy,unmatched
+vincentfretin,6,6,"plone.app.contentmenu, plone.app.dexterity, plone.app.jquerytools, plone.app.portlets, plone.app.search, plone.schemaeditor",vincentfretin,commit_authors
+kkhan,5,4,"Products.CMFPlone, plone.app.contenttypes, plone.app.users, plonetheme.barceloneta",kkhan,unmatched
+svx,5,4,"Products.CMFPlone, ansible.plone_server, bobtemplates.plone, training.plone.org",svx,login
+adaugherity,4,1,plone.app.ldap,adaugherity,login
+fredvd,4,4,"Products.CMFFormController, Products.CMFPlone, plone.app.discussion, plone.app.z3cform",fredvd,login
+ivanteoh,4,4,"plone.app.contentlisting, plone.app.layout, plone.app.z3cform, plone.browserlayer",ivanteoh,login
+jpgimenez,4,4,"aiteam.playbooks, ansible.plone_server, plone.formwidget.recaptcha, plone.resource",jpgimenez,login
+terapyon,4,4,"Installers-UnifiedInstaller, Products.CMFPlone, mockup, plone.app.content",terapyon,login
+tschorr,4,4,"Products.Archetypes, Products.CMFEditions, plone.app.linkintegrity, plone.protect",tschorr,login
+andreesg,3,2,"plone.app.event, plone.namedfile",andreesg,login
+davidjb,3,3,"plone.app.dexterity, plone.app.ldap, plone.formwidget.captcha",davidjb,login
+fulv,3,3,"Products.CMFPlone, aiteam.playbooks, plone.scale",fulv,login
+Gomez,3,1,ansible.plone_server,gomez,login
+gyst,3,2,"Products.CMFPlone, plonetheme.barceloneta",gyst,login
+jfroche,3,1,Products.LinguaPlone,jfroche,login
+jladage,3,2,"Products.TinyMCE, plone.formwidget.namedfile",jladage,login
+klinger,3,3,"plone.app.versioningbehavior, plone.caching, plone.formwidget.recurrence",klinger,unmatched
+l34marr,3,3,"plone.app.discussion, plone.app.event, plone.app.versioningbehavior",l34marr,login
+martior,3,3,"plone.app.blob, plone.app.contenttypes, plone.app.standardtiles",martior,login
+MatthewWilkes,3,3,"Products.CMFPlone, Products.PlonePAS, plone.app.contentmenu",MatthewWilkes,commit_authors
+msom,3,1,Products.TinyMCE,msom,login
+petri,3,3,"plone.app.contenttypes, plone.app.jquerytools, plone.formwidget.namedfile",petri,login
+serge73,3,3,"plone.app.discussion, plone.app.event, plone.dexterity",serge73,login
+sgeulette,3,2,"plone.app.robotframework, plone.dexterity",sgeulette,login
+AnneGilles,2,1,plone.app.mosaic,AnneGilles;annegilles,login
+bloodbare,2,1,plone.server,bloodbare,login
+cedricmessiant,2,2,"plone.app.relationfield, plone.formwidget.captcha",cedricmessiant,login
+claytonc,2,2,"plone.app.lockingbehavior, plone.app.referenceablebehavior",claytonc,login
+deankarlen,2,1,Products.CMFDiffTool,deankarlen,login
+didrix,2,2,"plone.app.caching, plone.scale",didrix,unmatched
+fgrcon,2,2,"plone.app.event, plone.releaser",fgrcon,login
+frapell,2,2,"Products.CMFDiffTool, plone.app.event",frapell,login
+gbastien,2,1,plone.app.contenttypes,gbastien,login
+ichim-david,2,1,plone.app.collection,ichim-david,login
+janga1997,2,2,"mockup, plone.app.event",janga1997,login
+jaroel,2,1,plone.api,jaroel,commit_authors
+krissik,2,2,"diazo, plone.app.mosaic",krissik,login
+laulaz,2,1,plone.formwidget.multifile,laulaz,login
+MrTango,2,2,"ansible.plone_server, bobtemplates.plone",MrTango,login
+pigeonflight,2,1,plonetheme.barceloneta,pigeonflight,login
+rafaelbco,2,2,"plone.app.versioningbehavior, plone.formwidget.namedfile",rafaelbco,login
+SyZn,2,2,"Products.LinguaPlone, plone.app.portlets",SyZn;syzn,login
+alecpm,1,1,ploneconf2016.policy,alecpm,login
+AuroreMariscal,1,1,bobtemplates.plone,AuroreMariscal,login
+avoinea,1,1,plone.stringinterp,avoinea,login
+calvinhp,1,1,plone.app.relationfield,calvinhp,login
+cdw9,1,1,Products.CMFPlacefulWorkflow,cdw9,login
+cekk,1,1,plone.app.dexterity,cekk,login
+cleberjsantos,1,1,aiteam.playbooks,cleberjsantos,login
+danmur,1,1,plone.app.tiles,danmur,login
+DieKatze,1,1,Products.PlonePAS,DieKatze,login
+djay,1,1,plone.app.content,djay,login
+ekulos,1,1,plone.app.content,ekulos,unmatched
+elioschmutz,1,1,plone.formwidget.contenttree,elioschmutz,login
+erral,1,1,Products.LinguaPlone,erral,commit_authors
+gforcad,1,1,plone.app.contentmenu,gforcad,unmatched
+huubbouma,1,1,diazo,huubbouma,login
+ida,1,1,Products.CMFPlone,ida,login
+idgserpro,1,1,Installers-UnifiedInstaller,idgserpro,login
+jean,1,1,plone.versioncheck,jean,login
+Jian Aijun,1,1,plone.app.layout,Jian Aijun,unmatched
+jone,1,1,plone.dexterity,jone,login
+julianhandl,1,1,plone.outputfilters,julianhandl,login
+karalics,1,1,plone.app.linkintegrity,karalics,login
+lbrannon,1,1,plone.app.contenttypes,lbrannon,unmatched
+lccruz,1,1,plone.restapi,lccruz,login
+lhuiskes,1,1,Products.TinyMCE,lhuiskes,login
+malthe,1,1,plone.portlet.collection,malthe,login
+mamico,1,1,plone.recipe.zeoserver,mamico,login
+naro,1,1,plone.formwidget.captcha,naro,login
+neilferreira,1,1,plone.app.mosaic,neilferreira,login
+obct537,1,1,mockup,obct537,login
+parruc,1,1,plone.app.iterate,parruc,login
+prospchr,1,1,Products.LinguaPlone,prospchr,login
+pysailor,1,1,plone.app.content,pysailor,login
+ramiroluz,1,1,plone.app.dexterity,ramiroluz,login
+rnix,1,1,Products.CMFPlone,rnix,unmatched
+shadowmint,1,1,plone.app.imaging,shadowmint,login
+sneridagh,1,1,ploneconf2016.policy,sneridagh,login
+sunew,1,1,plone.app.debugtoolbar,sunew,login
+Thanks,1,1,Installers-UnifiedInstaller,Thanks,unmatched
+tmog,1,1,Products.CMFPlone,tmog,login
+types,1,1,plone.restapi,types,unmatched
+vipod,1,1,plone.portlets,vipod,login
+wichert,1,1,plone.portlets,wichert,login
+witsch,1,1,Products.LinguaPlone,witsch,login

@@ -62,6 +62,8 @@ flowchart LR
     mapping[Organisation mapping] --> orgs
     orgs --> summaries[Multi-year summaries and reports]
     gh --> interactions[PR interactions per year]
+    gh --> changelogs[Changelog entries per year]
+    changelogs --> orgs
     plips[PLIPs] --> recognition[Community recognition]
     curated[Curated community data] --> recognition
     summaries --> recognition

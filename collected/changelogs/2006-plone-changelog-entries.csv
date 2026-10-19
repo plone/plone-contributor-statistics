@@ -1,0 +1,64 @@
+username,changelog_entries,repositories_count,repositories,changelog_names,matched_by
+hannosch,324,19,"Plone, Products.ATContentTypes, Products.ATReferenceBrowserWidget, Products.Archetypes, Products.CMFDiffTool, Products.CMFDynamicViewFTI, Products.CMFEditions, Products.CMFFormController, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.ExtendedPathIndex, Products.LinguaPlone, Products.Marshall, Products.MimetypesRegistry, Products.PlacelessTranslationService, Products.PloneLanguageTool, Products.PortalTransforms, Products.statusmessages, Products.validation",hannosch,commit_authors
+alecm,108,10,"Plone, Products.ATContentTypes, Products.ATReferenceBrowserWidget, Products.Archetypes, Products.CMFEditions, Products.CMFFormController, Products.CMFPlone, Products.PlacelessTranslationService, Products.ResourceRegistries, Products.statusmessages",alecm,unmatched
+limi,74,4,"Products.Archetypes, Products.CMFPlone, Products.LinguaPlone, Products.PloneLanguageTool",limi,commit_authors
+wichert,51,7,"Plone, Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, Products.PlacelessTranslationService, Products.PortalTransforms, Products.ResourceRegistries",wichert,login
+jensens,37,7,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, Products.MimetypesRegistry, Products.PloneLanguageTool, Products.PortalTransforms, Products.validation",jensens,login
+gregweb,32,1,Products.CMFEditions,gregweb,unmatched
+optilude,27,4,"Plone, Products.Archetypes, Products.CMFDynamicViewFTI, Products.CMFPlone",optilude,commit_authors
+stefan,25,6,"Products.ATContentTypes, Products.Archetypes, Products.CMFDynamicViewFTI, Products.CMFPlone, Products.MimetypesRegistry, Products.validation",stefan,unmatched
+fschulze,19,2,"Products.CMFPlone, Products.ResourceRegistries",fschulze,login
+nouri,17,4,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, Products.validation",nouri,unmatched
+spliter,17,3,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone",spliter,unmatched
+sidnei,16,4,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, Products.LinguaPlone",sidnei,login
+deo,15,4,"Products.CMFFormController, Products.CMFPlone, Products.LinguaPlone, Products.PloneLanguageTool",deo,unmatched
+rafrombrc,15,5,"Products.Archetypes, Products.CMFEditions, Products.CMFFormController, Products.CMFPlone, Products.ResourceRegistries",RaFromBRC;rafrombrc,login
+panjunyong,11,3,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone",panjunyong,commit_authors
+zopyx,11,2,"Products.ATContentTypes, Products.ATReferenceBrowserWidget",ajung,commit_authors
+rocky,10,5,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, Products.MimetypesRegistry, Products.ResourceRegistries",rocky,unmatched
+encolpe,7,4,"Products.Archetypes, Products.CMFEditions, Products.CMFPlone, Products.LinguaPlone",encolpe,login
+jladage,7,3,"Products.CMFPlone, Products.LinguaPlone, Products.PloneLanguageTool",jladage,login
+ender,6,2,"Products.ATContentTypes, Products.CMFPlone",ender,unmatched
+brcwhit,5,2,"Products.CMFPlone, five.intid",brcwhit,unmatched
+ree,5,2,"Products.CMFPlone, Products.ResourceRegistries",ree,unmatched
+turgmr2,5,1,Products.TinyMCE,turgmr2,unmatched
+frisi,4,1,Products.ATReferenceBrowserWidget,fRiSi,login
+plonista,4,2,"Products.CMFFormController, Products.CMFPlone",plonista,unmatched
+rlemmi,4,1,Products.CMFEditions,rlemmi,unmatched
+wald,4,1,Products.CMFPlone,wald,unmatched
+whitmo,4,1,Products.Archetypes,whit,commit_authors
+elro,3,1,Products.ResourceRegistries,elro,unmatched
+elvix,3,2,"Products.ATContentTypes, Products.ResourceRegistries",elvix,unmatched
+jenner,3,2,"Products.CMFPlone, Products.ResourceRegistries",jenner,unmatched
+mj,3,3,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone",mj,unmatched
+topiaruss,3,2,"Products.ATContentTypes, Products.PloneLanguageTool",russf,commit_authors
+vds,3,1,Products.CMFEditions,vds,login
+azy,2,1,Products.CMFEditions,azy,unmatched
+ctheune,2,1,Products.CMFPlone,ctheune,login
+jfroche,2,1,Products.ATContentTypes,jfroche,login
+joelburton,2,2,"Products.CMFQuickInstallerTool, Products.FoundationMember",joelburton,login
+kapilt,2,2,"Products.ATContentTypes, Products.Archetypes",k_vertigo,commit_authors
+paregorius,2,1,Products.CMFPlone,paregorius,unmatched
+raphael,2,2,"Products.ATContentTypes, Products.ATReferenceBrowserWidget",raphael,unmatched
+sunew,2,1,Products.CMFEditions,sunew,login
+Andrew Lewis,1,1,Products.CMFEditions,Andrew Lewis,unmatched
+brentmh,1,1,Products.CMFDiffTool,brentmh,unmatched
+csenger,1,1,Products.CMFPlone,csenger,login
+dreamcatcher,1,1,Products.PlacelessTranslationService,dreamcatcher,unmatched
+gotcha,1,1,Products.CMFEditions,gotcha,login
+Gpgi,1,1,Products.CMFEditions,Gpgi,unmatched
+lots of people,1,1,Products.Marshall,lots of people,unmatched
+mauritsvanrees,1,1,Products.CMFPlone,maurits,commit_authors
+morphex,1,1,Products.CMFPlone,morphex,unmatched
+naro,1,1,Products.CMFPlone,naro,login
+optildue,1,1,Products.ATContentTypes,optildue,unmatched
+Piotr Furman,1,1,Products.CMFEditions,Piotr Furman,unmatched
+regebro,1,1,Products.CMFFormController,regebro,login
+runyaga,1,1,Products.MimetypesRegistry,runyaga,login
+siebo,1,1,Products.CMFPlone,siebo,login
+spamsch,1,1,Products.ATReferenceBrowserWidget,spamsch,unmatched
+sthenault,1,1,Products.CMFEditions,syt,commit_authors
+stonor,1,1,Products.CMFEditions,stonor,login
+svincic,1,1,Products.CMFDynamicViewFTI,svincic,unmatched
+tesdal,1,1,Products.ResourceRegistries,tesdal,commit_authors
+vinsci,1,1,Products.CMFFormController,vinsci,login

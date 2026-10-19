@@ -4,7 +4,7 @@ Comprehensive Contributor and Organization Report Generator
 
 Generates a markdown report combining individual contributor and organization
 statistics across multiple time periods (current year, last full year,
-3-year and 10-year summaries).
+3-year and 10-year summaries), and the changelog entries of 2004-2012 (#71).
 """
 
 import argparse
@@ -13,7 +13,11 @@ from pathlib import Path
 from datetime import datetime
 
 from scripts.lib import paths
+from scripts.lib.changelogs import REPORTED_YEARS
+from scripts.lib.tables import by_count
 from scripts.derive.organisation_stats import UNMAPPED
+
+COUNTING_RULES = 'https://plone.github.io/plone-contributor-statistics/docs/explanation/counting-rules.html'
 
 
 def load_contributor_file(year):
@@ -73,9 +77,12 @@ def combine_organisation_data(years):
         return None
 
     all_data = pd.concat(frames, ignore_index=True)
+    if 'changelog_entries' not in all_data.columns:  # files written before the changelog entries (#71)
+        all_data['changelog_entries'] = 0
     aggregated = all_data.groupby('organisation').agg({
         'total_commits': 'sum',
         'total_pull_requests': 'sum',
+        'changelog_entries': 'sum',
     }).reset_index()
 
     # Combine contributors and repositories across years
@@ -148,6 +155,82 @@ def top_organisations_table(df, n=10):
             f"{format_number(row['total_commits'])} commits by {int(row['contributors_count'])} contributors."
         )
     return '\n'.join(lines)
+
+
+def combine_changelog_entries(years):
+    """Changelog entries and commits per person over the years, for the people with entries.
+
+    `unmatched` is True for names that no mapping file links to a person.
+    """
+    frames = [pd.read_csv(paths.changelog_entries_file(year), keep_default_na=False)
+              for year in years if paths.changelog_entries_file(year).exists()]
+    if not frames:
+        return None
+    all_data = pd.concat(frames, ignore_index=True)
+    all_data['unmatched'] = all_data['matched_by'].astype(str).str.split(';').apply(lambda layers: 'unmatched' in layers)
+    entries = all_data.groupby('username', as_index=False).agg({'changelog_entries': 'sum', 'unmatched': 'any'})
+    commits = combine_contributor_data(years)[['username', 'total_commits']]
+    merged = entries.merge(commits, on='username', how='left')
+    merged['total_commits'] = merged['total_commits'].fillna(0).astype(int)
+    return merged
+
+
+def changelog_contributors_table(df, n=10):
+    """The people with the most changelog entries, with their commits in the same years."""
+    lines = ["| Rank | Contributor | Changelog entries | Commits |",
+             "|------|-------------|-------------------|---------|"]
+    for i, (_, row) in enumerate(by_count(df, 'changelog_entries', 'username').head(n).iterrows(), 1):
+        name = f"*{row['username']}*" if row['unmatched'] else row['username']
+        lines.append(f"| {i} | {name} | {format_number(row['changelog_entries'])} | {format_number(row['total_commits'])} |")
+    return '\n'.join(lines)
+
+
+def changelog_organisations_table(df, n=10):
+    """The organisations with the most changelog entries; Unmapped is not ranked (#53)."""
+    unmapped = df[df['organisation'] == UNMAPPED]
+    ranked = by_count(df[df['organisation'] != UNMAPPED], 'changelog_entries', 'organisation').head(n)
+    lines = ["| Rank | Organization | Changelog entries | Commits | Contributors |",
+             "|------|-------------|-------------------|---------|--------------|"]
+    for i, (_, row) in enumerate(ranked.iterrows(), 1):
+        lines.append(f"| {i} | {row['organisation']} | {format_number(row['changelog_entries'])} "
+                     f"| {format_number(row['total_commits'])} | {int(row['contributors_count'])} |")
+    if not unmapped.empty:
+        row = unmapped.iloc[0]
+        lines.append("")
+        lines.append(f"Not mapped to an organisation: {format_number(row['changelog_entries'])} changelog entries, "
+                     f"{format_number(row['total_commits'])} commits.")
+    return '\n'.join(lines)
+
+
+def changelog_section(available_years):
+    """The section on the changelog entries of the years before pull requests, or [] without data."""
+    years = [year for year in REPORTED_YEARS if year in available_years]
+    people = combine_changelog_entries(years)
+    if people is None or people.empty:
+        return []
+    label = f"{years[0]}–{years[-1]}"
+    lines = [f"## Changelog Entries {label}", ""]
+    lines.append("Before pull requests, Plone's changelogs said who made a change: from 2004 on, "
+                 "almost every entry ends with the name of the person who made it.")
+    lines.append("Each entry counts once, in the year of the release it is listed under, and for every person it names.")
+    lines.append("The entries are shown next to the commits of the same years, not added to them.")
+    lines.append("Names that no mapping file links to a person yet are shown as written in the changelogs, in italics.")
+    lines.append(f"See [how contributions are counted]({COUNTING_RULES}).")
+    lines.append("")
+    lines.append(f"### Top 10 Contributors by Changelog Entries ({label})")
+    lines.append("")
+    lines.append(changelog_contributors_table(people))
+    lines.append("")
+    lines.append("")
+    organisations = combine_organisation_data(years)
+    lines.append(f"### Top 10 Organisations by Changelog Entries ({label})")
+    lines.append("")
+    lines.append(changelog_organisations_table(organisations))
+    lines.append("")
+    lines.append("")
+    lines.append("---")
+    lines.append("")
+    return lines
 
 
 def main():
@@ -247,11 +330,14 @@ def main():
 
     report.append("---")
     report.append("")
+    report.extend(changelog_section(available_years))
     report.append("## Notes")
     report.append("")
-    report.append("- All tables are sorted by number of PRs (descending)")
+    report.append("- The tables of contributors and organisations are sorted by number of PRs (descending), "
+                  "the tables of changelog entries by number of entries")
     report.append("- **PRs**: Merged pull requests only (excludes open or closed/rejected PRs)")
     report.append("- **Commits**: Direct code commits to repositories")
+    report.append("- **Changelog entries**: Entries in the changelogs of the releases, credited to every person they name")
     report.append("- **Contributors**: Number of individual contributors (for organizations)")
     report.append("- **Repositories**: Number of different repositories contributed to")
     report.append("")

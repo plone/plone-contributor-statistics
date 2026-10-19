@@ -1,6 +1,6 @@
 # Plone Core Contributor Statistics Report
 
-Generated on: 2026-10-19 15:21:53
+Generated on: 2026-10-19 18:18:42
 
 This report shows the top contributors and organizations in the Plone ecosystem across different time periods.
 
@@ -158,11 +158,56 @@ Not mapped to an organisation: 2,272 PRs, 6,399 commits by 386 contributors.
 
 ---
 
+## Changelog Entries 2004–2012
+
+Before pull requests, Plone's changelogs said who made a change: from 2004 on, almost every entry ends with the name of the person who made it.
+Each entry counts once, in the year of the release it is listed under, and for every person it names.
+The entries are shown next to the commits of the same years, not added to them.
+Names that no mapping file links to a person yet are shown as written in the changelogs, in italics.
+See [how contributions are counted](https://plone.github.io/plone-contributor-statistics/docs/explanation/counting-rules.html).
+
+### Top 10 Contributors by Changelog Entries (2004–2012)
+
+| Rank | Contributor | Changelog entries | Commits |
+|------|-------------|-------------------|---------|
+| 1 | hannosch | 2,278 | 7,274 |
+| 2 | davisagli | 745 | 2,585 |
+| 3 | *alecm* | 471 | 0 |
+| 4 | limi | 435 | 2,221 |
+| 5 | tiran | 405 | 1,260 |
+| 6 | optilude | 401 | 2,951 |
+| 7 | wichert | 397 | 1,714 |
+| 8 | *elro* | 273 | 0 |
+| 9 | esteele | 253 | 2,639 |
+| 10 | witsch | 246 | 1,602 |
+
+
+### Top 10 Organisations by Changelog Entries (2004–2012)
+
+| Rank | Organization | Changelog entries | Commits | Contributors |
+|------|-------------|-------------------|---------|--------------|
+| 1 | Jarn | 1,776 | 7,725 | 12 |
+| 2 | Groundwire | 575 | 1,904 | 1 |
+| 3 | Simplon | 397 | 1,714 | 1 |
+| 4 | Deloitte Digital | 360 | 2,820 | 1 |
+| 5 | Zest Software | 237 | 974 | 4 |
+| 6 | Penn State University | 198 | 1,771 | 2 |
+| 7 | ONE/Northwest | 170 | 681 | 1 |
+| 8 | Google | 146 | 782 | 1 |
+| 9 | Four Digits | 124 | 1,145 | 2 |
+| 10 | Enfold | 109 | 906 | 4 |
+
+Not mapped to an organisation: 5,877 changelog entries, 18,483 commits.
+
+
+---
+
 ## Notes
 
-- All tables are sorted by number of PRs (descending)
+- The tables of contributors and organisations are sorted by number of PRs (descending), the tables of changelog entries by number of entries
 - **PRs**: Merged pull requests only (excludes open or closed/rejected PRs)
 - **Commits**: Direct code commits to repositories
+- **Changelog entries**: Entries in the changelogs of the releases, credited to every person they name
 - **Contributors**: Number of individual contributors (for organizations)
 - **Repositories**: Number of different repositories contributed to
 

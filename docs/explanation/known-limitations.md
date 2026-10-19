@@ -32,6 +32,20 @@ Organisations of the early years are mostly unknown
     Early organisation statistics reflect where people are today.
     The email addresses of the Subversion period don't help, because the conversion to Git assigned them ({doc}`history-and-coverage`).
 
+Changelog names without a mapping
+:   Many early changelog entries are signed with a nickname, such as `alecm` or `timo`, that no mapping file links to a person yet.
+    They count under the name as written and belong to no organisation, so one person can appear twice, under a nickname and under a login ([#71](https://github.com/plone/plone-contributor-statistics/issues/71)).
+    {doc}`/how-to/link-old-commits-to-a-person` shows how to link a name.
+
+Commits can name the committer instead of the author
+:   `python -m scripts.tools.unmatched_changelog_names --propose` proposes the person behind a changelog name from the commits that repeat its entries.
+    When someone committed another person's patch, the commit names the committer, and the proposal names the wrong person.
+    Each proposal is therefore checked before it is added, never applied automatically.
+
+GNU-style ChangeLogs are not read
+:   A few old products kept a ChangeLog of dated records with a name and an email address, instead of release sections.
+    The collector skips these files, and with them their records from the early years.
+
 Zope and other Foundation projects are not counted
 :   Their repositories are outside the `plone` organisation, and how to count them is open ([#58](https://github.com/plone/plone-contributor-statistics/issues/58)).
 
@@ -45,6 +59,18 @@ Work outside GitHub is counted only where curated data exists
 Only the opener of a pull request gets the credit
 :   Co-authors and reviewers of a pull request get none.
     Review and merge work is collected per pull request, but not credited to people ([#61](https://github.com/plone/plone-contributor-statistics/issues/61)).
+
+Changelog entries are dated by their release
+:   An entry counts for the year of the release it is listed under, which is often weeks and sometimes more than a year after the work ({doc}`history-and-coverage`).
+
+Changelog habits differ
+:   Some people wrote one entry for many commits, others an entry for almost every commit, and some changes have no entry at all.
+    That is why entries are shown next to commits and never added to them ({doc}`counting-rules`).
+
+Changelog entries of organisations without code work in the year are not shown
+:   The organisation statistics have one row per organisation with commits or pull requests in the year.
+    An organisation whose people have changelog entries in a year, but no commits or pull requests, gets no row, and its entries are not shown; they remain in the yearly changelog file.
+    This affects a handful of entries per year.
 
 The committer date decides the year
 :   A rebased or cherry-picked commit can count for a later year than the one in which it was written.

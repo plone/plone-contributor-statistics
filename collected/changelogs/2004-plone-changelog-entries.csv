@@ -1,0 +1,63 @@
+username,changelog_entries,repositories_count,repositories,changelog_names,matched_by
+tiran,258,6,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, Products.MimetypesRegistry, Products.PortalTransforms, Products.validation",tiran,login
+limi,131,4,"Plone, Products.Archetypes, Products.CMFPlone, Products.LinguaPlone",limi,commit_authors
+stefan,76,1,Products.CMFPlone,stefan,unmatched
+runyaga,42,3,"Products.Archetypes, Products.CMFPlone, Products.PortalTransforms",runyaga,login
+dreamcatcher,27,3,"Products.Archetypes, Products.CMFPlone, Products.PortalTransforms",dreamcatcher,unmatched
+geoffd,21,2,"Products.Archetypes, Products.CMFPlone",geoffd,unmatched
+deo,18,3,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone",deo,unmatched
+elvix,14,2,"Products.Archetypes, Products.CMFPlone",elvix,unmatched
+sidnei,14,2,"Plone, Products.CMFPlone",sidnei,login
+andym,12,2,"Plone, Products.CMFPlone",andym,unmatched
+ctheune,11,1,Products.ATContentTypes,ctheune,login
+tesdal,10,1,Products.CMFPlone,tesdal,commit_authors
+dorneles,8,1,Products.CMFPlone,dtremea,commit_authors
+gotcha,7,2,"Products.ATContentTypes, Products.CMFPlone",gotcha,login
+yenzenz,7,1,Products.Archetypes,yenzenz,unmatched
+jladage,6,1,Products.CMFPlone,jladage,login
+rohrer,6,1,Products.CMFPlone,rohrer,unmatched
+jensens,5,2,"Products.ATContentTypes, Products.Archetypes",jensens,login
+kapil,5,1,Products.CMFPlone,kapil,unmatched
+philikon,5,2,"Plone, Products.CMFPlone",philikon,login
+alecacct,4,1,Products.Archetypes,alecacct,unmatched
+bmh,4,1,Products.CMFPlone,bmh,unmatched
+jok2,4,1,Products.CMFPlone,jok2,unmatched
+pupq,4,1,Products.CMFPlone,pupq,unmatched
+ronnix,4,2,"Products.Archetypes, Products.CMFPlone",ronnix,unmatched
+zworkb,4,2,"Products.Archetypes, Products.CMFPlone",zworkb,commit_authors
+__gotcha,3,1,Products.Archetypes,__gotcha,unmatched
+_robert_,3,1,Products.CMFPlone,_robert_,unmatched
+bcsaller,3,1,Products.Archetypes,bcsaller,login
+duncanb,3,1,Products.Archetypes,duncanb,unmatched
+ender,3,1,Products.Archetypes,ender,unmatched
+achilles,2,1,Products.CMFPlone,achilles,unmatched
+azy,2,1,Products.CMFPlone,azy,unmatched
+dm,2,1,Products.Archetypes,dm,unmatched
+geir,2,1,Products.LinguaPlone,geir,unmatched
+magnus,2,1,Products.CMFPlone,magnus,unmatched
+mrtopf,2,1,Products.CMFPlone,mrtopf,login
+rafrombrc,2,1,Products.Archetypes,rafrombrc,login
+rochael,2,2,"Products.ATContentTypes, Products.Archetypes",rochael,unmatched
+runyan,2,1,Products.Archetypes,runyan,unmatched
+testal,2,1,Products.LinguaPlone,testal,unmatched
+zopyx,2,2,"Products.Archetypes, Products.CMFPlone",ajung,commit_authors
+zwork,2,1,Products.CMFPlone,zwork,unmatched
+'Folder',1,1,Products.CMFPlone,'Folder',unmatched
+_ender_,1,1,Products.Archetypes,_ender_,unmatched
+batlogg,1,1,Products.Archetypes,batlogg,unmatched
+biza,1,1,Products.Archetypes,biza,unmatched
+clebeaupin,1,1,Products.Archetypes,clebeaupin,unmatched
+ctheuni,1,1,Products.Archetypes,ctheuni,unmatched
+dan_t,1,1,Products.ATContentTypes,dan_t,unmatched
+dmauerer,1,1,Products.Archetypes,dmauerer,unmatched
+dmaurer,1,1,Products.PortalTransforms,dmaurer,unmatched
+dnouri,1,1,Products.Archetypes,dpunktnpunkt,commit_authors
+johtha,1,1,Products.Archetypes,johtha,unmatched
+kai,1,1,Products.Archetypes,kai,unmatched
+kapilt,1,1,Products.Archetypes,hazmat,commit_authors
+lurker,1,1,Products.Archetypes,lurker,unmatched
+mitchel,1,1,Products.Archetypes,mitchel,unmatched
+neaj,1,1,Products.Archetypes,neaj,unmatched
+sh1mmer,1,1,Products.CMFPlone,sh1mmer,unmatched
+spamsch,1,1,Products.Archetypes,spamsch,unmatched
+yenzens,1,1,Products.ATContentTypes,yenzens,unmatched

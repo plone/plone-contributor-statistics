@@ -52,6 +52,42 @@ The same rule applies to every repository, Volto included ([#42](https://github.
 Pull requests to any branch count, including backports to maintenance branches.
 A backport is work of its own: it needs to be adapted, tested and released.
 
+## A changelog entry belongs to the people it names
+
+Before pull requests, the changelogs of the packages said who made a change.
+From 2003 on, an entry ends with the name of the person in brackets, such as `[limi]`; towncrier entries from 2016 on end with `@login` ([#71](https://github.com/plone/plone-contributor-statistics/issues/71)).
+The changelog collector reads these entries from the changelog files at the tips of the default branch and the release branches of every repository.
+It needs no file history, because the tip of a changelog holds all of its entries.
+
+An entry counts for the year of the release it is listed under.
+The release header gives the date; when it has none, the date of the release's tag does.
+Entries without a release date, such as unreleased sections, don't count.
+The release date is simple and reproducible, but it is later than the work, see {doc}`history-and-coverage`.
+
+Each entry exists several times: on every later release branch, in files that moved within a repository, and in copies between repositories.
+The same text, names included, counts once within a repository, for its earliest release.
+Across repositories, the same text counts once when it is long enough not to be generic, or when both copies have the same release date.
+A short text such as "Initial release" therefore still counts in each package that has it.
+A backport whose text was edited counts twice, in line with the rule that a backport is work of its own.
+
+An entry with several names counts in full for each person, as joint work does elsewhere in the statistics.
+Names that are no person, such as `[plone devs]`, placeholders such as "Nothing changed yet", and bots don't count.
+
+The names are mapped to people with the mapping files, see {doc}`attribution` and {doc}`/reference/mapping-files`.
+A name that no file maps counts as written, like a person without a GitHub account, and belongs to no organisation.
+
+## Changelog entries are shown, not added
+
+The organisation statistics, the summaries and the contributor report show the changelog entries in a column of their own, next to commits and pull requests.
+They are never added to the commits or the pull requests, and the order of the tables stays the order by commits or pull requests.
+
+An entry and a commit measure the same work in two ways: most changes have both.
+Adding them would count that work twice.
+How many commits a person makes for one entry is personal habit, so neither number is a fair conversion of the other.
+Shown side by side, the entries are a second view of the years before pull requests, and they make visible people whose work others committed.
+The report shows them for the years in which almost every entry names a person and pull requests didn't exist yet, see {doc}`history-and-coverage`.
+The community recognition doesn't use them.
+
 ## Bots don't count
 
 Bots open pull requests, push commits and write comments, sometimes more than people do.

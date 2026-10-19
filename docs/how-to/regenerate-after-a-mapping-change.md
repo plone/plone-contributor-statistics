@@ -11,6 +11,8 @@ You don't need a GitHub token, because nothing is collected from GitHub again.
     make install
     ```
 
+    A change to `curated/mappings/changelog_names.csv` needs `make run-changelogs` first, because the changelog collector maps the names, as the commit collector does with `curated/mappings/commit_authors.csv`.
+
 2.  Regenerate the organisation statistics of all years:
 
     ```shell
