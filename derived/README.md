@@ -6,7 +6,7 @@ After a change to the mapping, regenerate it as described in [Regenerate the sta
 
 | Path | Holds | Make target |
 |---|---|---|
-| `organisation-contributors/` | Commits and merged pull requests per organisation, one file per year. | `run-organisation-stats`, `run-organisation-stats-year` |
+| `organisation-contributors/` | Commits, merged pull requests and changelog entries per organisation, one file per year. | `run-organisation-stats`, `run-organisation-stats-year` |
 | `summaries/` | Organisations over the last three, five and ten years. | `three-year-summary`, `five-year-summary`, `ten-year-summary` |
 | `community-recognition/` | Recognition points and levels per organisation, one file per year, written by `scripts/report/generate_community_recognition_report.py` together with its report. | `community-recognition` |
 | `yearly-activity-statistics.csv` | Totals per year. | `yearly-activity` |

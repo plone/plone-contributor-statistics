@@ -1,21 +1,21 @@
-organisation,total_commits,total_pull_requests,contributors_count,contributors,repositories_count,repositories,first_contribution,last_contribution
-Unmapped,1510,0,33,"Gregoire Weber, aburkhalter, bbuehlmann, bcsaller, bitranch, brianfive, chadwhitacre, csenger, ctheune, dannybloe, dnouri, geoff-davis, glenfant, hannosch, jfroche, joelburton, kapilt, lalomartins, lrowe, mishunov, naro, optilude, panjunyong, rafrombrc, reinout, robertrottermann, siebo, sthenault, tiran, topiaruss, vinsci, whitmo, xiru",21,"Products.ATContentTypes, Products.ATReferenceBrowserWidget, Products.Archetypes, Products.CMFDynamicViewFTI, Products.CMFEditions, Products.CMFFormController, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.CMFTestCase, Products.Marshall, Products.MimetypesRegistry, Products.PasswordResetTool, Products.PlacelessTranslationService, Products.PloneLanguageTool, Products.PlonePAS, Products.ResourceRegistries, Products.contentmigration, Products.i18ntestcase, Products.statusmessages, txtfilter, wicked",2005-01-02,2005-12-31
-Jarn,836,0,4,"baekholt, limi, stefanholek, tesdal",12,"Products.ATContentTypes, Products.ATReferenceBrowserWidget, Products.Archetypes, Products.CMFDynamicViewFTI, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.CMFTestCase, Products.MimetypesRegistry, Products.PlacelessTranslationService, Products.PloneLanguageTool, Products.PlonePAS, Products.ResourceRegistries",2005-01-02,2005-12-31
-Enfold,440,0,4,"andymckay, jcameroncooper, runyaga, sidnei",11,"Products.ATContentTypes, Products.ATReferenceBrowserWidget, Products.Archetypes, Products.CMFFormController, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.Marshall, Products.MimetypesRegistry, Products.PasswordResetTool, Products.PlacelessTranslationService, Products.PlonePAS",2005-01-07,2005-12-29
-Alec Mitchell (independent),395,0,1,alecpm,10,"Products.ATContentTypes, Products.ATReferenceBrowserWidget, Products.Archetypes, Products.CMFDiffTool, Products.CMFDynamicViewFTI, Products.CMFEditions, Products.CMFPlacefulWorkflow, Products.CMFPlone, Products.PlacelessTranslationService, Products.ResourceRegistries",2005-03-27,2005-12-23
-Florian Schulze (independent),180,0,1,fschulze,5,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.ResourceRegistries",2005-05-31,2005-12-22
-Klein & Partner KG,134,0,1,jensens,5,"Products.ATContentTypes, Products.Archetypes, Products.CMFQuickInstallerTool, Products.MimetypesRegistry, Products.PlonePAS",2005-01-04,2005-12-29
-X3ng Web Technology,64,0,1,dorneles,6,"Products.ATContentTypes, Products.Archetypes, Products.CMFDynamicViewFTI, Products.CMFPlone, Products.PloneLanguageTool, Products.ResourceRegistries",2005-01-04,2005-12-10
-Ingeniweb,26,0,1,encolpe,1,Products.CMFPlacefulWorkflow,2005-11-10,2005-12-27
-Simplon,21,0,1,wichert,5,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.PlonePAS",2005-11-18,2005-12-28
-ServerZen Software,20,0,1,rockyburt,3,"Products.Archetypes, Products.CMFPlone, Products.PlonePAS",2005-02-04,2005-12-13
-Royal Belgium Institute of Natural Sciences,19,0,1,davconvent,1,Products.CMFPlone,2005-03-25,2005-04-16
-COM.lounge,18,0,1,mrtopf,2,"Products.Archetypes, Products.CMFPlone",2005-03-24,2005-04-05
-struktur AG,14,0,1,longsleep,1,Products.CMFPlone,2005-05-12,2005-09-02
-Telesis,10,0,1,jodok,5,"Products.ATContentTypes, Products.ATReferenceBrowserWidget, Products.CMFPlone, Products.PlacelessTranslationService, Products.ResourceRegistries",2005-02-01,2005-08-07
-BubbleNet,9,0,1,gotcha,2,"Products.Archetypes, Products.CMFPlone",2005-03-09,2005-07-28
-Zest Software,9,0,1,jladage,1,Products.CMFPlone,2005-01-03,2005-06-01
-BlueDynamics KG,6,0,1,zworkb,2,"Products.Archetypes, Products.CMFQuickInstallerTool",2005-01-05,2005-10-01
-Reflab,6,0,1,vds,1,Products.CMFEditions,2005-06-30,2005-07-02
-Jens Vagelpohl (independent),1,0,1,dataflake,1,Products.ATContentTypes,2005-04-12,2005-04-12
-Zopyx,1,0,1,zopyx,1,Products.CMFPlone,2005-10-01,2005-10-01
+organisation,total_commits,total_pull_requests,changelog_entries,contributors_count,contributors,repositories_count,repositories,first_contribution,last_contribution
+Unmapped,1510,0,902,33,"Gregoire Weber, aburkhalter, bbuehlmann, bcsaller, bitranch, brianfive, chadwhitacre, csenger, ctheune, dannybloe, dnouri, geoff-davis, glenfant, hannosch, jfroche, joelburton, kapilt, lalomartins, lrowe, mishunov, naro, optilude, panjunyong, rafrombrc, reinout, robertrottermann, siebo, sthenault, tiran, topiaruss, vinsci, whitmo, xiru",21,"Products.ATContentTypes, Products.ATReferenceBrowserWidget, Products.Archetypes, Products.CMFDynamicViewFTI, Products.CMFEditions, Products.CMFFormController, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.CMFTestCase, Products.Marshall, Products.MimetypesRegistry, Products.PasswordResetTool, Products.PlacelessTranslationService, Products.PloneLanguageTool, Products.PlonePAS, Products.ResourceRegistries, Products.contentmigration, Products.i18ntestcase, Products.statusmessages, txtfilter, wicked",2005-01-02,2005-12-31
+Jarn,836,0,59,4,"baekholt, limi, stefanholek, tesdal",12,"Products.ATContentTypes, Products.ATReferenceBrowserWidget, Products.Archetypes, Products.CMFDynamicViewFTI, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.CMFTestCase, Products.MimetypesRegistry, Products.PlacelessTranslationService, Products.PloneLanguageTool, Products.PlonePAS, Products.ResourceRegistries",2005-01-02,2005-12-31
+Enfold,440,0,11,4,"andymckay, jcameroncooper, runyaga, sidnei",11,"Products.ATContentTypes, Products.ATReferenceBrowserWidget, Products.Archetypes, Products.CMFFormController, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.Marshall, Products.MimetypesRegistry, Products.PasswordResetTool, Products.PlacelessTranslationService, Products.PlonePAS",2005-01-07,2005-12-29
+Alec Mitchell (independent),395,0,0,1,alecpm,10,"Products.ATContentTypes, Products.ATReferenceBrowserWidget, Products.Archetypes, Products.CMFDiffTool, Products.CMFDynamicViewFTI, Products.CMFEditions, Products.CMFPlacefulWorkflow, Products.CMFPlone, Products.PlacelessTranslationService, Products.ResourceRegistries",2005-03-27,2005-12-23
+Florian Schulze (independent),180,0,31,1,fschulze,5,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.ResourceRegistries",2005-05-31,2005-12-22
+Klein & Partner KG,134,0,0,1,jensens,5,"Products.ATContentTypes, Products.Archetypes, Products.CMFQuickInstallerTool, Products.MimetypesRegistry, Products.PlonePAS",2005-01-04,2005-12-29
+X3ng Web Technology,64,0,0,1,dorneles,6,"Products.ATContentTypes, Products.Archetypes, Products.CMFDynamicViewFTI, Products.CMFPlone, Products.PloneLanguageTool, Products.ResourceRegistries",2005-01-04,2005-12-10
+Ingeniweb,26,0,0,1,encolpe,1,Products.CMFPlacefulWorkflow,2005-11-10,2005-12-27
+Simplon,21,0,1,1,wichert,5,"Products.ATContentTypes, Products.Archetypes, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.PlonePAS",2005-11-18,2005-12-28
+ServerZen Software,20,0,0,1,rockyburt,3,"Products.Archetypes, Products.CMFPlone, Products.PlonePAS",2005-02-04,2005-12-13
+Royal Belgium Institute of Natural Sciences,19,0,5,1,davconvent,1,Products.CMFPlone,2005-03-25,2005-04-16
+COM.lounge,18,0,7,1,mrtopf,2,"Products.Archetypes, Products.CMFPlone",2005-03-24,2005-04-05
+struktur AG,14,0,2,1,longsleep,1,Products.CMFPlone,2005-05-12,2005-09-02
+Telesis,10,0,0,1,jodok,5,"Products.ATContentTypes, Products.ATReferenceBrowserWidget, Products.CMFPlone, Products.PlacelessTranslationService, Products.ResourceRegistries",2005-02-01,2005-08-07
+BubbleNet,9,0,3,1,gotcha,2,"Products.Archetypes, Products.CMFPlone",2005-03-09,2005-07-28
+Zest Software,9,0,4,1,jladage,1,Products.CMFPlone,2005-01-03,2005-06-01
+BlueDynamics KG,6,0,0,1,zworkb,2,"Products.Archetypes, Products.CMFQuickInstallerTool",2005-01-05,2005-10-01
+Reflab,6,0,0,1,vds,1,Products.CMFEditions,2005-06-30,2005-07-02
+Jens Vagelpohl (independent),1,0,0,1,dataflake,1,Products.ATContentTypes,2005-04-12,2005-04-12
+Zopyx,1,0,3,1,zopyx,1,Products.CMFPlone,2005-10-01,2005-10-01
