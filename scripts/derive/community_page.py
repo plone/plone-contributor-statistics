@@ -94,10 +94,15 @@ def merged(contributions):
     """Equal contributions as one, e.g. a training whose organisation cell names one organisation twice."""
     points = {}
     for c in contributions:
-        key = (c.text, c.file, c.line, c.source)
+        key = (c.text, c.file, c.line, c.source, c.rows)
         points[key] = points.get(key, 0) + c.points
-    return [{'text': text, 'points': rounded(value), 'file': file, 'line': line, 'source': source}
-            for (text, file, line, source), value in points.items()]
+    merged = []
+    for (text, file, line, source, rows), value in points.items():
+        contribution = {'text': text, 'points': rounded(value), 'file': file, 'line': line, 'source': source}
+        if rows:
+            contribution['rows'] = [[label, str(path), row] for label, path, row in rows]
+        merged.append(contribution)
+    return merged
 
 
 def levels_data(levels):

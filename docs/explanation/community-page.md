@@ -58,6 +58,7 @@ They can differ from the levels published on plone.org in August 2026, see {doc}
 
 For each organisation, the page lists its points per category and the contributions behind them.
 Each contribution links to its row in the data and to its public record; rows without a public record yet are marked as pending ([#46](https://github.com/plone/plone-contributor-statistics/issues/46)).
+Points for pull requests add up the yearly organisation statistics of five years, so they link to the organisation's row in each of those files, one link per year.
 
 For each organisation, a small graph shows its yearly counts since 2003 in four areas: commits and merged pull requests, as the organisation statistics attribute them; community roles, one per person and role in the curated community data; and events it organised.
 These are counts, not points: points exist only for the recognition years.
