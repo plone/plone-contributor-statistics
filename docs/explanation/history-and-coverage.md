@@ -91,7 +91,7 @@ The curated data reaches back further for some kinds of work.
 The organising organisations of every Plone Conference since 2003 are recorded; the rows from 2003 to 2019 also name the organisers and a public source.
 Board members, release managers and team leaders are recorded with sources from 2004 on.
 Sprints are recorded from 2003, and World Plone Day from its first edition in 2008.
-Trainings and podcasts start in 2020 ([#72](https://github.com/plone/plone-contributor-statistics/issues/72)).
+Trainings are recorded from 2003, and podcasts start in 2020 ([#72](https://github.com/plone/plone-contributor-statistics/issues/72)).
 
 ## Best effort, and how you can help
 

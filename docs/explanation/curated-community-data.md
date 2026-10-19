@@ -52,6 +52,11 @@ Several kinds of curated data depend on a definition, and the definitions follow
   Each local event is one event, with its own source; online editions are recorded, but don't count.
   The organisers are the organisations that held the event, not the venue that hosted it.
   An event that was announced, but that no report confirms, is recorded with the note "announced, no report found"; reports after the event were not usual in the early years.
+- A training is a session that the conference programme calls a training or a tutorial, including the tutorials in the talk programme of the early conferences, which had no separate training days.
+  Trainings that the trainers organised and charged for themselves count too, when the conference announced them as its trainings.
+  A training counts once, also when it has several parts or was given more than once; a training that a source records as cancelled or replaced, or that is missing from the room schedule, doesn't count.
+  At a joint conference, only the Plone trainings count.
+  Where a trainer's bio names two organisations, the first one counts.
 
 ## The rules for sprints changed over time
 
@@ -82,7 +87,7 @@ The organising organisations of every Plone Conference since 2003 are recorded.
 The rows from 2003 to 2019 also name the organisers and a source.
 Board members, release managers and team leaders are recorded with sources from 2004 on ([#94](https://github.com/plone/plone-contributor-statistics/pull/94), [#99](https://github.com/plone/plone-contributor-statistics/pull/99), [#113](https://github.com/plone/plone-contributor-statistics/pull/113)).
 Sprints are recorded from the first one in 2003, and the local World Plone Day events from the first World Plone Day in 2008.
-Trainings and podcasts start in 2020.
+Trainings are recorded from the first conference in 2003; podcasts start in 2020.
 Collecting their earlier years needs sources that are hard to find, and people who remember ([#72](https://github.com/plone/plone-contributor-statistics/issues/72)).
 
 ```{seealso}

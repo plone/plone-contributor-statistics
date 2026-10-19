@@ -51,7 +51,7 @@ Zope and other Foundation projects are not counted
 
 Work outside GitHub is counted only where curated data exists
 :   Documentation outside GitHub, marketing, and help in the forum are not recorded ([#35](https://github.com/plone/plone-contributor-statistics/issues/35)).
-    Trainings and podcasts are recorded from 2020 on; conference organisers and sprints from 2003, Board members, release managers and team leaders from 2004, and World Plone Day from 2008 ([#72](https://github.com/plone/plone-contributor-statistics/issues/72)).
+    Podcasts are recorded from 2020 on; conference organisers, trainings and sprints from 2003, Board members, release managers and team leaders from 2004, and World Plone Day from 2008 ([#72](https://github.com/plone/plone-contributor-statistics/issues/72)).
     Most World Plone Day events before 2020 are known only from their announcement.
 
 ## Counting

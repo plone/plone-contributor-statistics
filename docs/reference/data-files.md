@@ -80,8 +80,9 @@ Several people or organisations in one cell are separated by semicolons.
 
 `curated/community-contributions/YYYY-plone-conference-trainings.csv`
 :   One row per training at the Plone Conference.
-    Columns: `Title`, `Trainer(s)`, `GitHub Handle(s)`, `Organisation`, and `Source` from 2020 to 2024.
+    Columns: `Title`, `Trainer(s)`, `GitHub Handle(s)`, `Organisation`, `Source` up to 2024, and `Notes` up to 2019.
     Trainers, handles and organisations are listed in the same order.
+    `Notes` say what kind of session the source calls it, for example a tutorial in the talk programme or a training paid separately, and "announced, no report found" where only the announcement is known.
 
 `curated/community-contributions/YYYY-release-managers.csv`
 :   One row per release manager.
