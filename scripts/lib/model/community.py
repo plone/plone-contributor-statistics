@@ -114,6 +114,11 @@ def _people(kind, row):
     return (row[column],) if row[column] else ()
 
 
+def community_folder(community_dir=None):
+    """The folder of the community files: the given one, else the curated folder."""
+    return Path(community_dir) if community_dir is not None else paths.COMMUNITY
+
+
 def items(year, kind, community_dir=paths.COMMUNITY):
     """Every row of a kind and year, with the sets split; talks of every type are included."""
     path, rows = _rows(community_dir, year, kind)

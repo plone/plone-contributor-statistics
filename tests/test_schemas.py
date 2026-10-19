@@ -44,3 +44,13 @@ def test_conference_host_and_podcast_host_may_be_empty():
     for kind, name in (('plone-conference', 'organisation'), ('podcasts', 'person')):
         fields = {f['name']: f for f in json.loads((SCHEMAS / f'{kind}.json').read_text())['fields']}
         assert 'required' not in fields[name]['constraints']
+
+
+def test_keys_make_rows_unique():
+    expected = {'board-of-directors': ['person'], 'release-managers': ['person'], 'team-leaders': ['person', 'team'],
+                'sprints': ['sprint'], 'plone-conference-trainings': ['title'], 'identities': ['kind', 'value']}
+    for kind, key in expected.items():
+        assert json.loads((SCHEMAS / f'{kind}.json').read_text())['primaryKey'] == key
+    # A person has several rows (the overlap check covers affiliations); titles repeat; podcast hosts may be empty
+    for kind in ('affiliations', 'world-plone-day-talks', 'podcasts'):
+        assert 'primaryKey' not in json.loads((SCHEMAS / f'{kind}.json').read_text())

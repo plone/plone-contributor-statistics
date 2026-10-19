@@ -9,6 +9,7 @@ from scripts.lib.model.community import (  # noqa: F401
     Event,
     Item,
     Role,
+    community_folder,
     events,
     items,
     roles,

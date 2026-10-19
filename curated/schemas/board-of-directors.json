@@ -36,6 +36,9 @@
       "description": "Free-text remarks on the row."
     }
   ],
+  "primaryKey": [
+    "person"
+  ],
   "foreignKeys": [
     {
       "fields": [

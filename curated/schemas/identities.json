@@ -36,6 +36,10 @@
       "description": "What the identification rests on; early commit authors may have no public record."
     }
   ],
+  "primaryKey": [
+    "kind",
+    "value"
+  ],
   "foreignKeys": [
     {
       "fields": [

@@ -16,7 +16,7 @@ from pathlib import Path
 import argparse
 
 from scripts.lib import paths
-from scripts.lib.model import IN_PERSON, MIN_EPISODES, TALK_TYPES, UNMAPPED, items, load_registry
+from scripts.lib.model import IN_PERSON, MIN_EPISODES, TALK_TYPES, UNMAPPED, community_folder, items, load_registry
 from scripts.lib.years import RECOGNITION_YEAR
 from scripts.derive.plip_organisation_stats import organisation_lookup, plips_by_organisation, read_plips
 
@@ -252,7 +252,7 @@ COMMUNITY_RULES = (
 
 
 def calculate_community_recognition_points(year=YEAR, data_dir=paths.ORGANISATION_CONTRIBUTORS_DIR,
-                                           community_dir=paths.COMMUNITY, plips_file=paths.PLIPS_DETAILED,
+                                           community_dir=None, plips_file=paths.PLIPS_DETAILED,
                                            registry=None, contributions=None):
     """Calculate the points of the recognition year, as community-recognition-points.csv says.
 
@@ -269,6 +269,7 @@ def calculate_community_recognition_points(year=YEAR, data_dir=paths.ORGANISATIO
         org_details[org][category].append(text)
         found[org][category].append(Contribution(text, points, file, line, source or None, rows))
 
+    community_dir = community_folder(community_dir)
     require_community_year(community_dir, year)
     registry = registry or load_registry()
 

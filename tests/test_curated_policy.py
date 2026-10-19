@@ -41,6 +41,14 @@ def test_a_sprint_with_a_level_cites_the_board_minutes(path):
             f'a level needs the Board decision as a source: {row["sprint"]}'
 
 
+def test_team_leaders_file_for_every_year_since_2004():
+    files = sorted(paths.COMMUNITY.glob('*-team-leaders.csv'))
+    years = years_of(files)
+    assert years == list(range(2004, years[-1] + 1)), 'one file per year, without gaps'
+    for path in files:
+        assert read_rows(path), f'{path.name} needs at least one team leader'
+
+
 def test_the_recognition_year_has_release_managers():
     path = paths.COMMUNITY / f'{RECOGNITION_YEAR}-release-managers.csv'
     assert read_rows(path), f'{path.name} needs at least one release manager'
