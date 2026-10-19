@@ -7,21 +7,12 @@ must stop the run instead of producing statistics without the mapping.
 import csv
 
 from scripts.lib import paths
+from scripts.lib.model.registers import load_bot_accounts, load_excluded_repositories  # noqa: F401
 
 
 def _rows(path):
     with open(path, newline='', encoding='utf-8') as f:
         return list(csv.DictReader(f))
-
-
-def load_excluded_repositories(path=paths.EXCLUDED_REPOSITORIES):
-    """Load the repositories to skip, mapped to the reason for skipping them."""
-    return {row['repository'].strip(): row['reason'].strip() for row in _rows(path)}
-
-
-def load_bot_accounts(path=paths.BOT_ACCOUNTS):
-    """Load bot accounts that the GitHub API lists as type User, mapped to a reason."""
-    return {row['login'].strip(): row['reason'].strip() for row in _rows(path)}
 
 
 def load_commit_authors(path=paths.COMMIT_AUTHORS):
