@@ -682,9 +682,8 @@ def main(argv=None):
     check.add_argument('--root', default='.', help='The repository (default: the current directory)')
     check.add_argument('--base', default='main', help='The branch whose curated files the old outputs were made '
                                                       'from; its merge base with HEAD is used (default: main)')
-    check.add_argument('--from', dest='from_rev', help='The revision of the old outputs (default: HEAD when the '
-                                                       'work tree changed derived/ or reports/, else the parent of '
-                                                       'the last commit that changed them)')
+    check.add_argument('--from', dest='from_rev', help='The revision of the old outputs (default: the merge base '
+                                                       'of HEAD with --base, i.e. main; HEAD when there is none)')
     check.add_argument('--to', dest='to_rev', help='The revision of the new outputs (default: the work tree)')
     args = parser.parse_args(argv)
     if args.command == 'audit':

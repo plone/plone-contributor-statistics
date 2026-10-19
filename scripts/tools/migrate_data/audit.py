@@ -680,13 +680,15 @@ def classify_display_name(ctx, line):
 
 
 def classify_wording(ctx, line):
-    """wording: a sentence of a report generator that the code reworded. Neither line holds a digit, the old line
-    is a string in scripts/report/ of the old revision and the new line one of the new revision."""
+    """wording: a sentence of a report generator that the code reworded. Neither line holds a digit; the old line
+    is a string in scripts/report/ of the old revision and no longer in the new one, the new line a string of the
+    new revision that the old one did not have."""
     old, new = (line, line.counterpart) if line.sign == '-' else (line.counterpart, line)
     if old is None or re.search(r'\d', old.text + new.text) or not old.text.strip() or not new.text.strip():
         return None
-    return 'wording' if ctx.in_report_code(old.text, ctx.from_rev) and ctx.in_report_code(new.text, ctx.to_rev) \
-        else None
+    reworded = (ctx.in_report_code(old.text, ctx.from_rev) and not ctx.in_report_code(old.text, ctx.to_rev)
+                and ctx.in_report_code(new.text, ctx.to_rev) and not ctx.in_report_code(new.text, ctx.from_rev))
+    return 'wording' if reworded else None
 
 
 def classify_plain(ctx, file, lines, rules):
@@ -1033,7 +1035,11 @@ def classify_organisation_history(ctx, side, path, name, present, dropped):
     year, field = int(path[3]), path[4]
     value = value_at(ctx.old_page, path)
     if field in ('commits', 'pull_requests'):
-        code = code_work(ctx.new_text(paths.organisation_contributors_file(year).as_posix())).get(name, (0, 0))
+        try:
+            text = ctx.new_text(paths.organisation_contributors_file(year).as_posix())
+        except (FileNotFoundError, subprocess.CalledProcessError):
+            text = ''  # no code work in the year
+        code = code_work(text).get(name, (0, 0))
         return 'deferred' if value == code[0 if field == 'commits' else 1] else UNEXPLAINED
     if field == 'events':
         count = sum(ctx.registry.organisation_name(o) == name for e in events(year, ctx.new_root / paths.COMMUNITY)

@@ -16,6 +16,7 @@ import pytest
 from scripts.derive import community_page
 from scripts.lib.model import load_registry
 from scripts.report import generate_community_recognition_report as recognition
+from scripts.tools import migrate_data_structure
 from scripts.tools.migrate_data import audit
 
 REPO = Path(__file__).resolve().parent.parent
@@ -168,14 +169,14 @@ def git(root, *args):
                     'commit.gpgsign=false', *args], cwd=root, check=True, capture_output=True)
 
 
-def audited(root, old_mapping=None, **changes):
+def audited(root, old_mapping=None, old_page_change=None, **changes):
     """{excerpt: class} of the audit of the miniature repository, with one change to the new outputs."""
     git(root, 'init', '-q', '-b', 'main')
     old = dict(OLD_CURATED)
     if old_mapping is not None:
         old['curated/mappings/organisations.csv'] = old_mapping
     write(root, old)
-    write_outputs(root, 'old')
+    write_outputs(root, 'old', page_change=old_page_change)
     git(root, 'add', '.')
     git(root, 'commit', '-q', '-m', 'old')
     git(root, 'checkout', '-q', '-b', 'migration')
@@ -274,3 +275,106 @@ def change_beta(**values):
 def test_a_number_the_deferral_does_not_give_is_unexplained(tmp_path, changes, wanted):
     found = audited(tmp_path, **changes)
     assert wanted in unexplained(found), sorted(unexplained(found))
+
+
+def test_wall_points_other_than_the_page_points_are_unexplained(tmp_path):
+    def change(data):
+        for level in data['wall']:
+            for entry in level['organisations']:
+                if entry['name'] == 'Beta Corp':
+                    entry['points'] = 2.5
+
+    found = audited(tmp_path, page_change=change)
+    assert '"points": 2.5,' in unexplained(found), sorted(unexplained(found))
+
+
+@pytest.fixture
+def with_gamma(monkeypatch):
+    """Gamma, whose only credit is a second talk of Sam Speaker, deferred: it drops out of everything."""
+    talk = {'file': TALKS, 'line': 3, 'points': 1, 'source': 'https://www.youtube.com/watch?v=vid2',
+            'text': 'Gamma Talk'}
+    monkeypatch.setitem(OLD_CURATED, TALKS, OLD_CURATED[TALKS]
+                        + 'Gamma Talk,Sam Speaker,Gamma,Online,Talk,vid2,https://example.org/g,\n')
+    monkeypatch.setitem(NEW_CURATED, TALKS,
+                        NEW_CURATED[TALKS] + 'Gamma Talk,sam-speaker,,Talk,Online,https://example.org/g,\n')
+    monkeypatch.setitem(NEW_CURATED, 'curated/mappings/organisations.csv',
+                        NEW_CURATED['curated/mappings/organisations.csv'] + 'gamma,Gamma,organisation,,\n')
+    monkeypatch.setitem(NEW_CURATED, 'curated/mappings/affiliation_proposals.csv',
+                        NEW_CURATED['curated/mappings/affiliation_proposals.csv']
+                        + f'sam-speaker,gamma,2025,2025,{TALKS}:3; https://example.org/g\n')
+    monkeypatch.setitem(POINTS['old'], 'Gamma', {'WPD Talk': 1.0})
+    monkeypatch.setitem(DETAILS['old'], 'Gamma', {'WPD Talk': ['Gamma Talk']})
+    monkeypatch.setitem(CONTRIBUTIONS, 'Gamma', {'WPD Talk': [talk]})
+    monkeypatch.setitem(ROLES['old'], 'Gamma', 1)
+
+
+def test_an_organisation_whose_only_credit_is_deferred_drops_out(tmp_path, with_gamma):
+    found = audited(tmp_path)
+    assert not unexplained(found), sorted(unexplained(found))
+    assert found['"gamma": {'] == 'deferred'
+    assert found['Gamma,Community Contributor,0,0,0,0,0,0,1.0,0,0,0,0,1.0'] == 'deferred'
+    assert found['### Gamma'] == 'deferred'
+    assert found['| 4 | Gamma | Community Contributor | 1.0 |'] == 'deferred'
+
+
+def test_a_dropped_organisation_with_other_commits_is_unexplained(tmp_path, with_gamma):
+    def change(data):
+        data['organisations']['gamma']['history']['2025']['commits'] = 5
+
+    found = audited(tmp_path, old_page_change=change)
+    assert '"commits": 5,' in unexplained(found), sorted(unexplained(found))
+
+
+AUDIT_REGISTERS = {
+    'curated/mappings/people.csv': 'id,name,github,source\n',
+    'curated/mappings/identities.csv': 'person,kind,value,source\n',
+    'curated/mappings/affiliations.csv': 'person,organisation,from,to,source,checked,notes\n',
+    'curated/mappings/organisations.csv': 'id,name,kind,aliases,notes\n',
+    'curated/mappings/affiliation_proposals.csv': 'person,organisation,from,to,evidence\n',
+}
+
+
+def committed_repo(root, files):
+    """A git repository with empty registers and the files committed on main."""
+    git(root, 'init', '-q', '-b', 'main')
+    write(root, {**AUDIT_REGISTERS, **files})
+    git(root, 'add', '.')
+    git(root, 'commit', '-q', '-m', 'base')
+
+
+def test_nothing_to_compare_exits_1(tmp_path, capsys):
+    committed_repo(tmp_path, {'reports/r.md': 'A report.\n'})
+    with pytest.raises(SystemExit) as stop:
+        migrate_data_structure.main(['audit', '--root', str(tmp_path), '--from', 'HEAD'])
+    assert stop.value.code == 1
+    assert 'Nothing to compare' in capsys.readouterr().out
+
+
+OLD_SENTENCE = 'Names that no mapping file links to a person yet are shown as written.'
+NEW_SENTENCE = 'Names that no identity links to a person yet are shown as written.'
+HEADERS = ('| Rank | Contributor | PRs | Commits | Repositories |',
+           '| Rank | Organization | PRs | Commits | Contributors | Repositories |')
+
+
+def reworded(root, old_code, new_code, old_report, new_report):
+    """The audit, over its default range (the merge base with main), of a branch that changed the report code
+    and then the report."""
+    committed_repo(root, {'scripts/report/gen.py': old_code, 'reports/r.md': old_report})
+    git(root, 'checkout', '-q', '-b', 'feature')
+    write(root, {'scripts/report/gen.py': new_code})
+    git(root, 'commit', '-q', '-a', '-m', 'reword')
+    write(root, {'reports/r.md': new_report})
+    return {excerpt.split(': ', 1)[1]: kind for _, kind, excerpt in audit.audit(root)}
+
+
+def test_a_sentence_the_code_reworded_is_wording(tmp_path):
+    found = reworded(tmp_path, f'lines.append("{OLD_SENTENCE}")\n', f'lines.append("{NEW_SENTENCE}")\n',
+                     f'# Report\n{OLD_SENTENCE}\n', f'# Report\n{NEW_SENTENCE}\n')
+    assert found == {OLD_SENTENCE: 'wording', NEW_SENTENCE: 'wording'}
+
+
+def test_a_line_swapped_for_another_literal_is_unexplained(tmp_path):
+    code = f'a = "{HEADERS[0]}"\nb = "{HEADERS[1]}"\n'
+    found = reworded(tmp_path, code, code + '# a comment\n', f'# Report\n{HEADERS[0]}\n',
+                     f'# Report\n{HEADERS[1]}\n')
+    assert found == {HEADERS[0]: audit.UNEXPLAINED, HEADERS[1]: audit.UNEXPLAINED}
