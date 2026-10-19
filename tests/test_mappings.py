@@ -59,6 +59,7 @@ def test_paths_are_relative():
 
 def test_paths_point_at_existing_files():
     root = Path(__file__).resolve().parent.parent
+    not_yet = {'PEOPLE', 'IDENTITIES', 'AFFILIATIONS', 'AFFILIATION_PROPOSALS'}  # created by the migration (#139)
     for name, value in vars(paths).items():
-        if isinstance(value, Path) and name.isupper():
+        if isinstance(value, Path) and name.isupper() and name not in not_yet:
             assert (root / value).exists(), f'{name}: {value}'
