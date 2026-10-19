@@ -1,12 +1,12 @@
 # Plone Community Recognition Program 2025
 
-*Generated: 2026-10-19 13:15:29*
+*Generated: 2026-10-19 13:22:35*
 
 ## Executive Summary
 
-- **Total Organizations**: 49
-- **Total Points Awarded**: 557.0
-- **Average Points per Organization**: 11.4
+- **Total Organizations**: 47
+- **Total Points Awarded**: 558.0
+- **Average Points per Organization**: 11.9
 
 ## Recognition Levels
 
@@ -15,8 +15,8 @@
 | Platinum Contributor | 35+ | 2 |
 | Gold Contributor | 25-34 | 4 |
 | Silver Contributor | 10-24 | 13 |
-| Bronze Contributor | 3-9 | 14 |
-| Community Contributor | 1-2 | 16 |
+| Bronze Contributor | 3-9 | 13 |
+| Community Contributor | 1-2 | 15 |
 
 ## Recognition Categories
 
@@ -35,7 +35,7 @@
 
 | Category | Points | Description |
 |----------|--------|-------------|
-| Podcast Host | 6 | Host Plone podcast/live event (split among hosts) |
+| Podcast Host | 6 | Host a Plone podcast or live series with at least five episodes in the year (split among hosts) |
 | WPD Event | 3 | Organize World Plone Day event (split among organizers) |
 | WPD Talk | 1 | Give World Plone Day talk (max 4 per org) |
 
@@ -64,46 +64,44 @@
 | 7 | Codesyntax | Silver Contributor | 24.0 |
 | 8 | Zest Software | Silver Contributor | 23.0 |
 | 9 | der Freitag | Silver Contributor | 23.0 |
-| 10 | Kombinat | Silver Contributor | 22.0 |
-| 11 | Interlegis Program (Senado Federal) | Silver Contributor | 21.0 |
+| 10 | Juizi | Silver Contributor | 22.0 |
+| 11 | Kombinat | Silver Contributor | 22.0 |
 | 12 | Klein & Partner KG | Silver Contributor | 20.0 |
-| 13 | Starzel | Silver Contributor | 17.0 |
-| 14 | Juizi | Silver Contributor | 16.0 |
+| 13 | Interlegis Program (Senado Federal) | Silver Contributor | 19.0 |
+| 14 | Starzel | Silver Contributor | 17.0 |
 | 15 | Syslab | Silver Contributor | 15.0 |
 | 16 | UNAM | Silver Contributor | 12.0 |
 | 17 | Nuclia | Silver Contributor | 11.0 |
 | 18 | Ludwig Maximilian University Munich | Silver Contributor | 10.0 |
 | 19 | Serpro | Silver Contributor | 10.0 |
-| 20 | Agitator | Bronze Contributor | 7.0 |
-| 21 | Cosent | Bronze Contributor | 7.0 |
-| 22 | Affinitic | Bronze Contributor | 6.0 |
-| 23 | Brian Davis (independent) | Bronze Contributor | 6.0 |
+| 20 | Brian Davis (independent) | Bronze Contributor | 8.0 |
+| 21 | Agitator | Bronze Contributor | 7.0 |
+| 22 | Cosent | Bronze Contributor | 7.0 |
+| 23 | Affinitic | Bronze Contributor | 6.0 |
 | 24 | Derico | Bronze Contributor | 6.0 |
-| 25 | PloneGov-BR | Bronze Contributor | 5.0 |
-| 26 | KU Leuven | Bronze Contributor | 4.0 |
+| 25 | KU Leuven | Bronze Contributor | 4.0 |
+| 26 | PloneGov-BR | Bronze Contributor | 4.0 |
 | 27 | Rohberg | Bronze Contributor | 4.0 |
 | 28 | Markus Hilbert (independent) | Bronze Contributor | 3.0 |
-| 29 | Plone Foundation | Bronze Contributor | 3.0 |
-| 30 | Pretaweb | Bronze Contributor | 3.0 |
-| 31 | Rob Gietema (independent) | Bronze Contributor | 3.0 |
-| 32 | Simples Consultoria | Bronze Contributor | 3.0 |
-| 33 | Sixfeetup | Bronze Contributor | 3.0 |
-| 34 | CCC | Community Contributor | 2.0 |
-| 35 | Iskra | Community Contributor | 2.0 |
-| 36 | Onna | Community Contributor | 2.0 |
-| 37 | Uni. Hospital Dresden | Community Contributor | 2.0 |
-| 38 | AUSL Romagna | Community Contributor | 1.0 |
-| 39 | BOSS | Community Contributor | 1.0 |
-| 40 | CMS Communications Inc. | Community Contributor | 1.0 |
-| 41 | Er.GO | Community Contributor | 1.0 |
-| 42 | Giallocobalto | Community Contributor | 1.0 |
-| 43 | IRR | Community Contributor | 1.0 |
-| 44 | Plone Foundation (community volunteer) | Community Contributor | 1.0 |
-| 45 | RIOS (Rete Italiana Open Source) | Community Contributor | 1.0 |
-| 46 | Regione Emilia-Romagna | Community Contributor | 1.0 |
-| 47 | Università di Macerata | Community Contributor | 1.0 |
-| 48 | eCityclic | Community Contributor | 1.0 |
-| 49 | iMio | Community Contributor | 1.0 |
+| 29 | Pretaweb | Bronze Contributor | 3.0 |
+| 30 | Rob Gietema (independent) | Bronze Contributor | 3.0 |
+| 31 | Simples Consultoria | Bronze Contributor | 3.0 |
+| 32 | Sixfeetup | Bronze Contributor | 3.0 |
+| 33 | CCC | Community Contributor | 2.0 |
+| 34 | Iskra | Community Contributor | 2.0 |
+| 35 | Onna | Community Contributor | 2.0 |
+| 36 | Uni. Hospital Dresden | Community Contributor | 2.0 |
+| 37 | AUSL Romagna | Community Contributor | 1.0 |
+| 38 | BOSS | Community Contributor | 1.0 |
+| 39 | CMS Communications Inc. | Community Contributor | 1.0 |
+| 40 | Er.GO | Community Contributor | 1.0 |
+| 41 | Giallocobalto | Community Contributor | 1.0 |
+| 42 | IRR | Community Contributor | 1.0 |
+| 43 | RIOS (Rete Italiana Open Source) | Community Contributor | 1.0 |
+| 44 | Regione Emilia-Romagna | Community Contributor | 1.0 |
+| 45 | Università di Macerata | Community Contributor | 1.0 |
+| 46 | eCityclic | Community Contributor | 1.0 |
+| 47 | iMio | Community Contributor | 1.0 |
 
 ## Code Contribution Highlights
 
@@ -253,6 +251,17 @@
 | PR Contributions | 20.0 | • Lead (141.2 PRs/year) |
 | PLIP Contributions | 3.0 | • Occasional PLIP Contributor (2 PLIPs) |
 
+### Juizi
+
+**Total Points: 22.0**
+
+| Category | Points | Details |
+|----------|-------:|:--------|
+| Team Leader | 6.0 | • Astrid Beyers (Marketing Team) |
+| Podcast Host | 6.0 | • Astrid Beyers (Plone Ask Me Anything) |
+| WPD Talk | 4.0 | • I've tried more than 200 CMS's and Plone is still the best!<br>• Click less; do more - save time with Plone content rules<br>• An external to internal Plone support love story<br>• Plone Community Teams and How to Be Part of It |
+| Training Session | 6.0 | • Training for Content Editing<br>• Create your Customer Avatar: Do you know who you're coding for? |
+
 ### Kombinat
 
 **Total Points: 22.0**
@@ -261,16 +270,6 @@
 |----------|-------:|:--------|
 | Team Leader | 2.0 | • Peter Mathis (Classic UI Team) |
 | PR Contributions | 20.0 | • Lead (130.6 PRs/year) |
-
-### Interlegis Program (Senado Federal)
-
-**Total Points: 21.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| Team Leader | 6.0 | • Rafahela Bazzanella (Membership Committee) |
-| Board Member | 12.0 | • Rafahela Garcia Bazzanella<br>• João Henrique Gouveia |
-| WPD Talk | 3.0 | • World Plone Day: Brasília; Brazil<br>• Event Opening<br>• PloneGov-BR Community |
 
 ### Klein & Partner KG
 
@@ -283,6 +282,16 @@
 | PR Contributions | 4.0 | • Active Member (49.4 PRs/year) |
 | PLIP Contributions | 3.0 | • Occasional PLIP Contributor (5 PLIPs) |
 
+### Interlegis Program (Senado Federal)
+
+**Total Points: 19.0**
+
+| Category | Points | Details |
+|----------|-------:|:--------|
+| Team Leader | 6.0 | • Rafahela Bazzanella (Membership Committee) |
+| Board Member | 12.0 | • Rafahela Garcia Bazzanella<br>• João Henrique Gouveia |
+| WPD Talk | 1.0 | • PloneGov-BR Community |
+
 ### Starzel
 
 **Total Points: 17.0**
@@ -293,16 +302,6 @@
 | Training Session | 4.0 | • Plone Migrations: Theory and Practice |
 | PR Contributions | 4.0 | • Active Member (29.2 PRs/year) |
 | PLIP Contributions | 3.0 | • Occasional PLIP Contributor (2 PLIPs) |
-
-### Juizi
-
-**Total Points: 16.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| Team Leader | 6.0 | • Astrid Beyers (Marketing Team) |
-| WPD Talk | 4.0 | • I've tried more than 200 CMS's and Plone is still the best!<br>• Click less; do more - save time with Plone content rules<br>• An external to internal Plone support love story<br>• Plone Community Teams and How to Be Part of It |
-| Training Session | 6.0 | • Training for Content Editing<br>• Create your Customer Avatar: Do you know who you're coding for? |
 
 ### Syslab
 
@@ -350,6 +349,15 @@
 |----------|-------:|:--------|
 | PR Contributions | 10.0 | • Core Member (50.2 PRs/year) |
 
+### Brian Davis (independent)
+
+**Total Points: 8.0**
+
+| Category | Points | Details |
+|----------|-------:|:--------|
+| Board Member | 6.0 | • Brian Davis |
+| WPD Talk | 2.0 | • Baseball; Farming; and Smarthomes: When Volto Meets 3rd-Party APIs<br>• Plone Community Teams and How to Be Part of It |
+
 ### Agitator
 
 **Total Points: 7.0**
@@ -376,14 +384,6 @@
 |----------|-------:|:--------|
 | Board Member | 6.0 | • Martin Peeters |
 
-### Brian Davis (independent)
-
-**Total Points: 6.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| Board Member | 6.0 | • Brian Davis |
-
 ### Derico
 
 **Total Points: 6.0**
@@ -393,15 +393,6 @@
 | Team Leader | 2.0 | • Maik Derstappen (Classic UI Team) |
 | PR Contributions | 4.0 | • Active Member (23.0 PRs/year) |
 
-### PloneGov-BR
-
-**Total Points: 5.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| WPD Event | 3.0 | • Organized WPD Event in Brasília, Brazil |
-| WPD Talk | 2.0 | • World Plone Day: Brasília; Brazil<br>• PortalBrasil Project |
-
 ### KU Leuven
 
 **Total Points: 4.0**
@@ -409,6 +400,15 @@
 | Category | Points | Details |
 |----------|-------:|:--------|
 | Training Session | 4.0 | • Training for Content Editing<br>• Content Management for Larger Plone Sites |
+
+### PloneGov-BR
+
+**Total Points: 4.0**
+
+| Category | Points | Details |
+|----------|-------:|:--------|
+| WPD Event | 3.0 | • Organized WPD Event in Brasília, Brazil |
+| WPD Talk | 1.0 | • PortalBrasil Project |
 
 ### Rohberg
 
@@ -425,14 +425,6 @@
 | Category | Points | Details |
 |----------|-------:|:--------|
 | PLIP Contributions | 3.0 | • Occasional PLIP Contributor (2 PLIPs) |
-
-### Plone Foundation
-
-**Total Points: 3.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| WPD Talk | 3.0 | • Plone Community Teams and How to Be Part of It<br>• The Plone Newsroom Episode 22 - Back Again<br>• AMA with David Glick; Plone core developer |
 
 ### Pretaweb
 
@@ -546,14 +538,6 @@
 |----------|-------:|:--------|
 | WPD Talk | 1.0 | • An external to internal Plone support love story |
 
-### Plone Foundation (community volunteer)
-
-**Total Points: 1.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| WPD Talk | 1.0 | • Baseball; Farming; and Smarthomes: When Volto Meets 3rd-Party APIs |
-
 ### RIOS (Rete Italiana Open Source)
 
 **Total Points: 1.0**
@@ -602,9 +586,9 @@
 | Release Manager | 2 | 36.0 |
 | Team Leader | 11 | 54.0 |
 | Board Member | 7 | 48.0 |
-| Podcast Host | 0 | 0.0 |
+| Podcast Host | 1 | 6.0 |
 | WPD Event | 2 | 6.0 |
-| WPD Talk | 27 | 46.0 |
+| WPD Talk | 26 | 41.0 |
 | Conference Organization | 1 | 24.0 |
 | Training Session | 7 | 36.0 |
 | PR Contributions | 20 | 190.0 |

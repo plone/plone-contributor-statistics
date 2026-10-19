@@ -2,15 +2,15 @@
  "headline": {
   "five_years": {
    "events": 65,
-   "organisations": 89,
-   "people": 373
+   "organisations": 88,
+   "people": 375
   },
   "since_2003": {
-   "people": 981
+   "people": 984
   },
   "year": {
    "events": 10,
-   "organisations": 53,
+   "organisations": 52,
    "people": 141
   }
  },
@@ -4182,9 +4182,19 @@
      "level": "",
      "name": "Plone Conference 2020",
      "organisations": [
-      "Plone Foundation"
+      "Sixfeetup",
+      "Pendect",
+      "University of Jyväskylä",
+      "CCC",
+      "Steve Piercy - Website Builder"
      ],
-     "sources": []
+     "sources": [
+      "https://plone.org/foundation/meetings/minutes/2020/plone-foundation-board-minutes-august-27-2020; https://plone.org/foundation/meetings/minutes/2021/plone-foundation-board-minutes-january-07-2021 (organisation from the organisation mapping: https://github.com/cdw9); https://community.plone.org/t/plone-conference-2020-information-update-starts-tomorrow-sat-dec-5/13106/1",
+      "https://community.plone.org/t/plone-communications-and-marketing-team-meeting-2020-10-15/13012/1 (organisation from the organisation mapping: https://2020.ploneconf.org/speakers/erico-andrei)",
+      "https://community.plone.org/t/plone-communications-and-marketing-team-meeting-2020-11-12/13199/1 (organisation from the organisation mapping: https://github.com/rioksane)",
+      "https://plone.org/foundation/meetings/minutes/2020/plone-foundation-board-minutes-april-23-2020 (organisation from the organisation mapping: https://plone.org/foundation/meetings/membership/2023-membership-meeting/nominations/paul-roeland)",
+      "https://community.plone.org/t/ploneconf-2020-sprints-sat-dec-12-and-sun-dec-13/13212/1 (organisation from the organisation mapping: https://github.com/stevepiercy)"
+     ]
     },
     {
      "kind": "sprints",
@@ -4307,7 +4317,7 @@
      ]
     }
    ],
-   "people_active": 150,
+   "people_active": 151,
    "pull_requests": 1688,
    "team_leads": [
     {
@@ -4416,9 +4426,17 @@
      "level": "",
      "name": "Plone Conference 2021",
      "organisations": [
-      "Plone Foundation"
+      "Sixfeetup",
+      "kitconcept GmbH",
+      "Starzel",
+      "University of Jyväskylä"
      ],
-     "sources": []
+     "sources": [
+      "https://plone.org/news-and-events/news/2021/plone-conference-2021-recap; https://plone.org/foundation/meetings/minutes/2021/plone-foundation-board-minutes-july-22-2021 (organisation from the organisation mapping: https://github.com/cdw9)",
+      "https://plone.org/foundation/meetings/minutes/2021/plone-foundation-board-minutes-sept-30-2021 (organisation from the organisation mapping: https://speakerdeck.com/ericof/apresentando-o-plone-6); https://plone.org/foundation/meetings/minutes/2021/plone-foundation-board-minutes-sept-30-2021 (organisation from the organisation mapping: https://github.com/sneridagh)",
+      "https://community.plone.org/t/call-for-trainings-for-plone-conference-2021/14197/1 (organisation from the organisation mapping: https://github.com/pbauer)",
+      "https://community.plone.org/t/plone-conference-2021-schedule-trainings-and-participation-info/14415/1 (organisation from the organisation mapping: https://github.com/rioksane)"
+     ]
     },
     {
      "kind": "sprints",
@@ -4975,10 +4993,10 @@
      "level": "",
      "name": "World Plone Day 2022, Brasília, Brazil",
      "organisations": [
-      "Interlegis Program (Senado Federal)"
+      "PloneGov-BR"
      ],
      "sources": [
-      "https://plone.org.br/novidades/eventos/2022/world-plone-day-2022-brasilia; organiser: https://plone.org/foundation/meetings/membership/2024-membership-meeting/nominations/rafahela-bazzanella"
+      "https://plone.org.br/novidades/eventos/2022/world-plone-day-2022-brasilia"
      ]
     },
     {
@@ -5245,7 +5263,7 @@
      ]
     }
    ],
-   "people_active": 169,
+   "people_active": 173,
    "pull_requests": 2205,
    "team_leads": [
     {
@@ -5374,13 +5392,11 @@
      "organisations": [
       "PloneGov-BR",
       "GruPy-DF",
-      "PyLadies-DF",
-      "Plone Foundation",
-      "Associação Python Brasil (APyB)",
-      "Simples Consultoria",
-      "Interlegis Program (Senado Federal)"
+      "PyLadies-DF"
      ],
-     "sources": []
+     "sources": [
+      "https://2024.ploneconf.org/en"
+     ]
     },
     {
      "kind": "sprints",
@@ -6495,6 +6511,25 @@
       }
      ],
      "points": 6.0
+    },
+    "WPD Talk": {
+     "contributions": [
+      {
+       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
+       "line": 19,
+       "points": 1,
+       "source": "https://www.youtube.com/watch?v=h8kBq0VCuCc",
+       "text": "Baseball; Farming; and Smarthomes: When Volto Meets 3rd-Party APIs"
+      },
+      {
+       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
+       "line": 26,
+       "points": 1,
+       "source": "https://www.youtube.com/watch?v=qbPWHPbV8Po",
+       "text": "Plone Community Teams and How to Be Part of It"
+      }
+     ],
+     "points": 2.0
     }
    },
    "history": {
@@ -6634,14 +6669,14 @@
      "commits": 6,
      "events": 0,
      "pull_requests": 1,
-     "roles": 1
+     "roles": 3
     }
    },
    "level": "Bronze Contributor",
    "name": "Brian Davis (independent)",
    "next_level": "Silver Contributor",
-   "points": 6.0,
-   "points_to_next": 4.0
+   "points": 8.0,
+   "points_to_next": 2.0
   },
   "ccc": {
    "categories": {
@@ -6763,9 +6798,9 @@
     },
     "2020": {
      "commits": 5,
-     "events": 0,
+     "events": 1,
      "pull_requests": 1,
-     "roles": 1
+     "roles": 2
     },
     "2021": {
      "commits": 3,
@@ -7160,7 +7195,7 @@
      "commits": 295,
      "events": 0,
      "pull_requests": 82,
-     "roles": 4
+     "roles": 5
     }
    },
    "level": "Silver Contributor",
@@ -7890,7 +7925,7 @@
      "commits": 31,
      "events": 1,
      "pull_requests": 30,
-     "roles": 4
+     "roles": 5
     }
    },
    "level": "Gold Contributor",
@@ -8580,27 +8615,13 @@
      "contributions": [
       {
        "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 2,
-       "points": 1,
-       "source": "https://www.youtube.com/watch?v=kdxefYmiIvM",
-       "text": "World Plone Day: Brasília; Brazil"
-      },
-      {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 50,
-       "points": 1,
-       "source": null,
-       "text": "Event Opening"
-      },
-      {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
        "line": 51,
        "points": 1,
        "source": null,
        "text": "PloneGov-BR Community"
       }
      ],
-     "points": 3.0
+     "points": 1.0
     }
    },
    "history": {
@@ -8720,7 +8741,7 @@
     },
     "2022": {
      "commits": 0,
-     "events": 1,
+     "events": 0,
      "pull_requests": 0,
      "roles": 1
     },
@@ -8728,11 +8749,11 @@
      "commits": 13,
      "events": 0,
      "pull_requests": 2,
-     "roles": 1
+     "roles": 2
     },
     "2024": {
      "commits": 0,
-     "events": 1,
+     "events": 0,
      "pull_requests": 1,
      "roles": 0
     },
@@ -8746,8 +8767,8 @@
    "level": "Silver Contributor",
    "name": "Interlegis Program (Senado Federal)",
    "next_level": "Gold Contributor",
-   "points": 21.0,
-   "points_to_next": 4.0
+   "points": 19.0,
+   "points_to_next": 6.0
   },
   "irr": {
    "categories": {
@@ -9073,6 +9094,18 @@
   },
   "juizi": {
    "categories": {
+    "Podcast Host": {
+     "contributions": [
+      {
+       "file": "curated/community-contributions/2025-podcasts.csv",
+       "line": 3,
+       "points": 6.0,
+       "source": "episodes: https://plone.org/news-and-events/news/news-for-2025/ask-me-anything-with-gouveia-on-march-21-2025 https://www.youtube.com/watch?v=_688wq-TwJ4 https://www.youtube.com/watch?v=XUfBKarc-8s https://www.youtube.com/watch?v=fwhkR7Ik8PA https://www.youtube.com/watch?v=WZonNu3SPX8 https://www.youtube.com/watch?v=r5OVkC3iAY8 https://www.youtube.com/watch?v=3-DBN4MeHWg https://www.youtube.com/watch?v=nAjmwiHBKHc; organisation from the organisation mapping: https://plone.org/news-and-events/news/2024/plone-foundation-welcomes-new-members-for-2024",
+       "text": "Astrid Beyers (Plone Ask Me Anything)"
+      }
+     ],
+     "points": 6.0
+    },
     "Team Leader": {
      "contributions": [
       {
@@ -9275,14 +9308,14 @@
      "commits": 28,
      "events": 0,
      "pull_requests": 4,
-     "roles": 8
+     "roles": 9
     }
    },
    "level": "Silver Contributor",
    "name": "Juizi",
    "next_level": "Gold Contributor",
-   "points": 16.0,
-   "points_to_next": 9.0
+   "points": 22.0,
+   "points_to_next": 3.0
   },
   "kitconcept-gmbh": {
    "categories": {
@@ -9531,33 +9564,33 @@
     },
     "2021": {
      "commits": 2381,
-     "events": 2,
+     "events": 3,
      "pull_requests": 378,
-     "roles": 21
+     "roles": 23
     },
     "2022": {
      "commits": 2751,
      "events": 2,
      "pull_requests": 523,
-     "roles": 22
+     "roles": 23
     },
     "2023": {
      "commits": 1953,
      "events": 1,
      "pull_requests": 675,
-     "roles": 15
+     "roles": 16
     },
     "2024": {
      "commits": 1866,
      "events": 2,
      "pull_requests": 522,
-     "roles": 19
+     "roles": 21
     },
     "2025": {
      "commits": 1799,
      "events": 2,
      "pull_requests": 572,
-     "roles": 19
+     "roles": 24
     }
    },
    "level": "Platinum Contributor",
@@ -10796,191 +10829,28 @@
    "points": 2.0,
    "points_to_next": 1.0
   },
-  "plone-foundation": {
+  "plonegov-br": {
    "categories": {
-    "WPD Talk": {
+    "WPD Event": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 26,
-       "points": 1,
-       "source": "https://www.youtube.com/watch?v=qbPWHPbV8Po",
-       "text": "Plone Community Teams and How to Be Part of It"
-      },
-      {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 30,
-       "points": 1,
-       "source": "https://www.youtube.com/watch?v=dWEtMoHJbRI",
-       "text": "The Plone Newsroom Episode 22 - Back Again"
-      },
-      {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 36,
-       "points": 1,
-       "source": "https://www.youtube.com/watch?v=_688wq-TwJ4",
-       "text": "AMA with David Glick; Plone core developer"
+       "file": "curated/community-contributions/2025-world-plone-day-event.csv",
+       "line": 3,
+       "points": 3.0,
+       "source": "https://plone.org.br/novidades/eventos/2025/wpd-2025-brasilia",
+       "text": "Organized WPD Event in Brasília, Brazil"
       }
      ],
      "points": 3.0
-    }
-   },
-   "history": {
-    "2003": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
     },
-    "2004": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2005": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2006": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2007": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2008": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2009": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2010": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2011": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2012": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2013": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2014": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2015": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2016": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2017": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2018": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2019": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2020": {
-     "commits": 0,
-     "events": 1,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2021": {
-     "commits": 0,
-     "events": 1,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2022": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2023": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2024": {
-     "commits": 0,
-     "events": 1,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2025": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 2
-    }
-   },
-   "level": "Bronze Contributor",
-   "name": "Plone Foundation",
-   "next_level": "Silver Contributor",
-   "points": 3.0,
-   "points_to_next": 7.0
-  },
-  "plone-foundation-community-volunteer": {
-   "categories": {
     "WPD Talk": {
      "contributions": [
       {
        "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 19,
+       "line": 54,
        "points": 1,
-       "source": "https://www.youtube.com/watch?v=h8kBq0VCuCc",
-       "text": "Baseball; Farming; and Smarthomes: When Volto Meets 3rd-Party APIs"
+       "source": null,
+       "text": "PortalBrasil Project"
       }
      ],
      "points": 1.0
@@ -11049,186 +10919,6 @@
     },
     "2013": {
      "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2014": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2015": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2016": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2017": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2018": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2019": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2020": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2021": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2022": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2023": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2024": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2025": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 1
-    }
-   },
-   "level": "Community Contributor",
-   "name": "Plone Foundation (community volunteer)",
-   "next_level": "Bronze Contributor",
-   "points": 1.0,
-   "points_to_next": 2.0
-  },
-  "plonegov-br": {
-   "categories": {
-    "WPD Event": {
-     "contributions": [
-      {
-       "file": "curated/community-contributions/2025-world-plone-day-event.csv",
-       "line": 3,
-       "points": 3.0,
-       "source": "https://plone.org.br/novidades/eventos/2025/wpd-2025-brasilia",
-       "text": "Organized WPD Event in Brasília, Brazil"
-      }
-     ],
-     "points": 3.0
-    },
-    "WPD Talk": {
-     "contributions": [
-      {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 2,
-       "points": 1,
-       "source": "https://www.youtube.com/watch?v=kdxefYmiIvM",
-       "text": "World Plone Day: Brasília; Brazil"
-      },
-      {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 54,
-       "points": 1,
-       "source": null,
-       "text": "PortalBrasil Project"
-      }
-     ],
-     "points": 2.0
-    }
-   },
-   "history": {
-    "2003": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2004": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2005": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2006": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2007": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2008": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2009": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2010": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2011": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2012": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
-    },
-    "2013": {
-     "commits": 0,
      "events": 2,
      "pull_requests": 0,
      "roles": 2
@@ -11283,7 +10973,7 @@
     },
     "2022": {
      "commits": 0,
-     "events": 1,
+     "events": 2,
      "pull_requests": 0,
      "roles": 2
     },
@@ -11297,7 +10987,7 @@
      "commits": 0,
      "events": 2,
      "pull_requests": 0,
-     "roles": 1
+     "roles": 2
     },
     "2025": {
      "commits": 0,
@@ -11309,8 +10999,8 @@
    "level": "Bronze Contributor",
    "name": "PloneGov-BR",
    "next_level": "Silver Contributor",
-   "points": 5.0,
-   "points_to_next": 5.0
+   "points": 4.0,
+   "points_to_next": 6.0
   },
   "pretaweb": {
    "categories": {
@@ -12849,7 +12539,7 @@
     },
     "2024": {
      "commits": 0,
-     "events": 1,
+     "events": 0,
      "pull_requests": 0,
      "roles": 0
     },
@@ -12986,15 +12676,15 @@
     },
     "2020": {
      "commits": 70,
-     "events": 0,
+     "events": 1,
      "pull_requests": 20,
-     "roles": 4
+     "roles": 6
     },
     "2021": {
      "commits": 28,
-     "events": 0,
+     "events": 1,
      "pull_requests": 9,
-     "roles": 8
+     "roles": 9
     },
     "2022": {
      "commits": 22,
@@ -13006,13 +12696,13 @@
      "commits": 0,
      "events": 0,
      "pull_requests": 0,
-     "roles": 3
+     "roles": 2
     },
     "2024": {
      "commits": 46,
      "events": 0,
      "pull_requests": 6,
-     "roles": 3
+     "roles": 4
     },
     "2025": {
      "commits": 6,
@@ -13189,9 +12879,9 @@
     },
     "2021": {
      "commits": 100,
-     "events": 0,
+     "events": 1,
      "pull_requests": 14,
-     "roles": 5
+     "roles": 6
     },
     "2022": {
      "commits": 286,
@@ -13215,7 +12905,7 @@
      "commits": 47,
      "events": 0,
      "pull_requests": 16,
-     "roles": 2
+     "roles": 3
     }
    },
    "level": "Silver Contributor",
@@ -13380,9 +13070,9 @@
     },
     "2020": {
      "commits": 22,
-     "events": 1,
+     "events": 2,
      "pull_requests": 4,
-     "roles": 2
+     "roles": 3
     },
     "2021": {
      "commits": 134,
@@ -14259,21 +13949,21 @@
     },
     "2020": {
      "commits": 18,
-     "events": 0,
+     "events": 1,
      "pull_requests": 7,
-     "roles": 1
+     "roles": 2
     },
     "2021": {
      "commits": 9,
-     "events": 1,
+     "events": 2,
      "pull_requests": 2,
-     "roles": 6
+     "roles": 7
     },
     "2022": {
      "commits": 12,
      "events": 6,
      "pull_requests": 5,
-     "roles": 15
+     "roles": 16
     },
     "2023": {
      "commits": 10,
@@ -29385,7 +29075,8 @@
     "id": "cdw9",
     "pull_requests": 1,
     "roles": [
-     "Board"
+     "Board",
+     "Conference organiser"
     ]
    },
    {
@@ -29474,6 +29165,7 @@
     "pull_requests": 4,
     "roles": [
      "Board",
+     "Conference organiser",
      "Team lead"
     ]
    },
@@ -29844,6 +29536,14 @@
    },
    {
     "commits": 0,
+    "id": "name:marybeth okerson",
+    "pull_requests": 0,
+    "roles": [
+     "Conference organiser"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:plone-team tud",
     "pull_requests": 0,
     "roles": [
@@ -29931,7 +29631,8 @@
     "id": "polyester",
     "pull_requests": 1,
     "roles": [
-     "Board"
+     "Board",
+     "Conference organiser"
     ]
    },
    {
@@ -29975,6 +29676,7 @@
     "id": "rioksane",
     "pull_requests": 0,
     "roles": [
+     "Conference organiser",
      "Team lead"
     ]
    },
@@ -30073,6 +29775,7 @@
     "id": "stevepiercy",
     "pull_requests": 4,
     "roles": [
+     "Conference organiser",
      "Sprint organiser",
      "Trainer"
     ]
@@ -30341,6 +30044,7 @@
     "pull_requests": 2,
     "roles": [
      "Board",
+     "Conference organiser",
      "Talk",
      "Team lead"
     ]
@@ -30451,6 +30155,7 @@
     "pull_requests": 63,
     "roles": [
      "Board",
+     "Conference organiser",
      "Talk",
      "Team lead",
      "Trainer"
@@ -30908,6 +30613,7 @@
     "id": "pbauer",
     "pull_requests": 12,
     "roles": [
+     "Conference organiser",
      "Podcast",
      "Talk",
      "Team lead",
@@ -31001,6 +30707,7 @@
     "id": "rioksane",
     "pull_requests": 0,
     "roles": [
+     "Conference organiser",
      "Sprint organiser",
      "Talk",
      "Team lead"
@@ -31084,6 +30791,7 @@
     "pull_requests": 218,
     "roles": [
      "Board",
+     "Conference organiser",
      "Talk",
      "Team lead",
      "Trainer"
@@ -31401,6 +31109,7 @@
     "id": "datakurre",
     "pull_requests": 4,
     "roles": [
+     "Podcast",
      "Talk"
     ]
    },
@@ -32096,6 +31805,7 @@
     "pull_requests": 329,
     "roles": [
      "Board",
+     "Podcast",
      "Talk",
      "Team lead",
      "Trainer"
@@ -32513,6 +32223,7 @@
     "pull_requests": 63,
     "roles": [
      "Board",
+     "Podcast",
      "Talk",
      "Trainer"
     ]
@@ -32939,6 +32650,14 @@
    },
    {
     "commits": 0,
+    "id": "name:andre climaco",
+    "pull_requests": 0,
+    "roles": [
+     "Podcast"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:beth smith",
     "pull_requests": 0,
     "roles": [
@@ -32951,6 +32670,22 @@
     "pull_requests": 0,
     "roles": [
      "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:clayton souza",
+    "pull_requests": 0,
+    "roles": [
+     "Podcast"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:lucas aquino",
+    "pull_requests": 0,
+    "roles": [
+     "Podcast"
     ]
    },
    {
@@ -33078,6 +32813,14 @@
     "id": "priyanshurj",
     "pull_requests": 1,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "rafahela",
+    "pull_requests": 0,
+    "roles": [
+     "Podcast"
+    ]
    },
    {
     "commits": 3,
@@ -33574,6 +33317,7 @@
     "id": "ericof",
     "pull_requests": 60,
     "roles": [
+     "Podcast",
      "Talk",
      "Trainer"
     ]
@@ -34175,6 +33919,7 @@
     "id": "sneridagh",
     "pull_requests": 284,
     "roles": [
+     "Podcast",
      "Release manager",
      "Talk",
      "Team lead"
@@ -34256,6 +34001,7 @@
     "id": "tkimnguyen",
     "pull_requests": 6,
     "roles": [
+     "Podcast",
      "Talk",
      "Team lead",
      "Trainer"
@@ -34399,6 +34145,7 @@
     "id": "astridjuizi",
     "pull_requests": 0,
     "roles": [
+     "Podcast",
      "Talk",
      "Team lead",
      "Trainer"
@@ -34511,6 +34258,7 @@
     "id": "ericof",
     "pull_requests": 70,
     "roles": [
+     "Podcast",
      "Talk",
      "Trainer"
     ]
@@ -34521,6 +34269,7 @@
     "pull_requests": 74,
     "roles": [
      "Board",
+     "Podcast",
      "Talk",
      "Team lead"
     ]
@@ -34563,6 +34312,7 @@
     "id": "fredvd",
     "pull_requests": 21,
     "roles": [
+     "Podcast",
      "Sprint organiser",
      "Team lead",
      "Trainer"
@@ -34632,6 +34382,7 @@
     "id": "ichim-david",
     "pull_requests": 3,
     "roles": [
+     "Podcast",
      "Talk"
     ]
    },
@@ -34993,6 +34744,7 @@
     "id": "pbauer",
     "pull_requests": 15,
     "roles": [
+     "Podcast",
      "Team lead",
      "Trainer"
     ]
@@ -35137,6 +34889,7 @@
     "id": "sneridagh",
     "pull_requests": 307,
     "roles": [
+     "Podcast",
      "Release manager",
      "Talk",
      "Trainer"
@@ -35499,12 +35252,12 @@
     },
     {
      "name": "Interlegis Program (Senado Federal)",
-     "points": 21.0,
+     "points": 19.0,
      "slug": "interlegis-program-senado-federal"
     },
     {
      "name": "Juizi",
-     "points": 16.0,
+     "points": 22.0,
      "slug": "juizi"
     },
     {
@@ -35569,7 +35322,7 @@
     },
     {
      "name": "Brian Davis (independent)",
-     "points": 6.0,
+     "points": 8.0,
      "slug": "brian-davis-independent"
     },
     {
@@ -35593,13 +35346,8 @@
      "slug": "markus-hilbert-independent"
     },
     {
-     "name": "Plone Foundation",
-     "points": 3.0,
-     "slug": "plone-foundation"
-    },
-    {
      "name": "PloneGov-BR",
-     "points": 5.0,
+     "points": 4.0,
      "slug": "plonegov-br"
     },
     {
@@ -35686,11 +35434,6 @@
      "name": "Onna",
      "points": 2.0,
      "slug": "onna"
-    },
-    {
-     "name": "Plone Foundation (community volunteer)",
-     "points": 1.0,
-     "slug": "plone-foundation-community-volunteer"
     },
     {
      "name": "Regione Emilia-Romagna",
