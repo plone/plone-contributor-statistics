@@ -32,8 +32,8 @@ HEADERS = {
     'plone-conference': ['organisation', 'organisers', 'source', 'notes'],
     'world-plone-day-event': ['date', 'location', 'format', 'organisations', 'organisers', 'source', 'notes'],
 }
-# Where a Source cell stops being the record of the row and starts a note on a person's organisation
-CUTS = ('; organisation of ', '; organisation from ', '; organisations from ', '; organisation: ')
+# How a segment of a Source cell starts that is a note on a person's organisation, not the record of the row
+NOTES = ('organisation of ', 'organisation from ', 'organisations from ', 'organisation: ')
 LINK = re.compile(r'https?://\S+')
 # A note that says an organisation cell was copied from the mapping; with a name, it is about that person only
 COPIED = re.compile(r'organisations? (?:of (?P<who>[^;:]+?) )?from (?:the organisation mapping|organisations\.csv)')
@@ -116,26 +116,35 @@ def records(rows):
 def cut_source(old):
     """(record of the row, cut remainder) of the Source cell of a row.
 
-    What follows the first note on a person's organisation, or the first `; <person of the row>: <link>`, is
-    evidence about affiliations, not the record of the row: the affiliations or a proposal hold it. When
-    nothing with a link precedes the cut, the record is the first link of the cell. A talk without a Source
-    has its video as record.
+    The cell is read as segments separated by `; `. A segment that is a note on a person's organisation
+    (it starts with `organisation of `, `organisation from `, `organisations from ` or `organisation: `) or a
+    person's record (`<person of the row>: <link>`) is evidence about affiliations, not the record of the
+    row: the affiliations or a proposal hold it, and the segment is cut. A segment that is only a bare link
+    right after a cut segment belongs to that note (a note listing two links) and is cut with it. Every
+    other segment stays, in order. When nothing with a link stays, the record is the first link of the
+    cell. A talk without a Source has its video as record.
     """
     source = (old.row.get('Source') or '').strip()
     if old.kind == TALKS and not source and (old.row.get('YouTube ID') or '').strip():
         return f"https://www.youtube.com/watch?v={old.row['YouTube ID'].strip()}", ''
-    positions = [source.find(cut) for cut in CUTS if cut in source]
-    for name, _ in people_cells(old):
-        match = re.search(rf'; {re.escape(name)}: https?://', source)
-        if match:
-            positions.append(match.start())
-    if not positions:
+    names = [re.escape(name) for name, _ in people_cells(old)]
+    person_record = re.compile(rf'(?:{"|".join(names)}): https?://') if names else None
+    kept, cut, previous_cut = [], [], False
+    for segment in source.split('; '):
+        text = segment.strip()
+        is_note = text.startswith(NOTES) or bool(person_record and person_record.match(text))
+        is_stray_link = previous_cut and bool(re.fullmatch(r'https?://\S+', text))
+        if is_note or is_stray_link:
+            cut.append(segment)
+        else:
+            kept.append(segment)
+        previous_cut = is_note or is_stray_link
+    if not cut:
         return source, ''
-    position = min(positions)
-    kept = source[:position].rstrip()
-    if not LINK.search(kept):
-        kept = first_link(source)
-    return kept, source[position:]
+    record = '; '.join(kept).strip()
+    if not LINK.search(record):
+        record = first_link(source)
+    return record, '; ' + '; '.join(cut)
 
 
 def copied(old, name):

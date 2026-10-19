@@ -101,6 +101,16 @@ OLD_FILES = {
         'Organisation,Organiser(s),Source,Notes\n'
         'Unmapped,Alan Runyan,https://example.org/conference-2003,No company named\n'
     ),
+    paths.COMMUNITY / '2022-sprints.csv': (
+        'Sprint,Start,End,Location,Organiser(s),Organisation,Level,Source,Notes\n'
+        # The Board record comes after the note on Philip's organisation and must stay
+        'Note Sprint,2022-03-01,2022-03-02,Bonn,Philip Bauer,Starzel,strategic,'
+        'https://a; organisation of Philip Bauer from the organisation mapping: https://b; Board: https://c,\n'
+        # A note with two links: the bare second link belongs to the note
+        'Stray Sprint,2022-04-01,2022-04-02,Bonn,Philip Bauer,Starzel,strategic,'
+        'https://a2; organisation of Philip Bauer from the organisation mapping: https://b2; https://b3; '
+        'Board: https://c2,\n'
+    ),
     paths.COMMUNITY / '2023-sprints.csv': (
         'Sprint,Start,End,Location,Organiser(s),Organisation,Level,Source,Notes\n'
         'Alpine Sprint,2023-02-06,2023-02-10,Innsbruck,Philip Bauer; Thomas Schorr; Alan Runyan,'
@@ -380,6 +390,20 @@ def test_group_in_sprint_is_dropped_and_reported(migrated):
 def test_event_source_is_cut_too(migrated):
     root, _ = migrated
     assert rows(root, paths.COMMUNITY / '2023-sprints.csv')[0]['source'] == 'https://example.org/sprint-2023'
+
+
+def test_source_segments_after_a_note_are_kept(migrated):
+    root, report = migrated
+    assert rows(root, paths.COMMUNITY / '2022-sprints.csv')[0]['source'] == 'https://a; Board: https://c'
+    assert ('curated/community-contributions/2022-sprints.csv', 2,
+            '; organisation of Philip Bauer from the organisation mapping: https://b') in report.cut_sources
+
+
+def test_bare_link_after_a_note_is_cut_with_it(migrated):
+    root, report = migrated
+    assert rows(root, paths.COMMUNITY / '2022-sprints.csv')[1]['source'] == 'https://a2; Board: https://c2'
+    cut = '; organisation of Philip Bauer from the organisation mapping: https://b2; https://b3'
+    assert ('curated/community-contributions/2022-sprints.csv', 3, cut) in report.cut_sources
 
 
 def test_source_is_cut_at_bare_organisation_note(migrated):
