@@ -680,11 +680,18 @@ def main(argv=None):
     check = commands.add_parser('audit', help='Classify every changed line of derived/ and reports/ by its cause; '
                                               'exit 1 on an unexplained one')
     check.add_argument('--root', default='.', help='The repository (default: the current directory)')
-    check.add_argument('--base', default='main', help='The branch whose curated files the committed outputs were '
-                                                      'made from; its merge base with HEAD is used (default: main)')
+    check.add_argument('--base', default='main', help='The branch whose curated files the old outputs were made '
+                                                      'from; its merge base with HEAD is used (default: main)')
+    check.add_argument('--from', dest='from_rev', help='The revision of the old outputs (default: HEAD when the '
+                                                       'work tree changed derived/ or reports/, else the parent of '
+                                                       'the last commit that changed them)')
+    check.add_argument('--to', dest='to_rev', help='The revision of the new outputs (default: the work tree)')
     args = parser.parse_args(argv)
     if args.command == 'audit':
-        found = audit(Path(args.root), args.base)
+        found = audit(Path(args.root), args.base, args.from_rev, args.to_rev)
+        if not found:
+            print('Nothing to compare: derived/ and reports/ are the same in both revisions.')
+            raise SystemExit(1)
         print(audit_summary(found), end='')
         if any(kind == UNEXPLAINED for _, kind, _ in found):
             raise SystemExit(1)
