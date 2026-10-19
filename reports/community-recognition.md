@@ -1,22 +1,22 @@
 # Plone Community Recognition Program 2025
 
-*Generated: 2026-10-19 21:48:03*
+*Generated: 2026-10-20 00:54:40*
 
 ## Executive Summary
 
-- **Total Organizations**: 47
-- **Total Points Awarded**: 556.0
-- **Average Points per Organization**: 11.8
+- **Total Organizations**: 38
+- **Total Points Awarded**: 543.0
+- **Average Points per Organization**: 14.3
 
 ## Recognition Levels
 
 | Level | Points Range | Organizations |
 |-------|--------------|---------------:|
-| Platinum Contributor | 35+ | 2 |
-| Gold Contributor | 25-34 | 4 |
+| Platinum Contributor | 35+ | 1 |
+| Gold Contributor | 25-34 | 5 |
 | Silver Contributor | 10-24 | 13 |
 | Bronze Contributor | 3-9 | 12 |
-| Community Contributor | 1-2 | 16 |
+| Community Contributor | 1-2 | 7 |
 
 ## Recognition Categories
 
@@ -56,16 +56,16 @@
 | Rank | Organization | Recognition Level | Total Points |
 |------|--------------|-------------------|-------------:|
 | 1 | kitconcept GmbH | Platinum Contributor | 95.0 |
-| 2 | RedTurtle | Platinum Contributor | 35.0 |
-| 3 | University of Jyväskylä | Gold Contributor | 34.0 |
+| 2 | University of Jyväskylä | Gold Contributor | 34.0 |
+| 3 | RedTurtle | Gold Contributor | 33.0 |
 | 4 | Steve Piercy - Website Builder | Gold Contributor | 33.0 |
-| 5 | Eau de Web | Gold Contributor | 29.0 |
+| 5 | Eau de Web | Gold Contributor | 28.0 |
 | 6 | PY76 | Gold Contributor | 25.0 |
 | 7 | Codesyntax | Silver Contributor | 24.0 |
 | 8 | Zest Software | Silver Contributor | 23.0 |
 | 9 | der Freitag | Silver Contributor | 23.0 |
-| 10 | Juizi | Silver Contributor | 22.0 |
-| 11 | Kombinat | Silver Contributor | 22.0 |
+| 10 | Kombinat | Silver Contributor | 22.0 |
+| 11 | Juizi | Silver Contributor | 21.0 |
 | 12 | Klein & Partner KG | Silver Contributor | 20.0 |
 | 13 | Interlegis Program (Senado Federal) | Silver Contributor | 19.0 |
 | 14 | Starzel | Silver Contributor | 17.0 |
@@ -90,18 +90,9 @@
 | 33 | Iskra | Community Contributor | 2.0 |
 | 34 | Onna | Community Contributor | 2.0 |
 | 35 | Uni. Hospital Dresden | Community Contributor | 2.0 |
-| 36 | AUSL Romagna | Community Contributor | 1.0 |
-| 37 | BOSS | Community Contributor | 1.0 |
-| 38 | CMS Communications Inc. | Community Contributor | 1.0 |
-| 39 | Er.GO | Community Contributor | 1.0 |
-| 40 | Giallocobalto | Community Contributor | 1.0 |
-| 41 | IRR | Community Contributor | 1.0 |
-| 42 | Plone User's Group Japan | Community Contributor | 1.0 |
-| 43 | RIOS (Rete Italiana Open Source) | Community Contributor | 1.0 |
-| 44 | Regione Emilia-Romagna | Community Contributor | 1.0 |
-| 45 | Università di Macerata | Community Contributor | 1.0 |
-| 46 | eCityclic | Community Contributor | 1.0 |
-| 47 | iMio | Community Contributor | 1.0 |
+| 36 | CMS Communications Inc. | Community Contributor | 1.0 |
+| 37 | Plone User's Group Japan | Community Contributor | 1.0 |
+| 38 | iMio | Community Contributor | 1.0 |
 
 ## Code Contribution Highlights
 
@@ -166,19 +157,6 @@
 | PR Contributions | 20.0 | • Lead (534.0 PRs/year) |
 | PLIP Contributions | 15.0 | • Significant PLIP Contributor (34 PLIPs) |
 
-### RedTurtle
-
-**Total Points: 35.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| Strategic Sprint | 12.0 | • Salamina Sprint 2025 |
-| Team Leader | 6.0 | • Piero Nicolli (Volto Team) |
-| WPD Event | 3.0 | • Organized WPD Event in Bologna, Italy |
-| WPD Talk | 2.0 | • Plone & PWA: il caso Lignano Sabbiadoro - WPD2025 Italia<br>• AUSL Ferrara - uno dei primi siti conformi al modello ASL di Designers Italia - WPD 2025 Italia |
-| Training Session | 2.0 | • Plone Seven: Fundamentals |
-| PR Contributions | 10.0 | • Core Member (62.2 PRs/year) |
-
 ### University of Jyväskylä
 
 **Total Points: 34.0**
@@ -189,6 +167,18 @@
 | Conference Organization | 24.0 | • Organized Plone Conference 2025 |
 | Training Session | 4.0 | • Introduction to Advanced Workflows with BPMN 2.0 |
 | PLIP Contributions | 3.0 | • Occasional PLIP Contributor (2 PLIPs) |
+
+### RedTurtle
+
+**Total Points: 33.0**
+
+| Category | Points | Details |
+|----------|-------:|:--------|
+| Strategic Sprint | 12.0 | • Salamina Sprint 2025 |
+| Team Leader | 6.0 | • Piero Nicolli (Volto Team) |
+| WPD Event | 3.0 | • Organized WPD Event in Bologna, Italy |
+| Training Session | 2.0 | • Plone Seven: Fundamentals |
+| PR Contributions | 10.0 | • Core Member (62.2 PRs/year) |
 
 ### Steve Piercy - Website Builder
 
@@ -203,12 +193,12 @@
 
 ### Eau de Web
 
-**Total Points: 29.0**
+**Total Points: 28.0**
 
 | Category | Points | Details |
 |----------|-------:|:--------|
 | Strategic Sprint | 12.0 | • Bucharest Plone Sprint 2025 |
-| WPD Talk | 4.0 | • Plone Hands On: Customize your site theme through the web with Volto!<br>• Select user widget feature in Volto<br>• Volto block style: Start customizing your site through the web<br>• Dynamic Vocabulary Based on Context in Plone |
+| WPD Talk | 3.0 | • Plone Hands On: Customize your site theme through the web with Volto!<br>• Select user widget feature in Volto<br>• Volto block style: Start customizing your site through the web |
 | PR Contributions | 10.0 | • Core Member (77.4 PRs/year) |
 | PLIP Contributions | 3.0 | • Occasional PLIP Contributor (2 PLIPs) |
 
@@ -251,17 +241,6 @@
 | PR Contributions | 20.0 | • Lead (141.2 PRs/year) |
 | PLIP Contributions | 3.0 | • Occasional PLIP Contributor (2 PLIPs) |
 
-### Juizi
-
-**Total Points: 22.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| Team Leader | 6.0 | • Astrid Beyers (Marketing Team) |
-| Podcast Host | 6.0 | • Astrid Beyers (Plone Ask Me Anything) |
-| WPD Talk | 4.0 | • I've tried more than 200 CMS's and Plone is still the best!<br>• Click less; do more - save time with Plone content rules<br>• An external to internal Plone support love story<br>• Plone Community Teams and How to Be Part of It |
-| Training Session | 6.0 | • Training for Content Editing<br>• Create your Customer Avatar: Do you know who you're coding for? |
-
 ### Kombinat
 
 **Total Points: 22.0**
@@ -270,6 +249,17 @@
 |----------|-------:|:--------|
 | Team Leader | 2.0 | • Peter Mathis (Classic UI Team) |
 | PR Contributions | 20.0 | • Lead (130.6 PRs/year) |
+
+### Juizi
+
+**Total Points: 21.0**
+
+| Category | Points | Details |
+|----------|-------:|:--------|
+| Team Leader | 6.0 | • Astrid Beyers (Marketing Team) |
+| Podcast Host | 6.0 | • Astrid Beyers (Plone Ask Me Anything) |
+| WPD Talk | 3.0 | • I've tried more than 200 CMS's and Plone is still the best!<br>• Click less; do more - save time with Plone content rules<br>• Plone Community Teams and How to Be Part of It |
+| Training Session | 6.0 | • Training for Content Editing<br>• Create your Customer Avatar: Do you know who you're coding for? |
 
 ### Klein & Partner KG
 
@@ -288,8 +278,8 @@
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| Team Leader | 6.0 | • Rafahela Bazzanella (Membership Committee) |
-| Board Member | 12.0 | • Rafahela Garcia Bazzanella<br>• João Henrique Gouveia |
+| Team Leader | 6.0 | • Rafahela (Membership Committee) |
+| Board Member | 12.0 | • Rafahela<br>• João Henrique Gouveia |
 | WPD Talk | 1.0 | • PloneGov-BR Community |
 
 ### Starzel
@@ -327,7 +317,7 @@
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| Board Member | 6.0 | • Eric Brehault |
+| Board Member | 6.0 | • Eric Bréhault |
 | WPD Talk | 1.0 | • Plone and Google Summer of Code 2025 |
 | PR Contributions | 4.0 | • Active Member (43.4 PRs/year) |
 
@@ -337,7 +327,7 @@
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| Team Leader | 6.0 | • Alexander Loechel (Security Team) |
+| Team Leader | 6.0 | • Loechel (Security Team) |
 | WPD Talk | 1.0 | • I've tried more than 200 CMS's and Plone is still the best! |
 | PLIP Contributions | 3.0 | • Occasional PLIP Contributor (2 PLIPs) |
 
@@ -481,22 +471,6 @@
 |----------|-------:|:--------|
 | PR Contributions | 2.0 | • Team Member (16.4 PRs/year) |
 
-### AUSL Romagna
-
-**Total Points: 1.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| WPD Talk | 1.0 | • Il nuovo portale dell'Azienda USL della Romagna - WPD 2025 Italia |
-
-### BOSS
-
-**Total Points: 1.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| WPD Talk | 1.0 | • BOSS - Big Open Source Sibling |
-
 ### CMS Communications Inc.
 
 **Total Points: 1.0**
@@ -505,30 +479,6 @@
 |----------|-------:|:--------|
 | WPD Talk | 1.0 | • Exploring the Power of Plone: How Out-of-the-Box Features Simplify Content Management |
 
-### Er.GO
-
-**Total Points: 1.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| WPD Talk | 1.0 | • ER.GO e la digital communication: Plone per il rinnovo dell'immagine aziendale - WPD 2025 Italia |
-
-### Giallocobalto
-
-**Total Points: 1.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| WPD Talk | 1.0 | • Governare il sito; migliorare l'organizzazione: il caso del Comune di Trento - WPD 2025 Italia |
-
-### IRR
-
-**Total Points: 1.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| WPD Talk | 1.0 | • An external to internal Plone support love story |
-
 ### Plone User's Group Japan
 
 **Total Points: 1.0**
@@ -536,38 +486,6 @@
 | Category | Points | Details |
 |----------|-------:|:--------|
 | WPD Talk | 1.0 | • Exploring the Power of Plone: How Out-of-the-Box Features Simplify Content Management |
-
-### RIOS (Rete Italiana Open Source)
-
-**Total Points: 1.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| WPD Talk | 1.0 | • I valori dell'Open Source - il punto di vista della Rete Italiana Open Source - WPD 2025 Italia |
-
-### Regione Emilia-Romagna
-
-**Total Points: 1.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| WPD Talk | 1.0 | • Volto e straVolto - World Plone Day 2025 Italia |
-
-### Università di Macerata
-
-**Total Points: 1.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| WPD Talk | 1.0 | • Nuovi siti; nuova esperienza: la trasformazione digitale dei corsi UniMC - WPD 2025 Italia |
-
-### eCityclic
-
-**Total Points: 1.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| WPD Talk | 1.0 | • Construyendo una Intranet en Plone 6 / Building an Intranet with Plone 6 |
 
 ### iMio
 
@@ -587,7 +505,7 @@
 | Board Member | 7 | 48.0 |
 | Podcast Host | 1 | 6.0 |
 | WPD Event | 2 | 6.0 |
-| WPD Talk | 25 | 39.0 |
+| WPD Talk | 15 | 26.0 |
 | Conference Organization | 1 | 24.0 |
 | Training Session | 7 | 36.0 |
 | PR Contributions | 20 | 190.0 |

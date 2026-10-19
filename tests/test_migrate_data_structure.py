@@ -4,7 +4,9 @@ A miniature old structure is migrated once per module; each test checks one fact
 """
 
 import csv
+import json
 import shutil
+import subprocess
 from pathlib import Path
 
 import pytest
@@ -12,6 +14,7 @@ import pytest
 from scripts.lib import paths
 from scripts.tools import check, datapackage
 from scripts.tools import migrate_data_structure as migrate
+from scripts.tools.migrate_data import audit
 from scripts.tools.migrate_data import legacy_mappings as old
 
 REPO = Path(__file__).resolve().parent.parent
@@ -459,3 +462,61 @@ def test_migration_is_deterministic(tmp_path):
         outputs.append({path.relative_to(root): path.read_bytes() for path in sorted(root.rglob('*'))
                         if path.is_file()})
     assert outputs[0] == outputs[1]
+
+
+AUDIT_REGISTERS = {
+    paths.PEOPLE: ('id,name,github,source\n'
+                   'maisa-fonseca,Maisa Fonseca,,https://example.org/maisa\n'
+                   'thomas-schorr,Thomas Schorr,tschorr,https://github.com/tschorr\n'),
+    paths.IDENTITIES: 'person,kind,value,source\n',
+    paths.AFFILIATIONS: 'person,organisation,from,to,source,checked,notes\n',
+    paths.ORGANISATIONS: 'id,name,kind,aliases,notes\n',
+    paths.AFFILIATION_PROPOSALS: 'person,organisation,from,to,evidence\n',
+}
+AUDIT_BEFORE = ('organisation,total_commits,contributors\n'
+                'Unmapped,1018,"Maisa Fonseca, tschorr"\n')
+
+
+def audited_repo(root, after):
+    """The audit of a git repository with AUDIT_BEFORE committed as derived/x.csv and `after` in the work tree."""
+    for path, text in {**AUDIT_REGISTERS, Path('derived/x.csv'): AUDIT_BEFORE}.items():
+        (root / path).parent.mkdir(parents=True, exist_ok=True)
+        (root / path).write_text(text, encoding='utf-8')
+    git = ['git', '-c', 'user.name=Test', '-c', 'user.email=test@example.org', '-c', 'commit.gpgsign=false']
+    subprocess.run([*git, 'init', '-q'], cwd=root, check=True)
+    subprocess.run([*git, 'add', '.'], cwd=root, check=True)
+    subprocess.run([*git, 'commit', '-q', '-m', 'outputs'], cwd=root, check=True)
+    (root / 'derived/x.csv').write_text(after, encoding='utf-8')
+    return migrate.audit(root)
+
+
+def test_audit_classifies_a_person_rename(tmp_path):
+    found = audited_repo(tmp_path, 'organisation,total_commits,contributors\n'
+                                   'Unmapped,1018,"person:maisa-fonseca, tschorr"\n')
+    assert [(file, kind) for file, kind, _ in found] == [('derived/x.csv', 'person-rename')] * 2
+
+
+def test_audit_flags_an_unexplained_change(tmp_path):
+    found = audited_repo(tmp_path, 'organisation,total_commits,contributors\n'
+                                   'Unmapped,1019,"person:maisa-fonseca, tschorr"\n')
+    assert {kind for _, kind, _ in found} == {'unexplained'}
+    assert any('1019' in excerpt for _, _, excerpt in found)
+
+
+def test_audit_reads_the_layout_of_the_community_page():
+    document = {'b': [1, {'x': None, 'é': []}], 'a': {}, 'c': 2.0}
+    text = json.dumps(document, indent=1, sort_keys=True, ensure_ascii=False)
+    walked = audit.json_lines(document)
+    assert [line for _, line in walked] == text.splitlines()
+    assert walked[5] == (('b', 1, 'x'), '   "x": null,')
+
+
+def test_audit_source_cut_keeps_what_is_no_note():
+    def is_person(name):
+        return name == 'Jane Doe'
+
+    old = 'https://example.org/row; Board: https://example.org/b; organisation from the mapping: https://x.org'
+    assert audit.is_source_cut(old, 'https://example.org/row; Board: https://example.org/b', is_person)
+    assert not audit.is_source_cut(old, 'https://example.org/row', is_person)
+    assert audit.is_source_cut('https://example.org/row; Jane Doe: https://example.org/j', 'https://example.org/row',
+                               is_person)

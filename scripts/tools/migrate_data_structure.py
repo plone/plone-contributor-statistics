@@ -30,6 +30,8 @@ from dotenv import load_dotenv
 from scripts.lib import paths
 from scripts.lib.model.names import fold, slugify
 from scripts.tools.migrate_data import community as old_community
+from scripts.tools.migrate_data.audit import UNEXPLAINED, audit
+from scripts.tools.migrate_data.audit import summary as audit_summary
 from scripts.tools.migrate_data import legacy_community as community
 from scripts.tools.migrate_data.legacy_mappings import (
     ACCOUNT_ALIASES, CHANGELOG_NAMES, COMMIT_AUTHORS, FULLNAMES, OVERRIDES, PROPOSALS, SOURCES, _rows,
@@ -675,8 +677,18 @@ def main(argv=None):
     run.add_argument('--until', type=int, required=True, help='The last year of the affiliations, e.g. 2026')
     run.add_argument('--profile-names', required=True, help='The file fetch-names wrote: login, name, fetched')
     run.add_argument('--report', help='Also write the report to this Markdown file')
+    check = commands.add_parser('audit', help='Classify every changed line of derived/ and reports/ by its cause; '
+                                              'exit 1 on an unexplained one')
+    check.add_argument('--root', default='.', help='The repository (default: the current directory)')
+    check.add_argument('--base', default='main', help='The branch whose curated files the committed outputs were '
+                                                      'made from; its merge base with HEAD is used (default: main)')
     args = parser.parse_args(argv)
-    if args.command == 'fetch-names':
+    if args.command == 'audit':
+        found = audit(Path(args.root), args.base)
+        print(audit_summary(found), end='')
+        if any(kind == UNEXPLAINED for _, kind, _ in found):
+            raise SystemExit(1)
+    elif args.command == 'fetch-names':
         fetch_names(args.out)
     elif args.command == 'run':
         text = write_report(migrate(Path(args.root), args.until, args.profile_names))

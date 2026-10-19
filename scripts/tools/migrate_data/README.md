@@ -5,3 +5,4 @@ This folder holds the inputs, legacy copies and helper code that the migration s
 - `profile_names.csv`: the GitHub profile names of the logins that no curated file names, fetched once by `python -m scripts.tools.migrate_data_structure fetch-names --out scripts/tools/migrate_data/profile_names.csv`.
 - `organisation_aliases.py`: a frozen copy of the alias table of the recognition script; the migration turns it into the `aliases` column of `organisations.csv`.
 - `community.py`: the community part of the migration, which reads the old community files and rewrites them to ids.
+- `audit.py`: `python -m scripts.tools.migrate_data_structure audit` gives every line that the regeneration changed in `derived/` and `reports/` the cause it can prove, compared with the old community files of `main`, and exits 1 on an unexplained one.
