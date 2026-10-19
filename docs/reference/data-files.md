@@ -97,6 +97,7 @@ Several people or organisations in one cell are separated by semicolons.
     Columns: `Date`, `Location`, `Format`, `Organisation`, `Source`, `Notes`.
     `Format` is `in person`, `hybrid` or `online`.
     `Organisation` lists the organising organisations, not the venue or host.
+    `Notes` name the people who organised the event and the venue, and say for example "announced, no report found".
 
 `curated/community-contributions/YYYY-world-plone-day-talks.csv`
 :   One row per World Plone Day talk.

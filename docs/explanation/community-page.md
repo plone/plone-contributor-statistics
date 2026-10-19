@@ -45,7 +45,7 @@ Events are the gatherings the curated data records:
 
 -   the Plone Conference, one per year;
 -   sprints, one per recorded sprint, strategic or community, and before 2011 without a level;
--   World Plone Day, one per year, with its organising organisations ([#118](https://github.com/plone/plone-contributor-statistics/issues/118)).
+-   World Plone Day, one per local event held in person or hybrid, with its organising organisations ([#118](https://github.com/plone/plone-contributor-statistics/issues/118)).
 
 Trainings are sessions at the conference, not events of their own.
 Meetups join the count once they are recorded; the list of event kinds is `EVENT_RULES` in `scripts/lib/community.py`.
