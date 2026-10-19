@@ -172,3 +172,12 @@ def test_people_show_anonymous_distributions(page):
     # merged pull requests: 1 person with 2-9, 1 person with 10-49; commits: 1 with 2-9, 1 with 50+
     assert re.search(r'Merged pull requests.*?<td>0</td><td>1</td><td>1</td><td>0</td>', distribution, re.S)
     assert re.search(r'Commits.*?<td>0</td><td>1</td><td>0</td><td>1</td>', distribution, re.S)
+
+
+def test_page_says_all_data_comes_from_public_records(page):
+    # Prominent, right after the headline numbers, with the rule and its one exception linked
+    first_screen = page.split('id="wall"')[0]
+    statement = first_screen.split('id="public-records"')[1]
+    assert 'public records' in statement
+    assert 'href="docs/index.html#public-records-only"' in statement
+    assert 'href="docs/how-to/link-old-commits-to-a-person.html"' in statement

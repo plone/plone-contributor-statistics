@@ -47,6 +47,11 @@ h1, h2, h3 { line-height: 1.2; color: var(--navy); }
 .since { margin: 1.3rem 0 0; color: #fff; font-size: .95rem; }
 .since a { color: #fff; }
 
+/* Public records statement */
+.public-records { background: var(--soft); border-bottom: 1px solid var(--line); padding: 1rem 0; }
+.public-records p { margin: 0; max-width: 60rem; border-left: 4px solid var(--blue); padding-left: 1rem; }
+.public-records strong { color: var(--navy); }
+
 /* Organisation wall */
 .wall { padding: 2.2rem 0 1rem; }
 .wall h2 { font-size: 1.6rem; margin: 0 0 .3rem; }
