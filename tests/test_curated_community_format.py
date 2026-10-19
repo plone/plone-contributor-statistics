@@ -12,7 +12,8 @@ DATA = Path(__file__).resolve().parent.parent / paths.COMMUNITY
 KINDS = {
     'board-of-directors': [['Name', 'Organisation', 'Source', 'Role']],
     'plone-conference': [['Organisation', 'Organiser(s)', 'Source', 'Notes'], ['Organisation']],
-    'plone-conference-trainings': [['Title', 'Trainer(s)', 'GitHub Handle(s)', 'Organisation', 'Source'],
+    'plone-conference-trainings': [['Title', 'Trainer(s)', 'GitHub Handle(s)', 'Organisation', 'Source', 'Notes'],
+                                   ['Title', 'Trainer(s)', 'GitHub Handle(s)', 'Organisation', 'Source'],
                                    ['Title', 'Trainer(s)', 'GitHub Handle(s)', 'Organisation']],
     'podcasts': [['Series', 'Host', 'Organisation', 'Episodes', 'Source']],
     'release-managers': [['Name', 'Github', 'Organisation', 'Source']],

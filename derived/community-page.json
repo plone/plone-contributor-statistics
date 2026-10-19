@@ -6,7 +6,7 @@
    "people": 375
   },
   "since_2003": {
-   "people": 985
+   "people": 1004
   },
   "year": {
    "events": 10,
@@ -255,7 +255,7 @@
      ]
     }
    ],
-   "people_active": 53,
+   "people_active": 57,
    "pull_requests": null,
    "team_leads": [
     {
@@ -543,7 +543,7 @@
      ]
     }
    ],
-   "people_active": 71,
+   "people_active": 85,
    "pull_requests": null,
    "team_leads": [
     {
@@ -817,7 +817,7 @@
      ]
     }
    ],
-   "people_active": 70,
+   "people_active": 75,
    "pull_requests": null,
    "team_leads": [
     {
@@ -1167,7 +1167,7 @@
      ]
     }
    ],
-   "people_active": 91,
+   "people_active": 92,
    "pull_requests": null,
    "team_leads": [
     {
@@ -2160,7 +2160,7 @@
      ]
     }
    ],
-   "people_active": 97,
+   "people_active": 100,
    "pull_requests": null,
    "team_leads": [
     {
@@ -2898,7 +2898,7 @@
      ]
     }
    ],
-   "people_active": 101,
+   "people_active": 103,
    "pull_requests": null,
    "team_leads": [
     {
@@ -3554,7 +3554,7 @@
      ]
     }
    ],
-   "people_active": 120,
+   "people_active": 121,
    "pull_requests": null,
    "team_leads": [
     {
@@ -3944,7 +3944,7 @@
      ]
     }
    ],
-   "people_active": 138,
+   "people_active": 139,
    "pull_requests": 142,
    "team_leads": [
     {
@@ -4529,7 +4529,7 @@
      ]
     }
    ],
-   "people_active": 206,
+   "people_active": 207,
    "pull_requests": 414,
    "team_leads": [
     {
@@ -4999,7 +4999,7 @@
      ]
     }
    ],
-   "people_active": 256,
+   "people_active": 257,
    "pull_requests": 512,
    "team_leads": [
     {
@@ -6020,7 +6020,7 @@
      ]
     }
    ],
-   "people_active": 170,
+   "people_active": 172,
    "pull_requests": 1758,
    "team_leads": [
     {
@@ -6257,7 +6257,7 @@
      ]
     }
    ],
-   "people_active": 161,
+   "people_active": 162,
    "pull_requests": 1676,
    "team_leads": [
     {
@@ -6482,7 +6482,7 @@
      ]
     }
    ],
-   "people_active": 162,
+   "people_active": 163,
    "pull_requests": 1695,
    "team_leads": [
     {
@@ -6749,7 +6749,7 @@
      ]
     }
    ],
-   "people_active": 147,
+   "people_active": 148,
    "pull_requests": 1623,
    "team_leads": [
     {
@@ -9427,7 +9427,7 @@
      "commits": 13,
      "events": 0,
      "pull_requests": 0,
-     "roles": 1
+     "roles": 2
     },
     "2013": {
      "commits": 9,
@@ -9451,19 +9451,19 @@
      "commits": 64,
      "events": 1,
      "pull_requests": 16,
-     "roles": 4
+     "roles": 6
     },
     "2017": {
      "commits": 46,
      "events": 0,
      "pull_requests": 9,
-     "roles": 1
+     "roles": 2
     },
     "2018": {
      "commits": 14,
      "events": 0,
      "pull_requests": 1,
-     "roles": 2
+     "roles": 3
     },
     "2019": {
      "commits": 50,
@@ -10410,13 +10410,13 @@
      "commits": 44,
      "events": 0,
      "pull_requests": 12,
-     "roles": 0
+     "roles": 1
     },
     "2016": {
      "commits": 27,
      "events": 1,
      "pull_requests": 3,
-     "roles": 1
+     "roles": 2
     },
     "2017": {
      "commits": 182,
@@ -11851,13 +11851,13 @@
      "commits": 2,
      "events": 2,
      "pull_requests": 3,
-     "roles": 2
+     "roles": 3
     },
     "2019": {
      "commits": 1,
      "events": 0,
      "pull_requests": 2,
-     "roles": 0
+     "roles": 1
     },
     "2020": {
      "commits": 3,
@@ -12385,13 +12385,13 @@
      "commits": 1081,
      "events": 4,
      "pull_requests": 95,
-     "roles": 7
+     "roles": 8
     },
     "2019": {
      "commits": 1894,
      "events": 3,
      "pull_requests": 248,
-     "roles": 9
+     "roles": 10
     },
     "2020": {
      "commits": 2099,
@@ -12531,7 +12531,7 @@
      "commits": 134,
      "events": 0,
      "pull_requests": 0,
-     "roles": 0
+     "roles": 1
     },
     "2006": {
      "commits": 157,
@@ -12983,7 +12983,7 @@
      "commits": 20,
      "events": 0,
      "pull_requests": 3,
-     "roles": 0
+     "roles": 1
     },
     "2020": {
      "commits": 3,
@@ -13697,7 +13697,7 @@
      "commits": 1304,
      "events": 0,
      "pull_requests": 154,
-     "roles": 0
+     "roles": 1
     },
     "2018": {
      "commits": 1298,
@@ -13709,7 +13709,7 @@
      "commits": 738,
      "events": 1,
      "pull_requests": 253,
-     "roles": 1
+     "roles": 2
     },
     "2020": {
      "commits": 5,
@@ -14495,7 +14495,7 @@
      "commits": 116,
      "events": 3,
      "pull_requests": 44,
-     "roles": 2
+     "roles": 3
     },
     "2020": {
      "commits": 171,
@@ -14972,13 +14972,13 @@
      "commits": 516,
      "events": 0,
      "pull_requests": 54,
-     "roles": 0
+     "roles": 2
     },
     "2019": {
      "commits": 68,
      "events": 0,
      "pull_requests": 8,
-     "roles": 0
+     "roles": 2
     },
     "2020": {
      "commits": 26,
@@ -15642,7 +15642,7 @@
      "commits": 9,
      "events": 0,
      "pull_requests": 0,
-     "roles": 1
+     "roles": 2
     },
     "2012": {
      "commits": 16,
@@ -15654,7 +15654,7 @@
      "commits": 96,
      "events": 1,
      "pull_requests": 1,
-     "roles": 2
+     "roles": 3
     },
     "2014": {
      "commits": 10,
@@ -15672,7 +15672,7 @@
      "commits": 16,
      "events": 0,
      "pull_requests": 2,
-     "roles": 2
+     "roles": 5
     },
     "2017": {
      "commits": 6,
@@ -15684,7 +15684,7 @@
      "commits": 24,
      "events": 0,
      "pull_requests": 4,
-     "roles": 2
+     "roles": 3
     },
     "2019": {
      "commits": 125,
@@ -15872,49 +15872,49 @@
      "commits": 30,
      "events": 0,
      "pull_requests": 3,
-     "roles": 0
+     "roles": 1
     },
     "2013": {
      "commits": 166,
      "events": 1,
      "pull_requests": 15,
-     "roles": 0
+     "roles": 1
     },
     "2014": {
      "commits": 547,
      "events": 0,
      "pull_requests": 36,
-     "roles": 0
+     "roles": 2
     },
     "2015": {
      "commits": 523,
      "events": 0,
      "pull_requests": 85,
-     "roles": 0
+     "roles": 1
     },
     "2016": {
      "commits": 188,
      "events": 0,
      "pull_requests": 27,
-     "roles": 2
+     "roles": 3
     },
     "2017": {
      "commits": 328,
      "events": 2,
      "pull_requests": 73,
-     "roles": 2
+     "roles": 3
     },
     "2018": {
      "commits": 858,
      "events": 0,
      "pull_requests": 178,
-     "roles": 2
+     "roles": 3
     },
     "2019": {
      "commits": 222,
      "events": 1,
      "pull_requests": 85,
-     "roles": 1
+     "roles": 2
     },
     "2020": {
      "commits": 159,
@@ -16138,7 +16138,7 @@
      "commits": 58,
      "events": 0,
      "pull_requests": 15,
-     "roles": 0
+     "roles": 1
     },
     "2020": {
      "commits": 22,
@@ -16320,13 +16320,13 @@
      "commits": 738,
      "events": 1,
      "pull_requests": 48,
-     "roles": 1
+     "roles": 2
     },
     "2015": {
      "commits": 503,
      "events": 0,
      "pull_requests": 80,
-     "roles": 0
+     "roles": 1
     },
     "2016": {
      "commits": 492,
@@ -17182,7 +17182,7 @@
      "commits": 9,
      "events": 0,
      "pull_requests": 0,
-     "roles": 0
+     "roles": 1
     },
     "2006": {
      "commits": 16,
@@ -17224,7 +17224,7 @@
      "commits": 384,
      "events": 0,
      "pull_requests": 4,
-     "roles": 0
+     "roles": 1
     },
     "2013": {
      "commits": 169,
@@ -17248,7 +17248,7 @@
      "commits": 2496,
      "events": 0,
      "pull_requests": 208,
-     "roles": 0
+     "roles": 1
     },
     "2017": {
      "commits": 600,
@@ -17319,7 +17319,8 @@
     "id": "andymckay",
     "pull_requests": 0,
     "roles": [
-     "Conference organiser"
+     "Conference organiser",
+     "Trainer"
     ]
    },
    {
@@ -17338,7 +17339,9 @@
     "commits": 118,
     "id": "bcsaller",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 18,
@@ -17392,7 +17395,9 @@
     "commits": 5,
     "id": "jimroepcke",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 3,
@@ -17422,7 +17427,9 @@
     "commits": 349,
     "id": "limi",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 103,
@@ -17620,14 +17627,17 @@
     "pull_requests": 0,
     "roles": [
      "Release manager",
-     "Team lead"
+     "Team lead",
+     "Trainer"
     ]
    },
    {
     "commits": 19,
     "id": "baekholt",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 3,
@@ -17639,7 +17649,9 @@
     "commits": 59,
     "id": "bcsaller",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 10,
@@ -17680,11 +17692,28 @@
     ]
    },
    {
+    "commits": 0,
+    "id": "faassen",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
+    ]
+   },
+   {
     "commits": 81,
     "id": "geoff-davis",
     "pull_requests": 0,
     "roles": [
-     "Board"
+     "Board",
+     "Trainer"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "gogobd",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
     ]
    },
    {
@@ -17700,6 +17729,14 @@
     "id": "jensens",
     "pull_requests": 0,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "jimfulton",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 14,
@@ -17728,7 +17765,8 @@
     "pull_requests": 0,
     "roles": [
      "Board",
-     "Team lead"
+     "Team lead",
+     "Trainer"
     ]
    },
    {
@@ -17743,7 +17781,8 @@
     "pull_requests": 0,
     "roles": [
      "Board",
-     "Team lead"
+     "Team lead",
+     "Trainer"
     ]
    },
    {
@@ -17857,6 +17896,14 @@
    },
    {
     "commits": 0,
+    "id": "name:riaan booysen",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:robert boulanger",
     "pull_requests": 0,
     "roles": [
@@ -17914,7 +17961,8 @@
     "id": "sidnei",
     "pull_requests": 0,
     "roles": [
-     "Release manager"
+     "Release manager",
+     "Trainer"
     ]
    },
    {
@@ -17929,7 +17977,8 @@
     "pull_requests": 0,
     "roles": [
      "Release manager",
-     "Team lead"
+     "Team lead",
+     "Trainer"
     ]
    },
    {
@@ -17942,7 +17991,9 @@
     "commits": 33,
     "id": "tesdal",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 849,
@@ -18013,7 +18064,9 @@
     "commits": 134,
     "id": "baekholt",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 2,
@@ -18099,7 +18152,9 @@
     "commits": 180,
     "id": "fschulze",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 27,
@@ -18140,7 +18195,8 @@
     "id": "jensens",
     "pull_requests": 0,
     "roles": [
-     "Sprint organiser"
+     "Sprint organiser",
+     "Trainer"
     ]
    },
    {
@@ -18150,10 +18206,20 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "jjmurre",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
+    ]
+   },
+   {
     "commits": 9,
     "id": "jladage",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 10,
@@ -18172,7 +18238,8 @@
     "roles": [
      "Board",
      "Sprint organiser",
-     "Team lead"
+     "Team lead",
+     "Trainer"
     ]
    },
    {
@@ -18180,7 +18247,8 @@
     "id": "kapilt",
     "pull_requests": 0,
     "roles": [
-     "Team lead"
+     "Team lead",
+     "Trainer"
     ]
    },
    {
@@ -18220,6 +18288,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "mjpieters",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
+    ]
+   },
+   {
     "commits": 18,
     "id": "mrtopf",
     "pull_requests": 0,
@@ -18231,6 +18307,22 @@
     "pull_requests": 0,
     "roles": [
      "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:arjen voogt",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:arno gross",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
     ]
    },
    {
@@ -18251,6 +18343,22 @@
    },
    {
     "commits": 0,
+    "id": "name:francesco ciriaci",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:gael le mignot",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:george donnely",
     "pull_requests": 0,
     "roles": [
@@ -18261,7 +18369,17 @@
     "commits": 7,
     "id": "name:gregoire weber",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:hannes wolfler",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 0,
@@ -18269,6 +18387,22 @@
     "pull_requests": 0,
     "roles": [
      "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:johann zagler",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:leo",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
     ]
    },
    {
@@ -18290,6 +18424,22 @@
    },
    {
     "commits": 0,
+    "id": "name:martin kaiser-kaplaner",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:mathias knoll",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:norm patriquin",
     "pull_requests": 0,
     "roles": [
@@ -18307,11 +18457,27 @@
    },
    {
     "commits": 0,
+    "id": "name:raphael poss",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:robert boulanger",
     "pull_requests": 0,
     "roles": [
      "Board",
      "Conference organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:takashi linzbichler",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
     ]
    },
    {
@@ -18332,7 +18498,9 @@
     "commits": 131,
     "id": "optilude",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 108,
@@ -18347,6 +18515,14 @@
     "roles": [
      "Board",
      "Team lead"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "philikon",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
     ]
    },
    {
@@ -18371,7 +18547,9 @@
     "commits": 20,
     "id": "rockyburt",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 5,
@@ -18479,7 +18657,9 @@
     "commits": 6,
     "id": "zworkb",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    }
   ],
   "2006": [
@@ -18497,7 +18677,8 @@
     "id": "andymckay",
     "pull_requests": 0,
     "roles": [
-     "Team lead"
+     "Team lead",
+     "Trainer"
     ]
    },
    {
@@ -18571,7 +18752,8 @@
     "id": "gotcha",
     "pull_requests": 0,
     "roles": [
-     "Team lead"
+     "Team lead",
+     "Trainer"
     ]
    },
    {
@@ -18631,7 +18813,8 @@
     "roles": [
      "Board",
      "Sprint organiser",
-     "Team lead"
+     "Team lead",
+     "Trainer"
     ]
    },
    {
@@ -18775,10 +18958,42 @@
    },
    {
     "commits": 0,
+    "id": "name:patrick shaw",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:paul showalter",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:richard amerman",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
+    ]
+   },
+   {
+    "commits": 0,
     "id": "name:toby roberts",
     "pull_requests": 0,
     "roles": [
      "Board"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "name:trey beck",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
     ]
    },
    {
@@ -18792,7 +19007,8 @@
     "id": "optilude",
     "pull_requests": 0,
     "roles": [
-     "Team lead"
+     "Team lead",
+     "Trainer"
     ]
    },
    {
@@ -18811,6 +19027,14 @@
     ]
    },
    {
+    "commits": 0,
+    "id": "philikon",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
+    ]
+   },
+   {
     "commits": 83,
     "id": "rafrombrc",
     "pull_requests": 0,
@@ -18826,7 +19050,9 @@
     "commits": 45,
     "id": "reebalazs",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 1,
@@ -18838,7 +19064,9 @@
     "commits": 46,
     "id": "rockyburt",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 22,
@@ -18949,7 +19177,8 @@
     "pull_requests": 0,
     "roles": [
      "Release manager",
-     "Team lead"
+     "Team lead",
+     "Trainer"
     ]
    },
    {
@@ -19181,7 +19410,8 @@
     "id": "joelburton",
     "pull_requests": 0,
     "roles": [
-     "Team lead"
+     "Team lead",
+     "Trainer"
     ]
    },
    {
@@ -19305,7 +19535,8 @@
     "id": "name:darci hanning",
     "pull_requests": 0,
     "roles": [
-     "Team lead"
+     "Team lead",
+     "Trainer"
     ]
    },
    {
@@ -19389,6 +19620,14 @@
     ]
    },
    {
+    "commits": 0,
+    "id": "name:veda williams",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
+    ]
+   },
+   {
     "commits": 24,
     "id": "naro",
     "pull_requests": 0,
@@ -19467,7 +19706,9 @@
     "commits": 7,
     "id": "rockyburt",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 13,
@@ -19640,6 +19881,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "cbcunc",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
+    ]
+   },
+   {
     "commits": 4,
     "id": "cewing",
     "pull_requests": 0,
@@ -19649,7 +19898,9 @@
     "commits": 5,
     "id": "claytron",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 17,
@@ -19756,7 +20007,8 @@
     "id": "hannosch",
     "pull_requests": 0,
     "roles": [
-     "Team lead"
+     "Team lead",
+     "Trainer"
     ]
    },
    {
@@ -19797,7 +20049,8 @@
     "pull_requests": 0,
     "roles": [
      "Board",
-     "Team lead"
+     "Team lead",
+     "Trainer"
     ]
    },
    {
@@ -19835,7 +20088,17 @@
     "commits": 50,
     "id": "lrowe",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "maartenkling",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 2,
@@ -20043,7 +20306,8 @@
     "id": "optilude",
     "pull_requests": 0,
     "roles": [
-     "Team lead"
+     "Team lead",
+     "Trainer"
     ]
    },
    {
@@ -20109,6 +20373,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "robzonenet",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
+    ]
+   },
+   {
     "commits": 4,
     "id": "rpatterson",
     "pull_requests": 0,
@@ -20155,7 +20427,8 @@
     "id": "tarekziade",
     "pull_requests": 0,
     "roles": [
-     "Sprint organiser"
+     "Sprint organiser",
+     "Trainer"
     ]
    },
    {
@@ -20323,6 +20596,14 @@
     "id": "calvinhp",
     "pull_requests": 0,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "cbcunc",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 4,
@@ -20496,6 +20777,14 @@
     "id": "jfroche",
     "pull_requests": 0,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "joelburton",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 28,
@@ -20700,7 +20989,8 @@
     "id": "natea",
     "pull_requests": 0,
     "roles": [
-     "Board"
+     "Board",
+     "Trainer"
     ]
    },
    {
@@ -20798,7 +21088,8 @@
     "id": "smcmahon",
     "pull_requests": 0,
     "roles": [
-     "Board"
+     "Board",
+     "Trainer"
     ]
    },
    {
@@ -21414,6 +21705,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "natea",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
+    ]
+   },
+   {
     "commits": 1,
     "id": "nk24i",
     "pull_requests": 0,
@@ -21523,7 +21822,8 @@
     "pull_requests": 0,
     "roles": [
      "Board",
-     "Team lead"
+     "Team lead",
+     "Trainer"
     ]
    },
    {
@@ -21760,13 +22060,17 @@
     "commits": 7,
     "id": "cdw9",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 3,
     "id": "cewing",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 13,
@@ -22296,7 +22600,16 @@
     "id": "optilude",
     "pull_requests": 0,
     "roles": [
-     "Sprint organiser"
+     "Sprint organiser",
+     "Trainer"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "pauleveritt",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
     ]
    },
    {
@@ -22403,7 +22716,8 @@
     "pull_requests": 1,
     "roles": [
      "Board",
-     "Sprint organiser"
+     "Sprint organiser",
+     "Trainer"
     ]
    },
    {
@@ -22684,7 +22998,9 @@
     "commits": 32,
     "id": "cewing",
     "pull_requests": 3,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 1,
@@ -22778,7 +23094,9 @@
     "commits": 102,
     "id": "do3cc",
     "pull_requests": 1,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 17,
@@ -22796,7 +23114,9 @@
     "commits": 9,
     "id": "ebrehault",
     "pull_requests": 2,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 55,
@@ -22817,7 +23137,9 @@
     "commits": 2,
     "id": "encolpe",
     "pull_requests": 1,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 55,
@@ -22881,7 +23203,9 @@
     "commits": 2,
     "id": "fredvd",
     "pull_requests": 2,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 1,
@@ -23434,7 +23758,8 @@
     "id": "pbauer",
     "pull_requests": 3,
     "roles": [
-     "Sprint organiser"
+     "Sprint organiser",
+     "Trainer"
     ]
    },
    {
@@ -23480,7 +23805,8 @@
     "id": "polyester",
     "pull_requests": 0,
     "roles": [
-     "Board"
+     "Board",
+     "Trainer"
     ]
    },
    {
@@ -23616,11 +23942,20 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "skleinfeldt",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
+    ]
+   },
+   {
     "commits": 77,
     "id": "smcmahon",
     "pull_requests": 0,
     "roles": [
-     "Sprint organiser"
+     "Sprint organiser",
+     "Trainer"
     ]
    },
    {
@@ -23803,7 +24138,9 @@
     "commits": 11,
     "id": "xiru",
     "pull_requests": 1,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 1,
@@ -24034,7 +24371,9 @@
     "commits": 2,
     "id": "cdw9",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 61,
@@ -24190,7 +24529,9 @@
     "commits": 111,
     "id": "do3cc",
     "pull_requests": 3,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 0,
@@ -24214,7 +24555,9 @@
     "commits": 16,
     "id": "ebrehault",
     "pull_requests": 2,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 8,
@@ -24337,7 +24680,9 @@
     "commits": 1009,
     "id": "garbas",
     "pull_requests": 1,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 16,
@@ -24926,6 +25271,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "pauleveritt",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
+    ]
+   },
+   {
     "commits": 1,
     "id": "pauloxnet",
     "pull_requests": 1,
@@ -24936,7 +25289,8 @@
     "id": "pbauer",
     "pull_requests": 9,
     "roles": [
-     "Sprint organiser"
+     "Sprint organiser",
+     "Trainer"
     ]
    },
    {
@@ -25158,7 +25512,8 @@
     "pull_requests": 1,
     "roles": [
      "Board",
-     "Team lead"
+     "Team lead",
+     "Trainer"
     ]
    },
    {
@@ -25866,7 +26221,9 @@
     "commits": 56,
     "id": "frapell",
     "pull_requests": 6,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 1,
@@ -25956,7 +26313,9 @@
     "commits": 49,
     "id": "gomez",
     "pull_requests": 15,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 8,
@@ -26461,7 +26820,9 @@
     "commits": 498,
     "id": "pbauer",
     "pull_requests": 21,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 1,
@@ -26640,7 +27001,8 @@
     "id": "smcmahon",
     "pull_requests": 5,
     "roles": [
-     "Board"
+     "Board",
+     "Trainer"
     ]
    },
    {
@@ -26732,7 +27094,9 @@
     "commits": 687,
     "id": "thet",
     "pull_requests": 36,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 3,
@@ -27185,7 +27549,9 @@
     "commits": 52,
     "id": "frapell",
     "pull_requests": 10,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 12,
@@ -27209,7 +27575,9 @@
     "commits": 174,
     "id": "fulv",
     "pull_requests": 86,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 29,
@@ -27627,7 +27995,9 @@
     "commits": 44,
     "id": "mrtango",
     "pull_requests": 12,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 0,
@@ -27710,7 +28080,8 @@
     "id": "pbauer",
     "pull_requests": 84,
     "roles": [
-     "Sprint organiser"
+     "Sprint organiser",
+     "Trainer"
     ]
    },
    {
@@ -27870,7 +28241,9 @@
     "commits": 27,
     "id": "simahawk",
     "pull_requests": 2,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 397,
@@ -27951,7 +28324,9 @@
     "commits": 463,
     "id": "thet",
     "pull_requests": 72,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 7,
@@ -28120,7 +28495,9 @@
     "commits": 57,
     "id": "alecpm",
     "pull_requests": 15,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 4,
@@ -28183,7 +28560,8 @@
     "id": "bloodbare",
     "pull_requests": 9,
     "roles": [
-     "Sprint organiser"
+     "Sprint organiser",
+     "Trainer"
     ]
    },
    {
@@ -28214,7 +28592,9 @@
     "commits": 15,
     "id": "calvinhp",
     "pull_requests": 2,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 1,
@@ -28227,7 +28607,8 @@
     "id": "cdw9",
     "pull_requests": 0,
     "roles": [
-     "Board"
+     "Board",
+     "Trainer"
     ]
    },
    {
@@ -28348,7 +28729,9 @@
     "commits": 142,
     "id": "ebrehault",
     "pull_requests": 35,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 1,
@@ -28398,7 +28781,9 @@
     "commits": 18,
     "id": "fredvd",
     "pull_requests": 5,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 0,
@@ -28410,7 +28795,9 @@
     "commits": 16,
     "id": "fulv",
     "pull_requests": 3,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 15,
@@ -28550,7 +28937,9 @@
     "commits": 48,
     "id": "jean",
     "pull_requests": 13,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 651,
@@ -28756,7 +29145,8 @@
     "id": "mrtango",
     "pull_requests": 3,
     "roles": [
-     "Sprint organiser"
+     "Sprint organiser",
+     "Trainer"
     ]
    },
    {
@@ -28835,7 +29225,17 @@
     "commits": 5,
     "id": "oz123",
     "pull_requests": 5,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "pauleveritt",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 183,
@@ -28843,7 +29243,8 @@
     "pull_requests": 23,
     "roles": [
      "Board",
-     "Team lead"
+     "Team lead",
+     "Trainer"
     ]
    },
    {
@@ -28869,7 +29270,8 @@
     "id": "pigeonflight",
     "pull_requests": 1,
     "roles": [
-     "Sprint organiser"
+     "Sprint organiser",
+     "Trainer"
     ]
    },
    {
@@ -28878,7 +29280,8 @@
     "pull_requests": 16,
     "roles": [
      "Board",
-     "Sprint organiser"
+     "Sprint organiser",
+     "Trainer"
     ]
    },
    {
@@ -28978,6 +29381,14 @@
     "roles": []
    },
    {
+    "commits": 0,
+    "id": "sergmelikyan",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
+    ]
+   },
+   {
     "commits": 1,
     "id": "sgeulette",
     "pull_requests": 1,
@@ -28999,7 +29410,9 @@
     "commits": 406,
     "id": "smcmahon",
     "pull_requests": 25,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 71,
@@ -29039,7 +29452,8 @@
     "id": "svx",
     "pull_requests": 70,
     "roles": [
-     "Sprint organiser"
+     "Sprint organiser",
+     "Trainer"
     ]
    },
    {
@@ -29098,19 +29512,25 @@
     "commits": 81,
     "id": "tomgross",
     "pull_requests": 22,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 43,
     "id": "tschorr",
     "pull_requests": 10,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 365,
     "id": "vangheem",
     "pull_requests": 115,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 4,
@@ -29236,7 +29656,8 @@
     "pull_requests": 17,
     "roles": [
      "Conference organiser",
-     "Sprint organiser"
+     "Sprint organiser",
+     "Trainer"
     ]
    },
    {
@@ -29386,7 +29807,8 @@
     "id": "ebrehault",
     "pull_requests": 8,
     "roles": [
-     "Sprint organiser"
+     "Sprint organiser",
+     "Trainer"
     ]
    },
    {
@@ -29427,7 +29849,9 @@
     "commits": 15,
     "id": "frapell",
     "pull_requests": 12,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 6,
@@ -29451,7 +29875,9 @@
     "commits": 36,
     "id": "fulv",
     "pull_requests": 19,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 26,
@@ -29565,7 +29991,9 @@
     "commits": 29,
     "id": "jean",
     "pull_requests": 10,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 334,
@@ -29679,6 +30107,14 @@
     "id": "lzdych",
     "pull_requests": 1,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "ma3str0",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 0,
@@ -29818,13 +30254,17 @@
     "commits": 8,
     "id": "obct537",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 43,
     "id": "oz123",
     "pull_requests": 11,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 2,
@@ -29838,7 +30278,8 @@
     "pull_requests": 67,
     "roles": [
      "Board",
-     "Sprint organiser"
+     "Sprint organiser",
+     "Trainer"
     ]
    },
    {
@@ -29857,14 +30298,17 @@
     "commits": 13,
     "id": "pigeonflight",
     "pull_requests": 4,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 46,
     "id": "polyester",
     "pull_requests": 9,
     "roles": [
-     "Board"
+     "Board",
+     "Trainer"
     ]
    },
    {
@@ -29913,7 +30357,9 @@
     "commits": 12,
     "id": "robzonenet",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 3,
@@ -30056,7 +30502,9 @@
     "commits": 106,
     "id": "thomasmassmann",
     "pull_requests": 6,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 6,
@@ -30078,7 +30526,8 @@
     "pull_requests": 19,
     "roles": [
      "Board",
-     "Team lead"
+     "Team lead",
+     "Trainer"
     ]
    },
    {
@@ -30109,13 +30558,17 @@
     "commits": 58,
     "id": "tschorr",
     "pull_requests": 3,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 1304,
     "id": "vangheem",
     "pull_requests": 154,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 14,
@@ -30255,7 +30708,9 @@
     "commits": 295,
     "id": "bloodbare",
     "pull_requests": 48,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 3,
@@ -30280,7 +30735,8 @@
     "id": "cdw9",
     "pull_requests": 4,
     "roles": [
-     "Board"
+     "Board",
+     "Trainer"
     ]
    },
    {
@@ -30539,13 +30995,17 @@
     "commits": 50,
     "id": "jaroel",
     "pull_requests": 2,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 3,
     "id": "jean",
     "pull_requests": 0,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 445,
@@ -30566,6 +31026,14 @@
     "id": "jianaijun",
     "pull_requests": 0,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "jimfulton",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 13,
@@ -30700,7 +31168,9 @@
     "commits": 1,
     "id": "mikejmets",
     "pull_requests": 1,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 1,
@@ -30851,7 +31321,8 @@
     "roles": [
      "Board",
      "Sprint organiser",
-     "Team lead"
+     "Team lead",
+     "Trainer"
     ]
    },
    {
@@ -30884,7 +31355,8 @@
     "pull_requests": 1,
     "roles": [
      "Board",
-     "Team lead"
+     "Team lead",
+     "Trainer"
     ]
    },
    {
@@ -30927,7 +31399,9 @@
     "commits": 516,
     "id": "robgietema",
     "pull_requests": 54,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 3,
@@ -30991,7 +31465,8 @@
     "pull_requests": 48,
     "roles": [
      "Board",
-     "Team lead"
+     "Team lead",
+     "Trainer"
     ]
    },
    {
@@ -31091,7 +31566,8 @@
     "pull_requests": 25,
     "roles": [
      "Board",
-     "Team lead"
+     "Team lead",
+     "Trainer"
     ]
    },
    {
@@ -31122,7 +31598,9 @@
     "commits": 49,
     "id": "tschorr",
     "pull_requests": 16,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 5,
@@ -31282,7 +31760,9 @@
     "commits": 203,
     "id": "bloodbare",
     "pull_requests": 55,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 16,
@@ -31308,7 +31788,9 @@
     "commits": 47,
     "id": "cekk",
     "pull_requests": 5,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 2,
@@ -31554,7 +32036,9 @@
     "commits": 51,
     "id": "jaroel",
     "pull_requests": 3,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 4,
@@ -31824,7 +32308,8 @@
     "id": "pbauer",
     "pull_requests": 83,
     "roles": [
-     "Sprint organiser"
+     "Sprint organiser",
+     "Trainer"
     ]
    },
    {
@@ -31918,7 +32403,9 @@
     "commits": 68,
     "id": "robgietema",
     "pull_requests": 8,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 7,
@@ -31977,14 +32464,17 @@
     "roles": [
      "Board",
      "Sprint organiser",
-     "Team lead"
+     "Team lead",
+     "Trainer"
     ]
    },
    {
     "commits": 20,
     "id": "spereverde",
     "pull_requests": 3,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 49,
@@ -32002,7 +32492,9 @@
     "commits": 58,
     "id": "stevepiercy",
     "pull_requests": 15,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 2,
@@ -32084,7 +32576,9 @@
     "commits": 63,
     "id": "tschorr",
     "pull_requests": 15,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 2,
@@ -32096,7 +32590,9 @@
     "commits": 633,
     "id": "vangheem",
     "pull_requests": 187,
-    "roles": []
+    "roles": [
+     "Trainer"
+    ]
    },
    {
     "commits": 18,
@@ -32127,6 +32623,14 @@
     "id": "zopyx",
     "pull_requests": 7,
     "roles": []
+   },
+   {
+    "commits": 0,
+    "id": "zupo",
+    "pull_requests": 0,
+    "roles": [
+     "Trainer"
+    ]
    }
   ],
   "2020": [
@@ -38273,12 +38777,16 @@
   "alin voinea": "avoinea",
   "alok kumar": "iflameing",
   "andre nogueira": "agnogueira",
+  "andrea cecchi": "cekk",
   "andrew mleczko": "amleczko",
   "andy leeb": "ableeb",
   "andy mckay": "andymckay",
+  "anton caceres": "ma3str0",
   "asko soukka": "datakurre",
   "astrid beyers": "astridjuizi",
+  "balazs ree": "reebalazs",
   "ben saller": "bcsaller",
+  "benjamin saller": "bcsaller",
   "brian davis": "fosten",
   "brian ledwell": "bledwell",
   "calvin hendryx-parker": "calvinhp",
@@ -38286,6 +38794,7 @@
   "chrissy wainwright": "cdw9",
   "christian heimes": "tiran",
   "claudia ifrim": "claudiaifrim",
+  "clayton parker": "claytron",
   "craig haynal": "cah190",
   "cris ewing": "cewing",
   "dante alvarez": "danalvrz",
@@ -38297,10 +38806,14 @@
   "dorneles tremea": "dorneles",
   "dylan jay": "djay",
   "elizabeth leddy": "eleddy",
+  "encolpe degoute": "encolpe",
   "eric brehault": "ebrehault",
   "eric steele": "esteele",
   "erico andrei": "ericof",
+  "fabiano weimar dos santos": "xiru",
   "florian friesdorf": "chaoflow",
+  "florian schulze": "fschulze",
+  "franco pellegrini": "frapell",
   "fred van dijk": "fredvd",
   "fulvio casali": "fulv",
   "geir bækholt": "baekholt",
@@ -38313,12 +38826,17 @@
   "guido stevens": "gyst",
   "hanno schlichting": "hannosch",
   "hector velarde": "hvelarde",
+  "helge tesdal": "tesdal",
   "jakob kahl": "jackahl",
+  "jan murre": "jjmurre",
   "jc brand": "jcbrand",
   "jean jordaan": "jean",
+  "jean-paul ladage": "jladage",
   "jens klein": "jensens",
   "jens vagelpohl": "dataflake",
   "jens w. klein": "jensens",
+  "jim fulton": "jimfulton",
+  "jim roepcke": "jimroepcke",
   "joao henrique gouveia": "jhgouveia",
   "jodok batlogg": "jodok",
   "joel burton": "joelburton",
@@ -38333,11 +38851,15 @@
   "katja suss": "ksuess",
   "kim nguyen": "tkimnguyen",
   "kim paulissen": "spereverde",
+  "laurence rowe": "lrowe",
   "loechel": "loechel",
+  "maarten kling": "maartenkling",
   "maik derstappen": "mrtango",
   "maik derstappen (contact)": "mrtango",
   "malthe borch": "malthe",
   "manabu terada": "terapyon",
+  "martijn faassen": "faassen",
+  "martijn pieters": "mjpieters",
   "martin aspeli": "optilude",
   "martin opstad reistadbakk": "martior",
   "martin peeters": "mpeeters",
@@ -38346,17 +38868,22 @@
   "maurizio delmonte": "miziodel",
   "max jakob": "vincero",
   "michael howitz": "icemac",
+  "mike metcalfe": "mikejmets",
   "mikel larreategi": "erral",
   "nate aune": "natea",
   "nathan van gheem": "vangheem",
   "nejc zupan": "zupo",
   "nil bacardit": "nilbacardit26",
   "nilesh gulia": "nileshgulia1",
+  "oz tiram": "oz123",
+  "patrick gerken": "do3cc",
   "paul everitt": "pauleveritt",
   "paul roeland": "polyester",
   "peter holzer": "agitator",
   "peter mathis": "petschki",
   "philip bauer": "pbauer",
+  "philipp auersperg": "zworkb",
+  "philipp von weitershausen": "philikon",
   "piero nicolli": "pnicolli",
   "rafahela": "rafahela",
   "rafahela bazzanela": "rafahela",
@@ -38364,16 +38891,24 @@
   "rafahela garcia bazzanella": "rafahela",
   "ramon navarro bosch": "bloodbare",
   "rikupekka oksanen": "rioksane",
+  "rob gietema": "robgietema",
   "rob porter": "robzonenet",
   "robert niederreiter": "rnixx",
+  "rocky burt": "rockyburt",
+  "roel bruggink": "jaroel",
   "roger boixader guell": "rboixaderg",
   "rohit kumar": "irohitsingh",
+  "rok garbas": "garbas",
   "sally kleinfeldt": "skleinfeldt",
+  "sam schwartz": "obct537",
   "sasha vincic": "vincic",
+  "serg melikyan": "sergmelikyan",
   "sidnei da silva": "sidnei",
   "simon eisenmann": "longsleep",
+  "simone orsi": "simahawk",
   "stefan antonelli": "santonelli",
   "stefan holek": "stefanholek",
+  "steffen lindner": "gomez",
   "steve mcmahon": "smcmahon",
   "steve mcmahon (page)": "smcmahon",
   "steve piercy": "stevepiercy",
@@ -38382,11 +38917,14 @@
   "takanori suzuki": "takanory",
   "tarek ziade": "tarekziade",
   "teodor voicu": "tedw87",
+  "thomas massmann": "thomasmassmann",
+  "thomas schorr": "tschorr",
   "tiberiu ichim": "tiberiuichim",
   "timo stollenwerk": "tisto",
   "tisha soumya": "tishasoumya-02",
   "tom \"spanky\" kapanka": "spanktar",
   "tom 'spanky' kapanka": "spanktar",
+  "tom gross": "tomgross",
   "tom kapanka": "spanktar",
   "ujjwal kala": "ujsquared",
   "victor fernandez de alba": "sneridagh",

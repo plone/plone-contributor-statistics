@@ -25,7 +25,7 @@ The curated community data is in `curated/community-contributions/`, one file pe
 |---|---|---|---|
 | Board of Directors | 2004–2025 | `curated/community-contributions/YYYY-board-of-directors.csv` | 2004–2025 |
 | Plone Conference organisers | 2003–2025 | `curated/community-contributions/YYYY-plone-conference.csv` | 2003–2021, 2024 |
-| Plone Conference trainings | 2020–2025 | `curated/community-contributions/YYYY-plone-conference-trainings.csv` | 2020–2024 |
+| Plone Conference trainings | 2003–2025 | `curated/community-contributions/YYYY-plone-conference-trainings.csv` | 2003–2024 |
 | Release managers | 2004–2025 | `curated/community-contributions/YYYY-release-managers.csv` | 2004–2025 |
 | Team leaders | 2004–2025 | `curated/community-contributions/YYYY-team-leaders.csv` | 2004–2025 |
 | Sprints | 2003–2025 | `curated/community-contributions/YYYY-sprints.csv` | 2003–2025 |
