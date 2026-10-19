@@ -35,6 +35,7 @@ OLD_FILES = {
     paths.PROPOSALS: (
         'contributor,organisation,from_year,to_year,evidence\n'
         'tschorr,Starzel,2014,2014,Company address in commits 2014 (example: https://example.org/commit)\n'
+        'tschorr,Acme Labs,2015,2015,Company address @acme in commits 2015 (example: https://example.org/acme)\n'
     ),
     paths.FULLNAMES: (
         'github username,fullname,source\n'
@@ -45,6 +46,7 @@ OLD_FILES = {
         'email,github_username,name,source\n'
         'alan@example.org,,Alan Runyan,Review in #69; example commit: https://example.org/commit/1\n'
         'Tom@Example.org,tschorr,Tom Schorr,Same name in commits; example commit: https://example.org/commit/2\n'
+        'anne@example.org,,Anne Marie Doe,Review in #69; example commit: https://example.org/commit/3\n'
     ),
     paths.ACCOUNT_ALIASES: 'alias,github_username,source\n',
     paths.CHANGELOG_NAMES: 'changelog_name,github_username,name,source\n',
@@ -61,10 +63,54 @@ OLD_FILES = {
         'https://example.org/training-2016; organisation of Thomas Schorr from the organisation mapping: '
         'https://example.org/tschorr,Two-day class\n'
     ),
+    paths.COMMUNITY / '2019-plone-conference-trainings.csv': (
+        'Title,Trainer(s),GitHub Handle(s),Organisation,Source,Notes\n'
+        # Only Philip's cell is a copy; Thomas's states an organisation the mapping does not give for 2019
+        'Advanced Plone,Philip Bauer;Thomas Schorr,pbauer;tschorr,Starzel;Zest Software,'
+        'https://example.org/training-2019; organisation of Philip Bauer from the organisation mapping: '
+        'https://example.org/pb,\n'
+        # One handle for two trainers: the handles are not used
+        'Plone Basics,Philip Bauer;Thomas Schorr,pbauer,Starzel;Thomas Schorr (independent),'
+        'https://example.org/basics-2019,\n'
+    ),
+    paths.COMMUNITY / '2020-release-managers.csv': (
+        'Name,Github,Organisation,Source\n'
+        'Thomas Schorr,tschorr,Starzel,https://example.org/release-2020; '
+        'organisation of Thomas Schorr from the release page: https://example.org/rm-page\n'
+        'Anne-Marie Doe,,Unmapped,https://example.org/release-2020\n'
+    ),
+    paths.COMMUNITY / '2021-podcasts.csv': (
+        'Series,Host,Organisation,Episodes,Source\n'
+        'Plone Talks,Alan Runyan,Zest Software,2,episodes: https://example.org/ep1; '
+        'organisation: staff page: https://example.org/staff\n'
+        'Plone Talks,,Starzel,1,episodes: https://example.org/ep2\n'
+    ),
+    paths.COMMUNITY / '2024-team-leaders.csv': (
+        'Name,Team,Organisation,Source\n'
+        'Philip Bauer;Thomas Schorr;Alan Runyan,Release Team,Zest Software;Starzel,https://example.org/team-2024\n'
+    ),
+    paths.COMMUNITY / '2024-world-plone-day-talks.csv': (
+        'Video Title,Speaker(s),Organisation,Event / Location,Type,YouTube ID,Source,Notes\n'
+        'Starzel Demo,Starzel team,Starzel,Online,Talk,abc111,https://www.youtube.com/watch?v=abc111,\n'
+        'Plone Talk,Philip Bauer,Starzel,Munich,Talk,abc222,'
+        'https://www.youtube.com/watch?v=abc222; Philip Bauer: https://github.com/pbauer,\n'
+        'No Source Talk,Thomas Schorr,,Online,Talk,abc333,,\n'
+    ),
+    paths.COMMUNITY / '2003-plone-conference.csv': (
+        'Organisation,Organiser(s),Source,Notes\n'
+        'Unmapped,Alan Runyan,https://example.org/conference-2003,No company named\n'
+    ),
     paths.COMMUNITY / '2023-sprints.csv': (
         'Sprint,Start,End,Location,Organiser(s),Organisation,Level,Source,Notes\n'
         'Alpine Sprint,2023-02-06,2023-02-10,Innsbruck,Philip Bauer; Thomas Schorr; Alan Runyan,'
-        'Starzel;Zest Software,strategic,https://example.org/sprint-2023,\n'
+        'Starzel;Zest Software,strategic,https://example.org/sprint-2023; '
+        'organisation of Philip Bauer from the organisation mapping: https://example.org/pb-sprint,\n'
+        'Bonn Sprint,2023-05-01,2023-05-02,Bonn,Bonn Sprint Team,Starzel,community,https://example.org/bonn,\n'
+    ),
+    paths.contributors_file(2006): (
+        'username,total_commits\r\n'
+        'tschorr,"1"\r\n'
+        'Alan Runyan,2\r\n'
     ),
     paths.contributors_file(2005): (
         'username,total_commits,total_pull_requests,repositories_count,repositories,first_contribution,'
@@ -89,21 +135,34 @@ def rows(root, path):
         return list(csv.DictReader(f))
 
 
+def build(root, changes=None):
+    """Write the miniature old structure under root, with `changes` ({path: text}) on top; the profile names."""
+    shutil.copytree(REPO / 'curated/schemas', root / 'curated/schemas')
+    for path, text in {**OLD_FILES, **(changes or {})}.items():
+        (root / path).parent.mkdir(parents=True, exist_ok=True)
+        with open(root / path, 'w', newline='', encoding='utf-8') as f:
+            f.write(text)
+    profile_names = root / 'profile_names.csv'
+    profile_names.write_text(PROFILE_NAMES, encoding='utf-8')
+    return profile_names
+
+
 @pytest.fixture(scope='module')
 def migrated(tmp_path_factory):
     """(root, report) of the miniature old structure after the migration and the data package."""
     root = tmp_path_factory.mktemp('repo')
-    shutil.copytree(REPO / 'curated/schemas', root / 'curated/schemas')
-    for path, text in OLD_FILES.items():
-        (root / path).parent.mkdir(parents=True, exist_ok=True)
-        (root / path).write_text(text, encoding='utf-8')
-    profile_names = root / 'profile_names.csv'
-    profile_names.write_text(PROFILE_NAMES, encoding='utf-8')
+    profile_names = build(root)
     with pytest.MonkeyPatch.context() as patch:
         patch.chdir(root)
         report = migrate.migrate(root=root, until=2026, profile_names=profile_names)
         datapackage.main([])
         yield root, report
+
+
+def proposals_of(root, file):
+    """(person, organisation, from, to) of the proposals whose evidence names the file."""
+    return {(row['person'], row['organisation'], row['from'], row['to'])
+            for row in rows(root, paths.AFFILIATION_PROPOSALS) if f'{file}:' in row['evidence']}
 
 
 def test_people_get_slug_ids_and_names(migrated):
@@ -170,7 +229,7 @@ def test_old_proposals_are_carried_over(migrated):
 
 def test_sprint_sets_are_ids(migrated):
     root, _ = migrated
-    [sprint] = rows(root, paths.COMMUNITY / '2023-sprints.csv')
+    sprint = rows(root, paths.COMMUNITY / '2023-sprints.csv')[0]
     assert sprint['organisers'] == 'philip-bauer;thomas-schorr;alan-runyan'
     assert sprint['organisations'] == 'starzel;zest-software'
 
@@ -226,4 +285,152 @@ def test_report_renders_counts_first(migrated):
     _, report = migrated
     text = migrate.write_report(report)
     assert text.splitlines()[0].startswith('# ')
-    assert '| people | 3 |' in text
+    assert '| people | 5 |' in text
+
+
+def test_team_speaker_becomes_organisation_of_talk(migrated):
+    root, _ = migrated
+    talk = rows(root, paths.COMMUNITY / '2024-world-plone-day-talks.csv')[0]
+    assert (talk['speakers'], talk['organisations']) == ('', 'starzel')
+
+
+def test_talk_source_is_cut_at_speaker_link(migrated):
+    root, report = migrated
+    talk = rows(root, paths.COMMUNITY / '2024-world-plone-day-talks.csv')[1]
+    assert talk['source'] == 'https://www.youtube.com/watch?v=abc222'
+    assert ('curated/community-contributions/2024-world-plone-day-talks.csv', 3,
+            '; Philip Bauer: https://github.com/pbauer') in report.cut_sources
+
+
+def test_talk_without_source_takes_its_video(migrated):
+    root, _ = migrated
+    talk = rows(root, paths.COMMUNITY / '2024-world-plone-day-talks.csv')[2]
+    assert talk['source'] == 'https://www.youtube.com/watch?v=abc333'
+
+
+def test_talk_location_comes_from_event_column(migrated):
+    root, _ = migrated
+    talks = rows(root, paths.COMMUNITY / '2024-world-plone-day-talks.csv')
+    assert [talk['location'] for talk in talks] == ['Online', 'Munich', 'Online']
+
+
+def test_unaligned_row_is_reported(migrated):
+    _, report = migrated
+    assert [(file, line) for file, line, _, _ in report.unaligned] == [
+        ('curated/community-contributions/2024-team-leaders.csv', 2)]
+
+
+def test_unaligned_row_gives_proposals_for_each_person(migrated):
+    root, _ = migrated
+    assert proposals_of(root, '2024-team-leaders.csv') == {
+        ('philip-bauer', 'zest-software', '2024', '2024'),
+        ('thomas-schorr', 'zest-software', '2024', '2024'),
+        ('thomas-schorr', 'starzel', '2024', '2024'),
+        ('alan-runyan', 'zest-software', '2024', '2024'),
+        ('alan-runyan', 'starzel', '2024', '2024'),
+    }
+
+
+def test_organisation_differing_from_mapping_is_proposed(migrated):
+    root, _ = migrated
+    assert proposals_of(root, '2020-release-managers.csv') == {('thomas-schorr', 'starzel', '2020', '2020')}
+
+
+def test_proposal_evidence_is_the_persons_record(migrated):
+    root, _ = migrated
+    [evidence] = [row['evidence'] for row in rows(root, paths.AFFILIATION_PROPOSALS)
+                  if '2020-release-managers.csv' in row['evidence']]
+    assert evidence == 'curated/community-contributions/2020-release-managers.csv:2; https://example.org/rm-page'
+
+
+def test_organisation_of_person_without_login_is_proposed(migrated):
+    root, _ = migrated
+    assert proposals_of(root, '2021-podcasts.csv') == {('alan-runyan', 'zest-software', '2021', '2021')}
+
+
+def test_copy_note_covers_only_the_person_it_names(migrated):
+    root, _ = migrated
+    assert proposals_of(root, '2019-plone-conference-trainings.csv') == {('thomas-schorr', 'zest-software', '2019',
+                                                                          '2019')}
+
+
+def test_copy_that_disagrees_with_mapping_stops_the_run(tmp_path):
+    board = ('Name,Organisation,Source,Role\nThomas Schorr,Starzel,https://example.org/board-2010; '
+             'organisation from the organisation mapping: https://example.org/x,voting\n')
+    profile_names = build(tmp_path, {paths.COMMUNITY / '2010-board-of-directors.csv': board})
+    with pytest.raises(ValueError, match='marked as copied'):
+        migrate.migrate(root=tmp_path, until=2026, profile_names=profile_names)
+
+
+def test_unknown_organisation_stops_the_run(tmp_path):
+    sprints = ('Sprint,Start,End,Location,Organiser(s),Organisation,Level,Source,Notes\n'
+               'Some Sprint,2023-01-01,2023-01-02,Bonn,,Nowhere Ltd,community,https://example.org/s,\n')
+    profile_names = build(tmp_path, {paths.COMMUNITY / '2023-sprints.csv': sprints})
+    with pytest.raises(ValueError, match='Nowhere Ltd'):
+        migrate.migrate(root=tmp_path, until=2026, profile_names=profile_names)
+
+
+def test_group_in_sprint_is_dropped_and_reported(migrated):
+    root, report = migrated
+    assert rows(root, paths.COMMUNITY / '2023-sprints.csv')[1]['organisers'] == ''
+    assert ('curated/community-contributions/2023-sprints.csv', 3, 'Bonn Sprint Team') in report.dropped_groups
+
+
+def test_event_source_is_cut_too(migrated):
+    root, _ = migrated
+    assert rows(root, paths.COMMUNITY / '2023-sprints.csv')[0]['source'] == 'https://example.org/sprint-2023'
+
+
+def test_source_is_cut_at_bare_organisation_note(migrated):
+    root, _ = migrated
+    assert rows(root, paths.COMMUNITY / '2021-podcasts.csv')[0]['source'] == 'episodes: https://example.org/ep1'
+
+
+def test_conference_without_host_keeps_its_organisers(migrated):
+    root, _ = migrated
+    [conference] = rows(root, paths.COMMUNITY / '2003-plone-conference.csv')
+    assert (conference['organisation'], conference['organisers'], conference['notes']) == (
+        '', 'alan-runyan', 'No company named')
+
+
+def test_podcast_without_host_keeps_its_row(migrated):
+    root, _ = migrated
+    podcast = rows(root, paths.COMMUNITY / '2021-podcasts.csv')[1]
+    assert (podcast['person'], podcast['episodes'], podcast['notes']) == (
+        '', '1', 'organisation in the old file: Starzel')
+
+
+def test_proposal_may_introduce_an_organisation(migrated):
+    root, report = migrated
+    organisations = {row['id']: row['name'] for row in rows(root, paths.ORGANISATIONS)}
+    assert organisations['acme-labs'] == 'Acme Labs'
+    assert [(name, 'https://example.org/acme' in reason) for name, reason in report.added_organisations] == [
+        ('Acme Labs', True)]
+
+
+def test_id_collisions_are_reported(migrated):
+    _, report = migrated
+    assert report.id_collisions == [('anne-marie-doe', 'anne-marie-doe;anne-marie-doe-2', ';')]
+
+
+def test_handles_not_one_per_name_are_reported(migrated):
+    _, report = migrated
+    assert report.dropped_handles == [
+        ('curated/community-contributions/2019-plone-conference-trainings.csv', 3, 'Philip Bauer;Thomas Schorr',
+         'pbauer')]
+
+
+def test_crlf_collected_file_keeps_its_line_endings(migrated):
+    root, _ = migrated
+    assert (root / paths.contributors_file(2006)).read_bytes() == (
+        b'username,total_commits\r\ntschorr,"1"\r\nperson:alan-runyan,2\r\n')
+
+
+def test_migration_is_deterministic(tmp_path):
+    outputs = []
+    for name in ('a', 'b'):
+        root = tmp_path / name
+        migrate.migrate(root=root, until=2026, profile_names=build(root))
+        outputs.append({path.relative_to(root): path.read_bytes() for path in sorted(root.rglob('*'))
+                        if path.is_file()})
+    assert outputs[0] == outputs[1]

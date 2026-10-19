@@ -37,3 +37,10 @@ def test_source_requires_a_link_except_for_identities():
         if 'source' in fields and path.stem != 'identities':
             assert fields['source']['constraints']['pattern'] == '.*https?://.*'
             assert fields['source']['constraints']['required'] is True
+
+
+def test_conference_host_and_podcast_host_may_be_empty():
+    # The old files have conferences and a podcast series that name no host (#139)
+    for kind, name in (('plone-conference', 'organisation'), ('podcasts', 'person')):
+        fields = {f['name']: f for f in json.loads((SCHEMAS / f'{kind}.json').read_text())['fields']}
+        assert 'required' not in fields[name]['constraints']

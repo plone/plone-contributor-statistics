@@ -11,9 +11,8 @@
     {
       "name": "person",
       "type": "string",
-      "description": "The id of the person in the people register.",
+      "description": "The id of the host in the people register; empty when the source names no host.",
       "constraints": {
-        "required": true,
         "pattern": "^[a-z0-9][a-z0-9-]*$"
       }
     },

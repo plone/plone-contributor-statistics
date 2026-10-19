@@ -18,6 +18,7 @@ import contextlib
 import csv
 import io
 import os
+import re
 from collections import Counter, defaultdict
 from dataclasses import dataclass, field
 from datetime import date
@@ -146,6 +147,10 @@ class Report:
     dropped_groups: list = field(default_factory=list)
     # (file, line, what): what the new files cannot hold
     unrepresentable: list = field(default_factory=list)
+    # (base id, resulting ids, logins): people whose names give the same id, to review as possible duplicates
+    id_collisions: list = field(default_factory=list)
+    # (file, line, names, handles): handles not used because they are not one per name
+    dropped_handles: list = field(default_factory=list)
 
 
 def _read(path):
@@ -156,7 +161,7 @@ def _read(path):
 def _write(path, header, rows):
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, 'w', newline='', encoding='utf-8') as f:
-        writer = csv.DictWriter(f, fieldnames=header, lineterminator='\n', extrasaction='ignore')
+        writer = csv.DictWriter(f, fieldnames=header, lineterminator='\n')
         writer.writeheader()
         writer.writerows(rows)
 
@@ -414,13 +419,18 @@ class People:
         names = {key: self._name(key) for key in self.keys}
         named = sorted((key for key in self.keys if key.startswith('name:')), key=lambda k: (fold(names[k][0]), k))
         used = set()
+        bases = defaultdict(list)
         for key in logins + named:
             name, source = names[key]
             login = '' if key.startswith('name:') else self.spelling[key]
             base = slugify(name) or slugify(login)
             person_id = _unique_id(base, used, name)
+            bases[base].append((person_id, login))
             self.ids[key] = person_id
             self.rows[person_id] = {'id': person_id, 'name': name, 'github': login, 'source': source}
+        # (base id, resulting ids, logins) of every base that more than one person needed
+        self.collisions = [(base, ';'.join(i for i, _ in found), ';'.join(login for _, login in found))
+                           for base, found in sorted(bases.items()) if len(found) > 1]
 
     def register(self):
         return [self.rows[person_id] for person_id in sorted(self.rows)]
@@ -535,7 +545,9 @@ def old_proposals(old, people, organisations):
             key = people.login_key(contributor)
         else:
             key = people.key(contributor)
-        org_id = organisations.id_or_add(row['organisation'].strip(), 'named in organisation_mapping_proposals.csv')
+        # A proposal may introduce an organisation; its row records the proposal's evidence as the reason
+        org_id = organisations.id_or_add(row['organisation'].strip(),
+                                         f'named in organisation_mapping_proposals.csv: {row["evidence"].strip()}')
         found.append({'person': people.ids[key], 'organisation': org_id, 'from': int(row['from_year']),
                       'to': int(row['to_year']) if row['to_year'].strip() else '',
                       'evidence': row['evidence'].strip(), 'kind': 'carried over'})
@@ -556,8 +568,10 @@ def rewrite_collected(root, people, report):
     for path in files:
         if path.name.endswith('_checkpoint.csv'):
             continue
-        text = path.read_text(encoding='utf-8')
-        lines = text.splitlines(keepends=True)
+        with open(path, newline='', encoding='utf-8') as f:
+            text = f.read()
+        # Lines end at \n only, so that \r\n and characters such as U+2028 inside a cell stay as they are
+        lines = [line for line in re.split(r'(?<=\n)', text) if line]
         parsed = list(csv.reader(io.StringIO(text, newline='')))
         if len(parsed) != len(lines):
             raise ValueError(f'{path}: a row spans several lines; the rename keeps one row per line')
@@ -572,7 +586,8 @@ def rewrite_collected(root, people, report):
                 csv.writer(out, lineterminator=ending).writerow(cells)
                 lines[number] = out.getvalue()
         if changed:
-            path.write_text(''.join(lines), encoding='utf-8')
+            with open(path, 'w', newline='', encoding='utf-8') as f:
+                f.write(''.join(lines))
             relative = path.relative_to(root).as_posix()
             report.renamed_usernames.extend((relative, name, renames[name], count)
                                             for name, count in sorted(changed.items()))
@@ -593,6 +608,8 @@ def write_report(report):
         ('Unaligned organisation cells', 'file, line, persons, organisations', report.unaligned),
         ('Dropped groups', 'file, line, entry', report.dropped_groups),
         ('Not carried into the new files', 'file, line, what', report.unrepresentable),
+        ('ID collisions', 'base id, resulting ids, logins', report.id_collisions),
+        ('Dropped handles', 'file, line, names, handles', report.dropped_handles),
         ('Cut sources', 'file, line, cut text', report.cut_sources),
     ]
     out = ['# Migration to the registers (#139)', '', '| What | Count |', '|---|---|']
@@ -615,6 +632,8 @@ def migrate(root, until, profile_names):
     old = Old.read(root)
     organisations = Organisations(old, report)
     people = People(old, organisations, Path(profile_names))
+    report.id_collisions.extend(people.collisions)
+    report.dropped_handles.extend(old_community.dropped_handles(old.rows))
     affiliations = build_affiliations(root, old, people, organisations, until)
     covered = {}
     for row in affiliations:
@@ -624,7 +643,7 @@ def migrate(root, until, profile_names):
                                       report)
     files = rewriter.rewrite(old.rows)
     proposals = old_proposals(old, people, organisations) + rewriter.proposals
-    report.proposal_kinds.update(row['kind'] for row in proposals)
+    report.proposal_kinds.update(row.pop('kind') for row in proposals)
     proposals.sort(key=lambda row: (row['person'], row['from'], row['organisation'], row['evidence']))
     identities = people.identities()
     _write(root / paths.PEOPLE, HEADERS[paths.PEOPLE], people.register())

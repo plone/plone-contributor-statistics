@@ -33,7 +33,7 @@ HEADERS = {
     'world-plone-day-event': ['date', 'location', 'format', 'organisations', 'organisers', 'source', 'notes'],
 }
 # Where a Source cell stops being the record of the row and starts a note on a person's organisation
-CUTS = ('; organisation of ', '; organisation from ', '; organisations from ')
+CUTS = ('; organisation of ', '; organisation from ', '; organisations from ', '; organisation: ')
 LINK = re.compile(r'https?://\S+')
 # A note that says an organisation cell was copied from the mapping; with a name, it is about that person only
 COPIED = re.compile(r'organisations? (?:of (?P<who>[^;:]+?) )?from (?:the organisation mapping|organisations\.csv)')
@@ -88,6 +88,19 @@ def people_cells(old):
     return list(zip(names, handles))
 
 
+def dropped_handles(rows):
+    """(file, line, names, handles) of the rows whose handles are not one per name, so none is used."""
+    found = []
+    for old in rows:
+        if old.kind not in ROLE_KINDS or not ROLE_KINDS[old.kind][2]:
+            continue
+        _, person_column, handle_column, _ = ROLE_KINDS[old.kind]
+        names, handles = split(old.row.get(person_column)), split(old.row.get(handle_column))
+        if handles and len(handles) != len(names):
+            found.append((old.file, old.line, ';'.join(names), ';'.join(handles)))
+    return found
+
+
 def records(rows):
     """The rows as the old person index reads them: one Record per name, talks of every type included."""
     found = []
@@ -103,21 +116,19 @@ def records(rows):
 def cut_source(old):
     """(record of the row, cut remainder) of the Source cell of a row.
 
-    Only the per-person kinds are cut: what follows the first note on a person's organisation, or, for talks,
-    the first `; <speaker>: <link>`, is no record of the row. When nothing with a link precedes the cut, the
-    record is the first link of the cell. A talk without a Source has its video as record.
+    What follows the first note on a person's organisation, or the first `; <person of the row>: <link>`, is
+    evidence about affiliations, not the record of the row: the affiliations or a proposal hold it. When
+    nothing with a link precedes the cut, the record is the first link of the cell. A talk without a Source
+    has its video as record.
     """
     source = (old.row.get('Source') or '').strip()
     if old.kind == TALKS and not source and (old.row.get('YouTube ID') or '').strip():
         return f"https://www.youtube.com/watch?v={old.row['YouTube ID'].strip()}", ''
-    if old.kind not in PER_PERSON:
-        return source, ''
     positions = [source.find(cut) for cut in CUTS if cut in source]
-    if old.kind == TALKS:
-        for name, _ in people_cells(old):
-            match = re.search(rf'; {re.escape(name)}: https?://', source)
-            if match:
-                positions.append(match.start())
+    for name, _ in people_cells(old):
+        match = re.search(rf'; {re.escape(name)}: https?://', source)
+        if match:
+            positions.append(match.start())
     if not positions:
         return source, ''
     position = min(positions)
@@ -135,6 +146,25 @@ def copied(old, name):
         if who is None or normalise(who) == normalise(name):
             return True
     return False
+
+
+def person_link(cut, name, single):
+    """The link of the cut remainder that is about the person, else ''.
+
+    That is `organisation of <name> from …: <link>` or `<name>: <link>`; in a row of one person also a note
+    without a name, such as `organisation from the Board page of the year: <link>` or `organisation: <link>`.
+    """
+    segments = [segment.strip() for segment in cut.split('; ') if segment.strip()]
+    for segment in segments:
+        match = re.match(r'organisations? of (?P<who>[^;:]+?) from [^:]*:', segment) or \
+            re.match(r'(?P<who>[^:;]+): https?://', segment)
+        if match and normalise(match.group('who')) == normalise(name) and first_link(segment):
+            return first_link(segment)
+    if single:
+        for segment in segments:
+            if re.match(r'organisations?(:| from )', segment) and first_link(segment):
+                return first_link(segment)
+    return ''
 
 
 def unique(values):
@@ -197,8 +227,12 @@ class Rewriter:
                 self.report.dropped_groups.append((old.file, old.line, name))
         return resolved, teams
 
-    def state(self, old, resolved):
-        """Turn the organisation cells of a per-person row into proposals where the affiliations differ."""
+    def state(self, old, resolved, cut):
+        """Turn the organisation cells of a per-person row into proposals where the affiliations differ.
+
+        A cell the row marks as copied from the mapping must agree with the affiliations of its year; a copy
+        that does not stops the run, as the migration cannot tell which of the two is right.
+        """
         organisations = split(old.row.get('Organisation'))
         if not organisations or not resolved:
             return
@@ -212,13 +246,16 @@ class Rewriter:
             if person is None or spelling == UNMAPPED:
                 continue
             org_id = self.organisation(old, spelling)
-            if copied(old, name):
-                continue
             current = self.affiliated(person, old.year)
+            if copied(old, name):
+                if current != org_id:
+                    raise ValueError(f'{old.file}:{old.line}: the organisation of {name} is marked as copied from '
+                                     f'the mapping, but the mapping gives no "{spelling}" for {old.year}')
+                continue
             if current == org_id:
                 continue
             kind = 'no-login' if not self.people.has_login(person) else 'unmapped' if current is None else 'differs'
-            link = first_link(old.row.get('Source')) or 'no link'
+            link = person_link(cut, name, len(resolved) == 1) or first_link(old.row.get('Source')) or 'no link'
             self.proposals.append({'person': person, 'organisation': org_id, 'from': old.year, 'to': old.year,
                                    'evidence': f'{old.file}:{old.line}; {link}', 'kind': kind})
 
@@ -232,8 +269,14 @@ class Rewriter:
         resolved, teams = self.resolve(old)
         people = unique(person for _, person in resolved)
         if old.kind in PER_PERSON:
-            self.state(old, resolved)
+            self.state(old, resolved, cut)
         kind = old.kind
+        if kind == 'podcasts' and not resolved:
+            # A series without a named host keeps its row; the organisation it named goes to the notes
+            cell = (row.get('Organisation') or '').strip()
+            notes = '; '.join(unique([notes, f'organisation in the old file: {cell}' if cell else '']))
+            return [{'series': row['Series'].strip(), 'person': '', 'episodes': row['Episodes'].strip(),
+                     'source': source, 'notes': notes}]
         if kind in ('board-of-directors', 'team-leaders', 'release-managers', 'podcasts'):
             if not resolved:
                 self.report.unrepresentable.append((old.file, old.line, f'no person: {dict(row)}'))
@@ -260,10 +303,11 @@ class Rewriter:
                      'organisations': ';'.join(organisations), 'level': row['Level'].strip(), 'source': source,
                      'notes': notes}]
         if kind == 'plone-conference':
-            if len(organisations) != 1:
-                self.report.unrepresentable.append((old.file, old.line, f'not one organisation: {dict(row)}'))
+            if len(organisations) > 1:
+                self.report.unrepresentable.append((old.file, old.line, f'several organisations: {dict(row)}'))
                 return []
-            return [{'organisation': organisations[0], 'organisers': ';'.join(people), 'source': source,
-                     'notes': notes}]
+            # An Unmapped host leaves the cell empty; organisers, source and notes stay
+            return [{'organisation': organisations[0] if organisations else '', 'organisers': ';'.join(people),
+                     'source': source, 'notes': notes}]
         return [{'date': row['Date'].strip(), 'location': row['Location'].strip(), 'format': row['Format'].strip(),
                  'organisations': ';'.join(organisations), 'organisers': '', 'source': source, 'notes': notes}]

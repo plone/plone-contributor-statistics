@@ -3,9 +3,8 @@
     {
       "name": "organisation",
       "type": "string",
-      "description": "The id of the organisation that hosted the conference.",
+      "description": "The id of the organisation that hosted the conference; empty when the source names none.",
       "constraints": {
-        "required": true,
         "pattern": "^[a-z0-9][a-z0-9-]*$"
       }
     },
