@@ -113,10 +113,12 @@ class Registry:
 
     def login_organisations(self, year):
         """The organisation of each GitHub login (including second accounts) that has one in the year."""
-        logins = {person.github: person.id for person in self.people.values() if person.github}
-        logins.update({i.value: i.person for i in self.identities if i.kind == 'login'})
+        logins = [(person.github, person.id) for person in self.people.values() if person.github]
+        logins += [(i.value, i.person) for i in self.identities if i.kind == 'login']
         result = {}
-        for login, person_id in logins.items():
+        for login, person_id in logins:
+            if len(self._by_login[login.casefold()]) != 1:
+                continue  # an ambiguous login, as person_for sees it
             organisation = self.organisation_of(person_id, year)
             if organisation != UNMAPPED:
                 result[login] = organisation

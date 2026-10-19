@@ -34,7 +34,8 @@ def read_rows(path):
     """The rows of a curated file as plain dicts, typed by its Table Schema.
 
     Integers come out as int, dates as datetime.date, empty cells as None. Constraints are not validated here,
-    that is the job of the checks. Raises FileNotFoundError when the file is missing.
+    that is the job of the checks, but a cell of the wrong type raises ValueError instead of turning into None.
+    Raises FileNotFoundError when the file is missing.
     """
     path = Path(path)
     if not path.is_file():
@@ -42,7 +43,14 @@ def read_rows(path):
     schema = Schema.from_descriptor(str(schema_path(kind_of(path))))
     schema.foreign_keys = []  # they point to other files; the checks follow them, reading does not need to
     with Resource(path=str(path), schema=schema) as resource:
-        return [row.to_dict() for row in resource.read_rows()]
+        rows = []
+        for row in resource.read_rows():
+            for error in row.errors:
+                if error.type == 'type-error':
+                    raise ValueError(f'{path}, row {row.row_number}, field {error.field_name}: '
+                                     f'cannot read "{error.cell}" ({error.note})')
+            rows.append(row.to_dict())
+        return rows
 
 
 def split_set(value):

@@ -123,3 +123,23 @@ def test_read_rows_types(schemas):
 def test_read_rows_missing_file(schemas):
     with pytest.raises(FileNotFoundError):
         read_rows(paths.PEOPLE)
+
+
+def test_read_rows_raises_on_malformed_cell(schemas):
+    paths.AFFILIATIONS.write_text(AFFILIATIONS.replace('alan-runyan,enfold,2004,2008', 'alan-runyan,enfold,2004,20l5'),
+                                  encoding='utf-8')
+    with pytest.raises(ValueError) as error:
+        read_rows(paths.AFFILIATIONS)
+    message = str(error.value)
+    assert 'affiliations.csv' in message and 'row 3' in message and 'field to' in message
+
+
+def test_login_organisations_omits_ambiguous_login(schemas):
+    paths.PEOPLE.write_text(f'id,name,github,source\np1,P One,k1,{SRC}\np2,P Two,,{SRC}\n', encoding='utf-8')
+    paths.IDENTITIES.write_text(f'person,kind,value,source\np2,login,K1,{SRC}\n', encoding='utf-8')
+    paths.AFFILIATIONS.write_text(f'person,organisation,from,to,source,checked,notes\n'
+                                  f'p1,starzel,2010,,{SRC},,\np2,syslab,2010,,{SRC},,\n', encoding='utf-8')
+    paths.ORGANISATIONS.write_text(ORGANISATIONS, encoding='utf-8')
+    registry = load_registry()
+    assert registry.person_for(login='k1') is None
+    assert registry.login_organisations(2020) == {}
