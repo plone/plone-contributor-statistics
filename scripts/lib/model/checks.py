@@ -49,7 +49,7 @@ class UniqueCasefoldError(errors.CellError):
 class SourceLinkError(errors.CellError):
     type = 'source-link'
     title = 'Source Link'
-    description = 'The source of an identity is not a web address.'
+    description = 'The source of an identity contains no web address.'
     template = 'The cell {cell} in row at position {rowNumber} and field {fieldName} has an error: {note}'
 
 
@@ -176,13 +176,13 @@ class UniqueCasefold(Check):
 
 @attrs.define(kw_only=True, repr=False)
 class LinkUnlessEmail(Check):
-    """The source of an identity is a web address, unless the identity is an email address."""
+    """The source of an identity contains a web address, unless the identity is an email address."""
 
     type = 'source-link'
     Errors = [SourceLinkError]
 
     def validate_row(self, row):
-        if row['kind'] != 'email' and not re.match(r'https?://', row['source'] or ''):
+        if row['kind'] != 'email' and not re.search(r'https?://', row['source'] or ''):
             yield SourceLinkError.from_row(row, note='the source needs a link', field_name='source')
 
 

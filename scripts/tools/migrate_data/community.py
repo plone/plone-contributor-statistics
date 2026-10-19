@@ -1,0 +1,269 @@
+"""The community part of the migration (#139): the old community files read, and rewritten to the new shape.
+
+The old files name people by free text and state a per-person organisation; the new files refer to people
+and organisations by id. An organisation the old files state for a person is kept only where the
+affiliations do not already say it: it then becomes an affiliation proposal, never an affiliation.
+"""
+
+import csv
+import re
+from dataclasses import dataclass
+from pathlib import Path
+
+from scripts.lib import paths
+from scripts.lib.community import ROLE_KINDS, Record, _source
+from scripts.lib.people import normalise
+
+UNMAPPED = 'Unmapped'
+TALKS = 'world-plone-day-talks'
+# Kinds whose organisation cells state the organisation of each person; the cells disappear
+PER_PERSON = ('board-of-directors', 'team-leaders', 'release-managers', 'podcasts', 'plone-conference-trainings',
+              TALKS)
+# Kinds whose organisation cells name the organising entities; the cells stay, as ids
+EVENTS = ('sprints', 'plone-conference', 'world-plone-day-event')
+HEADERS = {
+    'board-of-directors': ['person', 'role', 'source', 'notes'],
+    'team-leaders': ['person', 'team', 'source', 'notes'],
+    'release-managers': ['person', 'source', 'notes'],
+    'podcasts': ['series', 'person', 'episodes', 'source', 'notes'],
+    'plone-conference-trainings': ['title', 'trainers', 'source', 'notes'],
+    TALKS: ['title', 'speakers', 'organisations', 'type', 'location', 'source', 'notes'],
+    'sprints': ['sprint', 'start', 'end', 'location', 'organisers', 'organisations', 'level', 'source', 'notes'],
+    'plone-conference': ['organisation', 'organisers', 'source', 'notes'],
+    'world-plone-day-event': ['date', 'location', 'format', 'organisations', 'organisers', 'source', 'notes'],
+}
+# Where a Source cell stops being the record of the row and starts a note on a person's organisation
+CUTS = ('; organisation of ', '; organisation from ', '; organisations from ')
+LINK = re.compile(r'https?://\S+')
+# A note that says an organisation cell was copied from the mapping; with a name, it is about that person only
+COPIED = re.compile(r'organisations? (?:of (?P<who>[^;:]+?) )?from (?:the organisation mapping|organisations\.csv)')
+
+
+@dataclass(frozen=True)
+class OldRow:
+    """One row of an old community file, with where it comes from."""
+
+    kind: str
+    year: int
+    file: str
+    line: int
+    row: dict
+
+
+def split(value):
+    """The parts of a cell separated by semicolons."""
+    return [part.strip() for part in (value or '').split(';') if part.strip()]
+
+
+def first_link(text):
+    """The first web address in the text, without trailing punctuation; '' when there is none."""
+    match = LINK.search(text or '')
+    return match.group(0).rstrip(';,') if match else ''
+
+
+def read_rows(root):
+    """Every row of the old community files under root, in file name and line order."""
+    found = []
+    for path in sorted((Path(root) / paths.COMMUNITY).glob('*.csv')):
+        match = re.fullmatch(r'(\d{4})-(.+)', path.stem)
+        if not match or match.group(2) not in HEADERS:
+            continue
+        file = (paths.COMMUNITY / path.name).as_posix()
+        with open(path, newline='', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                found.append(OldRow(match.group(2), int(match.group(1)), file, reader.line_num, row))
+    return found
+
+
+def people_cells(old):
+    """The (name, handle) pairs of the person column of a row; a handle only when the counts agree."""
+    if old.kind not in ROLE_KINDS:
+        return []
+    _, person_column, handle_column, _ = ROLE_KINDS[old.kind]
+    names = split(old.row.get(person_column))
+    handles = split(old.row.get(handle_column)) if handle_column else []
+    if len(handles) != len(names):
+        handles = [''] * len(names)
+    return list(zip(names, handles))
+
+
+def records(rows):
+    """The rows as the old person index reads them: one Record per name, talks of every type included."""
+    found = []
+    for old in rows:
+        cells = people_cells(old)
+        for name, handle in cells:
+            found.append(Record(kind=old.kind, year=old.year, person=name, handle=handle, organisation='',
+                                label='', detail='', file=old.file, line=old.line, source=_source(old.kind, old.row),
+                                shared=len(cells) > 1))
+    return found
+
+
+def cut_source(old):
+    """(record of the row, cut remainder) of the Source cell of a row.
+
+    Only the per-person kinds are cut: what follows the first note on a person's organisation, or, for talks,
+    the first `; <speaker>: <link>`, is no record of the row. When nothing with a link precedes the cut, the
+    record is the first link of the cell. A talk without a Source has its video as record.
+    """
+    source = (old.row.get('Source') or '').strip()
+    if old.kind == TALKS and not source and (old.row.get('YouTube ID') or '').strip():
+        return f"https://www.youtube.com/watch?v={old.row['YouTube ID'].strip()}", ''
+    if old.kind not in PER_PERSON:
+        return source, ''
+    positions = [source.find(cut) for cut in CUTS if cut in source]
+    if old.kind == TALKS:
+        for name, _ in people_cells(old):
+            match = re.search(rf'; {re.escape(name)}: https?://', source)
+            if match:
+                positions.append(match.start())
+    if not positions:
+        return source, ''
+    position = min(positions)
+    kept = source[:position].rstrip()
+    if not LINK.search(kept):
+        kept = first_link(source)
+    return kept, source[position:]
+
+
+def copied(old, name):
+    """Whether the row says the organisation of the person was copied from the mapping."""
+    text = f"{old.row.get('Source') or ''} {old.row.get('Notes') or ''}"
+    for match in COPIED.finditer(text):
+        who = match.group('who')
+        if who is None or normalise(who) == normalise(name):
+            return True
+    return False
+
+
+def unique(values):
+    """The values without empty ones and repeats, in order."""
+    return list(dict.fromkeys(value for value in values if value))
+
+
+class Rewriter:
+    """Rewrites the old rows with the registers built from them.
+
+    `people.person_id(name, handle, row_organisations)` gives the id of a person or None for a group;
+    `organisations.id_for(spelling)` the id of an organisation or None; `affiliated(person, year)` the
+    organisation id the affiliations give, or None.
+    """
+
+    def __init__(self, people, organisations, affiliated, report):
+        self.people = people
+        self.organisations = organisations
+        self.affiliated = affiliated
+        self.report = report
+        self.proposals = []
+
+    def organisation(self, old, spelling):
+        """The id of an organisation cell; ValueError for a spelling that is no organisation."""
+        org_id = self.organisations.id_for(spelling)
+        if org_id is None:
+            raise ValueError(f'{old.file}:{old.line}: "{spelling}" is no organisation in organisations.csv')
+        return org_id
+
+    def organisation_set(self, old, cell):
+        """The ids of a cell of organising entities, without Unmapped."""
+        return unique(self.organisation(old, spelling) for spelling in split(cell) if spelling != UNMAPPED)
+
+    def rewrite(self, rows):
+        """{file: (header, new rows)} for every old file, in the order of the old rows."""
+        files = {}
+        for old in rows:
+            header, new_rows = files.setdefault(old.file, (HEADERS[old.kind], []))
+            new_rows.extend(self.rewrite_row(old))
+        return files
+
+    def resolve(self, old):
+        """[(name, person id or None)] of the person column, groups reported or turned into organisations.
+
+        Returns the people and the organisation ids of the `<Org> team` entries of talks.
+        """
+        organisations = split(old.row.get('Organisation'))
+        cells = people_cells(old)
+        resolved, teams = [], []
+        for index, (name, handle) in enumerate(cells):
+            person = self.people.person_id(name, handle, organisations)
+            resolved.append((name, person))
+            if person is not None:
+                continue
+            if old.kind == TALKS and name.casefold().endswith(' team'):
+                paired = organisations[index] if len(organisations) == len(cells) else ''
+                org_id = self.organisations.id_for(paired) if paired and paired != UNMAPPED else None
+                teams.append(org_id or self.organisation(old, name[:-len(' team')].strip()))
+            else:
+                self.report.dropped_groups.append((old.file, old.line, name))
+        return resolved, teams
+
+    def state(self, old, resolved):
+        """Turn the organisation cells of a per-person row into proposals where the affiliations differ."""
+        organisations = split(old.row.get('Organisation'))
+        if not organisations or not resolved:
+            return
+        if len(organisations) == len(resolved):
+            pairs = list(zip(resolved, organisations))
+        else:
+            pairs = [(cell, organisation) for cell in resolved for organisation in organisations]
+            self.report.unaligned.append((old.file, old.line, '; '.join(name for name, _ in resolved),
+                                          ';'.join(organisations)))
+        for (name, person), spelling in pairs:
+            if person is None or spelling == UNMAPPED:
+                continue
+            org_id = self.organisation(old, spelling)
+            if copied(old, name):
+                continue
+            current = self.affiliated(person, old.year)
+            if current == org_id:
+                continue
+            kind = 'no-login' if not self.people.has_login(person) else 'unmapped' if current is None else 'differs'
+            link = first_link(old.row.get('Source')) or 'no link'
+            self.proposals.append({'person': person, 'organisation': org_id, 'from': old.year, 'to': old.year,
+                                   'evidence': f'{old.file}:{old.line}; {link}', 'kind': kind})
+
+    def rewrite_row(self, old):
+        """The new rows of an old row."""
+        row = old.row
+        source, cut = cut_source(old)
+        if cut:
+            self.report.cut_sources.append((old.file, old.line, cut))
+        notes = (row.get('Notes') or '').strip()
+        resolved, teams = self.resolve(old)
+        people = unique(person for _, person in resolved)
+        if old.kind in PER_PERSON:
+            self.state(old, resolved)
+        kind = old.kind
+        if kind in ('board-of-directors', 'team-leaders', 'release-managers', 'podcasts'):
+            if not resolved:
+                self.report.unrepresentable.append((old.file, old.line, f'no person: {dict(row)}'))
+            extra = {'board-of-directors': lambda: {'role': row['Role'].strip()},
+                     'team-leaders': lambda: {'team': row['Team'].strip()},
+                     'release-managers': lambda: {},
+                     'podcasts': lambda: {'series': row['Series'].strip(), 'episodes': row['Episodes'].strip()}}[kind]
+            return [{**extra(), 'person': person, 'source': source, 'notes': notes} for person in people]
+        if kind == 'plone-conference-trainings':
+            return [{'title': row['Title'].strip(), 'trainers': ';'.join(people), 'source': source, 'notes': notes}]
+        if kind == TALKS:
+            video = (row.get('YouTube ID') or '').strip()
+            if video and video not in source:
+                self.report.unrepresentable.append((old.file, old.line, f'YouTube ID {video} is not in the source'))
+            if not resolved:
+                teams.extend(self.organisation_set(old, row.get('Organisation')))
+            return [{'title': row['Video Title'].strip(), 'speakers': ';'.join(people),
+                     'organisations': ';'.join(unique(teams)), 'type': row['Type'].strip(),
+                     'location': row['Event / Location'].strip(), 'source': source, 'notes': notes}]
+        organisations = self.organisation_set(old, row.get('Organisation'))
+        if kind == 'sprints':
+            return [{'sprint': row['Sprint'].strip(), 'start': row['Start'].strip(), 'end': row['End'].strip(),
+                     'location': row['Location'].strip(), 'organisers': ';'.join(people),
+                     'organisations': ';'.join(organisations), 'level': row['Level'].strip(), 'source': source,
+                     'notes': notes}]
+        if kind == 'plone-conference':
+            if len(organisations) != 1:
+                self.report.unrepresentable.append((old.file, old.line, f'not one organisation: {dict(row)}'))
+                return []
+            return [{'organisation': organisations[0], 'organisers': ';'.join(people), 'source': source,
+                     'notes': notes}]
+        return [{'date': row['Date'].strip(), 'location': row['Location'].strip(), 'format': row['Format'].strip(),
+                 'organisations': ';'.join(organisations), 'organisers': '', 'source': source, 'notes': notes}]

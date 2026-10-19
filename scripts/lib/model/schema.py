@@ -3,7 +3,7 @@
 import re
 from pathlib import Path
 
-from frictionless import Resource, Schema
+from frictionless import Dialect, Resource, Schema, formats
 
 from scripts.lib import paths
 
@@ -42,7 +42,9 @@ def read_rows(path):
         raise FileNotFoundError(path)
     schema = Schema.from_descriptor(str(schema_path(kind_of(path))))
     schema.foreign_keys = []  # they point to other files; the checks follow them, reading does not need to
-    with Resource(path=str(path), schema=schema) as resource:
+    # The delimiter is stated, as in the data package: Frictionless guesses `;` for some files otherwise
+    dialect = Dialect(controls=[formats.CsvControl(delimiter=',')])
+    with Resource(path=str(path), schema=schema, dialect=dialect) as resource:
         rows = []
         for row in resource.read_rows():
             for error in row.errors:

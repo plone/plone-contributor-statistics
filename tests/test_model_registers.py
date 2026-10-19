@@ -120,6 +120,14 @@ def test_read_rows_types(schemas):
     assert rows[0]['notes'] is None
 
 
+def test_read_rows_does_not_guess_the_delimiter(schemas):
+    # A quotation between semicolons once made Frictionless read a comma separated file as semicolon separated
+    path = paths.COMMUNITY / '2007-plone-conference-trainings.csv'
+    path.write_text(f'title,trainers,source,notes\nPlone 3,joel-burton,{SRC},"paid; ""offered by vendors.""; guest"\n',
+                    encoding='utf-8')
+    assert [row['trainers'] for row in read_rows(path)] == ['joel-burton']
+
+
 def test_read_rows_missing_file(schemas):
     with pytest.raises(FileNotFoundError):
         read_rows(paths.PEOPLE)

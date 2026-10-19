@@ -28,6 +28,16 @@ def test_logins_without_a_name_skips_handles_and_commit_author_names(tmp_repo):
     assert migrate.logins_without_a_name(tmp_repo) == {'tisto', 'hidden'}
 
 
+def test_logins_without_a_name_include_proposal_logins(tmp_repo):
+    # The migration makes a person of every login of the old proposals file, so it needs their names too
+    _old_structure()
+    paths.COMMIT_AUTHORS.write_text('email,github_username,name,source\nd@example.org,,Dee Veeze,svn\n',
+                                    encoding='utf-8')
+    paths.PROPOSALS.write_text('contributor,organisation,from_year,to_year,evidence\n'
+                               'albertcasado,Onna,2018,2018,x\nDee Veeze,Zest,2016,2017,x\n', encoding='utf-8')
+    assert migrate.logins_without_a_name(tmp_repo) == {'tisto', 'albertcasado'}
+
+
 def test_write_profile_names_uses_login_when_profile_has_no_name(tmp_path):
     path = tmp_path / 'profile_names.csv'
     migrate.write_profile_names({'tisto': 'Timo Stollenwerk', 'nobody': ''}, path)

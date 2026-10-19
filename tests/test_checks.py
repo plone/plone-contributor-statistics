@@ -138,6 +138,17 @@ def test_sorted_unique_github_and_identity_link(tmp_package):
     assert ('identities.csv', 2) not in found  # an email needs no link
 
 
+def test_identity_link_may_follow_text(tmp_package):
+    # As in every other source column, the link may come after the words that say what it shows
+    root = tmp_package(
+        {
+            'mappings/people.csv': 'id,name,github,source\na,A,a,https://example.org/a\n',
+            'mappings/identities.csv': 'person,kind,value,source\na,name,A B,example commit: https://example.org/c\n',
+        }
+    )
+    assert check.validate(root) == []
+
+
 def test_check_clean_prints_nothing(tmp_package, capsys):
     tmp_package(trainings('pbauer;tschorr'))
     check.main([])
