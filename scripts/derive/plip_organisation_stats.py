@@ -31,11 +31,8 @@ def plip_year(plip):
     return int(date[:4])
 
 
-def organisation_lookup(*_legacy_paths, registry=None):
-    """Return a function (login, year) -> organisation, reading the registers once.
-
-    The positional arguments are the mapping files the callers passed before the registers; they are ignored.
-    """
+def organisation_lookup(registry=None):
+    """Return a function (login, year) -> organisation, reading the registers once."""
     registry = registry or load_registry()
 
     def organisation(login, year):

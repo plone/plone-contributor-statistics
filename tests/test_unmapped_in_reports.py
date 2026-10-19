@@ -5,7 +5,8 @@ import pandas as pd
 from scripts.derive import multi_year_summary
 from scripts.lib import paths
 from scripts.report.generate_contributor_report import top_organisations_table
-from scripts.derive.organisation_stats import UNMAPPED
+from scripts.derive.organisation_stats import UNMAPPED, aggregate_organisation_stats
+from scripts.report import generate_community_recognition_report as recognition
 
 
 def organisations():
@@ -45,3 +46,40 @@ def test_summary_does_not_rank_unmapped(tmp_repo, tmp_path, monkeypatch):
     assert '- File generated: derived/summaries/summary-past-three-years-2022-2024.csv\n' in text
     assert (tmp_path / paths.SUMMARIES_DIR / 'summary-past-three-years-2022-2024.csv').exists()
     assert txt_file == paths.SUMMARY_REPORTS_DIR / 'STATISTICS-PAST-THREE-YEARS.txt'
+
+
+def contributors(*rows):
+    return pd.DataFrame([
+        {'username': user, 'total_commits': commits, 'total_pull_requests': prs, 'repositories': 'volto',
+         'first_contribution': '2024-01-01', 'last_contribution': '2024-12-31'}
+        for user, commits, prs in rows
+    ])
+
+
+def organisation_of(username):
+    return {'alice': 'kitconcept GmbH'}.get(username, UNMAPPED)
+
+
+def test_unmapped_contributors_are_not_independent():
+    stats = aggregate_organisation_stats(
+        contributors(('alice', 3, 1), ('newcomer', 1, 1)), organisation_of, bots={}
+    )
+
+    assert set(stats) == {'kitconcept GmbH', UNMAPPED}
+    assert stats[UNMAPPED]['contributors'] == {'newcomer'}
+    assert 'Independent' not in stats
+
+
+def test_bots_are_left_out():
+    stats = aggregate_organisation_stats(
+        contributors(('alice', 3, 1), ('mister-roboto', 50, 0)), organisation_of,
+        bots={'mister-roboto': 'Plone CI bot'},
+    )
+
+    assert set(stats) == {'kitconcept GmbH'}
+
+
+def test_recognition_report_excludes_unmapped():
+    points = {'kitconcept GmbH': {'PR Contributions': 20}, UNMAPPED: {'PR Contributions': 20}, '': {'WPD Talk': 1}}
+
+    assert recognition.exclude_unmapped(points) == {'kitconcept GmbH': {'PR Contributions': 20}}

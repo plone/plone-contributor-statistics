@@ -11,8 +11,8 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from scripts.lib import paths
-from scripts.lib.community import ROLE_KINDS, Record, _source
-from scripts.lib.people import normalise
+from scripts.tools.migrate_data.legacy_community import ROLE_KINDS, Record, _source
+from scripts.tools.migrate_data.legacy_people import normalise
 
 UNMAPPED = 'Unmapped'
 TALKS = 'world-plone-day-talks'

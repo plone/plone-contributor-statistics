@@ -12,6 +12,7 @@ import pytest
 from scripts.lib import paths
 from scripts.tools import check, datapackage
 from scripts.tools import migrate_data_structure as migrate
+from scripts.tools.migrate_data import legacy_mappings as old
 
 REPO = Path(__file__).resolve().parent.parent
 
@@ -22,34 +23,34 @@ OLD_FILES = {
         'Thomas Schorr (independent),tschorr\n'
         'Zest Software,\n'
     ),
-    paths.OVERRIDES: (
+    old.OVERRIDES: (
         'github_username,organisation,from_year,to_year,source\n'
         'pbauer,Unmapped,2002,2009,the organisation before 2010 is not documented (#70)\n'
         'tschorr,Zest Software,2005,2012,https://example.org/tschorr-at-zest\n'
     ),
-    paths.SOURCES: (
+    old.SOURCES: (
         'github_username,organisation,source,checked\n'
         'pbauer,Starzel,https://example.org/pbauer-at-starzel,2026-10-18\n'
         'tschorr,Thomas Schorr (independent),https://example.org/tschorr-independent,2026-10-18\n'
     ),
-    paths.PROPOSALS: (
+    old.PROPOSALS: (
         'contributor,organisation,from_year,to_year,evidence\n'
         'tschorr,Starzel,2014,2014,Company address in commits 2014 (example: https://example.org/commit)\n'
         'tschorr,Acme Labs,2015,2015,Company address @acme in commits 2015 (example: https://example.org/acme)\n'
     ),
-    paths.FULLNAMES: (
+    old.FULLNAMES: (
         'github username,fullname,source\n'
         'pbauer,Phil Bauer,"GitHub profile name ""Philip Bauer"", login pbauer: https://github.com/pbauer"\n'
         'pbauer,Philip Bauer,GitHub profile name: https://github.com/pbauer\n'
     ),
-    paths.COMMIT_AUTHORS: (
+    old.COMMIT_AUTHORS: (
         'email,github_username,name,source\n'
         'alan@example.org,,Alan Runyan,Review in #69; example commit: https://example.org/commit/1\n'
         'Tom@Example.org,tschorr,Tom Schorr,Same name in commits; example commit: https://example.org/commit/2\n'
         'anne@example.org,,Anne Marie Doe,Review in #69; example commit: https://example.org/commit/3\n'
     ),
-    paths.ACCOUNT_ALIASES: 'alias,github_username,source\n',
-    paths.CHANGELOG_NAMES: 'changelog_name,github_username,name,source\n',
+    old.ACCOUNT_ALIASES: 'alias,github_username,source\n',
+    old.CHANGELOG_NAMES: 'changelog_name,github_username,name,source\n',
     paths.BOT_ACCOUNTS: 'login,reason\n',
     paths.EXCLUDED_REPOSITORIES: 'repository,reason\n',
     paths.COMMUNITY / '2006-board-of-directors.csv': (
@@ -258,8 +259,8 @@ def test_collected_files_keep_their_other_bytes(migrated):
 
 def test_old_files_are_removed(migrated):
     root, _ = migrated
-    for path in (paths.OVERRIDES, paths.SOURCES, paths.PROPOSALS, paths.COMMIT_AUTHORS, paths.ACCOUNT_ALIASES,
-                 paths.FULLNAMES, paths.CHANGELOG_NAMES):
+    for path in (old.OVERRIDES, old.SOURCES, old.PROPOSALS, old.COMMIT_AUTHORS, old.ACCOUNT_ALIASES,
+                 old.FULLNAMES, old.CHANGELOG_NAMES):
         assert not (root / path).exists(), path
     assert (root / paths.ORGANISATIONS).read_text(encoding='utf-8').startswith('id,name,kind,aliases,notes\n')
 

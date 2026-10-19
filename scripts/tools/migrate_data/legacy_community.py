@@ -1,4 +1,6 @@
-"""Community roles and events from the curated community files, read in one place.
+"""The old community records of the migration (#139); they serve the migration only.
+
+Community roles and events from the curated community files, read in one place.
 
 A record is one person in one role, with the row it comes from and its public
 record. An event is a gathering: see EVENT_KINDS for what counts as one.

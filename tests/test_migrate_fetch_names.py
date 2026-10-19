@@ -3,12 +3,16 @@ from datetime import date
 
 from scripts.lib import paths
 from scripts.tools import migrate_data_structure as migrate
+from scripts.tools.migrate_data import legacy_mappings as old
 
 
 def _old_structure():
+    # The old files, which tmp_repo does not create any more; the test fills the ones it needs
+    old.COMMIT_AUTHORS.write_text('email,github_username,name,source\n', encoding='utf-8')
+    old.ACCOUNT_ALIASES.write_text('alias,github_username,source\n', encoding='utf-8')
     paths.ORGANISATIONS.write_text('Organisation,Team\nAcme,pbauer;tisto\n', encoding='utf-8')
-    paths.OVERRIDES.write_text('github_username,organisation,from_year,to_year,source\n', encoding='utf-8')
-    paths.FULLNAMES.write_text(
+    old.OVERRIDES.write_text('github_username,organisation,from_year,to_year,source\n', encoding='utf-8')
+    old.FULLNAMES.write_text(
         'github username,fullname,source\npbauer,Philip Bauer,https://github.com/pbauer\n', encoding='utf-8')
 
 
@@ -20,7 +24,7 @@ def test_logins_without_a_name_skips_named_logins(tmp_repo):
 def test_logins_without_a_name_skips_handles_and_commit_author_names(tmp_repo):
     _old_structure()
     paths.ORGANISATIONS.write_text('Organisation,Team\nAcme,pbauer;tisto;handle1;mrx;hidden\n', encoding='utf-8')
-    paths.COMMIT_AUTHORS.write_text(
+    old.COMMIT_AUTHORS.write_text(
         'email,github_username,name,source\nx@example.org,mrx,Mister X,svn\ny@example.org,hidden,,svn\n',
         encoding='utf-8')
     (paths.COMMUNITY / '2020-release-managers.csv').write_text(
@@ -31,10 +35,10 @@ def test_logins_without_a_name_skips_handles_and_commit_author_names(tmp_repo):
 def test_logins_without_a_name_include_proposal_logins(tmp_repo):
     # The migration makes a person of every login of the old proposals file, so it needs their names too
     _old_structure()
-    paths.COMMIT_AUTHORS.write_text('email,github_username,name,source\nd@example.org,,Dee Veeze,svn\n',
-                                    encoding='utf-8')
-    paths.PROPOSALS.write_text('contributor,organisation,from_year,to_year,evidence\n'
-                               'albertcasado,Onna,2018,2018,x\nDee Veeze,Zest,2016,2017,x\n', encoding='utf-8')
+    old.COMMIT_AUTHORS.write_text('email,github_username,name,source\nd@example.org,,Dee Veeze,svn\n',
+                                  encoding='utf-8')
+    old.PROPOSALS.write_text('contributor,organisation,from_year,to_year,evidence\n'
+                             'albertcasado,Onna,2018,2018,x\nDee Veeze,Zest,2016,2017,x\n', encoding='utf-8')
     assert migrate.logins_without_a_name(tmp_repo) == {'tisto', 'albertcasado'}
 
 

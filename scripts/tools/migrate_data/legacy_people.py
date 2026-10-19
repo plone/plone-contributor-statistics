@@ -1,4 +1,6 @@
-"""One identity per person across code work (GitHub logins) and community work (mostly names).
+"""The old person index of the migration (#139); it serves the migration only.
+
+One identity per person across code work (GitHub logins) and community work (mostly names).
 
 A person is keyed by GitHub login (lower case, as logins are case-insensitive)
 where the committed data resolves one, else by
@@ -11,7 +13,7 @@ import re
 import unicodedata
 from collections import defaultdict
 
-from scripts.lib import paths
+from scripts.tools.migrate_data.legacy_mappings import COMMIT_AUTHORS, FULLNAMES
 
 # A link to a GitHub profile, not to a repository or commit below it
 PROFILE_LINK = re.compile(r'https://github\.com/([A-Za-z0-9](?:[A-Za-z0-9-]{0,38}))(?=$|[\s;,)])')
@@ -74,7 +76,7 @@ def _logins_from_records(records):
             yield record.person, links[0].casefold()
 
 
-def build_person_index(records, commit_authors_path=paths.COMMIT_AUTHORS, fullnames_path=paths.FULLNAMES,
+def build_person_index(records, commit_authors_path=COMMIT_AUTHORS, fullnames_path=FULLNAMES,
                        organisations=frozenset()):
     """A PersonIndex from the names and logins the committed data links.
 

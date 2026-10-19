@@ -27,11 +27,14 @@ from pathlib import Path
 import requests
 from dotenv import load_dotenv
 
-from scripts.lib import community, paths
-from scripts.lib.mappings import _rows, load_organisation_mapping, read_overrides
+from scripts.lib import paths
 from scripts.lib.model.names import fold, slugify
-from scripts.lib.people import PROFILE_LINK, build_person_index
 from scripts.tools.migrate_data import community as old_community
+from scripts.tools.migrate_data import legacy_community as community
+from scripts.tools.migrate_data.legacy_mappings import (
+    ACCOUNT_ALIASES, CHANGELOG_NAMES, COMMIT_AUTHORS, FULLNAMES, OVERRIDES, PROPOSALS, SOURCES, _rows,
+    load_organisation_mapping, read_overrides)
+from scripts.tools.migrate_data.legacy_people import PROFILE_LINK, build_person_index
 from scripts.tools.migrate_data.organisation_aliases import ORGANISATION_ALIASES
 from scripts.tools.unmatched_names import fetch_profile_names
 
@@ -43,8 +46,8 @@ UNMAPPED = 'Unmapped'
 PLONE_FOUNDATION = 'Plone Foundation'
 PERSON_PREFIX = 'person:'
 NOT_VERIFIED = 'range from the current entry; years before {year} not verified (#139)'
-OLD_FILES = (paths.OVERRIDES, paths.SOURCES, paths.PROPOSALS, paths.COMMIT_AUTHORS, paths.ACCOUNT_ALIASES,
-             paths.FULLNAMES, paths.CHANGELOG_NAMES)
+OLD_FILES = (OVERRIDES, SOURCES, PROPOSALS, COMMIT_AUTHORS, ACCOUNT_ALIASES,
+             FULLNAMES, CHANGELOG_NAMES)
 HEADERS = {
     paths.PEOPLE: ['id', 'name', 'github', 'source'],
     paths.IDENTITIES: ['person', 'kind', 'value', 'source'],
@@ -56,10 +59,10 @@ HEADERS = {
 
 def _proposal_logins(root):
     """The contributors of the old proposals file that are logins, not commit author names."""
-    path = root / paths.PROPOSALS
+    path = root / PROPOSALS
     if not path.exists():
         return set()
-    names = {row['name'].strip() for row in _rows(root / paths.COMMIT_AUTHORS) if not row['github_username'].strip()}
+    names = {row['name'].strip() for row in _rows(root / COMMIT_AUTHORS) if not row['github_username'].strip()}
     return {row['contributor'].strip() for row in _rows(path)
             if ' ' not in row['contributor'].strip() and row['contributor'].strip() not in names}
 
@@ -69,11 +72,11 @@ def _login_cells(root):
     logins = set()
     for row in _rows(root / paths.ORGANISATIONS):
         logins.update(part.strip() for part in row['Team'].split(';') if part.strip())
-    for path in (paths.OVERRIDES, paths.SOURCES):
+    for path in (OVERRIDES, SOURCES):
         if (root / path).exists():
             logins.update(row['github_username'].strip() for row in _rows(root / path))
-    logins.update(row['github_username'].strip() for row in _rows(root / paths.COMMIT_AUTHORS))
-    logins.update(row['github_username'].strip() for row in _rows(root / paths.ACCOUNT_ALIASES))
+    logins.update(row['github_username'].strip() for row in _rows(root / COMMIT_AUTHORS))
+    logins.update(row['github_username'].strip() for row in _rows(root / ACCOUNT_ALIASES))
     logins.update(_proposal_logins(root))
     logins.discard('')
     return logins
@@ -86,9 +89,9 @@ def logins_without_a_name(root=Path('.')):
     the community data, or by a name in commit_authors.csv.
     """
     root = Path(root)
-    named = {row['github username'].strip().casefold() for row in _rows(root / paths.FULLNAMES)}
+    named = {row['github username'].strip().casefold() for row in _rows(root / FULLNAMES)}
     named.update(row['github_username'].strip().casefold()
-                 for row in _rows(root / paths.COMMIT_AUTHORS) if row['name'].strip())
+                 for row in _rows(root / COMMIT_AUTHORS) if row['name'].strip())
     for year in range(FIRST_YEAR, LAST_YEAR + 1):
         named.update(record.handle.casefold()
                      for record in community.community_records(year, root / paths.COMMUNITY) if record.handle)
@@ -184,36 +187,36 @@ class Old:
 
     @classmethod
     def read(cls, root):
-        overrides = read_overrides(root / paths.OVERRIDES)
-        for override, row in zip(overrides, _read(root / paths.OVERRIDES)):
+        overrides = read_overrides(root / OVERRIDES)
+        for override, row in zip(overrides, _read(root / OVERRIDES)):
             override['source'] = row['source'].strip()
         team = {}
         for row in _read(root / paths.ORGANISATIONS):
             for login in (part.strip() for part in row['Team'].split(';')):
                 if login:
                     team[login] = row['Organisation'].strip()
-        changelog_path = root / paths.CHANGELOG_NAMES
+        changelog_path = root / CHANGELOG_NAMES
         return cls(
             root=root,
             organisation_names=[row['Organisation'].strip() for row in _read(root / paths.ORGANISATIONS)],
             team=team,
             overrides=overrides,
-            sources={row['github_username'].strip().casefold(): row for row in _read(root / paths.SOURCES)},
-            proposals=_read(root / paths.PROPOSALS) if (root / paths.PROPOSALS).exists() else [],
-            fullnames=_read(root / paths.FULLNAMES),
-            commit_authors=_read(root / paths.COMMIT_AUTHORS),
-            aliases=_read(root / paths.ACCOUNT_ALIASES),
+            sources={row['github_username'].strip().casefold(): row for row in _read(root / SOURCES)},
+            proposals=_read(root / PROPOSALS) if (root / PROPOSALS).exists() else [],
+            fullnames=_read(root / FULLNAMES),
+            commit_authors=_read(root / COMMIT_AUTHORS),
+            aliases=_read(root / ACCOUNT_ALIASES),
             changelog_names=_read(changelog_path) if changelog_path.exists() else [],
             rows=old_community.read_rows(root),
         )
 
     @property
     def commit_authors_path(self):
-        return self.root / paths.COMMIT_AUTHORS
+        return self.root / COMMIT_AUTHORS
 
     @property
     def fullnames_path(self):
-        return self.root / paths.FULLNAMES
+        return self.root / FULLNAMES
 
     @property
     def proposal_logins(self):
@@ -476,7 +479,7 @@ def build_affiliations(root, old, people, organisations, until):
     """
     mappings = {}
     for year in range(AFFILIATION_FIRST_YEAR, until + 1):
-        mapping = _quiet(load_organisation_mapping, root / paths.ORGANISATIONS, root / paths.OVERRIDES, year=year)
+        mapping = _quiet(load_organisation_mapping, root / paths.ORGANISATIONS, root / OVERRIDES, year=year)
         folded = {}
         for login, organisation in mapping.items():
             if folded.setdefault(login.casefold(), organisation) != organisation:

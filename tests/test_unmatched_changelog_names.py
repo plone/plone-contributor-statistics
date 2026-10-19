@@ -1,7 +1,8 @@
-"""Proposals for changelog_names.csv from commits that repeat the entries (#71)."""
+"""Proposals for identities.csv from commits that repeat the entries (#71)."""
 
 from scripts.lib import changelogs
 from scripts.lib.changelogs import NameMapper, Occurrence
+from scripts.lib.model import Identity, Person, Registry
 from scripts.tools import unmatched_changelog_names as tool
 
 
@@ -15,8 +16,11 @@ def commit(sha, email, name, message, date='2005-02-01T12:00:00Z'):
     return {'sha': sha, 'author_email': email, 'author_name': name, 'date': date, 'message': message}
 
 
-MAPPER = NameMapper(changelog_names={}, commit_authors={}, commit_author_names={}, aliases={}, bots={},
-                    logins=['limi'], fullnames={})
+REGISTRY = Registry(
+    [Person('alec-mitchell', 'Alec Mitchell', 'alecpm', 'https://example.org/a'),
+     Person('hanno-schlichting', 'Hanno Schlichting', None, 'https://example.org/h')],
+    [Identity('hanno-schlichting', 'email', 'hanno@hannosch.eu', 'https://example.org/h')], [], [])
+MAPPER = NameMapper(REGISTRY, ['limi'], {})
 ENTRIES = [
     entry('Fixed the broken calendar portlet in the right column [alecm]'),
     entry('Made the navigation tree work with very deep folder structures [alecm]'),
@@ -59,15 +63,27 @@ def test_proposals_link_the_entry_and_the_commit():
     logins = {'apm13@columbia.edu': 'alecpm'}
 
     rows = tool.proposals(unmatched, tool.evidence(unmatched, COMMITS.get),
-                          lambda email, entry, commit: (logins.get(email), None))
+                          lambda email, entry, commit: logins.get(email), REGISTRY)
 
     assert rows[0] == (
-        'alecm', 'alecpm', '',
+        'alec-mitchell', 'name', 'alecm',
         'Changelog entry: https://github.com/plone/Products.CMFPlone/blob/tip/HISTORY.txt#L7; the commit by '
         'Alec Mitchell that repeats it: https://github.com/plone/Products.CMFPlone/commit/c1',
         4, 2, 1.0)
-    # Without a login, the row names the commit author; a person checks it (here: the committer, not the author)
-    assert rows[1][:3] == ('wald', '', 'Hanno Schlichting')
+    # Without a login, the person comes from the email address of the commit
+    assert rows[1][:3] == ('hanno-schlichting', 'name', 'wald')
+
+
+def test_a_login_without_a_person_is_a_note():
+    unmatched = tool.unmatched_entries(ENTRIES, MAPPER, range(2004, 2013))
+    found = tool.evidence(unmatched, COMMITS.get)
+    empty = Registry([], [], [], [])
+
+    rows = tool.proposals(unmatched, found, lambda email, entry, commit: 'unknown-login', empty)
+
+    assert rows[0][:3] == ('?no person for the login unknown-login', 'name', 'alecm')
+    rows = tool.proposals(unmatched, found, lambda email, entry, commit: None, empty)
+    assert rows[1][0] == '?no person for Hanno Schlichting <hanno@hannosch.eu>'
 
 
 def test_authors_below_the_share_are_not_proposed():
@@ -76,20 +92,5 @@ def test_authors_below_the_share_are_not_proposed():
 
     found = tool.evidence(unmatched, COMMITS.get)
 
-    assert tool.proposals(unmatched, found, lambda *args: (None, None)) == []
-    assert len(tool.proposals(unmatched, found, lambda *args: (None, None), min_share=0.5)) == 1
-
-
-def test_a_person_without_account_is_proposed_by_name(tmp_repo):
-    (tmp_repo / 'curated/mappings/commit_authors.csv').write_text(
-        'email,github_username,name,source\n'
-        'hanno@hannosch.eu,,Hanno S.,Review\n'
-        'apm13@columbia.edu,alecpm,Alec Mitchell,Review\n', encoding='utf-8')
-    resolve = tool.Resolver(session=None)
-
-    assert resolve('hanno@hannosch.eu', None, None) == (None, 'Hanno S.')
-    assert resolve('apm13@columbia.edu', None, None) == ('alecpm', 'Alec Mitchell')
-
-    unmatched = tool.unmatched_entries(ENTRIES, MAPPER, range(2004, 2013))
-    rows = tool.proposals(unmatched, tool.evidence(unmatched, COMMITS.get), resolve)
-    assert [row[:3] for row in rows] == [('alecm', 'alecpm', ''), ('wald', '', 'Hanno S.')]
+    assert tool.proposals(unmatched, found, lambda *args: None, REGISTRY) == []
+    assert len(tool.proposals(unmatched, found, lambda *args: None, REGISTRY, min_share=0.5)) == 1
