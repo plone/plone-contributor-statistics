@@ -1,7 +1,7 @@
 # Five-Year Summary Results (2021-2025)
 
 - 78 total organisations tracked across the past 5 years
-- 40,994 total commits and 9,917 pull requests
+- 41,001 total commits and 9,917 pull requests
 - 342 unique contributors across all organisations
 - File generated: derived/summaries/summary-past-five-years-2021-2025.csv
 

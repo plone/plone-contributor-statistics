@@ -69,7 +69,7 @@ it-spirit,3,2,1,thomasmassmann,1,plone.app.layout,2022,2022-01-07,2022-01-07
 minddistrict,7,2,3,"icemac, janjaapdriessen, sallner",3,"five.intid, meta, plone.recipe.codeanalysis","2021, 2022, 2025",2021-02-01,2025-02-13
 Malthe Borch (independent),4,2,1,malthe,1,Products.CMFPlone,"2021, 2023",2017-04-18,2023-03-29
 Nelen-Schuurmans,8,2,1,reinout,1,meta,2024,2024-02-03,2024-02-06
-BlueDynamics KG,3,1,1,zworkb,4,"plone.app.blocks, plone.app.contenttypes, plone.app.dexterity, plone.app.event",2022,2022-03-21,2022-03-25
+BlueDynamics KG,10,1,1,zworkb,5,"buildout.coredev, plone.app.blocks, plone.app.contenttypes, plone.app.dexterity, plone.app.event",2022,2022-03-21,2022-03-31
 cloud19,0,1,1,faro76,1,documentation,2022,,
 FH St. Pölten,4,1,1,2silver,1,plone.app.iterate,2021,2021-05-19,2021-05-20
 Geosphere,2,1,1,animus888,2,"aurora, volto",2024,2024-04-19,2024-04-19
