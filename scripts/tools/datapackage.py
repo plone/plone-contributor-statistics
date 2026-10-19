@@ -37,8 +37,8 @@ def build_package(root=Path('.')):
     return {'name': PACKAGE_NAME, 'resources': resources}
 
 
-def main():
-    argparse.ArgumentParser(description='Write curated/datapackage.json').parse_args()
+def main(argv=None):
+    argparse.ArgumentParser(description='Write curated/datapackage.json').parse_args(argv)
     with open(paths.DATAPACKAGE, 'w', encoding='utf-8') as f:
         json.dump(build_package(), f, indent=1, sort_keys=True, ensure_ascii=False)
         f.write('\n')
