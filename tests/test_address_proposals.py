@@ -56,11 +56,11 @@ def setup(tmp_repo, write_registers):
     paths.IDENTITIES.write_text('person,kind,value,source\n'
                                 f'bob-builder,email,bob@old.example.org,{SOURCE}\n', encoding='utf-8')
     paths.ORGANISATIONS.write_text(
-        'id,name,kind,aliases,notes\n'
-        'acme,Acme Industries,organisation,acme-industries.example;widgets.example,\n'
-        'bubblenet,BubbleNet,organisation,,\n'
-        'greenfinity,Greenfinity,organisation,,\n'
-        'oldco,Old Co,organisation,,\n', encoding='utf-8')
+        'id,name,kind,github,aliases,notes\n'
+        'acme,Acme Industries,organisation,,acme-industries.example;widgets.example,\n'
+        'bubblenet,BubbleNet,organisation,,,\n'
+        'greenfinity,Greenfinity,organisation,,,\n'
+        'oldco,Old Co,organisation,,,\n', encoding='utf-8')
     paths.BOT_ACCOUNTS.write_text('login,reason\nrobot,a bot\n', encoding='utf-8')
     return tmp_repo
 
@@ -128,8 +128,8 @@ def test_match_domain_says_alias(setup):
 def test_organisation_for_domain_ignores_independents_and_ambiguous_keys(tmp_repo, write_registers):
     write_registers(organisations=[('one', 'Twin One'), ('two', 'Twin Two')])
     paths.ORGANISATIONS.write_text(
-        'id,name,kind,aliases,notes\none,Twin One,organisation,,\ntwo,Twin Two,organisation,,\n'
-        'solo,Twin Solo (independent),independent,,\n', encoding='utf-8')
+        'id,name,kind,github,aliases,notes\none,Twin One,organisation,,,\ntwo,Twin Two,organisation,,,\n'
+        'solo,Twin Solo (independent),independent,,,\n', encoding='utf-8')
     registry = load_registry()
     assert registry.organisation_for_domain('twin.example') is None  # the first word names three organisations
     assert registry.organisation_for_domain('twinone.example') == 'one'
@@ -192,7 +192,7 @@ def test_registrable_label():
 
 def test_a_registered_organisation_wins_over_the_own_domain(setup):
     paths.ORGANISATIONS.write_text(paths.ORGANISATIONS.read_text(encoding='utf-8')
-                                   + 'glick-software,Glick Software,organisation,,\n', encoding='utf-8')
+                                   + 'glick-software,Glick Software,organisation,,,\n', encoding='utf-8')
     paths.PEOPLE.write_text(paths.PEOPLE.read_text(encoding='utf-8')
                             + f'david-glick,David Glick,davisagli,{SOURCE}\n', encoding='utf-8')
     cache = setup / 'cache'
@@ -200,7 +200,7 @@ def test_a_registered_organisation_wins_over_the_own_domain(setup):
     text, _ = run(cache)
     assert '| david-glick | glick-software | 2011 | 1 | glicksoftware.com | name |' in text
     paths.ORGANISATIONS.write_text(paths.ORGANISATIONS.read_text(encoding='utf-8').replace(
-        'glick-software,Glick Software,organisation,,\n', ''), encoding='utf-8')
+        'glick-software,Glick Software,organisation,,,\n', ''), encoding='utf-8')
     text, _ = run(cache)
     assert 'glicksoftware.com' not in text  # unmapped and the person's own
 

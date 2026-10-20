@@ -17,7 +17,7 @@ EMPTY_MAPPINGS = {
     paths.PEOPLE: 'id,name,github,source\n',
     paths.IDENTITIES: 'person,kind,value,source\n',
     paths.AFFILIATIONS: 'person,organisation,from,to,source,checked,notes\n',
-    paths.ORGANISATIONS: 'id,name,kind,aliases,notes\n',
+    paths.ORGANISATIONS: 'id,name,kind,github,aliases,notes\n',
     paths.AFFILIATION_PROPOSALS: 'person,organisation,from,to,evidence\n',
 }
 
@@ -49,7 +49,7 @@ def write_registers(tmp_repo):
         paths.AFFILIATIONS.write_text('person,organisation,from,to,source,checked,notes\n' + ''.join(
             f'{person},{org},{start},{end},{source},,\n' for person, org, start, end in affiliations),
             encoding='utf-8')
-        paths.ORGANISATIONS.write_text('id,name,kind,aliases,notes\n' + ''.join(
-            f'{i},{name},organisation,,\n' for i, name in organisations), encoding='utf-8')
+        paths.ORGANISATIONS.write_text('id,name,kind,github,aliases,notes\n' + ''.join(
+            f'{i},{name},organisation,,,\n' for i, name in organisations), encoding='utf-8')
 
     return write

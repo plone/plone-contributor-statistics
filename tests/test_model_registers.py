@@ -34,12 +34,12 @@ kim-a,syslab,2019,,{SRC},,
 thomas-schorr,thomas-schorr-independent,2015,,{SRC},,
 """
 
-ORGANISATIONS = """id,name,kind,aliases,notes
-starzel,Starzel,organisation,Starzel GmbH;Starzel Gmbh,
-syslab,Syslab,organisation,,
-enfold,Enfold,organisation,,
-thomas-schorr-independent,Thomas Schorr (independent),independent,,
-plone-foundation,Plone Foundation,foundation,,
+ORGANISATIONS = """id,name,kind,github,aliases,notes
+starzel,Starzel,organisation,,Starzel GmbH;Starzel Gmbh,
+syslab,Syslab,organisation,,,
+enfold,Enfold,organisation,,,
+thomas-schorr-independent,Thomas Schorr (independent),independent,,,
+plone-foundation,Plone Foundation,foundation,,,
 """
 
 
