@@ -7,10 +7,18 @@ import sys
 from scripts.lib.model import UNMAPPED, load_registry
 
 
-def explain(registry, person_id, year):
-    """The organisation of the person in the year and the row that says so, or Unmapped."""
-    if person_id not in registry.people:
-        raise ValueError(f'Unknown person: {person_id}')
+def explain(registry, person, year):
+    """The organisation of the person in the year and the row that says so, or Unmapped.
+
+    The person is given by id, by a GitHub login (also a second account) or as `person:<id>`.
+    """
+    if person in registry.people:
+        person_id = person
+    else:
+        found = registry.person_for_username(person)
+        if found is None:
+            raise ValueError(f'Unknown person: {person}')
+        person_id = found.id
     # Rows are in file order and the header is line 1
     for line, affiliation in enumerate(registry.affiliations, start=2):
         if affiliation.person == person_id and affiliation.covers(year):
@@ -22,7 +30,8 @@ def explain(registry, person_id, year):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('person', metavar='PERSON', help='the id of the person, such as jane-doe')
+    parser.add_argument('person', metavar='PERSON',
+                        help='the id of the person, such as jane-doe, a GitHub login, or person:<id>')
     parser.add_argument('year', metavar='YEAR', type=int)
     args = parser.parse_args(argv)
     try:

@@ -27,6 +27,15 @@ def test_explain_names_the_row(registry):
         'New Co (affiliations.csv line 4: 2020–present, https://example.org/c)')
 
 
+def test_explain_takes_a_login_or_a_username(registry):
+    expected = affiliation.explain(registry, 'jane-doe', 2017)
+    assert affiliation.explain(registry, 'JaneDoe', 2017) == expected
+    assert affiliation.explain(registry, 'person:jane-doe', 2017) == expected
+    assert affiliation.explain(registry, 'person:other', 2017) == 'Unmapped (no row covers 2017)'
+    with pytest.raises(ValueError, match='person:nobody'):
+        affiliation.explain(registry, 'person:nobody', 2017)
+
+
 def test_explain_unmapped_when_no_row_covers(registry):
     assert affiliation.explain(registry, 'jane-doe', 2005) == 'Unmapped (no row covers 2005)'
     assert affiliation.explain(registry, 'other', 2017) == 'Unmapped (no row covers 2017)'

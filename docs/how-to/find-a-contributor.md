@@ -29,6 +29,8 @@ To see which affiliation row gives the organisation in a year, run:
 python -m scripts.tools.affiliation jane-doe 2017
 ```
 
+The tool takes the id of the person, a GitHub login, or a username as the collected files write it, such as `person:jane-doe`.
+
 You can also search the files directly:
 
 ```shell
