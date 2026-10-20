@@ -1,6 +1,6 @@
 # Plone Core Contributor Statistics Report
 
-Generated on: 2026-10-20 16:52:44
+Generated on: 2026-10-20 19:40:48
 
 This report shows the top contributors and organizations in the Plone ecosystem across different time periods.
 
@@ -146,8 +146,8 @@ Not mapped to an organisation: 629 PRs, 1,774 commits by 181 contributors.
 | 2 | Zest Software | 1,279 | 11,882 | 5 | 191 |
 | 3 | der Freitag | 1,201 | 5,882 | 3 | 274 |
 | 4 | Syslab | 1,050 | 2,853 | 6 | 140 |
-| 5 | Onna | 957 | 3,685 | 15 | 29 |
-| 6 | Steve Piercy - Website Builder | 909 | 3,242 | 1 | 38 |
+| 5 | Steve Piercy - Website Builder | 909 | 3,242 | 1 | 38 |
+| 6 | Onna | 803 | 2,381 | 15 | 26 |
 | 7 | Kombinat | 754 | 2,882 | 1 | 85 |
 | 8 | Klein & Partner KG | 725 | 3,125 | 2 | 149 |
 | 9 | Eau de Web | 569 | 1,653 | 19 | 37 |
@@ -186,14 +186,14 @@ See [how contributions are counted](https://plone.github.io/plone-contributor-st
 
 | Rank | Organization | Changelog entries | Commits | Contributors |
 |------|-------------|-------------------|---------|--------------|
-| 1 | Jarn | 1,942 | 9,723 | 14 |
+| 1 | Jarn | 1,936 | 9,664 | 13 |
 | 2 | Groundwire | 580 | 1,923 | 2 |
 | 3 | Simplon | 397 | 1,714 | 1 |
 | 4 | Deloitte Digital | 360 | 2,820 | 1 |
 | 5 | Christian Heimes (independent) | 258 | 849 | 1 |
-| 6 | ZITC | 240 | 1,543 | 1 |
-| 7 | Zest Software | 237 | 974 | 4 |
-| 8 | Penn State University | 201 | 1,782 | 3 |
+| 6 | Penn State University | 256 | 2,651 | 3 |
+| 7 | ZITC | 246 | 1,602 | 1 |
+| 8 | Zest Software | 237 | 974 | 4 |
 | 9 | ONE/Northwest | 173 | 688 | 2 |
 | 10 | Four Digits | 170 | 1,419 | 5 |
 
