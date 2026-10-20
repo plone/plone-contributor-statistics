@@ -9,22 +9,16 @@ docs/explanation/community-page.md.
 import argparse
 import csv
 import json
-import re
-import unicodedata
 from collections import defaultdict
 
 from scripts.lib import paths
 from scripts.lib.model import TALK_TYPES, UNMAPPED, events, items, load_registry, roles
-from scripts.lib.model.names import fold
+from scripts.lib.model.names import fold, slugify
+from scripts.lib.model.registers import PERSON_PREFIX
 from scripts.lib.years import RECOGNITION_YEAR
 from scripts.report import generate_community_recognition_report as recognition
 
 FIRST_YEAR = 2003
-
-
-def slug(name):
-    plain = unicodedata.normalize('NFKD', name).encode('ascii', 'ignore').decode()
-    return re.sub(r'[^a-z0-9]+', '-', plain.lower()).strip('-')
 
 
 def read_rows(path):
@@ -65,7 +59,7 @@ def people_of_year(year, registry, year_roles):
         person['pull_requests'] += pulls
     for role in year_roles:
         found[role.person]['roles'].add(role.label)
-    return [{'id': key, 'name': registry.people[key].name if key in registry.people else key,
+    return [{'id': key, 'name': registry.display_name(f'{PERSON_PREFIX}{key}' if key in registry.people else key),
              'commits': value['commits'], 'pull_requests': value['pull_requests'],
              'roles': sorted(value['roles'])} for key, value in sorted(found.items())]
 
@@ -208,8 +202,8 @@ def build_page_data(year=RECOGNITION_YEAR):
         data = organisation_data(name, org_points[name], found.get(name, {}), levels, all_years, per_organisation)
         if data['level'] == 'No Level':
             continue
-        organisations[slug(name)] = data
-        wall[data['level']].append({'name': name, 'slug': slug(name), 'points': data['points']})
+        organisations[slugify(name)] = data
+        wall[data['level']].append({'name': name, 'slug': slugify(name), 'points': data['points']})
 
     def people_in(years_):
         return len({p['id'] for y in years_ for p in per_person[y]})

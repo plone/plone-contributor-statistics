@@ -5,7 +5,8 @@ import pandas as pd
 from scripts.derive import multi_year_summary
 from scripts.lib import paths
 from scripts.report.generate_contributor_report import top_organisations_table
-from scripts.derive.organisation_stats import UNMAPPED, aggregate_organisation_stats
+from scripts.derive.organisation_stats import aggregate_organisation_stats
+from scripts.lib.model import UNMAPPED
 from scripts.report import generate_community_recognition_report as recognition
 
 

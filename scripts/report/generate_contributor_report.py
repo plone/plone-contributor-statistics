@@ -15,7 +15,7 @@ from datetime import datetime
 from scripts.lib import paths
 from scripts.lib.changelogs import REPORTED_YEARS
 from scripts.lib.tables import by_count
-from scripts.derive.organisation_stats import UNMAPPED
+from scripts.lib.model import UNMAPPED
 
 COUNTING_RULES = 'https://plone.github.io/plone-contributor-statistics/docs/explanation/counting-rules.html'
 

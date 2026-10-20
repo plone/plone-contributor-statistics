@@ -16,7 +16,9 @@ from pathlib import Path
 import argparse
 
 from scripts.lib import paths
-from scripts.lib.model import IN_PERSON, MIN_EPISODES, TALK_TYPES, UNMAPPED, community_folder, items, load_registry
+from scripts.lib.model import (IN_PERSON, MIN_EPISODES, TALK_TYPES, UNMAPPED, community_folder, items, load_registry,
+                               recognition_levels)
+from scripts.lib.model.registers import PERSON_PREFIX
 from scripts.lib.years import RECOGNITION_YEAR
 from scripts.derive.plip_organisation_stats import organisation_lookup, plips_by_organisation, read_plips
 
@@ -29,21 +31,11 @@ def five_years(year):
     return range(year - 4, year + 1)
 
 
-def load_recognition_levels(path=paths.RECOGNITION_LEVELS):
-    """Load recognition levels from CSV file."""
-    levels = []
-    with open(path, 'r') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            level = {
-                'name': row['Level'].strip(),
-                'min_points': int(row['Min Points'].strip()),
-                'max_points': float('inf') if not row['Max Points'].strip() else int(row['Max Points'].strip()),
-                'description': row['Description'].strip()
-            }
-            levels.append(level)
-
-    return levels
+def load_recognition_levels(path=None):
+    """The recognition levels (default: the curated file); the top level has no maximum, `inf`."""
+    return [{'name': row['Level'].strip(), 'min_points': row['Min Points'],
+             'max_points': float('inf') if row['Max Points'] is None else row['Max Points'],
+             'description': (row['Description'] or '').strip()} for row in recognition_levels(path)]
 
 
 def get_recognition_level(points, levels):
@@ -121,10 +113,11 @@ def _items(year, kind, community_dir):
     return items(year, kind, community_dir)
 
 
-def _name(registry, person_id):
-    """The name of a person as the people register spells it; the id when the register does not know it."""
-    person = registry.people.get(person_id)
-    return person.name if person else person_id
+def _name(registry, person_id, item):
+    """The display name of a person of a row; KeyError, naming the file and row, for an id the register lacks."""
+    if person_id not in registry.people:
+        raise KeyError(f'{item.file}:{item.line}: "{person_id}" is not in the people register')
+    return registry.display_name(f'{PERSON_PREFIX}{person_id}')
 
 
 def _organisations(registry, item):
@@ -150,7 +143,7 @@ def release_manager_points(rows, year, registry, add):
     """12 points per release manager, for the organisation of the person in the year."""
     for item in rows:
         for person in item.people:
-            add(registry.organisation_of(person, year), 'Release Manager', _name(registry, person), 12,
+            add(registry.organisation_of(person, year), 'Release Manager', _name(registry, person, item), 12,
                 item.file, item.line, item.source)
 
 
@@ -162,7 +155,7 @@ def team_leader_points(rows, year, registry, add):
             teams[(item.fields['team'] or '').strip()].append((person, item))
     for team, leaders in teams.items():
         for person, item in leaders:
-            add(registry.organisation_of(person, year), 'Team Leader', f"{_name(registry, person)} ({team})",
+            add(registry.organisation_of(person, year), 'Team Leader', f"{_name(registry, person, item)} ({team})",
                 6 / len(leaders), item.file, item.line, item.source)
 
 
@@ -170,7 +163,7 @@ def board_member_points(rows, year, registry, add):
     """6 points per member of the Board, for the organisation of the person in the year."""
     for item in rows:
         for person in item.people:
-            add(registry.organisation_of(person, year), 'Board Member', _name(registry, person), 6,
+            add(registry.organisation_of(person, year), 'Board Member', _name(registry, person, item), 6,
                 item.file, item.line, item.source)
 
 
@@ -187,7 +180,7 @@ def podcast_points(rows, year, registry, add):
             series[item.key].append((person, item))
     for name, hosts in series.items():
         for person, item in hosts:
-            add(registry.organisation_of(person, year), 'Podcast Host', f'{_name(registry, person)} ({name})',
+            add(registry.organisation_of(person, year), 'Podcast Host', f'{_name(registry, person, item)} ({name})',
                 6 / len(hosts), item.file, item.line, item.source)
 
 

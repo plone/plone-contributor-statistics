@@ -316,3 +316,15 @@ def test_conference_organisers_are_no_point_source(data):
     community(data, 'plone-conference', CONFERENCE + ',mauro,https://c,\n')
     community(data, 'sprints', SPRINTS + 'Sprint,,,Bonn,mauro,,strategic,https://s,\n')
     assert points(data) == {}
+
+
+def test_a_role_names_the_person_by_the_display_name(data):
+    from types import SimpleNamespace
+    from scripts.lib.model import load_registry
+
+    registry = load_registry()
+    row = SimpleNamespace(file='curated/community-contributions/2025-team-leaders.csv', line=2)
+    assert recognition._name(registry, 'timo', row) == 'timo'
+    # The checks refuse an unknown id; if one gets through, the report does not invent a name for it
+    with pytest.raises(KeyError, match='2025-team-leaders.csv:2.*ghost'):
+        recognition._name(registry, 'ghost', row)

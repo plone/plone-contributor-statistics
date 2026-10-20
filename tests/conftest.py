@@ -10,7 +10,7 @@ sys.path.insert(0, str(REPO))
 
 from scripts.lib import paths  # noqa: E402
 
-# Header-only mapping files: the loaders require every file to exist
+# Header-only registers and lists: the loaders require every file to exist
 EMPTY_MAPPINGS = {
     paths.EXCLUDED_REPOSITORIES: 'repository,reason\n',
     paths.BOT_ACCOUNTS: 'login,reason\n',
@@ -24,7 +24,7 @@ EMPTY_MAPPINGS = {
 
 @pytest.fixture
 def tmp_repo(tmp_path, monkeypatch):
-    """An empty repository in tmp_path, as the current directory, with the folders and empty mapping files."""
+    """An empty repository in tmp_path, as the current directory, with the folders and empty registers."""
     monkeypatch.chdir(tmp_path)
     for name, value in vars(paths).items():
         if isinstance(value, Path) and name.isupper():
@@ -38,14 +38,7 @@ def tmp_repo(tmp_path, monkeypatch):
 
 
 @pytest.fixture
-def schemas(tmp_repo):
-    """The real schemas of the registers, copied into the empty repository."""
-    shutil.copytree(REPO / 'curated/schemas', tmp_repo / 'curated/schemas', dirs_exist_ok=True)
-    return tmp_repo
-
-
-@pytest.fixture
-def write_registers(schemas):
+def write_registers(tmp_repo):
     """A function writing the people, affiliations and organisations registers from the given rows."""
     source = 'https://example.org/record'
 

@@ -12,6 +12,7 @@ from scripts.lib.model.community import (  # noqa: F401
     community_folder,
     events,
     items,
+    recognition_levels,
     roles,
 )
 from scripts.lib.model.registers import (  # noqa: F401

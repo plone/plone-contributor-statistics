@@ -44,6 +44,11 @@ IN_PERSON = ('in person', 'hybrid')
 MIN_EPISODES = 5
 
 
+def recognition_levels(path=None):
+    """The rows of the recognition levels file (default: the curated one), typed by its schema."""
+    return read_rows(paths.RECOGNITION_LEVELS if path is None else path)
+
+
 @dataclass(frozen=True)
 class Role:
     kind: str

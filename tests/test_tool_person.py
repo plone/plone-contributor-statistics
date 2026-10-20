@@ -9,7 +9,7 @@ SRC = 'https://example.org/record'
 
 
 @pytest.fixture
-def registers(schemas):
+def registers(tmp_repo):
     paths.PEOPLE.write_text(
         'id,name,github,source\n'
         f'alan-runyan,Alan Runyan,runyaga,{SRC}\n'
@@ -20,7 +20,7 @@ def registers(schemas):
         f'alan-runyan,login,bobdobbs666,{SRC}\n'
         f'zed,email,Zed@Example.org,{SRC}\n'
         f'zed,name,Zédd Zeta,{SRC}\n', encoding='utf-8')
-    return schemas
+    return tmp_repo
 
 
 def ids(people):

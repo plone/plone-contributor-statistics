@@ -20,7 +20,7 @@ import sys
 import argparse
 
 from scripts.lib import paths
-from scripts.lib.model import UNMAPPED, load_bot_accounts, load_registry  # noqa: F401 (UNMAPPED is imported from here)
+from scripts.lib.model import UNMAPPED, load_bot_accounts, load_registry
 from scripts.lib.tables import by_count
 
 
@@ -101,7 +101,7 @@ def changelog_entries_by_organisation(changelog_df, organisation_of, bots=frozen
     """{organisation: changelog entries} of the people of each organisation.
 
     organisation_of(username) gives the organisation name. Names that no
-    mapping file maps are no login, so they count as UNMAPPED.
+    identity of the registers maps are no login, so they count as UNMAPPED.
     """
     entries = defaultdict(int)
     if changelog_df is None:

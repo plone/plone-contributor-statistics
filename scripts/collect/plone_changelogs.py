@@ -14,8 +14,8 @@ changelog files are fetched into them.
 
 Each entry is dated by its release, counted once (see
 scripts/lib/changelogs.py), and credited in full to every person it names.
-Names are mapped to people with the curated mapping files; names that no
-file maps are kept as written. The output has one file per year, one row
+Names are mapped to people with the registers of people and identities; names
+that no identity maps are kept as written. The output has one file per year, one row
 per person; see docs/reference/data-files.md.
 """
 
@@ -160,7 +160,7 @@ def year_table(people):
 
 
 def unmatched_names(per_year, years):
-    """{name: entries} of the names that no mapping file maps, over the years."""
+    """{name: entries} of the names that the registers do not map, over the years."""
     found = Counter()
     for year in years:
         for person, stats in per_year.get(str(year), {}).items():
@@ -170,7 +170,7 @@ def unmatched_names(per_year, years):
 
 
 def coverage_lines(coverage, years):
-    """The share of entries per year that name someone, and that name someone a mapping file maps."""
+    """The share of entries per year that name someone, and that name someone the registers map."""
     lines = ['year  entries  named  mapped']
     for year in years:
         found = coverage.get(str(year), Counter())

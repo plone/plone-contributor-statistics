@@ -15,6 +15,7 @@ import pytest
 
 from scripts.derive import community_page
 from scripts.lib.model import load_registry
+from scripts.lib.model.names import slugify
 from scripts.report import generate_community_recognition_report as recognition
 from scripts.tools import migrate_data_structure
 from scripts.tools.migrate_data import audit
@@ -107,10 +108,10 @@ def organisation(name, side):
 
 
 def page(side, registry=None):
-    organisations = {community_page.slug(name): organisation(name, side) for name in sorted(POINTS[side])}
+    organisations = {slugify(name): organisation(name, side) for name in sorted(POINTS[side])}
     wall = {}
     for entry in organisations.values():
-        wall.setdefault(entry['level'], []).append({'name': entry['name'], 'slug': community_page.slug(entry['name']),
+        wall.setdefault(entry['level'], []).append({'name': entry['name'], 'slug': slugify(entry['name']),
                                                     'points': entry['points']})
     holder = ({'name': 'Bob R.', 'organisation': 'Unmapped', 'team': 'Docs Team',
                'source': 'https://example.org/t; organisation from the organisation mapping: https://github.com/bobroe'}

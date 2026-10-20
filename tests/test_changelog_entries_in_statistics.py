@@ -6,7 +6,7 @@ import pandas as pd
 import pytest
 
 from scripts.derive import multi_year_summary, organisation_stats
-from scripts.derive.organisation_stats import UNMAPPED
+from scripts.lib.model import UNMAPPED
 from scripts.lib.model import load_registry
 from scripts.lib import paths
 from scripts.report import generate_contributor_report as report

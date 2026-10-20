@@ -44,7 +44,7 @@ plone-foundation,Plone Foundation,foundation,,
 
 
 @pytest.fixture
-def registry(schemas):
+def registry(tmp_repo):
     paths.PEOPLE.write_text(PEOPLE, encoding='utf-8')
     paths.IDENTITIES.write_text(IDENTITIES, encoding='utf-8')
     paths.AFFILIATIONS.write_text(AFFILIATIONS, encoding='utf-8')
@@ -120,7 +120,7 @@ def test_organisation_names_and_display_names(registry):
     assert registry.display_name('stranger') == 'stranger'
 
 
-def test_read_rows_types(schemas):
+def test_read_rows_types(tmp_repo):
     paths.AFFILIATIONS.write_text(AFFILIATIONS, encoding='utf-8')
     rows = read_rows(paths.AFFILIATIONS)
     assert rows[0]['from'] == 2010 and isinstance(rows[0]['from'], int)
@@ -129,7 +129,7 @@ def test_read_rows_types(schemas):
     assert rows[0]['notes'] is None
 
 
-def test_read_rows_does_not_guess_the_delimiter(schemas):
+def test_read_rows_does_not_guess_the_delimiter(tmp_repo):
     # A quotation between semicolons once made Frictionless read a comma separated file as semicolon separated
     path = paths.COMMUNITY / '2007-plone-conference-trainings.csv'
     path.write_text(f'title,trainers,source,notes\nPlone 3,joel-burton,{SRC},"paid; ""offered by vendors.""; guest"\n',
@@ -137,13 +137,13 @@ def test_read_rows_does_not_guess_the_delimiter(schemas):
     assert [row['trainers'] for row in read_rows(path)] == ['joel-burton']
 
 
-def test_read_rows_missing_file(schemas):
+def test_read_rows_missing_file(tmp_repo):
     paths.PEOPLE.unlink()
     with pytest.raises(FileNotFoundError):
         read_rows(paths.PEOPLE)
 
 
-def test_read_rows_raises_on_malformed_cell(schemas):
+def test_read_rows_raises_on_malformed_cell(tmp_repo):
     paths.AFFILIATIONS.write_text(AFFILIATIONS.replace('alan-runyan,enfold,2004,2008', 'alan-runyan,enfold,2004,20l5'),
                                   encoding='utf-8')
     with pytest.raises(ValueError) as error:
@@ -152,7 +152,7 @@ def test_read_rows_raises_on_malformed_cell(schemas):
     assert 'affiliations.csv' in message and 'row 3' in message and 'field to' in message
 
 
-def test_login_organisations_omits_ambiguous_login(schemas):
+def test_login_organisations_omits_ambiguous_login(tmp_repo):
     paths.PEOPLE.write_text(f'id,name,github,source\np1,P One,k1,{SRC}\np2,P Two,,{SRC}\n', encoding='utf-8')
     paths.IDENTITIES.write_text(f'person,kind,value,source\np2,login,K1,{SRC}\n', encoding='utf-8')
     paths.AFFILIATIONS.write_text(f'person,organisation,from,to,source,checked,notes\n'

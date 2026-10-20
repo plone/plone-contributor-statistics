@@ -24,8 +24,6 @@ ALLOWED = {
     'scripts/tools/check.py': {'paths.SCHEMAS_DIR', 'paths.DATAPACKAGE', "'curated/", '"curated/'},
     'scripts/tools/datapackage.py': {'paths.SCHEMAS_DIR', 'paths.DATAPACKAGE', "'curated/", '"curated/'},
     'scripts/tools/schema_docs.py': {'paths.SCHEMAS_DIR', 'paths.DATAPACKAGE', "'curated/", '"curated/'},
-    # Reads the recognition levels, which only this script uses; community files come through the model
-    'scripts/report/generate_community_recognition_report.py': {'paths.RECOGNITION_LEVELS'},
     # Names the two files that the model's loaders read, so that the tests can write them
     'scripts/collect/plone_contributors.py': {'paths.BOT_ACCOUNTS', 'paths.EXCLUDED_REPOSITORIES'},
 }
@@ -51,9 +49,11 @@ def test_only_the_model_reads_curated():
 
 
 def test_the_checker_flags_what_a_file_may_not_use():
+    collector = 'scripts/collect/plone_contributors.py'
+    text = 'bots = paths.BOT_ACCOUNTS\nrows = csv.DictReader(open(paths.COMMUNITY / "x.csv"))\n'
+    assert offences(collector, text) == ['paths.COMMUNITY']
+    assert offences(collector, 'bots = paths.BOT_ACCOUNTS\n') == []
     report = 'scripts/report/generate_community_recognition_report.py'
-    text = 'levels = paths.RECOGNITION_LEVELS\nrows = csv.DictReader(open(paths.COMMUNITY / "x.csv"))\n'
-    assert offences(report, text) == ['paths.COMMUNITY']
-    assert offences(report, 'levels = paths.RECOGNITION_LEVELS\n') == []
+    assert offences(report, 'levels = paths.RECOGNITION_LEVELS\n') == ['paths.RECOGNITION_LEVELS']
     assert offences('scripts/derive/new.py', "open('curated/mappings/people.csv')") == ["'curated/"]
     assert offences('scripts/lib/model/new.py', 'paths.PEOPLE') == []
