@@ -1,22 +1,22 @@
 # Plone Community Recognition Program 2025
 
-*Generated: 2026-10-20 15:20:03*
+*Generated: 2026-10-20 15:26:12*
 
 ## Executive Summary
 
-- **Total Organizations**: 44
-- **Total Points Awarded**: 555.0
-- **Average Points per Organization**: 12.6
+- **Total Organizations**: 48
+- **Total Points Awarded**: 560.0
+- **Average Points per Organization**: 11.7
 
 ## Recognition Levels
 
 | Level | Points Range | Organizations |
 |-------|--------------|---------------:|
-| Platinum Contributor | 35+ | 1 |
-| Gold Contributor | 25-34 | 5 |
+| Platinum Contributor | 35+ | 2 |
+| Gold Contributor | 25-34 | 4 |
 | Silver Contributor | 10-24 | 13 |
 | Bronze Contributor | 3-9 | 13 |
-| Community Contributor | 1-2 | 12 |
+| Community Contributor | 1-2 | 16 |
 
 ## Recognition Categories
 
@@ -56,7 +56,7 @@
 | Rank | Organization | Recognition Level | Total Points |
 |------|--------------|-------------------|-------------:|
 | 1 | kitconcept GmbH | Platinum Contributor | 95.0 |
-| 2 | RedTurtle | Gold Contributor | 34.0 |
+| 2 | RedTurtle | Platinum Contributor | 35.0 |
 | 3 | University of Jyväskylä | Gold Contributor | 34.0 |
 | 4 | Steve Piercy - Website Builder | Gold Contributor | 33.0 |
 | 5 | Eau de Web | Gold Contributor | 29.0 |
@@ -91,14 +91,18 @@
 | 34 | Iskra | Community Contributor | 2.0 |
 | 35 | Pendect | Community Contributor | 2.0 |
 | 36 | Uni. Hospital Dresden | Community Contributor | 2.0 |
-| 37 | CMS Communications Inc. | Community Contributor | 1.0 |
-| 38 | Giallocobalto | Community Contributor | 1.0 |
-| 39 | IRR | Community Contributor | 1.0 |
-| 40 | Plone User's Group Japan | Community Contributor | 1.0 |
-| 41 | RIOS (Rete Italiana Open Source) | Community Contributor | 1.0 |
-| 42 | Regione Emilia-Romagna | Community Contributor | 1.0 |
-| 43 | eCityclic | Community Contributor | 1.0 |
-| 44 | iMio | Community Contributor | 1.0 |
+| 37 | AUSL Romagna | Community Contributor | 1.0 |
+| 38 | BOSS | Community Contributor | 1.0 |
+| 39 | CMS Communications Inc. | Community Contributor | 1.0 |
+| 40 | Er.GO | Community Contributor | 1.0 |
+| 41 | Giallocobalto | Community Contributor | 1.0 |
+| 42 | IRR | Community Contributor | 1.0 |
+| 43 | Plone User's Group Japan | Community Contributor | 1.0 |
+| 44 | RIOS (Rete Italiana Open Source) | Community Contributor | 1.0 |
+| 45 | Regione Emilia-Romagna | Community Contributor | 1.0 |
+| 46 | Università di Macerata | Community Contributor | 1.0 |
+| 47 | eCityclic | Community Contributor | 1.0 |
+| 48 | iMio | Community Contributor | 1.0 |
 
 ## Code Contribution Highlights
 
@@ -166,14 +170,14 @@
 
 ### RedTurtle
 
-**Total Points: 34.0**
+**Total Points: 35.0**
 
 | Category | Points | Details |
 |----------|-------:|:--------|
 | Strategic Sprint | 12.0 | • Salamina Sprint 2025 |
 | Team Leader | 6.0 | • Piero Nicolli (Volto Team) |
 | WPD Event | 3.0 | • Organized WPD Event in Bologna, Italy |
-| WPD Talk | 1.0 | • Plone & PWA: il caso Lignano Sabbiadoro - WPD2025 Italia |
+| WPD Talk | 2.0 | • Plone & PWA: il caso Lignano Sabbiadoro - WPD2025 Italia<br>• AUSL Ferrara - uno dei primi siti conformi al modello ASL di Designers Italia - WPD 2025 Italia |
 | Training Session | 2.0 | • Plone Seven: Fundamentals |
 | PR Contributions | 10.0 | • Core Member (62.2 PRs/year) |
 
@@ -487,6 +491,22 @@
 |----------|-------:|:--------|
 | PR Contributions | 2.0 | • Team Member (16.4 PRs/year) |
 
+### AUSL Romagna
+
+**Total Points: 1.0**
+
+| Category | Points | Details |
+|----------|-------:|:--------|
+| WPD Talk | 1.0 | • Il nuovo portale dell'Azienda USL della Romagna - WPD 2025 Italia |
+
+### BOSS
+
+**Total Points: 1.0**
+
+| Category | Points | Details |
+|----------|-------:|:--------|
+| WPD Talk | 1.0 | • BOSS - Big Open Source Sibling |
+
 ### CMS Communications Inc.
 
 **Total Points: 1.0**
@@ -494,6 +514,14 @@
 | Category | Points | Details |
 |----------|-------:|:--------|
 | WPD Talk | 1.0 | • Exploring the Power of Plone: How Out-of-the-Box Features Simplify Content Management |
+
+### Er.GO
+
+**Total Points: 1.0**
+
+| Category | Points | Details |
+|----------|-------:|:--------|
+| WPD Talk | 1.0 | • ER.GO e la digital communication: Plone per il rinnovo dell'immagine aziendale - WPD 2025 Italia |
 
 ### Giallocobalto
 
@@ -535,6 +563,14 @@
 |----------|-------:|:--------|
 | WPD Talk | 1.0 | • Volto e straVolto - World Plone Day 2025 Italia |
 
+### Università di Macerata
+
+**Total Points: 1.0**
+
+| Category | Points | Details |
+|----------|-------:|:--------|
+| WPD Talk | 1.0 | • Nuovi siti; nuova esperienza: la trasformazione digitale dei corsi UniMC - WPD 2025 Italia |
+
 ### eCityclic
 
 **Total Points: 1.0**
@@ -561,7 +597,7 @@
 | Board Member | 7 | 48.0 |
 | Podcast Host | 1 | 6.0 |
 | WPD Event | 2 | 6.0 |
-| WPD Talk | 21 | 34.0 |
+| WPD Talk | 25 | 39.0 |
 | Conference Organization | 1 | 24.0 |
 | Training Session | 7 | 36.0 |
 | PR Contributions | 21 | 194.0 |

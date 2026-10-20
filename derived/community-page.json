@@ -2,7 +2,7 @@
  "headline": {
   "five_years": {
    "events": 65,
-   "organisations": 96,
+   "organisations": 102,
    "people": 410
   },
   "since_2003": {
@@ -10,7 +10,7 @@
   },
   "year": {
    "events": 10,
-   "organisations": 49,
+   "organisations": 53,
    "people": 142
   }
  },
@@ -672,7 +672,7 @@
    "board": [
     {
      "name": "Joel Burton",
-     "organisation": "Joel Burton (independent)",
+     "organisation": "Plonebootcamps.com",
      "source": "https://plone.org/foundation/board/list_board_2"
     },
     {
@@ -836,13 +836,13 @@
     },
     {
      "name": "Andy McKay",
-     "organisation": "Unmapped",
+     "organisation": "Clearwind Consulting",
      "source": "https://web.archive.org/web/20060203041531/http://plone.org/development/teams/",
      "team": "Documentation Team"
     },
     {
      "name": "Joel Burton",
-     "organisation": "Joel Burton (independent)",
+     "organisation": "Plonebootcamps.com",
      "source": "https://web.archive.org/web/20060203041531/http://plone.org/development/teams/",
      "team": "Documentation Team"
     },
@@ -866,7 +866,7 @@
     },
     {
      "name": "Andy McKay",
-     "organisation": "Unmapped",
+     "organisation": "Clearwind Consulting",
      "source": "https://web.archive.org/web/20060203041531/http://plone.org/development/teams/",
      "team": "Installers Team"
     },
@@ -908,7 +908,7 @@
     },
     {
      "name": "Joel Burton",
-     "organisation": "Joel Burton (independent)",
+     "organisation": "Plonebootcamps.com",
      "source": "https://web.archive.org/web/20060203041531/http://plone.org/development/teams/",
      "team": "Marketing Team"
     },
@@ -8875,6 +8875,328 @@
    "points": 7.0,
    "points_to_next": 3.0
   },
+  "ausl-romagna": {
+   "categories": {
+    "WPD Talk": {
+     "contributions": [
+      {
+       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
+       "line": 44,
+       "points": 1,
+       "source": "https://www.youtube.com/watch?v=LDuhLrAsozQ",
+       "text": "Il nuovo portale dell'Azienda USL della Romagna - WPD 2025 Italia"
+      }
+     ],
+     "points": 1.0
+    }
+   },
+   "history": {
+    "2003": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2004": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2005": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2006": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2007": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2008": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2009": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2010": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2011": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2012": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2013": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2014": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2015": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2016": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2017": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2018": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2019": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2020": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2021": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2022": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2023": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2024": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2025": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 1
+    }
+   },
+   "level": "Community Contributor",
+   "name": "AUSL Romagna",
+   "next_level": "Bronze Contributor",
+   "points": 1.0,
+   "points_to_next": 2.0
+  },
+  "boss": {
+   "categories": {
+    "WPD Talk": {
+     "contributions": [
+      {
+       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
+       "line": 53,
+       "points": 1,
+       "source": "https://plone.org.br/novidades/eventos/2025/wpd-2025-brasilia",
+       "text": "BOSS - Big Open Source Sibling"
+      }
+     ],
+     "points": 1.0
+    }
+   },
+   "history": {
+    "2003": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2004": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2005": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2006": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2007": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2008": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2009": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2010": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2011": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2012": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2013": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2014": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2015": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2016": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2017": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2018": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2019": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2020": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2021": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2022": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2023": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2024": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2025": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 1
+    }
+   },
+   "level": "Community Contributor",
+   "name": "BOSS",
+   "next_level": "Bronze Contributor",
+   "points": 1.0,
+   "points_to_next": 2.0
+  },
   "brian-davis-independent": {
    "categories": {
     "Board Member": {
@@ -10587,6 +10909,167 @@
    "points": 1.0,
    "points_to_next": 2.0
   },
+  "er-go": {
+   "categories": {
+    "WPD Talk": {
+     "contributions": [
+      {
+       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
+       "line": 43,
+       "points": 1,
+       "source": "https://www.youtube.com/watch?v=KrrJdLBsuVI",
+       "text": "ER.GO e la digital communication: Plone per il rinnovo dell'immagine aziendale - WPD 2025 Italia"
+      }
+     ],
+     "points": 1.0
+    }
+   },
+   "history": {
+    "2003": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2004": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2005": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2006": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2007": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2008": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2009": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2010": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2011": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2012": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2013": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2014": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2015": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2016": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2017": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2018": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2019": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2020": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2021": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2022": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2023": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2024": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2025": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 1
+    }
+   },
+   "level": "Community Contributor",
+   "name": "Er.GO",
+   "next_level": "Bronze Contributor",
+   "points": 1.0,
+   "points_to_next": 2.0
+  },
   "giallocobalto": {
    "categories": {
     "WPD Talk": {
@@ -10900,7 +11383,7 @@
      "commits": 0,
      "events": 0,
      "pull_requests": 0,
-     "roles": 1
+     "roles": 2
     }
    },
    "level": "Community Contributor",
@@ -14252,9 +14735,16 @@
        "points": 1,
        "source": "https://www.youtube.com/watch?v=KW5YDe801TQ",
        "text": "Plone & PWA: il caso Lignano Sabbiadoro - WPD2025 Italia"
+      },
+      {
+       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
+       "line": 46,
+       "points": 1,
+       "source": "https://www.youtube.com/watch?v=rQdFpqs8MN4",
+       "text": "AUSL Ferrara - uno dei primi siti conformi al modello ASL di Designers Italia - WPD 2025 Italia"
       }
      ],
-     "points": 1.0
+     "points": 2.0
     }
    },
    "history": {
@@ -14394,14 +14884,14 @@
      "commits": 72,
      "events": 2,
      "pull_requests": 69,
-     "roles": 3
+     "roles": 4
     }
    },
-   "level": "Gold Contributor",
+   "level": "Platinum Contributor",
    "name": "RedTurtle",
-   "next_level": "Platinum Contributor",
-   "points": 34.0,
-   "points_to_next": 1.0
+   "next_level": null,
+   "points": 35.0,
+   "points_to_next": null
   },
   "regione-emilia-romagna": {
    "categories": {
@@ -14710,7 +15200,7 @@
      "commits": 0,
      "events": 0,
      "pull_requests": 0,
-     "roles": 0
+     "roles": 1
     },
     "2025": {
      "commits": 0,
@@ -15241,7 +15731,7 @@
      "commits": 15,
      "events": 0,
      "pull_requests": 11,
-     "roles": 0
+     "roles": 1
     },
     "2024": {
      "commits": 90,
@@ -16431,6 +16921,167 @@
    "next_level": "Bronze Contributor",
    "points": 2.0,
    "points_to_next": 1.0
+  },
+  "universita-di-macerata": {
+   "categories": {
+    "WPD Talk": {
+     "contributions": [
+      {
+       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
+       "line": 47,
+       "points": 1,
+       "source": "https://www.youtube.com/watch?v=_I7exPV9ERM",
+       "text": "Nuovi siti; nuova esperienza: la trasformazione digitale dei corsi UniMC - WPD 2025 Italia"
+      }
+     ],
+     "points": 1.0
+    }
+   },
+   "history": {
+    "2003": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2004": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2005": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2006": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2007": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2008": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2009": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2010": {
+     "commits": 0,
+     "events": 1,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2011": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2012": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2013": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2014": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2015": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2016": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2017": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2018": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2019": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2020": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2021": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2022": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2023": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2024": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2025": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 2
+    }
+   },
+   "level": "Community Contributor",
+   "name": "Università di Macerata",
+   "next_level": "Bronze Contributor",
+   "points": 1.0,
+   "points_to_next": 2.0
   },
   "university-of-jyvaskyla": {
    "categories": {
@@ -42893,6 +43544,11 @@
      "name": "kitconcept GmbH",
      "points": 95.0,
      "slug": "kitconcept-gmbh"
+    },
+    {
+     "name": "RedTurtle",
+     "points": 35.0,
+     "slug": "redturtle"
     }
    ]
   },
@@ -42908,11 +43564,6 @@
      "name": "PY76",
      "points": 25.0,
      "slug": "py76"
-    },
-    {
-     "name": "RedTurtle",
-     "points": 34.0,
-     "slug": "redturtle"
     },
     {
      "name": "Steve Piercy - Website Builder",
@@ -43070,6 +43721,16 @@
    "level": "Community Contributor",
    "organisations": [
     {
+     "name": "AUSL Romagna",
+     "points": 1.0,
+     "slug": "ausl-romagna"
+    },
+    {
+     "name": "BOSS",
+     "points": 1.0,
+     "slug": "boss"
+    },
+    {
      "name": "CCC",
      "points": 2.0,
      "slug": "ccc"
@@ -43083,6 +43744,11 @@
      "name": "eCityclic",
      "points": 1.0,
      "slug": "ecityclic"
+    },
+    {
+     "name": "Er.GO",
+     "points": 1.0,
+     "slug": "er-go"
     },
     {
      "name": "Giallocobalto",
@@ -43128,6 +43794,11 @@
      "name": "Uni. Hospital Dresden",
      "points": 2.0,
      "slug": "uni-hospital-dresden"
+    },
+    {
+     "name": "Università di Macerata",
+     "points": 1.0,
+     "slug": "universita-di-macerata"
     }
    ]
   }
