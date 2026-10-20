@@ -250,9 +250,13 @@ class PloneStatsExtractor:
             commit['author'] = {'login': login, 'type': user_type} if login else None
 
     def counted_login(self, login):
-        """The login a GitHub account counts under: the main login of a second account, else the login itself."""
+        """The username a GitHub account counts under: that of its person, else the login itself.
+
+        A second account counts for the person's main login, or for `person:<id>` when the person has no
+        `github`, as the changelog collector counts it.
+        """
         person = self.registry.person_for(login=login)
-        return person.github if person and person.github else login
+        return self.registry.username_of(person) if person else login
 
     def process_commits(self, repo_name: str, commits: List[Dict[str, Any]]):
         """Count each commit for its author in the period of its commit date."""

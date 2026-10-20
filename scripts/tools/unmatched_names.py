@@ -4,7 +4,8 @@
 A person without a login counts by person id; if their code work comes under a login that the register does
 not know, they count twice. This lists the people whose name equals a collected login. With --propose, the
 GitHub profile names of the logins the register does not know are fetched (needs GITHUB_TOKEN) and exact,
-unique matches are printed as rows for curated/mappings/identities.csv. Check each proposal before adding it.
+unique matches are printed as a `github` value to set in curated/mappings/people.csv: the login is the
+person's main account, which their code work counts under. Check each proposal before setting it.
 """
 
 import argparse
@@ -54,7 +55,7 @@ def unmatched_people(registry, logins):
 
 
 def propose(registry, profile_names):
-    """(person, 'login', login, source) for people without a login whose name is exactly one profile name."""
+    """(person id, login, profile name) for people without a login whose name is exactly one profile name."""
     logins_by_name = defaultdict(set)
     for login, name in profile_names.items():
         logins_by_name[fold(name)].add(login)
@@ -69,8 +70,13 @@ def propose(registry, profile_names):
         if len(logins) == 1 and len(ids_by_name[fold(person.name)]) == 1:
             login = next(iter(logins))
             if registry.person_for(login=login) is None:
-                proposals.append((person.id, 'login', login, f'https://github.com/{login}'))
+                proposals.append((person.id, login, profile_names[login]))
     return proposals
+
+
+def proposal_line(person_id, login, name):
+    """The proposal as the line --propose prints."""
+    return f'people.csv: set github of {person_id} to {login} (profile name "{name}": https://github.com/{login})'
 
 
 def fetch_profile_names(session, logins, batch=50):
@@ -104,10 +110,9 @@ def main():
         token = os.getenv('GITHUB_TOKEN')
         if token:
             session.headers['Authorization'] = f'token {token}'
-        writer = csv.writer(sys.stdout, lineterminator='\n')
-        print('\nProposals for identities.csv (check each before adding):')
-        writer.writerow(['person', 'kind', 'value', 'source'])
-        writer.writerows(propose(registry, fetch_profile_names(session, unregistered(registry, logins))))
+        print('\nProposals for people.csv (check each before setting it):')
+        for proposal in propose(registry, fetch_profile_names(session, unregistered(registry, logins))):
+            print(proposal_line(*proposal))
 
 
 if __name__ == '__main__':

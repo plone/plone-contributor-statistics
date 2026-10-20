@@ -36,8 +36,25 @@ def test_a_registered_login_is_no_match(tmp_repo):
 def test_proposes_only_unique_exact_profile_names(tmp_repo):
     write_people([('jane-doe', 'Jane Doe', ''), ('john-roe', 'John Roe', ''), ('mauro-amico', 'Mauro Amico', 'mamico')])
     profiles = {'janedoe': 'Jane  Doe', 'jroe1': 'John Roe', 'jroe2': 'John Roe', 'mamico': 'Mauro Amico'}
-    assert unmatched_names.propose(load_registry(), profiles) == [
-        ('jane-doe', 'login', 'janedoe', 'https://github.com/janedoe')]
+    assert unmatched_names.propose(load_registry(), profiles) == [('jane-doe', 'janedoe', 'Jane  Doe')]
+
+
+def test_a_proposal_sets_the_github_of_the_person():
+    assert unmatched_names.proposal_line('jane-doe', 'janedoe', 'Jane Doe') == (
+        'people.csv: set github of jane-doe to janedoe (profile name "Jane Doe": https://github.com/janedoe)')
+
+
+def test_main_prints_people_proposals(tmp_repo, monkeypatch, capsys):
+    write_people([('jane-doe', 'Jane Doe', ''), ('mauro-amico', 'Mauro Amico', 'mamico')])
+    write_contributors('janedoe')
+    monkeypatch.setattr('sys.argv', ['unmatched_names', '--propose'])
+    monkeypatch.delenv('GITHUB_TOKEN', raising=False)
+    monkeypatch.setattr(unmatched_names, 'load_dotenv', lambda: None)
+    monkeypatch.setattr(unmatched_names, 'fetch_profile_names', lambda session, logins: {'janedoe': 'Jane Doe'})
+    unmatched_names.main()
+    out = capsys.readouterr().out
+    assert 'people.csv: set github of jane-doe to janedoe (profile name "Jane Doe": https://github.com/janedoe)' in out
+    assert 'identities.csv' not in out
 
 
 def test_does_not_propose_a_login_of_another_person(tmp_repo):

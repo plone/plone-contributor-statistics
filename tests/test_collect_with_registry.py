@@ -27,10 +27,11 @@ def extractor(tmp_repo, monkeypatch):
         f'whit-morriss,email,whit@localhost,{SRC}\n'
         f'benjamin-saller,email,bsaller@localhost,{SRC}\n'
         f'whit-morriss,email,linked@example.org,{SRC}\n'
-        f'alan-runyan,login,bobdobbs666,{SRC}\n', encoding='utf-8')
+        f'alan-runyan,login,bobdobbs666,{SRC}\n'
+        f'benjamin-saller,login,bsaller-gh,{SRC}\n', encoding='utf-8')
 
     linked = {'linked@example.org': 'alice', 'bot@example.org': 'pre-commit-ci[bot]',
-              'alan@enfoldsystems.com': 'bobdobbs666'}
+              'alan@enfoldsystems.com': 'bobdobbs666', 'ben@example.org': 'bsaller-gh'}
 
     def fake_graphql(session, query, variables=None, **kwargs):
         shas = [part.split('"')[1] for part in query.split('object(oid: ')[1:]]
@@ -53,7 +54,7 @@ def test_unlinked_emails_are_mapped(extractor):
         'whitmo', 'person:benjamin-saller', None]
 
 
-def test_github_links_win_over_the_mapping(extractor):
+def test_github_links_win_over_the_registers(extractor):
     assert logins(extractor, 'linked@example.org') == ['alice']
 
 
@@ -63,6 +64,15 @@ def test_second_accounts_count_for_the_main_account(extractor):
     extractor.process_pull_requests('Products.CMFPlone', [
         {'merged_at': '2003-05-01T12:00:00Z', 'user': {'login': 'bobdobbs666', 'type': 'User'}}])
     assert extractor.contributors_data['2003-plone-contributors']['runyaga']['pull_requests'] == 1
+
+
+def test_second_account_of_a_person_without_github_counts_for_the_person(extractor):
+    # As the changelog collector counts it: person:<id>, not the login, so that the person counts once
+    assert logins(extractor, 'ben@example.org') == ['person:benjamin-saller']
+
+    extractor.process_pull_requests('Products.CMFPlone', [
+        {'merged_at': '2003-05-01T12:00:00Z', 'user': {'login': 'BSaller-GH', 'type': 'User'}}])
+    assert extractor.contributors_data['2003-plone-contributors']['person:benjamin-saller']['pull_requests'] == 1
 
 
 def test_linked_bot_login_stays_a_bot(extractor):
