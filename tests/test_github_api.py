@@ -60,6 +60,19 @@ def test_waits_for_retry_after_header():
     assert waits == [60]
 
 
+def test_waits_a_minute_for_a_secondary_rate_limit():
+    # No Retry-After header and requests remaining: only the body says what happened
+    limited = FakeResponse(403, {'X-RateLimit-Remaining': '27'},
+                           '{"message": "You have exceeded a secondary rate limit. Please wait a few minutes"}')
+    waits = []
+    session = FakeSession(limited, FakeResponse(200))
+
+    github_get(session, 'https://api.github.com/search/commits', sleep=waits.append)
+
+    assert waits == [60]
+    assert rate_limit_wait(FakeResponse(403, {}, '{"message": "Forbidden"}')) is None
+
+
 def test_raises_when_still_rate_limited():
     limited = FakeResponse(429, {'Retry-After': '1'})
     session = FakeSession(*[limited] * 3)

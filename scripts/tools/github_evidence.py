@@ -38,7 +38,7 @@ from scripts.tools.address_proposals import _runs, _years, is_company_domain, is
 SEARCH_URL = 'https://api.github.com/search/commits'
 CACHE_DIR = os.path.join('.cache', 'github-search')
 LAST_YEAR = 2025  # the years before 2026 are the guessed ones
-PACE = 2.1  # seconds between requests: the search allows 30 a minute
+PACE = 2.5  # seconds between requests: the search allows 30 a minute, and a secondary limit watches bursts
 PER_PAGE = 100
 NOT_VERIFIED = 'not verified'
 CONTRIBUTORS_FILE = re.compile(r'^(\d{4})-plone-contributors\.csv$')
@@ -57,8 +57,9 @@ def make_session():
 class Searcher:
     """Commit searches that are paced, and cached as JSON files."""
 
-    def __init__(self, cache, session=None, sleep=time.sleep, refresh=False):
-        self.cache, self.refresh, self.sleep = cache, refresh, sleep
+    def __init__(self, cache, session=None, sleep=None, refresh=False):
+        # Look up time.sleep at call time, so tests can replace it
+        self.cache, self.refresh, self.sleep = cache, refresh, time.sleep if sleep is None else sleep
         self._session = session
         self.requests = 0
 
@@ -274,7 +275,7 @@ def report(proposals, conflicts, unmapped, open_guesses):
 
 
 def run(people=(), all_years=False, write=False, refresh=False, cache=CACHE_DIR, mappings_dir=MAPPINGS_DIR,
-        contributors_dir=paths.CONTRIBUTORS_DIR, session=None, sleep=time.sleep):
+        contributors_dir=paths.CONTRIBUTORS_DIR, session=None, sleep=None):
     """Query, propose, and (with write) append to the proposals file; return (report, proposals added)."""
     registry = load_registry(mappings_dir)
     unknown = [p for p in people if p not in registry.people]

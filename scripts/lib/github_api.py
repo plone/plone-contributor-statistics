@@ -34,6 +34,11 @@ class GitHubAPIError(Exception):
     """A GitHub API request failed and the data would be incomplete."""
 
 
+# A secondary rate limit (too many requests in a short time, e.g. of the search) comes without a Retry-After
+# header and with requests remaining; GitHub asks to wait at least a minute before retrying
+SECONDARY_LIMIT_WAIT = 60
+
+
 def rate_limit_wait(response, now=None):
     """Return the seconds to wait if the response is a rate limit, else None."""
     if response.status_code not in (403, 429):
@@ -43,6 +48,8 @@ def rate_limit_wait(response, now=None):
         return max(int(retry_after), 1)
     if response.headers.get('X-RateLimit-Remaining') == '0':
         return _reset_wait(response, now)
+    if 'secondary rate limit' in (response.text or '').lower():
+        return SECONDARY_LIMIT_WAIT
     return None
 
 
