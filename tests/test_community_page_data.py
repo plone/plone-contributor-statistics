@@ -62,7 +62,8 @@ def test_people_active_counts_a_person_once_across_code_and_roles(repo):
     write(paths.contributors_file(2025), CONTRIBUTORS + 'Tisto,10,5\n')
     write(paths.COMMUNITY / '2025-release-managers.csv', RELEASE_MANAGERS + 'timo,https://a,\n')
     [entry] = community_page.build_page_data(2025)['people']['2025']
-    assert entry == {'id': 'timo', 'name': 'timo', 'commits': 10, 'pull_requests': 5, 'roles': ['Release manager']}
+    assert entry == {'id': 'timo', 'name': 'timo', 'commits': 10, 'pull_requests': 5, 'roles': ['Release manager'],
+                     'organisation': 'kitconcept GmbH'}
 
 
 def test_a_login_outside_the_register_is_keyed_by_the_login(repo):
@@ -132,7 +133,7 @@ def test_people_are_sorted_by_id_and_carry_no_rank(repo):
     write(paths.contributors_file(2025), CONTRIBUTORS + 'zed,1,1\nalice,5,9\n')
     people = community_page.build_page_data(2025)['people']['2025']
     assert [p['id'] for p in people] == ['alice', 'zed']
-    assert set(people[0]) == {'id', 'name', 'commits', 'pull_requests', 'roles'}
+    assert set(people[0]) == {'id', 'name', 'commits', 'pull_requests', 'roles', 'organisation'}
 
 
 def test_data_is_deterministic(repo):
@@ -238,3 +239,23 @@ def test_people_names_are_keyed_by_fold(repo):
     assert names == {community_page.fold('Tamara Eßer'): 'tamara-eer',
                      community_page.fold('Víctor  Fernández'): 'victor'}
     assert set(names) == {'tamara eßer', 'victor fernandez'}
+
+
+def test_people_carry_the_organisation_of_the_year(repo):
+    # The person card names the organisation the affiliations give the person for the year
+    write(paths.contributors_file(2025), CONTRIBUTORS + 'tisto,10,5\nzed,1,1\n')
+    write(paths.COMMUNITY / '2025-board-of-directors.csv', BOARD + 'anna,voting,https://b,\n')
+    people = {p['id']: p['organisation'] for p in community_page.build_page_data(2025)['people']['2025']}
+    # anna has no affiliation, zed is a login outside the register
+    assert people == {'timo': 'kitconcept GmbH', 'anna': 'Unmapped', 'zed': 'Unmapped'}
+
+
+def test_the_organisation_of_a_person_follows_the_years_of_the_affiliation(repo):
+    # timo left kitconcept after 2023 and joined RedTurtle in 2025: each year's entry says where he was
+    write(paths.AFFILIATIONS, 'person,organisation,from,to,source,checked,notes\n'
+                              'timo,kitconcept,2000,2023,https://r,,\ntimo,redturtle,2025,,https://r,,\n')
+    for year in (2023, 2024, 2025):
+        write(paths.contributors_file(year), CONTRIBUTORS + 'tisto,1,0\n')
+    data = community_page.build_page_data(2025)
+    organisation = {year: data['people'][year][0]['organisation'] for year in ('2023', '2024', '2025')}
+    assert organisation == {'2023': 'kitconcept GmbH', '2024': 'Unmapped', '2025': 'RedTurtle'}

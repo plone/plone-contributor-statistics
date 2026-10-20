@@ -119,9 +119,15 @@ a.row { color: var(--muted); }
 .result { min-height: 3rem; }
 .result .card { border: 1px solid var(--line); border-radius: 8px; padding: 1rem 1.2rem; background: var(--soft); max-width: 40rem; }
 .result .card h3 { margin: 0 0 .5rem; }
+.result .head { display: flex; align-items: center; gap: .6rem; margin-bottom: .5rem; }
+.result .head h3 { margin: 0; flex: 1; text-align: center; }
+.pager { font: inherit; font-size: .85rem; color: var(--blue-dark); background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: .3rem .6rem; cursor: pointer; white-space: nowrap; }
+.pager:hover:not(:disabled) { border-color: var(--blue); color: var(--blue); }
+.pager:disabled { color: var(--muted); cursor: default; opacity: .5; }
 .result dl { display: grid; grid-template-columns: max-content 1fr; gap: .3rem 1rem; margin: 0; }
 .result dt { color: var(--muted); }
 .result dd { margin: 0; font-weight: 600; }
+.result dd .how { font-weight: 400; font-size: .85rem; }
 .note { color: var(--muted); font-size: .9rem; }
 table.distribution { border-collapse: collapse; margin: 1rem 0; font-size: .9rem; }
 .distribution caption { text-align: left; color: var(--muted); padding-bottom: .4rem; }

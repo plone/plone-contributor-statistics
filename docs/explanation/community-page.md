@@ -69,8 +69,10 @@ These are counts, not points: points exist only for the recognition years.
 ## People
 
 The page doesn't list people in a ranking.
-It lets you search for one person, by GitHub login or by name, and shows for a year where they stand in commits and in merged pull requests among the people with at least one, and which community roles they held.
+It lets you search for one person, by GitHub login or by name, and shows for a year where they stand in commits and in merged pull requests among the people with at least one, which community roles they held, and which organisation their work of that year is attributed to.
+The organisation is the one the affiliations give the person for the year, see {doc}`attribution`: an organisation with a recognition level links to its entry, and a year without an affiliation shows "none recorded", with a link to {doc}`/how-to/add-an-affiliation`.
 A name finds the person's login through the register, see "People active" above.
+The card pages to the nearest earlier and later years in which the person was active, and says so when the chosen year isn't one of them.
 Without a search, the page shows how many people made one, two to nine, ten to 49, or 50 and more commits and merged pull requests in the year, without names.
 
 ## History
