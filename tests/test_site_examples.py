@@ -1,18 +1,20 @@
 """The community page doesn't use real people as examples."""
 
-import csv
 import re
 from pathlib import Path
 
-from scripts.lib import paths
+from scripts.lib.model import load_registry
 
 ROOT = Path(__file__).resolve().parent.parent
 TEMPLATES = sorted((ROOT / 'scripts/report/site').rglob('*.html'))
 
 
 def logins():
-    with open(ROOT / paths.ORGANISATIONS, newline='', encoding='utf-8') as f:
-        return {login.casefold() for row in csv.DictReader(f) for login in (row['Team'] or '').split(';') if login}
+    """Every GitHub login the register knows: the people's own and their second accounts."""
+    registry = load_registry(ROOT / 'curated/mappings')
+    known = {person.github.casefold() for person in registry.people.values() if person.github}
+    known.update(identity.value.casefold() for identity in registry.identities if identity.kind == 'login')
+    return known
 
 
 def test_placeholders_name_no_person():

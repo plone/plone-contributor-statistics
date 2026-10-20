@@ -1,0 +1,49 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "Opaque, stable identifier of the organisation: made once from the name when the row is created, and kept when the name changes. It is a key, not a spelling.",
+      "constraints": {
+        "required": true,
+        "unique": true,
+        "pattern": "^[a-z0-9][a-z0-9-]*$"
+      }
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "The name the organisation is published under.",
+      "constraints": {
+        "required": true,
+        "unique": true
+      }
+    },
+    {
+      "name": "kind",
+      "type": "string",
+      "description": "The kind of the organisation: a company, an independent or a foundation.",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "organisation",
+          "independent",
+          "foundation"
+        ]
+      }
+    },
+    {
+      "name": "aliases",
+      "type": "string",
+      "description": "Other spellings of the name, separated by semicolons; free text, not keys."
+    },
+    {
+      "name": "notes",
+      "type": "string",
+      "description": "Free-text remarks on the row."
+    }
+  ],
+  "primaryKey": [
+    "id"
+  ]
+}

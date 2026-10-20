@@ -4,7 +4,7 @@
 Reads plone-plips-detailed.csv and writes plone-plip-organisations.csv.
 A closed PLIP counts for the organisation of its author in the year it was
 closed, an open PLIP for the organisation in the year it was created, with the
-yearly overrides of organisation_mapping_overrides.csv.
+affiliations of the registers.
 """
 
 import argparse
@@ -12,8 +12,7 @@ import csv
 from collections import defaultdict
 
 from scripts.lib import paths
-from scripts.lib.mappings import load_organisation_mapping
-from scripts.derive.organisation_stats import UNMAPPED
+from scripts.lib.model import load_registry
 
 PLIPS_FILE = paths.PLIPS_DETAILED
 OUTPUT_FILE = paths.PLIP_ORGANISATIONS
@@ -32,14 +31,12 @@ def plip_year(plip):
     return int(date[:4])
 
 
-def organisation_lookup(mapping_file=paths.ORGANISATIONS, overrides_file=paths.OVERRIDES):
-    """Return a function (login, year) -> organisation, loading each year's mapping once."""
-    mappings = {}
+def organisation_lookup(registry=None):
+    """Return a function (login, year) -> organisation, reading the registers once."""
+    registry = registry or load_registry()
 
     def organisation(login, year):
-        if year not in mappings:
-            mappings[year] = load_organisation_mapping(mapping_file, overrides_file, year=year)
-        return mappings[year].get(login, UNMAPPED)
+        return registry.organisation_for_username(login, year)
 
     return organisation
 

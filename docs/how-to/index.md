@@ -1,8 +1,8 @@
 ---
 myst:
   html_meta:
-    "description": "Guides for correcting, adding and regenerating Plone contributor statistics data."
-    "property=og:description": "Guides for correcting, adding and regenerating Plone contributor statistics data."
+    "description": "Guides for adding, correcting and regenerating Plone contributor statistics data."
+    "property=og:description": "Guides for adding, correcting and regenerating Plone contributor statistics data."
     "property=og:title": "How-to guides"
 ---
 
@@ -10,13 +10,14 @@ myst:
 
 # How-to guides
 
-These guides help you with a specific task, such as correcting the organisation of a contributor.
+These guides help you with a specific task, such as adding an affiliation for a contributor.
 
 ```{toctree}
 :maxdepth: 1
 
 prepare-a-new-year
-correct-an-organisation-mapping
+add-a-person
+add-an-affiliation
 add-curated-community-data
 regenerate-after-a-mapping-change
 find-a-contributor

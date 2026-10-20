@@ -1,21 +1,21 @@
-Name,Team,Organisation,Source
-Kapil Thangavelu,Admin & Infrastructure Team,Unmapped,https://web.archive.org/web/20051224100050/http://plone.org/development/teams/infrastructure
-Wichert Akkerman,Admin & Infrastructure Team,Simplon,https://web.archive.org/web/20051224100050/http://plone.org/development/teams/infrastructure; organisation from the organisation mapping: https://github.com/wichert
-Alan Runyan,Developer Team,Enfold,https://web.archive.org/web/20050122020045/http://plone.org/development/teams/; organisation from the organisation mapping: https://github.com/plone/Products.MimetypesRegistry/commit/3ef6adaf48705ae97f5392218029ead49803e535
-Andy McKay,Documentation Team,Enfold,https://web.archive.org/web/20050122020045/http://plone.org/development/teams/; organisation from the organisation mapping: https://plone.org/news-and-events/events/plone-conferences/vienna-2004/brochure/inside_3.pdf/@@download/file
-Joel Burton,Documentation Team,Unmapped,https://web.archive.org/web/20050122020045/http://plone.org/development/teams/
-Andy McKay,Installers Team,Enfold,https://web.archive.org/web/20050122020045/http://plone.org/development/teams/; organisation from the organisation mapping: https://plone.org/news-and-events/events/plone-conferences/vienna-2004/brochure/inside_3.pdf/@@download/file
-Simon Eisenmann,Installers Team,struktur AG,"https://web.archive.org/web/20050122020045/http://plone.org/development/teams/; organisation from the organisation mapping: http://www.struktur.de"""
-Stefan Holek,Installers Team,Jarn,https://web.archive.org/web/20050122020045/http://plone.org/development/teams/; organisation from the organisation mapping: https://plone.org/news-and-events/events/plone-conferences/vienna-2004/speakers
-Dorneles Treméa,Internationalization Team,X3ng Web Technology,"https://web.archive.org/web/20050122020045/http://plone.org/development/teams/; organisation from the organisation mapping: http://www.x3ng.com.br"""
-Godefroid Chapelle,Internationalization Team,BubbleNet,https://web.archive.org/web/20050122020045/http://plone.org/development/teams/; organisation from the organisation mapping: https://github.com/gotcha
-Jodok Batlogg,Internationalization Team,Unmapped,https://web.archive.org/web/20050122020045/http://plone.org/development/teams/
-Jacqueline Arasi,Marketing Team,Unmapped,https://plone.org/foundation/meetings/minutes/2005/minutes-20051027
-Joel Burton,Marketing Team,Unmapped,https://web.archive.org/web/20050122020045/http://plone.org/development/teams/
-Paul Everitt,Marketing Team,Unmapped,https://plone.org/foundation/meetings/minutes/2005/minutes-20050317
-Godefroid Chapelle,Membership Committee,BubbleNet,https://plone.org/foundation/meetings/minutes/2005/minutes-20051013; organisation from the organisation mapping: https://github.com/gotcha
-Mark Murphy,Membership Committee,Tyrell,https://web.archive.org/web/20050211145334/http://plone.org/foundation/committees/membership/info; organisation from the Board page of the year: https://web.archive.org/web/20050404020626/http://plone.org/foundation/about/board/list
-Alexander Limi,plone.org Web Team,Jarn,https://web.archive.org/web/20050122020045/http://plone.org/development/teams/; organisation from the organisation mapping: https://plone.org/events/plone-conferences/vienna-2004/speakers
-George Donnely,plone.org Web Team,Unmapped,https://web.archive.org/web/20050122020045/http://plone.org/development/teams/
-Alexander Limi,UI Team,Jarn,https://web.archive.org/web/20050122020045/http://plone.org/development/teams/; organisation from the organisation mapping: https://plone.org/events/plone-conferences/vienna-2004/speakers
-Paul Everitt,Video Team,Unmapped,https://web.archive.org/web/20050122020045/http://plone.org/development/teams/
+person,team,source,notes
+kapil-thangavelu,Admin & Infrastructure Team,https://web.archive.org/web/20051224100050/http://plone.org/development/teams/infrastructure,
+wichert-akkerman,Admin & Infrastructure Team,https://web.archive.org/web/20051224100050/http://plone.org/development/teams/infrastructure,
+alan-runyan,Developer Team,https://web.archive.org/web/20050122020045/http://plone.org/development/teams/,
+andy-mckay,Documentation Team,https://web.archive.org/web/20050122020045/http://plone.org/development/teams/,
+joel-burton,Documentation Team,https://web.archive.org/web/20050122020045/http://plone.org/development/teams/,
+andy-mckay,Installers Team,https://web.archive.org/web/20050122020045/http://plone.org/development/teams/,
+simon-eisenmann,Installers Team,https://web.archive.org/web/20050122020045/http://plone.org/development/teams/,
+stefan-holek,Installers Team,https://web.archive.org/web/20050122020045/http://plone.org/development/teams/,
+dorneles-tremea,Internationalization Team,https://web.archive.org/web/20050122020045/http://plone.org/development/teams/,
+godefroid-chapelle,Internationalization Team,https://web.archive.org/web/20050122020045/http://plone.org/development/teams/,
+jodok-batlogg,Internationalization Team,https://web.archive.org/web/20050122020045/http://plone.org/development/teams/,
+jacqueline-arasi,Marketing Team,https://plone.org/foundation/meetings/minutes/2005/minutes-20051027,
+joel-burton,Marketing Team,https://web.archive.org/web/20050122020045/http://plone.org/development/teams/,
+paul-everitt,Marketing Team,https://plone.org/foundation/meetings/minutes/2005/minutes-20050317,
+godefroid-chapelle,Membership Committee,https://plone.org/foundation/meetings/minutes/2005/minutes-20051013,
+mark-murphy,Membership Committee,https://web.archive.org/web/20050211145334/http://plone.org/foundation/committees/membership/info,
+alex-limi,plone.org Web Team,https://web.archive.org/web/20050122020045/http://plone.org/development/teams/,
+george-donnely,plone.org Web Team,https://web.archive.org/web/20050122020045/http://plone.org/development/teams/,
+alex-limi,UI Team,https://web.archive.org/web/20050122020045/http://plone.org/development/teams/,
+paul-everitt,Video Team,https://web.archive.org/web/20050122020045/http://plone.org/development/teams/,

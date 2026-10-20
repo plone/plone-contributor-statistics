@@ -28,16 +28,19 @@ A person is active in a period if they did code work or community work in it.
 -   Community work is a role or contribution in the curated community data: Board member, team lead, release manager, conference organiser, trainer, World Plone Day talk, sprint organiser, or podcast host, see {doc}`curated-community-data`.
 
 Unmapped people and self-employed people count.
-Entries in person columns that are groups, such as a team or an organisation, don't count as people; they count for their organisation.
+Groups, such as a team or an organisation, are not people: they are not in a person column, they count for their organisation.
 
-Code work identifies people by their GitHub login, but most community roles name a person without a login.
-A person is matched to their login where the data links the two: a login column, a link to the person's GitHub profile in the source of a row that names only them, the commit author mapping, or the name mapping in `curated/mappings/mapping-github-username-to-fullname.csv`, which links names to logins with public records.
-A person without such a link counts by name, so someone who did both code and community work without a recorded link can still be counted twice ([#117](https://github.com/plone/plone-contributor-statistics/issues/117)).
+Code work identifies people by their GitHub login, and community roles by their id in `curated/mappings/people.csv`.
+The register joins the two: a login resolves to the person who has it as `github` or as an identity of the kind `login`.
+A person counts once, however many roles and logins they have.
+Someone who did both code and community work can be counted twice only while the register holds them as two people, or does not know the login of their code work ([#117](https://github.com/plone/plone-contributor-statistics/issues/117)); `python -m scripts.tools.unmatched_names` lists such people.
 
 ## Organisations active
 
-An organisation is active in a period if its people did code work in it, as the organisation statistics attribute it, or if it is named in community work or as an event organiser.
-Unmapped contributors, self-employed people (`Name (independent)`) and `Plone Foundation (community volunteer)` are not counted as organisations.
+An organisation is active in a period if its people did code work in it, as the organisation statistics attribute it, if its people held a community role, or if it is named as an organising entity.
+A role counts for the organisation that the affiliations give the person for the year, an organiser role too.
+A team talk, with an organisation instead of speakers, counts for that organisation.
+Unmapped contributors, self-employed people (organisations of the kind `independent`) and the Plone Foundation (the kind `foundation`) are not counted as organisations.
 
 ## Events
 
@@ -48,7 +51,7 @@ Events are the gatherings the curated data records:
 -   World Plone Day, one per local event held in person or hybrid, with its organising organisations ([#118](https://github.com/plone/plone-contributor-statistics/issues/118)).
 
 Trainings are sessions at the conference, not events of their own.
-Meetups join the count once they are recorded; the list of event kinds is `EVENT_RULES` in `scripts/lib/community.py`.
+Meetups join the count once they are recorded; the list of event kinds is `EVENT_RULES` in `scripts/lib/model/community.py`.
 
 ## Recognition levels
 
@@ -67,7 +70,7 @@ These are counts, not points: points exist only for the recognition years.
 
 The page doesn't list people in a ranking.
 It lets you search for one person, by GitHub login or by name, and shows for a year where they stand in commits and in merged pull requests among the people with at least one, and which community roles they held.
-A name finds the person's login where the data links the two, see "People active" above.
+A name finds the person's login through the register, see "People active" above.
 Without a search, the page shows how many people made one, two to nine, ten to 49, or 50 and more commits and merged pull requests in the year, without names.
 
 ## History

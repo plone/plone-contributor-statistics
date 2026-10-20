@@ -15,18 +15,30 @@ So the statistics keep lists of them, one file per year and kind, in `curated/co
 Files of the current year are started as soon as the first rows have a public record, such as a sprint report or the Board page of the new term.
 They stay incomplete until the year ends, and the community page and the recognition only use them once the year is completed.
 
+## People by id, organisations only for entities
+
+A curated row refers to a person by their id in `curated/mappings/people.csv`, never by a name.
+A person column holds one id.
+A set column holds several ids separated by semicolons, but only where the elements have no attributes of their own: the trainers of a training, the speakers of a talk, and the organisers of a sprint, a conference or an event.
+Where an element needs an attribute, such as the episodes of a host, the team of a leader or the role of a Board member, the kind has one row per person.
+
+The organisation of a person is not written in the row.
+The statistics take it from the {doc}`affiliations <attribution>` for the year of the file.
+An organisation column holds the ids of organising entities that the source names, such as the company team that gave a talk or the organisations that held an event.
+A group in a person column is not allowed: a company team goes into an organisation column, and a community or a role goes into `notes`.
+A person or an organisation that the registers don't have yet is added to them first, see {doc}`/how-to/add-a-person`.
+The format and the checks of every kind are in {ref}`reference-curated-files`.
+
 ## No data without a source
 
 Curated data is only as trustworthy as its sources.
 Every row needs a public source: a page on plone.org, the minutes of the Foundation Board, a conference website, or an archived copy in the Wayback Machine.
-Where a source names only people, the organisation comes from the {doc}`organisation mapping <attribution>` for that year, and the row says so.
+The `source` of a row holds the record for the row only.
+The record for the organisation of a person belongs to an affiliation row; a biography that names it for the year is a source there, see {doc}`attribution`.
 A memory counts as a source when people who took part confirm it in public, for example in a comment on the pull request.
-
-Organisations are spelled as in `curated/mappings/organisations.csv`; for the files of the current recognition year, a format check makes sure of it.
 
 Rows that no source supports are removed, even if they were probably right.
 An unsourced row can't be checked, and it can't be corrected by someone who remembers it differently.
-Some files don't have a source column yet, such as the 2025 files and the podcast hosts, and they are being checked against sources ([#46](https://github.com/plone/plone-contributor-statistics/issues/46)).
 
 ## Definitions come from the Foundation
 
@@ -44,9 +56,10 @@ Several kinds of curated data depend on a definition, and the definitions follow
 - A podcast or live series counts for a year with at least five episodes in that year, split among its hosts; every series is recorded, also with fewer episodes.
 - A World Plone Day talk is a video of the type `Talk`; teasers, streams, openings and podcast episodes are recorded, but are not talks.
   A full stream doesn't count when its parts are published as talks of their own.
-  Only people speak: a talk counts for the organisations of its speakers.
-  What the talk itself says about a speaker's organisation comes first, in the title or description of the video or on the event page; otherwise the organisation mapping of the year applies.
-  A role in the Foundation or a community such as PloneGov-BR is not a speaker's organisation, and a talk that names no speaker stays `Unmapped`.
+  Only people speak: a talk counts for the organisations of its speakers, which the affiliations give for the year.
+  What the talk itself says about a speaker's organisation, in the title or description of the video or on the event page, is an affiliation row for that year.
+  A role in the Foundation or a community such as PloneGov-BR is not a speaker's organisation.
+  A talk that names a company team instead of people has the team in its `organisations` column, and a talk that names no speaker and no team counts for no organisation.
 - Work is attributed to the people who did it and their organisations, not to the Plone Foundation.
 - PloneGov-BR and the Interlegis Program are not the same.
   PloneGov-BR is the community of practice of Plone users in the Brazilian public sector; it organises the events in Brasília.
@@ -60,7 +73,7 @@ Several kinds of curated data depend on a definition, and the definitions follow
   Trainings that the trainers organised and charged for themselves count too, when the conference announced them as its trainings.
   A training counts once, also when it has several parts or was given more than once; a training that a source records as cancelled or replaced, or that is missing from the room schedule, doesn't count.
   At a joint conference, only the Plone trainings count.
-  Where a trainer's bio names two organisations, the first one counts.
+  Where a trainer's bio names two organisations, the first one counts in the affiliation.
 
 ## The rules for sprints changed over time
 

@@ -1,12 +1,12 @@
-Sprint,Start,End,Location,Organiser(s),Organisation,Level,Source,Notes
-San Jose Sprint,2005-01-31,2005-02-04,"San Jose, California, USA",,CIGNEX,,https://plone.org/news-and-events/news/2005/SprintReport1,
-Snow Sprint 2005,2005-02-20,2005-02-27,"Neuhornbachhaus, Au-Schoppernau, Vorarlberg, Austria",Jodok Batlogg,Telesis,,https://plone.org/news-and-events/news/2005/snow-sprint2_1,
-Amsterdam UI Sprint,2005-03-24,2005-03-27,"Baarn, Netherlands (near Amsterdam)",Alexander Limi; Danny,Jarn,,https://sourceforge.net/p/plone/mailman/message/13168332/; organisation from the organisation mapping: https://plone.org/events/plone-conferences/vienna-2004/speakers,
-Vancouver Sprint 2005,2005-06-10,2005-06-13,"Enfold Systems offices, North Vancouver, Canada",Andy McKay; Andrew Burkhalter,Enfold,,https://sourceforge.net/p/plone/mailman/message/13586556/,
-CMFEditions sprint in Goteborg (after EuroPython 2005),2005-07,,"Goteborg, Sweden",,Unmapped,,https://plone.org/news-and-events/news/2005/news_item.2005-07-11.5367248388,
-Plone Multimedia Sprint (after Plone Conference 2005),2005-09-22,2005-09-23,"Hotel Academia, Vienna, Austria",Nate Aune,Unmapped,,https://web.archive.org/web/20131022221232/http://plone.org/events/sprints/past-sprints/multimedia,
-Castle Sprint 2005 (CMF 2.0 Goldegg Sprint),2005-09-23,,"Schloss Goldegg, Austria",Phil Auersperg; Jens Klein,BlueDynamics KG,,https://web.archive.org/web/20060115171010/http://www.bluedynamics.com:80/service/news/agx-generator-project-beim-castle-sprint-gestartet,Zope sprint with Plone people
-Goldegg sprint in Fredericksburg,2005-10,,"Fredericksburg, Virginia, USA",,Unmapped,,https://sourceforge.net/p/plone/mailman/message/14255351/,
-San Jose Sprint II: Packaging and Products (Goldegg),2005-11-07,2005-11-11,"CIGNEX, San Jose, California, USA",Joel Burton,CIGNEX,,https://sourceforge.net/p/plone/mailman/message/14255565/,
-Bern Ajax Sprint 2005,2005-11-15,2005-11-17,"4teamwork office, Berne, Switzerland",Bernhard Buehlmann,4Teamwork,,https://plone.org/news-and-events/news/2005/bern-sprint-details,
-Calendar Sprint (CalSprint),2005-12-02,2005-12-05,"San Francisco, California, USA",Tom 'Spanky' Kapanka,Black Rock City/ Burning Man,,https://web.archive.org/web/20131022213526/http://plone.org/events/sprints/past-sprints/calsprint,"announced, no report found"
+sprint,start,end,location,organisers,organisations,level,source,notes
+San Jose Sprint,2005-01-31,2005-02-04,"San Jose, California, USA",,cignex,,https://plone.org/news-and-events/news/2005/SprintReport1,
+Snow Sprint 2005,2005-02-20,2005-02-27,"Neuhornbachhaus, Au-Schoppernau, Vorarlberg, Austria",jodok-batlogg,telesis,,https://plone.org/news-and-events/news/2005/snow-sprint2_1,
+Amsterdam UI Sprint,2005-03-24,2005-03-27,"Baarn, Netherlands (near Amsterdam)",alex-limi;danny,jarn,,https://sourceforge.net/p/plone/mailman/message/13168332/,
+Vancouver Sprint 2005,2005-06-10,2005-06-13,"Enfold Systems offices, North Vancouver, Canada",andy-mckay;andrew-burkhalter,enfold,,https://sourceforge.net/p/plone/mailman/message/13586556/,
+CMFEditions sprint in Goteborg (after EuroPython 2005),2005-07,,"Goteborg, Sweden",,,,https://plone.org/news-and-events/news/2005/news_item.2005-07-11.5367248388,
+Plone Multimedia Sprint (after Plone Conference 2005),2005-09-22,2005-09-23,"Hotel Academia, Vienna, Austria",nate-aune,,,https://web.archive.org/web/20131022221232/http://plone.org/events/sprints/past-sprints/multimedia,
+Castle Sprint 2005 (CMF 2.0 Goldegg Sprint),2005-09-23,,"Schloss Goldegg, Austria",phil-auersperg;jens-w-klein,bluedynamics-kg,,https://web.archive.org/web/20060115171010/http://www.bluedynamics.com:80/service/news/agx-generator-project-beim-castle-sprint-gestartet,Zope sprint with Plone people
+Goldegg sprint in Fredericksburg,2005-10,,"Fredericksburg, Virginia, USA",,,,https://sourceforge.net/p/plone/mailman/message/14255351/,
+San Jose Sprint II: Packaging and Products (Goldegg),2005-11-07,2005-11-11,"CIGNEX, San Jose, California, USA",joel-burton,cignex,,https://sourceforge.net/p/plone/mailman/message/14255565/,
+Bern Ajax Sprint 2005,2005-11-15,2005-11-17,"4teamwork office, Berne, Switzerland",bernhard-buehlmann,4teamwork,,https://plone.org/news-and-events/news/2005/bern-sprint-details,
+Calendar Sprint (CalSprint),2005-12-02,2005-12-05,"San Francisco, California, USA",tom-spanky-kapanka,black-rock-city-burning-man,,https://web.archive.org/web/20131022213526/http://plone.org/events/sprints/past-sprints/calsprint,"announced, no report found"

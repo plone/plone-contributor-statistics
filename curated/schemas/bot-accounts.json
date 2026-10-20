@@ -1,0 +1,24 @@
+{
+  "fields": [
+    {
+      "name": "login",
+      "type": "string",
+      "description": "The GitHub login of the bot account.",
+      "constraints": {
+        "required": true,
+        "unique": true
+      }
+    },
+    {
+      "name": "reason",
+      "type": "string",
+      "description": "Why the account is counted as a bot.",
+      "constraints": {
+        "required": true
+      }
+    }
+  ],
+  "primaryKey": [
+    "login"
+  ]
+}

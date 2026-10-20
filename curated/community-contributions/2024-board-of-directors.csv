@@ -1,9 +1,9 @@
-Name,Organisation,Source,Role
-Martin Peeters,Affinitic,https://plone.org/foundation/board/plone-foundation-board-for-2023-2024,voting
-Kim Paulissen,KU Leuven,https://plone.org/foundation/board/plone-foundation-board-for-2023-2024,voting
-Eric Brehault,Nuclia,https://plone.org/foundation/board/plone-foundation-board-for-2023-2024,voting
-Brian Davis,Brian Davis (independent),https://plone.org/foundation/board/plone-foundation-board-for-2023-2024; organisation from the organisation mapping: https://github.com/Fosten,voting
-Mikel Larreategi,Codesyntax,https://plone.org/foundation/board/plone-foundation-board-for-2023-2024,voting
-Paul Roeland,CCC,https://plone.org/foundation/board/plone-foundation-board-for-2023-2024,voting
-Guido Stevens,Cosent,https://plone.org/foundation/board/plone-foundation-board-for-2023-2024; organisation from the organisation mapping: https://github.com/gyst,voting
-Beth Smith,Unmapped,https://plone.org/foundation/board/plone-foundation-board-for-2023-2024,non-voting
+person,role,source,notes
+martin-peeters,voting,https://plone.org/foundation/board/plone-foundation-board-for-2023-2024,
+kim-paulissen,voting,https://plone.org/foundation/board/plone-foundation-board-for-2023-2024,
+eric-brehault,voting,https://plone.org/foundation/board/plone-foundation-board-for-2023-2024,
+brian-davis,voting,https://plone.org/foundation/board/plone-foundation-board-for-2023-2024,
+mikel-larreategi,voting,https://plone.org/foundation/board/plone-foundation-board-for-2023-2024,
+paul-roeland,voting,https://plone.org/foundation/board/plone-foundation-board-for-2023-2024,
+guido-stevens,voting,https://plone.org/foundation/board/plone-foundation-board-for-2023-2024,
+beth-smith,non-voting,https://plone.org/foundation/board/plone-foundation-board-for-2023-2024,

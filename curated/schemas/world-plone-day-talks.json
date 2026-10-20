@@ -1,0 +1,62 @@
+{
+  "fields": [
+    {
+      "name": "title",
+      "type": "string",
+      "description": "The title of the talk.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "speakers",
+      "type": "string",
+      "description": "The ids of the speakers in the people register. Several values are separated by semicolons.",
+      "x-set": "people"
+    },
+    {
+      "name": "organisations",
+      "type": "string",
+      "description": "The ids of the organisations behind the talk in the organisations register. Several values are separated by semicolons.",
+      "x-set": "organisations"
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "description": "The type of the recording.",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "Talk",
+          "Teaser",
+          "Announcement",
+          "Welcome",
+          "Recap",
+          "Duplicate",
+          "Opening",
+          "Full stream",
+          "Newsroom"
+        ]
+      }
+    },
+    {
+      "name": "location",
+      "type": "string",
+      "description": "Where the talk was given."
+    },
+    {
+      "name": "source",
+      "type": "string",
+      "description": "A public record, linked as a web address, that supports the row.",
+      "constraints": {
+        "required": true,
+        "pattern": ".*https?://.*"
+      }
+    },
+    {
+      "name": "notes",
+      "type": "string",
+      "description": "Free-text remarks on the row."
+    }
+  ]
+}

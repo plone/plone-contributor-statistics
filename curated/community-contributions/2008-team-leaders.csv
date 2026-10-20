@@ -1,15 +1,15 @@
-Name,Team,Organisation,Source
-Kapil Thangavelu,Admin & Infrastructure Team,Unmapped,https://web.archive.org/web/20080422231828/http://plone.org/development/teams/infrastructure
-Wichert Akkerman,Admin & Infrastructure Team,Simplon,https://web.archive.org/web/20080422231828/http://plone.org/development/teams/infrastructure; organisation from the organisation mapping: https://github.com/wichert
-JoAnna Springsteen,Documentation Team,Unmapped,https://web.archive.org/web/20080704144806/http://plone.org/development/teams/
-Joel Burton,Documentation Team,Unmapped,https://web.archive.org/web/20080412080121/http://plone.org/development/teams/
-Martin Aspeli,Documentation Team,Deloitte Digital,https://web.archive.org/web/20080412080121/http://plone.org/development/teams/; organisation from the organisation mapping: https://github.com/optilude
-Paul Everitt,Documentation Team,Unmapped,https://web.archive.org/web/20080412080121/http://plone.org/development/teams/
-Steve McMahon,Documentation Team,Reid-McMahon,https://web.archive.org/web/20080704144806/http://plone.org/development/teams/; organisation from the organisation mapping: https://github.com/smcmahon
-Alec Mitchell,Installers Team,Unmapped,https://web.archive.org/web/20080412080121/http://plone.org/development/teams/
-Stefan Holek,Installers Team,Jarn,https://web.archive.org/web/20080412080121/http://plone.org/development/teams/; organisation from the organisation mapping: https://plone.org/news-and-events/events/plone-conferences/vienna-2004/speakers
-Dorneles Treméa,Internationalization Team,Unmapped,https://web.archive.org/web/20080412080121/http://plone.org/development/teams/
-Godefroid Chapelle,Internationalization Team,BubbleNet,https://web.archive.org/web/20080412080121/http://plone.org/development/teams/; organisation from the organisation mapping: https://github.com/gotcha
-Hanno Schlichting,Internationalization Team,Jarn,https://web.archive.org/web/20080412080121/http://plone.org/development/teams/; organisation from the organisation mapping: https://plone.org/news-and-events/news/2009/plone-4-release-manager-hanno-schlichting
-Darci Hanning,Membership Committee,Oregon State Library,https://web.archive.org/web/20080415120650/http://plone.org/foundation/committees/membership; organisation from the Board page of the year: https://plone.org/foundation/board/2007-2008
-Alexander Limi,UI Team,Google,https://web.archive.org/web/20080412080121/http://plone.org/development/teams/; organisation from the organisation mapping: https://plone.org/foundation/board/2007-2008
+person,team,source,notes
+kapil-thangavelu,Admin & Infrastructure Team,https://web.archive.org/web/20080422231828/http://plone.org/development/teams/infrastructure,
+wichert-akkerman,Admin & Infrastructure Team,https://web.archive.org/web/20080422231828/http://plone.org/development/teams/infrastructure,
+joanna-springsteen,Documentation Team,https://web.archive.org/web/20080704144806/http://plone.org/development/teams/,
+joel-burton,Documentation Team,https://web.archive.org/web/20080412080121/http://plone.org/development/teams/,
+martin-aspeli,Documentation Team,https://web.archive.org/web/20080412080121/http://plone.org/development/teams/,
+paul-everitt,Documentation Team,https://web.archive.org/web/20080412080121/http://plone.org/development/teams/,
+steve-mcmahon,Documentation Team,https://web.archive.org/web/20080704144806/http://plone.org/development/teams/,
+alec-mitchell,Installers Team,https://web.archive.org/web/20080412080121/http://plone.org/development/teams/,
+stefan-holek,Installers Team,https://web.archive.org/web/20080412080121/http://plone.org/development/teams/,
+dorneles-tremea,Internationalization Team,https://web.archive.org/web/20080412080121/http://plone.org/development/teams/,
+godefroid-chapelle,Internationalization Team,https://web.archive.org/web/20080412080121/http://plone.org/development/teams/,
+hanno-schlichting,Internationalization Team,https://web.archive.org/web/20080412080121/http://plone.org/development/teams/,
+darci-hanning,Membership Committee,https://web.archive.org/web/20080415120650/http://plone.org/foundation/committees/membership,
+alex-limi,UI Team,https://web.archive.org/web/20080412080121/http://plone.org/development/teams/,

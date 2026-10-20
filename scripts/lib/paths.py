@@ -9,15 +9,14 @@ from pathlib import Path
 # Curated input: edited by hand, every entry needs a public record
 MAPPINGS_DIR = Path('curated/mappings')
 ORGANISATIONS = MAPPINGS_DIR / 'organisations.csv'
-OVERRIDES = MAPPINGS_DIR / 'organisation_mapping_overrides.csv'
-SOURCES = MAPPINGS_DIR / 'organisation_mapping_sources.csv'
-PROPOSALS = MAPPINGS_DIR / 'organisation_mapping_proposals.csv'
 BOT_ACCOUNTS = MAPPINGS_DIR / 'bot_accounts.csv'
 EXCLUDED_REPOSITORIES = MAPPINGS_DIR / 'excluded_repositories.csv'
-COMMIT_AUTHORS = MAPPINGS_DIR / 'commit_authors.csv'
-ACCOUNT_ALIASES = MAPPINGS_DIR / 'account_aliases.csv'
-FULLNAMES = MAPPINGS_DIR / 'mapping-github-username-to-fullname.csv'
-CHANGELOG_NAMES = MAPPINGS_DIR / 'changelog_names.csv'
+PEOPLE = MAPPINGS_DIR / 'people.csv'
+IDENTITIES = MAPPINGS_DIR / 'identities.csv'
+AFFILIATIONS = MAPPINGS_DIR / 'affiliations.csv'
+AFFILIATION_PROPOSALS = MAPPINGS_DIR / 'affiliation_proposals.csv'
+SCHEMAS_DIR = Path('curated/schemas')
+DATAPACKAGE = Path('curated/datapackage.json')
 COMMUNITY = Path('curated/community-contributions')
 RECOGNITION_LEVELS = COMMUNITY / 'community-recognition-levels.csv'
 PLIPS_BEFORE_GITHUB = Path('curated/plips/plone-plips-before-github.csv')

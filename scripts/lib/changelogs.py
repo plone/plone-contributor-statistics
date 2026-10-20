@@ -426,83 +426,53 @@ UNMATCHED = 'unmatched'
 BOT = 'bot'
 
 
-def fold(name):
-    """A name to compare: lower case, without accents and extra whitespace."""
-    name = unicodedata.normalize('NFKD', name)
-    name = ''.join(c for c in name if not unicodedata.combining(c))
-    return ' '.join(name.split()).lower()
-
-
 class NameMapper:
-    """Maps a changelog name to a person: a GitHub login, or the name of a person without one.
+    """Maps a changelog name to a person: a GitHub login, or `person:<id>` for a person without one.
 
     The layers, in order:
-    1. `changelog_names`: curated/mappings/changelog_names.csv
-    2. `commit_authors`: curated/mappings/commit_authors.csv, by the local part of a
-       Subversion address (`name@localhost`), by the person's name, or by the address itself
-    3. `account_aliases`: a second account, counted for the main account
-    4. `bot_accounts`: a bot; dropped
-    5. `login`: a login that has commits or pull requests in collected/contributors
-    6. `fullname`: curated/mappings/mapping-github-username-to-fullname.csv
-    A name that no layer maps stays as written, `unmatched`. Aliases and bots
-    apply to the result of every layer.
+    1. `identity`: the registry knows the name (a person's name or a `name` identity), the
+       email address, a registered login (also a second account, which counts for the main
+       login), or the local part of a Subversion address (`name@localhost`)
+    2. `login`: a login that has commits or pull requests in collected/contributors
+    3. `bot`: a bot; dropped
+    A name that no layer maps stays as written, `unmatched`.
     """
 
-    def __init__(self, changelog_names, commit_authors, commit_author_names, aliases, bots, logins, fullnames):
-        self.changelog_names = {name.casefold(): person for name, person in changelog_names.items()}
-        self.emails = dict(commit_authors)
+    def __init__(self, registry, logins, bots):
+        self.registry = registry
         self.svn = {}
-        for email, person in commit_authors.items():
-            local, _, domain = email.partition('@')
-            if SVN_DOMAIN.match(domain):
-                self.svn.setdefault(local, person)
-        self.aliases = {alias.casefold(): main for alias, main in aliases.items()}
+        for identity in registry.identities:
+            if identity.kind != 'email':
+                continue
+            local, _, domain = identity.value.partition('@')
+            if SVN_DOMAIN.match(domain.lower()):
+                self.svn.setdefault(local.casefold(), set()).add(identity.person)
         self.bots = {bot.casefold() for bot in bots}
         self.logins = {}
         for login in logins:
             self.logins.setdefault(login.casefold(), login)
-        # Only full names: a first name alone is too ambiguous
-        self.names = {}
-        for name, person in commit_author_names.items():
-            if ' ' in name.strip():
-                self.names.setdefault(fold(name), person)
-        self.fullnames = {fold(name): login for name, login in fullnames.items()}
 
     def map(self, name):
-        """(person, layer); person is None for bots."""
-        person, layer = self._lookup(name)
-        if person is None:
-            return name.strip(), UNMATCHED
-        person = self.aliases.get(person.casefold(), person)
-        if person.casefold() in self.bots or person.endswith('[bot]'):
-            return None, BOT
-        return person, layer
-
-    def _lookup(self, name):
+        """(username, layer); username is None for bots."""
         raw = name.strip().lstrip('@')
+        person = self._person(raw)
+        if person is not None:
+            return self.registry.username_of(person), 'identity'
         key = raw.casefold()
-        if key in self.changelog_names:
-            return self.changelog_names[key], 'changelog_names'
-        if '@' in key:
-            local, _, domain = key.partition('@')
-            if key in self.emails:
-                return self.emails[key], 'commit_authors'
-            if SVN_DOMAIN.match(domain) and local in self.svn:
-                return self.svn[local], 'commit_authors'
-            return None, UNMATCHED
-        if key in self.svn:
-            return self.svn[key], 'commit_authors'
-        if fold(raw) in self.names:
-            return self.names[fold(raw)], 'commit_authors'
-        if key in self.aliases:
-            return self.aliases[key], 'account_aliases'
-        if key in self.bots or key.endswith('[bot]'):
-            return raw, 'bot_accounts'
-        if key in self.logins:
+        if '@' not in key and key in self.logins:
             return self.logins[key], 'login'
-        if fold(raw) in self.fullnames:
-            return self.fullnames[fold(raw)], 'fullname'
-        return None, UNMATCHED
+        if key in self.bots or key.endswith('[bot]'):
+            return None, BOT
+        return name.strip(), UNMATCHED
+
+    def _person(self, raw):
+        """The registered person behind a name, an email address, a login or a Subversion local part."""
+        if '@' in raw:
+            return self.registry.person_for(email=raw)
+        ids = self.svn.get(raw.casefold(), set())
+        if len(ids) == 1:
+            return self.registry.people.get(next(iter(ids)))
+        return (self.registry.person_for(name=raw) or self.registry.person_for(login=raw))
 
 
 def credited(occurrence, mapper):

@@ -42,14 +42,12 @@ from requests.packages.urllib3.util.retry import Retry
 from scripts.lib import git_history
 from scripts.lib import paths
 from scripts.lib.github_api import GitHubAPIError, github_get, github_graphql, is_merge_commit
-from scripts.lib.mappings import load_account_aliases, load_bot_accounts, load_commit_authors, load_excluded_repositories
+from scripts.lib.model import load_bot_accounts, load_excluded_repositories, load_registry
 from scripts.lib.tables import by_count
 
 
 EXCLUDED_REPOSITORIES_FILE = paths.EXCLUDED_REPOSITORIES
 BOT_ACCOUNTS_FILE = paths.BOT_ACCOUNTS
-COMMIT_AUTHORS_FILE = paths.COMMIT_AUTHORS
-ACCOUNT_ALIASES_FILE = paths.ACCOUNT_ALIASES
 REPORT_COLUMNS = ['username', 'total_commits', 'total_pull_requests', 'repositories_count',
                   'repositories', 'first_contribution', 'last_contribution']
 
@@ -132,8 +130,7 @@ class PloneStatsExtractor:
               f" ({len(periods)} period{'s' if len(periods) > 1 else ''})")
 
         self.bots = load_bot_accounts()
-        self.commit_authors = load_commit_authors()
-        self.aliases = load_account_aliases()
+        self.registry = load_registry()
         self.cache_dir = git_history.CACHE_DIR
         # Author email (lower case) -> GitHub login, or None if the email is not linked to an account
         self.email_logins = {}
@@ -242,11 +239,24 @@ class PloneStatsExtractor:
         for commit in commits:
             email = commit['commit']['author']['email'].strip().lower()
             # Emails that GitHub does not link, e.g. name@localhost from SVN times (#69)
-            login = self.email_logins[email] or self.commit_authors.get(email)
-            login = self.aliases.get(login, login)
+            login = self.email_logins[email]
+            if login:
+                login = self.counted_login(login)
+            else:
+                person = self.registry.person_for(email=email)
+                login = self.registry.username_of(person) if person else None
             # GraphQL returns GitHub Apps such as pre-commit-ci[bot] as users; the REST API says Bot
             user_type = 'Bot' if login and login.endswith('[bot]') else 'User'
             commit['author'] = {'login': login, 'type': user_type} if login else None
+
+    def counted_login(self, login):
+        """The username a GitHub account counts under: that of its person, else the login itself.
+
+        A second account counts for the person's main login, or for `person:<id>` when the person has no
+        `github`, as the changelog collector counts it.
+        """
+        person = self.registry.person_for(login=login)
+        return self.registry.username_of(person) if person else login
 
     def process_commits(self, repo_name: str, commits: List[Dict[str, Any]]):
         """Count each commit for its author in the period of its commit date."""
@@ -338,7 +348,7 @@ class PloneStatsExtractor:
                 continue
 
             login = pr['user']['login']
-            stats = self.contributors_data[label][self.aliases.get(login, login)]
+            stats = self.contributors_data[label][self.counted_login(login)]
             stats['pull_requests'] += 1
             stats['repositories'].add(repo_name)
             merged_count += 1

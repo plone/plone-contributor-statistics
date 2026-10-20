@@ -1,0 +1,73 @@
+{
+  "fields": [
+    {
+      "name": "sprint",
+      "type": "string",
+      "description": "The name of the sprint.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "start",
+      "type": "string",
+      "description": "The first day of the sprint; the sources sometimes give only a year or a month.",
+      "constraints": {
+        "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?$"
+      }
+    },
+    {
+      "name": "end",
+      "type": "string",
+      "description": "The last day of the sprint, in the same form as the start.",
+      "constraints": {
+        "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?$"
+      }
+    },
+    {
+      "name": "location",
+      "type": "string",
+      "description": "Where the sprint took place."
+    },
+    {
+      "name": "organisers",
+      "type": "string",
+      "description": "The ids of the organising persons in the people register. Several values are separated by semicolons.",
+      "x-set": "people"
+    },
+    {
+      "name": "organisations",
+      "type": "string",
+      "description": "The ids of the organising organisations in the organisations register. Several values are separated by semicolons.",
+      "x-set": "organisations"
+    },
+    {
+      "name": "level",
+      "type": "string",
+      "description": "Whether the sprint was a strategic or a community sprint.",
+      "constraints": {
+        "enum": [
+          "strategic",
+          "community"
+        ]
+      }
+    },
+    {
+      "name": "source",
+      "type": "string",
+      "description": "A public record, linked as a web address, that supports the row.",
+      "constraints": {
+        "required": true,
+        "pattern": ".*https?://.*"
+      }
+    },
+    {
+      "name": "notes",
+      "type": "string",
+      "description": "Free-text remarks on the row."
+    }
+  ],
+  "primaryKey": [
+    "sprint"
+  ]
+}

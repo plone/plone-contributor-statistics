@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "person",
+      "type": "string",
+      "description": "The id of the person in the people register.",
+      "constraints": {
+        "required": true,
+        "pattern": "^[a-z0-9][a-z0-9-]*$"
+      }
+    },
+    {
+      "name": "team",
+      "type": "string",
+      "description": "The team the person leads.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "source",
+      "type": "string",
+      "description": "A public record, linked as a web address, that supports the row.",
+      "constraints": {
+        "required": true,
+        "pattern": ".*https?://.*"
+      }
+    },
+    {
+      "name": "notes",
+      "type": "string",
+      "description": "Free-text remarks on the row."
+    }
+  ],
+  "primaryKey": [
+    "person",
+    "team"
+  ],
+  "foreignKeys": [
+    {
+      "fields": [
+        "person"
+      ],
+      "reference": {
+        "resource": "people",
+        "fields": [
+          "id"
+        ]
+      }
+    }
+  ]
+}

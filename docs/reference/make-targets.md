@@ -27,7 +27,7 @@ Set a variable on the command line to use another year, for example `make five-y
 | `make setup` | Runs `install` and creates a `.env` template for the GitHub token. | works |
 | `make dev-setup` | Runs `setup` and installs development tools. | works |
 | `make test` | Runs the test suite with pytest. | works |
-| `make check` | Runs `lint`, compiles all scripts and checks the installed requirements. | works |
+| `make check` | Runs `lint`, compiles all scripts, checks the installed requirements and runs the data checks on `curated/`, see {ref}`reference-curated-files`. | works |
 | `make lint` | Runs flake8 on the scripts, if installed. | works |
 | `make format` | Formats the scripts. | works |
 | `make clean` | Deletes caches, checkpoint files, the built documentation and the built site; never committed files. | works |
@@ -66,7 +66,7 @@ Set a variable on the command line to use another year, for example `make five-y
 | `make yearly-activity` | Writes `derived/yearly-activity-statistics.csv`. | works |
 | `make yearly-graphs` | Runs `yearly-activity` and draws the graphs in `reports/graphs/`. | works |
 | `make analyze-independent` | Lists unmapped contributors worth researching. | works |
-| `make run-plip-organisations` | Writes `derived/plone-plip-organisations.csv` from `collected/plips/plone-plips-detailed.csv` and the mapping files. | works |
+| `make run-plip-organisations` | Writes `derived/plone-plip-organisations.csv` from `collected/plips/plone-plips-detailed.csv` and the registers. | works |
 
 ## Documentation
 

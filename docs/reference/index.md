@@ -1,8 +1,8 @@
 ---
 myst:
   html_meta:
-    "description": "Data sources, files, mapping files and Make targets of the Plone contributor statistics."
-    "property=og:description": "Data sources, files, mapping files and Make targets of the Plone contributor statistics."
+    "description": "Data sources, files, registers and Make targets of the Plone contributor statistics."
+    "property=og:description": "Data sources, files, registers and Make targets of the Plone contributor statistics."
     "property=og:title": "Reference"
 ---
 
@@ -18,6 +18,7 @@ They describe what exists, not why.
 
 data-sources
 data-files
+curated-files
 mapping-files
 recognition-files
 make-targets

@@ -1,4 +1,4 @@
-Name,Team,Organisation,Source
-Mark Corum,Marketing Team,University of Virginia,https://plone.org/news-and-events/news/2010/plone-4-released; organisation from the Board page of the year: https://plone.org/foundation/board/board-2009-2010
-Jon Stahl,Membership Committee,Unmapped,https://plone.org/foundation/meetings/minutes/2010/minutes-for-november-18-2010
-Steve McMahon,Membership Committee,Reid-McMahon,https://plone.org/news-and-events/news/2010/foundationboard2010-2011; organisation from the organisation mapping: https://github.com/smcmahon
+person,team,source,notes
+mark-corum,Marketing Team,https://plone.org/news-and-events/news/2010/plone-4-released,
+jon-stahl,Membership Committee,https://plone.org/foundation/meetings/minutes/2010/minutes-for-november-18-2010,
+steve-mcmahon,Membership Committee,https://plone.org/news-and-events/news/2010/foundationboard2010-2011,

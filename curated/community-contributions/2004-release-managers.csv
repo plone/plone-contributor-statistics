@@ -1,4 +1,4 @@
-Name,Github,Organisation,Source
-Stefan Holek,stefanholek,Jarn,https://plone.org/news-and-events/news/2004/plone-gets-paid-release-management; organisation from the organisation mapping: https://plone.org/news-and-events/events/plone-conferences/vienna-2004/speakers
-Andy McKay,andymckay,Enfold,https://plone.org/news-and-events/news/2004/News_Item.PloneGuidePublished; organisation from the organisation mapping: https://plone.org/news-and-events/events/plone-conferences/vienna-2004/brochure/inside_3.pdf/@@download/file
-Sidnei da Silva,sidnei,Enfold,https://plone.org/news-and-events/news/2004/plone-gets-paid-release-management; organisation from the organisation mapping: https://plone.org/news-and-events/events/plone-conferences/vienna-2004/speakers
+person,source,notes
+stefan-holek,https://plone.org/news-and-events/news/2004/plone-gets-paid-release-management,
+andy-mckay,https://plone.org/news-and-events/news/2004/News_Item.PloneGuidePublished,
+sidnei-da-silva,https://plone.org/news-and-events/news/2004/plone-gets-paid-release-management,

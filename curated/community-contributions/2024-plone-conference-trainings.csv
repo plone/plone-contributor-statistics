@@ -1,5 +1,5 @@
-Title,Trainer(s),GitHub Handle(s),Organisation,Source
-Installing and deploying Plone,Érico Andrei,ericof,kitconcept GmbH,https://2024.ploneconf.org/en/schedule/training/installing-and-deploying-plone
-Plone 6 Volto Customization for JavaScript Beginners,Nilesh Gulia;Alok Kumar,nileshgulia1;iFlameing,Eau de Web;kitconcept GmbH,https://2024.ploneconf.org/en/schedule/training/plone-6-volto-customization-for-javascript-beginners
-Plone training for content editors - new and experienced,Paul Roeland;T. Kim Nguyen,polyester;tkimnguyen,CCC;Sixfeetup,https://2024.ploneconf.org/en/schedule/training/plone-training-for-content-editors-new-and-experienced
-Training: Customizing the Volto Light Theme,Dante Alvarez;Rohit Kumar,danalvrz;iRohitSingh,kitconcept GmbH;kitconcept GmbH,https://2024.ploneconf.org/en/schedule/training/training-customizing-the-volto-light-theme
+title,trainers,source,notes
+Installing and deploying Plone,erico-andrei,https://2024.ploneconf.org/en/schedule/training/installing-and-deploying-plone,
+Plone 6 Volto Customization for JavaScript Beginners,nilesh-gulia;alok-kumar,https://2024.ploneconf.org/en/schedule/training/plone-6-volto-customization-for-javascript-beginners,
+Plone training for content editors - new and experienced,paul-roeland;kim-nguyen,https://2024.ploneconf.org/en/schedule/training/plone-training-for-content-editors-new-and-experienced,
+Training: Customizing the Volto Light Theme,dante-alvarez;rohit-kumar,https://2024.ploneconf.org/en/schedule/training/training-customizing-the-volto-light-theme,

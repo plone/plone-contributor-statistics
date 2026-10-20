@@ -17,33 +17,39 @@ A developer who works on Plone in their free time, while their employer has noth
 Self-employed people and volunteers therefore have entries of their own, such as `Name (independent)`.
 Self-employed people with a company name use that name.
 
-## Today's organisation, with exceptions for the past
+## An affiliation covers years
 
-`curated/mappings/organisations.csv` lists the current organisation of each account.
-Most people stay with one organisation for the years in which they contribute, so one file covers most of the history.
+The registers in `curated/mappings/` record who belongs to which organisation.
+`curated/mappings/people.csv` has one row per person, `curated/mappings/organisations.csv` one row per organisation, and `curated/mappings/affiliations.csv` one row per person, organisation and period, with the first and the last year.
+The organisation of a person in a year is the affiliation row that covers that year.
 
-When someone changed organisations, `curated/mappings/organisation_mapping_overrides.csv` records the earlier one for the years it applied ([#16](https://github.com/plone/plone-contributor-statistics/issues/16)).
-The organisation statistics are built year by year, and each year uses the overrides that apply to it.
-A person who moved is therefore counted for the old organisation in the old years and for the new one in the new years.
+There is no default.
+A year that no row covers is Unmapped.
+Today's organisation is a row with an empty last year, so it runs up to the present, and a row for a past organisation is a row like any other.
+`Unmapped` is never written as an organisation, because a gap in the rows says the same.
+A person who changed organisations has one row for each, and the organisation statistics, which are built year by year, count the person for the old organisation in the old years and for the new one in the new years ([#16](https://github.com/plone/plone-contributor-statistics/issues/16)).
 Multi-year summaries add up the years, so such a person appears under both organisations.
 
-Overrides exist only where someone knew about the change and recorded it.
+A biography that names an employer for a conference year is an affiliation row for that year, with the biography as its record.
+It is then also evidence for the commits of that year, as signatures and participant lists are.
+Rows exist only where someone knew about the affiliation and recorded it.
+For the early years especially, many affiliations are unknown, and {doc}`history-and-coverage` explains what follows from that.
 
-Without an override, today's organisation applies to every year, also to years before the organisation existed.
-An override with the organisation `Unmapped` prevents that: it marks the years in which a person's affiliation isn't documented, for example the years before their company was founded.
-Their work in those years then counts as Unmapped, as the rule "when in doubt, Unmapped" asks.
-For the early years especially, many past affiliations are unknown, and {doc}`history-and-coverage` explains what follows from that.
+Statements that no accepted record confirms yet wait in `curated/mappings/affiliation_proposals.csv`.
+No script reads it.
+A reviewer checks each proposal and moves it into `curated/mappings/affiliations.csv` with its record, or leaves it out.
 
 ## Unmapped is not an organisation
 
-An account without an entry is Unmapped.
+A person without an affiliation row for a year is Unmapped in that year.
 Unmapped and independent contributors are two different groups ([#53](https://github.com/plone/plone-contributor-statistics/issues/53)).
-Independent contributors are mapped: they chose to contribute on their own, and their entries say so.
+Independent contributors are mapped: they chose to contribute on their own, and their organisation has the kind `independent`.
 Unmapped contributors are not mapped yet, and their affiliation is simply unknown.
 Counted together, they would look like one big organisation that doesn't exist.
 
 Unmapped is shown on its own line below the organisations, is not ranked among them, and gets no recognition points or level.
-People without a GitHub account, who are counted under their name, are Unmapped too, because the mapping lists GitHub logins.
+A commit or pull request under a login that the registers don't know is Unmapped too.
+People without a GitHub account have a row in `curated/mappings/people.csv` like everyone else, and can have affiliations.
 
 ## A mapping needs a source
 
@@ -61,15 +67,16 @@ When in doubt, a contributor stays Unmapped.
 
 Many corrections come from the people themselves, by pull request, with a link or a short confirmation.
 This keeps the mapping close to what people would say about their own work.
-{doc}`/how-to/correct-an-organisation-mapping` shows how to send one.
+{doc}`/how-to/add-an-affiliation` shows how to send one.
 
-## Small mistakes have large effects
+## Small mistakes are caught by checks
 
-A mapping file is easy to get wrong.
-A single typo in a login sends a contributor's whole activity to Unmapped, and with it part of an organisation's numbers ([#38](https://github.com/plone/plone-contributor-statistics/issues/38)).
-Logins are also case-sensitive in the lookup.
-Format tests check every login in the mapping files, and every change goes through review.
+A register is easy to get wrong.
+A single typo in a login used to send a contributor's whole activity to Unmapped, and with it part of an organisation's numbers ([#38](https://github.com/plone/plone-contributor-statistics/issues/38)).
+Now every file has a schema, and `make check` validates it.
+The checks say the file, the row and the column of an error: an id that no register has, an affiliation that overlaps another one of the same person, a name that differs from another only in case or accents, or a source without a link.
+Every change still goes through review.
 
 ```{seealso}
-{doc}`/reference/mapping-files` describes the format and rules of the mapping files.
+{ref}`reference-curated-files` describes the format and the checks of the registers.
 ```

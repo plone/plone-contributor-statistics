@@ -1,29 +1,65 @@
-"""Listing community names without a GitHub login, and proposing logins (#117)."""
+"""Listing people without a GitHub login who appear as a login, and proposing the login (#117)."""
 
 from scripts.lib import paths
+from scripts.lib.model import load_registry
 from scripts.tools import unmatched_names
 
 
-def write(path, text):
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(text, encoding='utf-8')
+def write_people(rows):
+    paths.PEOPLE.write_text('id,name,github,source\n' + ''.join(
+        f'{i},{name},{github},https://example.org/{i}\n' for i, name, github in rows), encoding='utf-8')
 
 
-def test_lists_names_without_a_login(tmp_repo):
-    write(paths.ORGANISATIONS, 'Organisation,Team\nRedTurtle,mamico\n')
-    write(paths.FULLNAMES, 'github username,fullname,source\nmamico,Mauro Amico,https://github.com/mamico\n')
-    write(paths.COMMUNITY / '2025-team-leaders.csv',
-          'Name,Team,Organisation,Source\nMauro Amico,Volto Team,RedTurtle,https://a\nJane Doe,Docs Team,Unmapped,https://b\n')
-    found = unmatched_names.unmatched_names(range(2025, 2026))
-    assert found == {'jane doe': {'spelling': 'Jane Doe', 'years': [2025], 'mentions': 1}}
+def write_contributors(*logins):
+    (paths.CONTRIBUTORS_DIR / '2025-plone-contributors.csv').write_text(
+        'username,total_commits\n' + ''.join(f'{login},1\n' for login in logins), encoding='utf-8')
 
 
-def test_proposes_only_unique_exact_profile_names():
-    unmatched = {'jane doe': {'spelling': 'Jane Doe', 'years': [2025], 'mentions': 1},
-                 'john roe': {'spelling': 'John Roe', 'years': [2025], 'mentions': 1}}
-    profiles = {'janedoe': 'Jane  Doe', 'jroe1': 'John Roe', 'jroe2': 'John Roe'}
-    assert unmatched_names.propose(unmatched, profiles) == [
-        ('janedoe', 'Jane Doe', 'GitHub profile name: https://github.com/janedoe')]
+def test_contributor_logins_are_collected_and_registered(tmp_repo):
+    write_people([('mauro-amico', 'Mauro Amico', 'mamico'), ('jane-doe', 'Jane Doe', '')])
+    write_contributors('janedoe', 'person:jane-doe', 'bad login!')
+    assert unmatched_names.contributor_logins(load_registry()) == ['janedoe', 'mamico']
+
+
+def test_lists_people_without_a_login_whose_name_is_a_login(tmp_repo):
+    write_people([('mauro-amico', 'Mauro Amico', 'mamico'), ('jane-doe', 'Jane Doe', ''), ('tisto', 'Tisto', '')])
+    registry = load_registry()
+    found = unmatched_names.unmatched_people(registry, ['mamico', 'janedoe', 'Tisto', 'other'])
+    assert found == {'jane-doe': ['janedoe'], 'tisto': ['Tisto']}
+
+
+def test_a_registered_login_is_no_match(tmp_repo):
+    write_people([('jane-doe', 'Jane Doe', ''), ('jd', 'J D', 'janedoe')])
+    assert unmatched_names.unmatched_people(load_registry(), ['janedoe']) == {}
+
+
+def test_proposes_only_unique_exact_profile_names(tmp_repo):
+    write_people([('jane-doe', 'Jane Doe', ''), ('john-roe', 'John Roe', ''), ('mauro-amico', 'Mauro Amico', 'mamico')])
+    profiles = {'janedoe': 'Jane  Doe', 'jroe1': 'John Roe', 'jroe2': 'John Roe', 'mamico': 'Mauro Amico'}
+    assert unmatched_names.propose(load_registry(), profiles) == [('jane-doe', 'janedoe', 'Jane  Doe')]
+
+
+def test_a_proposal_sets_the_github_of_the_person():
+    assert unmatched_names.proposal_line('jane-doe', 'janedoe', 'Jane Doe') == (
+        'people.csv: set github of jane-doe to janedoe (profile name "Jane Doe": https://github.com/janedoe)')
+
+
+def test_main_prints_people_proposals(tmp_repo, monkeypatch, capsys):
+    write_people([('jane-doe', 'Jane Doe', ''), ('mauro-amico', 'Mauro Amico', 'mamico')])
+    write_contributors('janedoe')
+    monkeypatch.setattr('sys.argv', ['unmatched_names', '--propose'])
+    monkeypatch.delenv('GITHUB_TOKEN', raising=False)
+    monkeypatch.setattr(unmatched_names, 'load_dotenv', lambda: None)
+    monkeypatch.setattr(unmatched_names, 'fetch_profile_names', lambda session, logins: {'janedoe': 'Jane Doe'})
+    unmatched_names.main()
+    out = capsys.readouterr().out
+    assert 'people.csv: set github of jane-doe to janedoe (profile name "Jane Doe": https://github.com/janedoe)' in out
+    assert 'identities.csv' not in out
+
+
+def test_does_not_propose_a_login_of_another_person(tmp_repo):
+    write_people([('jane-doe', 'Jane Doe', ''), ('other', 'Other', 'janedoe')])
+    assert unmatched_names.propose(load_registry(), {'janedoe': 'Jane Doe'}) == []
 
 
 class FakeResponse:

@@ -1,11 +1,11 @@
-Name,Organisation,Source,Role
-Joel Burton,Joel Burton (independent),https://plone.org/foundation/board/list_board_2,voting
-Ben Saller,ObjectRealms,https://plone.org/foundation/board/list_board_2,voting
-Alexander Limi,Jarn,https://plone.org/foundation/board/list_board_2,voting
-Geoff Davis,Geoff Davis (independent),https://plone.org/foundation/board/list_board_2,voting
-Jodok Batlogg,Lovely Systems,https://plone.org/foundation/board/list_board_2,voting
-Munwar Shariff,CIGNEX,https://plone.org/foundation/board/list_board_2,voting
-Jacqueline Arasi,The Open Planning Project,https://plone.org/foundation/board/list_board_2,voting
-Alan Runyan,Enfold,https://plone.org/foundation/board/list_board_2,voting
-Paul Everitt,Zope Europe,https://plone.org/foundation/board/list_board_2,non-voting
-Toby Roberts,Enfold,https://plone.org/foundation/board/list_board_2,non-voting
+person,role,source,notes
+joel-burton,voting,https://plone.org/foundation/board/list_board_2,
+ben-saller,voting,https://plone.org/foundation/board/list_board_2,
+alex-limi,voting,https://plone.org/foundation/board/list_board_2,
+geoff-davis,voting,https://plone.org/foundation/board/list_board_2,
+jodok-batlogg,voting,https://plone.org/foundation/board/list_board_2,
+munwar-shariff,voting,https://plone.org/foundation/board/list_board_2,
+jacqueline-arasi,voting,https://plone.org/foundation/board/list_board_2,
+alan-runyan,voting,https://plone.org/foundation/board/list_board_2,
+paul-everitt,non-voting,https://plone.org/foundation/board/list_board_2,
+toby-roberts,non-voting,https://plone.org/foundation/board/list_board_2,

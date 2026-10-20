@@ -14,8 +14,8 @@ changelog files are fetched into them.
 
 Each entry is dated by its release, counted once (see
 scripts/lib/changelogs.py), and credited in full to every person it names.
-Names are mapped to people with the curated mapping files; names that no
-file maps are kept as written. The output has one file per year, one row
+Names are mapped to people with the registers of people and identities; names
+that no identity maps are kept as written. The output has one file per year, one row
 per person; see docs/reference/data-files.md.
 """
 
@@ -31,9 +31,7 @@ from dotenv import load_dotenv
 
 from scripts.lib import changelogs, git_history, paths
 from scripts.lib.github_api import GitHubAPIError, github_get
-from scripts.lib.mappings import (load_account_aliases, load_bot_accounts, load_changelog_names,
-                                  load_commit_author_names, load_commit_authors, load_excluded_repositories,
-                                  load_fullnames)
+from scripts.lib.model import load_bot_accounts, load_excluded_repositories, load_registry
 from scripts.lib.tables import by_count
 from scripts.lib.years import last_completed_year
 
@@ -109,14 +107,11 @@ def collect(repositories, cache_dir=git_history.CACHE_DIR, token=None, update=Tr
 
 
 def name_mapper(contributors_dir=paths.CONTRIBUTORS_DIR):
-    """The NameMapper from the curated mapping files and the logins with code work."""
+    """The NameMapper from the registers and the logins with code work."""
     logins = set()
     for path in sorted(contributors_dir.glob('*-plone-contributors.csv')):
         logins.update(pd.read_csv(path, usecols=['username'])['username'].dropna().astype(str))
-    return changelogs.NameMapper(
-        changelog_names=load_changelog_names(), commit_authors=load_commit_authors(),
-        commit_author_names=load_commit_author_names(), aliases=load_account_aliases(),
-        bots=load_bot_accounts(), logins=sorted(logins), fullnames=load_fullnames())
+    return changelogs.NameMapper(load_registry(), sorted(logins), load_bot_accounts())
 
 
 def count(entries, mapper):
@@ -165,7 +160,7 @@ def year_table(people):
 
 
 def unmatched_names(per_year, years):
-    """{name: entries} of the names that no mapping file maps, over the years."""
+    """{name: entries} of the names that the registers do not map, over the years."""
     found = Counter()
     for year in years:
         for person, stats in per_year.get(str(year), {}).items():
@@ -175,7 +170,7 @@ def unmatched_names(per_year, years):
 
 
 def coverage_lines(coverage, years):
-    """The share of entries per year that name someone, and that name someone a mapping file maps."""
+    """The share of entries per year that name someone, and that name someone the registers map."""
     lines = ['year  entries  named  mapped']
     for year in years:
         found = coverage.get(str(year), Counter())

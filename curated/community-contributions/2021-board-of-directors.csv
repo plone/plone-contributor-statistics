@@ -1,9 +1,9 @@
-Name,Organisation,Source,Role
-Chrissy Wainwright,Sixfeetup,https://plone.org/foundation/board/plone-foundation-board-for-2020-2021,voting
-Érico Andrei,kitconcept GmbH,https://plone.org/foundation/board/plone-foundation-board-for-2020-2021; organisation from the organisation mapping: https://speakerdeck.com/ericof/apresentando-o-plone-6,voting
-Andy Leeb,Onna,https://plone.org/foundation/board/plone-foundation-board-for-2020-2021,voting
-Paul Roeland,CCC,https://plone.org/foundation/board/plone-foundation-board-for-2020-2021,voting
-Víctor Fernández de Alba,kitconcept GmbH,https://plone.org/foundation/board/plone-foundation-board-for-2020-2021,voting
-Jens Klein,Klein & Partner KG,https://plone.org/foundation/board/plone-foundation-board-for-2020-2021,voting
-William Fennie,Unmapped,https://plone.org/foundation/board/plone-foundation-board-for-2020-2021,voting
-Jennifer Myers,Unmapped,https://plone.org/foundation/board/plone-foundation-board-for-2020-2021,non-voting
+person,role,source,notes
+chrissy-wainwright,voting,https://plone.org/foundation/board/plone-foundation-board-for-2020-2021,
+erico-andrei,voting,https://plone.org/foundation/board/plone-foundation-board-for-2020-2021,
+andy-leeb,voting,https://plone.org/foundation/board/plone-foundation-board-for-2020-2021,
+paul-roeland,voting,https://plone.org/foundation/board/plone-foundation-board-for-2020-2021,
+victor-fernandez-de-alba,voting,https://plone.org/foundation/board/plone-foundation-board-for-2020-2021,
+jens-w-klein,voting,https://plone.org/foundation/board/plone-foundation-board-for-2020-2021,
+william-fennie,voting,https://plone.org/foundation/board/plone-foundation-board-for-2020-2021,
+jennifer-myers,non-voting,https://plone.org/foundation/board/plone-foundation-board-for-2020-2021,

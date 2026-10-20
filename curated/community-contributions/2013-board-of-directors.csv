@@ -1,8 +1,8 @@
-Name,Organisation,Source,Role
-Paul Roeland,CCC,https://plone.org/foundation/board/plone-foundation-board-for-2012-2013,voting
-Érico Andrei,Simples Consultoria,https://plone.org/foundation/board/plone-foundation-board-for-2012-2013,voting
-Steve McMahon,Reid-McMahon,https://plone.org/foundation/board/plone-foundation-board-for-2012-2013,voting
-Elizabeth Leddy,Elizabeth Leddy (independent),https://plone.org/foundation/board/plone-foundation-board-for-2012-2013,voting
-Matthew Wilkes,The Code Distillery,https://plone.org/foundation/board/plone-foundation-board-for-2012-2013,voting
-Matt Hamilton,Netsight,https://plone.org/foundation/board/plone-foundation-board-for-2012-2013,voting
-Carol Ganz,Sixfeetup,https://plone.org/foundation/board/plone-foundation-board-for-2012-2013,voting
+person,role,source,notes
+paul-roeland,voting,https://plone.org/foundation/board/plone-foundation-board-for-2012-2013,
+erico-andrei,voting,https://plone.org/foundation/board/plone-foundation-board-for-2012-2013,
+steve-mcmahon,voting,https://plone.org/foundation/board/plone-foundation-board-for-2012-2013,
+elizabeth-leddy,voting,https://plone.org/foundation/board/plone-foundation-board-for-2012-2013,
+matthew-wilkes,voting,https://plone.org/foundation/board/plone-foundation-board-for-2012-2013,
+matt-hamilton,voting,https://plone.org/foundation/board/plone-foundation-board-for-2012-2013,
+carol-ganz,voting,https://plone.org/foundation/board/plone-foundation-board-for-2012-2013,

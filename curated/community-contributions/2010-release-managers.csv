@@ -1,4 +1,4 @@
-Name,Github,Organisation,Source
-Eric Steele,esteele,Penn State University,https://plone.org/news-and-events/news/2010/plone-4-reaches-release-candidate-status; organisation from the organisation mapping: https://2017.ploneconf.org/talks/keynotes/eric-steele.html
-Wichert Akkerman,wichert,Simplon,https://plone.org/foundation/meetings/minutes/2010/minutes-for-october-7-2010; organisation from the organisation mapping: https://github.com/wichert
-Alan Hoey,evilbungle,Unmapped,https://plone.org/news-and-events/news/2010/alanhoeynamedreleasemanager
+person,source,notes
+eric-steele,https://plone.org/news-and-events/news/2010/plone-4-reaches-release-candidate-status,
+wichert-akkerman,https://plone.org/foundation/meetings/minutes/2010/minutes-for-october-7-2010,
+alan-hoey,https://plone.org/news-and-events/news/2010/alanhoeynamedreleasemanager,

@@ -1,12 +1,12 @@
-Name,Organisation,Source,Role
-Joel Burton,Joel Burton (independent),https://web.archive.org/web/20050404020626/http://plone.org/foundation/about/board/list,voting
-Alexander Limi,Jarn,https://web.archive.org/web/20050404020626/http://plone.org/foundation/about/board/list,voting
-Alan Runyan,Enfold,https://web.archive.org/web/20050404020626/http://plone.org/foundation/about/board/list,voting
-Geoff Davis,Geoff Davis (independent),https://web.archive.org/web/20050404020626/http://plone.org/foundation/about/board/list,voting
-Marcel den Hartog,Computer Associates,https://web.archive.org/web/20050404020626/http://plone.org/foundation/about/board/list,voting
-Jodok Batlogg,Telesis,https://web.archive.org/web/20050404020626/http://plone.org/foundation/about/board/list,voting
-Robert Boulanger,BlueDynamics KG,https://web.archive.org/web/20050404020626/http://plone.org/foundation/about/board/list,voting
-Norm Patriquin,Computer Associates,https://web.archive.org/web/20050404020626/http://plone.org/foundation/about/board/list,voting
-Christian Heimes,COM.lounge,https://web.archive.org/web/20050404020626/http://plone.org/foundation/about/board/list,voting
-Paul Everitt,Zope Europe,https://web.archive.org/web/20050404020626/http://plone.org/foundation/about/board/list,non-voting
-Mark Murphy,Tyrell,https://web.archive.org/web/20050404020626/http://plone.org/foundation/about/board/list,non-voting
+person,role,source,notes
+joel-burton,voting,https://web.archive.org/web/20050404020626/http://plone.org/foundation/about/board/list,
+alex-limi,voting,https://web.archive.org/web/20050404020626/http://plone.org/foundation/about/board/list,
+alan-runyan,voting,https://web.archive.org/web/20050404020626/http://plone.org/foundation/about/board/list,
+geoff-davis,voting,https://web.archive.org/web/20050404020626/http://plone.org/foundation/about/board/list,
+marcel-den-hartog,voting,https://web.archive.org/web/20050404020626/http://plone.org/foundation/about/board/list,
+jodok-batlogg,voting,https://web.archive.org/web/20050404020626/http://plone.org/foundation/about/board/list,
+robert-boulanger,voting,https://web.archive.org/web/20050404020626/http://plone.org/foundation/about/board/list,
+norm-patriquin,voting,https://web.archive.org/web/20050404020626/http://plone.org/foundation/about/board/list,
+christian-heimes,voting,https://web.archive.org/web/20050404020626/http://plone.org/foundation/about/board/list,
+paul-everitt,non-voting,https://web.archive.org/web/20050404020626/http://plone.org/foundation/about/board/list,
+mark-murphy,non-voting,https://web.archive.org/web/20050404020626/http://plone.org/foundation/about/board/list,

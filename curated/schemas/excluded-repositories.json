@@ -1,0 +1,24 @@
+{
+  "fields": [
+    {
+      "name": "repository",
+      "type": "string",
+      "description": "The repository, as owner/name, left out of the statistics.",
+      "constraints": {
+        "required": true,
+        "unique": true
+      }
+    },
+    {
+      "name": "reason",
+      "type": "string",
+      "description": "Why the repository is left out.",
+      "constraints": {
+        "required": true
+      }
+    }
+  ],
+  "primaryKey": [
+    "repository"
+  ]
+}

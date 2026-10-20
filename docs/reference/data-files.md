@@ -7,7 +7,7 @@ The top-level folders follow their role in the pipeline:
 
 | Folder | Holds | Edit by hand? |
 |---|---|---|
-| `curated/` | Mapping files and curated community data. | yes, with a public record for every entry |
+| `curated/` | Registers, lists and curated community data. | yes, with a public record for every entry |
 | `collected/` | Data the collectors fetch from GitHub. | no |
 | `derived/` | Data computed from curated and collected data. | no |
 | `reports/` | Reports, text summaries and graphs. | no |
@@ -24,7 +24,7 @@ See {doc}`/explanation/counting-rules` for why the files count the way they do.
 `collected/contributors/YYYY-plone-contributors.csv`
 :   Written by `scripts/collect/plone_contributors.py`.
     One row per person with at least one counted commit or merged pull request in the year.
-    `username` is the GitHub login, or the name of a person without a GitHub account.
+    `username` is the GitHub login, or `person:<id>` for a person without a GitHub account.
     Columns: `username`, `total_commits`, `total_pull_requests`, `repositories_count`, `repositories`, `first_contribution`, `last_contribution`.
     A commit counts for the year of its committer date, a pull request for the year it was merged.
     `first_contribution` and `last_contribution` use the author dates.
@@ -38,11 +38,12 @@ See {doc}`/explanation/counting-rules` for why the files count the way they do.
 `collected/changelogs/YYYY-plone-changelog-entries.csv`
 :   Written by `scripts/collect/plone_changelogs.py`.
     One row per person named in at least one changelog entry of a release in the year.
-    `username` is the GitHub login, the name of a person without a GitHub account, or the name as the changelog writes it if no mapping file maps it.
+    `username` is the GitHub login, `person:<id>` for a person without a GitHub account, or the name as the changelog writes it if no identity maps it.
     Columns: `username`, `changelog_entries`, `repositories_count`, `repositories`, `changelog_names`, `matched_by`.
     `changelog_entries` counts each entry once, in full for every person it names.
     `changelog_names` lists the names in the changelogs that were mapped to the person, separated by semicolons.
-    `matched_by` lists the mapping files or rules that mapped them, separated by semicolons: `changelog_names`, `commit_authors`, `account_aliases`, `login`, `fullname`, or `unmatched` for a name that no file maps.
+    `matched_by` lists the rules that mapped them, separated by semicolons: `identity` for a name, address or login of `curated/mappings/identities.csv` or `curated/mappings/people.csv`, `login` for a login with commits or pull requests, `bot` for a bot, or `unmatched` for a name that nothing maps.
+    The committed files carry the `username` and `matched_by` values of their last run; a change of the registers shows in them at the next `make run-changelogs`.
     A year without entries has a file with the header only.
     {doc}`/explanation/counting-rules` explains the dating and the deduplication.
 
@@ -64,69 +65,19 @@ See {doc}`/explanation/counting-rules` for why the files count the way they do.
 
 ## Curated data
 
-All curated files are in `curated/community-contributions/`.
-Several people or organisations in one cell are separated by semicolons.
+{ref}`reference-curated-files` describes the files under `curated/`: their fields, constraints and checks.
+This section adds what the schema cannot say.
 
-`curated/community-contributions/YYYY-board-of-directors.csv`
-:   One row per member of the Board of Directors whose term ends in the year, including the non-voting officers.
-    Columns: `Name`, `Organisation`, `Source`, `Role`.
-    `Role` is `voting` for directors and `non-voting` for officers such as the treasurer.
+The community kinds that are events are `plone-conference`, `sprints` and `world-plone-day-event`.
+A World Plone Day event counts when it was held in person or as a hybrid.
+The other community kinds are roles: Board member, team lead, release manager, trainer, speaker, podcast host, sprint organiser and conference organiser.
+Of the World Plone Day videos, only those of the type `Talk` are talks.
+A podcast counts for recognition from five episodes a year.
+`Source` links the record for the row only; the records for the organisations of people are in `curated/mappings/affiliations.csv`.
 
-`curated/community-contributions/YYYY-plone-conference.csv`
-:   One row per organising organisation of the Plone Conference.
-    Columns: `Organisation`, `Organiser(s)`, `Source`, `Notes`.
-    Supporters and venues are not organisers; the notes name them.
-
-`curated/community-contributions/YYYY-plone-conference-trainings.csv`
-:   One row per training at the Plone Conference.
-    Columns: `Title`, `Trainer(s)`, `GitHub Handle(s)`, `Organisation`, `Source` up to 2024, and `Notes` up to 2019.
-    Trainers, handles and organisations are listed in the same order.
-    `Notes` say what kind of session the source calls it, for example a tutorial in the talk programme or a training paid separately, and "announced, no report found" where only the announcement is known.
-
-`curated/community-contributions/YYYY-release-managers.csv`
-:   One row per release manager.
-    Columns: `Name`, `Github`, `Organisation`, `Source`.
-
-`curated/community-contributions/YYYY-team-leaders.csv`
-:   One row per team leader and team.
-    Columns: `Name`, `Team`, `Organisation`, `Source`.
-
-`curated/community-contributions/YYYY-sprints.csv`
-:   One row per Plone sprint of the year, including Zope sprints with Plone people.
-    Columns: `Sprint`, `Start`, `End`, `Location`, `Organiser(s)`, `Organisation`, `Level`, `Source`, `Notes`.
-    `Start` and `End` are dates as `YYYY-MM-DD`, or shorter where the source gives less.
-    `Level` is `strategic` or `community` where the Board decided on the sprint, and empty otherwise; `Source` then also cites the Board decision.
-    `Notes` say for example "announced, no report found".
-
-`curated/community-contributions/YYYY-podcasts.csv`
-:   One row per host of a Plone podcast or live series in the year.
-    Columns: `Series`, `Host`, `Organisation`, `Episodes`, `Source`.
-    `Episodes` is the number of episodes of the series in the year; `Source` links the episodes.
-
-`curated/community-contributions/YYYY-world-plone-day-event.csv`
-:   One row per local World Plone Day event.
-    Columns: `Date`, `Location`, `Format`, `Organisation`, `Source`, `Notes`.
-    `Format` is `in person`, `hybrid` or `online`.
-    `Organisation` lists the organising organisations, not the venue or host.
-    `Notes` name the people who organised the event and the venue, and say for example "announced, no report found".
-
-`curated/community-contributions/YYYY-world-plone-day-talks.csv`
-:   One row per World Plone Day talk.
-    Columns: `Video Title`, `Speaker(s)`, `Organisation`, `Event / Location`, `Type`, `YouTube ID`, `Source`, `Notes`.
-    Speakers and organisations are listed in the same order; a talk without a named speaker has an empty `Speaker(s)` and the organisation `Unmapped`.
-    `Source` links the video, or the event page for a talk without a video, and the record for each speaker's organisation.
-    `Type` is one of `Talk`, `Teaser`, `Announcement`, `Welcome`, `Recap`, `Duplicate`, `Opening`, `Full stream` and `Newsroom`; only `Talk` is a talk.
-
-`curated/plips/plone-plips-before-github.csv`
-:   One row per PLIP from before the PLIPs moved to GitHub issues, as the plone.org roadmap or a Trac ticket recorded it.
-    Columns: `Number`, `Numbering`, `Title`, `Proposer`, `Implementers`, `State`, `Proposed`, `Completed`, `Release`, `Same as`, `Source`, `Quote`, `Notes`.
-    `Numbering` is `roadmap`, for the PLIP numbers of the plone.org roadmap and of the wiki pages before it, or `trac`, for the ticket numbers of dev.plone.org.
-    `Same as` names the other row where a source says that a roadmap PLIP and a Trac ticket are the same PLIP; both rows are kept.
-    `Proposer` and `Implementers` are names or logins as the source gives them.
-    `State` is the state as the source gives it, at the date of the archived copy.
-    `Proposed` and `Completed` are dates as `YYYY-MM-DD`, or shorter where the source gives less.
-    `Quote` is the passage of the source that the row rests on.
-    No script reads this file yet.
+`curated/plips/plone-plips-before-github.csv` is read by no script yet.
+`Numbering` is `roadmap` for the PLIP numbers of the plone.org roadmap and of the wiki pages before it, or `trac` for the ticket numbers of dev.plone.org.
+`Same as` names the other row where a source says that a roadmap PLIP and a Trac ticket are the same PLIP; both rows are kept.
 
 ## Derived data
 
@@ -135,7 +86,7 @@ Several people or organisations in one cell are separated by semicolons.
     One row per organisation with commits or pull requests in the year, plus one row `Unmapped`.
     Columns: `organisation`, `total_commits`, `total_pull_requests`, `changelog_entries`, `contributors_count`, `contributors`, `repositories_count`, `repositories`, `first_contribution`, `last_contribution`.
     `changelog_entries` are the changelog entries of the organisation's people in the year, from `collected/changelogs/YYYY-plone-changelog-entries.csv`; they are not part of the other counts.
-    Names that no mapping file maps count for `Unmapped`.
+    Names that no identity maps count for `Unmapped`.
     The column is 0 in a year without a changelog file.
     `contributors` lists the people with commits or pull requests.
 

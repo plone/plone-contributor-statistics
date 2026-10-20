@@ -14,7 +14,8 @@ import os
 import re
 
 from scripts.lib import paths
-from scripts.lib.mappings import read_organisations
+from scripts.lib.model import UNMAPPED, load_registry
+from scripts.lib.years import RECOGNITION_YEAR
 
 def load_organisation_files():
     """Load all organisation CSV files"""
@@ -38,7 +39,7 @@ def extract_independent_contributors(data):
     
     for year, df in data.items():
         # Find the Independent row
-        independent_rows = df[df['organisation'].isin(['Unmapped', 'Independent'])]
+        independent_rows = df[df['organisation'] == UNMAPPED]
         
         if len(independent_rows) > 0:
             independent_row = independent_rows.iloc[0]
@@ -139,10 +140,10 @@ def analyze_contribution_patterns(contributor_stats):
     
     return patterns
 
-def suggest_mappings(patterns, existing_mapping_file=paths.ORGANISATIONS):
+def suggest_mappings(patterns, year=RECOGNITION_YEAR, registry=None):
     """Suggest new mappings based on analysis patterns"""
-    # Load existing mappings to avoid duplicates
-    existing_contributors = set(read_organisations(existing_mapping_file))
+    # The logins the registers already map to an organisation in the year
+    existing_contributors = set((registry or load_registry()).login_organisations(year))
 
     suggestions = []
     
@@ -180,7 +181,7 @@ def suggest_mappings(patterns, existing_mapping_file=paths.ORGANISATIONS):
     
     return suggestions
 
-def generate_research_report():
+def generate_research_report(year=RECOGNITION_YEAR):
     """Generate a comprehensive research report"""
     print("=" * 80)
     print("INDEPENDENT CONTRIBUTORS ANALYSIS REPORT")
@@ -190,7 +191,7 @@ def generate_research_report():
     data = load_organisation_files()
     all_independents, contributor_years, contributor_stats = extract_independent_contributors(data)
     patterns = analyze_contribution_patterns(contributor_stats)
-    suggestions = suggest_mappings(patterns)
+    suggestions = suggest_mappings(patterns, year)
     
     print(f"\nTOTAL ANALYSIS:")
     print(f"- Total unique Independent contributors across all years: {len(all_independents)}")
@@ -239,6 +240,7 @@ def generate_research_report():
     }
 
 if __name__ == "__main__":
-    # No options; --help says what the script does
-    argparse.ArgumentParser(description=__doc__.strip().splitlines()[0]).parse_args()
-    results = generate_research_report()
+    parser = argparse.ArgumentParser(description=__doc__.strip().splitlines()[0])
+    parser.add_argument('--year', type=int, default=RECOGNITION_YEAR,
+                        help=f'Year whose organisations count as already mapped (default: {RECOGNITION_YEAR})')
+    results = generate_research_report(parser.parse_args().year)

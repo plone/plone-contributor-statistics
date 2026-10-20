@@ -1,0 +1,55 @@
+{
+  "fields": [
+    {
+      "name": "date",
+      "type": "date",
+      "description": "The day of the event.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "location",
+      "type": "string",
+      "description": "Where the event took place."
+    },
+    {
+      "name": "format",
+      "type": "string",
+      "description": "Whether the event was held in person, as a hybrid or online.",
+      "constraints": {
+        "enum": [
+          "in person",
+          "hybrid",
+          "online"
+        ]
+      }
+    },
+    {
+      "name": "organisations",
+      "type": "string",
+      "description": "The ids of the organising organisations in the organisations register. Several values are separated by semicolons.",
+      "x-set": "organisations"
+    },
+    {
+      "name": "organisers",
+      "type": "string",
+      "description": "The ids of the organising persons in the people register. Several values are separated by semicolons.",
+      "x-set": "people"
+    },
+    {
+      "name": "source",
+      "type": "string",
+      "description": "A public record, linked as a web address, that supports the row.",
+      "constraints": {
+        "required": true,
+        "pattern": ".*https?://.*"
+      }
+    },
+    {
+      "name": "notes",
+      "type": "string",
+      "description": "Free-text remarks on the row."
+    }
+  ]
+}

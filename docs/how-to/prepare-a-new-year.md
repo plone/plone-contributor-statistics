@@ -7,6 +7,7 @@ You need a GitHub personal access token, see {doc}`collect-data-again` for how t
 
 1.  Add or complete the curated community data of the year, each row with a public record, as described in {doc}`add-curated-community-data`.
     Some files of the year may have been started during the year; check them for events that were still missing or had not happened yet.
+    After creating the files of the new year, run `python -m scripts.tools.datapackage`, so that `curated/datapackage.json` lists them; `make check` reports it as stale until then.
 
 2.  Collect, derive and report the year in one run:
 
@@ -31,20 +32,22 @@ You need a GitHub personal access token, see {doc}`collect-data-again` for how t
     make analyze-independent
     ```
 
-    Map those you can support with a public record, as described in {doc}`correct-an-organisation-mapping`.
+    Add an affiliation for those you can support with a public record, as described in {doc}`add-an-affiliation`.
     Then regenerate as described in {doc}`regenerate-after-a-mapping-change`.
 
-4.  List the people in the community data of the year whose name isn't linked to a GitHub login yet, with proposals from GitHub profile names:
+4.  List the people of the register without a GitHub login who appear as a login, with proposals from GitHub profile names:
 
     ```shell
-    python -m scripts.tools.unmatched_names --since 2025 --propose
+    python -m scripts.tools.unmatched_names --propose
     ```
 
-    Add the proposals you can confirm to `curated/mappings/mapping-github-username-to-fullname.csv`, see {doc}`/reference/mapping-files`, and run `make community-page` again.
+    The tool prints, per person, the login to set as `github` in `curated/mappings/people.csv`, with the GitHub profile as its record.
+    Set the logins you can confirm, extend the person's `source` with the profile link, and run `make community-page` again.
 
-5.  Run the tests and review the changed files:
+5.  Validate the curated files, run the tests and review the changed files:
 
     ```shell
+    make check
     make test
     git status
     ```

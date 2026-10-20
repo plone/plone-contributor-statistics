@@ -46,8 +46,10 @@
   var people = data.years;
   var names = data.names;
 
+  // The same key as names.fold in Python: no accents or punctuation, lower case, single spaces
   function normalise(text) {
-    return text.normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase().trim().replace(/\s+/g, ' ');
+    return text.normalize('NFKD').replace(/\p{M}/gu, '').replace(/[^\p{L}\p{N}\s]/gu, '')
+      .toLowerCase().split(/\s+/).filter(Boolean).join(' ');
   }
 
   function rank(list, person, field) {
@@ -80,10 +82,10 @@
     result.textContent = '';
     distribute(list);
     if (!query) { return; }
-    // A name the data links to a login finds the login
-    var id = names[query] || query;
+    // A name of a registered person finds the person's id, anything else is taken as a login
+    var id = names[query] || form.person.value.trim().toLowerCase();
     var match = list.filter(function (p) {
-      return p.id === id || p.id === 'name:' + id;
+      return p.id === id;
     })[0];
     var card = document.createElement('div');
     card.className = 'card';
@@ -94,7 +96,7 @@
       return;
     }
     var title = document.createElement('h3');
-    title.textContent = (match.id.indexOf('name:') === 0 ? match.id.slice(5) : match.id) + ' in ' + year;
+    title.textContent = (match.name || match.id) + ' in ' + year;
     var facts = document.createElement('dl');
     [['Merged pull requests', rank(list, match, 'pull_requests')],
      ['Commits', rank(list, match, 'commits')],

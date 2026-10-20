@@ -9,36 +9,41 @@ You need to know who is behind the address, and a source for it.
 ## Find the address
 
 1.  Find the commits in the repository's history, for example with `git log --author=name@localhost` in a clone of the repository.
-2.  Check that the address isn't listed in `curated/mappings/commit_authors.csv` yet.
+2.  Check that the address isn't an identity yet:
 
-## Add the person
+    ```shell
+    grep -i "name@localhost" curated/mappings/identities.csv
+    ```
 
-Add one row to `curated/mappings/commit_authors.csv`:
+## Add the person and the identity
+
+Find the person, or add them if they are not in the register, see {doc}`add-a-person`.
+Then add one row to `curated/mappings/identities.csv`, sorted by person, kind and value:
 
 ```text
-email,github_username,name,source
-name@localhost,janedoe,Jane Doe,Same name in commits linked to this account
+person,kind,value,source
+jane-doe,email,name@localhost,Same name in commits linked to this account
 ```
 
-- Write the email address in lower case.
-- If the person has a GitHub account, put their login in `github_username`.
-- If the person has no GitHub account, leave `github_username` empty; the commits are then counted under `name`.
+- Write the email address in lower case, with the kind `email`.
+- A person with a GitHub account is counted under their login, a person without one as `person:<id>`.
 - For addresses from the CVS and Subversion years, a public record is often impossible. There, the source may be a confirmation by people who worked with the person; say so in `source`.
 - In `source`, say how you know: the same name in commits that are linked to the account, an entry in the [credits of Plone 2.0](https://github.com/plone/Products.CMFPlone/blob/2.0/CREDITS.txt), the account profile, or a confirmation by the person or by people who worked with them.
+  For any other kind than `email`, the source needs a link.
 
 ## Merge a second account
 
-If GitHub links the address to a second account of a person, add a row to `curated/mappings/account_aliases.csv` instead:
+If GitHub links the address to a second account of a person, add the account as an identity of the kind `login` instead:
 
 ```text
-alias,github_username,source
-oldaccount,janedoe,The account has no name or repositories; the commits are by Jane Doe
+person,kind,value,source
+jane-doe,login,oldaccount,https://github.com/oldaccount (the account has no name or repositories; the commits are by Jane Doe)
 ```
 
 ## Link a changelog name
 
 Old changelog entries end with the name of the person who made the change, often a nickname such as `[alecm]`.
-Names that no mapping file links to a person count as written, see {doc}`/explanation/counting-rules`.
+Names that no identity links to a person count as written, see {doc}`/explanation/counting-rules`.
 
 1.  List the names without a mapping, by their number of entries:
 
@@ -56,7 +61,7 @@ Names that no mapping file links to a person count as written, see {doc}`/explan
     ```
 
     It needs `GITHUB_TOKEN` in `.env` or in the environment, see {doc}`collect-data-again`.
-    It proposes the author of most of these commits, with the GitHub account that GitHub links to the commit, or the account in `curated/mappings/commit_authors.csv`.
+    It prints rows for `curated/mappings/identities.csv`: the author of most of these commits, with the GitHub account that GitHub links to the commit, or the person that an email identity gives.
     Each row links a changelog entry with the name and the commit that repeats it.
     The last three columns, the number of entries, of matching commits and the author's share of them, are for your review and don't go into the file.
 
@@ -65,14 +70,15 @@ Names that no mapping file links to a person count as written, see {doc}`/explan
     Open the linked entry and commit, and look at a few more entries with the name.
     A short name that several people may have used, such as a first name, needs particular care.
 
-4.  Add the row to `curated/mappings/changelog_names.csv`, sorted by name:
+4.  Add the row to `curated/mappings/identities.csv`, with the kind `name`, in its place sorted by person, kind and value:
 
     ```text
-    changelog_name,github_username,name,source
-    alecm,alecpm,,Changelog entry: https://github.com/plone/Products.CMFPlone/blob/<commit>/HISTORY.txt#L123; the commit by Alec Mitchell that repeats it: https://github.com/plone/Products.CMFPlone/commit/<commit>
+    person,kind,value,source
+    alec-mitchell,name,alecm,Changelog entry: https://github.com/plone/Products.CMFPlone/blob/<commit>/HISTORY.txt#L123; the commit by Alec Mitchell that repeats it: https://github.com/plone/Products.CMFPlone/commit/<commit>
     ```
 
-    If the person has no GitHub account, leave `github_username` empty and write their name in `name`.
+    If the person is not in the register, add them first, see {doc}`add-a-person`.
+    A name of one word matches like any other name, so check that no other person used it.
 
 5.  Collect the changelog entries again, and regenerate the statistics as described in {doc}`regenerate-after-a-mapping-change`:
 
@@ -82,9 +88,10 @@ Names that no mapping file links to a person count as written, see {doc}`/explan
 
 ## Check and send the change
 
-1.  Run the format tests:
+1.  Validate the files and run the tests:
 
     ```shell
+    make check
     make test
     ```
 
@@ -92,4 +99,4 @@ Names that no mapping file links to a person count as written, see {doc}`/explan
 
 The change takes effect with the next collection, see {doc}`collect-data-again`.
 
-{doc}`/explanation/counting-rules` explains how commits are linked to people, and {doc}`/reference/mapping-files` describes the file formats.
+{doc}`/explanation/counting-rules` explains how commits are linked to people, and {ref}`reference-curated-files` describes the file formats.

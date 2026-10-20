@@ -51,14 +51,14 @@ How the statistics come together, and why.
 :link: reference/index
 :link-type: doc
 
-Data sources, files, mapping files and Make targets.
+Data sources, files, registers and Make targets.
 ```
 
 ```{grid-item-card} How-to guides
 :link: how-to/index
 :link-type: doc
 
-Correct a mapping, add curated data, regenerate the statistics.
+Add a person or an affiliation, add curated data, regenerate the statistics.
 ```
 
 ```{grid-item-card} Contributing

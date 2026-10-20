@@ -58,7 +58,7 @@ help:
 	@echo ""
 	@echo "Maintenance:"
 	@echo "  test              Run the test suite (pytest)"
-	@echo "  check             Lint, compile all scripts and check the requirements"
+	@echo "  check             Lint, compile all scripts, check the requirements and the curated data"
 	@echo "  lint              Run flake8"
 	@echo "  format            Format the code with black"
 	@echo "  clean             Delete caches, checkpoints and the built docs (never committed files)"
@@ -214,6 +214,8 @@ check: lint
 	@echo "All Python files compile successfully!"
 	@echo "Checking requirements..."
 	@pip check
+	@echo "Checking the curated data..."
+	@python -m scripts.tools.check
 
 test:
 	python -m pytest tests

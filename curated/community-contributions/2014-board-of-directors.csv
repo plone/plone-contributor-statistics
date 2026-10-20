@@ -1,9 +1,9 @@
-Name,Organisation,Source,Role
-Paul Roeland,CCC,https://plone.org/foundation/board/plone-foundation-board-for-2013-2014,voting
-Cris Ewing,Cris Ewing (independent),https://plone.org/foundation/board/plone-foundation-board-for-2013-2014,voting
-Steve McMahon,Reid-McMahon,https://plone.org/foundation/board/plone-foundation-board-for-2013-2014,voting
-Érico Andrei,Simples Consultoria,https://plone.org/foundation/board/plone-foundation-board-for-2013-2014,voting
-"Tom ""Spanky"" Kapanka",Unmapped,https://plone.org/foundation/board/plone-foundation-board-for-2013-2014,voting
-Andy Leeb,Unmapped,https://plone.org/foundation/board/plone-foundation-board-for-2013-2014,voting
-Alexander Loechel,Ludwig Maximilian University Munich,https://plone.org/foundation/board/plone-foundation-board-for-2013-2014,voting
-Jennifer Myers,Unmapped,https://plone.org/foundation/board/plone-foundation-board-for-2013-2014,non-voting
+person,role,source,notes
+paul-roeland,voting,https://plone.org/foundation/board/plone-foundation-board-for-2013-2014,
+cris-ewing,voting,https://plone.org/foundation/board/plone-foundation-board-for-2013-2014,
+steve-mcmahon,voting,https://plone.org/foundation/board/plone-foundation-board-for-2013-2014,
+erico-andrei,voting,https://plone.org/foundation/board/plone-foundation-board-for-2013-2014,
+tom-spanky-kapanka,voting,https://plone.org/foundation/board/plone-foundation-board-for-2013-2014,
+andy-leeb,voting,https://plone.org/foundation/board/plone-foundation-board-for-2013-2014,
+loechel,voting,https://plone.org/foundation/board/plone-foundation-board-for-2013-2014,
+jennifer-myers,non-voting,https://plone.org/foundation/board/plone-foundation-board-for-2013-2014,

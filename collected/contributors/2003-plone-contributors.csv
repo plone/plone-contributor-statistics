@@ -9,7 +9,7 @@ geoff-davis,125,0,3,"Products.Archetypes, Products.CMFFormController, Products.C
 stefanholek,119,0,2,"Products.CMFPlone, Products.CMFTestCase",2003-09-13,2003-12-28
 bcsaller,118,0,2,"Products.Archetypes, Products.CMFPlone",2003-03-06,2003-12-15
 longsleep,103,0,4,"Products.Archetypes, Products.CMFPlone, Products.PlacelessTranslationService, Products.PloneLanguageTool",2003-05-20,2003-12-31
-Michael Zeltner,86,0,1,Products.CMFPlone,2003-08-18,2003-12-22
+person:michael-zeltner,86,0,1,Products.CMFPlone,2003-08-18,2003-12-22
 lalomartins,70,0,3,"Products.Archetypes, Products.CMFPlone, Products.PlacelessTranslationService",2003-01-02,2003-12-25
 tiran,67,0,5,"Products.Archetypes, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.PlacelessTranslationService, Products.PloneLanguageTool",2003-09-18,2003-12-22
 dnouri,55,0,2,"Products.Archetypes, Products.CMFPlone",2003-09-13,2003-12-29
@@ -35,7 +35,7 @@ JimRoepcke,5,0,1,Products.CMFPlone,2003-08-22,2003-11-14
 phabegger,5,0,1,Products.CMFPlone,2003-09-12,2003-09-14
 mrtopf,4,0,1,Products.Archetypes,2003-05-19,2003-07-20
 jodok,3,0,2,"Products.CMFPlone, Products.PloneLanguageTool",2003-09-13,2003-11-04
-Maisa Fonseca,3,0,1,Products.Archetypes,2003-04-06,2003-04-06
+person:maisa-fonseca,3,0,1,Products.Archetypes,2003-04-06,2003-04-06
 dorneles,2,0,1,Products.Archetypes,2003-12-29,2003-12-31
 openprojects,2,0,1,Products.CMFPlone,2003-09-18,2003-09-18
 ulricheck,2,0,1,Products.CMFPlone,2003-09-16,2003-09-16

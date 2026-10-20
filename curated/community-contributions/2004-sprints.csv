@@ -1,9 +1,9 @@
-Sprint,Start,End,Location,Organiser(s),Organisation,Level,Source,Notes
-Snow Sprint 2004,2004-02-07,2004-02-14,"Schruns, Vorarlberg, Austria",Jodok Batlogg,solution2u.net GmbH;Bibliotheca Hertziana,,https://plone.org/news-and-events/news/2003/News_Item.2003-11-24.5712,
-"Mini Plone sprint, Aachen",2004-07-03,2004-07-03,"Aachen, Germany",Christian Scholz (contact),Unmapped,,https://web.archive.org/web/20131023022420/http://plone.org/events/community/plone_sprint_aachen,"announced, no report found"
-Second Aachen Sprint,2004-08-22,2004-08-22,"COM.lounge office, Aachen, Germany",Christian Scholz (contact),COM.lounge,,https://web.archive.org/web/20131023004441/http://plone.org/events/community/aachen_sprint_2,"announced, no report found"
-Castle Sprint 2004 (Castle Sprint V2),2004-09,,"Schloss Goldegg near St. Poelten, Austria",Robert Boulanger,BlueDynamics KG,,"https://web.archive.org/web/20131023000528/http://plone.org/events/sprints/past-sprints/castlev2; took place, listed on the participant's bio: https://kleinundpartner.at/klein-partner/jens-werner-klein",
-RTL mini-sprint,2004-09,,,,Unmapped,,https://plone.org/news-and-events/news/2004/plone-rtl-support,
-Mountain Sprint,2004-09-16,2004-09-19,"Alberschwende, Vorarlberg, Austria",Jodok Batlogg,Telesis,,https://web.archive.org/web/20131022234530/http://plone.org/events/sprints/past-sprints/mountain-sprint,
-Grimsel Sprint 2004,2004-09-26,2004-09-30,"Hotel Handeck, Grimsel, Swiss Alps, Switzerland",Bernhard Buehlmann,4Teamwork,,https://web.archive.org/web/20131022230656/http://plone.org/events/sprints/past-sprints/grimsel-sprint,"announced, no report found"
-Houston Sprint 2004 (versioning),2004-11-18,2004-11-22,"Rice University, Houston, Texas, USA (mostly remote via IRC)",,Unmapped,,https://web.archive.org/web/20131022235839/http://plone.org/events/sprints/past-sprints/houston,"announced, no report found"
+sprint,start,end,location,organisers,organisations,level,source,notes
+Snow Sprint 2004,2004-02-07,2004-02-14,"Schruns, Vorarlberg, Austria",jodok-batlogg,solution2u-net-gmbh;bibliotheca-hertziana,,https://plone.org/news-and-events/news/2003/News_Item.2003-11-24.5712,
+"Mini Plone sprint, Aachen",2004-07-03,2004-07-03,"Aachen, Germany",christian-scholz-contact,,,https://web.archive.org/web/20131023022420/http://plone.org/events/community/plone_sprint_aachen,"announced, no report found"
+Second Aachen Sprint,2004-08-22,2004-08-22,"COM.lounge office, Aachen, Germany",christian-scholz-contact,com-lounge,,https://web.archive.org/web/20131023004441/http://plone.org/events/community/aachen_sprint_2,"announced, no report found"
+Castle Sprint 2004 (Castle Sprint V2),2004-09,,"Schloss Goldegg near St. Poelten, Austria",robert-boulanger,bluedynamics-kg,,"https://web.archive.org/web/20131023000528/http://plone.org/events/sprints/past-sprints/castlev2; took place, listed on the participant's bio: https://kleinundpartner.at/klein-partner/jens-werner-klein",
+RTL mini-sprint,2004-09,,,,,,https://plone.org/news-and-events/news/2004/plone-rtl-support,
+Mountain Sprint,2004-09-16,2004-09-19,"Alberschwende, Vorarlberg, Austria",jodok-batlogg,telesis,,https://web.archive.org/web/20131022234530/http://plone.org/events/sprints/past-sprints/mountain-sprint,
+Grimsel Sprint 2004,2004-09-26,2004-09-30,"Hotel Handeck, Grimsel, Swiss Alps, Switzerland",bernhard-buehlmann,4teamwork,,https://web.archive.org/web/20131022230656/http://plone.org/events/sprints/past-sprints/grimsel-sprint,"announced, no report found"
+Houston Sprint 2004 (versioning),2004-11-18,2004-11-22,"Rice University, Houston, Texas, USA (mostly remote via IRC)",,,,https://web.archive.org/web/20131022235839/http://plone.org/events/sprints/past-sprints/houston,"announced, no report found"

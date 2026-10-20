@@ -1,0 +1,82 @@
+{
+  "fields": [
+    {
+      "name": "person",
+      "type": "string",
+      "description": "The id of the person in the people register.",
+      "constraints": {
+        "required": true,
+        "pattern": "^[a-z0-9][a-z0-9-]*$"
+      }
+    },
+    {
+      "name": "organisation",
+      "type": "string",
+      "description": "The id of the organisation in the organisations register.",
+      "constraints": {
+        "required": true,
+        "pattern": "^[a-z0-9][a-z0-9-]*$"
+      }
+    },
+    {
+      "name": "from",
+      "type": "integer",
+      "description": "The first year the person belonged to the organisation.",
+      "constraints": {
+        "required": true,
+        "minimum": 2000
+      }
+    },
+    {
+      "name": "to",
+      "type": "integer",
+      "description": "The last year the person belonged to the organisation; empty while it lasts.",
+      "constraints": {
+        "minimum": 2000
+      }
+    },
+    {
+      "name": "source",
+      "type": "string",
+      "description": "A public record, linked as a web address, that shows the affiliation.",
+      "constraints": {
+        "required": true,
+        "pattern": ".*https?://.*"
+      }
+    },
+    {
+      "name": "checked",
+      "type": "date",
+      "description": "The date the source was last checked."
+    },
+    {
+      "name": "notes",
+      "type": "string",
+      "description": "Free-text remarks on the row."
+    }
+  ],
+  "foreignKeys": [
+    {
+      "fields": [
+        "person"
+      ],
+      "reference": {
+        "resource": "people",
+        "fields": [
+          "id"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "organisation"
+      ],
+      "reference": {
+        "resource": "organisations",
+        "fields": [
+          "id"
+        ]
+      }
+    }
+  ]
+}

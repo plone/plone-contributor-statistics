@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-"""List changelog names that no mapping file maps, and propose who they are (#71).
+"""List changelog names that the registers do not map, and propose who they are (#71).
 
 Reads the changelog files from the clones in the cache, as
 `make run-changelogs` left them, and lists the names without a mapping, by
 their number of entries. With --propose, it looks for the commits whose
 message repeats an entry with that name, in the same repository. When most
 of these commits have the same author, it prints a row for
-curated/mappings/changelog_names.csv: the changelog entry and the commit are
-its public records. Commits of patches that someone else applied name the
+curated/mappings/identities.csv: the changelog entry and the commit are its
+public records. Commits of patches that someone else applied name the
 committer instead of the author, so a person checks each row before adding
 it; see docs/how-to/link-old-commits-to-a-person.md.
 """
@@ -23,16 +23,9 @@ import requests
 from dotenv import load_dotenv
 
 from scripts.collect import plone_changelogs
-from scripts.lib import changelogs, git_history, paths
+from scripts.lib import changelogs, git_history
 from scripts.lib.github_api import github_graphql
-from scripts.lib.mappings import load_account_aliases, load_excluded_repositories
-
-def load_commit_author_rows():
-    """(email, login or None, name) of the rows of commit_authors.csv."""
-    with open(paths.COMMIT_AUTHORS, newline='', encoding='utf-8') as f:
-        return [(row['email'].strip().lower(), row['github_username'].strip() or None, row['name'].strip())
-                for row in csv.DictReader(f)]
-
+from scripts.lib.model import load_excluded_repositories, load_registry
 
 # Entries shorter than this are too generic to find their commit
 MIN_TEXT = 25
@@ -47,7 +40,7 @@ def message_key(text):
 
 
 def unmatched_entries(entries, mapper, years):
-    """{name: [entries]} of the entries in the years with a name that no mapping file maps."""
+    """{name: [entries]} of the entries in the years with a name that the registers do not map."""
     found = defaultdict(list)
     spelling = {}
     for entry in entries:
@@ -103,11 +96,13 @@ def evidence(unmatched, commits_of):
     return dict(found)
 
 
-def proposals(unmatched, found, resolve, min_share=0.8):
-    """Rows for changelog_names.csv: (changelog_name, github_username, name, source, entries, commits, share).
+def proposals(unmatched, found, resolve, registry, min_share=0.8):
+    """Rows for identities.csv: (person, 'name', changelog name, source, entries, commits, share).
 
-    `resolve(email, entry, commit)` returns (GitHub login, name) of the commit author; the login is
-    None for a person without a GitHub account, and the name None if only the commit knows it.
+    `resolve(email, entry, commit)` returns the GitHub login of the commit author, None for a person
+    without a GitHub account. The person is the one the register has for the login, else for the email
+    address; when it has none, the person cell is a note and the row is not meant to be added as it is.
+    The last three columns are not part of the file.
     """
     rows = []
     for name, data in sorted(found.items(), key=lambda item: item[0].casefold()):
@@ -117,34 +112,33 @@ def proposals(unmatched, found, resolve, min_share=0.8):
         if share < min_share:
             continue
         entry, commit = data['examples'][email]
-        login, person = resolve(email, entry, commit)
+        login = resolve(email, entry, commit)
+        person = (registry.person_for(login=login) if login else None) or registry.person_for(email=email)
+        if person:
+            who = person.id
+        elif login:
+            who = f'?no person for the login {login}'
+        else:
+            who = f'?no person for {author} <{email}>'
         commit_url = f"https://github.com/plone/{entry.repository}/commit/{commit['sha']}"
         source = f'Changelog entry: {entry.url}; the commit by {author} that repeats it: {commit_url}'
-        rows.append((name, login or '', '' if login else person or author, source, len(unmatched[name]), commits,
-                     round(share, 2)))
+        rows.append((who, 'name', name, source, len(unmatched[name]), commits, round(share, 2)))
     return rows
 
 
 class Resolver:
-    """The commit author: commit_authors.csv, else the account GitHub links to the commit."""
+    """The GitHub login of a commit author: the account GitHub links to the commit."""
 
     def __init__(self, session):
         self.session = session
-        self.commit_authors = {email: (login, name) for email, login, name in load_commit_author_rows()}
-        self.aliases = load_account_aliases()
 
     def __call__(self, email, entry, commit):
-        login, name = self.commit_authors.get(email, (None, None))
-        if name and not login:
-            return None, name
-        if not login:
-            query = ('query($owner: String!, $name: String!, $oid: GitObjectID!) { repository(owner: $owner, '
-                     'name: $name) { object(oid: $oid) { ... on Commit { author { user { login } } } } } }')
-            data = github_graphql(self.session, query, {'owner': plone_changelogs.ORGANISATION,
-                                                        'name': entry.repository, 'oid': commit['sha']})
-            user = (((data.get('repository') or {}).get('object') or {}).get('author') or {}).get('user')
-            login = user['login'] if user else None
-        return self.aliases.get(login, login), name
+        query = ('query($owner: String!, $name: String!, $oid: GitObjectID!) { repository(owner: $owner, '
+                 'name: $name) { object(oid: $oid) { ... on Commit { author { user { login } } } } } }')
+        data = github_graphql(self.session, query, {'owner': plone_changelogs.ORGANISATION,
+                                                    'name': entry.repository, 'oid': commit['sha']})
+        user = (((data.get('repository') or {}).get('object') or {}).get('author') or {}).get('user')
+        return user['login'] if user else None
 
 
 def main():
@@ -183,10 +177,11 @@ def main():
             branches = [default] + git_history.release_branches(git_history.list_branches(path), default)
             return git_history.commit_messages(path, branches)
 
-        rows = proposals(unmatched, evidence(unmatched, commits_of), Resolver(session), args.min_share)
-        print('\nProposals (check each before adding; the last three columns are not part of the file):')
+        rows = proposals(unmatched, evidence(unmatched, commits_of), Resolver(session), load_registry(),
+                         args.min_share)
+        print('\nProposals for identities.csv (check each; the last three columns are not part of the file):')
         writer = csv.writer(sys.stdout, lineterminator='\n')
-        writer.writerow(['changelog_name', 'github_username', 'name', 'source', 'entries', 'commits', 'share'])
+        writer.writerow(['person', 'kind', 'value', 'source', 'entries', 'commits', 'share'])
         writer.writerows(rows)
 
 

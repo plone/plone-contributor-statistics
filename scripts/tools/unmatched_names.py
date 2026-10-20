@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
-"""List people in the community data whose name isn't linked to a GitHub login.
+"""List people of the register without a GitHub login who appear as a login, and propose the login (#117).
 
-Such people count by name, so someone with code work and community work can be
-counted twice (#117). With --propose, the GitHub profile names of all Plone
-contributors are fetched (needs GITHUB_TOKEN) and exact, unique matches are
-printed as rows for curated/mappings/mapping-github-username-to-fullname.csv.
-Check each proposal before adding it.
+A person without a login counts by person id; if their code work comes under a login that the register does
+not know, they count twice. This lists the people whose name equals a collected login. With --propose, the
+GitHub profile names of the logins the register does not know are fetched (needs GITHUB_TOKEN) and exact,
+unique matches are printed as a `github` value to set in curated/mappings/people.csv: the login is the
+person's main account, which their code work counts under. Check each proposal before setting it.
 """
 
 import argparse
 import csv
-import glob
 import os
 import re
 import sys
@@ -19,49 +18,65 @@ from collections import defaultdict
 import requests
 from dotenv import load_dotenv
 
-from scripts.lib import community, paths, people
+from scripts.lib import paths
 from scripts.lib.github_api import github_graphql
-from scripts.lib.mappings import organisation_names, read_organisations
-from scripts.lib.years import RECOGNITION_YEAR
+from scripts.lib.model import load_registry
+from scripts.lib.model.names import fold
 
 LOGIN = re.compile(r'[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})')
 
 
-def unmatched_names(years):
-    """{normalised name: {spelling, years, mentions}} of community records without a login."""
-    records = [r for year in years for r in community.community_records(year)]
-    index = people.build_person_index(records, organisations=set(organisation_names().values()))
-    found = {}
-    for record in records:
-        key = index.key(record.person, record.handle, community.split(record.organisation))
-        if key and key.startswith('name:'):
-            entry = found.setdefault(key[5:], {'spelling': record.person, 'years': set(), 'mentions': 0})
-            entry['years'].add(record.year)
-            entry['mentions'] += 1
-    return {name: {**entry, 'years': sorted(entry['years'])} for name, entry in found.items()}
-
-
-def propose(unmatched, profile_names):
-    """(login, name, source) for names that equal exactly one GitHub profile name."""
-    logins_by_name = defaultdict(set)
-    for login, name in profile_names.items():
-        logins_by_name[people.normalise(name)].add(login)
-    proposals = []
-    for name, entry in sorted(unmatched.items()):
-        logins = logins_by_name.get(name, set())
-        if len(logins) == 1:
-            login = next(iter(logins))
-            proposals.append((login, entry['spelling'], f'GitHub profile name: https://github.com/{login}'))
-    return proposals
-
-
-def contributor_logins():
-    """Every GitHub login with code work, or in organisations.csv."""
-    logins = set(read_organisations())
-    for path in glob.glob(str(paths.CONTRIBUTORS_DIR / '*-plone-contributors.csv')):
+def contributor_logins(registry=None, contributors_dir=paths.CONTRIBUTORS_DIR):
+    """Every GitHub login with code work in the collected files, or in the register."""
+    registry = registry or load_registry()
+    logins = {person.github for person in registry.people.values() if person.github}
+    for path in sorted(contributors_dir.glob('*-plone-contributors.csv')):
         with open(path, newline='', encoding='utf-8') as f:
             logins.update(row['username'] for row in csv.DictReader(f))
     return sorted(login for login in logins if LOGIN.fullmatch(login))
+
+
+def unregistered(registry, logins):
+    """The logins that belong to no person of the register."""
+    return [login for login in logins if registry.person_for(login=login) is None]
+
+
+def unmatched_people(registry, logins):
+    """{person id: [logins]} of people without a login whose name, folded without spaces, is an unregistered login."""
+    by_key = defaultdict(list)
+    for login in unregistered(registry, logins):
+        by_key[fold(login).replace(' ', '')].append(login)
+    found = {}
+    for person in registry.people.values():
+        key = fold(person.name).replace(' ', '')
+        if not person.github and by_key.get(key):
+            found[person.id] = sorted(by_key[key])
+    return found
+
+
+def propose(registry, profile_names):
+    """(person id, login, profile name) for people without a login whose name is exactly one profile name."""
+    logins_by_name = defaultdict(set)
+    for login, name in profile_names.items():
+        logins_by_name[fold(name)].add(login)
+    ids_by_name = defaultdict(set)
+    for person in registry.people.values():
+        ids_by_name[fold(person.name)].add(person.id)
+    proposals = []
+    for person in sorted(registry.people.values(), key=lambda person: person.id):
+        if person.github:
+            continue
+        logins = logins_by_name.get(fold(person.name), set())
+        if len(logins) == 1 and len(ids_by_name[fold(person.name)]) == 1:
+            login = next(iter(logins))
+            if registry.person_for(login=login) is None:
+                proposals.append((person.id, login, profile_names[login]))
+    return proposals
+
+
+def proposal_line(person_id, login, name):
+    """The proposal as the line --propose prints."""
+    return f'people.csv: set github of {person_id} to {login} (profile name "{name}": https://github.com/{login})'
 
 
 def fetch_profile_names(session, logins, batch=50):
@@ -79,24 +94,25 @@ def fetch_profile_names(session, logins, batch=50):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='List community names without a GitHub login')
-    parser.add_argument('--since', type=int, default=2003, help='First year to check (default: 2003)')
+    parser = argparse.ArgumentParser(description='List people without a GitHub login who appear as a login')
     parser.add_argument('--propose', action='store_true',
                         help='Propose logins from GitHub profile names (needs GITHUB_TOKEN)')
     args = parser.parse_args()
-    found = unmatched_names(range(args.since, RECOGNITION_YEAR + 1))
-    for entry in sorted(found.values(), key=lambda entry: (-entry['mentions'], entry['spelling'].casefold())):
-        print(f"{entry['spelling']}\t{entry['mentions']} mentions\t{entry['years'][0]}–{entry['years'][-1]}")
-    print(f'{len(found)} names without a GitHub login', file=sys.stderr)
+    registry = load_registry()
+    logins = contributor_logins(registry)
+    found = unmatched_people(registry, logins)
+    for person_id, matching in sorted(found.items()):
+        print(f"{person_id}\t{registry.people[person_id].name}\tlogin: {'; '.join(matching)}")
+    print(f'{len(found)} people without a GitHub login whose name is a login', file=sys.stderr)
     if args.propose:
         load_dotenv()
         session = requests.Session()
         token = os.getenv('GITHUB_TOKEN')
         if token:
             session.headers['Authorization'] = f'token {token}'
-        writer = csv.writer(sys.stdout, lineterminator='\n')
-        print('\nProposals (check each before adding):')
-        writer.writerows(propose(found, fetch_profile_names(session, contributor_logins())))
+        print('\nProposals for people.csv (check each before setting it):')
+        for proposal in propose(registry, fetch_profile_names(session, unregistered(registry, logins))):
+            print(proposal_line(*proposal))
 
 
 if __name__ == '__main__':

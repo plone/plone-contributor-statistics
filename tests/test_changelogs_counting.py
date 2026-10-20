@@ -5,6 +5,7 @@ import pytest
 from scripts.collect import plone_changelogs
 from scripts.lib import changelogs
 from scripts.lib.changelogs import NameMapper, Occurrence, deduplicate
+from scripts.lib.model import Identity, Person, Registry
 
 
 def occurrence(text, release_date='2010-05-04', repository='plone.app.x', branch='master', default=True,
@@ -103,36 +104,37 @@ def test_a_long_text_copied_to_another_repository_counts_once():
 
 @pytest.fixture
 def mapper():
-    return NameMapper(
-        changelog_names={'alecm': 'alecpm', 'Wiggy': 'Wichert Akkerman', 'hannosch': 'from-changelog-names'},
-        commit_authors={'andyd_@localhost': 'Andy McKay', 'whit@localhost': 'whitmo', 'tiran@example.org': 'tiran'},
-        commit_author_names={'Whit Morriss': 'whitmo', 'Andy': 'andym'},
-        aliases={'bobdobbs666': 'runyaga', 'giacomos85': 'giacomos'},
-        bots={'mister-roboto': 'bot'},
-        logins=['hannosch', 'Limi', 'bobdobbs666', 'whitmo'],
-        fullnames={'Eric Bréhault': 'ebrehault'},
-    )
+    src = 'https://example.org/record'
+    people = [
+        Person('alecpm', 'Alec Mitchell', 'alecpm', src), Person('wichert', 'Wichert Akkerman', 'wichert', src),
+        Person('andy-mckay', 'Andy McKay', 'andym', src), Person('whitmo', 'Whit Morriss', 'whitmo', src),
+        Person('tiran', 'Christian Heimes', 'tiran', src), Person('runyaga', 'Alan Runyan', 'runyaga', src),
+        Person('ebrehault', 'Eric Bréhault', 'ebrehault', src),
+    ]
+    identities = [
+        Identity('alecpm', 'name', 'alecm', src), Identity('wichert', 'name', 'Wiggy', src),
+        Identity('andy-mckay', 'email', 'andyd_@localhost', src), Identity('whitmo', 'email', 'whit@localhost', src),
+        Identity('tiran', 'email', 'tiran@example.org', src), Identity('runyaga', 'login', 'bobdobbs666', src),
+    ]
+    return NameMapper(Registry(people, identities, [], []), ['hannosch', 'Limi', 'bobdobbs666', 'whitmo'],
+                      {'mister-roboto': 'bot'})
 
 
 @pytest.mark.parametrize('name, person, layer', [
-    ('alecm', 'alecpm', 'changelog_names'),
-    ('ALECM', 'alecpm', 'changelog_names'),
-    ('wiggy', 'Wichert Akkerman', 'changelog_names'),
-    # changelog_names.csv wins over every other layer
-    ('hannosch', 'from-changelog-names', 'changelog_names'),
-    ('andyd_', 'Andy McKay', 'commit_authors'),
-    ('whit', 'whitmo', 'commit_authors'),
-    ('Whit Morriss', 'whitmo', 'commit_authors'),
-    ('tiran@example.org', 'tiran', 'commit_authors'),
-    ('whit@localhost', 'whitmo', 'commit_authors'),
-    ('giacomos85', 'giacomos', 'account_aliases'),
+    ('alecm', 'alecpm', 'identity'),
+    ('ALECM', 'alecpm', 'identity'),
+    ('wiggy', 'wichert', 'identity'),
+    ('andyd_', 'andym', 'identity'),
+    ('whit', 'whitmo', 'identity'),
+    ('Whit Morriss', 'whitmo', 'identity'),
+    ('tiran@example.org', 'tiran', 'identity'),
+    ('whit@localhost', 'whitmo', 'identity'),
     ('mister-roboto', None, 'bot'),
     ('pre-commit-ci[bot]', None, 'bot'),
     ('limi', 'Limi', 'login'),
     # A login of code work that is a second account counts for the main account
-    ('bobdobbs666', 'runyaga', 'account_aliases'),
-    ('Eric Brehault', 'ebrehault', 'fullname'),
-    # A first name alone in commit_authors.csv is too ambiguous
+    ('bobdobbs666', 'runyaga', 'identity'),
+    ('Eric Brehault', 'ebrehault', 'identity'),
     ('Andy', 'Andy', 'unmatched'),
     ('timo', 'timo', 'unmatched'),
     ('someone@example.org', 'someone@example.org', 'unmatched'),
@@ -145,7 +147,7 @@ def test_every_named_person_gets_full_credit(mapper):
     entry = occurrence('Fixed the portlet [alecm, limi and timo]')
 
     assert changelogs.credited(entry, mapper) == [
-        ('alecpm', 'alecm', 'changelog_names'), ('Limi', 'limi', 'login'), ('timo', 'timo', 'unmatched')]
+        ('alecpm', 'alecm', 'identity'), ('Limi', 'limi', 'login'), ('timo', 'timo', 'unmatched')]
 
 
 def test_a_person_named_twice_gets_one_credit(mapper):
@@ -195,7 +197,7 @@ def test_output_format(mapper):
         {'username': 'timo', 'changelog_entries': 2, 'repositories_count': 1, 'repositories': 'plone.app.x',
          'changelog_names': 'timo', 'matched_by': 'unmatched'},
         {'username': 'alecpm', 'changelog_entries': 1, 'repositories_count': 1, 'repositories': 'plone.app.x',
-         'changelog_names': 'alecm', 'matched_by': 'changelog_names'},
+         'changelog_names': 'alecm', 'matched_by': 'identity'},
         {'username': 'Limi', 'changelog_entries': 1, 'repositories_count': 1, 'repositories': 'plone.app.x',
          'changelog_names': 'limi', 'matched_by': 'login'},
     ]

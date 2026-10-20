@@ -9,27 +9,16 @@ docs/explanation/community-page.md.
 import argparse
 import csv
 import json
-import re
-import unicodedata
 from collections import defaultdict
 
-from scripts.lib import community, paths, people
-from scripts.lib.mappings import organisation_names
+from scripts.lib import paths
+from scripts.lib.model import TALK_TYPES, UNMAPPED, events, items, load_registry, roles
+from scripts.lib.model.names import fold, slugify
+from scripts.lib.model.registers import PERSON_PREFIX
 from scripts.lib.years import RECOGNITION_YEAR
 from scripts.report import generate_community_recognition_report as recognition
 
 FIRST_YEAR = 2003
-# Not organisations for "organisations active": unmapped people and individuals
-NOT_ORGANISATIONS = {'', recognition.UNMAPPED, 'Plone Foundation (community volunteer)'}
-
-
-def slug(name):
-    plain = unicodedata.normalize('NFKD', name).encode('ascii', 'ignore').decode()
-    return re.sub(r'[^a-z0-9]+', '-', plain.lower()).strip('-')
-
-
-def is_organisation(name):
-    return name not in NOT_ORGANISATIONS and not name.endswith('(independent)')
 
 
 def read_rows(path):
@@ -55,38 +44,45 @@ def organisation_code_work(year):
             yield row['organisation'], commits, pulls
 
 
-def code_key(index, username):
-    # Commit authors without a GitHub account are recorded by name
-    return index.key(name=username) if ' ' in username else username.casefold()
+def code_key(registry, username):
+    """Who a collected username is: the id of the registered person, else the login in lower case."""
+    person = registry.person_for_username(username)
+    return person.id if person else username.casefold()
 
 
-def people_of_year(year, index, records):
+def people_of_year(year, registry, year_roles):
+    """Everyone active in the year, one entry per person: code work and roles together."""
     found = defaultdict(lambda: {'commits': 0, 'pull_requests': 0, 'roles': set()})
     for username, commits, pulls in code_work(year):
-        key = code_key(index, username)
-        if key is None:
-            continue
-        person = found[key]
+        person = found[code_key(registry, username)]
         person['commits'] += commits
         person['pull_requests'] += pulls
-    for record in records:
-        key = index.key(record.person, record.handle, community.split(record.organisation))
-        if key:
-            found[key]['roles'].add(record.label)
-    return [{'id': key, 'commits': value['commits'], 'pull_requests': value['pull_requests'],
+    for role in year_roles:
+        found[role.person]['roles'].add(role.label)
+    return [{'id': key, 'name': registry.display_name(f'{PERSON_PREFIX}{key}' if key in registry.people else key),
+             'commits': value['commits'], 'pull_requests': value['pull_requests'],
              'roles': sorted(value['roles'])} for key, value in sorted(found.items())]
 
 
-def organisations_of_year(year, records, events):
+def talk_organisations(year, registry):
+    """The names of the organisations named in the talks of the year, one per talk and organisation."""
+    return [registry.organisation_name(o) for item in items(year, 'world-plone-day-talks')
+            if item.fields['type'] in TALK_TYPES for o in item.organisations]
+
+
+def organisations_of_year(year, registry, year_roles, year_events):
+    """The organisations active in the year: from code work, from the organisation of role holders, from events."""
     found = {organisation for organisation, _, _ in organisation_code_work(year)}
-    found.update(o for record in records for o in community.split(record.organisation))
-    found.update(o for event in events for o in event.organisations)
-    return {o for o in found if is_organisation(o)}
+    found.update(registry.organisation_of(role.person, year) for role in year_roles)
+    found.update(registry.organisation_name(o) for event in year_events for o in event.organisations)
+    found.update(talk_organisations(year, registry))
+    return {o for o in found if registry.is_counted_organisation(o)}
 
 
-def event_data(event):
+def event_data(registry, event):
     return {'kind': event.kind, 'name': event.name, 'level': event.level,
-            'organisations': [o for o in event.organisations if o != recognition.UNMAPPED],
+            'organisations': [name for name in (registry.organisation_name(o) for o in event.organisations)
+                              if name != UNMAPPED],
             'sources': list(event.sources)}
 
 
@@ -135,50 +131,70 @@ def organisation_data(name, categories, found, levels, history_years, per_year):
     }
 
 
-def organisation_history(year, records, events):
-    """Yearly counts per organisation: commits, merged pull requests, roles and events."""
+def organisation_history(year, registry, year_roles, year_events):
+    """Yearly counts per organisation: commits, merged pull requests, roles and events.
+
+    A role counts for the organisation its person belonged to in the year, an event for each organisation named.
+    """
     found = defaultdict(lambda: {'commits': 0, 'pull_requests': 0, 'roles': 0, 'events': 0})
     for organisation, commits, pulls in organisation_code_work(year):
         found[organisation]['commits'] += commits
         found[organisation]['pull_requests'] += pulls
-    for record in records:
-        for organisation in community.split(record.organisation):
-            found[organisation]['roles'] += 1
-    for event in events:
+    for role in year_roles:
+        found[registry.organisation_of(role.person, year)]['roles'] += 1
+    for event in year_events:
         for organisation in event.organisations:
-            found[organisation]['events'] += 1
+            found[registry.organisation_name(organisation)]['events'] += 1
+    for organisation in talk_organisations(year, registry):
+        found[organisation]['roles'] += 1
     return found
 
 
-def history_of_year(year, people_list, records, events):
+def history_of_year(year, registry, people_list, year_roles, year_events):
     commits = sum(c for _, c, _ in code_work(year))
     pulls = sum(p for _, _, p in code_work(year))
+
+    def holder(role, **extra):
+        return {'name': registry.people[role.person].name, **extra,
+                'organisation': registry.organisation_of(role.person, year), 'source': role.source or None}
+
     return {
         'people_active': len(people_list),
         'commits': commits,
         # Plone moved to GitHub around 2010: earlier years have no pull requests at all
         'pull_requests': pulls or None,
-        'board': [{'name': r.person, 'organisation': r.organisation, 'source': r.source or None}
-                  for r in records if r.kind == 'board-of-directors'],
-        'team_leads': [{'name': r.person, 'team': r.detail, 'organisation': r.organisation,
-                        'source': r.source or None} for r in records if r.kind == 'team-leaders'],
-        'events': [event_data(event) for event in events],
+        'board': [holder(r) for r in year_roles if r.kind == 'board-of-directors'],
+        'team_leads': [holder(r, team=r.detail) for r in year_roles if r.kind == 'team-leaders'],
+        'events': [event_data(registry, event) for event in year_events],
     }
+
+
+def people_names(registry):
+    """{folded name or login: person id} of the registered people; a key that fits two people is left out."""
+    keys = defaultdict(set)
+    for person in registry.people.values():
+        keys[fold(person.name)].add(person.id)
+        if person.github:
+            keys[fold(person.github)].add(person.id)
+    for identity in registry.identities:
+        if identity.kind in ('name', 'login'):
+            keys[fold(identity.value)].add(identity.person)
+    return {key: next(iter(ids)) for key, ids in sorted(keys.items()) if len(ids) == 1}
 
 
 def build_page_data(year=RECOGNITION_YEAR):
     all_years = list(range(FIRST_YEAR, year + 1))
     window = list(recognition.five_years(year))
-    records = {y: community.community_records(y) for y in all_years}
-    events = {y: community.events(y) for y in all_years}
-    index = people.build_person_index([r for y in all_years for r in records[y]],
-                                      organisations=set(organisation_names().values()))
+    registry = load_registry()
+    year_roles = {y: roles(y) for y in all_years}
+    year_events = {y: events(y) for y in all_years}
 
-    per_person = {y: people_of_year(y, index, records[y]) for y in all_years}
-    per_organisation = {y: organisation_history(y, records[y], events[y]) for y in all_years}
+    per_person = {y: people_of_year(y, registry, year_roles[y]) for y in all_years}
+    per_organisation = {y: organisation_history(y, registry, year_roles[y], year_events[y]) for y in all_years}
 
     found = {}
-    org_points, _ = recognition.calculate_community_recognition_points(year=year, contributions=found)
+    org_points, _ = recognition.calculate_community_recognition_points(year=year, registry=registry,
+                                                                       contributions=found)
     levels = recognition.load_recognition_levels()
     organisations = {}
     wall = defaultdict(list)
@@ -186,23 +202,23 @@ def build_page_data(year=RECOGNITION_YEAR):
         data = organisation_data(name, org_points[name], found.get(name, {}), levels, all_years, per_organisation)
         if data['level'] == 'No Level':
             continue
-        organisations[slug(name)] = data
-        wall[data['level']].append({'name': name, 'slug': slug(name), 'points': data['points']})
+        organisations[slugify(name)] = data
+        wall[data['level']].append({'name': name, 'slug': slugify(name), 'points': data['points']})
 
     def people_in(years_):
         return len({p['id'] for y in years_ for p in per_person[y]})
 
     def organisations_in(years_):
-        return len(set().union(*(organisations_of_year(y, records[y], events[y]) for y in years_)))
+        return len(set().union(*(organisations_of_year(y, registry, year_roles[y], year_events[y]) for y in years_)))
 
     return {
         'year': year,
         'years': window,
         'headline': {
             'year': {'people': people_in([year]), 'organisations': organisations_in([year]),
-                     'events': len(events[year])},
+                     'events': len(year_events[year])},
             'five_years': {'people': people_in(window), 'organisations': organisations_in(window),
-                           'events': sum(len(events[y]) for y in window)},
+                           'events': sum(len(year_events[y]) for y in window)},
             'since_2003': {'people': people_in(all_years)},
         },
         'levels': levels_data(levels),
@@ -210,10 +226,10 @@ def build_page_data(year=RECOGNITION_YEAR):
                  for level in sorted(levels, key=lambda lvl: -lvl['min_points']) if wall[level['name']]],
         'organisations': organisations,
         'people': {str(y): per_person[y] for y in all_years},
-        # Names in the community data that the data links to a login, for the people search
-        'people_names': {name: login for name, login in sorted(index.logins_by_name.items())
-                         if name in {people.normalise(r.person) for y in all_years for r in records[y]}},
-        'history': {str(y): history_of_year(y, per_person[y], records[y], events[y]) for y in all_years},
+        # Names of the people in the register, for the people search: the folded name finds the id
+        'people_names': people_names(registry),
+        'history': {str(y): history_of_year(y, registry, per_person[y], year_roles[y], year_events[y])
+                    for y in all_years},
     }
 
 

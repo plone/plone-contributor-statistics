@@ -44,7 +44,7 @@ Each folder has a README; the [data files reference](https://plone.github.io/plo
 
 ```text
 scripts/     the code, by stage: collect/, derive/, report/, tools/, and shared code in lib/
-curated/     input edited by hand: mappings/ and community-contributions/; every entry needs a public record
+curated/     input edited by hand: registers and lists in mappings/, community-contributions/, schemas/; every entry needs a public record
 collected/   data fetched from GitHub by the collectors; never edit by hand
 derived/     data computed from curated and collected data, committed for transparency; never edit by hand
 reports/     reports, text summaries and graphs; never edit by hand
@@ -59,9 +59,9 @@ They are no longer updated; their scripts are in `archive/flourish/`.
 ## Contributing
 
 Corrections are welcome as pull requests, with a link to a public record, or with a confirmation by the person in the pull request.
-See [Correct an organisation mapping](https://plone.github.io/plone-contributor-statistics/docs/how-to/correct-an-organisation-mapping.html) and [Contribute to the documentation](https://plone.github.io/plone-contributor-statistics/docs/contributing/documentation.html).
+See [Add an affiliation](https://plone.github.io/plone-contributor-statistics/docs/how-to/add-an-affiliation.html) and [Contribute to the documentation](https://plone.github.io/plone-contributor-statistics/docs/contributing/documentation.html).
 
-Code changes get tests; data files get format checks ([#52](https://github.com/plone/plone-contributor-statistics/issues/52)).
+Code changes get tests; data files get schema checks ([#52](https://github.com/plone/plone-contributor-statistics/issues/52)).
 GitHub Actions runs the tests and builds the documentation on every pull request.
 A pull request that changes the method must update the documentation in the same pull request.
 

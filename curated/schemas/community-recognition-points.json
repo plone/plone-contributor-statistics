@@ -1,0 +1,29 @@
+{
+  "fields": [
+    {
+      "name": "Category",
+      "type": "string",
+      "description": "The category of the contribution."
+    },
+    {
+      "name": "Criteria",
+      "type": "string",
+      "description": "The contribution that earns points."
+    },
+    {
+      "name": "Comment",
+      "type": "string",
+      "description": "How the points are split or limited."
+    },
+    {
+      "name": "Period",
+      "type": "string",
+      "description": "The period the points are counted for."
+    },
+    {
+      "name": "Number of points",
+      "type": "integer",
+      "description": "The points the contribution earns."
+    }
+  ]
+}
