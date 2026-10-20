@@ -81,19 +81,21 @@ class Registry:
             elif identity.kind == 'name':
                 self._by_name.setdefault(fold(identity.value), set()).add(identity.person)
         self._organisation_ids = {}
-        self._domain_keys = {}
+        self._name_keys = {}  # folded name or alias without spaces -> {organisation id: 'name' or 'alias'}
+        self._first_words = {}  # first word of a name or alias -> {organisation id}
         self._domain_aliases = {}
         for organisation in self.organisations.values():
-            for name in (organisation.name, *organisation.aliases):
+            for number, name in enumerate((organisation.name, *organisation.aliases)):
                 self._organisation_ids.setdefault(fold(name), organisation.id)
                 if organisation.kind == 'organisation':
                     if '.' in name:  # an alias written as a domain
                         self._domain_aliases.setdefault(name.strip().lower(), set()).add(organisation.id)
                     words = fold(name).split()
                     if words:
-                        self._domain_keys.setdefault(''.join(words), set()).add(organisation.id)
+                        kinds = self._name_keys.setdefault(''.join(words), {})
+                        kinds.setdefault(organisation.id, 'name' if number == 0 else 'alias')
                         if len(words[0]) >= MIN_DOMAIN_KEY:
-                            self._domain_keys.setdefault(words[0], set()).add(organisation.id)
+                            self._first_words.setdefault(words[0], set()).add(organisation.id)
 
     def _single(self, index, key):
         """The person of a key, or None when the key is unknown or belongs to several people."""
@@ -153,25 +155,36 @@ class Registry:
         """The id of the organisation with this name or alias, ignoring case and punctuation; else None."""
         return self._organisation_ids.get(fold(name_or_alias))
 
-    def organisation_for_domain(self, domain):
-        """The id of the organisation that a mail domain belongs to, else None.
+    def match_domain(self, domain):
+        """(organisation id, how) of a mail domain, else None; how is "alias", "name" or "first word".
 
-        An alias written as a domain (`kuleuven.be`) matches that domain and its subdomains. Otherwise each label of
-        the domain but the last is tried in turn (`icts.kuleuven.be`: `icts`, then `kuleuven`),
-        folded and compared with the folded name of every organisation proper and its aliases, written without
-        spaces, and with the first word of the name. A key that belongs to several organisations matches none.
-        Add a domain to the `aliases` of its organisation when the name does not give it away.
+        Tried in this order, the first tier with a unique hit wins:
+        1. an alias written as a domain (`kuleuven.be`) matches that domain and its subdomains;
+        2. each label of the domain but the last (`icts.kuleuven.be`: `icts`, then `kuleuven`), folded, equals the
+           folded name or an alias of an organisation proper, written without spaces;
+        3. a label equals the first word of such a name or alias.
+        A key that belongs to several organisations matches none. Add a domain to the `aliases` of its
+        organisation when the name does not give it away.
         """
         domain = domain.strip().lower()
         for alias, ids in self._domain_aliases.items():
             if len(ids) == 1 and (domain == alias or domain.endswith('.' + alias)):
-                return next(iter(ids))
-        labels = domain.split('.')[:-1]
-        for label in labels:
-            ids = self._domain_keys.get(fold(label).replace(' ', ''), set())
+                return next(iter(ids)), 'alias'
+        keys = [fold(label).replace(' ', '') for label in domain.split('.')[:-1]]
+        for key in keys:
+            kinds = self._name_keys.get(key, {})
+            if len(kinds) == 1:
+                return next(iter(kinds.items()))
+        for key in keys:
+            ids = self._first_words.get(key, set())
             if len(ids) == 1:
-                return next(iter(ids))
+                return next(iter(ids)), 'first word'
         return None
+
+    def organisation_for_domain(self, domain):
+        """The id of the organisation that a mail domain belongs to, else None; see match_domain."""
+        match = self.match_domain(domain)
+        return match[0] if match else None
 
     def is_counted_organisation(self, name):
         """Whether the name is an organisation proper, not an independent person, the foundation or Unmapped."""

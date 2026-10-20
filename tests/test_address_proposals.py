@@ -23,13 +23,13 @@ def git(path, *args, author=('Someone', 'someone@example.org'), date=None):
 
 
 def make_clone(cache, repository, commits):
-    """A bare clone at <cache>/plone/<repository>.git; commits are (name, email, year)."""
+    """A bare clone at <cache>/plone/<repository>.git; commits are (name, email, year or full date)."""
     work = cache / 'work' / repository
     work.mkdir(parents=True)
     git(work, 'init', '-q', '-b', 'main')
     for number, (name, email, year) in enumerate(commits):
         git(work, 'commit', '--allow-empty', '-q', '-m', f'change {number}', author=(name, email),
-            date=f'{year}-06-01T12:00:00Z')
+            date=year if isinstance(year, str) else f'{year}-06-01T12:00:00Z')
     target = cache / 'plone' / f'{repository}.git'
     target.parent.mkdir(parents=True, exist_ok=True)
     git(cache, 'clone', '-q', '--bare', str(work), str(target))
@@ -73,8 +73,8 @@ def test_read_authors_of_bare_and_non_bare_clones(tmp_path):
     work, bare = make_clone(tmp_path, 'a', [('Ann Author', 'ann@x.example', 2010), ('Bo Bee', 'bo@y.example', 2011)])
     for path in (work, bare):
         assert sorted(git_history.read_authors(path), key=lambda a: a[3]) == [
-            (sha_of(work, 0), 'ann@x.example', 'Ann Author', 2010),
-            (sha_of(work, 1), 'bo@y.example', 'Bo Bee', 2011)]
+            (sha_of(work, 0), 'ann@x.example', 'Ann Author', '2010-06-01T12:00:00Z'),
+            (sha_of(work, 1), 'bo@y.example', 'Bo Bee', '2011-06-01T12:00:00Z')]
 
 
 def test_read_authors_includes_other_branches(tmp_path):
@@ -94,6 +94,23 @@ def test_organisation_for_domain(setup):
     assert registry.organisation_for_domain('acme.example') == 'acme'  # the first word of the name
     assert registry.organisation_for_domain('nothing.example') is None
     assert registry.organisation_for_domain('greenfinity') is None  # no dot: the label is the top-level domain
+
+
+def test_domain_keys_have_two_tiers(tmp_repo, write_registers):
+    write_registers(organisations=[('acme', 'Acme'), ('acme-industries', 'Acme Industries'),
+                                   ('other', 'Other Thing')])
+    registry = load_registry()
+    assert registry.match_domain('acme.com') == ('acme', 'name')  # the whole name beats the first word
+    assert registry.match_domain('acmeindustries.com') == ('acme-industries', 'name')
+    assert registry.match_domain('other.com') == ('other', 'first word')
+    assert registry.match_domain('x.com') is None
+
+
+def test_match_domain_says_alias(setup):
+    registry = load_registry()
+    assert registry.match_domain('widgets.example') == ('acme', 'alias')
+    assert registry.match_domain('acme.example') == ('acme', 'first word')
+    assert registry.match_domain('greenfinity.hu') == ('greenfinity', 'name')
 
 
 def test_organisation_for_domain_ignores_independents_and_ambiguous_keys(tmp_repo, write_registers):
@@ -125,18 +142,65 @@ def test_bots_are_skipped(setup):
 
 @pytest.mark.parametrize('domain,company', [
     ('greenfinity.hu', True), ('gmail.com', False), ('yahoo.co.uk', False), ('hotmail.fr', False),
-    ('plone.org', False), ('zope.org', False), ('users.noreply.github.com', False), ('localhost', False),
+    ('plone.org', False), ('zope.org', False), ('lists.plone.org', False), ('svn.zope.org', False),
+    ('localhost.localdomain', False), ('users.noreply.github.com', False), ('localhost', False),
     ('myhost.local', False), ('intranet', False), ('(none)', False), ('example.lan', False),
     ('1b3f2c4d-0000-4000-8000-123456789abc', False),
-    ('hannosch.eu', False),  # the stem is a part of the name of Hanno Schlichting
-    ('janedoe.net', False),  # the login
     ('icts.kuleuven.be', True),
 ])
 def test_company_domain(domain, company):
-    class P:
-        name = 'Hanno Schlichting'
-        github = 'janedoe'
-    assert address_proposals.is_company_domain(domain, P) is company
+    assert address_proposals.is_company_domain(domain) is company
+
+
+class Person:
+    def __init__(self, name, github=None):
+        self.name, self.github = name, github
+
+
+@pytest.mark.parametrize('domain,name,github,own', [
+    ('hannosch.eu', 'Hanno Schlichting', None, True),  # a name part of four letters or more inside the label
+    ('janedoe.net', 'Someone Else', 'janedoe', True),  # the login
+    ('tom.net', 'Tom Comer', None, True),  # a whole name part
+    ('foo.com.au', 'Tom Comer', None, False),  # `com` is no part of the name; only the label `foo` counts
+    ('andersonleeb.com', 'Jane Leeb', None, True),
+    ('mail.glicksoftware.com', 'David Glick', None, True),
+    ('com.example', 'Tom Comer', None, False),
+    ('ab.example', 'Abe Bee', None, False),  # a part shorter than four letters is no evidence in a longer label
+])
+def test_own_domain(domain, name, github, own):
+    assert address_proposals.is_own_domain(domain, Person(name, github)) is own
+
+
+def test_registrable_label():
+    assert address_proposals.registrable_label('mail.foo.co.uk') == 'foo'
+    assert address_proposals.registrable_label('foo.com.au') == 'foo'
+    assert address_proposals.registrable_label('a.b.foo.de') == 'foo'
+    assert address_proposals.registrable_label('foo.com') == 'foo'
+
+
+def test_a_registered_organisation_wins_over_the_own_domain(setup):
+    paths.ORGANISATIONS.write_text(paths.ORGANISATIONS.read_text(encoding='utf-8')
+                                   + 'glick-software,Glick Software,organisation,,\n', encoding='utf-8')
+    paths.PEOPLE.write_text(paths.PEOPLE.read_text(encoding='utf-8')
+                            + f'david-glick,David Glick,davisagli,{SOURCE}\n', encoding='utf-8')
+    cache = setup / 'cache'
+    make_clone(cache, 'r', [('David Glick', 'david@glicksoftware.com', 2011), ('Tom', 'x@foo.com.au', 2011)])
+    text, _ = run(cache)
+    assert '| david-glick | glick-software | 2011 | 1 | glicksoftware.com | name |' in text
+    paths.ORGANISATIONS.write_text(paths.ORGANISATIONS.read_text(encoding='utf-8').replace(
+        'glick-software,Glick Software,organisation,,\n', ''), encoding='utf-8')
+    text, _ = run(cache)
+    assert 'glicksoftware.com' not in text  # unmapped and the person's own
+
+
+def test_the_foo_and_andersonleeb_cases(setup):
+    paths.PEOPLE.write_text(paths.PEOPLE.read_text(encoding='utf-8')
+                            + f'tom-comer,Tom Comer,,{SOURCE}\njane-leeb,Jane Leeb,,{SOURCE}\n', encoding='utf-8')
+    cache = setup / 'cache'
+    make_clone(cache, 'r', [('Tom Comer', 'tom@foo.com.au', 2011), ('Jane Leeb', 'jane@andersonleeb.com', 2011)])
+    text, _ = run(cache)
+    assert '| foo.com.au | 1 | 2011 | 1 |' in text  # reported as unmapped, not dropped silently
+    assert 'andersonleeb.com' not in text
 
 
 def test_proposals_runs_evidence_and_unmapped(setup):
@@ -158,7 +222,8 @@ def test_proposals_runs_evidence_and_unmapped(setup):
     text, added = run(cache)
     sha = sha_of(work, 0)
     assert added == []
-    assert f'| hanno-schlichting | greenfinity | 2016-2017 | 3 | plone.app.x@{sha[:10]} |' in text
+    assert (f'| hanno-schlichting | greenfinity | 2016-2017 | 3 | greenfinity.hu | name | '
+            f'plone.app.x@{sha[:10]} |') in text
     proposals, conflicts = address_proposals.propose(load_registry(), address_proposals.gather(
         [('plone.app.x', str(cache / 'plone' / 'plone.app.x.git'))],
         address_proposals.Finder(load_registry(), []), 2002)[0])
@@ -189,11 +254,34 @@ def test_covered_year_splits_the_run_and_other_organisation_conflicts(setup):
     assert '| jane-doe | 2018 | greenfinity | oldco |' in text
 
 
+def test_example_is_the_earliest_commit_and_each_run_has_its_own(setup):
+    cache = setup / 'cache'
+    # repository "a" sorts first, but its commit is later than the one in "b"
+    work_a, _ = make_clone(cache, 'a', [('Jane Doe', 'jane@greenfinity.hu', '2015-09-01T00:00:00Z'),
+                                        ('Jane Doe', 'jane@greenfinity.hu', '2017-03-01T00:00:00Z')])
+    work_b, _ = make_clone(cache, 'b', [('Jane Doe', 'jane@greenfinity.hu', '2015-02-01T00:00:00Z')])
+    text, _ = run(cache, write=True)
+    rows = read_rows(paths.AFFILIATION_PROPOSALS)
+    assert [(r['from'], r['to']) for r in rows] == [(2015, 2015), (2017, 2017)]
+    assert rows[0]['evidence'].endswith(f'(example: https://github.com/plone/b/commit/{sha_of(work_b)})')
+    assert rows[1]['evidence'].endswith(f'(example: https://github.com/plone/a/commit/{sha_of(work_a, 1)})')
+
+
+def test_a_covered_block_of_several_years(setup):
+    paths.AFFILIATIONS.write_text(
+        'person,organisation,from,to,source,checked,notes\n'
+        f'jane-doe,greenfinity,2015,2017,{SOURCE},,\n', encoding='utf-8')
+    cache = setup / 'cache'
+    make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.hu', y) for y in range(2014, 2020)])
+    run(cache, write=True)
+    assert [(r['from'], r['to']) for r in read_rows(paths.AFFILIATION_PROPOSALS)] == [(2014, 2014), (2018, 2019)]
+
+
 def test_since(setup):
     cache = setup / 'cache'
     make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.hu', y) for y in (2005, 2010)])
     text, _ = run(cache, since=2008)
-    assert '| jane-doe | greenfinity | 2010 |' in text
+    assert '| jane-doe | greenfinity | 2010 | 1 | greenfinity.hu | name |' in text
     assert '2005' not in text
 
 
