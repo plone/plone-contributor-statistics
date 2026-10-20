@@ -90,7 +90,9 @@ def render(data, out_dir, docs_url='docs/'):
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     # The people data feeds the search; "</" must not end the script element
-    people = json.dumps({'years': data['people'], 'names': data.get('people_names', {})},
+    people = json.dumps({'years': data['people'], 'names': data.get('people_names', {}),
+                         # The organisations with a level, by name, so that the person card can link to them
+                         'organisations': {entry['name']: slug for slug, entry in data['organisations'].items()}},
                         separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/')
     years = sorted(int(year) for year in data['history'])
     html = environment().get_template('index.html').render(

@@ -61,7 +61,9 @@ def people_of_year(year, registry, year_roles):
         found[role.person]['roles'].add(role.label)
     return [{'id': key, 'name': registry.display_name(f'{PERSON_PREFIX}{key}' if key in registry.people else key),
              'commits': value['commits'], 'pull_requests': value['pull_requests'],
-             'roles': sorted(value['roles'])} for key, value in sorted(found.items())]
+             'roles': sorted(value['roles']),
+             # The organisation the affiliations give the person for the year; a login outside the register has none
+             'organisation': registry.organisation_of(key, year)} for key, value in sorted(found.items())]
 
 
 def talk_organisations(year, registry):

@@ -125,7 +125,7 @@
 <section id="people" class="panel">
   <div class="wrap">
     <h2>People</h2>
-    <p class="intro">Find yourself, or someone you know, by GitHub login or name, and see where they stand in a year.
+    <p class="intro">Find yourself, or someone you know, by GitHub login or name, see where they stand in a year, and page through their years.
       The page doesn't list people in a ranking.</p>
     <form class="search" id="people-search" autocomplete="off">
       <label>GitHub login or name <input type="search" name="person"></label>
@@ -133,7 +133,7 @@
         {% for year in history_years | reverse %}<option>{{ year }}</option>{% endfor %}
       </select></label>
     </form>
-    <div id="people-result" class="result" aria-live="polite"></div>
+    <div id="people-result" class="result" aria-live="polite" data-docs="{{ docs_url }}"></div>
     {% set year_people = data.people[data.year | string] %}
     <table class="distribution" id="people-distribution">
       <caption>How many people did how much in <span class="dy">{{ data.year }}</span>, without names</caption>
