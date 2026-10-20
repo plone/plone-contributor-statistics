@@ -30,6 +30,11 @@ Today's organisation is a row with an empty last year, so it runs up to the pres
 A person who changed organisations has one row for each, and the organisation statistics, which are built year by year, count the person for the old organisation in the old years and for the new one in the new years ([#16](https://github.com/plone/plone-contributor-statistics/issues/16)).
 Multi-year summaries add up the years, so such a person appears under both organisations.
 
+When a person changes organisation during a year, the whole year counts for the organisation the person leaves, and the new affiliation starts with the following year.
+A record dated in the year of the change may therefore name the new organisation without changing how the year is counted.
+This is a convention: the statistics are built by year, and a year has one organisation per person.
+A period that begins and ends within one year doesn't appear at all.
+
 A biography that names an employer for a conference year is an affiliation row for that year, with the biography as its record.
 It is then also evidence for the commits of that year, as signatures and participant lists are.
 Rows exist only where someone knew about the affiliation and recorded it.

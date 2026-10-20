@@ -1,12 +1,12 @@
 # Plone Community Recognition Program 2025
 
-*Generated: 2026-10-20 15:09:10*
+*Generated: 2026-10-20 15:20:03*
 
 ## Executive Summary
 
-- **Total Organizations**: 43
-- **Total Points Awarded**: 553.0
-- **Average Points per Organization**: 12.9
+- **Total Organizations**: 44
+- **Total Points Awarded**: 555.0
+- **Average Points per Organization**: 12.6
 
 ## Recognition Levels
 
@@ -16,7 +16,7 @@
 | Gold Contributor | 25-34 | 5 |
 | Silver Contributor | 10-24 | 13 |
 | Bronze Contributor | 3-9 | 13 |
-| Community Contributor | 1-2 | 11 |
+| Community Contributor | 1-2 | 12 |
 
 ## Recognition Categories
 
@@ -89,15 +89,16 @@
 | 32 | Sixfeetup | Bronze Contributor | 3.0 |
 | 33 | CCC | Community Contributor | 2.0 |
 | 34 | Iskra | Community Contributor | 2.0 |
-| 35 | Uni. Hospital Dresden | Community Contributor | 2.0 |
-| 36 | CMS Communications Inc. | Community Contributor | 1.0 |
-| 37 | Giallocobalto | Community Contributor | 1.0 |
-| 38 | IRR | Community Contributor | 1.0 |
-| 39 | Plone User's Group Japan | Community Contributor | 1.0 |
-| 40 | RIOS (Rete Italiana Open Source) | Community Contributor | 1.0 |
-| 41 | Regione Emilia-Romagna | Community Contributor | 1.0 |
-| 42 | eCityclic | Community Contributor | 1.0 |
-| 43 | iMio | Community Contributor | 1.0 |
+| 35 | Pendect | Community Contributor | 2.0 |
+| 36 | Uni. Hospital Dresden | Community Contributor | 2.0 |
+| 37 | CMS Communications Inc. | Community Contributor | 1.0 |
+| 38 | Giallocobalto | Community Contributor | 1.0 |
+| 39 | IRR | Community Contributor | 1.0 |
+| 40 | Plone User's Group Japan | Community Contributor | 1.0 |
+| 41 | RIOS (Rete Italiana Open Source) | Community Contributor | 1.0 |
+| 42 | Regione Emilia-Romagna | Community Contributor | 1.0 |
+| 43 | eCityclic | Community Contributor | 1.0 |
+| 44 | iMio | Community Contributor | 1.0 |
 
 ## Code Contribution Highlights
 
@@ -105,7 +106,7 @@
 
 | Rank | Organization | Points | Level | PRs/Year |
 |------|--------------|-------:|:------|----------|
-| 1 | kitconcept GmbH | 20 | Lead | 534.0 |
+| 1 | kitconcept GmbH | 20 | Lead | 521.4 |
 | 2 | Steve Piercy - Website Builder | 20 | Lead | 169.2 |
 | 3 | der Freitag | 20 | Lead | 141.2 |
 | 4 | Kombinat | 20 | Lead | 130.6 |
@@ -125,6 +126,7 @@
 | 18 | Onna | 4 | Active Member | 20.0 |
 | 19 | Uni. Hospital Dresden | 2 | Team Member | 16.4 |
 | 20 | Iskra | 2 | Team Member | 12.6 |
+| 21 | Pendect | 2 | Team Member | 12.6 |
 
 ### PLIP Contributors
 
@@ -159,7 +161,7 @@
 | Team Leader | 6.0 | • Fred van Dijk (Admin & Infrastructure Team) |
 | WPD Talk | 4.0 | • Plone Hands On: Customize your site theme through the web with Volto!<br>• Mão na Massa: Começando um projeto com Plone 6.1<br>• Tailwind CSS and Plone<br>• Codename Seven - Sneak Peek to the Successor of Volto |
 | Training Session | 14.0 | • Plone 6 Volto Customization for JavaScript Beginners<br>• Plone 6 Volto Customization for JavaScript Beginners<br>• Plone Seven: Fundamentals<br>• Installing and Deploying Plone<br>• Installing and Deploying Plone<br>• ... and 2 more |
-| PR Contributions | 20.0 | • Lead (534.0 PRs/year) |
+| PR Contributions | 20.0 | • Lead (521.4 PRs/year) |
 | PLIP Contributions | 15.0 | • Significant PLIP Contributor (34 PLIPs) |
 
 ### RedTurtle
@@ -469,6 +471,14 @@
 |----------|-------:|:--------|
 | PR Contributions | 2.0 | • Team Member (12.6 PRs/year) |
 
+### Pendect
+
+**Total Points: 2.0**
+
+| Category | Points | Details |
+|----------|-------:|:--------|
+| PR Contributions | 2.0 | • Team Member (12.6 PRs/year) |
+
 ### Uni. Hospital Dresden
 
 **Total Points: 2.0**
@@ -554,7 +564,7 @@
 | WPD Talk | 21 | 34.0 |
 | Conference Organization | 1 | 24.0 |
 | Training Session | 7 | 36.0 |
-| PR Contributions | 20 | 192.0 |
+| PR Contributions | 21 | 194.0 |
 | PLIP Contributions | 15 | 57.0 |
 
 ---

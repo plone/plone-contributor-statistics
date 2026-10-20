@@ -2,7 +2,7 @@
  "headline": {
   "five_years": {
    "events": 65,
-   "organisations": 95,
+   "organisations": 96,
    "people": 410
   },
   "since_2003": {
@@ -682,7 +682,7 @@
     },
     {
      "name": "Alex Limi",
-     "organisation": "Google",
+     "organisation": "Jarn",
      "source": "https://plone.org/foundation/board/list_board_2"
     },
     {
@@ -926,7 +926,7 @@
     },
     {
      "name": "Alex Limi",
-     "organisation": "Google",
+     "organisation": "Jarn",
      "source": "https://web.archive.org/web/20060203041531/http://plone.org/development/teams/",
      "team": "plone.org Web Team"
     },
@@ -938,7 +938,7 @@
     },
     {
      "name": "Alex Limi",
-     "organisation": "Google",
+     "organisation": "Jarn",
      "source": "https://web.archive.org/web/20060203041531/http://plone.org/development/teams/",
      "team": "UI Team"
     },
@@ -969,7 +969,7 @@
     },
     {
      "name": "Alex Limi",
-     "organisation": "Google",
+     "organisation": "Jarn",
      "source": "https://plone.org/foundation/board/list_board_4"
     },
     {
@@ -1260,7 +1260,7 @@
     },
     {
      "name": "Alex Limi",
-     "organisation": "Google",
+     "organisation": "Jarn",
      "source": "https://web.archive.org/web/20070115043228/http://plone.org/development/teams/",
      "team": "UI Team"
     }
@@ -5519,7 +5519,7 @@
     },
     {
      "name": "Kim Nguyen",
-     "organisation": "Wildcard Corp",
+     "organisation": "Jazkarta",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2014-2015"
     },
     {
@@ -5768,13 +5768,13 @@
     },
     {
      "name": "Kim Nguyen",
-     "organisation": "Wildcard Corp",
+     "organisation": "Jazkarta",
      "source": "https://web.archive.org/web/20150426110029/http://plone.org/foundation/committees/membership",
      "team": "Membership Committee"
     },
     {
      "name": "Kim Nguyen",
-     "organisation": "Wildcard Corp",
+     "organisation": "Jazkarta",
      "source": "https://community.plone.org/t/plone-team-leader-meeting-report-april-2015/557",
      "team": "plone.com Team"
     },
@@ -5839,7 +5839,7 @@
     },
     {
      "name": "Víctor Fernández de Alba",
-     "organisation": "kitconcept GmbH",
+     "organisation": "Víctor Fernández de Alba (independent)",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2015-2016"
     },
     {
@@ -6072,7 +6072,7 @@
     },
     {
      "name": "Víctor Fernández de Alba",
-     "organisation": "kitconcept GmbH",
+     "organisation": "Víctor Fernández de Alba (independent)",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2016-2017"
     },
     {
@@ -6302,7 +6302,7 @@
     },
     {
      "name": "Víctor Fernández de Alba",
-     "organisation": "kitconcept GmbH",
+     "organisation": "Víctor Fernández de Alba (independent)",
      "source": "https://plone.org/news-and-events/news/2017/plone-foundation-officers-2017-2018",
      "team": "Volto Team"
     }
@@ -6609,7 +6609,7 @@
     },
     {
      "name": "Kim Nguyen",
-     "organisation": "Sixfeetup",
+     "organisation": "Wildcard Corp",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2018-2019"
     },
     {
@@ -6770,7 +6770,7 @@
    "team_leads": [
     {
      "name": "Kim Nguyen",
-     "organisation": "Sixfeetup",
+     "organisation": "Wildcard Corp",
      "source": "https://community.plone.org/t/2019-2020-nominations-open-for-plone-foundation-board-of-directors/8994/2",
      "team": "Marketing Team"
     },
@@ -6782,7 +6782,7 @@
     },
     {
      "name": "Kim Nguyen",
-     "organisation": "Sixfeetup",
+     "organisation": "Wildcard Corp",
      "source": "https://plone.org/news-and-events/news/2019/plone-foundation-board-officers-selected-for-2019-2020",
      "team": "Membership Committee"
     },
@@ -7059,7 +7059,7 @@
     },
     {
      "name": "Érico Andrei",
-     "organisation": "kitconcept GmbH",
+     "organisation": "Pendect",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2020-2021"
     },
     {
@@ -7259,7 +7259,7 @@
     },
     {
      "name": "Érico Andrei",
-     "organisation": "kitconcept GmbH",
+     "organisation": "Pendect",
      "source": "https://community.plone.org/t/steering-circle-meeting-minutes-2020-04-20/13736",
      "team": "Admin & Infrastructure Team"
     },
@@ -7355,7 +7355,7 @@
     },
     {
      "name": "Érico Andrei",
-     "organisation": "kitconcept GmbH",
+     "organisation": "Pendect",
      "source": "https://community.plone.org/t/steering-circle-meeting-minutes-2021-06-15/13980",
      "team": "Marketing Team"
     },
@@ -7373,7 +7373,7 @@
     },
     {
      "name": "Érico Andrei",
-     "organisation": "kitconcept GmbH",
+     "organisation": "Pendect",
      "source": "https://plone.org/foundation/meetings/minutes/2021/2021-annual-meeting",
      "team": "Membership Committee"
     },
@@ -7803,7 +7803,7 @@
     },
     {
      "name": "Kim Nguyen",
-     "organisation": "T. Kim Nguyen (independent)",
+     "organisation": "Sixfeetup",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2022-2023"
     },
     {
@@ -7960,7 +7960,7 @@
     },
     {
      "name": "Kim Nguyen",
-     "organisation": "T. Kim Nguyen (independent)",
+     "organisation": "Sixfeetup",
      "source": "https://web.archive.org/web/20231128155815/https://plone.org/community/teams/conference",
      "team": "Conference Team"
     },
@@ -7990,7 +7990,7 @@
     },
     {
      "name": "Kim Nguyen",
-     "organisation": "T. Kim Nguyen (independent)",
+     "organisation": "Sixfeetup",
      "source": "https://plone.org/foundation/meetings/minutes/2023/annual-business-meeting-minutes-october-6-2023",
      "team": "Membership Committee"
     },
@@ -8709,7 +8709,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         8
+         9
         ],
         [
          "2022",
@@ -9401,7 +9401,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         21
+         22
         ],
         [
          "2022",
@@ -9805,7 +9805,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         29
+         30
         ],
         [
          "2022",
@@ -9993,7 +9993,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         11
+         12
         ],
         [
          "2022",
@@ -11274,7 +11274,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         26
+         27
         ],
         [
          "2022",
@@ -11384,16 +11384,16 @@
      "roles": 0
     },
     "2016": {
-     "commits": 588,
+     "commits": 7,
      "events": 1,
-     "pull_requests": 9,
-     "roles": 2
+     "pull_requests": 0,
+     "roles": 0
     },
     "2017": {
-     "commits": 226,
+     "commits": 2,
      "events": 2,
-     "pull_requests": 19,
-     "roles": 3
+     "pull_requests": 2,
+     "roles": 0
     },
     "2018": {
      "commits": 2,
@@ -11723,7 +11723,7 @@
         ]
        ],
        "source": null,
-       "text": "Lead (534.0 PRs/year)"
+       "text": "Lead (521.4 PRs/year)"
       }
      ],
      "points": 20.0
@@ -11918,16 +11918,16 @@
      "roles": 0
     },
     "2016": {
-     "commits": 243,
+     "commits": 172,
      "events": 1,
-     "pull_requests": 22,
-     "roles": 3
+     "pull_requests": 14,
+     "roles": 0
     },
     "2017": {
-     "commits": 585,
+     "commits": 433,
      "events": 2,
-     "pull_requests": 78,
-     "roles": 6
+     "pull_requests": 48,
+     "roles": 2
     },
     "2018": {
      "commits": 1081,
@@ -11948,10 +11948,10 @@
      "roles": 6
     },
     "2021": {
-     "commits": 2381,
+     "commits": 2078,
      "events": 3,
-     "pull_requests": 378,
-     "roles": 25
+     "pull_requests": 315,
+     "roles": 16
     },
     "2022": {
      "commits": 2751,
@@ -12220,7 +12220,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         14
+         15
         ],
         [
          "2022",
@@ -12946,7 +12946,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         10
+         11
         ],
         [
          "2022",
@@ -13146,7 +13146,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         17
+         18
         ],
         [
          "2022",
@@ -13306,6 +13306,174 @@
    "next_level": "Silver Contributor",
    "points": 4.0,
    "points_to_next": 6.0
+  },
+  "pendect": {
+   "categories": {
+    "PR Contributions": {
+     "contributions": [
+      {
+       "file": "derived/organisation-contributors",
+       "line": null,
+       "points": 2,
+       "rows": [
+        [
+         "2021",
+         "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
+         8
+        ]
+       ],
+       "source": null,
+       "text": "Team Member (12.6 PRs/year)"
+      }
+     ],
+     "points": 2.0
+    }
+   },
+   "history": {
+    "2003": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2004": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2005": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2006": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2007": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2008": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2009": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2010": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2011": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2012": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2013": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2014": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2015": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2016": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2017": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2018": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2019": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2020": {
+     "commits": 49,
+     "events": 1,
+     "pull_requests": 4,
+     "roles": 4
+    },
+    "2021": {
+     "commits": 303,
+     "events": 0,
+     "pull_requests": 63,
+     "roles": 9
+    },
+    "2022": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2023": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2024": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2025": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    }
+   },
+   "level": "Community Contributor",
+   "name": "Pendect",
+   "next_level": "Bronze Contributor",
+   "points": 2.0,
+   "points_to_next": 1.0
   },
   "plone-user-s-group-japan": {
    "categories": {
@@ -13999,7 +14167,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         13
+         14
         ],
         [
          "2022",
@@ -14730,7 +14898,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         9
+         10
         ],
         [
          "2022",
@@ -14918,7 +15086,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         30
+         31
         ],
         [
          "2022",
@@ -15207,10 +15375,10 @@
      "roles": 3
     },
     "2019": {
-     "commits": 125,
+     "commits": 9,
      "events": 1,
-     "pull_requests": 27,
-     "roles": 7
+     "pull_requests": 3,
+     "roles": 2
     },
     "2020": {
      "commits": 70,
@@ -15234,7 +15402,7 @@
      "commits": 0,
      "events": 0,
      "pull_requests": 0,
-     "roles": 0
+     "roles": 6
     },
     "2024": {
      "commits": 46,
@@ -15279,7 +15447,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         18
+         19
         ],
         [
          "2022",
@@ -15503,7 +15671,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         15
+         16
         ],
         [
          "2022",
@@ -16088,7 +16256,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         23
+         24
         ],
         [
          "2022",
@@ -42935,6 +43103,11 @@
      "name": "Iskra",
      "points": 2.0,
      "slug": "iskra"
+    },
+    {
+     "name": "Pendect",
+     "points": 2.0,
+     "slug": "pendect"
     },
     {
      "name": "Plone User's Group Japan",

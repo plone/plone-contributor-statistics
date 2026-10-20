@@ -1,6 +1,6 @@
 # Plone Core Contributor Statistics Report
 
-Generated on: 2026-10-20 15:09:08
+Generated on: 2026-10-20 15:20:02
 
 This report shows the top contributors and organizations in the Plone ecosystem across different time periods.
 
@@ -124,7 +124,7 @@ Not mapped to an organisation: 364 PRs, 763 commits by 123 contributors.
 
 | Rank | Organization | PRs | Commits | Contributors | Repositories |
 |------|-------------|-----|---------|---------------|-------------|
-| 1 | kitconcept GmbH | 2,670 | 10,750 | 15 | 154 |
+| 1 | kitconcept GmbH | 2,607 | 10,447 | 15 | 153 |
 | 2 | Steve Piercy - Website Builder | 846 | 3,081 | 1 | 35 |
 | 3 | der Freitag | 706 | 3,621 | 2 | 230 |
 | 4 | Kombinat | 653 | 2,544 | 1 | 74 |
@@ -142,7 +142,7 @@ Not mapped to an organisation: 636 PRs, 1,782 commits by 183 contributors.
 
 | Rank | Organization | PRs | Commits | Contributors | Repositories |
 |------|-------------|-----|---------|---------------|-------------|
-| 1 | kitconcept GmbH | 3,459 | 16,652 | 17 | 180 |
+| 1 | kitconcept GmbH | 3,358 | 16,126 | 17 | 171 |
 | 2 | Zest Software | 1,279 | 11,882 | 5 | 191 |
 | 3 | der Freitag | 1,201 | 5,882 | 3 | 274 |
 | 4 | Syslab | 1,068 | 2,876 | 6 | 141 |
@@ -186,7 +186,7 @@ See [how contributions are counted](https://plone.github.io/plone-contributor-st
 
 | Rank | Organization | Changelog entries | Commits | Contributors |
 |------|-------------|-------------------|---------|--------------|
-| 1 | Jarn | 1,778 | 8,990 | 14 |
+| 1 | Jarn | 1,915 | 9,657 | 14 |
 | 2 | Groundwire | 580 | 1,923 | 2 |
 | 3 | Simplon | 397 | 1,714 | 1 |
 | 4 | Deloitte Digital | 360 | 2,820 | 1 |
