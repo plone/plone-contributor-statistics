@@ -44,7 +44,7 @@
 9. Codesyntax: 171 PRs
 10. RedTurtle: 163 PRs
 
-Not mapped to an organisation: 366 PRs
+Not mapped to an organisation: 364 PRs
 
 ## Top 10 organisations by commits (2023-2025)
 
@@ -59,4 +59,4 @@ Not mapped to an organisation: 366 PRs
 9. Klein & Partner KG: 400 commits
 10. Syslab: 384 commits
 
-Not mapped to an organisation: 767 commits
+Not mapped to an organisation: 763 commits

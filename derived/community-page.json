@@ -2,7 +2,7 @@
  "headline": {
   "five_years": {
    "events": 65,
-   "organisations": 80,
+   "organisations": 95,
    "people": 410
   },
   "since_2003": {
@@ -10,7 +10,7 @@
   },
   "year": {
    "events": 10,
-   "organisations": 44,
+   "organisations": 49,
    "people": 142
   }
  },
@@ -114,7 +114,7 @@
     },
     {
      "name": "Matt Hamilton",
-     "organisation": "Unmapped",
+     "organisation": "Netsight",
      "source": "https://plone.org/foundation/board/list_board_0"
     },
     {
@@ -124,32 +124,32 @@
     },
     {
      "name": "Robert Boulanger",
-     "organisation": "Unmapped",
+     "organisation": "BlueDynamics KG",
      "source": "https://plone.org/foundation/board/list_board_0"
     },
     {
      "name": "Bernard Bühlmann",
-     "organisation": "Unmapped",
+     "organisation": "4Teamwork",
      "source": "https://plone.org/foundation/board/list_board_0"
     },
     {
      "name": "Mark Murphy",
-     "organisation": "Unmapped",
+     "organisation": "Tyrell",
      "source": "https://plone.org/foundation/board/list_board_0"
     },
     {
      "name": "Mark Barrenechea",
-     "organisation": "Unmapped",
+     "organisation": "Computer Associates",
      "source": "https://plone.org/foundation/board/list_board_0"
     },
     {
      "name": "Sam Greenblatt",
-     "organisation": "Unmapped",
+     "organisation": "Computer Associates",
      "source": "https://plone.org/foundation/board/list_board_0"
     },
     {
      "name": "Paul Everitt",
-     "organisation": "Unmapped",
+     "organisation": "Zope Europe",
      "source": "https://plone.org/foundation/board/list_board_0"
     },
     {
@@ -320,13 +320,13 @@
     },
     {
      "name": "Paul Everitt",
-     "organisation": "Unmapped",
+     "organisation": "Zope Europe",
      "source": "https://web.archive.org/web/20041012104432/http://plone.org/development/teams/",
      "team": "Marketing Team"
     },
     {
      "name": "Mark Murphy",
-     "organisation": "Unmapped",
+     "organisation": "Tyrell",
      "source": "https://web.archive.org/web/20041224015841/http://plone.org/foundation/committees/membership/info",
      "team": "Membership Committee"
     },
@@ -350,7 +350,7 @@
     },
     {
      "name": "Paul Everitt",
-     "organisation": "Unmapped",
+     "organisation": "Zope Europe",
      "source": "https://web.archive.org/web/20040407180303/http://plone.org/development/teams/",
      "team": "Video Team"
     }
@@ -360,7 +360,7 @@
    "board": [
     {
      "name": "Joel Burton",
-     "organisation": "Unmapped",
+     "organisation": "Joel Burton (independent)",
      "source": "https://web.archive.org/web/20050404020626/http://plone.org/foundation/about/board/list"
     },
     {
@@ -380,7 +380,7 @@
     },
     {
      "name": "Marcel den Hartog",
-     "organisation": "Unmapped",
+     "organisation": "Computer Associates",
      "source": "https://web.archive.org/web/20050404020626/http://plone.org/foundation/about/board/list"
     },
     {
@@ -390,12 +390,12 @@
     },
     {
      "name": "Robert Boulanger",
-     "organisation": "Unmapped",
+     "organisation": "BlueDynamics KG",
      "source": "https://web.archive.org/web/20050404020626/http://plone.org/foundation/about/board/list"
     },
     {
      "name": "Norm Patriquin",
-     "organisation": "Unmapped",
+     "organisation": "Computer Associates",
      "source": "https://web.archive.org/web/20050404020626/http://plone.org/foundation/about/board/list"
     },
     {
@@ -405,12 +405,12 @@
     },
     {
      "name": "Paul Everitt",
-     "organisation": "Unmapped",
+     "organisation": "Zope Europe",
      "source": "https://web.archive.org/web/20050404020626/http://plone.org/foundation/about/board/list"
     },
     {
      "name": "Mark Murphy",
-     "organisation": "Unmapped",
+     "organisation": "Tyrell",
      "source": "https://web.archive.org/web/20050404020626/http://plone.org/foundation/about/board/list"
     }
    ],
@@ -572,7 +572,7 @@
     },
     {
      "name": "Joel Burton",
-     "organisation": "Unmapped",
+     "organisation": "Joel Burton (independent)",
      "source": "https://web.archive.org/web/20050122020045/http://plone.org/development/teams/",
      "team": "Documentation Team"
     },
@@ -620,13 +620,13 @@
     },
     {
      "name": "Joel Burton",
-     "organisation": "Unmapped",
+     "organisation": "Joel Burton (independent)",
      "source": "https://web.archive.org/web/20050122020045/http://plone.org/development/teams/",
      "team": "Marketing Team"
     },
     {
      "name": "Paul Everitt",
-     "organisation": "Unmapped",
+     "organisation": "Zope Europe",
      "source": "https://plone.org/foundation/meetings/minutes/2005/minutes-20050317",
      "team": "Marketing Team"
     },
@@ -638,7 +638,7 @@
     },
     {
      "name": "Mark Murphy",
-     "organisation": "Unmapped",
+     "organisation": "Tyrell",
      "source": "https://web.archive.org/web/20050211145334/http://plone.org/foundation/committees/membership/info",
      "team": "Membership Committee"
     },
@@ -662,7 +662,7 @@
     },
     {
      "name": "Paul Everitt",
-     "organisation": "Unmapped",
+     "organisation": "Zope Europe",
      "source": "https://web.archive.org/web/20050122020045/http://plone.org/development/teams/",
      "team": "Video Team"
     }
@@ -672,12 +672,12 @@
    "board": [
     {
      "name": "Joel Burton",
-     "organisation": "Unmapped",
+     "organisation": "Joel Burton (independent)",
      "source": "https://plone.org/foundation/board/list_board_2"
     },
     {
      "name": "Ben Saller",
-     "organisation": "Unmapped",
+     "organisation": "ObjectRealms",
      "source": "https://plone.org/foundation/board/list_board_2"
     },
     {
@@ -687,7 +687,7 @@
     },
     {
      "name": "Geoff Davis",
-     "organisation": "Unmapped",
+     "organisation": "Geoff Davis (independent)",
      "source": "https://plone.org/foundation/board/list_board_2"
     },
     {
@@ -697,12 +697,12 @@
     },
     {
      "name": "Munwar Shariff",
-     "organisation": "Unmapped",
+     "organisation": "CIGNEX",
      "source": "https://plone.org/foundation/board/list_board_2"
     },
     {
      "name": "Jacqueline Arasi",
-     "organisation": "Unmapped",
+     "organisation": "The Open Planning Project",
      "source": "https://plone.org/foundation/board/list_board_2"
     },
     {
@@ -712,12 +712,12 @@
     },
     {
      "name": "Paul Everitt",
-     "organisation": "Unmapped",
+     "organisation": "Zope Europe",
      "source": "https://plone.org/foundation/board/list_board_2"
     },
     {
      "name": "Toby Roberts",
-     "organisation": "Unmapped",
+     "organisation": "Enfold",
      "source": "https://plone.org/foundation/board/list_board_2"
     }
    ],
@@ -842,7 +842,7 @@
     },
     {
      "name": "Joel Burton",
-     "organisation": "Unmapped",
+     "organisation": "Joel Burton (independent)",
      "source": "https://web.archive.org/web/20060203041531/http://plone.org/development/teams/",
      "team": "Documentation Team"
     },
@@ -854,7 +854,7 @@
     },
     {
      "name": "Paul Everitt",
-     "organisation": "Unmapped",
+     "organisation": "Zope Europe",
      "source": "https://web.archive.org/web/20060415004110/http://plone.org/development/teams/",
      "team": "Documentation Team"
     },
@@ -908,13 +908,13 @@
     },
     {
      "name": "Joel Burton",
-     "organisation": "Unmapped",
+     "organisation": "Joel Burton (independent)",
      "source": "https://web.archive.org/web/20060203041531/http://plone.org/development/teams/",
      "team": "Marketing Team"
     },
     {
      "name": "Paul Everitt",
-     "organisation": "Unmapped",
+     "organisation": "Zope Europe",
      "source": "https://web.archive.org/web/20060203041531/http://plone.org/development/teams/",
      "team": "Marketing Team"
     },
@@ -944,7 +944,7 @@
     },
     {
      "name": "Paul Everitt",
-     "organisation": "Unmapped",
+     "organisation": "Zope Europe",
      "source": "https://web.archive.org/web/20060203041531/http://plone.org/development/teams/",
      "team": "Video Team"
     }
@@ -959,12 +959,12 @@
     },
     {
      "name": "Andy McKay",
-     "organisation": "Unmapped",
+     "organisation": "Blue Fountain",
      "source": "https://plone.org/foundation/board/list_board_4"
     },
     {
      "name": "Francesco Ciriaci",
-     "organisation": "Unmapped",
+     "organisation": "Reflab",
      "source": "https://plone.org/foundation/board/list_board_4"
     },
     {
@@ -979,17 +979,17 @@
     },
     {
      "name": "Nate Aune",
-     "organisation": "Unmapped",
+     "organisation": "Jazkarta",
      "source": "https://plone.org/foundation/board/list_board_4"
     },
     {
      "name": "Sasha Vinçic",
-     "organisation": "Unmapped",
+     "organisation": "Lovely Systems",
      "source": "https://plone.org/foundation/board/list_board_4"
     },
     {
      "name": "Toby Roberts",
-     "organisation": "Unmapped",
+     "organisation": "Enfold",
      "source": "https://plone.org/foundation/board/list_board_4"
     }
    ],
@@ -1242,7 +1242,7 @@
     },
     {
      "name": "Nate Aune",
-     "organisation": "Unmapped",
+     "organisation": "Jazkarta",
      "source": "https://plone.org/foundation/meetings/minutes/2007/minutes-november-29-2007",
      "team": "Marketing Team"
     },
@@ -1270,17 +1270,17 @@
    "board": [
     {
      "name": "Darci Hanning",
-     "organisation": "Unmapped",
+     "organisation": "Oregon State Library",
      "source": "https://plone.org/foundation/board/2007-2008"
     },
     {
      "name": "Jon Stahl",
-     "organisation": "Unmapped",
+     "organisation": "ONE/Northwest",
      "source": "https://plone.org/foundation/board/2007-2008"
     },
     {
      "name": "Nate Aune",
-     "organisation": "Unmapped",
+     "organisation": "Jazkarta",
      "source": "https://plone.org/foundation/board/2007-2008"
     },
     {
@@ -1290,7 +1290,7 @@
     },
     {
      "name": "Joel Burton",
-     "organisation": "Unmapped",
+     "organisation": "Joel Burton (independent)",
      "source": "https://plone.org/foundation/board/2007-2008"
     },
     {
@@ -1305,7 +1305,7 @@
     },
     {
      "name": "Toby Roberts",
-     "organisation": "Unmapped",
+     "organisation": "Enfold",
      "source": "https://plone.org/foundation/board/2007-2008"
     }
    ],
@@ -2187,7 +2187,7 @@
     },
     {
      "name": "Joel Burton",
-     "organisation": "Unmapped",
+     "organisation": "Joel Burton (independent)",
      "source": "https://web.archive.org/web/20080412080121/http://plone.org/development/teams/",
      "team": "Documentation Team"
     },
@@ -2241,7 +2241,7 @@
     },
     {
      "name": "Darci Hanning",
-     "organisation": "Unmapped",
+     "organisation": "Oregon State Library",
      "source": "https://web.archive.org/web/20080415120650/http://plone.org/foundation/committees/membership",
      "team": "Membership Committee"
     },
@@ -2257,7 +2257,7 @@
    "board": [
     {
      "name": "Jon Stahl",
-     "organisation": "Unmapped",
+     "organisation": "ONE/Northwest",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2008-2009"
     },
     {
@@ -2267,17 +2267,17 @@
     },
     {
      "name": "Nate Aune",
-     "organisation": "Unmapped",
+     "organisation": "Jazkarta",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2008-2009"
     },
     {
      "name": "Matt Hamilton",
-     "organisation": "Unmapped",
+     "organisation": "Netsight",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2008-2009"
     },
     {
      "name": "Darci Hanning",
-     "organisation": "Unmapped",
+     "organisation": "Oregon State Library",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2008-2009"
     },
     {
@@ -2292,7 +2292,7 @@
     },
     {
      "name": "Toby Roberts",
-     "organisation": "Unmapped",
+     "organisation": "Enfold",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2008-2009"
     }
    ],
@@ -2909,7 +2909,7 @@
    "team_leads": [
     {
      "name": "Matt Hamilton",
-     "organisation": "Unmapped",
+     "organisation": "Netsight",
      "source": "https://plone.org/news-and-events/news/2010/month-in-plone-jan-2010",
      "team": "Conference Team"
     },
@@ -2927,7 +2927,7 @@
     },
     {
      "name": "Darci Hanning",
-     "organisation": "Unmapped",
+     "organisation": "Oregon State Library",
      "source": "https://web.archive.org/web/20090529132124/http://plone.org/foundation/committees/membership",
      "team": "Membership Committee"
     },
@@ -2948,7 +2948,7 @@
     },
     {
      "name": "Calvin Hendryx-Parker",
-     "organisation": "Unmapped",
+     "organisation": "Sixfeetup",
      "source": "https://plone.org/foundation/board/board-2009-2010"
     },
     {
@@ -2958,17 +2958,17 @@
     },
     {
      "name": "Roberto Allende",
-     "organisation": "Unmapped",
+     "organisation": "Menttes",
      "source": "https://plone.org/foundation/board/board-2009-2010"
     },
     {
      "name": "Mark Corum",
-     "organisation": "Unmapped",
+     "organisation": "University of Virginia",
      "source": "https://plone.org/foundation/board/board-2009-2010"
     },
     {
      "name": "Matt Hamilton",
-     "organisation": "Unmapped",
+     "organisation": "Netsight",
      "source": "https://plone.org/foundation/board/board-2009-2010"
     },
     {
@@ -2978,7 +2978,7 @@
     },
     {
      "name": "Toby Roberts",
-     "organisation": "Unmapped",
+     "organisation": "Enfold",
      "source": "https://plone.org/foundation/board/board-2009-2010"
     }
    ],
@@ -3565,7 +3565,7 @@
    "team_leads": [
     {
      "name": "Mark Corum",
-     "organisation": "Unmapped",
+     "organisation": "University of Virginia",
      "source": "https://plone.org/news-and-events/news/2010/plone-4-released",
      "team": "Marketing Team"
     },
@@ -3592,7 +3592,7 @@
     },
     {
      "name": "Matt Hamilton",
-     "organisation": "Unmapped",
+     "organisation": "Netsight",
      "source": "https://plone.org/foundation/board/list"
     },
     {
@@ -3602,12 +3602,12 @@
     },
     {
      "name": "Mark Corum",
-     "organisation": "Unmapped",
+     "organisation": "University of Virginia",
      "source": "https://plone.org/foundation/board/list"
     },
     {
      "name": "Alex Limi",
-     "organisation": "Unmapped",
+     "organisation": "Mozilla",
      "source": "https://plone.org/foundation/board/list"
     },
     {
@@ -3617,12 +3617,12 @@
     },
     {
      "name": "Jon Stahl",
-     "organisation": "Unmapped",
+     "organisation": "Groundwire",
      "source": "https://plone.org/foundation/board/list"
     },
     {
      "name": "Toby Roberts",
-     "organisation": "Unmapped",
+     "organisation": "Enfold",
      "source": "https://plone.org/foundation/board/list"
     }
    ],
@@ -3955,13 +3955,13 @@
    "team_leads": [
     {
      "name": "Mark Corum",
-     "organisation": "Unmapped",
+     "organisation": "University of Virginia",
      "source": "https://plone.org/news-and-events/news/2011/plone-editorial-team-announced",
      "team": "Marketing Team"
     },
     {
      "name": "Jon Stahl",
-     "organisation": "Unmapped",
+     "organisation": "Groundwire",
      "source": "https://web.archive.org/web/20110514023759/http://plone.org/foundation/committees/membership",
      "team": "Membership Committee"
     },
@@ -3977,12 +3977,12 @@
    "board": [
     {
      "name": "Matt Hamilton",
-     "organisation": "Unmapped",
+     "organisation": "Netsight",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2011-2012"
     },
     {
      "name": "Carol Ganz",
-     "organisation": "Unmapped",
+     "organisation": "Sixfeetup",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2011-2012"
     },
     {
@@ -4002,12 +4002,12 @@
     },
     {
      "name": "Maurizio Delmonte",
-     "organisation": "Unmapped",
+     "organisation": "Abstract Open Solutions",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2011-2012"
     },
     {
      "name": "Sjoerd van Elferen",
-     "organisation": "Unmapped",
+     "organisation": "Four Digits",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2011-2012"
     }
    ],
@@ -4550,7 +4550,7 @@
     },
     {
      "name": "Matt Hamilton",
-     "organisation": "Unmapped",
+     "organisation": "Netsight",
      "source": "https://plone.org/foundation/meetings/minutes/2012/minutes-2012-10-18",
      "team": "Marketing Team"
     },
@@ -4562,7 +4562,7 @@
     },
     {
      "name": "Maurizio Delmonte",
-     "organisation": "Unmapped",
+     "organisation": "Abstract Open Solutions",
      "source": "https://web.archive.org/web/20120119140148/http://plone.org/foundation/committees/membership",
      "team": "Membership Committee"
     },
@@ -4593,22 +4593,22 @@
     },
     {
      "name": "Elizabeth Leddy",
-     "organisation": "Unmapped",
+     "organisation": "Elizabeth Leddy (independent)",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2012-2013"
     },
     {
      "name": "Matthew Wilkes",
-     "organisation": "Unmapped",
+     "organisation": "The Code Distillery",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2012-2013"
     },
     {
      "name": "Matt Hamilton",
-     "organisation": "Unmapped",
+     "organisation": "Netsight",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2012-2013"
     },
     {
      "name": "Carol Ganz",
-     "organisation": "Unmapped",
+     "organisation": "Sixfeetup",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2012-2013"
     }
    ],
@@ -5044,7 +5044,7 @@
     },
     {
      "name": "Matt Hamilton",
-     "organisation": "Unmapped",
+     "organisation": "Netsight",
      "source": "https://web.archive.org/web/20130818093758/http://plone.org/foundation/committees/marketing-committee",
      "team": "Marketing Team"
     },
@@ -5056,7 +5056,7 @@
     },
     {
      "name": "Matthew Wilkes",
-     "organisation": "Unmapped",
+     "organisation": "The Code Distillery",
      "source": "https://web.archive.org/web/20130618224406/http://plone.org/foundation/committees/membership",
      "team": "Membership Committee"
     },
@@ -5080,13 +5080,13 @@
     },
     {
      "name": "Elizabeth Leddy",
-     "organisation": "Unmapped",
+     "organisation": "Elizabeth Leddy (independent)",
      "source": "https://web.archive.org/web/20130116050849/http://plone.org/community/teams/qa-team",
      "team": "Quality Assurance Team"
     },
     {
      "name": "Matthew Wilkes",
-     "organisation": "Unmapped",
+     "organisation": "The Code Distillery",
      "source": "https://plone.org/news-and-events/news/2013/plone-team-leaders2019-report-july-2013",
      "team": "Security Team"
     },
@@ -5113,7 +5113,7 @@
     },
     {
      "name": "Cris Ewing",
-     "organisation": "Unmapped",
+     "organisation": "Cris Ewing (independent)",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2013-2014"
     },
     {
@@ -5524,12 +5524,12 @@
     },
     {
      "name": "Carol Ganz",
-     "organisation": "Unmapped",
+     "organisation": "Sixfeetup",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2014-2015"
     },
     {
      "name": "Cris Ewing",
-     "organisation": "Unmapped",
+     "organisation": "Cris Ewing (independent)",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2014-2015"
     },
     {
@@ -5829,7 +5829,7 @@
     },
     {
      "name": "Carol Ganz",
-     "organisation": "Unmapped",
+     "organisation": "Sixfeetup",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2015-2016"
     },
     {
@@ -6077,7 +6077,7 @@
     },
     {
      "name": "Carol Ganz",
-     "organisation": "Unmapped",
+     "organisation": "Sixfeetup",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2016-2017"
     },
     {
@@ -6322,7 +6322,7 @@
     },
     {
      "name": "Carol Ganz",
-     "organisation": "Unmapped",
+     "organisation": "Sixfeetup",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2017-2018"
     },
     {
@@ -6589,12 +6589,12 @@
     },
     {
      "name": "Carol Ganz",
-     "organisation": "Unmapped",
+     "organisation": "Sixfeetup",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2018-2019"
     },
     {
      "name": "Érico Andrei",
-     "organisation": "Unmapped",
+     "organisation": "Wundertax",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2018-2019"
     },
     {
@@ -6776,7 +6776,7 @@
     },
     {
      "name": "Érico Andrei",
-     "organisation": "Unmapped",
+     "organisation": "Wundertax",
      "source": "https://plone.org/news-and-events/news/2019/plone-foundation-board-officers-selected-for-2019-2020",
      "team": "Marketing Team"
     },
@@ -6788,7 +6788,7 @@
     },
     {
      "name": "Érico Andrei",
-     "organisation": "Unmapped",
+     "organisation": "Wundertax",
      "source": "https://plone.org/news-and-events/news/2019/plone-foundation-board-officers-selected-for-2019-2020",
      "team": "Membership Committee"
     },
@@ -6820,7 +6820,7 @@
     },
     {
      "name": "Andy Leeb",
-     "organisation": "Unmapped",
+     "organisation": "Onna",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2019-2020"
     },
     {
@@ -7064,7 +7064,7 @@
     },
     {
      "name": "Andy Leeb",
-     "organisation": "Unmapped",
+     "organisation": "Onna",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2020-2021"
     },
     {
@@ -7459,7 +7459,7 @@
     },
     {
      "name": "Andy Leeb",
-     "organisation": "Unmapped",
+     "organisation": "Onna",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2021-2022"
     },
     {
@@ -10229,7 +10229,7 @@
         ]
        ],
        "source": null,
-       "text": "Core Member (77.4 PRs/year)"
+       "text": "Core Member (77.8 PRs/year)"
       }
      ],
      "points": 10.0
@@ -10268,9 +10268,16 @@
        "points": 1,
        "source": "https://www.youtube.com/watch?v=RSohX6Q2ioY",
        "text": "Volto block style: Start customizing your site through the web"
+      },
+      {
+       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
+       "line": 17,
+       "points": 1,
+       "source": "https://www.youtube.com/watch?v=jzVXgPKlsFI",
+       "text": "Dynamic Vocabulary Based on Context in Plone"
       }
      ],
-     "points": 3.0
+     "points": 4.0
     }
    },
    "history": {
@@ -10395,29 +10402,351 @@
      "roles": 6
     },
     "2023": {
-     "commits": 146,
+     "commits": 150,
      "events": 0,
-     "pull_requests": 51,
-     "roles": 5
+     "pull_requests": 53,
+     "roles": 6
     },
     "2024": {
      "commits": 105,
      "events": 0,
      "pull_requests": 65,
-     "roles": 4
+     "roles": 6
     },
     "2025": {
      "commits": 31,
      "events": 1,
      "pull_requests": 30,
-     "roles": 5
+     "roles": 6
     }
    },
    "level": "Gold Contributor",
    "name": "Eau de Web",
    "next_level": "Platinum Contributor",
-   "points": 28.0,
-   "points_to_next": 7.0
+   "points": 29.0,
+   "points_to_next": 6.0
+  },
+  "ecityclic": {
+   "categories": {
+    "WPD Talk": {
+     "contributions": [
+      {
+       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
+       "line": 18,
+       "points": 1,
+       "source": "https://www.youtube.com/watch?v=a7I6SKHeXvI",
+       "text": "Construyendo una Intranet en Plone 6 / Building an Intranet with Plone 6"
+      }
+     ],
+     "points": 1.0
+    }
+   },
+   "history": {
+    "2003": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2004": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2005": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2006": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2007": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2008": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2009": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2010": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2011": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2012": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2013": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2014": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2015": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2016": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2017": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2018": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2019": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2020": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2021": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2022": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2023": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2024": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2025": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 1
+    }
+   },
+   "level": "Community Contributor",
+   "name": "eCityclic",
+   "next_level": "Bronze Contributor",
+   "points": 1.0,
+   "points_to_next": 2.0
+  },
+  "giallocobalto": {
+   "categories": {
+    "WPD Talk": {
+     "contributions": [
+      {
+       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
+       "line": 45,
+       "points": 1,
+       "source": "https://www.youtube.com/watch?v=GcgxH9stLmM",
+       "text": "Governare il sito; migliorare l'organizzazione: il caso del Comune di Trento - WPD 2025 Italia"
+      }
+     ],
+     "points": 1.0
+    }
+   },
+   "history": {
+    "2003": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2004": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2005": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2006": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2007": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2008": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2009": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2010": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2011": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2012": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2013": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2014": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2015": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2016": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2017": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2018": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2019": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2020": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2021": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2022": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2023": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 1
+    },
+    "2024": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 1
+    },
+    "2025": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 1
+    }
+   },
+   "level": "Community Contributor",
+   "name": "Giallocobalto",
+   "next_level": "Bronze Contributor",
+   "points": 1.0,
+   "points_to_next": 2.0
   },
   "imio": {
    "categories": {
@@ -10772,6 +11101,167 @@
    "points": 19.0,
    "points_to_next": 6.0
   },
+  "irr": {
+   "categories": {
+    "WPD Talk": {
+     "contributions": [
+      {
+       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
+       "line": 12,
+       "points": 1,
+       "source": "https://www.youtube.com/watch?v=NlNFCyGwEMc",
+       "text": "An external to internal Plone support love story"
+      }
+     ],
+     "points": 1.0
+    }
+   },
+   "history": {
+    "2003": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2004": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2005": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2006": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2007": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2008": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2009": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2010": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2011": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2012": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2013": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2014": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2015": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2016": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2017": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2018": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2019": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2020": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2021": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2022": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2023": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2024": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2025": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 1
+    }
+   },
+   "level": "Community Contributor",
+   "name": "IRR",
+   "next_level": "Bronze Contributor",
+   "points": 1.0,
+   "points_to_next": 2.0
+  },
   "iskra": {
    "categories": {
     "PR Contributions": {
@@ -11023,13 +11513,20 @@
       },
       {
        "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
+       "line": 12,
+       "points": 1,
+       "source": "https://www.youtube.com/watch?v=NlNFCyGwEMc",
+       "text": "An external to internal Plone support love story"
+      },
+      {
+       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
        "line": 26,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=qbPWHPbV8Po",
        "text": "Plone Community Teams and How to Be Part of It"
       }
      ],
-     "points": 3.0
+     "points": 4.0
     }
    },
    "history": {
@@ -11157,7 +11654,7 @@
      "commits": 0,
      "events": 0,
      "pull_requests": 0,
-     "roles": 1
+     "roles": 2
     },
     "2024": {
      "commits": 0,
@@ -11169,14 +11666,14 @@
      "commits": 28,
      "events": 0,
      "pull_requests": 4,
-     "roles": 8
+     "roles": 9
     }
    },
    "level": "Silver Contributor",
    "name": "Juizi",
    "next_level": "Gold Contributor",
-   "points": 21.0,
-   "points_to_next": 4.0
+   "points": 22.0,
+   "points_to_next": 3.0
   },
   "kitconcept-gmbh": {
    "categories": {
@@ -12768,22 +13265,22 @@
      "roles": 2
     },
     "2020": {
-     "commits": 110,
+     "commits": 112,
      "events": 0,
-     "pull_requests": 157,
-     "roles": 0
+     "pull_requests": 160,
+     "roles": 1
     },
     "2021": {
      "commits": 113,
      "events": 0,
      "pull_requests": 99,
-     "roles": 0
+     "roles": 1
     },
     "2022": {
      "commits": 1,
      "events": 0,
      "pull_requests": 1,
-     "roles": 0
+     "roles": 1
     },
     "2023": {
      "commits": 0,
@@ -12938,7 +13435,7 @@
      "commits": 0,
      "events": 0,
      "pull_requests": 0,
-     "roles": 0
+     "roles": 1
     },
     "2022": {
      "commits": 0,
@@ -13578,6 +14075,18 @@
       }
      ],
      "points": 3.0
+    },
+    "WPD Talk": {
+     "contributions": [
+      {
+       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
+       "line": 42,
+       "points": 1,
+       "source": "https://www.youtube.com/watch?v=KW5YDe801TQ",
+       "text": "Plone & PWA: il caso Lignano Sabbiadoro - WPD2025 Italia"
+      }
+     ],
+     "points": 1.0
     }
    },
    "history": {
@@ -13693,7 +14202,7 @@
      "commits": 159,
      "events": 0,
      "pull_requests": 75,
-     "roles": 0
+     "roles": 1
     },
     "2022": {
      "commits": 193,
@@ -13705,25 +14214,347 @@
      "commits": 91,
      "events": 0,
      "pull_requests": 42,
-     "roles": 0
+     "roles": 3
     },
     "2024": {
      "commits": 141,
      "events": 2,
      "pull_requests": 52,
-     "roles": 1
+     "roles": 3
     },
     "2025": {
      "commits": 72,
      "events": 2,
      "pull_requests": 69,
-     "roles": 2
+     "roles": 3
     }
    },
    "level": "Gold Contributor",
    "name": "RedTurtle",
    "next_level": "Platinum Contributor",
-   "points": 33.0,
+   "points": 34.0,
+   "points_to_next": 1.0
+  },
+  "regione-emilia-romagna": {
+   "categories": {
+    "WPD Talk": {
+     "contributions": [
+      {
+       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
+       "line": 48,
+       "points": 1,
+       "source": "https://www.youtube.com/watch?v=sEHL32dJ9io",
+       "text": "Volto e straVolto - World Plone Day 2025 Italia"
+      }
+     ],
+     "points": 1.0
+    }
+   },
+   "history": {
+    "2003": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2004": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2005": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2006": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2007": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2008": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2009": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2010": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2011": {
+     "commits": 0,
+     "events": 1,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2012": {
+     "commits": 0,
+     "events": 1,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2013": {
+     "commits": 0,
+     "events": 1,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2014": {
+     "commits": 0,
+     "events": 1,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2015": {
+     "commits": 0,
+     "events": 1,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2016": {
+     "commits": 0,
+     "events": 1,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2017": {
+     "commits": 0,
+     "events": 1,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2018": {
+     "commits": 0,
+     "events": 1,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2019": {
+     "commits": 0,
+     "events": 1,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2020": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2021": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 1
+    },
+    "2022": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2023": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 1
+    },
+    "2024": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 1
+    },
+    "2025": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 1
+    }
+   },
+   "level": "Community Contributor",
+   "name": "Regione Emilia-Romagna",
+   "next_level": "Bronze Contributor",
+   "points": 1.0,
+   "points_to_next": 2.0
+  },
+  "rios-rete-italiana-open-source": {
+   "categories": {
+    "WPD Talk": {
+     "contributions": [
+      {
+       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
+       "line": 41,
+       "points": 1,
+       "source": "https://www.youtube.com/watch?v=HKlRhSpgT4Q",
+       "text": "I valori dell'Open Source - il punto di vista della Rete Italiana Open Source - WPD 2025 Italia"
+      }
+     ],
+     "points": 1.0
+    }
+   },
+   "history": {
+    "2003": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2004": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2005": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2006": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2007": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2008": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2009": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2010": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2011": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2012": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2013": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2014": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2015": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2016": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2017": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2018": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2019": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2020": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2021": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 1
+    },
+    "2022": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2023": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 1
+    },
+    "2024": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 0
+    },
+    "2025": {
+     "commits": 0,
+     "events": 0,
+     "pull_requests": 0,
+     "roles": 1
+    }
+   },
+   "level": "Community Contributor",
+   "name": "RIOS (Rete Italiana Open Source)",
+   "next_level": "Bronze Contributor",
+   "points": 1.0,
    "points_to_next": 2.0
   },
   "rob-gietema-independent": {
@@ -14325,7 +15156,7 @@
      "commits": 11,
      "events": 1,
      "pull_requests": 0,
-     "roles": 0
+     "roles": 1
     },
     "2011": {
      "commits": 9,
@@ -14337,13 +15168,13 @@
      "commits": 16,
      "events": 0,
      "pull_requests": 0,
-     "roles": 0
+     "roles": 1
     },
     "2013": {
      "commits": 96,
      "events": 1,
      "pull_requests": 1,
-     "roles": 1
+     "roles": 3
     },
     "2014": {
      "commits": 10,
@@ -14355,31 +15186,31 @@
      "commits": 3,
      "events": 0,
      "pull_requests": 1,
-     "roles": 1
+     "roles": 2
     },
     "2016": {
      "commits": 16,
      "events": 0,
      "pull_requests": 2,
-     "roles": 4
+     "roles": 5
     },
     "2017": {
      "commits": 6,
      "events": 0,
      "pull_requests": 4,
-     "roles": 1
+     "roles": 2
     },
     "2018": {
      "commits": 24,
      "events": 0,
      "pull_requests": 4,
-     "roles": 2
+     "roles": 3
     },
     "2019": {
      "commits": 125,
      "events": 1,
      "pull_requests": 27,
-     "roles": 6
+     "roles": 7
     },
     "2020": {
      "commits": 70,
@@ -41902,7 +42733,7 @@
    "organisations": [
     {
      "name": "Eau de Web",
-     "points": 28.0,
+     "points": 29.0,
      "slug": "eau-de-web"
     },
     {
@@ -41912,7 +42743,7 @@
     },
     {
      "name": "RedTurtle",
-     "points": 33.0,
+     "points": 34.0,
      "slug": "redturtle"
     },
     {
@@ -41947,7 +42778,7 @@
     },
     {
      "name": "Juizi",
-     "points": 21.0,
+     "points": 22.0,
      "slug": "juizi"
     },
     {
@@ -42081,9 +42912,24 @@
      "slug": "cms-communications-inc"
     },
     {
+     "name": "eCityclic",
+     "points": 1.0,
+     "slug": "ecityclic"
+    },
+    {
+     "name": "Giallocobalto",
+     "points": 1.0,
+     "slug": "giallocobalto"
+    },
+    {
      "name": "iMio",
      "points": 1.0,
      "slug": "imio"
+    },
+    {
+     "name": "IRR",
+     "points": 1.0,
+     "slug": "irr"
     },
     {
      "name": "Iskra",
@@ -42094,6 +42940,16 @@
      "name": "Plone User's Group Japan",
      "points": 1.0,
      "slug": "plone-user-s-group-japan"
+    },
+    {
+     "name": "Regione Emilia-Romagna",
+     "points": 1.0,
+     "slug": "regione-emilia-romagna"
+    },
+    {
+     "name": "RIOS (Rete Italiana Open Source)",
+     "points": 1.0,
+     "slug": "rios-rete-italiana-open-source"
     },
     {
      "name": "Uni. Hospital Dresden",
