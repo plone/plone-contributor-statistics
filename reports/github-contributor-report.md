@@ -1,6 +1,6 @@
 # Plone Core Contributor Statistics Report
 
-Generated on: 2026-10-21 01:20:05
+Generated on: 2026-10-21 01:48:50
 
 This report shows the top contributors and organizations in the Plone ecosystem across different time periods.
 
@@ -197,7 +197,7 @@ See [how contributions are counted](https://plone.github.io/plone-contributor-st
 | 9 | ONE/Northwest | 173 | 688 | 2 |
 | 10 | Four Digits | 170 | 1,419 | 5 |
 
-Not mapped to an organisation: 4,772 changelog entries, 9,707 commits.
+Not mapped to an organisation: 4,785 changelog entries, 10,102 commits.
 
 
 ---

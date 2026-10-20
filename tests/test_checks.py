@@ -74,11 +74,48 @@ def test_affiliation_overlap_names_both_rows(tmp_package):
     assert '2' in errors[0][3] and '3' in errors[0][3]
 
 
+def test_a_guess_does_not_reach_back_past_a_record_of_another_organisation(tmp_package):
+    guess = 'range from the current entry; years before 2026 not verified (#139)'
+    root = tmp_package(
+        {
+            'mappings/people.csv': PEOPLE,
+            'mappings/organisations.csv': ('id,name,kind,github,aliases,notes\nacme,Acme,organisation,,,\n'
+                                           'zeta,Zeta,organisation,,,\n'),
+            'mappings/affiliations.csv': (
+                'person,organisation,from,to,source,checked,notes\n'
+                f'pbauer,acme,2002,2009,https://example.org/a,2026-10-19,{guess}\n'
+                'pbauer,zeta,2010,2015,https://example.org/b,,\n'
+                f'pbauer,acme,2016,,https://example.org/a,2026-10-19,{guess}\n'
+            ),
+        }
+    )
+    errors = check.validate(root)
+    assert [e[3] for e in errors] == [
+        'The row at position 2 has an error: the guessed years 2002-2009 of acme lie before the record of zeta '
+        'in row 3, and acme returns later']
+    # A verified return is a real boomerang, and a guess that comes back after a guess is not a record
+    root = tmp_package(
+        {
+            'mappings/people.csv': PEOPLE,
+            'mappings/organisations.csv': ('id,name,kind,github,aliases,notes\nacme,Acme,organisation,,,\n'
+                                           'zeta,Zeta,organisation,,,\n'),
+            'mappings/affiliations.csv': (
+                'person,organisation,from,to,source,checked,notes\n'
+                'pbauer,acme,2002,2009,https://example.org/a,,\n'
+                'pbauer,zeta,2010,2015,https://example.org/b,,\n'
+                f'pbauer,acme,2016,,https://example.org/a,2026-10-19,{guess}\n'
+            ),
+        }
+    )
+    assert check.validate(root) == []
+
+
 def test_name_fold_rejects_near_duplicate(tmp_package):
     root = tmp_package(
         {
             'mappings/organisations.csv': (
-                'id,name,kind,github,aliases,notes\necreall,Ecréall,organisation,,,\necreall-2,Ecreall,organisation,,,\n'
+                'id,name,kind,github,aliases,notes\n'
+                'ecreall,Ecréall,organisation,,,\necreall-2,Ecreall,organisation,,,\n'
             ),
         }
     )

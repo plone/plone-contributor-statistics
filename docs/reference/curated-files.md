@@ -85,6 +85,7 @@ Checks beyond the schema:
 
 - The year ranges of one person's affiliations do not overlap.
 - `from` is not after `to`, and an affiliation without `to` says when its record was read.
+- A guessed range (its notes say "not verified") does not lie before a record of another organisation when its
 - The rows are sorted by `person`, `from`.
 
 ### Organisations
