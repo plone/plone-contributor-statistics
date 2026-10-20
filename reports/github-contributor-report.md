@@ -1,6 +1,6 @@
 # Plone Core Contributor Statistics Report
 
-Generated on: 2026-10-20 21:45:54
+Generated on: 2026-10-20 23:25:37
 
 This report shows the top contributors and organizations in the Plone ecosystem across different time periods.
 
@@ -147,7 +147,7 @@ Not mapped to an organisation: 629 PRs, 1,774 commits by 181 contributors.
 | 3 | der Freitag | 1,201 | 5,882 | 3 | 274 |
 | 4 | Syslab | 1,050 | 2,853 | 6 | 140 |
 | 5 | Steve Piercy - Website Builder | 909 | 3,242 | 1 | 38 |
-| 6 | Onna | 820 | 2,605 | 15 | 27 |
+| 6 | Onna | 831 | 2,620 | 16 | 27 |
 | 7 | Kombinat | 754 | 2,882 | 1 | 85 |
 | 8 | Klein & Partner KG | 725 | 3,125 | 2 | 149 |
 | 9 | Eau de Web | 569 | 1,653 | 19 | 37 |
