@@ -116,18 +116,27 @@ def read_commits(path, branches):
     return commits
 
 
-def read_authors(path):
+# The trailer of a commit imported from Subversion: svn-migrate wrote `svn path=/CMFPlone/trunk/; revision=917`,
+# git-svn writes `git-svn-id: <url>@<revision> <uuid>`.
+_CONVERSION_TRAILER = re.compile(r'^(?:svn path=.*; revision=\d+|git-svn-id: .+)$', re.MULTILINE)
+
+
+def read_authors(path, converted=True):
     """[(sha, author email, author name, author date)] of every commit of every branch and tag, each once.
 
     Works for bare and for non-bare clones. The date is the author date in UTC, like `read_commits` gives it:
-    2012-05-04T10:00:00Z, so that its first four characters are the year.
+    2012-05-04T10:00:00Z, so that its first four characters are the year. With converted=False, the commits
+    imported from Subversion are left out: the migration assigned their author addresses, nobody used them at
+    the time of the commit (docs/explanation/history-and-coverage.md).
     """
-    output = _git('log', '--all', '--format=%H%x1f%ae%x1f%an%x1f%ad%x1e', _DATE, '--', cwd=path)
+    output = _git('log', '--all', '--format=%H%x1f%ae%x1f%an%x1f%ad%x1f%B%x1e', _DATE, '--', cwd=path)
     authors = []
     for record in output.split('\x1e'):
-        values = record.strip('\n').split('\x1f')
-        if len(values) == 4 and values[3][:4].isdigit():
-            authors.append(tuple(values))
+        values = record.strip('\n').split('\x1f', 4)
+        if len(values) == 5 and values[3][:4].isdigit():
+            if not converted and _CONVERSION_TRAILER.search(values[4]):
+                continue
+            authors.append(tuple(values[:4]))
     return authors
 
 

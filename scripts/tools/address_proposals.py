@@ -2,9 +2,9 @@
 """Propose affiliations from the company email addresses in Git commits (see docs/how-to/add-an-affiliation.md).
 
 The attribution rules accept a company address in the commits of a person as evidence for the years of those
-commits, in the Git era only. This reads the author of every commit of the cached clones of the plone
-repositories, finds the person in the registers, keeps the addresses of companies, and proposes the years as an
-affiliation. The proposals go to curated/mappings/affiliation_proposals.csv (with --write); a reviewer moves
+commits, in commits made in Git only. This reads the author of every commit of the cached clones of the plone
+repositories, leaves out the commits imported from Subversion, finds the person in the registers, keeps the
+addresses of companies, and proposes the years as an affiliation. The proposals go to curated/mappings/affiliation_proposals.csv (with --write); a reviewer moves
 them into affiliations.csv. Domains that belong to no organisation are listed, so that they can be added to the
 `aliases` of the organisation.
 
@@ -37,6 +37,8 @@ PERSONAL_DOMAINS = [
     # Mail services of internet providers: a mailbox there says nothing about an employer either
     'arcor.de', 't-online.de', 'freenet.de', 'aon.at', 'chello.at', 'bluewin.ch', 'orange.fr', 'libero.it',
     'tiscali.*', 'mail.ru', 'yandex.*',
+    # Mail aliases that professional societies give their members
+    'computer.org', 'acm.org', 'ieee.org',
 ]
 _PERSONAL = re.compile(
     r'^(?:.+\.)?(?:' + '|'.join(re.escape(d).replace(r'\*', '.+') for d in PERSONAL_DOMAINS) + ')$')
@@ -127,7 +129,8 @@ def gather(clones, finder, since):
     unmapped = defaultdict(lambda: {'commits': 0, 'years': set(), 'people': set()})
 
     def read(clone):
-        return clone[0], git_history.read_authors(clone[1])
+        # Only commits made in Git: the migration from Subversion assigned the addresses of the imported ones
+        return clone[0], git_history.read_authors(clone[1], converted=False)
 
     with ThreadPoolExecutor(max_workers=8) as pool:
         results = list(pool.map(read, clones))
@@ -171,7 +174,7 @@ def propose(registry, found):
             repository = repository.removesuffix('.git')
             proposals.append({
                 'person': person, 'organisation': organisation, 'from': first, 'to': last,
-                'evidence': f'Company address @{domain} in commits {first}-{last} '
+                'evidence': f'Company address @{domain} in commits {_years(first, last)} '
                             f'(example: https://github.com/{ORGANISATION}/{repository}/commit/{sha})',
                 'domain': domain, 'match': how,
                 'commits': sum(v[0] for y in years for v in by_year[y].values()),

@@ -12,6 +12,7 @@ This page explains what the data can and can't show for each era, so that you ca
 Plone started in CVS.
 The CVS history was imported into Subversion, and in 2011 Subversion was migrated to Git with [svn-migrate](https://github.com/plone/svn-migrate).
 The Git history therefore goes back to February 2002.
+An imported commit is recognisable by the trailer `svn path=…; revision=…` at the end of its message; a few repositories were converted with git-svn and carry `git-svn-id:` instead.
 2001 is not in Git: the original CVS repository was on SourceForge and is no longer accessible.
 
 CVS recorded commits per file.
@@ -32,8 +33,8 @@ They are not counted twice ([#68](https://github.com/plone/plone-contributor-sta
 ## Authors without a GitHub account
 
 GitHub links a commit to an account by the author's email address.
-The Subversion migration had no file that mapped Subversion users to email addresses.
-Their commits carry addresses like `name@localhost`, which no GitHub account has.
+The Subversion migration knew an email address for some Subversion users only.
+The commits of the others carry addresses like `name@localhost`, which no GitHub account has.
 
 Identities of the kind `email` in `curated/mappings/identities.csv` name the people behind these addresses, where a source says who they are.
 Sources are the same name in commits that are linked to an account, the nicknames in the [credits of Plone 2.0](https://github.com/plone/Products.CMFPlone/blob/2.0/CREDITS.txt), account profiles, and confirmations by people who were there.

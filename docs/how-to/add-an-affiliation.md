@@ -63,7 +63,8 @@ python -m scripts.tools.address_proposals --write          # also append the pro
 ```
 
 The tool finds the person of a commit by the GitHub noreply address, then by the address, then by the author name, as the registers know them; bots and unknown authors are left out.
-It leaves out personal addresses (webmail, plone.org, noreply, local names), Subversion-era addresses, and domains that carry the person's own name unless an organisation of the register claims them, because they say nothing about an employer.
+It leaves out the commits imported from Subversion, because the migration assigned their addresses, see {doc}`/explanation/history-and-coverage`.
+Of the rest, it leaves out personal addresses (webmail, plone.org, noreply, the mail aliases of professional societies, local names) and domains that carry the person's own name unless an organisation of the register claims them, because they say nothing about an employer.
 The remaining domain is matched with the names and aliases of the organisations in `curated/mappings/organisations.csv`.
 
 The report has three tables:
