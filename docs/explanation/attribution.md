@@ -72,7 +72,7 @@ A company email address in the person's commits is evidence for the years in whi
 The tool described in {ref}`find-affiliations-in-commit-addresses` proposes such affiliations.
 Commits in the repositories of an organisation's own GitHub organisation are evidence of the same kind for that organisation in the year of the commits.
 The tool described in {ref}`find-affiliations-in-the-github-commit-search` finds both kinds in the GitHub commit search, for years that rows marked "not verified" only guess.
-Personal domains and project addresses, such as plone.org, say nothing about an employer.
+Personal domains, project addresses, such as plone.org, and the domain of an alliance of companies, such as the BlueDynamics Alliance, say nothing about an employer.
 A programme such as Google Summer of Code is not an employer.
 Where one record names two organisations for the same time, the first one counts.
 When in doubt, a contributor stays Unmapped.

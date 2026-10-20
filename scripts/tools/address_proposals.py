@@ -41,6 +41,8 @@ PERSONAL_DOMAINS = [
     'computer.org', 'acm.org', 'ieee.org',
     # Addresses of other projects and of the Finnish members' mail service
     'gnome.org', 'apache.org', 'debian.org', 'kde.org', 'iki.fi',
+    # The BlueDynamics Alliance is a network of companies, each of them the employer, not the alliance
+    'bluedynamics.com',
 ]
 _PERSONAL = re.compile(
     r'^(?:.+\.)?(?:' + '|'.join(re.escape(d).replace(r'\*', '.+') for d in PERSONAL_DOMAINS) + ')$')
