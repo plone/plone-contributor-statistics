@@ -14,11 +14,9 @@ CURATED_MARKERS = re.compile(r'\bpaths\.(' + '|'.join(CONSTANTS) + r')\b|[\'"]cu
 # Code that may read curated/ itself
 ALLOWED_PREFIXES = (
     'scripts/lib/model/',  # the model: the one reader
-    'scripts/tools/migrate_data/',  # the migration from the old files, archived after the merge
 )
 # The other files that name a curated path, and which markers each may use
 ALLOWED = {
-    'scripts/tools/migrate_data_structure.py': None,  # the migration from the old files: anything
     'scripts/lib/paths.py': None,  # says where every file lives
     # check.py and datapackage.py validate and describe the curated files against their schemas
     'scripts/tools/check.py': {'paths.SCHEMAS_DIR', 'paths.DATAPACKAGE', "'curated/", '"curated/'},

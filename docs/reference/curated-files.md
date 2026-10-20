@@ -98,6 +98,7 @@ One row is one organisation.
 | `id` | string | required; unique; pattern `^[a-z0-9][a-z0-9-]*$` | Opaque, stable identifier of the organisation: made once from the name when the row is created, and kept when the name changes. It is a key, not a spelling. |
 | `name` | string | required; unique | The name the organisation is published under. |
 | `kind` | string | required; one of `organisation`, `independent`, `foundation` | The kind of the organisation: a company, an independent or a foundation. |
+| `github` | string | pattern `^[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?$` | The login of the organisation's GitHub organisation, with the case it has on GitHub; empty when it has none. Commits in its repositories are evidence for an affiliation. |
 | `aliases` | string |  | Other spellings of the name, separated by semicolons; free text, not keys. |
 | `notes` | string |  | Free-text remarks on the row. |
 
@@ -107,6 +108,7 @@ Checks beyond the schema:
 
 - The rows are sorted by `id`, ignoring case.
 - No name or alias folds to the same text as the name or alias of another row.
+- `github` is unique, ignoring case.
 
 ### Affiliation proposals
 

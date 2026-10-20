@@ -14,7 +14,7 @@ You need a GitHub account, and a public record for the affiliation: a link, or a
 
     The tool finds a person by id, name, login or email, and prints their rows of `curated/mappings/people.csv`, `curated/mappings/identities.csv` and `curated/mappings/affiliations.csv`, each group under the name of its file.
     If the person is not in the register, add them first, see {doc}`add-a-person`.
-    If the organisation is not in `curated/mappings/organisations.csv`, add a row for it, in its place sorted by id, with the columns `id,name,kind,aliases,notes`: a new id in lower-case letters, digits and hyphens, the name, the kind `organisation`, and empty `aliases` and `notes`.
+    If the organisation is not in `curated/mappings/organisations.csv`, add a row for it, in its place sorted by id, with the columns `id,name,kind,github,aliases,notes`: a new id in lower-case letters, digits and hyphens, the name, the kind `organisation`, the login of the organisation's GitHub organisation if it has one, and empty `aliases` and `notes`.
     A person who contributes privately or as a volunteer gets an organisation of the kind `independent`, named after them, such as `Jane Doe (independent)`.
 
 2.  Add a row to `curated/mappings/affiliations.csv`, in its place sorted by person and first year:
@@ -85,6 +85,49 @@ A run that has grown since the last `--write`, because newer commits extend it, 
 The tool never writes `curated/mappings/affiliations.csv`.
 Review each proposal as any other: check that the domain is a company's, and that the person worked for the company and not only used its address, then move the row into `curated/mappings/affiliations.csv` with the example commit as `source`, and run `make check`.
 A match by a first word can be wrong, so look at the organisation before you accept it.
+
+(find-affiliations-in-the-github-commit-search)=
+
+## Find affiliations in the GitHub commit search
+
+Many rows of `curated/mappings/affiliations.csv` are marked "not verified": the migration to the registers kept today's organisation for every year of a person's activity.
+The GitHub commit search dates some of them.
+It finds the commits of a person in a year in all public repositories, not only those of the plone organisation.
+The tool needs a GitHub token in the environment variable `GITHUB_TOKEN`, never as an option, and the search allows 30 requests a minute, so a run takes a while.
+
+```shell
+GITHUB_TOKEN=$(gh auth token) python -m scripts.tools.github_evidence --person jane-doe
+python -m scripts.tools.github_evidence --write            # all "not verified" rows
+```
+
+Without `--person` the tool takes the people with a GitHub login and a "not verified" row, and the years of those rows in which the person has commits or pull requests in `collected/contributors/`.
+With `--person` (repeat it for several people) it takes all rows of those people.
+`--all-years` queries every year of the rows, `--refresh` asks GitHub again instead of reading the cache in `.cache/github-search/`, and `--cache` names another cache directory.
+Every response is cached, so a run that stops resumes where it was.
+
+For each person and year the tool makes up to two queries:
+
+1.  The commits of the person in the year.
+    A company address in them is judged like an address in the cached clones: personal domains and domains with the person's own name say nothing, the others are matched with the organisations of the register.
+    Only the first 100 commits are read, the earliest first, and the earliest one is the example.
+2.  When no address names an organisation: the commits of the person in the year in the GitHub organisation of an organisation of the person, from the row of the year or of a neighbouring year.
+    Only organisations with a value in the `github` column of `curated/mappings/organisations.csv` are searched.
+
+The report has four tables:
+
+-   **Proposals**: per person and organisation, a run of years, with the number of commits, how it was found (an address and how it matched, or the GitHub organisation) and the example commit or search page.
+    Years that a verified row of the same organisation covers are left out; a "not verified" row is what the evidence is for, so its years are proposed.
+-   **Conflicts**: proposed years in which another organisation has a row, and whether that row is a guess.
+-   **Unmapped domains**: company addresses that match no organisation, to add as `aliases`, as above.
+-   **Organisations without a handle**: the guessed organisations of the years that no address explained, with the number of person-years.
+    Fill the `github` column for the organisations you can name a GitHub organisation for, and run the tool again.
+
+With `--write`, the proposals go to `curated/mappings/affiliation_proposals.csv`.
+Review them like the address proposals.
+A proposal that confirms a guessed row turns the years of that row into verified ones: the evidence goes into its `source` and the note goes.
+A proposal that contradicts a guess splits the guess around the evidence.
+A proposal against a dated record goes to the reviewer.
+Commits in the GitHub organisation of an employer show that the person worked on its code, which an employee does, but so does a volunteer; check the organisation before you accept.
 
 To check which row gives the organisation of a person in a year, run `python -m scripts.tools.affiliation jane-doe 2017`.
 {doc}`/explanation/attribution` explains the rules the affiliations follow, and {ref}`reference-curated-files` describes the file formats.

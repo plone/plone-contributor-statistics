@@ -48,6 +48,7 @@ class Organisation:
     id: str
     name: str
     kind: str
+    github: str | None
     aliases: tuple
     notes: str | None
 
@@ -206,7 +207,7 @@ def load_registry(mappings_dir=paths.MAPPINGS_DIR):
     affiliations = [Affiliation(r['person'], r['organisation'], r['from'], r['to'], r['source'], r['checked'],
                                 r['notes'])
                     for r in read_rows(mappings_dir / paths.AFFILIATIONS.name)]
-    organisations = [Organisation(r['id'], r['name'], r['kind'], split_set(r['aliases']), r['notes'])
+    organisations = [Organisation(r['id'], r['name'], r['kind'], r['github'], split_set(r['aliases']), r['notes'])
                      for r in read_rows(mappings_dir / paths.ORGANISATIONS.name)]
     return Registry(people, identities, affiliations, organisations)
 

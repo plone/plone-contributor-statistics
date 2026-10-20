@@ -61,7 +61,7 @@ def test_affiliation_overlap_names_both_rows(tmp_package):
     root = tmp_package(
         {
             'mappings/people.csv': PEOPLE,
-            'mappings/organisations.csv': 'id,name,kind,aliases,notes\nacme,Acme,organisation,,\n',
+            'mappings/organisations.csv': 'id,name,kind,github,aliases,notes\nacme,Acme,organisation,,,\n',
             'mappings/affiliations.csv': (
                 'person,organisation,from,to,source,checked,notes\n'
                 'pbauer,acme,2010,2016,https://example.org/a,,\n'
@@ -78,7 +78,7 @@ def test_name_fold_rejects_near_duplicate(tmp_package):
     root = tmp_package(
         {
             'mappings/organisations.csv': (
-                'id,name,kind,aliases,notes\necreall,Ecréall,organisation,,\necreall-2,Ecreall,organisation,,\n'
+                'id,name,kind,github,aliases,notes\necreall,Ecréall,organisation,,,\necreall-2,Ecreall,organisation,,,\n'
             ),
         }
     )
@@ -109,7 +109,7 @@ def test_foreign_key_error_hints_nearest_ids(tmp_package):
     root = tmp_package(
         {
             'mappings/people.csv': PEOPLE,
-            'mappings/organisations.csv': 'id,name,kind,aliases,notes\nacme,Acme,organisation,,\n',
+            'mappings/organisations.csv': 'id,name,kind,github,aliases,notes\nacme,Acme,organisation,,,\n',
             'mappings/affiliations.csv': (
                 'person,organisation,from,to,source,checked,notes\npbaur,acme,2010,2016,https://example.org/a,,\n'
             ),
@@ -175,7 +175,7 @@ def test_a_stale_descriptor_is_its_own_error_line(tmp_package, capsys):
     assert capsys.readouterr().out == 'curated/datapackage.json::: stale — run python -m scripts.tools.datapackage\n'
 
 
-ACME = 'id,name,kind,aliases,notes\nacme,Acme,organisation,,\n'
+ACME = 'id,name,kind,github,aliases,notes\nacme,Acme,organisation,,,\n'
 AFFILIATIONS = 'person,organisation,from,to,source,checked,notes\n'
 
 

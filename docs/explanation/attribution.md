@@ -70,7 +70,9 @@ A personal website is no employer, and a link to it says nothing about one; but 
 A confirmation that exists only in private doesn't count, because nobody else can check it.
 A company email address in the person's commits is evidence for the years in which the person used it, but only in commits made in Git, see {doc}`history-and-coverage`.
 The tool described in {ref}`find-affiliations-in-commit-addresses` proposes such affiliations.
-Personal domains and project addresses, such as plone.org, say nothing about an employer.
+Commits in the repositories of an organisation's own GitHub organisation are evidence of the same kind for that organisation in the year of the commits.
+The tool described in {ref}`find-affiliations-in-the-github-commit-search` finds both kinds in the GitHub commit search, for years that rows marked "not verified" only guess.
+Personal domains, project addresses, such as plone.org, and the domain of an alliance of companies, such as the BlueDynamics Alliance, say nothing about an employer.
 A programme such as Google Summer of Code is not an employer.
 Where one record names two organisations for the same time, the first one counts.
 When in doubt, a contributor stays Unmapped.

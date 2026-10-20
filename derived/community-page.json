@@ -8709,7 +8709,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         9
+         10
         ],
         [
          "2022",
@@ -8719,7 +8719,7 @@
         [
          "2023",
          "derived/organisation-contributors/2023-plone-organisation-contributors.csv",
-         40
+         41
         ]
        ],
        "source": null,
@@ -9723,7 +9723,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         22
+         21
         ],
         [
          "2022",
@@ -10127,7 +10127,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         30
+         29
         ],
         [
          "2022",
@@ -10315,7 +10315,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         12
+         13
         ],
         [
          "2022",
@@ -10527,7 +10527,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         6
+         7
         ],
         [
          "2022",
@@ -11757,7 +11757,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         27
+         26
         ],
         [
          "2022",
@@ -12703,7 +12703,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         15
+         14
         ],
         [
          "2022",
@@ -13429,7 +13429,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         11
+         12
         ],
         [
          "2022",
@@ -13569,10 +13569,10 @@
      "roles": 0
     },
     "2019": {
-     "commits": 203,
+     "commits": 0,
      "events": 0,
-     "pull_requests": 55,
-     "roles": 1
+     "pull_requests": 0,
+     "roles": 0
     },
     "2020": {
      "commits": 318,
@@ -13629,7 +13629,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         18
+         17
         ],
         [
          "2022",
@@ -13730,22 +13730,22 @@
      "roles": 0
     },
     "2017": {
-     "commits": 224,
+     "commits": 234,
      "events": 0,
-     "pull_requests": 17,
+     "pull_requests": 18,
      "roles": 3
     },
     "2018": {
-     "commits": 1308,
+     "commits": 1313,
      "events": 0,
-     "pull_requests": 206,
+     "pull_requests": 216,
      "roles": 1
     },
     "2019": {
-     "commits": 792,
+     "commits": 995,
      "events": 1,
-     "pull_requests": 281,
-     "roles": 2
+     "pull_requests": 336,
+     "roles": 3
     },
     "2020": {
      "commits": 112,
@@ -13802,7 +13802,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         8
+         9
         ]
        ],
        "source": null,
@@ -14650,7 +14650,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         14
+         6
         ],
         [
          "2022",
@@ -14674,7 +14674,7 @@
         ]
        ],
        "source": null,
-       "text": "Core Member (62.2 PRs/year)"
+       "text": "Core Member (68.8 PRs/year)"
       }
      ],
      "points": 10.0
@@ -14857,9 +14857,9 @@
      "roles": 0
     },
     "2021": {
-     "commits": 159,
+     "commits": 358,
      "events": 0,
-     "pull_requests": 75,
+     "pull_requests": 108,
      "roles": 1
     },
     "2022": {
@@ -15388,7 +15388,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         10
+         11
         ],
         [
          "2022",
@@ -15576,7 +15576,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         31
+         30
         ],
         [
          "2022",
@@ -15937,7 +15937,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         19
+         18
         ],
         [
          "2022",
@@ -16161,7 +16161,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         16
+         15
         ],
         [
          "2022",
@@ -16459,13 +16459,13 @@
      "roles": 0
     },
     "2008": {
-     "commits": 4,
+     "commits": 0,
      "events": 0,
      "pull_requests": 0,
      "roles": 0
     },
     "2009": {
-     "commits": 2,
+     "commits": 1,
      "events": 0,
      "pull_requests": 0,
      "roles": 0
@@ -16746,7 +16746,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         24
+         23
         ],
         [
          "2022",
@@ -21141,7 +21141,7 @@
     "commits": 4,
     "id": "johannes-raggam",
     "name": "Johannes Raggam",
-    "organisation": "Syslab",
+    "organisation": "adm o.kipcak & partner ges.m.b.h.",
     "pull_requests": 0,
     "roles": []
    },
@@ -22001,7 +22001,7 @@
     "commits": 1,
     "id": "johannes-raggam",
     "name": "Johannes Raggam",
-    "organisation": "Syslab",
+    "organisation": "adm o.kipcak & partner ges.m.b.h.",
     "pull_requests": 0,
     "roles": []
    },
@@ -33782,7 +33782,7 @@
     "commits": 1,
     "id": "daniel-manchon",
     "name": "Daniel Manchon",
-    "organisation": "Atlasense",
+    "organisation": "Onna",
     "pull_requests": 0,
     "roles": []
    },
@@ -34035,7 +34035,7 @@
     "commits": 9,
     "id": "ismael",
     "name": "Ismael",
-    "organisation": "Atlasense",
+    "organisation": "Onna",
     "pull_requests": 1,
     "roles": []
    },
@@ -35365,7 +35365,7 @@
     "commits": 5,
     "id": "ismael",
     "name": "Ismael",
-    "organisation": "Atlasense",
+    "organisation": "Onna",
     "pull_requests": 10,
     "roles": []
    },
@@ -37247,7 +37247,7 @@
     "commits": 203,
     "id": "ramon-navarro-bosch",
     "name": "Ramon Navarro Bosch",
-    "organisation": "Nuclia",
+    "organisation": "Onna",
     "pull_requests": 55,
     "roles": [
      "Trainer"
@@ -39878,7 +39878,7 @@
     "commits": 199,
     "id": "nzambello",
     "name": "nzambello",
-    "organisation": "RawMaterial",
+    "organisation": "RedTurtle",
     "pull_requests": 33,
     "roles": []
    },
@@ -40175,7 +40175,7 @@
     "commits": 0,
     "id": "steve-mcmahon",
     "name": "Steve McMahon",
-    "organisation": "Reid-McMahon",
+    "organisation": "Davis Community Network",
     "pull_requests": 1,
     "roles": []
    },
@@ -42526,7 +42526,7 @@
     "commits": 20,
     "id": "lena-daxenbichler",
     "name": "Lena Daxenbichler",
-    "organisation": "squarewave engineering",
+    "organisation": "r2 Solutions GmbH",
     "pull_requests": 4,
     "roles": []
    },

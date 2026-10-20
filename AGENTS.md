@@ -52,4 +52,5 @@ Each top-level folder has a README that says what it holds and whether to edit i
 `python -m scripts.tools.affiliation <person> <year>` says which organisation the data gives for a year and which row says so.
 `python -m scripts.tools.unmatched_names` lists people of the register without a login who appear as a login, and `--propose` suggests the `github` value to set in `people.csv` from GitHub profile names; check each before setting it.
 `python -m scripts.tools.address_proposals [--person <id>] [--since <year>] [--write]` proposes affiliations from company email addresses in the commits of the cached clones; `--write` appends them to `affiliation_proposals.csv`.
+`GITHUB_TOKEN=... python -m scripts.tools.github_evidence [--person <id>] [--all-years] [--write] [--refresh]` proposes dated affiliations for years that "not verified" rows guess, from the GitHub commit search (company addresses, and commits in the GitHub organisation of an organisation); responses are cached in `.cache/github-search/`.
 For a single login, `python -m scripts.tools.get_github_name <login>` asks the GitHub API for the profile name.

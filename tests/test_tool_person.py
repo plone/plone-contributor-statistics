@@ -89,7 +89,7 @@ def test_main_prints_identities_and_affiliations_of_the_match(registers, capsys)
     paths.AFFILIATIONS.write_text(
         'person,organisation,from,to,source,checked,notes\n'
         f'zed,zeta,2015,,{SRC},2024-05-01,"one, two"\n', encoding='utf-8')
-    paths.ORGANISATIONS.write_text('id,name,kind,aliases,notes\nzeta,Zeta,organisation,,\n', encoding='utf-8')
+    paths.ORGANISATIONS.write_text('id,name,kind,github,aliases,notes\nzeta,Zeta,organisation,,,\n', encoding='utf-8')
     assert person.main(['  zed ']) == 0
     assert capsys.readouterr().out == (
         '# curated/mappings/people.csv\n'
