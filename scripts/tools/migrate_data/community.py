@@ -21,6 +21,9 @@ PER_PERSON = ('board-of-directors', 'team-leaders', 'release-managers', 'podcast
               TALKS)
 # Kinds whose organisation cells name the organising entities; the cells stay, as ids
 EVENTS = ('sprints', 'plone-conference', 'world-plone-day-event')
+# What the notes call the people of a kind, for a group dropped from its person cell
+PEOPLE_WORDS = {'sprints': 'organisers', 'plone-conference': 'organisers', 'plone-conference-trainings': 'trainers',
+                TALKS: 'speakers'}
 HEADERS = {
     'board-of-directors': ['person', 'role', 'source', 'notes'],
     'team-leaders': ['person', 'team', 'source', 'notes'],
@@ -218,11 +221,12 @@ class Rewriter:
     def resolve(self, old):
         """[(name, person id or None)] of the person column, groups reported or turned into organisations.
 
-        Returns the people and the organisation ids of the `<Org> team` entries of talks.
+        Returns the people, the organisation ids of the `<Org> team` entries of talks, and the other groups,
+        which are dropped from the person cell.
         """
         organisations = split(old.row.get('Organisation'))
         cells = people_cells(old)
-        resolved, teams = [], []
+        resolved, teams, groups = [], [], []
         for index, (name, handle) in enumerate(cells):
             person = self.people.person_id(name, handle, organisations)
             resolved.append((name, person))
@@ -234,7 +238,8 @@ class Rewriter:
                 teams.append(org_id or self.organisation(old, name[:-len(' team')].strip()))
             else:
                 self.report.dropped_groups.append((old.file, old.line, name))
-        return resolved, teams
+                groups.append(name)
+        return resolved, teams, groups
 
     def state(self, old, resolved, cut):
         """Turn the organisation cells of a per-person row into proposals where the affiliations differ.
@@ -275,7 +280,11 @@ class Rewriter:
         if cut:
             self.report.cut_sources.append((old.file, old.line, cut))
         notes = (row.get('Notes') or '').strip()
-        resolved, teams = self.resolve(old)
+        resolved, teams, groups = self.resolve(old)
+        if groups:
+            # A group is no person; what the old cell said goes to the notes, as for a podcast without a host
+            word = PEOPLE_WORDS.get(old.kind, 'people')
+            notes = '; '.join(unique([notes, f'{word} in the old file: {"; ".join(groups)}']))
         people = unique(person for _, person in resolved)
         if old.kind in PER_PERSON:
             self.state(old, resolved, cut)

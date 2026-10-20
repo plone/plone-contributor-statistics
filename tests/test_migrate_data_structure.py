@@ -386,7 +386,9 @@ def test_unknown_organisation_stops_the_run(tmp_path):
 
 def test_group_in_sprint_is_dropped_and_reported(migrated):
     root, report = migrated
-    assert rows(root, paths.COMMUNITY / '2023-sprints.csv')[1]['organisers'] == ''
+    bonn = rows(root, paths.COMMUNITY / '2023-sprints.csv')[1]
+    assert bonn['organisers'] == ''
+    assert bonn['notes'] == 'organisers in the old file: Bonn Sprint Team'
     assert ('curated/community-contributions/2023-sprints.csv', 3, 'Bonn Sprint Team') in report.dropped_groups
 
 
