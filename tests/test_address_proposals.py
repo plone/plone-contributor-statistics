@@ -159,6 +159,7 @@ def test_bots_are_skipped(setup):
     ('myhost.local', False), ('intranet', False), ('(none)', False), ('example.lan', False),
     ('1b3f2c4d-0000-4000-8000-123456789abc', False),
     ('icts.kuleuven.be', True), ('computer.org', False), ('acm.org', False), ('arcor.de', False),
+    ('iki.fi', False), ('gnome.org', False), ('apache.org', False),
 ])
 def test_company_domain(domain, company):
     assert address_proposals.is_company_domain(domain) is company

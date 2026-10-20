@@ -4,9 +4,9 @@
 The attribution rules accept a company address in the commits of a person as evidence for the years of those
 commits, in commits made in Git only. This reads the author of every commit of the cached clones of the plone
 repositories, leaves out the commits imported from Subversion, finds the person in the registers, keeps the
-addresses of companies, and proposes the years as an affiliation. The proposals go to curated/mappings/affiliation_proposals.csv (with --write); a reviewer moves
-them into affiliations.csv. Domains that belong to no organisation are listed, so that they can be added to the
-`aliases` of the organisation.
+addresses of companies, and proposes the years as an affiliation. The proposals go to
+curated/mappings/affiliation_proposals.csv (with --write); a reviewer moves them into affiliations.csv. Domains
+that belong to no organisation are listed, so that they can be added to the `aliases` of the organisation.
 
 Needs the clones: `make run-changelogs` fills the cache.
 """
@@ -39,6 +39,8 @@ PERSONAL_DOMAINS = [
     'tiscali.*', 'mail.ru', 'yandex.*',
     # Mail aliases that professional societies give their members
     'computer.org', 'acm.org', 'ieee.org',
+    # Addresses of other projects and of the Finnish members' mail service
+    'gnome.org', 'apache.org', 'debian.org', 'kde.org', 'iki.fi',
 ]
 _PERSONAL = re.compile(
     r'^(?:.+\.)?(?:' + '|'.join(re.escape(d).replace(r'\*', '.+') for d in PERSONAL_DOMAINS) + ')$')
