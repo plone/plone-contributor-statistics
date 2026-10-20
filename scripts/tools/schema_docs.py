@@ -170,7 +170,8 @@ def _check_lines(kind, package):
             order = ', '.join(f'`{name}`' for name in check.fields)
             lines.append(f'- The rows are sorted by {order}' + (', ignoring case.' if check.casefold else '.'))
         elif check.type == 'unique-casefold':
-            lines.append(f'- `{check.field}` is unique, ignoring case.')
+            within = f' within its `{check.scope}`' if check.scope else ''
+            lines.append(f'- `{check.field}` is unique{within}, ignoring case.')
         else:
             lines.append(f'- {check.__doc__.strip().splitlines()[0]}')
     return lines

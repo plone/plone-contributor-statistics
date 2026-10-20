@@ -25,6 +25,20 @@ class AffiliationOverlapError(errors.RowError):
     template = 'The row at position {rowNumber} has an error: {note}'
 
 
+class AffiliationPeriodError(errors.RowError):
+    type = 'affiliation-period'
+    title = 'Affiliation Period'
+    description = 'An affiliation ends before it starts, or is open-ended without the date its record was read.'
+    template = 'The row at position {rowNumber} has an error: {note}'
+
+
+class LoginOwnerError(errors.CellError):
+    type = 'login-owner'
+    title = 'Login Owner'
+    description = 'A second login of one person is the GitHub login of another person.'
+    template = 'The cell {cell} in row at position {rowNumber} and field {fieldName} has an error: {note}'
+
+
 class NameFoldError(errors.CellError):
     type = 'name-fold'
     title = 'Name Fold'
@@ -105,6 +119,40 @@ class AffiliationOverlap(Check):
 
 
 @attrs.define(kw_only=True, repr=False)
+class AffiliationPeriod(Check):
+    """`from` is not after `to`, and an affiliation without `to` says when its record was read."""
+
+    type = 'affiliation-period'
+    Errors = [AffiliationPeriodError]
+
+    def validate_row(self, row):
+        start, end = row['from'], row['to']
+        if start is not None and end is not None and start > end:
+            yield AffiliationPeriodError.from_row(row, note=f'from {start} is after to {end}')
+        if end is None and not row['checked']:
+            yield AffiliationPeriodError.from_row(row, note='an affiliation up to the present needs checked')
+
+
+@attrs.define(kw_only=True, repr=False)
+class LoginOwner(Check):
+    """A `login` identity is not the `github` of another person in the people register, ignoring case."""
+
+    type = 'login-owner'
+    Errors = [LoginOwnerError]
+
+    github: dict = attrs.field(factory=dict)
+    """The person id of every `people.github`, by the login in lower case."""
+
+    def validate_row(self, row):
+        if row['kind'] != 'login' or not row['value']:
+            return
+        owner = self.github.get(row['value'].casefold())
+        if owner is not None and owner != row['person']:
+            note = f'the login "{row["value"]}" of {row["person"]} is the github of {owner} in people.csv'
+            yield LoginOwnerError.from_row(row, note=note, field_name='value')
+
+
+@attrs.define(kw_only=True, repr=False)
 class NameFold(Check):
     """No name or alias folds to the same text as the name or alias of another row."""
 
@@ -156,21 +204,28 @@ class Sorted(Check):
 
 @attrs.define(kw_only=True, repr=False)
 class UniqueCasefold(Check):
-    """No two rows have values in the field that differ only in case; empty cells are skipped."""
+    """No two rows have values in the field that differ only in case; empty cells are skipped.
+
+    With `scope`, the value is unique among the rows with the same value in that field, e.g. an identity
+    value within its kind.
+    """
 
     type = 'unique-casefold'
     Errors = [UniqueCasefoldError]
 
     field: str
+    scope: str = None
     _seen: dict = attrs.field(factory=dict, init=False)
 
     def validate_row(self, row):
         value = row[self.field]
         if not value:
             return
-        first = self._seen.setdefault(value.casefold(), row.row_number)
+        key = (row[self.scope] if self.scope else None, value.casefold())
+        first = self._seen.setdefault(key, row.row_number)
         if first != row.row_number:
-            note = f'"{value}" is the same as the value in row {first} once case goes'
+            within = f' of {self.scope} {row[self.scope]}' if self.scope else ''
+            note = f'"{value}" is the same as the value{within} in row {first} once case goes'
             yield UniqueCasefoldError.from_row(row, note=note, field_name=self.field)
 
 
@@ -193,13 +248,24 @@ def _keys_of(package, resource_name):
     return {row[key] for row in resource.read_rows() if row[key]}
 
 
+def _github_owners(package):
+    """{login in lower case: person id} of the `github` column of people.csv; {} without the register."""
+    if not package.has_resource('people'):
+        return {}
+    return {row['github'].casefold(): row['id'] for row in package.get_resource('people').read_rows()
+            if row['github'] and row['id']}
+
+
 def checks_for(resource_name, package):
     """The custom checks of a resource in the package."""
     checks = {
         'people': lambda: [Sorted(fields=['id'], casefold=False), UniqueCasefold(field='github')],
         'organisations': lambda: [Sorted(fields=['id'], casefold=True), NameFold()],
-        'affiliations': lambda: [AffiliationOverlap(), Sorted(fields=['person', 'from'], casefold=False)],
-        'identities': lambda: [LinkUnlessEmail(), Sorted(fields=['person', 'kind', 'value'], casefold=False)],
+        'affiliations': lambda: [AffiliationOverlap(), AffiliationPeriod(),
+                                 Sorted(fields=['person', 'from'], casefold=False)],
+        'identities': lambda: [LinkUnlessEmail(), Sorted(fields=['person', 'kind', 'value'], casefold=False),
+                               UniqueCasefold(field='value', scope='kind'),
+                               LoginOwner(github=_github_owners(package))],
     }
     result = checks.get(resource_name, lambda: [])()
     for field in package.get_resource(resource_name).schema.fields:

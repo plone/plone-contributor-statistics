@@ -520,3 +520,54 @@ def test_audit_source_cut_keeps_what_is_no_note():
     assert not audit.is_source_cut(old, 'https://example.org/row', is_person)
     assert audit.is_source_cut('https://example.org/row; Jane Doe: https://example.org/j', 'https://example.org/row',
                                is_person)
+
+
+OPEN_OVERRIDE = OLD_FILES[old.OVERRIDES] + 'tschorr,Zest Software,2025,,https://example.org/tschorr-back-at-zest\n'
+
+
+def test_open_ended_override_is_checked_on_the_date_it_was_recorded(tmp_path, monkeypatch):
+    profile_names = build(tmp_path, {old.OVERRIDES: OPEN_OVERRIDE})
+    dates = tmp_path / 'override_dates.csv'
+    dates.write_text('github_username,organisation,from_year,to_year,recorded\n'
+                     'tschorr,Zest Software,2005,2012,2025-01-01\n'
+                     'tschorr,Zest Software,2025,,2026-10-17\n', encoding='utf-8')
+    monkeypatch.chdir(tmp_path)
+    migrate.migrate(root=tmp_path, until=2026, profile_names=profile_names, override_dates_file=dates)
+    datapackage.main([])
+    thomas = [(row['from'], row['to'], row['checked'])
+              for row in rows(tmp_path, paths.AFFILIATIONS) if row['person'] == 'thomas-schorr']
+    # A closed range needs no date; the open one gets the date its override row was recorded
+    assert thomas == [('2002', '2004', '2026-10-18'), ('2005', '2012', ''), ('2013', '2024', '2026-10-18'),
+                      ('2025', '', '2026-10-17')]
+    assert check.validate(tmp_path) == []
+
+
+def test_open_ended_override_without_a_date_is_left_for_the_check(tmp_path, monkeypatch):
+    profile_names = build(tmp_path, {old.OVERRIDES: OPEN_OVERRIDE})
+    monkeypatch.chdir(tmp_path)
+    migrate.migrate(root=tmp_path, until=2026, profile_names=profile_names,
+                    override_dates_file=tmp_path / 'missing.csv')
+    datapackage.main([])
+    assert [message for _, _, _, message in check.validate(tmp_path)] == [
+        'The row at position 6 has an error: an affiliation up to the present needs checked']
+
+
+def test_override_dates_are_the_last_commit_that_recorded_each_row(tmp_path):
+    path = tmp_path / old.OVERRIDES
+    path.parent.mkdir(parents=True)
+    git = ['git', '-c', 'user.name=Test', '-c', 'user.email=test@example.org', '-c', 'commit.gpgsign=false']
+    subprocess.run([*git, 'init', '-q'], cwd=tmp_path, check=True)
+
+    def commit(text, day):
+        path.write_text('github_username,organisation,from_year,to_year,source\n' + text, encoding='utf-8')
+        subprocess.run([*git, 'add', '.'], cwd=tmp_path, check=True)
+        env = {'GIT_AUTHOR_DATE': f'{day}T12:00:00', 'GIT_COMMITTER_DATE': f'{day}T12:00:00', 'PATH': '/usr/bin:/bin'}
+        subprocess.run([*git, 'commit', '-q', '-m', day], cwd=tmp_path, check=True, env=env)
+
+    commit('a,Acme,2019,,"one, record"\nb,Acme,2010,2012,https://x\n', '2024-03-01')
+    commit('a,Acme,2019,,"one, record; and another"\nb,Acme,2010,2012,https://x\n', '2025-06-02')
+    assert migrate.override_dates(tmp_path, base='HEAD') == [
+        {'github_username': 'a', 'organisation': 'Acme', 'from_year': '2019', 'to_year': '', 'recorded': '2025-06-02'},
+        {'github_username': 'b', 'organisation': 'Acme', 'from_year': '2010', 'to_year': '2012',
+         'recorded': '2024-03-01'},
+    ]

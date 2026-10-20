@@ -65,7 +65,7 @@ def test_affiliation_overlap_names_both_rows(tmp_package):
             'mappings/affiliations.csv': (
                 'person,organisation,from,to,source,checked,notes\n'
                 'pbauer,acme,2010,2016,https://example.org/a,,\n'
-                'pbauer,acme,2016,,https://example.org/b,,\n'
+                'pbauer,acme,2016,,https://example.org/b,2026-10-19,\n'
             ),
         }
     )
@@ -173,3 +173,70 @@ def test_a_stale_descriptor_is_its_own_error_line(tmp_package, capsys):
     with pytest.raises(SystemExit):
         check.main([])
     assert capsys.readouterr().out == 'curated/datapackage.json::: stale — run python -m scripts.tools.datapackage\n'
+
+
+ACME = 'id,name,kind,aliases,notes\nacme,Acme,organisation,,\n'
+AFFILIATIONS = 'person,organisation,from,to,source,checked,notes\n'
+
+
+def affiliations(*rows):
+    return {'mappings/people.csv': PEOPLE, 'mappings/organisations.csv': ACME,
+            'mappings/affiliations.csv': AFFILIATIONS + ''.join(f'{row}\n' for row in rows)}
+
+
+def test_an_affiliation_may_not_end_before_it_starts(tmp_package):
+    errors = check.validate(tmp_package(affiliations('pbauer,acme,2016,2010,https://example.org/a,,')))
+    assert [(row, message) for _, row, _, message in errors] == [
+        (2, 'The row at position 2 has an error: from 2016 is after to 2010')]
+
+
+def test_an_affiliation_of_one_year_is_fine(tmp_package):
+    assert check.validate(tmp_package(affiliations('pbauer,acme,2016,2016,https://example.org/a,,'))) == []
+
+
+def test_an_open_ended_affiliation_needs_checked(tmp_package):
+    errors = check.validate(tmp_package(affiliations('pbauer,acme,2016,,https://example.org/a,,')))
+    assert len(errors) == 1
+    assert errors[0][1] == 2 and 'needs checked' in errors[0][3]
+
+
+def test_an_open_ended_affiliation_with_checked_is_fine(tmp_package):
+    assert check.validate(tmp_package(affiliations('pbauer,acme,2016,,https://example.org/a,2026-10-19,'))) == []
+
+
+def identities(*rows, people=PEOPLE):
+    return {'mappings/people.csv': people,
+            'mappings/identities.csv': 'person,kind,value,source\n' + ''.join(f'{row}\n' for row in rows)}
+
+
+def test_an_identity_value_is_unique_within_its_kind_ignoring_case(tmp_package):
+    errors = check.validate(tmp_package(identities('pbauer,name,Phil B,https://example.org/a',
+                                                   'tschorr,name,phil b,https://example.org/b')))
+    assert len(errors) == 1
+    assert (errors[0][1], errors[0][2]) == (3, 'value') and 'row 2' in errors[0][3]
+
+
+def test_the_same_value_in_two_kinds_is_fine(tmp_package):
+    # A login that is also a spelling in changelogs, of the same person
+    assert check.validate(tmp_package(identities('pbauer,login,pbauer2,https://example.org/a',
+                                                 'pbauer,name,pbauer2,https://example.org/b'))) == []
+
+
+def test_a_second_login_may_not_be_the_github_of_another_person(tmp_package):
+    errors = check.validate(tmp_package(identities('pbauer,login,TSCHORR,https://example.org/a')))
+    assert len(errors) == 1
+    message = errors[0][3]
+    assert 'pbauer' in message and 'tschorr' in message and 'people.csv' in message
+
+
+def test_a_github_may_not_be_the_second_login_of_another_person(tmp_package):
+    # Seen from people.csv: a new person gets the login that is already another person's second account
+    people = PEOPLE + 'zoe,Zoe,zoe2,https://github.com/zoe2\n'
+    errors = check.validate(tmp_package(identities('pbauer,login,pbauer-old,https://example.org/a',
+                                                   'tschorr,login,zoe2,https://example.org/b', people=people)))
+    assert len(errors) == 1
+    assert 'tschorr' in errors[0][3] and 'zoe' in errors[0][3]
+
+
+def test_a_second_login_of_the_person_itself_is_fine(tmp_package):
+    assert check.validate(tmp_package(identities('pbauer,login,pbauer-old,https://example.org/a'))) == []

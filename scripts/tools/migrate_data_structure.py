@@ -5,6 +5,11 @@ fetch-names is the one online step: it fetches the GitHub profile names of the
 logins that no curated file names, and writes them to a file that the
 migration reads. It needs GITHUB_TOKEN in the environment.
 
+override-dates is a one-off helper: it asks git, in the current checkout, for the
+date of the last commit at the base revision that recorded each row of the old
+overrides file, and writes them to a file that the migration reads, so that an
+affiliation up to the present that comes from an override gets its `checked` date.
+
 run is the migration itself, offline: it writes people.csv, identities.csv,
 affiliations.csv, organisations.csv and affiliation_proposals.csv from the old
 mapping files, rewrites the community files to ids, renames the commit authors
@@ -19,6 +24,7 @@ import csv
 import io
 import os
 import re
+import subprocess
 from collections import Counter, defaultdict
 from dataclasses import dataclass, field
 from datetime import date
@@ -48,6 +54,10 @@ UNMAPPED = 'Unmapped'
 PLONE_FOUNDATION = 'Plone Foundation'
 PERSON_PREFIX = 'person:'
 NOT_VERIFIED = 'range from the current entry; years before {year} not verified (#139)'
+# The base revision the migration starts from, and the dates of its override rows
+BASE = '499a4af'
+OVERRIDE_DATES = Path(__file__).resolve().parent / 'migrate_data' / 'override_dates.csv'
+OVERRIDE_KEY = ('github_username', 'organisation', 'from_year', 'to_year')
 OLD_FILES = (OVERRIDES, SOURCES, PROPOSALS, COMMIT_AUTHORS, ACCOUNT_ALIASES,
              FULLNAMES, CHANGELOG_NAMES)
 HEADERS = {
@@ -123,6 +133,51 @@ def fetch_names(out):
     fetched = fetch_profile_names(session, logins)
     write_profile_names({login: fetched.get(login, '') for login in logins}, out)
     print(f'{len(logins)} logins, {sum(1 for login in logins if fetched.get(login))} with a profile name')
+
+
+def override_dates(root=Path('.'), base=BASE):
+    """[{github_username, organisation, from_year, to_year, recorded}] of every row of the base's overrides file.
+
+    `recorded` is the date (%cs) of the last commit up to `base` that added the row's text, as
+    `git log -1 --format=%cs -S'<row>' <base> -- <overrides file>` gives it.
+    """
+    def git(*args):
+        return subprocess.run(['git', *args], cwd=root, capture_output=True, text=True, encoding='utf-8',
+                              check=True).stdout
+
+    path = OVERRIDES.as_posix()
+    text = git('show', f'{base}:{path}')
+    lines = text.splitlines()
+    parsed = list(csv.DictReader(io.StringIO(text, newline='')))
+    if len(parsed) != len(lines) - 1:
+        raise ValueError(f'{path}: a row spans several lines; the dates are looked up per line')
+    found = []
+    for line, row in zip(lines[1:], parsed):
+        recorded = git('log', '-1', '--format=%cs', f'-S{line}', base, '--', path).strip()
+        found.append({**{key: row[key].strip() for key in OVERRIDE_KEY}, 'recorded': recorded})
+    return found
+
+
+def write_override_dates(out, root=Path('.'), base=BASE):
+    """Write the dates of the base's override rows to `out`."""
+    _write(Path(out), [*OVERRIDE_KEY, 'recorded'], override_dates(root, base))
+
+
+def read_override_dates(path=OVERRIDE_DATES):
+    """{(github_username in lower case, organisation, from_year, to_year): date} of the file; {} without it."""
+    path = Path(path)
+    if not path.exists():
+        return {}
+    return {_override_key(row): row['recorded'].strip() for row in _read(path)}
+
+
+def _override_key(row):
+    """The key of an override row: the login in lower case, the organisation and the years as text."""
+    def text(value):
+        return '' if value is None else str(value).strip()
+
+    return (text(row['github_username']).casefold(), text(row['organisation']), text(row['from_year']),
+            text(row['to_year']))
 
 
 # The migration
@@ -473,11 +528,12 @@ def _quiet(function, *args, **kwargs):
         return function(*args, **kwargs)
 
 
-def build_affiliations(root, old, people, organisations, until):
+def build_affiliations(root, old, people, organisations, until, dates=None):
     """The rows of affiliations.csv: the organisation mapping of each year made explicit as ranges.
 
     A range comes either from the current entry (the `Team` column, with the record of the sources file)
-    or from one override; `Unmapped` gives no row.
+    or from one override; `Unmapped` gives no row. A range up to the present from an override is checked
+    on the date the override row was recorded, from `dates` (see read_override_dates).
     """
     mappings = {}
     for year in range(AFFILIATION_FIRST_YEAR, until + 1):
@@ -498,7 +554,7 @@ def build_affiliations(root, old, people, organisations, until):
                 continue
             applying = [index for index, row in overrides if _applies(row, year)]
             years.append((year, organisation, applying[-1] if applying else None))
-        found.extend(_ranges(people.ids[key], key, years, old, organisations, until))
+        found.extend(_ranges(people.ids[key], key, years, old, organisations, until, dates or {}))
     return sorted(found, key=lambda row: (row['person'], row['from']))
 
 
@@ -508,7 +564,7 @@ def _applies(override, year):
     return bool(from_year and from_year <= year and (not to_year or year <= to_year))
 
 
-def _ranges(person, key, years, old, organisations, until):
+def _ranges(person, key, years, old, organisations, until, dates):
     runs = []
     for year, organisation, origin in years:
         if runs and runs[-1]['organisation'] == organisation and runs[-1]['origin'] == origin \
@@ -536,6 +592,8 @@ def _ranges(person, key, years, old, organisations, until):
             row['source'] = override['source']
             if override['to_year'] is not None and run['to'] == until:
                 row['to'] = until
+            if row['to'] == '':
+                row['checked'] = dates.get(_override_key(override), '')
         rows.append(row)
     return rows
 
@@ -630,7 +688,7 @@ def write_report(report):
     return '\n'.join(out) + '\n'
 
 
-def migrate(root, until, profile_names):
+def migrate(root, until, profile_names, override_dates_file=OVERRIDE_DATES):
     """Migrate the curated files under root to the registers and return the report."""
     root = Path(root)
     report = Report()
@@ -639,7 +697,8 @@ def migrate(root, until, profile_names):
     people = People(old, organisations, Path(profile_names))
     report.id_collisions.extend(people.collisions)
     report.dropped_handles.extend(old_community.dropped_handles(old.rows))
-    affiliations = build_affiliations(root, old, people, organisations, until)
+    affiliations = build_affiliations(root, old, people, organisations, until,
+                                      read_override_dates(override_dates_file))
     covered = {}
     for row in affiliations:
         for year in range(row['from'], (row['to'] or until) + 1):
@@ -672,11 +731,17 @@ def main(argv=None):
     fetch = commands.add_parser('fetch-names', help='Fetch the GitHub profile names the migration needs '
                                                     '(needs GITHUB_TOKEN)')
     fetch.add_argument('--out', required=True, help='The CSV file to write: login, name, fetched')
+    dates = commands.add_parser('override-dates', help='Write the date each override row of the base was recorded '
+                                                       '(runs git in the current checkout)')
+    dates.add_argument('--base', default=BASE, help=f'The base revision (default: {BASE})')
+    dates.add_argument('--out', default=str(OVERRIDE_DATES), help='The CSV file to write (default: %(default)s)')
     run = commands.add_parser('run', help='Migrate the curated files to the registers and print a report')
     run.add_argument('--root', default='.', help='The repository to migrate (default: the current directory)')
     run.add_argument('--until', type=int, required=True, help='The last year of the affiliations, e.g. 2026')
     run.add_argument('--profile-names', required=True, help='The file fetch-names wrote: login, name, fetched')
     run.add_argument('--report', help='Also write the report to this Markdown file')
+    run.add_argument('--override-dates', default=str(OVERRIDE_DATES),
+                     help='The file override-dates wrote (default: %(default)s)')
     check = commands.add_parser('audit', help='Classify every changed line of derived/ and reports/ by its cause; '
                                               'exit 1 on an unexplained one')
     check.add_argument('--root', default='.', help='The repository (default: the current directory)')
@@ -696,8 +761,10 @@ def main(argv=None):
             raise SystemExit(1)
     elif args.command == 'fetch-names':
         fetch_names(args.out)
+    elif args.command == 'override-dates':
+        write_override_dates(args.out, base=args.base)
     elif args.command == 'run':
-        text = write_report(migrate(Path(args.root), args.until, args.profile_names))
+        text = write_report(migrate(Path(args.root), args.until, args.profile_names, args.override_dates))
         if args.report:
             Path(args.report).write_text(text, encoding='utf-8')
         print(text, end='')

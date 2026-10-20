@@ -62,6 +62,8 @@ Checks beyond the schema:
 
 - The source of an identity contains a web address, unless the identity is an email address.
 - The rows are sorted by `person`, `kind`, `value`.
+- `value` is unique within its `kind`, ignoring case.
+- A `login` identity is not the `github` of another person in the people register, ignoring case.
 
 ### Affiliations
 
@@ -82,6 +84,7 @@ One row is one person, one organisation and one period.
 Checks beyond the schema:
 
 - The year ranges of one person's affiliations do not overlap.
+- `from` is not after `to`, and an affiliation without `to` says when its record was read.
 - The rows are sorted by `person`, `from`.
 
 ### Organisations
