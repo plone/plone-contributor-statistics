@@ -1,6 +1,6 @@
 # Plone Core Contributor Statistics Report
 
-Generated on: 2026-10-20 01:35:11
+Generated on: 2026-10-20 15:02:43
 
 This report shows the top contributors and organizations in the Plone ecosystem across different time periods.
 
@@ -135,7 +135,7 @@ Not mapped to an organisation: 366 PRs, 767 commits by 124 contributors.
 | 9 | RedTurtle | 311 | 656 | 9 | 30 |
 | 10 | Codesyntax | 289 | 782 | 4 | 48 |
 
-Not mapped to an organisation: 651 PRs, 1,799 commits by 185 contributors.
+Not mapped to an organisation: 638 PRs, 1,786 commits by 184 contributors.
 
 
 ### Top 10 Organisation Contributors (Past 10 Years: 2016-2025)
@@ -143,17 +143,17 @@ Not mapped to an organisation: 651 PRs, 1,799 commits by 185 contributors.
 | Rank | Organization | PRs | Commits | Contributors | Repositories |
 |------|-------------|-----|---------|---------------|-------------|
 | 1 | kitconcept GmbH | 3,459 | 16,652 | 17 | 180 |
-| 2 | Zest Software | 1,279 | 11,857 | 4 | 191 |
+| 2 | Zest Software | 1,279 | 11,882 | 5 | 191 |
 | 3 | der Freitag | 1,201 | 5,882 | 3 | 274 |
 | 4 | Syslab | 1,068 | 2,876 | 6 | 141 |
 | 5 | Steve Piercy - Website Builder | 909 | 3,242 | 1 | 38 |
-| 6 | Onna | 869 | 3,574 | 7 | 28 |
+| 6 | Onna | 898 | 3,628 | 14 | 29 |
 | 7 | Kombinat | 754 | 2,882 | 1 | 85 |
 | 8 | Klein & Partner KG | 725 | 3,125 | 2 | 149 |
 | 9 | Eau de Web | 567 | 1,649 | 18 | 37 |
 | 10 | Starzel | 542 | 2,298 | 3 | 142 |
 
-Not mapped to an organisation: 2,007 PRs, 5,521 commits by 380 contributors.
+Not mapped to an organisation: 1,963 PRs, 5,418 commits by 375 contributors.
 
 
 ---
@@ -194,10 +194,10 @@ See [how contributions are counted](https://plone.github.io/plone-contributor-st
 | 6 | ZITC | 240 | 1,543 | 1 |
 | 7 | Zest Software | 237 | 974 | 4 |
 | 8 | Penn State University | 198 | 1,771 | 2 |
-| 9 | ONE/Northwest | 170 | 681 | 1 |
-| 10 | Four Digits | 166 | 1,286 | 3 |
+| 9 | Four Digits | 170 | 1,419 | 5 |
+| 10 | ONE/Northwest | 170 | 681 | 1 |
 
-Not mapped to an organisation: 4,808 changelog entries, 10,135 commits.
+Not mapped to an organisation: 4,804 changelog entries, 9,999 commits.
 
 
 ---

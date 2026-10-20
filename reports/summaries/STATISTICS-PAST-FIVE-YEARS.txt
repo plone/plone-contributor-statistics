@@ -2,7 +2,7 @@
 
 - 80 total organisations tracked across the past 5 years
 - 41,001 total commits and 9,917 pull requests
-- 342 unique contributors across all organisations
+- 343 unique contributors across all organisations
 - File generated: derived/summaries/summary-past-five-years-2021-2025.csv
 
 ## Top 10 contributors by pull requests (2021-2025)
@@ -44,7 +44,7 @@
 9. RedTurtle: 311 PRs
 10. Codesyntax: 289 PRs
 
-Not mapped to an organisation: 651 PRs
+Not mapped to an organisation: 638 PRs
 
 ## Top 10 organisations by commits (2021-2025)
 
@@ -59,4 +59,4 @@ Not mapped to an organisation: 651 PRs
 9. Derico: 1,110 commits
 10. Rohberg: 1,010 commits
 
-Not mapped to an organisation: 1,799 commits
+Not mapped to an organisation: 1,786 commits
