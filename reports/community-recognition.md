@@ -1,11 +1,11 @@
 # Plone Community Recognition Program 2025
 
-*Generated: 2026-10-20 00:54:40*
+*Generated: 2026-10-20 15:02:45*
 
 ## Executive Summary
 
 - **Total Organizations**: 38
-- **Total Points Awarded**: 543.0
+- **Total Points Awarded**: 545.0
 - **Average Points per Organization**: 14.3
 
 ## Recognition Levels
@@ -15,8 +15,8 @@
 | Platinum Contributor | 35+ | 1 |
 | Gold Contributor | 25-34 | 5 |
 | Silver Contributor | 10-24 | 13 |
-| Bronze Contributor | 3-9 | 12 |
-| Community Contributor | 1-2 | 7 |
+| Bronze Contributor | 3-9 | 13 |
+| Community Contributor | 1-2 | 6 |
 
 ## Recognition Categories
 
@@ -80,15 +80,15 @@
 | 23 | Affinitic | Bronze Contributor | 6.0 |
 | 24 | Derico | Bronze Contributor | 6.0 |
 | 25 | KU Leuven | Bronze Contributor | 4.0 |
-| 26 | Rohberg | Bronze Contributor | 4.0 |
-| 27 | Markus Hilbert (independent) | Bronze Contributor | 3.0 |
-| 28 | PloneGov-BR | Bronze Contributor | 3.0 |
-| 29 | Pretaweb | Bronze Contributor | 3.0 |
-| 30 | Rob Gietema (independent) | Bronze Contributor | 3.0 |
-| 31 | Sixfeetup | Bronze Contributor | 3.0 |
-| 32 | CCC | Community Contributor | 2.0 |
-| 33 | Iskra | Community Contributor | 2.0 |
-| 34 | Onna | Community Contributor | 2.0 |
+| 26 | Onna | Bronze Contributor | 4.0 |
+| 27 | Rohberg | Bronze Contributor | 4.0 |
+| 28 | Markus Hilbert (independent) | Bronze Contributor | 3.0 |
+| 29 | PloneGov-BR | Bronze Contributor | 3.0 |
+| 30 | Pretaweb | Bronze Contributor | 3.0 |
+| 31 | Rob Gietema (independent) | Bronze Contributor | 3.0 |
+| 32 | Sixfeetup | Bronze Contributor | 3.0 |
+| 33 | CCC | Community Contributor | 2.0 |
+| 34 | Iskra | Community Contributor | 2.0 |
 | 35 | Uni. Hospital Dresden | Community Contributor | 2.0 |
 | 36 | CMS Communications Inc. | Community Contributor | 1.0 |
 | 37 | Plone User's Group Japan | Community Contributor | 1.0 |
@@ -117,7 +117,7 @@
 | 15 | Starzel | 4 | Active Member | 29.2 |
 | 16 | Agitator | 4 | Active Member | 23.8 |
 | 17 | Derico | 4 | Active Member | 23.0 |
-| 18 | Onna | 2 | Team Member | 17.4 |
+| 18 | Onna | 4 | Active Member | 20.0 |
 | 19 | Uni. Hospital Dresden | 2 | Team Member | 16.4 |
 | 20 | Iskra | 2 | Team Member | 12.6 |
 
@@ -391,6 +391,14 @@
 |----------|-------:|:--------|
 | Training Session | 4.0 | • Training for Content Editing<br>• Content Management for Larger Plone Sites |
 
+### Onna
+
+**Total Points: 4.0**
+
+| Category | Points | Details |
+|----------|-------:|:--------|
+| PR Contributions | 4.0 | • Active Member (20.0 PRs/year) |
+
 ### Rohberg
 
 **Total Points: 4.0**
@@ -455,14 +463,6 @@
 |----------|-------:|:--------|
 | PR Contributions | 2.0 | • Team Member (12.6 PRs/year) |
 
-### Onna
-
-**Total Points: 2.0**
-
-| Category | Points | Details |
-|----------|-------:|:--------|
-| PR Contributions | 2.0 | • Team Member (17.4 PRs/year) |
-
 ### Uni. Hospital Dresden
 
 **Total Points: 2.0**
@@ -508,7 +508,7 @@
 | WPD Talk | 15 | 26.0 |
 | Conference Organization | 1 | 24.0 |
 | Training Session | 7 | 36.0 |
-| PR Contributions | 20 | 190.0 |
+| PR Contributions | 20 | 192.0 |
 | PLIP Contributions | 15 | 57.0 |
 
 ---

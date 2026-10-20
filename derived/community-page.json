@@ -12644,19 +12644,24 @@
       {
        "file": "derived/organisation-contributors",
        "line": null,
-       "points": 2,
+       "points": 4,
        "rows": [
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
          17
+        ],
+        [
+         "2022",
+         "derived/organisation-contributors/2022-plone-organisation-contributors.csv",
+         48
         ]
        ],
        "source": null,
-       "text": "Team Member (17.4 PRs/year)"
+       "text": "Active Member (20.0 PRs/year)"
       }
      ],
-     "points": 2.0
+     "points": 4.0
     }
    },
    "history": {
@@ -12751,33 +12756,33 @@
      "roles": 1
     },
     "2018": {
-     "commits": 1303,
+     "commits": 1308,
      "events": 0,
      "pull_requests": 206,
      "roles": 1
     },
     "2019": {
-     "commits": 776,
+     "commits": 792,
      "events": 1,
-     "pull_requests": 273,
+     "pull_requests": 281,
      "roles": 2
     },
     "2020": {
-     "commits": 90,
+     "commits": 110,
      "events": 0,
-     "pull_requests": 149,
+     "pull_requests": 157,
      "roles": 0
     },
     "2021": {
-     "commits": 101,
+     "commits": 113,
      "events": 0,
-     "pull_requests": 87,
+     "pull_requests": 99,
      "roles": 0
     },
     "2022": {
-     "commits": 0,
+     "commits": 1,
      "events": 0,
-     "pull_requests": 0,
+     "pull_requests": 1,
      "roles": 0
     },
     "2023": {
@@ -12799,11 +12804,11 @@
      "roles": 0
     }
    },
-   "level": "Community Contributor",
+   "level": "Bronze Contributor",
    "name": "Onna",
-   "next_level": "Bronze Contributor",
-   "points": 2.0,
-   "points_to_next": 1.0
+   "next_level": "Silver Contributor",
+   "points": 4.0,
+   "points_to_next": 6.0
   },
   "plone-user-s-group-japan": {
    "categories": {
@@ -15768,13 +15773,13 @@
      "roles": 0
     },
     "2016": {
-     "commits": 2496,
+     "commits": 2511,
      "events": 0,
      "pull_requests": 208,
      "roles": 1
     },
     "2017": {
-     "commits": 600,
+     "commits": 610,
      "events": 0,
      "pull_requests": 95,
      "roles": 0
@@ -42031,6 +42036,11 @@
      "slug": "markus-hilbert-independent"
     },
     {
+     "name": "Onna",
+     "points": 4.0,
+     "slug": "onna"
+    },
+    {
      "name": "PloneGov-BR",
      "points": 3.0,
      "slug": "plonegov-br"
@@ -42079,11 +42089,6 @@
      "name": "Iskra",
      "points": 2.0,
      "slug": "iskra"
-    },
-    {
-     "name": "Onna",
-     "points": 2.0,
-     "slug": "onna"
     },
     {
      "name": "Plone User's Group Japan",
