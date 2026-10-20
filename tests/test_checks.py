@@ -153,3 +153,23 @@ def test_check_clean_prints_nothing(tmp_package, capsys):
     tmp_package(trainings('pbauer;tschorr'))
     check.main([])
     assert capsys.readouterr().out == ''
+
+
+def test_a_file_the_descriptor_does_not_list_yet_is_validated(tmp_package):
+    root = tmp_package(trainings('pbauer;tschorr'))
+    # Added after the descriptor was written, as an editor adds the file of a new year
+    (root / 'curated/community-contributions/2027-sprints.csv').write_text(
+        'sprint,start,end,location,organisers,organisations,level,source,notes\n'
+        'Sprint,2027-01-10,2027-01-12,Bonn,pbauer,,nonsense,https://example.org/s,\n', encoding='utf-8')
+    errors = check.validate(root)
+    assert ('curated/datapackage.json', None, None, check.STALE) in errors
+    sprints = [error for error in errors if error[0] == 'curated/community-contributions/2027-sprints.csv']
+    assert [(row, field) for _, row, field, _ in sprints] == [(2, 'level')]
+
+
+def test_a_stale_descriptor_is_its_own_error_line(tmp_package, capsys):
+    root = tmp_package(trainings('pbauer;tschorr'))
+    (root / 'curated/datapackage.json').unlink()
+    with pytest.raises(SystemExit):
+        check.main([])
+    assert capsys.readouterr().out == 'curated/datapackage.json::: stale — run python -m scripts.tools.datapackage\n'

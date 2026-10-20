@@ -7,6 +7,7 @@ You need a GitHub personal access token, see {doc}`collect-data-again` for how t
 
 1.  Add or complete the curated community data of the year, each row with a public record, as described in {doc}`add-curated-community-data`.
     Some files of the year may have been started during the year; check them for events that were still missing or had not happened yet.
+    After creating the files of the new year, run `python -m scripts.tools.datapackage`, so that `curated/datapackage.json` lists them; `make check` reports it as stale until then.
 
 2.  Collect, derive and report the year in one run:
 

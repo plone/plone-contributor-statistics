@@ -32,6 +32,7 @@ You need a public source for the row.
     ```
 
     The checks name the file, the row and the column of every error, and suggest the nearest ids for one that does not exist.
+    If you created a new file, `make check` also reports `curated/datapackage.json` as stale: run `python -m scripts.tools.datapackage` to list the file there, and commit both.
 
 6.  Open a pull request and name the source in its description.
 

@@ -2,10 +2,13 @@
 
 Run from the repository root: python -m scripts.tools.check
 Prints one line per error as file:row:field: message, and exits 1 when there are errors.
+The package is built from the files on disk, so a new curated file is validated before
+curated/datapackage.json lists it; a committed descriptor that lists other files is an error of its own.
 """
 
 import argparse
 import difflib
+import json
 import re
 import sys
 from pathlib import Path
@@ -14,18 +17,33 @@ from frictionless import Checklist, Package
 
 from scripts.lib import paths
 from scripts.lib.model.checks import checks_for
+from scripts.tools.datapackage import build_package
 
 NEAREST = 3
+STALE = 'stale — run python -m scripts.tools.datapackage'
+
+
+def _committed(root):
+    """The descriptor in curated/datapackage.json, None when the file is missing or no JSON."""
+    try:
+        return json.loads((root / paths.DATAPACKAGE).read_text(encoding='utf-8'))
+    except (FileNotFoundError, json.JSONDecodeError):
+        return None
 
 
 def validate(root=Path('.')):
     """Every error of the package as (file relative to root, row number, field name, message).
 
-    Each resource is validated as part of the package, so Frictionless resolves its foreign keys,
-    together with the custom checks of that resource.
+    The package is the one datapackage.build_package makes of every curated file on disk. Each resource is
+    validated as part of it, so Frictionless resolves its foreign keys, together with the custom checks of
+    that resource. A committed curated/datapackage.json that differs from it is reported as stale.
     """
-    package = Package(str(Path(root) / paths.DATAPACKAGE))
+    root = Path(root)
+    descriptor = build_package(root)
+    package = Package(descriptor, basepath=str(root / paths.DATAPACKAGE.parent))
     found = []
+    if _committed(root) != descriptor:
+        found.append((paths.DATAPACKAGE.as_posix(), None, None, STALE))
     for resource in package.resources:
         report = resource.validate(checklist=Checklist(checks=checks_for(resource.name, package)))
         file = (paths.DATAPACKAGE.parent / resource.path).as_posix()
