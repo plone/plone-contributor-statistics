@@ -38,7 +38,7 @@
 3. der Freitag: 1,201 PRs
 4. Syslab: 1,050 PRs
 5. Steve Piercy - Website Builder: 909 PRs
-6. Onna: 803 PRs
+6. Onna: 820 PRs
 7. Kombinat: 754 PRs
 8. Klein & Partner KG: 725 PRs
 9. Eau de Web: 569 PRs
@@ -56,7 +56,7 @@ Not mapped to an organisation: 1,886 PRs
 6. PY76: 2,926 commits
 7. Kombinat: 2,882 commits
 8. Syslab: 2,853 commits
-9. Onna: 2,381 commits
+9. Onna: 2,605 commits
 10. Salesforce: 2,357 commits
 
 Not mapped to an organisation: 5,217 commits

@@ -24,14 +24,13 @@ Derico,4,2,2,1,MrTango,2,"plone/Products.CMFPlone, plone/plone.restapi",2016-01-
 Agitator,3,0,3,1,agitator,1,plone/Products.CMFPlone,2018-09-14,2020-03-02
 Codesyntax,3,2,1,1,erral,2,"plone/Products.CMFPlone, plone/volto",2023-12-07,2026-05-02
 Markus Hilbert (independent),3,1,2,1,iham,1,plone/Products.CMFPlone,2017-04-12,2021-08-16
+Onna,3,0,3,2,"bloodbare, vangheem",1,plone/Products.CMFPlone,2015-07-15,2016-04-14
 Rob Gietema (independent),3,0,3,1,robgietema,2,"plone/plone.restapi, plone/volto",2017-04-20,2017-11-08
 University of Jyväskylä,3,0,3,2,"datakurre, rioksane",1,plone/Products.CMFPlone,2016-01-08,2020-04-23
 Zopyx,3,0,3,1,zopyx,2,"plone/Products.CMFPlone, plone/plone.restapi",2016-09-02,2019-03-03
 Academy of FA Vienna,2,0,2,2,"gogobd, iham",1,plone/Products.CMFPlone,2016-10-21,2017-04-12
 Alteroo,2,0,2,1,pigeonflight,1,plone/Products.CMFPlone,2016-02-28,2017-03-21
 iMio,2,1,1,1,bsuttor,2,"plone/Products.CMFPlone, plone/plone.restapi",2025-01-09,2026-03-11
-Intranetum,2,0,2,1,bloodbare,1,plone/Products.CMFPlone,2014-02-10,2015-07-15
-Onna,2,0,2,1,vangheem,1,plone/Products.CMFPlone,2016-03-24,2016-04-14
 Simples Consultoria,2,0,2,1,hvelarde,1,plone/Products.CMFPlone,2016-02-04,2016-02-24
 Universitat Politècnica de Catalunya · BarcelonaTech,2,0,2,1,sneridagh,1,plone/Products.CMFPlone,2014-02-10,2014-04-23
 CCC,1,0,1,1,polyester,1,plone/Products.CMFPlone,2014-02-12,2014-02-12
@@ -39,6 +38,7 @@ FGRcon,1,0,1,1,fgrcon,1,plone/Products.CMFPlone,2016-08-30,2016-08-30
 FHNW,1,0,1,1,tomgross,1,plone/Products.CMFPlone,2016-03-06,2016-03-06
 Glick Software,1,0,1,1,davisagli,1,plone/Products.CMFPlone,2014-02-25,2014-02-25
 infoCatch,1,0,1,1,mtrebron,1,plone/Products.CMFPlone,2019-11-10,2019-11-10
+Intranetum,1,0,1,1,bloodbare,1,plone/Products.CMFPlone,2014-02-10,2014-02-10
 it-spirit,1,1,0,1,thomasmassmann,1,plone/Products.CMFPlone,2021-12-19,2021-12-19
 Juizi,1,1,0,1,aboycalledhero,1,plone/Products.CMFPlone,2026-10-09,2026-10-09
 Nuclia,1,0,1,1,ebrehault,1,plone/Products.CMFPlone,2016-07-13,2016-07-13
