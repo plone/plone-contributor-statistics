@@ -1,6 +1,6 @@
 # Plone Community Recognition Program 2025
 
-*Generated: 2026-10-20 23:25:39*
+*Generated: 2026-10-21 00:53:46*
 
 ## Executive Summary
 
@@ -118,7 +118,7 @@
 | 6 | Eau de Web | 10 | Core Member | 77.8 |
 | 7 | Syslab | 10 | Core Member | 73.0 |
 | 8 | PY76 | 10 | Core Member | 71.8 |
-| 9 | RedTurtle | 10 | Core Member | 62.2 |
+| 9 | RedTurtle | 10 | Core Member | 68.8 |
 | 10 | Codesyntax | 10 | Core Member | 57.8 |
 | 11 | Serpro | 10 | Core Member | 50.2 |
 | 12 | Klein & Partner KG | 4 | Active Member | 49.4 |
@@ -179,7 +179,7 @@
 | WPD Event | 3.0 | • Organized WPD Event in Bologna, Italy |
 | WPD Talk | 2.0 | • Plone & PWA: il caso Lignano Sabbiadoro - WPD2025 Italia<br>• AUSL Ferrara - uno dei primi siti conformi al modello ASL di Designers Italia - WPD 2025 Italia |
 | Training Session | 2.0 | • Plone Seven: Fundamentals |
-| PR Contributions | 10.0 | • Core Member (62.2 PRs/year) |
+| PR Contributions | 10.0 | • Core Member (68.8 PRs/year) |
 
 ### University of Jyväskylä
 

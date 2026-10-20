@@ -1,8 +1,8 @@
 # Five-Year Summary Results (2021-2025)
 
-- 81 total organisations tracked across the past 5 years
+- 82 total organisations tracked across the past 5 years
 - 41,001 total commits and 9,917 pull requests
-- 344 unique contributors across all organisations
+- 345 unique contributors across all organisations
 - File generated: derived/summaries/summary-past-five-years-2021-2025.csv
 
 ## Top 10 contributors by pull requests (2021-2025)
@@ -41,7 +41,7 @@
 6. Eau de Web: 389 PRs
 7. Syslab: 365 PRs
 8. PY76: 359 PRs
-9. RedTurtle: 311 PRs
+9. RedTurtle: 344 PRs
 10. Codesyntax: 289 PRs
 
 Not mapped to an organisation: 629 PRs

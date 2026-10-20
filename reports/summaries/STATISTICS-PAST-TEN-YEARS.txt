@@ -2,7 +2,7 @@
 
 - 106 total organisations tracked across the decade
 - 83,175 total commits and 18,357 pull requests
-- 605 unique contributors across all organisations
+- 604 unique contributors across all organisations
 - File generated: derived/summaries/summary-past-ten-years-2016-2025.csv
 
 ## Top 10 contributors by pull requests (2016-2025)
@@ -38,7 +38,7 @@
 3. der Freitag: 1,201 PRs
 4. Syslab: 1,050 PRs
 5. Steve Piercy - Website Builder: 909 PRs
-6. Onna: 831 PRs
+6. Onna: 886 PRs
 7. Kombinat: 754 PRs
 8. Klein & Partner KG: 725 PRs
 9. Eau de Web: 569 PRs
@@ -56,7 +56,7 @@ Not mapped to an organisation: 1,886 PRs
 6. PY76: 2,926 commits
 7. Kombinat: 2,882 commits
 8. Syslab: 2,853 commits
-9. Onna: 2,620 commits
+9. Onna: 2,823 commits
 10. Salesforce: 2,357 commits
 
 Not mapped to an organisation: 5,217 commits
