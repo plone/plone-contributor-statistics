@@ -378,3 +378,15 @@ def test_a_line_swapped_for_another_literal_is_unexplained(tmp_path):
     found = reworded(tmp_path, code, code + '# a comment\n', f'# Report\n{HEADERS[0]}\n',
                      f'# Report\n{HEADERS[1]}\n')
     assert found == {HEADERS[0]: audit.UNEXPLAINED, HEADERS[1]: audit.UNEXPLAINED}
+
+
+def test_the_audit_finds_a_person_by_a_one_word_display_name(tmp_repo):
+    # The registry no longer matches "Danny" by the display name; the old files named him so all the same
+    (tmp_repo / 'curated/mappings/people.csv').write_text(
+        'id,name,github,source\ndanny,Danny,,https://example.org/d\njane-doe,Jane Doe,,https://example.org/j\n',
+        encoding='utf-8')
+    ctx = audit.Context(tmp_repo, base='main')
+    assert ctx.registry.person_for(name='Danny') is None
+    assert ctx.person_for_name('danny').id == 'danny'
+    assert ctx.person_for_name('Jane Doe').id == 'jane-doe'
+    assert ctx.person_for_name('Nobody') is None

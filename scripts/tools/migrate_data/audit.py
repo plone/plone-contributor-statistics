@@ -295,6 +295,26 @@ class Context:
     # People
 
     @cached_property
+    def _display_names(self):
+        """{folded display name: person ids}, of any number of words."""
+        found = {}
+        for person in self.registry.people.values():
+            found.setdefault(fold(person.name), set()).add(person.id)
+        return found
+
+    def person_for_name(self, name):
+        """The person a name in the old files denotes: as the registry matches it, else by the display name.
+
+        The registry leaves a one-word display name out of name matching (changelogs); the old community files
+        named such people by that very word, and the migration gave them that display name.
+        """
+        person = self.registry.person_for(name=name)
+        if person is None:
+            ids = self._display_names.get(fold(name), set())
+            person = self.registry.people[next(iter(ids))] if len(ids) == 1 else None
+        return person
+
+    @cached_property
     def spellings(self):
         """{spelling: display name} of every name and login of a person that differs from the display name."""
         found = {}
@@ -320,13 +340,13 @@ class Context:
 
     def person_without_login(self, name):
         """The person without a GitHub login that a name denotes, or None."""
-        person = self.registry.person_for(name=name)
+        person = self.person_for_name(name)
         return person if person is not None and not person.github else None
 
     def page_key(self, old_key):
         """The person id the new page uses for a key of the old page: `name:<name>` or a lower-case login."""
         if old_key.startswith('name:'):
-            person = self.registry.person_for(name=old_key[len('name:'):])
+            person = self.person_for_name(old_key[len('name:'):])
         else:
             person = self.registry.person_for(login=old_key)
         return person.id if person else old_key
@@ -432,7 +452,7 @@ class Context:
 def person_for(ctx, name, handle=''):
     """The person of a name in an old row: by its handle, else by its name."""
     person = ctx.registry.person_for(login=handle) if handle else None
-    return person or ctx.registry.person_for(name=name)
+    return person or ctx.person_for_name(name)
 
 
 # What the old community records credited, and what they credit now
@@ -1083,7 +1103,7 @@ def classify_page_value(ctx, old_path, old, new):
     if field == 'name' or (section == 'organisations' and field == 'text'):
         return 'display-name' if isinstance(old, str) and ctx.with_display_names(old) == new else UNEXPLAINED
     if field == 'source' or (len(old_path) >= 2 and old_path[-2] == 'sources'):
-        is_person = lambda name: ctx.registry.person_for(name=name) is not None  # noqa: E731
+        is_person = lambda name: ctx.person_for_name(name) is not None  # noqa: E731
         if old is None and section == 'organisations':
             return classify_talk_without_video(ctx, value_at(ctx.old_page, old_path[:-1]), new, is_person)
         return 'source-cut' if is_source_cut(old, new, is_person) else UNEXPLAINED
@@ -1116,7 +1136,7 @@ def classify_holder_organisation(ctx, path, old, new):
     """
     year = int(path[1])
     holder = value_at(ctx.new_page, path[:-1])
-    person = ctx.registry.person_for(name=value_at(ctx.old_page, path[:-1])['name'])
+    person = ctx.person_for_name(value_at(ctx.old_page, path[:-1])['name'])
     if person is None or person.name != holder['name']:
         named = [p for p in ctx.registry.people.values() if p.name == holder['name']]
         person = named[0] if len(named) == 1 else None
