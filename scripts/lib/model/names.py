@@ -13,11 +13,12 @@ def _strip_marks(text):
 def fold(text):
     """The text as a comparison key: accents, punctuation and case removed, whitespace collapsed.
 
-    fold('Ecréall ') == fold('ecreall').
+    fold('Ecréall ') == fold('ecreall'). Lower case, not casefold, so that the people search of the
+    community page (normalise in scripts/report/site/static/site.js) computes the same key: ß stays ß.
     """
     text = _strip_marks(text)
     text = ''.join(char if char.isalnum() or char.isspace() else '' for char in text)
-    return ' '.join(text.casefold().split())
+    return ' '.join(text.lower().split())
 
 
 def slugify(text):

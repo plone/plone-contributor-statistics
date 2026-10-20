@@ -48,7 +48,7 @@
 
   // The same key as names.fold in Python: no accents or punctuation, lower case, single spaces
   function normalise(text) {
-    return text.normalize('NFKD').replace(/[̀-ͯ]/g, '').replace(/[^\p{L}\p{N}\s]/gu, '')
+    return text.normalize('NFKD').replace(/\p{M}/gu, '').replace(/[^\p{L}\p{N}\s]/gu, '')
       .toLowerCase().split(/\s+/).filter(Boolean).join(' ');
   }
 

@@ -228,3 +228,13 @@ def test_names_of_the_register_are_in_the_data(repo):
     assert community_page.build_page_data(2025)['people_names'] == {'david glick': 'david-glick',
                                                                     'd glick': 'david-glick',
                                                                     'davisagli': 'david-glick'}
+
+
+def test_people_names_are_keyed_by_fold(repo):
+    # The page computes the same key in site.js; lower case, not casefold: ß stays ß
+    write(paths.PEOPLE, 'id,name,github,source\n'
+                        'tamara-eer,Tamara Eßer,,https://r\nvictor,Víctor  Fernández,,https://r\n')
+    names = community_page.build_page_data(2025)['people_names']
+    assert names == {community_page.fold('Tamara Eßer'): 'tamara-eer',
+                     community_page.fold('Víctor  Fernández'): 'victor'}
+    assert set(names) == {'tamara eßer', 'victor fernandez'}

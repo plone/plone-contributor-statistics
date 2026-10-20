@@ -240,3 +240,26 @@ def test_a_github_may_not_be_the_second_login_of_another_person(tmp_package):
 
 def test_a_second_login_of_the_person_itself_is_fine(tmp_package):
     assert check.validate(tmp_package(identities('pbauer,login,pbauer-old,https://example.org/a'))) == []
+
+
+def test_fold_lower_cases_and_keeps_sharp_s():
+    # The people search of the community page keys names the same way in JavaScript (toLowerCase)
+    assert fold('Tamara Eßer') == 'tamara eßer'
+    assert fold('  Víctor   Fernández-Alba ') == 'victor fernandezalba'
+
+
+SITE_JS = REPO / 'scripts/report/site/static/site.js'
+
+
+@pytest.mark.skipif(shutil.which('node') is None, reason='needs node')
+def test_site_js_normalise_is_fold():
+    import json
+    import re
+    import subprocess
+
+    source = re.search(r'\n(\s*)function normalise\(text\) \{.*?\n\1\}', SITE_JS.read_text(), re.S).group(0)
+    samples = ['Tamara Eßer', 'Víctor Fernández de Alba', 'Ecréall ', 'Sune Brøndum Wøller', "O'Brien  Jr.",
+               'Benoît Suttor', 'ŁUKASZ Ąę', 'Ångström', 'Δημήτρης', 'ｆｕｌｌ ｗｉｄｔｈ']
+    script = source + f'\nconsole.log(JSON.stringify({json.dumps(samples)}.map(normalise)));'
+    out = subprocess.run(['node', '-e', script], capture_output=True, text=True, check=True).stdout
+    assert json.loads(out) == [fold(sample) for sample in samples]
