@@ -34,6 +34,9 @@ PERSONAL_DOMAINS = [
     'web.de', 'posteo.*', 'mailbox.org', 'protonmail.*', 'fastmail.*', 'me.com', 'mac.com', 'icloud.com',
     'free.fr', 'wanadoo.fr', 'laposte.net', 'users.noreply.github.com', 'localhost', 'localhost.localdomain',
     'plone.org', 'zope.org',
+    # Mail services of internet providers: a mailbox there says nothing about an employer either
+    'arcor.de', 't-online.de', 'freenet.de', 'aon.at', 'chello.at', 'bluewin.ch', 'orange.fr', 'libero.it',
+    'tiscali.*', 'mail.ru', 'yandex.*',
 ]
 _PERSONAL = re.compile(
     r'^(?:.+\.)?(?:' + '|'.join(re.escape(d).replace(r'\*', '.+') for d in PERSONAL_DOMAINS) + ')$')
