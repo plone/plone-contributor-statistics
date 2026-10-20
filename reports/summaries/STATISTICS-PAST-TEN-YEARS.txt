@@ -1,8 +1,8 @@
 # Ten-Year Summary Results (2016-2025)
 
-- 102 total organisations tracked across the decade
+- 104 total organisations tracked across the decade
 - 83,175 total commits and 18,357 pull requests
-- 599 unique contributors across all organisations
+- 600 unique contributors across all organisations
 - File generated: derived/summaries/summary-past-ten-years-2016-2025.csv
 
 ## Top 10 contributors by pull requests (2016-2025)
@@ -33,7 +33,7 @@
 
 ## Top 10 organisations by pull requests (2016-2025)
 
-1. kitconcept GmbH: 3,459 PRs
+1. kitconcept GmbH: 3,358 PRs
 2. Zest Software: 1,279 PRs
 3. der Freitag: 1,201 PRs
 4. Syslab: 1,068 PRs
@@ -48,7 +48,7 @@ Not mapped to an organisation: 1,920 PRs
 
 ## Top 10 organisations by commits (2016-2025)
 
-1. kitconcept GmbH: 16,652 commits
+1. kitconcept GmbH: 16,126 commits
 2. Zest Software: 11,882 commits
 3. der Freitag: 5,882 commits
 4. Onna: 3,630 commits
