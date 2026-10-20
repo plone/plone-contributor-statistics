@@ -44,7 +44,7 @@
 9. RedTurtle: 311 PRs
 10. Codesyntax: 289 PRs
 
-Not mapped to an organisation: 636 PRs
+Not mapped to an organisation: 629 PRs
 
 ## Top 10 organisations by commits (2021-2025)
 
@@ -59,4 +59,4 @@ Not mapped to an organisation: 636 PRs
 9. Derico: 1,110 commits
 10. Rohberg: 1,010 commits
 
-Not mapped to an organisation: 1,782 commits
+Not mapped to an organisation: 1,774 commits
