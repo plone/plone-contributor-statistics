@@ -116,6 +116,21 @@ def read_commits(path, branches):
     return commits
 
 
+def read_authors(path):
+    """[(sha, author email, author name, author date)] of every commit of every branch and tag, each once.
+
+    Works for bare and for non-bare clones. The date is the author date in UTC, like `read_commits` gives it:
+    2012-05-04T10:00:00Z, so that its first four characters are the year.
+    """
+    output = _git('log', '--all', '--format=%H%x1f%ae%x1f%an%x1f%ad%x1e', _DATE, '--', cwd=path)
+    authors = []
+    for record in output.split('\x1e'):
+        values = record.strip('\n').split('\x1f')
+        if len(values) == 4 and values[3][:4].isdigit():
+            authors.append(tuple(values))
+    return authors
+
+
 def is_copy(commit):
     """True for the automatic "[fc]" copies of core package commits in buildout.coredev."""
     return commit['commit']['message'].startswith('[fc]')

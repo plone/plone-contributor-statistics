@@ -48,5 +48,42 @@ You need a GitHub account, and a public record for the affiliation: a link, or a
     Name the source in the description.
     If you want the statistics updated in the same pull request, follow {doc}`regenerate-after-a-mapping-change`.
 
+(find-affiliations-in-commit-addresses)=
+
+## Find affiliations in commit addresses
+
+A company address in the commits of a person is evidence for the years of those commits, see {doc}`/explanation/attribution`.
+Run the tool when you want candidates for affiliations without reading the history yourself.
+It reads the author of every commit in the cached clones of the plone repositories, so it works offline; `make run-changelogs` fills the cache.
+
+```shell
+python -m scripts.tools.address_proposals                  # the report only
+python -m scripts.tools.address_proposals --person jane-doe --since 2010
+python -m scripts.tools.address_proposals --write          # also append the proposals
+```
+
+The tool finds the person of a commit by the GitHub noreply address, then by the address, then by the author name, as the registers know them; bots and unknown authors are left out.
+It leaves out personal addresses (webmail, plone.org, noreply, local names), Subversion-era addresses, and domains that carry the person's own name unless an organisation of the register claims them, because they say nothing about an employer.
+The remaining domain is matched with the names and aliases of the organisations in `curated/mappings/organisations.csv`.
+
+The report has three tables:
+
+-   **Proposals**: per person and organisation, a run of years with the number of commits, the domain, how the domain was matched and an example commit.
+    The match is `name` (the domain equals the name of the organisation), `alias` (it equals an alias) or `first word` (it equals the first word of a name, the weakest kind and the likeliest to be wrong).
+    Years that an affiliation of the same organisation covers already are left out.
+    The evidence names the domain, the years and the earliest commit of the run.
+-   **Conflicts**: proposed years in which `curated/mappings/affiliations.csv` has another organisation.
+    The address shows only that the person used it; decide from the other records which row is right, or whether the person worked for both.
+-   **Unmapped domains**: company addresses that match no organisation, with the number of commits, the years and the number of people.
+    If a domain belongs to an organisation, add it to the `aliases` cell of that organisation in `curated/mappings/organisations.csv`, separated by semicolons from the other aliases, for example `greenfinity;greenfinity.hu`, and run the tool again.
+    If the organisation is not in the register, add it first, see step 1 above.
+    Skip domains that are an employer of nobody, such as a university alumni address or a private domain with no person's name in it; a domain the tool takes for a company is not yet one.
+
+With `--write`, the proposals go to `curated/mappings/affiliation_proposals.csv`; a proposal that is in the file already is not written twice.
+A run that has grown since the last `--write`, because newer commits extend it, is a different row and appears next to the earlier one; keep the longer one when you review.
+The tool never writes `curated/mappings/affiliations.csv`.
+Review each proposal as any other: check that the domain is a company's, and that the person worked for the company and not only used its address, then move the row into `curated/mappings/affiliations.csv` with the example commit as `source`, and run `make check`.
+A match by a first word can be wrong, so look at the organisation before you accept it.
+
 To check which row gives the organisation of a person in a year, run `python -m scripts.tools.affiliation jane-doe 2017`.
 {doc}`/explanation/attribution` explains the rules the affiliations follow, and {ref}`reference-curated-files` describes the file formats.

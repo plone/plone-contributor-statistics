@@ -24,6 +24,7 @@ from scripts.lib.model.registers import (  # noqa: F401
     Person,
     Registry,
     append_person,
+    append_proposals,
     load_bot_accounts,
     load_excluded_repositories,
     load_registry,

@@ -65,6 +65,7 @@ A signature is evidence for the year of the message, and so is the company addre
 A personal website is no employer, and a link to it says nothing about one; but what the person writes there about an employer or their own business is evidence for the time it was written.
 A confirmation that exists only in private doesn't count, because nobody else can check it.
 A company email address in the person's commits is evidence for the years in which the person used it, but only in commits made in Git, see {doc}`history-and-coverage`.
+The tool described in {ref}`find-affiliations-in-commit-addresses` proposes such affiliations.
 Personal domains and project addresses, such as plone.org, say nothing about an employer.
 A programme such as Google Summer of Code is not an employer.
 Where one record names two organisations for the same time, the first one counts.
