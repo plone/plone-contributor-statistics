@@ -3612,7 +3612,7 @@
     },
     {
      "name": "Steve McMahon",
-     "organisation": "Reid-McMahon",
+     "organisation": "Davis Community Network",
      "source": "https://plone.org/foundation/board/list"
     },
     {
@@ -4588,7 +4588,7 @@
     },
     {
      "name": "Steve McMahon",
-     "organisation": "Reid-McMahon",
+     "organisation": "Davis Community Network",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2012-2013"
     },
     {
@@ -5026,7 +5026,7 @@
     },
     {
      "name": "Steve McMahon",
-     "organisation": "Reid-McMahon",
+     "organisation": "Davis Community Network",
      "source": "https://plone.org/news-and-events/news/2013/plone-team-leaders2019-report-july-2013",
      "team": "Installers Team"
     },
@@ -5118,7 +5118,7 @@
     },
     {
      "name": "Steve McMahon",
-     "organisation": "Reid-McMahon",
+     "organisation": "Davis Community Network",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2013-2014"
     },
     {
@@ -5534,7 +5534,7 @@
     },
     {
      "name": "Steve McMahon",
-     "organisation": "Reid-McMahon",
+     "organisation": "Davis Community Network",
      "source": "https://plone.org/foundation/board/plone-foundation-board-for-2014-2015"
     },
     {
@@ -5750,7 +5750,7 @@
     },
     {
      "name": "Steve McMahon",
-     "organisation": "Reid-McMahon",
+     "organisation": "Davis Community Network",
      "source": "https://community.plone.org/t/plone-team-leader-meeting-report-april-2015/557",
      "team": "Installers Team"
     },
@@ -6521,7 +6521,7 @@
     },
     {
      "name": "Steve McMahon",
-     "organisation": "Reid-McMahon",
+     "organisation": "Davis Community Network",
      "source": "https://community.plone.org/t/plone-team-leader-meeting-2018-02-16/5834",
      "team": "Installers Team"
     },
@@ -10228,7 +10228,7 @@
      "commits": 330,
      "events": 0,
      "pull_requests": 19,
-     "roles": 0
+     "roles": 1
     },
     "2015": {
      "commits": 699,
@@ -11362,15 +11362,15 @@
      "roles": 0
     },
     "2022": {
-     "commits": 16,
+     "commits": 19,
      "events": 2,
-     "pull_requests": 6,
+     "pull_requests": 8,
      "roles": 0
     },
     "2023": {
-     "commits": 5,
+     "commits": 7,
      "events": 0,
-     "pull_requests": 0,
+     "pull_requests": 2,
      "roles": 0
     },
     "2024": {
@@ -11380,9 +11380,9 @@
      "roles": 0
     },
     "2025": {
-     "commits": 0,
+     "commits": 3,
      "events": 0,
-     "pull_requests": 0,
+     "pull_requests": 2,
      "roles": 2
     }
    },
@@ -11762,7 +11762,7 @@
         [
          "2022",
          "derived/organisation-contributors/2022-plone-organisation-contributors.csv",
-         37
+         38
         ],
         [
          "2023",
@@ -13166,10 +13166,10 @@
      "roles": 0
     },
     "2014": {
-     "commits": 87,
+     "commits": 102,
      "events": 0,
      "pull_requests": 1,
-     "roles": 1
+     "roles": 2
     },
     "2015": {
      "commits": 22,
@@ -13190,15 +13190,15 @@
      "roles": 2
     },
     "2018": {
-     "commits": 112,
+     "commits": 120,
      "events": 0,
-     "pull_requests": 6,
+     "pull_requests": 14,
      "roles": 2
     },
     "2019": {
-     "commits": 11,
+     "commits": 13,
      "events": 0,
-     "pull_requests": 3,
+     "pull_requests": 4,
      "roles": 2
     },
     "2020": {
@@ -13434,7 +13434,7 @@
         [
          "2022",
          "derived/organisation-contributors/2022-plone-organisation-contributors.csv",
-         20
+         33
         ],
         [
          "2023",
@@ -13453,7 +13453,7 @@
         ]
        ],
        "source": null,
-       "text": "Active Member (43.4 PRs/year)"
+       "text": "Active Member (32.4 PRs/year)"
       }
      ],
      "points": 4.0
@@ -13587,9 +13587,9 @@
      "roles": 2
     },
     "2022": {
-     "commits": 71,
+     "commits": 16,
      "events": 0,
-     "pull_requests": 61,
+     "pull_requests": 6,
      "roles": 1
     },
     "2023": {
@@ -13634,11 +13634,11 @@
         [
          "2022",
          "derived/organisation-contributors/2022-plone-organisation-contributors.csv",
-         48
+         22
         ]
        ],
        "source": null,
-       "text": "Active Member (20.0 PRs/year)"
+       "text": "Active Member (31.2 PRs/year)"
       }
      ],
      "points": 4.0
@@ -13730,10 +13730,10 @@
      "roles": 0
     },
     "2017": {
-     "commits": 1304,
+     "commits": 224,
      "events": 0,
-     "pull_requests": 154,
-     "roles": 1
+     "pull_requests": 17,
+     "roles": 3
     },
     "2018": {
      "commits": 1308,
@@ -13756,13 +13756,13 @@
     "2021": {
      "commits": 113,
      "events": 0,
-     "pull_requests": 99,
+     "pull_requests": 100,
      "roles": 1
     },
     "2022": {
-     "commits": 1,
+     "commits": 56,
      "events": 0,
-     "pull_requests": 1,
+     "pull_requests": 56,
      "roles": 1
     },
     "2023": {
@@ -14815,21 +14815,21 @@
      "roles": 0
     },
     "2014": {
-     "commits": 38,
+     "commits": 32,
      "events": 0,
-     "pull_requests": 12,
+     "pull_requests": 9,
      "roles": 0
     },
     "2015": {
-     "commits": 31,
+     "commits": 18,
      "events": 1,
-     "pull_requests": 17,
+     "pull_requests": 14,
      "roles": 0
     },
     "2016": {
-     "commits": 0,
+     "commits": 23,
      "events": 1,
-     "pull_requests": 0,
+     "pull_requests": 18,
      "roles": 0
     },
     "2017": {
@@ -14839,21 +14839,21 @@
      "roles": 0
     },
     "2018": {
-     "commits": 86,
+     "commits": 81,
      "events": 1,
-     "pull_requests": 17,
+     "pull_requests": 13,
      "roles": 0
     },
     "2019": {
-     "commits": 116,
+     "commits": 90,
      "events": 3,
-     "pull_requests": 44,
+     "pull_requests": 30,
      "roles": 1
     },
     "2020": {
-     "commits": 171,
+     "commits": 152,
      "events": 0,
-     "pull_requests": 76,
+     "pull_requests": 72,
      "roles": 0
     },
     "2021": {
@@ -16071,7 +16071,7 @@
      "roles": 2
     },
     "2016": {
-     "commits": 188,
+     "commits": 187,
      "events": 0,
      "pull_requests": 27,
      "roles": 3
@@ -16471,45 +16471,45 @@
      "roles": 0
     },
     "2010": {
-     "commits": 352,
+     "commits": 5,
      "events": 0,
      "pull_requests": 0,
      "roles": 0
     },
     "2011": {
-     "commits": 586,
+     "commits": 0,
      "events": 1,
-     "pull_requests": 5,
-     "roles": 1
+     "pull_requests": 0,
+     "roles": 0
     },
     "2012": {
-     "commits": 550,
+     "commits": 18,
      "events": 1,
-     "pull_requests": 4,
-     "roles": 1
+     "pull_requests": 3,
+     "roles": 0
     },
     "2013": {
-     "commits": 913,
+     "commits": 98,
      "events": 2,
-     "pull_requests": 34,
-     "roles": 1
+     "pull_requests": 27,
+     "roles": 0
     },
     "2014": {
-     "commits": 738,
+     "commits": 51,
      "events": 1,
-     "pull_requests": 48,
-     "roles": 2
-    },
-    "2015": {
-     "commits": 618,
-     "events": 0,
-     "pull_requests": 98,
+     "pull_requests": 12,
      "roles": 1
     },
-    "2016": {
-     "commits": 492,
+    "2015": {
+     "commits": 155,
      "events": 0,
-     "pull_requests": 194,
+     "pull_requests": 26,
+     "roles": 0
+    },
+    "2016": {
+     "commits": 469,
+     "events": 0,
+     "pull_requests": 176,
      "roles": 0
     },
     "2017": {
@@ -16751,7 +16751,7 @@
         [
          "2022",
          "derived/organisation-contributors/2022-plone-organisation-contributors.csv",
-         22
+         21
         ],
         [
          "2023",

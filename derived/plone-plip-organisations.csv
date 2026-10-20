@@ -1,15 +1,15 @@
 organisation,total_plips,open_plips,closed_plips,contributors_count,contributors,repositories_count,repositories,first_plip,last_plip
 kitconcept GmbH,79,29,50,6,"danalvrz, ericof, jnptk, robgietema, sneridagh, tisto",4,"plone/Products.CMFPlone, plone/aurora, plone/plone.restapi, plone/volto",2013-11-07,2026-09-18
-Unmapped,28,4,24,18,"b4oshany, ghost, hvelarde, iham, jcerjak, khink, leandromontenegromachado, mpalomaki, pigeonflight, rber474, robgietema, rodfersou, rohnsha0, Rudd-O, Shriyanshagro, staeff, svx, vangheem",3,"plone/Products.CMFPlone, plone/plone.restapi, plone/volto",2014-02-10,2026-01-23
 Timo Stollenwerk (independent),23,0,23,1,tisto,1,plone/Products.CMFPlone,2013-11-07,2015-06-24
-Syslab,21,3,18,2,"ale-rt, thet",1,plone/Products.CMFPlone,2014-11-05,2026-06-02
+Unmapped,23,4,19,17,"b4oshany, ghost, hvelarde, iham, khink, leandromontenegromachado, mpalomaki, pigeonflight, rber474, robgietema, rodfersou, rohnsha0, Rudd-O, Shriyanshagro, staeff, svx, vangheem",3,"plone/Products.CMFPlone, plone/plone.restapi, plone/volto",2014-02-10,2026-01-23
 Iskra,18,0,18,1,bloodbare,1,plone/Products.CMFPlone,2014-02-10,2015-07-16
+Syslab,17,3,14,2,"ale-rt, thet",1,plone/Products.CMFPlone,2014-11-05,2026-06-02
 Klein & Partner KG,16,6,10,1,jensens,1,plone/Products.CMFPlone,2015-05-13,2026-03-31
 Makina Corpus,16,0,16,1,ebrehault,1,plone/Products.CMFPlone,2015-05-12,2016-02-15
 PY76,13,7,6,1,mauritsvanrees,1,plone/Products.CMFPlone,2024-03-06,2026-05-21
+Wildcard Corp,9,3,6,2,"tkimnguyen, vangheem",1,plone/Products.CMFPlone,2015-08-10,2019-11-06
 Ludwig Maximilian University Munich,8,4,4,1,loechel,1,plone/Products.CMFPlone,2016-07-11,2024-12-01
 Pretaweb,8,3,5,2,"djay, JeffersonBledsoe",2,"plone/Products.CMFPlone, plone/volto",2015-04-29,2025-01-08
-Wildcard Corp,8,3,5,2,"tkimnguyen, vangheem",1,plone/Products.CMFPlone,2015-08-10,2019-11-06
 Zest Software,8,0,8,3,"fredvd, jladage, mauritsvanrees",1,plone/Products.CMFPlone,2013-11-13,2024-03-26
 der Freitag,7,1,6,1,gforcada,1,plone/Products.CMFPlone,2015-10-16,2026-01-06
 Kombinat,7,5,2,1,petschki,1,plone/Products.CMFPlone,2023-04-17,2026-09-30
@@ -18,18 +18,19 @@ RedTurtle,6,4,2,5,"giuliaghisini, mamico, pnicolli, SaraBianchi, Wagner3UB",2,"p
 Sixfeetup,5,0,5,1,tkimnguyen,1,plone/Products.CMFPlone,2015-06-16,2019-12-05
 Starzel,5,1,4,1,pbauer,3,"plone/Products.CMFPlone, plone/plone.restapi, plone/volto",2018-03-30,2026-09-26
 Steve Piercy - Website Builder,5,5,0,1,stevepiercy,1,plone/Products.CMFPlone,2024-01-16,2026-10-01
+Termitnjak d.o.o.,5,0,5,1,jcerjak,1,plone/Products.CMFPlone,2014-12-20,2015-05-03
+adm o.kipcak & partner ges.m.b.h.,4,0,4,1,thet,1,plone/Products.CMFPlone,2015-01-07,2015-06-23
 Derico,4,2,2,1,MrTango,2,"plone/Products.CMFPlone, plone/plone.restapi",2016-01-27,2026-10-04
 Agitator,3,0,3,1,agitator,1,plone/Products.CMFPlone,2018-09-14,2020-03-02
 Codesyntax,3,2,1,1,erral,2,"plone/Products.CMFPlone, plone/volto",2023-12-07,2026-05-02
 Markus Hilbert (independent),3,1,2,1,iham,1,plone/Products.CMFPlone,2017-04-12,2021-08-16
-Onna,3,0,3,1,vangheem,1,plone/Products.CMFPlone,2016-03-24,2016-04-14
+Onna,3,0,3,2,"bloodbare, vangheem",1,plone/Products.CMFPlone,2015-07-15,2016-04-14
 Rob Gietema (independent),3,0,3,1,robgietema,2,"plone/plone.restapi, plone/volto",2017-04-20,2017-11-08
 University of Jyväskylä,3,0,3,2,"datakurre, rioksane",1,plone/Products.CMFPlone,2016-01-08,2020-04-23
 Zopyx,3,0,3,1,zopyx,2,"plone/Products.CMFPlone, plone/plone.restapi",2016-09-02,2019-03-03
 Academy of FA Vienna,2,0,2,2,"gogobd, iham",1,plone/Products.CMFPlone,2016-10-21,2017-04-12
 Alteroo,2,0,2,1,pigeonflight,1,plone/Products.CMFPlone,2016-02-28,2017-03-21
 iMio,2,1,1,1,bsuttor,2,"plone/Products.CMFPlone, plone/plone.restapi",2025-01-09,2026-03-11
-Intranetum,2,0,2,1,bloodbare,1,plone/Products.CMFPlone,2014-02-10,2015-07-15
 Simples Consultoria,2,0,2,1,hvelarde,1,plone/Products.CMFPlone,2016-02-04,2016-02-24
 Universitat Politècnica de Catalunya · BarcelonaTech,2,0,2,1,sneridagh,1,plone/Products.CMFPlone,2014-02-10,2014-04-23
 CCC,1,0,1,1,polyester,1,plone/Products.CMFPlone,2014-02-12,2014-02-12
@@ -37,6 +38,7 @@ FGRcon,1,0,1,1,fgrcon,1,plone/Products.CMFPlone,2016-08-30,2016-08-30
 FHNW,1,0,1,1,tomgross,1,plone/Products.CMFPlone,2016-03-06,2016-03-06
 Glick Software,1,0,1,1,davisagli,1,plone/Products.CMFPlone,2014-02-25,2014-02-25
 infoCatch,1,0,1,1,mtrebron,1,plone/Products.CMFPlone,2019-11-10,2019-11-10
+Intranetum,1,0,1,1,bloodbare,1,plone/Products.CMFPlone,2014-02-10,2014-02-10
 it-spirit,1,1,0,1,thomasmassmann,1,plone/Products.CMFPlone,2021-12-19,2021-12-19
 Juizi,1,1,0,1,aboycalledhero,1,plone/Products.CMFPlone,2026-10-09,2026-10-09
 Nuclia,1,0,1,1,ebrehault,1,plone/Products.CMFPlone,2016-07-13,2016-07-13

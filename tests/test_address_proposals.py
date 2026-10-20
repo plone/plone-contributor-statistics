@@ -23,13 +23,13 @@ def git(path, *args, author=('Someone', 'someone@example.org'), date=None):
 
 
 def make_clone(cache, repository, commits):
-    """A bare clone at <cache>/plone/<repository>.git; commits are (name, email, year or full date)."""
+    """A bare clone at <cache>/plone/<repository>.git; commits are (name, email, year or full date[, message])."""
     work = cache / 'work' / repository
     work.mkdir(parents=True)
     git(work, 'init', '-q', '-b', 'main')
-    for number, (name, email, year) in enumerate(commits):
-        git(work, 'commit', '--allow-empty', '-q', '-m', f'change {number}', author=(name, email),
-            date=year if isinstance(year, str) else f'{year}-06-01T12:00:00Z')
+    for number, (name, email, year, *message) in enumerate(commits):
+        git(work, 'commit', '--allow-empty', '-q', '-m', message[0] if message else f'change {number}',
+            author=(name, email), date=year if isinstance(year, str) else f'{year}-06-01T12:00:00Z')
     target = cache / 'plone' / f'{repository}.git'
     target.parent.mkdir(parents=True, exist_ok=True)
     git(cache, 'clone', '-q', '--bare', str(work), str(target))
@@ -84,6 +84,18 @@ def test_read_authors_includes_other_branches(tmp_path):
         date='2012-01-01T00:00:00Z')
     git(work, 'checkout', '-q', 'main')
     assert {a[1] for a in git_history.read_authors(work)} == {'ann@x.example', 'bo@y.example'}
+
+
+def test_read_authors_can_leave_out_the_commits_imported_from_subversion(tmp_path):
+    work, _ = make_clone(tmp_path, 'a', [
+        ('Ann', 'ann@x.example', 2010),
+        ('Bo', 'bo@y.example', 2005, 'Fix the thing\n\nsvn path=/CMFPlone/trunk/; revision=917\n'),
+        ('Cy', 'cy@z.example', 2006, 'Fix\n\ngit-svn-id: https://svn.example/trunk@12 0000-uuid\n'),
+        ('Di', 'di@w.example', 2012, 'Mentions svn path= and revision=3 in the middle of a line'),
+    ])
+    everything = {'ann@x.example', 'bo@y.example', 'cy@z.example', 'di@w.example'}
+    assert {a[1] for a in git_history.read_authors(work)} == everything
+    assert {a[1] for a in git_history.read_authors(work, converted=False)} == {'ann@x.example', 'di@w.example'}
 
 
 def test_organisation_for_domain(setup):
@@ -146,7 +158,7 @@ def test_bots_are_skipped(setup):
     ('localhost.localdomain', False), ('users.noreply.github.com', False), ('localhost', False),
     ('myhost.local', False), ('intranet', False), ('(none)', False), ('example.lan', False),
     ('1b3f2c4d-0000-4000-8000-123456789abc', False),
-    ('icts.kuleuven.be', True),
+    ('icts.kuleuven.be', True), ('computer.org', False), ('acm.org', False), ('arcor.de', False),
 ])
 def test_company_domain(domain, company):
     assert address_proposals.is_company_domain(domain) is company
@@ -218,6 +230,8 @@ def test_proposals_runs_evidence_and_unmapped(setup):
         ('Hanno Schlichting', 'hanno@mystery.example', 2019),
         ('Stranger', 'x@greenfinity.hu', 2016),  # nobody
         ('dependabot[bot]', '1+dependabot[bot]@users.noreply.github.com', 2016),
+        # Imported from Subversion: the address was assigned by the migration, not used in 2008
+        ('Hanno Schlichting', 'hanno@greenfinity.hu', 2008, 'Imported\n\nsvn path=/plone.app.x/trunk/; revision=1\n'),
     ])
     text, added = run(cache)
     sha = sha_of(work, 0)

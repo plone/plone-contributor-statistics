@@ -1,6 +1,6 @@
 # Plone Community Recognition Program 2025
 
-*Generated: 2026-10-20 15:26:12*
+*Generated: 2026-10-20 20:03:43*
 
 ## Executive Summary
 
@@ -123,11 +123,11 @@
 | 11 | Serpro | 10 | Core Member | 50.2 |
 | 12 | Klein & Partner KG | 4 | Active Member | 49.4 |
 | 13 | Rohberg | 4 | Active Member | 46.0 |
-| 14 | Nuclia | 4 | Active Member | 43.4 |
-| 15 | Starzel | 4 | Active Member | 29.2 |
-| 16 | Agitator | 4 | Active Member | 23.8 |
-| 17 | Derico | 4 | Active Member | 23.0 |
-| 18 | Onna | 4 | Active Member | 20.0 |
+| 14 | Nuclia | 4 | Active Member | 32.4 |
+| 15 | Onna | 4 | Active Member | 31.2 |
+| 16 | Starzel | 4 | Active Member | 29.2 |
+| 17 | Agitator | 4 | Active Member | 23.8 |
+| 18 | Derico | 4 | Active Member | 23.0 |
 | 19 | Uni. Hospital Dresden | 2 | Team Member | 16.4 |
 | 20 | Iskra | 2 | Team Member | 12.6 |
 | 21 | Pendect | 2 | Team Member | 12.6 |
@@ -331,7 +331,7 @@
 |----------|-------:|:--------|
 | Board Member | 6.0 | • Eric Bréhault |
 | WPD Talk | 1.0 | • Plone and Google Summer of Code 2025 |
-| PR Contributions | 4.0 | • Active Member (43.4 PRs/year) |
+| PR Contributions | 4.0 | • Active Member (32.4 PRs/year) |
 
 ### Ludwig Maximilian University Munich
 
@@ -409,7 +409,7 @@
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| PR Contributions | 4.0 | • Active Member (20.0 PRs/year) |
+| PR Contributions | 4.0 | • Active Member (31.2 PRs/year) |
 
 ### Rohberg
 
