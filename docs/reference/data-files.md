@@ -43,6 +43,7 @@ See {doc}`/explanation/counting-rules` for why the files count the way they do.
     `changelog_entries` counts each entry once, in full for every person it names.
     `changelog_names` lists the names in the changelogs that were mapped to the person, separated by semicolons.
     `matched_by` lists the rules that mapped them, separated by semicolons: `identity` for a name, address or login of `curated/mappings/identities.csv` or `curated/mappings/people.csv`, `login` for a login with commits or pull requests, `bot` for a bot, or `unmatched` for a name that nothing maps.
+    The committed files carry the `username` and `matched_by` values of their last run; a change of the registers shows in them at the next `make run-changelogs`.
     A year without entries has a file with the header only.
     {doc}`/explanation/counting-rules` explains the dating and the deduplication.
 

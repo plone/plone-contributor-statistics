@@ -52,7 +52,12 @@ class Organisation:
 
 
 class Registry:
-    """The four registers, indexed for the lookups the pipeline needs."""
+    """The four registers, indexed for the lookups the pipeline needs.
+
+    A name finds a person through a `name` identity of any length, or through the display name in people.csv
+    when that has more than one word: a one-word display name, such as a login used as the name, is not
+    evidence that the person wrote a changelog entry signed with that word.
+    """
 
     def __init__(self, people, identities, affiliations, organisations):
         self.people = {person.id: person for person in people}
@@ -65,7 +70,8 @@ class Registry:
         for person in self.people.values():
             if person.github:
                 self._by_login.setdefault(person.github.casefold(), set()).add(person.id)
-            self._by_name.setdefault(fold(person.name), set()).add(person.id)
+            if len(fold(person.name).split()) > 1:
+                self._by_name.setdefault(fold(person.name), set()).add(person.id)
         for identity in self.identities:
             if identity.kind == 'login':
                 self._by_login.setdefault(identity.value.casefold(), set()).add(identity.person)

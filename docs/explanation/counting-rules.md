@@ -79,6 +79,7 @@ A name maps through the layers named in the `matched_by` column: `identity` for 
 A name that nothing maps counts as written, as `unmatched`, and belongs to no organisation.
 
 Names of one word, such as the nicknames of the Subversion years, match as well, if the registers list them as an identity of the kind `name`.
+A display name in `curated/mappings/people.csv` matches only when it has more than one word, since a one-word display name is often a login or a first name that nobody checked against the changelogs.
 The policy for short names governs them: a short name that several people may have used, such as a first name, is added only when the records show that one person used it in the changelogs.
 Two rules stay in the collector and are not identities: a name that equals a login with commits, and the part before the `@` of a Subversion address.
 

@@ -66,6 +66,22 @@ def test_person_for_name_is_none_when_ambiguous(registry):
     assert registry.person_for(email='alan@example.ORG').id == 'alan-runyan'
 
 
+def test_a_display_name_of_one_word_matches_no_name(tmp_repo):
+    paths.PEOPLE.write_text(
+        'id,name,github,source\n'
+        f'cillian-de-roiste,goibhniu,cillianderoiste,{SRC}\n'
+        f'rodrigo-ristow,Rodrigo,rristow,{SRC}\n'
+        f'jens-klein,Jens Klein,jensens,{SRC}\n', encoding='utf-8')
+    paths.IDENTITIES.write_text(f'person,kind,value,source\njens-klein,name,yenzens,{SRC}\n', encoding='utf-8')
+    registry = load_registry()
+    # The changelog names "goibhniu" and "rodrigo" are not evidence for these people
+    assert registry.person_for(name='goibhniu') is None
+    assert registry.person_for(name='rodrigo') is None
+    # A display name of several words, and a name identity of any length, still match
+    assert registry.person_for(name='jens  klein').id == 'jens-klein'
+    assert registry.person_for(name='Yenzens').id == 'jens-klein'
+
+
 def test_organisation_of_without_affiliation_is_unmapped(registry):
     assert registry.organisation_of('philip-bauer', 2009) == UNMAPPED
     assert registry.organisation_of('alan-runyan', 2003) == UNMAPPED
