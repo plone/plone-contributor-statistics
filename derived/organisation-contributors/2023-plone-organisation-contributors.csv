@@ -16,9 +16,9 @@ Nuclia,57,45,28,3,"bloodbare, ebrehault, mpellerin42",4,"guillotina, guillotina_
 Starzel,47,25,14,2,"Gomez, pbauer",11,"aurora, buildout.coredev, demo.plone.org, plone.app.portlets, plone.app.theming, plone.app.vocabularies, plone.distribution, plone.org, plone.volto, training, volto",2023-01-01,2023-12-25
 Roel Bruggink (independent),42,11,6,1,jaroel,9,"Products.CMFPlone, aurora, buildout.coredev, plone.api, plone.app.content, plone.app.linkintegrity, plone.rest, plone.restapi, volto",2023-05-17,2023-11-07
 Uni. Hospital Dresden,32,11,7,1,1letter,6,"Products.CMFPlone, mockup, plone.app.contenttypes, plone.app.registry, plone.app.upgrade, plone.restapi",2023-04-29,2023-12-01
+squarewave engineering,25,7,6,2,"lenadax, rnixx",5,"documentation, mockup, plone.app.mosaic, plone.staticresources, plonetheme.barceloneta",2023-01-27,2023-03-31
 Academy of FA Vienna,21,6,3,1,gogobd,5,"cookiecutter-zope-instance, plone.api, plone.app.mosaic, plone.app.multilingual, plone.event",2023-01-13,2023-11-08
 CCC,21,3,0,1,polyester,5,"ai-team-private, documentation, papyrus, sphinxtheme.plone, training",2023-03-08,2023-05-26
-r2 Solutions GmbH,20,4,6,1,lenadax,4,"documentation, mockup, plone.app.mosaic, plonetheme.barceloneta",2023-02-06,2023-03-31
 Iskra,18,8,8,2,"nilbacardit26, rboixaderg",4,"aurora, guillotina, guillotina_elasticsearch, volto",2023-02-08,2023-12-20
 Pretaweb,17,10,7,3,"JeffersonBledsoe, djay, instification",7,"aurora, form-block, plone.app.caching, plone.app.vulnerabilities, plone.rest, plone.restapi, volto",2023-03-27,2023-11-07
 Serpro,15,11,7,1,wesleybl,6,"aurora, meta, plone.restapi, plone.volto, volto, volto-addon-ci",2023-07-14,2023-12-21
@@ -30,7 +30,6 @@ Plone Venezuela,8,4,3,1,macagua,4,"aurora, form-block, plone.restapi, volto",202
 iMio,7,2,2,2,"alexnuttinck, sverbois",3,"helm-charts, plone.app.contentmenu, plonetheme.barceloneta",2021-06-07,2023-10-23
 Affinitic,5,5,4,1,laulaz,5,"plone.app.content, plone.app.event, plone.app.z3cform, plone.base, plone.gallery",2023-01-13,2023-09-22
 IMS Inc.,5,2,1,1,ewohnlich,2,"Products.CMFPlone, plone.locking",2023-04-11,2023-04-11
-squarewave engineering,5,3,0,1,rnixx,3,"mockup, plone.staticresources, plonetheme.barceloneta",2023-01-27,2023-02-14
 WebTide,5,2,0,1,mikejmets,3,"aurora, documentation, volto",2023-08-17,2023-11-23
 University of Koblenz,4,3,0,1,mbarde,2,"blocks-conversion-tool, form-block",2023-05-29,2023-11-03
 webcloud7 ag,4,3,0,1,maethu,2,"container-zeo, plone.namedfile",2023-04-26,2023-09-11

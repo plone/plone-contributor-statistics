@@ -8719,7 +8719,7 @@
         [
          "2023",
          "derived/organisation-contributors/2023-plone-organisation-contributors.csv",
-         41
+         40
         ]
        ],
        "source": null,
@@ -42526,7 +42526,7 @@
     "commits": 20,
     "id": "lena-daxenbichler",
     "name": "Lena Daxenbichler",
-    "organisation": "r2 Solutions GmbH",
+    "organisation": "squarewave engineering",
     "pull_requests": 4,
     "roles": []
    },

@@ -75,6 +75,7 @@ Salween Solutions,32,10,0,1,jean,4,"Installers-UnifiedInstaller, documentation, 
 Alteroo,63,9,5,1,pigeonflight,12,"ansible-playbook, ansible-playbook-ploneorg2019, aurora, bobtemplates.plone, buildout.coredev, container-historical, documentation, plone.rest, plonecli, plonetheme.barceloneta, training, volto","2016, 2017, 2019, 2020, 2021",2016-03-04,2021-11-21
 Intranetum,581,9,2,1,bloodbare,15,"Products.CMFPlone, api_angular, container-historical, guillotina, guillotina_cms, guillotina_elasticsearch, guillotina_gcloudstorage, guillotina_s3storage, plone.alterego, plone.jsonserializer, plone.registry, plone.server, plone_client, plone_manager, training",2016,2016-01-13,2016-12-30
 RawMaterial,9,9,5,1,nzambello,5,"aurora, form-block, plone.org, plone.volto, volto","2022, 2023",2022-01-28,2023-03-08
+squarewave engineering,31,9,6,2,"lenadax, rnixx",8,"Products.CMFPlone, Products.MimetypesRegistry, buildout.coredev, documentation, mockup, plone.app.mosaic, plone.staticresources, plonetheme.barceloneta","2016, 2018, 2022, 2023",2016-04-05,2023-03-31
 Malthe Borch (independent),12,8,7,1,malthe,6,"Products.Archetypes, Products.CMFDynamicViewFTI, Products.CMFPlone, Products.TinyMCE, plone.app.contentrules, plone.portlet.collection","2016, 2017, 2021, 2023",2016-04-20,2023-03-29
 Webmeisterei,13,8,7,1,frisi,8,"Products.LinguaPlone, Products.TinyMCE, collective.monkeypatcher, documentation, plone.app.event, plone.app.testing, plone.app.theming, plone.protect","2016, 2017, 2018",2017-02-24,2018-10-07
 ZITC,12,7,5,1,witsch,4,"archetypes.multilingual, plone.app.multilingual, plone.restapi, plone.testing","2017, 2018, 2019",2017-03-04,2017-03-05
@@ -82,12 +83,10 @@ Brian Davis (independent),10,5,0,1,Fosten,3,".github, cookieplone-templates, plo
 CodeHutLabs,56,5,0,1,balavec,5,"buildout.coredev, mockup, plone.app.mosaic, plone.app.z3cform, plonetheme.barceloneta",2020,2020-02-11,2020-11-25
 Florian Schulze (independent),11,5,6,1,fschulze,2,"buildout.coredev, plone.scale","2017, 2020",2017-02-28,2020-02-11
 infoCatch,8,5,6,1,mtrebron,4,"plone.app.contentrules, plone.app.z3cform, ploneorg.core, ploneorg.theme","2017, 2019, 2021, 2022",2017-03-29,2022-08-14
-squarewave engineering,11,5,0,1,rnixx,6,"Products.CMFPlone, Products.MimetypesRegistry, buildout.coredev, mockup, plone.staticresources, plonetheme.barceloneta","2016, 2018, 2022, 2023",2016-04-05,2023-02-14
 webcloud7 ag,5,5,1,1,maethu,4,"container-zeo, plone.formwidget.recaptcha, plone.namedfile, plone.restapi","2023, 2025",2023-04-26,2025-04-25
 WebTide,9,5,2,1,mikejmets,4,"aurora, documentation, plone.app.dexterity, volto","2018, 2020, 2021, 2023",2018-10-22,2023-11-23
 Juizi,28,4,0,1,aboycalledhero,1,training,2025,2025-08-14,2025-09-09
 Markus Hilbert (independent),14,4,4,1,iham,9,"Products.CMFPlone, mockup, plone.app.caching, plone.app.contentmenu, plone.app.contenttypes, plone.app.mosaic, plone.app.registry, plone.app.widgets, plone.app.z3cform","2021, 2022",2019-10-09,2022-09-15
-r2 Solutions GmbH,20,4,6,1,lenadax,4,"documentation, mockup, plone.app.mosaic, plonetheme.barceloneta",2023,2023-02-06,2023-03-31
 UNAM,5,4,2,1,gil-cano,4,"cookieplone, cookieplone-templates, documentation, mockup","2018, 2025",2018-03-19,2025-05-02
 Interlegis Program (Senado Federal),13,3,0,2,"fabiorauber, jhgouveia",3,"aurora, helm-charts, volto","2023, 2024",2023-06-28,2023-11-30
 Matthew Wilkes (independent),9,3,9,1,MatthewWilkes,6,"documentation, plone.app.caching, plone.app.z3cform, plone.namedfile, plone.protect, plone.registry",2018,2018-05-07,2018-06-19

@@ -35,6 +35,8 @@ You need a GitHub account, and a public record for the affiliation: a link, or a
 
 4.  If a statement has no accepted record yet, add it to `curated/mappings/affiliation_proposals.csv` with the evidence, instead of `curated/mappings/affiliations.csv`.
     No script reads that file.
+    A finding that no record supports some years, with what was checked, goes into the `notes` of the neighbouring row, because `Unmapped` is never written as a row; a later reviewer then knows what was looked at.
+    A row never loses a source: new evidence is added to the `source` cell, and a year changes its organisation only for stronger evidence, see {doc}`/explanation/attribution`.
 
 5.  Validate the files:
 
