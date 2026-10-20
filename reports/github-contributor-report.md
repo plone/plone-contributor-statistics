@@ -1,6 +1,6 @@
 # Plone Core Contributor Statistics Report
 
-Generated on: 2026-10-20 15:02:43
+Generated on: 2026-10-20 15:09:08
 
 This report shows the top contributors and organizations in the Plone ecosystem across different time periods.
 
@@ -117,7 +117,7 @@ Not mapped to an organisation: 124 PRs, 266 commits by 39 contributors.
 | 9 | Codesyntax | 171 | 584 | 4 | 38 |
 | 10 | RedTurtle | 163 | 304 | 9 | 22 |
 
-Not mapped to an organisation: 366 PRs, 767 commits by 124 contributors.
+Not mapped to an organisation: 364 PRs, 763 commits by 123 contributors.
 
 
 ### Top 10 Organisation Contributors (Past 5 Years: 2021-2025)
@@ -129,13 +129,13 @@ Not mapped to an organisation: 366 PRs, 767 commits by 124 contributors.
 | 3 | der Freitag | 706 | 3,621 | 2 | 230 |
 | 4 | Kombinat | 653 | 2,544 | 1 | 74 |
 | 5 | Zest Software | 575 | 4,947 | 3 | 146 |
-| 6 | Eau de Web | 387 | 968 | 16 | 21 |
+| 6 | Eau de Web | 389 | 972 | 17 | 21 |
 | 7 | Syslab | 365 | 1,279 | 5 | 68 |
 | 8 | PY76 | 359 | 2,926 | 1 | 135 |
 | 9 | RedTurtle | 311 | 656 | 9 | 30 |
 | 10 | Codesyntax | 289 | 782 | 4 | 48 |
 
-Not mapped to an organisation: 638 PRs, 1,786 commits by 184 contributors.
+Not mapped to an organisation: 636 PRs, 1,782 commits by 183 contributors.
 
 
 ### Top 10 Organisation Contributors (Past 10 Years: 2016-2025)
@@ -147,13 +147,13 @@ Not mapped to an organisation: 638 PRs, 1,786 commits by 184 contributors.
 | 3 | der Freitag | 1,201 | 5,882 | 3 | 274 |
 | 4 | Syslab | 1,068 | 2,876 | 6 | 141 |
 | 5 | Steve Piercy - Website Builder | 909 | 3,242 | 1 | 38 |
-| 6 | Onna | 898 | 3,628 | 14 | 29 |
+| 6 | Onna | 901 | 3,630 | 15 | 29 |
 | 7 | Kombinat | 754 | 2,882 | 1 | 85 |
 | 8 | Klein & Partner KG | 725 | 3,125 | 2 | 149 |
-| 9 | Eau de Web | 567 | 1,649 | 18 | 37 |
+| 9 | Eau de Web | 569 | 1,653 | 19 | 37 |
 | 10 | Starzel | 542 | 2,298 | 3 | 142 |
 
-Not mapped to an organisation: 1,963 PRs, 5,418 commits by 375 contributors.
+Not mapped to an organisation: 1,920 PRs, 5,256 commits by 372 contributors.
 
 
 ---
@@ -187,17 +187,17 @@ See [how contributions are counted](https://plone.github.io/plone-contributor-st
 | Rank | Organization | Changelog entries | Commits | Contributors |
 |------|-------------|-------------------|---------|--------------|
 | 1 | Jarn | 1,778 | 8,990 | 14 |
-| 2 | Groundwire | 575 | 1,904 | 1 |
+| 2 | Groundwire | 580 | 1,923 | 2 |
 | 3 | Simplon | 397 | 1,714 | 1 |
 | 4 | Deloitte Digital | 360 | 2,820 | 1 |
 | 5 | Christian Heimes (independent) | 258 | 849 | 1 |
 | 6 | ZITC | 240 | 1,543 | 1 |
 | 7 | Zest Software | 237 | 974 | 4 |
 | 8 | Penn State University | 198 | 1,771 | 2 |
-| 9 | Four Digits | 170 | 1,419 | 5 |
-| 10 | ONE/Northwest | 170 | 681 | 1 |
+| 9 | ONE/Northwest | 173 | 688 | 2 |
+| 10 | Four Digits | 170 | 1,419 | 5 |
 
-Not mapped to an organisation: 4,804 changelog entries, 9,999 commits.
+Not mapped to an organisation: 4,794 changelog entries, 9,883 commits.
 
 
 ---
