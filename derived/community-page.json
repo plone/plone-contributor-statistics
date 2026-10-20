@@ -6372,7 +6372,7 @@
       "Klein & Partner KG"
      ],
      "sources": [
-      "https://community.plone.org/t/alpine-city-strategic-sprint-2018-technical-report/5685; Board: https://plone.org/foundation/meetings/minutes/2017/minutes-for-november-30-2017"
+      "https://community.plone.org/t/alpine-city-strategic-sprint-2018-technical-report/5685; Board: https://plone.org/foundation/meetings/minutes/2017/minutes-for-november-30-2017; sprint website, Christine and Jens as the contacts, \"Organised by Klein & Partner KG\": https://alpinecity.tirol/2018 (archived: https://web.archive.org/web/20240910075459/https://alpinecity.tirol/2018)"
      ]
     },
     {
@@ -6498,7 +6498,7 @@
      ]
     }
    ],
-   "people_active": 163,
+   "people_active": 164,
    "pull_requests": 1695,
    "team_leads": [
     {
@@ -12640,7 +12640,7 @@
      "commits": 445,
      "events": 1,
      "pull_requests": 94,
-     "roles": 1
+     "roles": 2
     },
     "2019": {
      "commits": 284,
@@ -33000,6 +33000,15 @@
     "commits": 0,
     "id": "christian-kreutzer",
     "name": "Christian Kreutzer",
+    "pull_requests": 0,
+    "roles": [
+     "Sprint organiser"
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "christine-baumgartner",
+    "name": "Christine Baumgartner",
     "pull_requests": 0,
     "roles": [
      "Sprint organiser"
