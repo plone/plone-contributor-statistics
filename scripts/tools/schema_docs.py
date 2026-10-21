@@ -24,6 +24,7 @@ GROUPS = [
         ('affiliations', 'Affiliations'),
         ('organisations', 'Organisations'),
         ('affiliation-proposals', 'Affiliation proposals'),
+        ('rejected-proposals', 'Rejected proposals'),
     ]),
     ('Lists', 'Accounts and repositories that the collectors treat in a special way, in `curated/mappings/`.', [
         ('bot-accounts', 'Bot accounts'),
@@ -55,6 +56,8 @@ ONE_ROW_IS = {
     'organisations': 'one organisation.',
     'affiliation-proposals': 'one affiliation that a source states and that no accepted record confirms yet.'
                              ' No script reads the file.',
+    'rejected-proposals': 'one proposal that a reviewer turned down, with the reason and a link to the review;'
+                          ' the tools that propose affiliations leave those years out.',
     'bot-accounts': 'one GitHub account that is a bot.',
     'excluded-repositories': 'one repository of the `plone` organisation that the statistics skip.',
     'board-of-directors': 'one member of the Board of Directors whose term ends in the year.',

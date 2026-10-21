@@ -28,5 +28,6 @@ from scripts.lib.model.registers import (  # noqa: F401
     load_bot_accounts,
     load_excluded_repositories,
     load_registry,
+    load_rejections,
 )
 from scripts.lib.model.schema import read_rows, split_set  # noqa: F401

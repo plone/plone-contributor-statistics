@@ -1,0 +1,81 @@
+{
+  "fields": [
+    {
+      "name": "person",
+      "type": "string",
+      "description": "The id of the person in the people register.",
+      "constraints": {
+        "required": true,
+        "pattern": "^[a-z0-9][a-z0-9-]*$"
+      }
+    },
+    {
+      "name": "organisation",
+      "type": "string",
+      "description": "The id of the organisation that was proposed and rejected.",
+      "constraints": {
+        "required": true,
+        "pattern": "^[a-z0-9][a-z0-9-]*$"
+      }
+    },
+    {
+      "name": "from",
+      "type": "integer",
+      "description": "The first year the rejection covers.",
+      "constraints": {
+        "required": true,
+        "minimum": 2000
+      }
+    },
+    {
+      "name": "to",
+      "type": "integer",
+      "description": "The last year the rejection covers.",
+      "constraints": {
+        "required": true,
+        "minimum": 2000
+      }
+    },
+    {
+      "name": "reason",
+      "type": "string",
+      "description": "Why the evidence does not make an affiliation: an own-company address while a record names the employer, the year of a change, the tie-breaker between two records, a public statement against it.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "source",
+      "type": "string",
+      "description": "Where the rejection was decided in public, linked as a web address: a pull request or a comment.",
+      "constraints": {
+        "required": true,
+        "pattern": ".*https?://.*"
+      }
+    }
+  ],
+  "foreignKeys": [
+    {
+      "fields": [
+        "person"
+      ],
+      "reference": {
+        "resource": "people",
+        "fields": [
+          "id"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "organisation"
+      ],
+      "reference": {
+        "resource": "organisations",
+        "fields": [
+          "id"
+        ]
+      }
+    }
+  ]
+}

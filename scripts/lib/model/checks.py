@@ -305,6 +305,7 @@ def checks_for(resource_name, package):
     """The custom checks of a resource in the package."""
     checks = {
         'people': lambda: [Sorted(fields=['id'], casefold=False), UniqueCasefold(field='github')],
+        'rejected-proposals': lambda: [Sorted(fields=['person', 'from'], casefold=False)],
         'organisations': lambda: [Sorted(fields=['id'], casefold=True), NameFold(), UniqueCasefold(field='github')],
         'affiliations': lambda: [AffiliationOverlap(), AffiliationPeriod(), ReachingBackPastRecord(),
                                  Sorted(fields=['person', 'from'], casefold=False)],

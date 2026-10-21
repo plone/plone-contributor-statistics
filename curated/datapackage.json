@@ -2097,6 +2097,18 @@
    },
    "encoding": "utf-8",
    "format": "csv",
+   "name": "rejected-proposals",
+   "path": "mappings/rejected_proposals.csv",
+   "schema": "schemas/rejected-proposals.json"
+  },
+  {
+   "dialect": {
+    "csv": {
+     "delimiter": ","
+    }
+   },
+   "encoding": "utf-8",
+   "format": "csv",
    "name": "plone-plips-before-github",
    "path": "plips/plone-plips-before-github.csv",
    "schema": "schemas/plips-before-github.json"

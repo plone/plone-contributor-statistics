@@ -21,7 +21,7 @@ from concurrent.futures import ThreadPoolExecutor
 from scripts.collect.plone_changelogs import ORGANISATION, cached_repositories
 from scripts.lib import git_history
 from scripts.lib.changelogs import SVN_DOMAIN
-from scripts.lib.model import MAPPINGS_DIR, append_proposals, load_bot_accounts, load_registry
+from scripts.lib.model import MAPPINGS_DIR, append_proposals, load_bot_accounts, load_registry, load_rejections
 from scripts.lib.model.names import fold
 
 DEFAULT_SINCE = 2002
@@ -165,13 +165,17 @@ def gather(clones, finder, since):
     return found, unmapped
 
 
-def propose(registry, found):
-    """(proposals, conflicts). A proposal is a dict with the keys of the proposals file, plus commits and example."""
+def propose(registry, found, rejected=frozenset()):
+    """(proposals, conflicts). A proposal is a dict with the keys of the proposals file, plus commits and example.
+
+    rejected: {(person, organisation, year)} that a reviewer turned down, see rejected_proposals.csv.
+    """
     proposals, conflicts = [], []
     for (person, organisation), by_year in sorted(found.items()):
         own = [a for a in registry.affiliations if a.person == person]
         same = {y for y in by_year if any(a.organisation == organisation and a.covers(y) for a in own)}
-        for first, last in _runs(set(by_year) - same):
+        turned_down = {y for y in by_year if (person, organisation, y) in rejected}
+        for first, last in _runs(set(by_year) - same - turned_down):
             years = range(first, last + 1)
             first_slots = by_year[first].items()
             domain, (_, (_, repository, sha), how) = min(first_slots, key=lambda item: (item[1][1], item[0]))
@@ -240,7 +244,7 @@ def run(cache=git_history.CACHE_DIR, since=DEFAULT_SINCE, people=(), write=False
         found = {key: value for key, value in found.items() if key[0] in people}
         # The domains of other people are not the business of this run
         unmapped = {d: e for d, e in unmapped.items() if e['people'] & set(people)}
-    proposals, conflicts = propose(registry, found)
+    proposals, conflicts = propose(registry, found, load_rejections(mappings_dir))
     text = report(proposals, conflicts, unmapped)
     added = append_proposals(proposals, mappings_dir) if write else []
     return text, added

@@ -253,6 +253,18 @@ def test_proposals_runs_evidence_and_unmapped(setup):
     assert 'hannosch.eu' not in text and 'gmail' not in text and 'localhost' not in text
 
 
+def test_a_rejected_year_is_not_proposed_again(setup):
+    cache = setup / 'cache'
+    make_clone(cache, 'plone.app.x', [('Hanno Schlichting', 'hanno@greenfinity.hu', 2016),
+                                      ('Hanno Schlichting', 'hanno@greenfinity.hu', 2017)])
+    paths.REJECTED_PROPOSALS.write_text(
+        'person,organisation,from,to,reason,source\n'
+        'hanno-schlichting,greenfinity,2016,2016,the year of a change,https://example.org/review\n', encoding='utf-8')
+    text, _ = run(cache)
+    assert '| hanno-schlichting | greenfinity | 2017 | 1 |' in text
+    assert '2016' not in text.split('## Conflicts')[0]
+
+
 def test_covered_year_splits_the_run_and_other_organisation_conflicts(setup):
     paths.AFFILIATIONS.write_text(
         'person,organisation,from,to,source,checked,notes\n'
