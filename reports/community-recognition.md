@@ -1,6 +1,6 @@
 # Plone Community Recognition Program 2025
 
-*Generated: 2026-10-21 14:59:49*
+*Generated: 2026-10-21 22:36:47*
 
 ## Executive Summary
 
@@ -110,7 +110,7 @@
 
 | Rank | Organization | Points | Level | PRs/Year |
 |------|--------------|-------:|:------|----------|
-| 1 | kitconcept GmbH | 20 | Lead | 521.4 |
+| 1 | kitconcept GmbH | 20 | Lead | 515.6 |
 | 2 | Steve Piercy - Website Builder | 20 | Lead | 169.2 |
 | 3 | der Freitag | 20 | Lead | 141.2 |
 | 4 | Kombinat | 20 | Lead | 130.6 |
@@ -123,9 +123,9 @@
 | 11 | Serpro | 10 | Core Member | 50.2 |
 | 12 | Klein & Partner KG | 4 | Active Member | 49.4 |
 | 13 | Rohberg | 4 | Active Member | 46.0 |
-| 14 | Nuclia | 4 | Active Member | 32.4 |
-| 15 | Onna | 4 | Active Member | 31.2 |
-| 16 | Starzel | 4 | Active Member | 29.2 |
+| 14 | Onna | 4 | Active Member | 36.6 |
+| 15 | Starzel | 4 | Active Member | 29.2 |
+| 16 | Nuclia | 4 | Active Member | 27.0 |
 | 17 | Agitator | 4 | Active Member | 23.8 |
 | 18 | Derico | 4 | Active Member | 23.0 |
 | 19 | Uni. Hospital Dresden | 2 | Team Member | 16.4 |
@@ -165,7 +165,7 @@
 | Team Leader | 6.0 | • Fred van Dijk (Admin & Infrastructure Team) |
 | WPD Talk | 4.0 | • Plone Hands On: Customize your site theme through the web with Volto!<br>• Mão na Massa: Começando um projeto com Plone 6.1<br>• Tailwind CSS and Plone<br>• Codename Seven - Sneak Peek to the Successor of Volto |
 | Training Session | 14.0 | • Plone 6 Volto Customization for JavaScript Beginners<br>• Plone 6 Volto Customization for JavaScript Beginners<br>• Plone Seven: Fundamentals<br>• Installing and Deploying Plone<br>• Installing and Deploying Plone<br>• ... and 2 more |
-| PR Contributions | 20.0 | • Lead (521.4 PRs/year) |
+| PR Contributions | 20.0 | • Lead (515.6 PRs/year) |
 | PLIP Contributions | 15.0 | • Significant PLIP Contributor (34 PLIPs) |
 
 ### RedTurtle
@@ -331,7 +331,7 @@
 |----------|-------:|:--------|
 | Board Member | 6.0 | • Eric Bréhault |
 | WPD Talk | 1.0 | • Plone and Google Summer of Code 2025 |
-| PR Contributions | 4.0 | • Active Member (32.4 PRs/year) |
+| PR Contributions | 4.0 | • Active Member (27.0 PRs/year) |
 
 ### Ludwig Maximilian University Munich
 
@@ -409,7 +409,7 @@
 
 | Category | Points | Details |
 |----------|-------:|:--------|
-| PR Contributions | 4.0 | • Active Member (31.2 PRs/year) |
+| PR Contributions | 4.0 | • Active Member (36.6 PRs/year) |
 
 ### Rohberg
 

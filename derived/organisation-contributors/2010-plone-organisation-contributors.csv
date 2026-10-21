@@ -32,7 +32,7 @@ CMS Communications Inc.,8,0,1,1,terapyon,3,"Plone, plone.app.users, plone.i18n",
 Malthe Borch (independent),8,0,1,1,malthe,4,"archetypes.referencebrowserwidget, plone.app.portlets, plone.app.z3cform, plone.protect",2010-01-13,2010-12-23
 Syslab,5,0,4,1,pilz,4,"plone.app.caching, plone.app.controlpanel, plone.app.ldap, plone.app.viewletmanager",2010-05-13,2010-05-21
 RedTurtle,4,0,0,1,massimoazzolini,3,"Plone, Products.PasswordResetTool, buildout.coredev",2010-01-15,2010-11-05
-Enfold,3,0,1,1,sidnei,1,plone.recipe.zope2instance,2010-07-31,2010-07-31
+Canonical,3,0,1,1,sidnei,1,plone.recipe.zope2instance,2010-07-31,2010-07-31
 Starzel,3,0,0,1,pbauer,2,"buildout.coredev, plone.event",2010-10-26,2010-10-30
 Florian Schulze (independent),2,0,0,1,fschulze,1,buildout.coredev,2010-01-10,2010-01-11
 "Goldmund, Wyldebeast & Wunderliebe",2,0,0,1,huubbouma,2,"Plone, Products.LinguaPlone",2010-01-15,2010-02-12

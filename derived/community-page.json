@@ -2,7 +2,7 @@
  "headline": {
   "five_years": {
    "events": 65,
-   "organisations": 102,
+   "organisations": 103,
    "people": 410
   },
   "since_2003": {
@@ -10,7 +10,7 @@
   },
   "year": {
    "events": 10,
-   "organisations": 53,
+   "organisations": 52,
    "people": 142
   }
  },
@@ -5032,7 +5032,7 @@
     },
     {
      "name": "Vincent Fretin",
-     "organisation": "Vincent Fretin (independent)",
+     "organisation": "Ecréall",
      "source": "https://web.archive.org/web/20130920093329/http://plone.org/community/teams/i18nTeam",
      "team": "Internationalization Team"
     },
@@ -5469,7 +5469,7 @@
     },
     {
      "name": "Vincent Fretin",
-     "organisation": "Vincent Fretin (independent)",
+     "organisation": "Ecréall",
      "source": "https://web.archive.org/web/20140728133302/http://plone.org/community/teams/i18nTeam",
      "team": "Internationalization Team"
     },
@@ -5756,7 +5756,7 @@
     },
     {
      "name": "Vincent Fretin",
-     "organisation": "Vincent Fretin (independent)",
+     "organisation": "Ecréall",
      "source": "https://web.archive.org/web/20150920011035/http://plone.org/community/teams/i18nTeam",
      "team": "Internationalization Team"
     },
@@ -6527,7 +6527,7 @@
     },
     {
      "name": "Vincent Fretin",
-     "organisation": "Vincent Fretin (independent)",
+     "organisation": "Ecréall",
      "source": "https://community.plone.org/t/plone-team-leader-meeting-2018-01-19/5607",
      "team": "Internationalization Team"
     },
@@ -7319,7 +7319,7 @@
     },
     {
      "name": "Eric Bréhault",
-     "organisation": "Nuclia",
+     "organisation": "Onna",
      "source": "https://community.plone.org/t/steering-circle-meeting-minutes-2021-06-15/13980",
      "team": "Guillotina Team"
     },
@@ -8719,7 +8719,7 @@
         [
          "2023",
          "derived/organisation-contributors/2023-plone-organisation-contributors.csv",
-         40
+         41
         ]
        ],
        "source": null,
@@ -10137,7 +10137,7 @@
         [
          "2023",
          "derived/organisation-contributors/2023-plone-organisation-contributors.csv",
-         3
+         2
         ],
         [
          "2024",
@@ -10315,7 +10315,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         13
+         12
         ],
         [
          "2022",
@@ -10694,9 +10694,9 @@
      "roles": 0
     },
     "2018": {
-     "commits": 66,
+     "commits": 43,
      "events": 0,
-     "pull_requests": 18,
+     "pull_requests": 3,
      "roles": 0
     },
     "2019": {
@@ -11762,12 +11762,12 @@
         [
          "2022",
          "derived/organisation-contributors/2022-plone-organisation-contributors.csv",
-         38
+         37
         ],
         [
          "2023",
          "derived/organisation-contributors/2023-plone-organisation-contributors.csv",
-         22
+         23
         ],
         [
          "2024",
@@ -12192,7 +12192,7 @@
         [
          "2023",
          "derived/organisation-contributors/2023-plone-organisation-contributors.csv",
-         2
+         3
         ],
         [
          "2024",
@@ -12206,7 +12206,7 @@
         ]
        ],
        "source": null,
-       "text": "Lead (521.4 PRs/year)"
+       "text": "Lead (515.6 PRs/year)"
       }
      ],
      "points": 20.0
@@ -12443,9 +12443,9 @@
      "roles": 22
     },
     "2023": {
-     "commits": 1953,
+     "commits": 1895,
      "events": 1,
-     "pull_requests": 675,
+     "pull_requests": 646,
      "roles": 19
     },
     "2024": {
@@ -13429,17 +13429,17 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         12
+         13
         ],
         [
          "2022",
          "derived/organisation-contributors/2022-plone-organisation-contributors.csv",
-         33
+         32
         ],
         [
          "2023",
          "derived/organisation-contributors/2023-plone-organisation-contributors.csv",
-         15
+         16
         ],
         [
          "2024",
@@ -13453,7 +13453,7 @@
         ]
        ],
        "source": null,
-       "text": "Active Member (32.4 PRs/year)"
+       "text": "Active Member (27.0 PRs/year)"
       }
      ],
      "points": 4.0
@@ -13575,16 +13575,16 @@
      "roles": 0
     },
     "2020": {
-     "commits": 318,
+     "commits": 214,
      "events": 0,
-     "pull_requests": 89,
+     "pull_requests": 33,
      "roles": 0
     },
     "2021": {
-     "commits": 221,
+     "commits": 194,
      "events": 0,
-     "pull_requests": 61,
-     "roles": 2
+     "pull_requests": 34,
+     "roles": 1
     },
     "2022": {
      "commits": 16,
@@ -13629,7 +13629,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         17
+         15
         ],
         [
          "2022",
@@ -13638,7 +13638,7 @@
         ]
        ],
        "source": null,
-       "text": "Active Member (31.2 PRs/year)"
+       "text": "Active Member (36.6 PRs/year)"
       }
      ],
      "points": 4.0
@@ -13748,16 +13748,16 @@
      "roles": 3
     },
     "2020": {
-     "commits": 112,
+     "commits": 216,
      "events": 0,
-     "pull_requests": 160,
+     "pull_requests": 216,
      "roles": 1
     },
     "2021": {
-     "commits": 113,
+     "commits": 140,
      "events": 0,
-     "pull_requests": 100,
-     "roles": 1
+     "pull_requests": 127,
+     "roles": 2
     },
     "2022": {
      "commits": 56,
@@ -15586,7 +15586,7 @@
         [
          "2023",
          "derived/organisation-contributors/2023-plone-organisation-contributors.csv",
-         24
+         25
         ],
         [
          "2024",
@@ -15947,7 +15947,7 @@
         [
          "2023",
          "derived/organisation-contributors/2023-plone-organisation-contributors.csv",
-         16
+         17
         ],
         [
          "2024",
@@ -16161,7 +16161,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         15
+         16
         ],
         [
          "2022",
@@ -16756,7 +16756,7 @@
         [
          "2023",
          "derived/organisation-contributors/2023-plone-organisation-contributors.csv",
-         18
+         19
         ],
         [
          "2024",
@@ -17681,7 +17681,7 @@
     "commits": 20,
     "id": "j-cameron-cooper",
     "name": "J Cameron Cooper",
-    "organisation": "Enfold",
+    "organisation": "J Cameron Cooper (independent)",
     "pull_requests": 0,
     "roles": []
    },
@@ -18829,7 +18829,7 @@
     "commits": 1,
     "id": "jens-vagelpohl",
     "name": "Jens Vagelpohl",
-    "organisation": "Jens Vagelpohl (independent)",
+    "organisation": "Zetwork",
     "pull_requests": 0,
     "roles": []
    },
@@ -20250,7 +20250,7 @@
     "commits": 3,
     "id": "j-cameron-cooper",
     "name": "J Cameron Cooper",
-    "organisation": "Enfold",
+    "organisation": "Rice University",
     "pull_requests": 0,
     "roles": []
    },
@@ -21093,7 +21093,7 @@
     "commits": 1,
     "id": "jens-vagelpohl",
     "name": "Jens Vagelpohl",
-    "organisation": "Jens Vagelpohl (independent)",
+    "organisation": "Zetwork",
     "pull_requests": 0,
     "roles": []
    },
@@ -23326,7 +23326,7 @@
     "commits": 3,
     "id": "sidnei-da-silva",
     "name": "Sidnei da Silva",
-    "organisation": "Enfold",
+    "organisation": "Canonical",
     "pull_requests": 0,
     "roles": []
    },
@@ -24117,7 +24117,7 @@
     "commits": 8,
     "id": "leonardo-caballero",
     "name": "Leonardo Caballero",
-    "organisation": "Plone Venezuela",
+    "organisation": "Unmapped",
     "pull_requests": 0,
     "roles": []
    },
@@ -24494,7 +24494,7 @@
     "commits": 1,
     "id": "sidnei-da-silva",
     "name": "Sidnei da Silva",
-    "organisation": "Enfold",
+    "organisation": "Canonical",
     "pull_requests": 0,
     "roles": []
    },
@@ -25307,7 +25307,7 @@
     "commits": 164,
     "id": "hanno-schlichting",
     "name": "Hanno Schlichting",
-    "organisation": "Jarn",
+    "organisation": "Mozilla",
     "pull_requests": 5,
     "roles": []
    },
@@ -25599,7 +25599,7 @@
     "commits": 3,
     "id": "leonardo-caballero",
     "name": "Leonardo Caballero",
-    "organisation": "Plone Venezuela",
+    "organisation": "Unmapped",
     "pull_requests": 1,
     "roles": []
    },
@@ -26336,7 +26336,7 @@
     "commits": 32,
     "id": "vincent-fretin",
     "name": "Vincent Fretin",
-    "organisation": "Vincent Fretin (independent)",
+    "organisation": "Ecréall",
     "pull_requests": 0,
     "roles": []
    },
@@ -27182,7 +27182,7 @@
     "commits": 10,
     "id": "hanno-schlichting",
     "name": "Hanno Schlichting",
-    "organisation": "Jarn",
+    "organisation": "Mozilla",
     "pull_requests": 0,
     "roles": []
    },
@@ -27494,7 +27494,7 @@
     "commits": 9,
     "id": "leonardo-caballero",
     "name": "Leonardo Caballero",
-    "organisation": "Plone Venezuela",
+    "organisation": "Unmapped",
     "pull_requests": 1,
     "roles": []
    },
@@ -28456,7 +28456,7 @@
     "commits": 49,
     "id": "vincent-fretin",
     "name": "Vincent Fretin",
-    "organisation": "Vincent Fretin (independent)",
+    "organisation": "Ecréall",
     "pull_requests": 1,
     "roles": [
      "Team lead"
@@ -29571,7 +29571,7 @@
     "commits": 14,
     "id": "leonardo-caballero",
     "name": "Leonardo Caballero",
-    "organisation": "Plone Venezuela",
+    "organisation": "Covantec",
     "pull_requests": 5,
     "roles": []
    },
@@ -30277,7 +30277,7 @@
     "commits": 66,
     "id": "thomas-desvenain",
     "name": "Thomas Desvenain",
-    "organisation": "Makina Corpus",
+    "organisation": "Ecréall",
     "pull_requests": 9,
     "roles": []
    },
@@ -30365,7 +30365,7 @@
     "commits": 37,
     "id": "vincent-fretin",
     "name": "Vincent Fretin",
-    "organisation": "Vincent Fretin (independent)",
+    "organisation": "Ecréall",
     "pull_requests": 0,
     "roles": [
      "Team lead"
@@ -31278,7 +31278,7 @@
     "commits": 3,
     "id": "leonardo-caballero",
     "name": "Leonardo Caballero",
-    "organisation": "Plone Venezuela",
+    "organisation": "Covantec",
     "pull_requests": 2,
     "roles": []
    },
@@ -31985,7 +31985,7 @@
     "commits": 126,
     "id": "vincent-fretin",
     "name": "Vincent Fretin",
-    "organisation": "Vincent Fretin (independent)",
+    "organisation": "Ecréall",
     "pull_requests": 0,
     "roles": [
      "Team lead"
@@ -32579,7 +32579,7 @@
     "commits": 2,
     "id": "hanno-schlichting",
     "name": "Hanno Schlichting",
-    "organisation": "Jarn",
+    "organisation": "Mozilla",
     "pull_requests": 0,
     "roles": []
    },
@@ -32829,7 +32829,7 @@
     "commits": 12,
     "id": "leonardo-caballero",
     "name": "Leonardo Caballero",
-    "organisation": "Plone Venezuela",
+    "organisation": "Covantec",
     "pull_requests": 2,
     "roles": []
    },
@@ -33456,7 +33456,7 @@
     "commits": 28,
     "id": "vincent-fretin",
     "name": "Vincent Fretin",
-    "organisation": "Vincent Fretin (independent)",
+    "organisation": "Ecréall",
     "pull_requests": 0,
     "roles": []
    },
@@ -34003,7 +34003,7 @@
     "commits": 4,
     "id": "hanno-schlichting",
     "name": "Hanno Schlichting",
-    "organisation": "Jarn",
+    "organisation": "Mozilla",
     "pull_requests": 0,
     "roles": []
    },
@@ -34213,7 +34213,7 @@
     "commits": 0,
     "id": "leonardo-caballero",
     "name": "Leonardo Caballero",
-    "organisation": "Plone Venezuela",
+    "organisation": "Covantec",
     "pull_requests": 1,
     "roles": []
    },
@@ -34846,7 +34846,7 @@
     "commits": 9,
     "id": "vincent-fretin",
     "name": "Vincent Fretin",
-    "organisation": "Vincent Fretin (independent)",
+    "organisation": "Ecréall",
     "pull_requests": 0,
     "roles": []
    },
@@ -35531,7 +35531,7 @@
     "commits": 7,
     "id": "leonardo-caballero",
     "name": "Leonardo Caballero",
-    "organisation": "Plone Venezuela",
+    "organisation": "Covantec",
     "pull_requests": 0,
     "roles": []
    },
@@ -35783,7 +35783,7 @@
     "commits": 23,
     "id": "nilesh-gulia",
     "name": "Nilesh Gulia",
-    "organisation": "Eau de Web",
+    "organisation": "Unmapped",
     "pull_requests": 15,
     "roles": []
    },
@@ -36235,7 +36235,7 @@
     "commits": 13,
     "id": "vincent-fretin",
     "name": "Vincent Fretin",
-    "organisation": "Vincent Fretin (independent)",
+    "organisation": "Ecréall",
     "pull_requests": 1,
     "roles": [
      "Team lead"
@@ -36872,7 +36872,7 @@
     "commits": 10,
     "id": "leonardo-caballero",
     "name": "Leonardo Caballero",
-    "organisation": "Plone Venezuela",
+    "organisation": "Covantec",
     "pull_requests": 2,
     "roles": []
    },
@@ -37508,7 +37508,7 @@
     "commits": 18,
     "id": "vincent-fretin",
     "name": "Vincent Fretin",
-    "organisation": "Vincent Fretin (independent)",
+    "organisation": "Ecréall",
     "pull_requests": 6,
     "roles": []
    },
@@ -37827,7 +37827,7 @@
     "commits": 104,
     "id": "eric-brehault",
     "name": "Eric Bréhault",
-    "organisation": "Nuclia",
+    "organisation": "Onna",
     "pull_requests": 56,
     "roles": []
    },
@@ -39176,7 +39176,7 @@
     "commits": 27,
     "id": "eric-brehault",
     "name": "Eric Bréhault",
-    "organisation": "Nuclia",
+    "organisation": "Onna",
     "pull_requests": 27,
     "roles": [
      "Team lead"
@@ -39612,7 +39612,7 @@
     "commits": 6,
     "id": "leonardo-caballero",
     "name": "Leonardo Caballero",
-    "organisation": "Plone Venezuela",
+    "organisation": "Covantec",
     "pull_requests": 0,
     "roles": [
      "Talk"
@@ -41022,7 +41022,7 @@
     "commits": 20,
     "id": "leonardo-caballero",
     "name": "Leonardo Caballero",
-    "organisation": "Plone Venezuela",
+    "organisation": "Unmapped",
     "pull_requests": 2,
     "roles": []
    },
@@ -42534,7 +42534,7 @@
     "commits": 8,
     "id": "leonardo-caballero",
     "name": "Leonardo Caballero",
-    "organisation": "Plone Venezuela",
+    "organisation": "Leonardo Caballero (independent)",
     "pull_requests": 4,
     "roles": []
    },
@@ -43331,7 +43331,7 @@
     "commits": 58,
     "id": "tisha-soumya",
     "name": "Tisha Soumya",
-    "organisation": "kitconcept GmbH",
+    "organisation": "Dell",
     "pull_requests": 29,
     "roles": []
    },
@@ -44067,7 +44067,7 @@
     "commits": 7,
     "id": "leonardo-caballero",
     "name": "Leonardo Caballero",
-    "organisation": "Plone Venezuela",
+    "organisation": "Leonardo Caballero (independent)",
     "pull_requests": 1,
     "roles": [
      "Talk"
@@ -45342,7 +45342,7 @@
     "commits": 7,
     "id": "leonardo-caballero",
     "name": "Leonardo Caballero",
-    "organisation": "Plone Venezuela",
+    "organisation": "Leonardo Caballero (independent)",
     "pull_requests": 1,
     "roles": []
    },
