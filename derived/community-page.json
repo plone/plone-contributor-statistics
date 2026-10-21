@@ -16507,22 +16507,22 @@
      "roles": 0
     },
     "2016": {
-     "commits": 469,
+     "commits": 3,
      "events": 0,
-     "pull_requests": 176,
+     "pull_requests": 0,
      "roles": 0
     },
     "2017": {
-     "commits": 305,
+     "commits": 26,
      "events": 0,
-     "pull_requests": 186,
+     "pull_requests": 19,
      "roles": 0
     },
     "2018": {
-     "commits": 379,
+     "commits": 235,
      "events": 1,
-     "pull_requests": 163,
-     "roles": 1
+     "pull_requests": 103,
+     "roles": 0
     },
     "2019": {
      "commits": 191,
@@ -32721,7 +32721,7 @@
     "commits": 466,
     "id": "johannes-raggam",
     "name": "Johannes Raggam",
-    "organisation": "Syslab",
+    "organisation": "programmatic",
     "pull_requests": 176,
     "roles": []
    },
@@ -34113,7 +34113,7 @@
     "commits": 279,
     "id": "johannes-raggam",
     "name": "Johannes Raggam",
-    "organisation": "Syslab",
+    "organisation": "programmatic",
     "pull_requests": 167,
     "roles": []
    },
@@ -35437,7 +35437,7 @@
     "commits": 144,
     "id": "johannes-raggam",
     "name": "Johannes Raggam",
-    "organisation": "Syslab",
+    "organisation": "programmatic",
     "pull_requests": 60,
     "roles": [
      "Sprint organiser"
