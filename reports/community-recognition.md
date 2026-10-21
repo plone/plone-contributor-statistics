@@ -1,6 +1,6 @@
 # Plone Community Recognition Program 2025
 
-*Generated: 2026-10-21 14:59:49*
+*Generated: 2026-10-21 18:32:56*
 
 ## Executive Summary
 
@@ -110,7 +110,7 @@
 
 | Rank | Organization | Points | Level | PRs/Year |
 |------|--------------|-------:|:------|----------|
-| 1 | kitconcept GmbH | 20 | Lead | 521.4 |
+| 1 | kitconcept GmbH | 20 | Lead | 515.6 |
 | 2 | Steve Piercy - Website Builder | 20 | Lead | 169.2 |
 | 3 | der Freitag | 20 | Lead | 141.2 |
 | 4 | Kombinat | 20 | Lead | 130.6 |
@@ -165,7 +165,7 @@
 | Team Leader | 6.0 | • Fred van Dijk (Admin & Infrastructure Team) |
 | WPD Talk | 4.0 | • Plone Hands On: Customize your site theme through the web with Volto!<br>• Mão na Massa: Começando um projeto com Plone 6.1<br>• Tailwind CSS and Plone<br>• Codename Seven - Sneak Peek to the Successor of Volto |
 | Training Session | 14.0 | • Plone 6 Volto Customization for JavaScript Beginners<br>• Plone 6 Volto Customization for JavaScript Beginners<br>• Plone Seven: Fundamentals<br>• Installing and Deploying Plone<br>• Installing and Deploying Plone<br>• ... and 2 more |
-| PR Contributions | 20.0 | • Lead (521.4 PRs/year) |
+| PR Contributions | 20.0 | • Lead (515.6 PRs/year) |
 | PLIP Contributions | 15.0 | • Significant PLIP Contributor (34 PLIPs) |
 
 ### RedTurtle

@@ -36,9 +36,9 @@ Franco Pellegrini (independent),15,12,8,1,frapell,7,"Products.CMFDiffTool, Produ
 Alteroo,13,4,1,1,pigeonflight,5,"ansible-playbook, ansible-playbook-ploneorg2019, bobtemplates.plone, documentation, plonecli",2016-10-22,2017-11-06
 gocept,12,6,3,2,"dhavlik, icemac",5,"plone.i18n, plone.recipe.zeoserver, plone.recipe.zope2instance, plone.scale, plone.testing",2017-04-05,2017-11-07
 ZITC,12,3,2,1,witsch,2,"plone.restapi, plone.testing",2017-03-04,2017-03-05
+Ecréall,11,1,11,2,"cedricmessiant, vincentfretin",7,"Products.LinguaPlone, Products.TinyMCE, buildout.coredev, mockup, plone.app.contenttypes, plone.app.querystring, plone.app.registry",2017-01-11,2017-07-08
 Jowett Enterprises Ltd,11,6,11,1,djowett,5,"Products.LinguaPlone, documentation, plone.app.discussion, plone.app.multilingual, training",2016-12-02,2017-07-21
 Rohberg,9,3,2,1,ksuess,2,"mockup, plone.app.discussion",2017-07-17,2017-12-14
-Vincent Fretin (independent),9,0,9,1,vincentfretin,5,"Products.LinguaPlone, Products.TinyMCE, buildout.coredev, plone.app.querystring, plone.app.registry",2017-01-11,2017-07-08
 acsr industrialdesign,7,2,0,1,acsr,2,"plone.restapi, training.plone.org",2017-03-04,2017-03-24
 iMio,7,8,6,2,"bsuttor, sgeulette",7,"Products.CMFPlone, guillotina, plone.app.contenttypes, plone.app.event, plone.app.layout, plone.app.multilingual, plone.app.robotframework",2017-03-14,2017-10-16
 Webmeisterei,7,5,6,1,frisi,5,"Products.LinguaPlone, Products.TinyMCE, collective.monkeypatcher, plone.app.event, plone.app.testing",2017-02-24,2017-09-08
@@ -48,11 +48,10 @@ TU Dresden,6,4,6,1,pgrunewald,2,"Products.Archetypes, plone.memoize",2017-04-19,
 Malthe Borch (independent),5,4,3,1,malthe,4,"Products.Archetypes, Products.CMFDynamicViewFTI, Products.CMFPlone, plone.app.contentrules",2017-02-03,2017-04-25
 Zopyx,5,1,0,1,zopyx,3,"Products.CMFPlone, planet.plone.org, plone.app.dexterity",2017-03-29,2017-11-09
 Academy of FA Vienna,4,1,4,1,gogobd,2,"Products.Archetypes, plone.instanceprofiling",2017-02-01,2017-02-13
-Jarn,4,0,0,1,hannosch,1,plone.reload,2017-10-31,2017-10-31
+Mozilla,4,0,0,1,hannosch,1,plone.reload,2017-10-31,2017-10-31
 Affinitic,2,1,0,2,"jfroche, laulaz",2,"buildout.coredev, guillotina",2017-09-26,2017-10-16
-Ecréall,2,1,2,1,cedricmessiant,2,"mockup, plone.app.contenttypes",2017-03-06,2017-03-31
 Iskra,2,2,2,1,allusa,2,"Products.CMFPlone, plone.app.event",2017-01-30,2017-06-06
 infoCatch,1,0,1,1,mtrebron,1,plone.app.contentrules,2017-03-29,2017-03-29
 Kombinat,1,5,6,1,petschki,3,"plone.app.blocks, plone.app.multilingual, plone.app.widgets",2017-10-21,2017-10-21
 Pretaweb,1,1,1,2,"djay, instification",2,"Products.CMFPlone, documentation",2016-03-21,2016-03-21
-Plone Venezuela,0,1,0,1,macagua,1,training,,
+Covantec,0,1,0,1,macagua,1,training,,

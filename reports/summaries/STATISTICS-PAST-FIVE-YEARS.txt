@@ -1,8 +1,8 @@
 # Five-Year Summary Results (2021-2025)
 
-- 81 total organisations tracked across the past 5 years
+- 83 total organisations tracked across the past 5 years
 - 41,001 total commits and 9,917 pull requests
-- 345 unique contributors across all organisations
+- 348 unique contributors across all organisations
 - File generated: derived/summaries/summary-past-five-years-2021-2025.csv
 
 ## Top 10 contributors by pull requests (2021-2025)
@@ -33,7 +33,7 @@
 
 ## Top 10 organisations by pull requests (2021-2025)
 
-1. kitconcept GmbH: 2,607 PRs
+1. kitconcept GmbH: 2,578 PRs
 2. Steve Piercy - Website Builder: 846 PRs
 3. der Freitag: 706 PRs
 4. Kombinat: 653 PRs
@@ -44,11 +44,11 @@
 9. RedTurtle: 344 PRs
 10. Codesyntax: 289 PRs
 
-Not mapped to an organisation: 629 PRs
+Not mapped to an organisation: 631 PRs
 
 ## Top 10 organisations by commits (2021-2025)
 
-1. kitconcept GmbH: 10,447 commits
+1. kitconcept GmbH: 10,389 commits
 2. Zest Software: 4,947 commits
 3. der Freitag: 3,621 commits
 4. Steve Piercy - Website Builder: 3,081 commits
@@ -59,4 +59,4 @@ Not mapped to an organisation: 629 PRs
 9. Derico: 1,110 commits
 10. Rohberg: 1,010 commits
 
-Not mapped to an organisation: 1,774 commits
+Not mapped to an organisation: 1,794 commits
