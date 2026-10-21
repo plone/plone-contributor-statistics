@@ -37,8 +37,7 @@ Two public records can name different organisations for the same year, when a pe
 Then the year goes to the organisation whose address most of the person's commits of that year carry, because the commits are what the statistics count.
 When most of the commits carry a personal address, the year follows the person's own public statement of that year.
 
-Two records of the same organisation also cover the years between them, when those are at most five and no record names another organisation in between: a person named on a company's team page in two years was not elsewhere in the year between.
-Longer gaps need a record of their own.
+Two records of the same organisation also cover the years between them, when no record names another organisation in between: a person named on a company's team page in two years was not elsewhere in the years between, however many they are.
 This is a convention: the statistics are built by year, and a year has one organisation per person.
 A period that begins and ends within one year doesn't appear at all.
 
