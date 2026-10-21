@@ -92,7 +92,7 @@ A podcast counts for recognition from five episodes a year.
 
 `derived/community-page.json`
 :   Written by `scripts/derive/community_page.py`.
-    Every number and list the community page shows: the headline numbers, the recognition levels and the organisations on the wall with their points and contributions, the yearly counts per person (by login or name, sorted, without ranks, with the organisation of the year), and the history per year.
+    Every number and list the community page shows: the headline numbers, the recognition levels and the organisations on the wall with their points and contributions, the yearly counts per person (by login or name, sorted, without ranks, with the organisation of the year, the community roles and the talks of the year with their recordings), and the history per year.
     {doc}`/explanation/community-page` explains the definitions.
 
 `derived/summaries/summary-past-*-years-*.csv`

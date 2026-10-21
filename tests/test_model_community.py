@@ -137,3 +137,14 @@ def test_talks_per_person_with_event_and_video(community):
 
 def test_talks_of_a_year_without_files(community):
     assert talks(2019) == []
+
+
+def test_world_plone_day_video_is_only_a_link_to_a_video_host(community):
+    # Four World Plone Day talks have an event page as their only source ("No video."): that is not a recording
+    community('2025-world-plone-day-talks.csv',
+              'title,speakers,organisations,type,location,source,notes\n'
+              'Page only,pbauer,,Talk,,https://plone.org.br/novidades/eventos/2025/wpd-2025-brasilia,No video.\n'
+              'Short link,pbauer,,Talk,,https://youtu.be/abc123; https://plone.org.br/event,\n'
+              'Vimeo,tschorr,,Talk,,https://vimeo.com/12345,\n')
+    assert [(t.title, t.video) for t in talks(2025)] == [
+        ('Page only', None), ('Short link', 'https://youtu.be/abc123'), ('Vimeo', 'https://vimeo.com/12345')]

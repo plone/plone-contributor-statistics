@@ -171,13 +171,13 @@ def test_a_speaker_is_active_and_lists_the_talks_sorted(repo):
     write(paths.COMMUNITY / '2025-conference-talks.csv', CONF_TALKS +
           'Plone Tagung 2025,regional,Talk,Zope news,timo,,,https://s/1,\n'
           'Plone Conference 2025,global,Keynote,A keynote,timo;mauro,,https://v/1,https://s/2,\n')
-    write(paths.COMMUNITY / '2025-world-plone-day-talks.csv', TALKS + 'WPD talk,timo,,Talk,Online,https://v/3,\n')
+    write(paths.COMMUNITY / '2025-world-plone-day-talks.csv', TALKS + 'WPD talk,timo,,Talk,Online,https://youtu.be/v3,\n')
     data = community_page.build_page_data(2025)
     timo = next(p for p in data['people']['2025'] if p['id'] == 'timo')
     assert timo['roles'] == ['Speaker']
     assert timo['talks'] == [{'title': 'A keynote', 'event': 'Plone Conference 2025', 'video': 'https://v/1'},
                              {'title': 'Zope news', 'event': 'Plone Tagung 2025', 'video': None},
-                             {'title': 'WPD talk', 'event': 'World Plone Day 2025', 'video': 'https://v/3'}]
+                             {'title': 'WPD talk', 'event': 'World Plone Day 2025', 'video': 'https://youtu.be/v3'}]
     mauro = next(p for p in data['people']['2025'] if p['id'] == 'mauro')
     assert mauro['talks'] == [{'title': 'A keynote', 'event': 'Plone Conference 2025', 'video': 'https://v/1'}]
     assert data['history']['2025']['people_active'] == 2

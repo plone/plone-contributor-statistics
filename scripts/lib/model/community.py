@@ -169,9 +169,17 @@ def roles(year, community_dir=paths.COMMUNITY):
     return found
 
 
-def _first_link(text):
-    found = re.search(r'https?://\S+', text or '')
-    return found.group(0).rstrip(';,') if found else None
+# Where recordings are published; a source that links only an event page is not a recording
+VIDEO_HOSTS = ('youtube.com', 'youtu.be', 'vimeo.com', 'plone.tv')
+
+
+def _video_link(text):
+    """The first link of a source that points to a video host, else None."""
+    for link in re.findall(r'https?://\S+', text or ''):
+        host = link.split('/')[2].lower()
+        if any(host == h or host.endswith('.' + h) for h in VIDEO_HOSTS):
+            return link.rstrip(';,')
+    return None
 
 
 def talks(year, community_dir=paths.COMMUNITY):
@@ -185,7 +193,7 @@ def talks(year, community_dir=paths.COMMUNITY):
         if item.fields['type'] not in TALK_TYPES:
             continue
         found.extend(Talk(kind=item.kind, year=year, person=person, title=item.key, event=f'World Plone Day {year}',
-                          video=_first_link(item.source), file=item.file, line=item.line, source=item.source)
+                          video=_video_link(item.source), file=item.file, line=item.line, source=item.source)
                      for person in item.people)
     return found
 
