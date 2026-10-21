@@ -9,11 +9,13 @@ from scripts.lib.model.community import (  # noqa: F401
     Event,
     Item,
     Role,
+    Talk,
     community_folder,
     events,
     items,
     recognition_levels,
     roles,
+    talks,
 )
 from scripts.lib.model.registers import (  # noqa: F401
     MAPPINGS_DIR,
