@@ -1,6 +1,6 @@
 # Plone Core Contributor Statistics Report
 
-Generated on: 2026-10-21 14:59:48
+Generated on: 2026-10-21 22:36:46
 
 This report shows the top contributors and organizations in the Plone ecosystem across different time periods.
 
@@ -106,7 +106,7 @@ Not mapped to an organisation: 122 PRs, 263 commits by 38 contributors.
 
 | Rank | Organization | PRs | Commits | Contributors | Repositories |
 |------|-------------|-----|---------|---------------|-------------|
-| 1 | kitconcept GmbH | 1,769 | 5,618 | 14 | 132 |
+| 1 | kitconcept GmbH | 1,740 | 5,560 | 14 | 132 |
 | 2 | der Freitag | 683 | 3,430 | 2 | 229 |
 | 3 | Steve Piercy - Website Builder | 658 | 2,100 | 1 | 31 |
 | 4 | Kombinat | 444 | 1,728 | 1 | 54 |
@@ -124,7 +124,7 @@ Not mapped to an organisation: 360 PRs, 758 commits by 122 contributors.
 
 | Rank | Organization | PRs | Commits | Contributors | Repositories |
 |------|-------------|-----|---------|---------------|-------------|
-| 1 | kitconcept GmbH | 2,607 | 10,447 | 15 | 153 |
+| 1 | kitconcept GmbH | 2,578 | 10,389 | 15 | 153 |
 | 2 | Steve Piercy - Website Builder | 846 | 3,081 | 1 | 35 |
 | 3 | der Freitag | 706 | 3,621 | 2 | 230 |
 | 4 | Kombinat | 653 | 2,544 | 1 | 74 |
@@ -135,25 +135,25 @@ Not mapped to an organisation: 360 PRs, 758 commits by 122 contributors.
 | 9 | RedTurtle | 344 | 855 | 10 | 30 |
 | 10 | Codesyntax | 289 | 782 | 4 | 48 |
 
-Not mapped to an organisation: 629 PRs, 1,774 commits by 181 contributors.
+Not mapped to an organisation: 631 PRs, 1,794 commits by 182 contributors.
 
 
 ### Top 10 Organisation Contributors (Past 10 Years: 2016-2025)
 
 | Rank | Organization | PRs | Commits | Contributors | Repositories |
 |------|-------------|-----|---------|---------------|-------------|
-| 1 | kitconcept GmbH | 3,358 | 16,126 | 17 | 171 |
+| 1 | kitconcept GmbH | 3,329 | 16,068 | 17 | 171 |
 | 2 | Zest Software | 1,279 | 11,882 | 5 | 191 |
 | 3 | der Freitag | 1,201 | 5,882 | 3 | 274 |
-| 4 | Steve Piercy - Website Builder | 909 | 3,242 | 1 | 38 |
-| 5 | Onna | 886 | 2,823 | 16 | 27 |
+| 4 | Onna | 969 | 2,954 | 16 | 27 |
+| 5 | Steve Piercy - Website Builder | 909 | 3,242 | 1 | 38 |
 | 6 | Kombinat | 754 | 2,882 | 1 | 85 |
 | 7 | Klein & Partner KG | 725 | 3,125 | 2 | 149 |
 | 8 | Syslab | 647 | 1,964 | 6 | 115 |
-| 9 | Eau de Web | 569 | 1,653 | 19 | 37 |
+| 9 | Eau de Web | 554 | 1,630 | 19 | 37 |
 | 10 | Starzel | 542 | 2,297 | 3 | 142 |
 
-Not mapped to an organisation: 1,886 PRs, 5,217 commits by 370 contributors.
+Not mapped to an organisation: 1,903 PRs, 5,260 commits by 372 contributors.
 
 
 ---
@@ -186,7 +186,7 @@ See [how contributions are counted](https://plone.github.io/plone-contributor-st
 
 | Rank | Organization | Changelog entries | Commits | Contributors |
 |------|-------------|-------------------|---------|--------------|
-| 1 | Jarn | 1,936 | 9,664 | 13 |
+| 1 | Jarn | 1,881 | 9,500 | 13 |
 | 2 | Groundwire | 580 | 1,923 | 2 |
 | 3 | Simplon | 397 | 1,714 | 1 |
 | 4 | Deloitte Digital | 360 | 2,820 | 1 |
@@ -197,7 +197,7 @@ See [how contributions are counted](https://plone.github.io/plone-contributor-st
 | 9 | ONE/Northwest | 173 | 688 | 2 |
 | 10 | Four Digits | 170 | 1,419 | 5 |
 
-Not mapped to an organisation: 4,785 changelog entries, 10,102 commits.
+Not mapped to an organisation: 4,786 changelog entries, 10,113 commits.
 
 
 ---

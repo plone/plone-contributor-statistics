@@ -15,14 +15,15 @@ Malthe Borch (independent),27,0,0,1,malthe,8,"Products.Archetypes, Products.CMFP
 Reid-McMahon,23,0,7,1,smcmahon,4,"Products.ATContentTypes, Products.Archetypes, Products.Marshall, plone.recipe.zope2zeoserver",2007-05-16,2007-12-14
 Blue Fountain,22,0,0,1,andymckay,2,"Products.ATContentTypes, Products.CMFPlone",2007-02-18,2007-08-08
 Klein & Partner KG,17,0,11,1,jensens,6,"Products.Archetypes, Products.Marshall, Products.MimetypesRegistry, Products.PlonePAS, Products.ResourceRegistries, archetypes.schemaextender",2007-01-23,2007-11-28
-Enfold,11,0,0,2,"jcameroncooper, sidnei",6,"Products.CMFPlone, Products.Marshall, Products.PasswordResetTool, Products.PlonePAS, plone.app.contentmenu, plone.i18n",2007-04-11,2007-11-07
 Zopyx,10,0,1,1,zopyx,5,"Products.CMFEditions, Products.CMFPlone, Products.ResourceRegistries, archetypes.schemaextender, plone.app.layout",2007-01-24,2007-12-07
 InQuant GmbH,9,0,0,1,seletz,4,"Products.Archetypes, Products.CMFPlone, Products.Marshall, Products.PlonePAS",2007-03-29,2007-10-19
+Enfold,8,0,0,1,sidnei,4,"Products.Marshall, Products.PlonePAS, plone.app.contentmenu, plone.i18n",2007-04-11,2007-11-07
 Sharkbyte Studios Ltd,8,0,0,1,meizon,3,"Products.CMFPlone, plone.app.layout, plone.app.portlets",2007-03-12,2007-03-14
 Tom Lazar (independent),8,0,3,1,tomster,5,"Products.CMFPlacefulWorkflow, Products.CMFPlone, Products.statusmessages, plone.app.relations, plone.relations",2007-03-19,2007-11-01
 ServerZen Software,7,0,0,1,rockyburt,4,"Products.Archetypes, five.intid, plone.app.form, plone.app.vocabularies",2007-05-02,2007-11-27
 Affinitic,5,0,0,1,laulaz,2,"Products.CMFPlone, plone.i18n",2007-03-30,2007-04-01
 RedTurtle,5,0,0,1,massimoazzolini,4,"Products.CMFPlone, plone.app.kss, plone.app.relations, plone.relations",2007-03-29,2007-10-13
+Rice University,3,0,0,1,jcameroncooper,2,"Products.CMFPlone, Products.PasswordResetTool",2007-06-07,2007-06-07
 Academy of FA Vienna,1,0,1,1,gogobd,1,Products.PasswordResetTool,2007-08-07,2007-08-07
 BlueDynamics KG,1,0,0,1,zworkb,1,Products.CMFQuickInstallerTool,2007-12-12,2007-12-12
 Lovely Systems,1,0,0,1,vincic,1,Products.Archetypes,2007-09-13,2007-09-13
