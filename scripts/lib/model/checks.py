@@ -32,6 +32,14 @@ class AffiliationPeriodError(errors.RowError):
     template = 'The row at position {rowNumber} has an error: {note}'
 
 
+class ReachingBackPastRecordError(errors.RowError):
+    type = 'reaching-back-past-record'
+    title = 'Reaching Back Past Record'
+    description = ('A guessed range of an organisation lies before a record of another organisation, although the '
+                   'organisation returns later: a current entry extended back through an older employer.')
+    template = 'The row at position {rowNumber} has an error: {note}'
+
+
 class LoginOwnerError(errors.CellError):
     type = 'login-owner'
     title = 'Login Owner'
@@ -131,6 +139,43 @@ class AffiliationPeriod(Check):
             yield AffiliationPeriodError.from_row(row, note=f'from {start} is after to {end}')
         if end is None and not row['checked']:
             yield AffiliationPeriodError.from_row(row, note='an affiliation up to the present needs checked')
+
+
+GUESS_NOTE = 'not verified'
+
+
+@attrs.define(kw_only=True, repr=False)
+class ReachingBackPastRecord(Check):
+    """A guessed range (its notes say "not verified") does not lie before a record of another organisation when its
+    own organisation returns later: a range reaching back from the current entry stops at the first record."""
+
+    type = 'reaching-back-past-record'
+    Errors = [ReachingBackPastRecordError]
+
+    _rows: dict = attrs.field(factory=lambda: defaultdict(list), init=False)
+
+    def validate_row(self, row):
+        if row['person'] and row['from'] is not None:
+            self._rows[row['person']].append(row)
+        yield from []
+
+    def validate_end(self):
+        for rows in self._rows.values():
+            rows = sorted(rows, key=lambda r: r['from'])
+            for index, row in enumerate(rows):
+                if row['to'] is None or GUESS_NOTE not in (row['notes'] or ''):
+                    continue
+                later = rows[index + 1:]
+                records = [r for r in later
+                           if r['organisation'] != row['organisation'] and GUESS_NOTE not in (r['notes'] or '')]
+                if not records:
+                    continue
+                record = records[0]
+                if any(r['organisation'] == row['organisation'] and r['from'] > record['from'] for r in later):
+                    note = (f"the guessed years {row['from']}-{row['to']} of {row['organisation']} lie before the "
+                            f"record of {record['organisation']} in row {record.row_number}, and "
+                            f"{row['organisation']} returns later")
+                    yield ReachingBackPastRecordError.from_row(row, note=note)
 
 
 @attrs.define(kw_only=True, repr=False)
@@ -261,7 +306,7 @@ def checks_for(resource_name, package):
     checks = {
         'people': lambda: [Sorted(fields=['id'], casefold=False), UniqueCasefold(field='github')],
         'organisations': lambda: [Sorted(fields=['id'], casefold=True), NameFold(), UniqueCasefold(field='github')],
-        'affiliations': lambda: [AffiliationOverlap(), AffiliationPeriod(),
+        'affiliations': lambda: [AffiliationOverlap(), AffiliationPeriod(), ReachingBackPastRecord(),
                                  Sorted(fields=['person', 'from'], casefold=False)],
         'identities': lambda: [LinkUnlessEmail(), Sorted(fields=['person', 'kind', 'value'], casefold=False),
                                UniqueCasefold(field='value', scope='kind'),
