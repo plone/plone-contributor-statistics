@@ -21,10 +21,10 @@ Starzel,5,1,4,1,pbauer,3,"plone/Products.CMFPlone, plone/plone.restapi, plone/vo
 Steve Piercy - Website Builder,5,5,0,1,stevepiercy,1,plone/Products.CMFPlone,2024-01-16,2026-10-01
 Termitnjak d.o.o.,5,0,5,1,jcerjak,1,plone/Products.CMFPlone,2014-12-20,2015-05-03
 Derico,4,2,2,1,MrTango,2,"plone/Products.CMFPlone, plone/plone.restapi",2016-01-27,2026-10-04
+Onna,4,0,4,3,"bloodbare, ebrehault, vangheem",1,plone/Products.CMFPlone,2015-07-15,2016-07-13
 Agitator,3,0,3,1,agitator,1,plone/Products.CMFPlone,2018-09-14,2020-03-02
 Codesyntax,3,2,1,1,erral,2,"plone/Products.CMFPlone, plone/volto",2023-12-07,2026-05-02
 Markus Hilbert (independent),3,1,2,1,iham,1,plone/Products.CMFPlone,2017-04-12,2021-08-16
-Onna,3,0,3,2,"bloodbare, vangheem",1,plone/Products.CMFPlone,2015-07-15,2016-04-14
 Rob Gietema (independent),3,0,3,1,robgietema,2,"plone/plone.restapi, plone/volto",2017-04-20,2017-11-08
 University of Jyväskylä,3,0,3,2,"datakurre, rioksane",1,plone/Products.CMFPlone,2016-01-08,2020-04-23
 Zopyx,3,0,3,1,zopyx,2,"plone/Products.CMFPlone, plone/plone.restapi",2016-09-02,2019-03-03
@@ -41,7 +41,6 @@ infoCatch,1,0,1,1,mtrebron,1,plone/Products.CMFPlone,2019-11-10,2019-11-10
 Intranetum,1,0,1,1,bloodbare,1,plone/Products.CMFPlone,2014-02-10,2014-02-10
 it-spirit,1,1,0,1,thomasmassmann,1,plone/Products.CMFPlone,2021-12-19,2021-12-19
 Juizi,1,1,0,1,aboycalledhero,1,plone/Products.CMFPlone,2026-10-09,2026-10-09
-Nuclia,1,0,1,1,ebrehault,1,plone/Products.CMFPlone,2016-07-13,2016-07-13
 operun,1,0,1,1,santonelli,1,plone/Products.CMFPlone,2019-10-26,2019-10-26
 Roel Bruggink (independent),1,0,1,1,jaroel,1,plone/Products.CMFPlone,2018-06-24,2018-06-24
 Salesforce,1,0,1,1,esteele,1,plone/Products.CMFPlone,2017-07-05,2017-07-05

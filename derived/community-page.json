@@ -7319,7 +7319,7 @@
     },
     {
      "name": "Eric Bréhault",
-     "organisation": "Nuclia",
+     "organisation": "Onna",
      "source": "https://community.plone.org/t/steering-circle-meeting-minutes-2021-06-15/13980",
      "team": "Guillotina Team"
     },
@@ -10315,7 +10315,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         13
+         12
         ],
         [
          "2022",
@@ -13429,7 +13429,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         12
+         13
         ],
         [
          "2022",
@@ -13453,7 +13453,7 @@
         ]
        ],
        "source": null,
-       "text": "Active Member (32.4 PRs/year)"
+       "text": "Active Member (27.0 PRs/year)"
       }
      ],
      "points": 4.0
@@ -13575,16 +13575,16 @@
      "roles": 0
     },
     "2020": {
-     "commits": 318,
+     "commits": 214,
      "events": 0,
-     "pull_requests": 89,
+     "pull_requests": 33,
      "roles": 0
     },
     "2021": {
-     "commits": 221,
+     "commits": 194,
      "events": 0,
-     "pull_requests": 61,
-     "roles": 2
+     "pull_requests": 34,
+     "roles": 1
     },
     "2022": {
      "commits": 16,
@@ -13629,7 +13629,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         17
+         15
         ],
         [
          "2022",
@@ -13638,7 +13638,7 @@
         ]
        ],
        "source": null,
-       "text": "Active Member (31.2 PRs/year)"
+       "text": "Active Member (36.6 PRs/year)"
       }
      ],
      "points": 4.0
@@ -13748,16 +13748,16 @@
      "roles": 3
     },
     "2020": {
-     "commits": 112,
+     "commits": 216,
      "events": 0,
-     "pull_requests": 160,
+     "pull_requests": 216,
      "roles": 1
     },
     "2021": {
-     "commits": 113,
+     "commits": 140,
      "events": 0,
-     "pull_requests": 100,
-     "roles": 1
+     "pull_requests": 127,
+     "roles": 2
     },
     "2022": {
      "commits": 56,
@@ -16161,7 +16161,7 @@
         [
          "2021",
          "derived/organisation-contributors/2021-plone-organisation-contributors.csv",
-         15
+         16
         ],
         [
          "2022",
@@ -37827,7 +37827,7 @@
     "commits": 104,
     "id": "eric-brehault",
     "name": "Eric Bréhault",
-    "organisation": "Nuclia",
+    "organisation": "Onna",
     "pull_requests": 56,
     "roles": []
    },
@@ -39176,7 +39176,7 @@
     "commits": 27,
     "id": "eric-brehault",
     "name": "Eric Bréhault",
-    "organisation": "Nuclia",
+    "organisation": "Onna",
     "pull_requests": 27,
     "roles": [
      "Team lead"
