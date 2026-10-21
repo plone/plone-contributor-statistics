@@ -276,6 +276,29 @@ Checks beyond the schema:
 - `speakers`: every element is the id of a row of the register, and none is repeated.
 - `organisations`: every element is the id of a row of the register, and none is repeated.
 
+### Conference talks
+
+File: `curated/community-contributions/2021-conference-talks.csv`
+
+One row is one keynote, talk or panel at a Plone conference, global or regional.
+
+| Field | Type | Constraints | Description |
+|---|---|---|---|
+| `event` | string | required | The conference, as it named itself, for example Plone Conference 2021 or Plone Tagung 2023. |
+| `scope` | string | required; one of `global`, `regional` | `global` for the annual Plone Conference, `regional` for every other conference. |
+| `type` | string | required; one of `Keynote`, `Talk`, `Panel` | Keynote, Talk or Panel, as the programme calls it; lightning-talk sessions are not recorded. |
+| `title` | string | required | The title of the talk, as the programme gives it. |
+| `speakers` | string | ids of rows of `people` separated by semicolons | The ids of the speakers in the people register. Several values are separated by semicolons. |
+| `organisations` | string | ids of rows of `organisations` separated by semicolons | The ids of the organisations in the organisations register, for a talk that the programme attributes to a team instead of people. Several values are separated by semicolons. |
+| `video` | string | pattern `^https?://.*$` | The web address of the recording, when one exists; one link, a second part goes to the notes. |
+| `source` | string | required; contains a web address | A public record, linked as a web address, that supports the row: the programme or schedule page, the speaker page or the recording. |
+| `notes` | string |  | Free-text remarks on the row. |
+
+Checks beyond the schema:
+
+- `speakers`: every element is the id of a row of the register, and none is repeated.
+- `organisations`: every element is the id of a row of the register, and none is repeated.
+
 ### Sprints
 
 File: `curated/community-contributions/YYYY-sprints.csv`

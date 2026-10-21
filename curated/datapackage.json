@@ -1437,6 +1437,18 @@
    },
    "encoding": "utf-8",
    "format": "csv",
+   "name": "2021-conference-talks",
+   "path": "community-contributions/2021-conference-talks.csv",
+   "schema": "schemas/conference-talks.json"
+  },
+  {
+   "dialect": {
+    "csv": {
+     "delimiter": ","
+    }
+   },
+   "encoding": "utf-8",
+   "format": "csv",
    "name": "2021-plone-conference-trainings",
    "path": "community-contributions/2021-plone-conference-trainings.csv",
    "schema": "schemas/plone-conference-trainings.json"
