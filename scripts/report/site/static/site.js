@@ -186,6 +186,30 @@
         facts.appendChild(row[1]);
       }
     });
+    // The talks of the year: the title, linked to the recording where there is one; the event only when there are several
+    var talks = match.talks || [];
+    if (talks.length) {
+      var events = {};
+      talks.forEach(function (talk) { events[talk.event] = true; });
+      var several = Object.keys(events).length > 1;
+      var talksTitle = document.createElement('dt');
+      talksTitle.textContent = 'Talks';
+      facts.appendChild(talksTitle);
+      var talksList = document.createElement('dd');
+      talks.forEach(function (talk, index) {
+        if (index) { talksList.appendChild(document.createTextNode(' · ')); }
+        if (talk.video) {
+          var video = document.createElement('a');
+          video.href = talk.video;
+          video.textContent = talk.title;
+          talksList.appendChild(video);
+        } else {
+          talksList.appendChild(document.createTextNode(talk.title));
+        }
+        if (several) { talksList.appendChild(document.createTextNode(' (' + talk.event + ')')); }
+      });
+      facts.appendChild(talksList);
+    }
     var note = document.createElement('p');
     note.className = 'note';
     note.textContent = 'Out of ' + list.length + ' people active in ' + year + '. ' +

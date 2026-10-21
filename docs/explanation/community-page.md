@@ -25,7 +25,7 @@ The number of people since 2003 is a secondary line.
 A person is active in a period if they did code work or community work in it.
 
 -   Code work is a commit or a merged pull request in the yearly contributor files, see {doc}`counting-rules`.
--   Community work is a role or contribution in the curated community data: Board member, team lead, release manager, conference organiser, trainer, World Plone Day talk, sprint organiser, or podcast host, see {doc}`curated-community-data`.
+-   Community work is a role or contribution in the curated community data: Board member, team lead, release manager, conference organiser, trainer, conference talk, World Plone Day talk, sprint organiser, or podcast host, see {doc}`curated-community-data`.
 
 Unmapped people and self-employed people count.
 Groups, such as a team or an organisation, are not people: they are not in a person column, they count for their organisation.
@@ -71,6 +71,7 @@ These are counts, not points: points exist only for the recognition years.
 The page doesn't list people in a ranking.
 It lets you search for one person, by GitHub login or by name, and shows for a year where they stand in commits and in merged pull requests among the people with at least one, which community roles they held, and which organisation their work of that year is attributed to.
 The organisation is the one the affiliations give the person for the year, see {doc}`attribution`: an organisation with a recognition level links to its entry, and a year without an affiliation shows "none recorded", with a link to {doc}`/how-to/add-an-affiliation`.
+The card also lists the person's talks of the year, at conferences and on World Plone Day, each title linked to its recording where one exists, with the event in brackets when they spoke at more than one; talks are shown here and not counted, they earn no recognition points, see {doc}`curated-community-data`.
 A name finds the person's login through the register, see "People active" above.
 The card pages to the nearest earlier and later years in which the person was active, and says so when the chosen year isn't one of them.
 Without a search, the page shows how many people made one, two to nine, ten to 49, or 50 and more commits and merged pull requests in the year, without names.
