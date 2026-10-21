@@ -3,8 +3,8 @@ from pathlib import Path
 from frictionless import Schema
 
 SCHEMAS = Path('curated/schemas')
-KINDS = {'people', 'identities', 'affiliations', 'organisations', 'affiliation-proposals', 'bot-accounts',
-         'excluded-repositories', 'board-of-directors', 'team-leaders', 'release-managers', 'podcasts',
+KINDS = {'people', 'identities', 'affiliations', 'organisations', 'affiliation-proposals', 'rejected-proposals',
+         'bot-accounts', 'excluded-repositories', 'board-of-directors', 'team-leaders', 'release-managers', 'podcasts',
          'plone-conference-trainings', 'world-plone-day-talks', 'sprints', 'plone-conference',
          'world-plone-day-event', 'community-recognition-levels', 'community-recognition-points',
          'plips-before-github'}

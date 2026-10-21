@@ -15,6 +15,7 @@ PEOPLE = MAPPINGS_DIR / 'people.csv'
 IDENTITIES = MAPPINGS_DIR / 'identities.csv'
 AFFILIATIONS = MAPPINGS_DIR / 'affiliations.csv'
 AFFILIATION_PROPOSALS = MAPPINGS_DIR / 'affiliation_proposals.csv'
+REJECTED_PROPOSALS = MAPPINGS_DIR / 'rejected_proposals.csv'
 SCHEMAS_DIR = Path('curated/schemas')
 DATAPACKAGE = Path('curated/datapackage.json')
 COMMUNITY = Path('curated/community-contributions')

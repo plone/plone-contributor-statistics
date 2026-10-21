@@ -37,6 +37,7 @@ You need a GitHub account, and a public record for the affiliation: a link, or a
     No script reads that file.
     A finding that no record supports some years, with what was checked, goes into the `notes` of the neighbouring row, because `Unmapped` is never written as a row; a later reviewer then knows what was looked at.
     A row never loses a source: new evidence is added to the `source` cell, and a year changes its organisation only for stronger evidence, see {doc}`/explanation/attribution`.
+    A proposal that the review turns down goes to `curated/mappings/rejected_proposals.csv`, with the reason and a link to where it was decided, so that the tools below don't propose those years again.
 
 5.  Validate the files:
 

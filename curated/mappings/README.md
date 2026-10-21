@@ -10,6 +10,7 @@ Ids are opaque and never renamed; add a person with `python -m scripts.tools.per
 | `affiliations.csv` | The organisation of a person for a range of years. A year that no row covers is Unmapped. |
 | `organisations.csv` | One row per organisation, with an id, a name and a kind. |
 | `affiliation_proposals.csv` | Affiliations that a source states and that no accepted record confirms yet. No script reads it. |
+| `rejected_proposals.csv` | Proposals a reviewer turned down, with the reason and the link to the review; the tools that propose affiliations don't propose those years again. |
 | `bot_accounts.csv` | GitHub accounts that are bots. |
 | `excluded_repositories.csv` | Repositories that the statistics skip. |
 

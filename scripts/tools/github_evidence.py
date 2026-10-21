@@ -32,7 +32,7 @@ import requests
 
 from scripts.lib import paths
 from scripts.lib.github_api import github_get
-from scripts.lib.model import MAPPINGS_DIR, append_proposals, load_registry
+from scripts.lib.model import MAPPINGS_DIR, append_proposals, load_registry, load_rejections
 from scripts.tools.address_proposals import _runs, _years, is_company_domain, is_own_domain
 
 SEARCH_URL = 'https://api.github.com/search/commits'
@@ -198,16 +198,20 @@ def gather(registry, searcher, wanted):
     return evidence, unmapped, open_guesses
 
 
-def propose(registry, evidence):
-    """(proposals, conflicts). A proposal has the keys of the proposals file, plus found, commits and example."""
+def propose(registry, evidence, rejected=frozenset()):
+    """(proposals, conflicts). A proposal has the keys of the proposals file, plus found, commits and example.
+
+    rejected: {(person, organisation, year)} that a reviewer turned down, see rejected_proposals.csv.
+    """
     proposals, conflicts = [], []
     for (person, organisation, kind), by_year in sorted(evidence.items()):
         own = [a for a in registry.affiliations if a.person == person]
         # An affiliation of the same organisation covers a year, unless it is a guess: that is what this is for
         same = {y for y in by_year
                 if any(a.organisation == organisation and a.covers(y) and not is_guess(a) for a in own)}
+        turned_down = {y for y in by_year if (person, organisation, y) in rejected}
         login = registry.people[person].github
-        for first, last in _runs(set(by_year) - same):
+        for first, last in _runs(set(by_year) - same - turned_down):
             years = range(first, last + 1)
             if kind == 'address':
                 domain, (_, (_, url), how) = min(by_year[first].items(), key=lambda item: (item[1][1], item[0]))
@@ -287,7 +291,7 @@ def run(people=(), all_years=False, write=False, refresh=False, cache=CACHE_DIR,
     wanted = targets(registry, set(people), all_years, active_years(contributors_dir))
     searcher = Searcher(cache, session, sleep, refresh)
     evidence, unmapped, open_guesses = gather(registry, searcher, wanted)
-    proposals, conflicts = propose(registry, evidence)
+    proposals, conflicts = propose(registry, evidence, load_rejections(mappings_dir))
     text = report(proposals, conflicts, unmapped, open_guesses)
     added = append_proposals(proposals, mappings_dir) if write else []
     return text, added

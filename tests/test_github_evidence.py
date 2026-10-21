@@ -122,6 +122,16 @@ def test_query_one_classifies_the_domains(setup):
         assert ignored not in unmapped
 
 
+def test_a_rejected_year_is_not_proposed_again(setup):
+    paths.REJECTED_PROPOSALS.write_text(
+        'person,organisation,from,to,reason,source\n'
+        'jane-doe,greenfinity,2014,2014,the year of a change,https://example.org/review\n', encoding='utf-8')
+    text, _, _, _ = run(setup)
+    proposals = text.split('## Conflicts')[0]
+    assert '| jane-doe | greenfinity | 2015 | 1 | address @greenfinity.hu (name) |' in proposals
+    assert '2014-2015' not in proposals
+
+
 def test_query_two_follows_an_empty_query_one(setup):
     text, _, session, _ = run(setup)
     queries = [params['q'] for _, params in session.calls]

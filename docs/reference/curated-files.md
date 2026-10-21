@@ -125,6 +125,25 @@ One row is one affiliation that a source states and that no accepted record conf
 | `to` | integer | at least 2000 | The last year of the proposed affiliation; empty while it lasts. |
 | `evidence` | string |  | The public record, linked as a web address, that supports the proposal. |
 
+### Rejected proposals
+
+File: `curated/mappings/rejected_proposals.csv`
+
+One row is one proposal that a reviewer turned down, with the reason and a link to the review; the tools that propose affiliations leave those years out.
+
+| Field | Type | Constraints | Description |
+|---|---|---|---|
+| `person` | string | required; pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `people` | The id of the person in the people register. |
+| `organisation` | string | required; pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `organisations` | The id of the organisation that was proposed and rejected. |
+| `from` | integer | required; at least 2000 | The first year the rejection covers. |
+| `to` | integer | required; at least 2000 | The last year the rejection covers. |
+| `reason` | string | required | Why the evidence does not make an affiliation: an own-company address while a record names the employer, the year of a change, the tie-breaker between two records, a public statement against it. |
+| `source` | string | required; contains a web address | Where the rejection was decided in public, linked as a web address: a pull request or a comment. |
+
+Checks beyond the schema:
+
+- The rows are sorted by `person`, `from`.
+
 ## Lists
 
 Accounts and repositories that the collectors treat in a special way, in `curated/mappings/`.

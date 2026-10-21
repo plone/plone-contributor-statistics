@@ -1,0 +1,15 @@
+person,organisation,from,to,reason,source
+andreas-zeidler,jarn,2008,2010,"his own consultancy zitc, for which Jarn was a client; the signatures of those years say zitc",https://github.com/plone/plone-contributor-statistics/pull/153#issuecomment-6297324385
+coen-van-der-kamp,four-digits,2016,2016,"the year of the change counts for Zest Software, which he left",https://github.com/plone/plone-contributor-statistics/pull/153#issuecomment-6297324385
+david-glick,glick-software,2008,2008,his own company's address while a record names the employer (ONE/Northwest),https://github.com/plone/plone-contributor-statistics/pull/153#issuecomment-6297324385
+david-glick,glick-software,2011,2011,his own company's address while a record names the employer (Groundwire),https://github.com/plone/plone-contributor-statistics/pull/153#issuecomment-6297324385
+david-glick,glick-software,2018,2018,his own company's address while a record names the employer (Salesforce),https://github.com/plone/plone-contributor-statistics/pull/153#issuecomment-6297324385
+david-glick,glick-software,2022,2025,his own company's address while a record names the employer (kitconcept),https://github.com/plone/plone-contributor-statistics/pull/158
+erico-andrei,pendect,2022,2022,the tie-breaker for two records in one year: kitconcept has far more commits,https://github.com/plone/plone-contributor-statistics/pull/158
+juan-pablo-gimenez,simples-consultoria,2012,2012,one commit against 23 for RCOM in the same year,https://github.com/plone/plone-contributor-statistics/pull/153#issuecomment-6297324385
+kim-nguyen,sixfeetup,2019,2019,"the year of the change counts for Wildcard, which she left",https://github.com/plone/plone-contributor-statistics/pull/153#issuecomment-6297324385
+lena-daxenbichler,r2-solutions-gmbh,2023,2023,"R2 Solutions GmbH did no Plone projects; the address was hers, the work squarewave's",https://github.com/plone/plone-contributor-statistics/pull/90
+maurits-van-rees,zest-software,2024,2025,an old mailbox; his site says fully independent since 2024,https://github.com/plone/plone-contributor-statistics/pull/153#issuecomment-6297324385
+mauro-amico,universita-di-bologna,2021,2021,the tie-breaker for two records in one year: RedTurtle has far more commits,https://github.com/plone/plone-contributor-statistics/pull/158
+ramon-navarro-bosch,onna,2016,2016,"the tie-breaker: most commits of the year carry a personal address, the conference bio names Intranetum",https://github.com/plone/plone-contributor-statistics/pull/153#issuecomment-6297699985
+steve-mcmahon,davis-community-network,2007,2008,the tie-breaker for two records in one year: his Reid-McMahon address is on far more commits,https://github.com/plone/plone-contributor-statistics/pull/158
