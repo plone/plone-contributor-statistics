@@ -6,7 +6,7 @@ SCHEMAS = Path('curated/schemas')
 KINDS = {'people', 'identities', 'affiliations', 'organisations', 'affiliation-proposals', 'rejected-proposals',
          'bot-accounts', 'excluded-repositories', 'board-of-directors', 'team-leaders', 'release-managers', 'podcasts',
          'plone-conference-trainings', 'world-plone-day-talks', 'sprints', 'plone-conference',
-         'world-plone-day-event', 'community-recognition-levels', 'community-recognition-points',
+         'world-plone-day-event', 'conference-talks', 'community-recognition-levels', 'community-recognition-points',
          'plips-before-github'}
 
 def test_every_kind_has_a_valid_schema():
@@ -26,10 +26,20 @@ def test_set_columns_name_their_register():
                 'world-plone-day-talks': {'speakers': 'people', 'organisations': 'organisations'},
                 'sprints': {'organisers': 'people', 'organisations': 'organisations'},
                 'plone-conference': {'organisers': 'people'},
-                'world-plone-day-event': {'organisers': 'people', 'organisations': 'organisations'}}
+                'world-plone-day-event': {'organisers': 'people', 'organisations': 'organisations'},
+                'conference-talks': {'speakers': 'people', 'organisations': 'organisations'}}
     for kind, sets in expected.items():
         fields = json.loads((SCHEMAS / f'{kind}.json').read_text())['fields']
         assert {f['name']: f['x-set'] for f in fields if 'x-set' in f} == sets
+
+
+def test_conference_talk_enums():
+    fields = {f['name']: f for f in json.loads((SCHEMAS / 'conference-talks.json').read_text())['fields']}
+    assert fields['scope']['constraints']['enum'] == ['global', 'regional']
+    assert fields['type']['constraints']['enum'] == ['Keynote', 'Talk', 'Panel']
+    assert fields['video']['constraints'] == {'pattern': '^https?://.*$'}
+    assert [f for f in fields if fields[f].get('constraints', {}).get('required')] == [
+        'event', 'scope', 'type', 'title', 'source']
 
 def test_source_requires_a_link_except_for_identities():
     for path in SCHEMAS.glob('*.json'):

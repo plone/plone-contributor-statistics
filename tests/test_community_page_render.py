@@ -3,10 +3,13 @@
 import json
 import re
 from html.parser import HTMLParser
+from pathlib import Path
 
 import pytest
 
 from scripts.report import community_page
+
+REPO = Path(__file__).resolve().parent.parent
 
 DATA = {
     'year': 2025,
@@ -48,11 +51,12 @@ DATA = {
         },
     },
     'people': {'2025': [{'id': 'secret-person', 'name': 'Secret Person', 'commits': 5, 'pull_requests': 2,
-                         'roles': ['Board'], 'organisation': 'Affinitic'},
+                         'roles': ['Board', 'Speaker'], 'organisation': 'Affinitic',
+                         'talks': [{'title': 'Secret talk', 'event': 'Plone Conference 2025', 'video': 'https://v/1'}]},
                         {'id': 'other', 'name': 'other', 'commits': 60, 'pull_requests': 12, 'roles': [],
                          'organisation': 'Unmapped'},
                         {'id': 'third-person', 'name': 'Third Person', 'commits': 0, 'pull_requests': 0,
-                         'roles': ['Talk'], 'organisation': 'RedTurtle'}]},
+                         'roles': ['Speaker'], 'organisation': 'RedTurtle'}]},
     'people_names': {'secret person': 'secret-person', 'secretlogin': 'secret-person'},
     'history': {
         '2005': {'people_active': 40, 'commits': 1500, 'pull_requests': None, 'board': [], 'team_leads': [],
@@ -176,6 +180,18 @@ def test_renders_the_committed_data(tmp_path):
     community_page.render(json.loads(community_page.paths.COMMUNITY_PAGE.read_text(encoding='utf-8')), tmp_path)
     page = (tmp_path / 'index.html').read_text(encoding='utf-8')
     assert 'kitconcept GmbH' in page
+
+
+def test_people_data_carries_the_talks(page):
+    data = page.split('<script type="application/json" id="people-data">')[1].split('</script>')[0]
+    assert json.loads(data)['years']['2025'][0]['talks'] == [
+        {'title': 'Secret talk', 'event': 'Plone Conference 2025', 'video': 'https://v/1'}]
+    assert 'Secret talk' not in page.split('<script type="application/json" id="people-data">')[0]
+
+
+def test_page_script_draws_the_talks_row():
+    script = (REPO / 'scripts/report/site/static/site.js').read_text(encoding='utf-8')
+    assert "'Talks'" in script and 'match.talks || []' in script
 
 
 def test_links_to_the_same_site_are_numbered(page):

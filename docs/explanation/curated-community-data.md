@@ -60,6 +60,11 @@ Several kinds of curated data depend on a definition, and the definitions follow
   What the talk itself says about a speaker's organisation, in the title or description of the video or on the event page, is an affiliation row for that year.
   A role in the Foundation or a community such as PloneGov-BR is not a speaker's organisation.
   A talk that names a company team instead of people has the team in its `organisations` column, and a talk that names no speaker and no team counts for no organisation.
+- A conference talk is a keynote, a talk or a panel in the programme of a Plone conference: the annual Plone Conference, with the scope `global`, or a regional conference such as the Plone Tagung, the symposia or PloneConf Brasil, with the scope `regional`.
+  World Plone Day is not a conference, and sprints and meetups are not; a tutorial is a training; lightning-talk sessions, one recording with many short talks, are not recorded for now.
+  Only people speak: a talk that the programme attributes to a team instead of people names the team in its `organisations` column.
+  What the speaker page, the bio or the speaker in the recording says about their organisation is an affiliation row for that year, with the page or the recording and its timestamp as the source; the talk row carries no organisation of the speaker.
+  Talks are shown, in the person card of the community page, and not counted: they earn no recognition points until the Marketing Team or the Board decides otherwise.
 - Work is attributed to the people who did it and their organisations, not to the Plone Foundation.
 - PloneGov-BR and the Interlegis Program are not the same.
   PloneGov-BR is the community of practice of Plone users in the Brazilian public sector; it organises the events in Brasília.

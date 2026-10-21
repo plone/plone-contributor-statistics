@@ -6,6 +6,7 @@ People and organisations are ids from the registers.
 """
 
 import csv
+import re
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -18,7 +19,8 @@ ROLE_KINDS = {
     'team-leaders': ('Team lead', 'person', 'team'),
     'release-managers': ('Release manager', 'person', None),
     'plone-conference-trainings': ('Trainer', 'trainers', 'title'),
-    'world-plone-day-talks': ('Talk', 'speakers', 'title'),
+    'world-plone-day-talks': ('Speaker', 'speakers', 'title'),
+    'conference-talks': ('Speaker', 'speakers', 'title'),
     'sprints': ('Sprint organiser', 'organisers', 'sprint'),
     'podcasts': ('Podcast', 'person', 'series'),
     'plone-conference': ('Conference organiser', 'organisers', None),
@@ -31,6 +33,7 @@ EXTRA_PEOPLE_COLUMNS = {'world-plone-day-event': 'organisers'}
 KEY_COLUMNS = {
     'plone-conference-trainings': 'title',
     'world-plone-day-talks': 'title',
+    'conference-talks': 'title',
     'sprints': 'sprint',
     'podcasts': 'series',
     'plone-conference': 'organisation',
@@ -60,6 +63,19 @@ class Role:
     line: int
     source: str
     notes: str
+
+
+@dataclass(frozen=True)
+class Talk:
+    kind: str
+    year: int
+    person: str
+    title: str
+    event: str
+    video: str | None
+    file: str
+    line: int
+    source: str
 
 
 @dataclass(frozen=True)
@@ -150,6 +166,35 @@ def roles(year, community_dir=paths.COMMUNITY):
             detail = _text(item.fields[detail_column]) if detail_column else ''
             found.extend(Role(kind=kind, year=year, person=person, label=label, detail=detail, file=item.file,
                               line=item.line, source=item.source, notes=item.notes) for person in item.people)
+    return found
+
+
+# Where recordings are published; a source that links only an event page is not a recording
+VIDEO_HOSTS = ('youtube.com', 'youtu.be', 'vimeo.com', 'plone.tv')
+
+
+def _video_link(text):
+    """The first link of a source that points to a video host, else None."""
+    for link in re.findall(r'https?://\S+', text or ''):
+        host = link.split('/')[2].lower()
+        if any(host == h or host.endswith('.' + h) for h in VIDEO_HOSTS):
+            return link.rstrip(';,')
+    return None
+
+
+def talks(year, community_dir=paths.COMMUNITY):
+    """One Talk per speaker and talk of the year: the conference talks, then the World Plone Day talks."""
+    found = []
+    for item in items(year, 'conference-talks', community_dir):
+        found.extend(Talk(kind=item.kind, year=year, person=person, title=item.key, event=_text(item.fields['event']),
+                          video=_text(item.fields['video']) or None, file=item.file, line=item.line,
+                          source=item.source) for person in item.people)
+    for item in items(year, 'world-plone-day-talks', community_dir):
+        if item.fields['type'] not in TALK_TYPES:
+            continue
+        found.extend(Talk(kind=item.kind, year=year, person=person, title=item.key, event=f'World Plone Day {year}',
+                          video=_video_link(item.source), file=item.file, line=item.line, source=item.source)
+                     for person in item.people)
     return found
 
 
