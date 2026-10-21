@@ -3,10 +3,10 @@
   "five_years": {
    "events": 65,
    "organisations": 102,
-   "people": 410
+   "people": 422
   },
   "since_2003": {
-   "people": 1035
+   "people": 1045
   },
   "year": {
    "events": 10,
@@ -7248,7 +7248,7 @@
      ]
     }
    ],
-   "people_active": 173,
+   "people_active": 190,
    "pull_requests": 1630,
    "team_leads": [
     {
@@ -8842,7 +8842,7 @@
      "commits": 234,
      "events": 0,
      "pull_requests": 70,
-     "roles": 2
+     "roles": 3
     },
     "2022": {
      "commits": 194,
@@ -10070,7 +10070,7 @@
      "commits": 0,
      "events": 0,
      "pull_requests": 0,
-     "roles": 0
+     "roles": 1
     },
     "2022": {
      "commits": 0,
@@ -10470,7 +10470,7 @@
      "commits": 216,
      "events": 2,
      "pull_requests": 24,
-     "roles": 4
+     "roles": 5
     },
     "2022": {
      "commits": 396,
@@ -10715,7 +10715,7 @@
      "commits": 346,
      "events": 0,
      "pull_requests": 149,
-     "roles": 2
+     "roles": 8
     },
     "2022": {
      "commits": 340,
@@ -11900,7 +11900,7 @@
      "commits": 26,
      "events": 0,
      "pull_requests": 18,
-     "roles": 2
+     "roles": 4
     },
     "2022": {
      "commits": 7,
@@ -12434,7 +12434,7 @@
      "commits": 2078,
      "events": 3,
      "pull_requests": 315,
-     "roles": 16
+     "roles": 20
     },
     "2022": {
      "commits": 2751,
@@ -12658,7 +12658,7 @@
      "commits": 363,
      "events": 1,
      "pull_requests": 60,
-     "roles": 8
+     "roles": 11
     },
     "2022": {
      "commits": 434,
@@ -13026,7 +13026,7 @@
      "commits": 14,
      "events": 0,
      "pull_requests": 6,
-     "roles": 2
+     "roles": 4
     },
     "2022": {
      "commits": 2,
@@ -13584,7 +13584,7 @@
      "commits": 221,
      "events": 0,
      "pull_requests": 61,
-     "roles": 3
+     "roles": 5
     },
     "2022": {
      "commits": 16,
@@ -13925,7 +13925,7 @@
      "commits": 303,
      "events": 0,
      "pull_requests": 63,
-     "roles": 9
+     "roles": 10
     },
     "2022": {
      "commits": 0,
@@ -14860,7 +14860,7 @@
      "commits": 358,
      "events": 0,
      "pull_requests": 108,
-     "roles": 1
+     "roles": 3
     },
     "2022": {
      "commits": 193,
@@ -15880,7 +15880,7 @@
      "commits": 28,
      "events": 1,
      "pull_requests": 9,
-     "roles": 12
+     "roles": 13
     },
     "2022": {
      "commits": 22,
@@ -16104,7 +16104,7 @@
      "commits": 100,
      "events": 1,
      "pull_requests": 14,
-     "roles": 7
+     "roles": 9
     },
     "2022": {
      "commits": 286,
@@ -16540,7 +16540,7 @@
      "commits": 419,
      "events": 0,
      "pull_requests": 84,
-     "roles": 1
+     "roles": 2
     },
     "2022": {
      "commits": 476,
@@ -17261,7 +17261,7 @@
      "commits": 9,
      "events": 2,
      "pull_requests": 2,
-     "roles": 7
+     "roles": 8
     },
     "2022": {
      "commits": 12,
@@ -17456,7 +17456,7 @@
      "commits": 1066,
      "events": 0,
      "pull_requests": 143,
-     "roles": 6
+     "roles": 9
     },
     "2022": {
      "commits": 2137,
@@ -41336,6 +41336,23 @@
    },
    {
     "commits": 0,
+    "id": "alan-runyan",
+    "name": "Alan Runyan",
+    "organisation": "Unmapped",
+    "pull_requests": 0,
+    "roles": [
+     "Speaker"
+    ],
+    "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "Building a Secure Cross Platform Mobile/Tablet Application (Flutter) using Plone",
+      "video": "https://www.youtube.com/watch?v=slo520ugxFI"
+     }
+    ]
+   },
+   {
+    "commits": 0,
     "id": "albert-casado",
     "name": "Albert Casado",
     "organisation": "Onna",
@@ -41386,6 +41403,23 @@
     "talks": []
    },
    {
+    "commits": 0,
+    "id": "alexander-bell",
+    "name": "Alexander Bell",
+    "organisation": "Unmapped",
+    "pull_requests": 0,
+    "roles": [
+     "Speaker"
+    ],
+    "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "Catch them if you can: Young talents",
+      "video": "https://www.youtube.com/watch?v=ko1AI5_ZtH8"
+     }
+    ]
+   },
+   {
     "commits": 2,
     "id": "alexander-buckig",
     "name": "Alexander Bückig",
@@ -41404,6 +41438,11 @@
      "Speaker"
     ],
     "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "Advanced Citations with Zotero and OpenAire in Plone 6",
+      "video": "https://www.youtube.com/watch?v=LcNKEnlOw_o"
+     },
      {
       "event": "World Plone Day 2021",
       "title": "Volto Zotero addon",
@@ -41431,6 +41470,11 @@
      "Trainer"
     ],
     "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "Introduction to React Hooks",
+      "video": "https://www.youtube.com/watch?v=_aX2d3CzTJU"
+     },
      {
       "event": "World Plone Day 2021",
       "title": "Do you want to contribute to Volto?",
@@ -41484,6 +41528,23 @@
      "Board"
     ],
     "talks": []
+   },
+   {
+    "commits": 0,
+    "id": "annette-lewis",
+    "name": "Annette Lewis",
+    "organisation": "Unmapped",
+    "pull_requests": 0,
+    "roles": [
+     "Speaker"
+    ],
+    "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "From Zope to Plone: Thinking User-First During Migration",
+      "video": "https://www.youtube.com/watch?v=rgMCUHlDF1Q"
+     }
+    ]
    },
    {
     "commits": 3,
@@ -41605,6 +41666,23 @@
     "talks": []
    },
    {
+    "commits": 0,
+    "id": "cedrik-meis",
+    "name": "Cedrik Meis",
+    "organisation": "Unmapped",
+    "pull_requests": 0,
+    "roles": [
+     "Speaker"
+    ],
+    "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "Automation power for Plone with n8n",
+      "video": "https://www.youtube.com/watch?v=Q8RpDXR0-I8"
+     }
+    ]
+   },
+   {
     "commits": 9,
     "id": "chrissy-wainwright",
     "name": "Chrissy Wainwright",
@@ -41617,6 +41695,11 @@
      "Team lead"
     ],
     "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "State of the Plone Community",
+      "video": "https://www.youtube.com/watch?v=_XFQjY62v4M"
+     },
      {
       "event": "World Plone Day 2021",
       "title": "Debugging Your Plone Site",
@@ -41644,6 +41727,11 @@
      "Speaker"
     ],
     "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "Catch them if you can: Young talents",
+      "video": "https://www.youtube.com/watch?v=ko1AI5_ZtH8"
+     },
      {
       "event": "World Plone Day 2021",
       "title": "ITONBOARD: IT community onboarding programme: vocational orientation for young people",
@@ -41726,6 +41814,16 @@
     ],
     "talks": [
      {
+      "event": "Plone Conference 2021",
+      "title": "Plone 6 Volto - Your first 20 hours with",
+      "video": null
+     },
+     {
+      "event": "Plone Conference 2021",
+      "title": "Scratching my own itch - A hands-on look at contributing to an open source project",
+      "video": "https://www.youtube.com/watch?v=XcZj67Bk-3I"
+     },
+     {
       "event": "World Plone Day 2021",
       "title": "Getting Started with Volto Customisation",
       "video": "https://www.youtube.com/watch?v=6dK9UMLkyAo"
@@ -41747,8 +41845,16 @@
     "name": "David Ichim",
     "organisation": "Eau de Web",
     "pull_requests": 7,
-    "roles": [],
-    "talks": []
+    "roles": [
+     "Speaker"
+    ],
+    "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "What's new in Plone 6 frontend for developers",
+      "video": "https://www.youtube.com/watch?v=5Z9z-w8iVDE"
+     }
+    ]
    },
    {
     "commits": 0,
@@ -41854,6 +41960,11 @@
     ],
     "talks": [
      {
+      "event": "Plone Conference 2021",
+      "title": "Plone no Brasil [Portuguese]",
+      "video": "https://www.youtube.com/watch?v=oX17ZgYg-BE"
+     },
+     {
       "event": "World Plone Day 2021",
       "title": "Criando um portal de notícias com Plone",
       "video": "https://www.youtube.com/watch?v=D-eYpxTA9p0"
@@ -41939,9 +42050,21 @@
     "pull_requests": 6,
     "roles": [
      "Podcast",
+     "Speaker",
      "Team lead"
     ],
-    "talks": []
+    "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "7 things that can surprise you when you start customising or developing for Plone",
+      "video": "https://www.youtube.com/watch?v=OMOinLfrbbA"
+     },
+     {
+      "event": "Plone Conference 2021",
+      "title": "collective.exportimport: tips, tricks and deploying staging content",
+      "video": "https://www.youtube.com/watch?v=SfHPKgeA0I0"
+     }
+    ]
    },
    {
     "commits": 23,
@@ -42024,6 +42147,23 @@
     "talks": []
    },
    {
+    "commits": 0,
+    "id": "glebson-moura",
+    "name": "Glebson Moura",
+    "organisation": "Unmapped",
+    "pull_requests": 0,
+    "roles": [
+     "Speaker"
+    ],
+    "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "Plone no Brasil [Portuguese]",
+      "video": "https://www.youtube.com/watch?v=oX17ZgYg-BE"
+     }
+    ]
+   },
+   {
     "commits": 11,
     "id": "godefroid-chapelle",
     "name": "Godefroid Chapelle",
@@ -42031,6 +42171,23 @@
     "pull_requests": 5,
     "roles": [],
     "talks": []
+   },
+   {
+    "commits": 0,
+    "id": "guido-stevens",
+    "name": "Guido Stevens",
+    "organisation": "Cosent",
+    "pull_requests": 0,
+    "roles": [
+     "Speaker"
+    ],
+    "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "Productizing Plone",
+      "video": "https://www.youtube.com/watch?v=M5NvUcZjins"
+     }
+    ]
    },
    {
     "commits": 5,
@@ -42147,6 +42304,16 @@
     ],
     "talks": [
      {
+      "event": "Plone Conference 2021",
+      "title": "Catch them if you can: Young talents",
+      "video": "https://www.youtube.com/watch?v=ko1AI5_ZtH8"
+     },
+     {
+      "event": "Plone Conference 2021",
+      "title": "Forging a New Installer",
+      "video": "https://www.youtube.com/watch?v=MO1WFm7TZJo"
+     },
+     {
       "event": "World Plone Day 2021",
       "title": "Authentication and Authorization Basics",
       "video": "https://www.youtube.com/watch?v=dhuzgUIhrZc"
@@ -42219,8 +42386,16 @@
     "name": "Johannes Raggam",
     "organisation": "Syslab",
     "pull_requests": 41,
-    "roles": [],
-    "talks": []
+    "roles": [
+     "Speaker"
+    ],
+    "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "How to Patternslib with tiptap",
+      "video": "https://www.youtube.com/watch?v=yO3roAQTRfM"
+     }
+    ]
    },
    {
     "commits": 2,
@@ -42257,6 +42432,23 @@
     "pull_requests": 1,
     "roles": [],
     "talks": []
+   },
+   {
+    "commits": 0,
+    "id": "jorg-zell",
+    "name": "Jörg Zell",
+    "organisation": "Unmapped",
+    "pull_requests": 0,
+    "roles": [
+     "Speaker"
+    ],
+    "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "Catch them if you can: Young talents",
+      "video": "https://www.youtube.com/watch?v=ko1AI5_ZtH8"
+     }
+    ]
    },
    {
     "commits": 1,
@@ -42319,6 +42511,23 @@
     ]
    },
    {
+    "commits": 0,
+    "id": "katie-shaw",
+    "name": "Katie Shaw",
+    "organisation": "Unmapped",
+    "pull_requests": 0,
+    "roles": [
+     "Speaker"
+    ],
+    "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "From Opaque to Open: Untangling Apparel Supply Chains with Open Data",
+      "video": "https://www.youtube.com/watch?v=uLQKst0muQ4"
+     }
+    ]
+   },
+   {
     "commits": 230,
     "id": "katja-suss",
     "name": "Katja Süss",
@@ -42377,6 +42586,16 @@
     ],
     "talks": [
      {
+      "event": "Plone Conference 2021",
+      "title": "Playing with blocks and cards in Plone 5",
+      "video": "https://www.youtube.com/watch?v=rJwUtd3crrw"
+     },
+     {
+      "event": "Plone Conference 2021",
+      "title": "Revamping the Plone training and documentation setup for Plone 6",
+      "video": "https://www.youtube.com/watch?v=H1aulkEeKbE"
+     },
+     {
       "event": "World Plone Day 2021",
       "title": "Plone Edu Panel Discussion",
       "video": "https://www.youtube.com/watch?v=FmP1ZhY0qKQ"
@@ -42429,9 +42648,31 @@
     ],
     "talks": [
      {
+      "event": "Plone Conference 2021",
+      "title": "¡Plone en español! [Spanish]",
+      "video": "https://www.youtube.com/watch?v=IHGjF4C1ojU"
+     },
+     {
       "event": "World Plone Day 2021",
       "title": "Plone CMS, novedades y flexibilidad para soluciones empresariales hoy en día",
       "video": "https://www.youtube.com/watch?v=h_fk0PhhKKg"
+     }
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "lisa-rohler",
+    "name": "Lisa Rohler",
+    "organisation": "Unmapped",
+    "pull_requests": 0,
+    "roles": [
+     "Speaker"
+    ],
+    "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "Catch them if you can: Young talents",
+      "video": "https://www.youtube.com/watch?v=ko1AI5_ZtH8"
      }
     ]
    },
@@ -42472,6 +42713,23 @@
    },
    {
     "commits": 0,
+    "id": "lucas-aquino",
+    "name": "Lucas Aquino",
+    "organisation": "Unmapped",
+    "pull_requests": 0,
+    "roles": [
+     "Speaker"
+    ],
+    "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "Plone no Brasil [Portuguese]",
+      "video": "https://www.youtube.com/watch?v=oX17ZgYg-BE"
+     }
+    ]
+   },
+   {
+    "commits": 0,
     "id": "luistxo-fernandez",
     "name": "Luistxo Fernandez",
     "organisation": "Codesyntax",
@@ -42494,11 +42752,18 @@
     "organisation": "Derico",
     "pull_requests": 24,
     "roles": [
+     "Speaker",
      "Sprint organiser",
      "Team lead",
      "Trainer"
     ],
-    "talks": []
+    "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "Efficient Backend development for Plone",
+      "video": "https://www.youtube.com/watch?v=EqFz0e7uGx4"
+     }
+    ]
    },
    {
     "commits": 1,
@@ -42594,6 +42859,11 @@
     ],
     "talks": [
      {
+      "event": "Plone Conference 2021",
+      "title": "Automatic focal points for images",
+      "video": "https://www.youtube.com/watch?v=1JCbF7eLSU8"
+     },
+     {
       "event": "World Plone Day 2021",
       "title": "Plone Release Management",
       "video": "https://www.youtube.com/watch?v=Aw9nG9xDiO4"
@@ -42663,8 +42933,16 @@
     "name": "Michael McFadden",
     "organisation": "Radio Free Asia",
     "pull_requests": 4,
-    "roles": [],
-    "talks": []
+    "roles": [
+     "Speaker"
+    ],
+    "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "Plone Outputfilters and TransformChain (how to display things differently)",
+      "video": "https://www.youtube.com/watch?v=L7dcRcSau0k"
+     }
+    ]
    },
    {
     "commits": 0,
@@ -42720,9 +42998,16 @@
     "organisation": "Iskra",
     "pull_requests": 9,
     "roles": [
+     "Speaker",
      "Trainer"
     ],
-    "talks": []
+    "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "Guillotina Addons: elastic, stripe, gcloud",
+      "video": "https://www.youtube.com/watch?v=qNLRbYkuHEQ"
+     }
+    ]
    },
    {
     "commits": 59,
@@ -42734,6 +43019,11 @@
      "Speaker"
     ],
     "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "Testing Volto Addons",
+      "video": "https://www.youtube.com/watch?v=4CKTlDq3mXQ"
+     },
      {
       "event": "World Plone Day 2021",
       "title": "Plone: Open Source and Community",
@@ -42756,8 +43046,16 @@
     "name": "nzambello",
     "organisation": "RedTurtle",
     "pull_requests": 33,
-    "roles": [],
-    "talks": []
+    "roles": [
+     "Speaker"
+    ],
+    "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "A sustainable web: is it possible?",
+      "video": "https://www.youtube.com/watch?v=feH26j3rBz8"
+     }
+    ]
    },
    {
     "commits": 0,
@@ -42812,10 +43110,17 @@
     "organisation": "Agitator",
     "pull_requests": 70,
     "roles": [
+     "Speaker",
      "Team lead",
      "Trainer"
     ],
-    "talks": []
+    "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "Theming Plone 6 Classic UI",
+      "video": "https://www.youtube.com/watch?v=UVWFLtQiMHA"
+     }
+    ]
    },
    {
     "commits": 146,
@@ -42867,6 +43172,16 @@
     ],
     "talks": [
      {
+      "event": "Plone Conference 2021",
+      "title": "A new hope for migrations and upgrades",
+      "video": "https://www.youtube.com/watch?v=6xoXXyGnk4U"
+     },
+     {
+      "event": "Plone Conference 2021",
+      "title": "Why Relations are Awesome",
+      "video": "https://www.youtube.com/watch?v=pxyEipjGd_g"
+     },
+     {
       "event": "World Plone Day 2021",
       "title": "Make Plone Migrations fun again with collective.exportimport",
       "video": "https://www.youtube.com/watch?v=HEBF5VqlUc8"
@@ -42889,8 +43204,67 @@
     "name": "Piero Nicolli",
     "organisation": "RedTurtle",
     "pull_requests": 10,
-    "roles": [],
-    "talks": []
+    "roles": [
+     "Speaker"
+    ],
+    "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "io-Comune: the solution for Italian municipalities",
+      "video": "https://www.youtube.com/watch?v=UZcFuVhYP5Q"
+     }
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "rafael-nunez",
+    "name": "Rafael Nunez",
+    "organisation": "Unmapped",
+    "pull_requests": 0,
+    "roles": [
+     "Speaker"
+    ],
+    "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "Institutional Assessment with Plone",
+      "video": "https://www.youtube.com/watch?v=fHDPpBr2dtQ"
+     }
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "rafahela",
+    "name": "Rafahela",
+    "organisation": "Unmapped",
+    "pull_requests": 0,
+    "roles": [
+     "Speaker"
+    ],
+    "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "Plone no Brasil [Portuguese]",
+      "video": "https://www.youtube.com/watch?v=oX17ZgYg-BE"
+     }
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "ramiro-luz",
+    "name": "Ramiro Luz",
+    "organisation": "Unmapped",
+    "pull_requests": 0,
+    "roles": [
+     "Speaker"
+    ],
+    "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "From the longest project of my life to the toughest moment of my life.",
+      "video": "https://www.youtube.com/watch?v=310F1xeKeFQ"
+     }
+    ]
    },
    {
     "commits": 192,
@@ -42899,9 +43273,21 @@
     "organisation": "Nuclia",
     "pull_requests": 32,
     "roles": [
+     "Speaker",
      "Team lead"
     ],
-    "talks": []
+    "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "Flaps: AI Search as a Service with OSS and Guillotina",
+      "video": "https://www.youtube.com/watch?v=WDYcchE1vqc"
+     },
+     {
+      "event": "Plone Conference 2021",
+      "title": "Guillotina React",
+      "video": "https://www.youtube.com/watch?v=p0rO-Uuk7oU"
+     }
+    ]
    },
    {
     "commits": 0,
@@ -42934,6 +43320,11 @@
      "Team lead"
     ],
     "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "The New Plone.org Built on Plone 6",
+      "video": "https://www.youtube.com/watch?v=4xJ9KTzdHv8"
+     },
      {
       "event": "World Plone Day 2021",
       "title": "Plone Edu Panel Discussion",
@@ -42980,9 +43371,16 @@
     "organisation": "Iskra",
     "pull_requests": 9,
     "roles": [
+     "Speaker",
      "Trainer"
     ],
-    "talks": []
+    "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "Guillotina React",
+      "video": "https://www.youtube.com/watch?v=p0rO-Uuk7oU"
+     }
+    ]
    },
    {
     "commits": 16,
@@ -43114,9 +43512,33 @@
     "organisation": "operun",
     "pull_requests": 7,
     "roles": [
+     "Speaker",
      "Trainer"
     ],
-    "talks": []
+    "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "Theming Plone 6 Classic UI",
+      "video": "https://www.youtube.com/watch?v=UVWFLtQiMHA"
+     }
+    ]
+   },
+   {
+    "commits": 0,
+    "id": "stefania-trabucchi",
+    "name": "Stefania Trabucchi",
+    "organisation": "Unmapped",
+    "pull_requests": 0,
+    "roles": [
+     "Speaker"
+    ],
+    "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "Catch them if you can: Young talents",
+      "video": "https://www.youtube.com/watch?v=ko1AI5_ZtH8"
+     }
+    ]
    },
    {
     "commits": 0,
@@ -43172,6 +43594,23 @@
    },
    {
     "commits": 0,
+    "id": "steffen-ring",
+    "name": "Steffen Ring",
+    "organisation": "kitconcept GmbH",
+    "pull_requests": 0,
+    "roles": [
+     "Speaker"
+    ],
+    "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "How Plone helps to connect over forty thousand scientists",
+      "video": "https://www.youtube.com/watch?v=ZNxUWG8ms1k"
+     }
+    ]
+   },
+   {
+    "commits": 0,
     "id": "stephan-geulette",
     "name": "Stéphan Geulette",
     "organisation": "iMio",
@@ -43196,6 +43635,23 @@
     "pull_requests": 11,
     "roles": [],
     "talks": []
+   },
+   {
+    "commits": 0,
+    "id": "susanna-laurin",
+    "name": "Susanna Laurin",
+    "organisation": "Unmapped",
+    "pull_requests": 0,
+    "roles": [
+     "Speaker"
+    ],
+    "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "Built-in accessibility in authoring tools",
+      "video": "https://www.youtube.com/watch?v=B2ISvj2A-PA"
+     }
+    ]
    },
    {
     "commits": 10,
@@ -43250,8 +43706,16 @@
     "name": "Thomas Schorr",
     "organisation": "Unmapped",
     "pull_requests": 3,
-    "roles": [],
-    "talks": []
+    "roles": [
+     "Speaker"
+    ],
+    "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "Pyruvate WSGI Server Status Update",
+      "video": "https://www.youtube.com/watch?v=J9I1nbtJFzo"
+     }
+    ]
    },
    {
     "commits": 165,
@@ -43260,9 +43724,31 @@
     "organisation": "Eau de Web",
     "pull_requests": 73,
     "roles": [
+     "Speaker",
      "Trainer"
     ],
-    "talks": []
+    "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "EEA Searchlib",
+      "video": "https://www.youtube.com/watch?v=syC6apJBg20"
+     },
+     {
+      "event": "Plone Conference 2021",
+      "title": "In-depth introduction to volto-slate",
+      "video": "https://www.youtube.com/watch?v=eYStPMrUPag"
+     },
+     {
+      "event": "Plone Conference 2021",
+      "title": "Volto Pluggables",
+      "video": "https://www.youtube.com/watch?v=FKkbRijRJ7I"
+     },
+     {
+      "event": "Plone Conference 2021",
+      "title": "Volto slots, portlets on steroids",
+      "video": "https://www.youtube.com/watch?v=_tikuxMbexg"
+     }
+    ]
    },
    {
     "commits": 355,
@@ -43276,6 +43762,11 @@
      "Team lead"
     ],
     "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "Plone 6 - Power and Control",
+      "video": "https://www.youtube.com/watch?v=SVSv--milYA"
+     },
      {
       "event": "World Plone Day 2021",
       "title": "The Plone Podcast: Special Edition - World Plone Day 2021",
@@ -43364,6 +43855,11 @@
     ],
     "talks": [
      {
+      "event": "Plone Conference 2021",
+      "title": "Meet Quanta: Plone's Style Guide",
+      "video": "https://www.youtube.com/watch?v=fvTMw36YT6A"
+     },
+     {
       "event": "World Plone Day 2021",
       "title": "How does Plone 6 work under the hood?",
       "video": "https://www.youtube.com/watch?v=kHec4MXH8vo"
@@ -43392,6 +43888,23 @@
     "pull_requests": 24,
     "roles": [],
     "talks": []
+   },
+   {
+    "commits": 0,
+    "id": "will-gwin",
+    "name": "Will Gwin",
+    "organisation": "Unmapped",
+    "pull_requests": 0,
+    "roles": [
+     "Speaker"
+    ],
+    "talks": [
+     {
+      "event": "Plone Conference 2021",
+      "title": "From Zope to Plone: Thinking User-First During Migration",
+      "video": "https://www.youtube.com/watch?v=rgMCUHlDF1Q"
+     }
+    ]
    },
    {
     "commits": 1,
@@ -50904,6 +51417,7 @@
   "alex clark": "alex-clark",
   "alex juizi": "alex-juizi",
   "alex limi": "alex-limi",
+  "alexander bell": "alexander-bell",
   "alexander buckig": "alexander-buckig",
   "alexander limi": "alex-limi",
   "alexander limi contact": "alexander-limi-contact",
@@ -50946,6 +51460,7 @@
   "angelo bovina": "angelo-bovina",
   "angelo croatti": "angelo-croatti",
   "animus888": "animus888",
+  "annette lewis": "annette-lewis",
   "antoine duchene": "antoine-duchene",
   "anton caceres": "anton-caceres",
   "anuyens": "andre-nuyens",
@@ -50996,6 +51511,7 @@
   "cdw9": "chrissy-wainwright",
   "cedric messiant": "cedric-messiant",
   "cedricmessiant": "cedric-messiant",
+  "cedrik meis": "cedrik-meis",
   "cekk": "andrea-cecchi",
   "cewing": "cris-ewing",
   "chaoflow": "florian-friesdorf",
@@ -51159,6 +51675,7 @@
   "giulia ghisini": "giulia-ghisini",
   "giulia nieddu": "giulia-nieddu",
   "giuliaghisini": "giulia-ghisini",
+  "glebson moura": "glebson-moura",
   "godefroid chapelle": "godefroid-chapelle",
   "gogo": "georg-bernhard",
   "gogobd": "georg-bernhard",
@@ -51273,6 +51790,7 @@
   "karel calitz": "karel-calitz",
   "karl johan kleist": "karl-johan-kleist",
   "kathy sparkes": "kathy-sparkes",
+  "katie shaw": "katie-shaw",
   "katja suss": "katja-suss",
   "kcleong": "kim-chee-leong",
   "kees hink": "kees-hink",
@@ -51302,6 +51820,7 @@
   "lferran": "ferran-llamas",
   "libargutxi": "lur-ibargutxi",
   "limi": "alex-limi",
+  "lisa rohler": "lisa-rohler",
   "loechel": "loechel",
   "longsleep": "simon-eisenmann",
   "loren drummond": "loren-drummond",
@@ -51465,6 +51984,7 @@
   "polyester": "paul-roeland",
   "puittenbroek": "peter-uittenbroek",
   "pysailor": "wolfgang-thomas",
+  "rafael nunez": "rafael-nunez",
   "rafahela": "rafahela",
   "rafahela bazzanela": "rafahela",
   "rafahela bazzanella": "rafahela",
@@ -51473,6 +51993,7 @@
   "ralph jacobs": "ralph-jacobs",
   "ralphjacobs": "ralph-jacobs",
   "ramalho": "luciano-ramalho",
+  "ramiro luz": "ramiro-luz",
   "ramon navarro": "ramon-navarro",
   "ramon navarro bosch": "ramon-navarro-bosch",
   "raphael poss": "raphael-poss",
@@ -51594,6 +52115,7 @@
   "sthenault": "sylvain-thenault",
   "sune brøndum wøller": "sune-brndum-wller",
   "sunew": "sune-brndum-wller",
+  "susanna laurin": "susanna-laurin",
   "sven": "sven-strack",
   "sven strack": "sven-strack",
   "sverbois": "sebastien-verbois",
@@ -51696,6 +52218,7 @@
   "whitmo": "whit-morriss",
   "wichert": "wichert-akkerman",
   "wichert akkerman": "wichert-akkerman",
+  "will gwin": "will-gwin",
   "william fennie": "william-fennie",
   "witsch": "andreas-zeidler",
   "wolfgang thomas": "wolfgang-thomas",
