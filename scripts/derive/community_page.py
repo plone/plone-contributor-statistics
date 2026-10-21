@@ -12,7 +12,7 @@ import json
 from collections import defaultdict
 
 from scripts.lib import paths
-from scripts.lib.model import TALK_TYPES, UNMAPPED, events, items, load_registry, roles
+from scripts.lib.model import TALK_TYPES, UNMAPPED, events, items, load_registry, roles, talks
 from scripts.lib.model.names import fold, slugify
 from scripts.lib.model.registers import PERSON_PREFIX
 from scripts.lib.years import RECOGNITION_YEAR
@@ -50,26 +50,31 @@ def code_key(registry, username):
     return person.id if person else username.casefold()
 
 
-def people_of_year(year, registry, year_roles):
-    """Everyone active in the year, one entry per person: code work and roles together."""
-    found = defaultdict(lambda: {'commits': 0, 'pull_requests': 0, 'roles': set()})
+def people_of_year(year, registry, year_roles, year_talks):
+    """Everyone active in the year, one entry per person: code work, roles and talks together."""
+    found = defaultdict(lambda: {'commits': 0, 'pull_requests': 0, 'roles': set(), 'talks': []})
     for username, commits, pulls in code_work(year):
         person = found[code_key(registry, username)]
         person['commits'] += commits
         person['pull_requests'] += pulls
     for role in year_roles:
         found[role.person]['roles'].add(role.label)
+    for talk in year_talks:
+        found[talk.person]['talks'].append({'title': talk.title, 'event': talk.event, 'video': talk.video})
     return [{'id': key, 'name': registry.display_name(f'{PERSON_PREFIX}{key}' if key in registry.people else key),
              'commits': value['commits'], 'pull_requests': value['pull_requests'],
              'roles': sorted(value['roles']),
+             'talks': sorted(value['talks'], key=lambda t: (t['event'], t['title'])),
              # The organisation the affiliations give the person for the year; a login outside the register has none
              'organisation': registry.organisation_of(key, year)} for key, value in sorted(found.items())]
 
 
 def talk_organisations(year, registry):
     """The names of the organisations named in the talks of the year, one per talk and organisation."""
-    return [registry.organisation_name(o) for item in items(year, 'world-plone-day-talks')
-            if item.fields['type'] in TALK_TYPES for o in item.organisations]
+    found = [registry.organisation_name(o) for item in items(year, 'world-plone-day-talks')
+             if item.fields['type'] in TALK_TYPES for o in item.organisations]
+    found += [registry.organisation_name(o) for item in items(year, 'conference-talks') for o in item.organisations]
+    return found
 
 
 def organisations_of_year(year, registry, year_roles, year_events):
@@ -190,8 +195,9 @@ def build_page_data(year=RECOGNITION_YEAR):
     registry = load_registry()
     year_roles = {y: roles(y) for y in all_years}
     year_events = {y: events(y) for y in all_years}
+    year_talks = {y: talks(y) for y in all_years}
 
-    per_person = {y: people_of_year(y, registry, year_roles[y]) for y in all_years}
+    per_person = {y: people_of_year(y, registry, year_roles[y], year_talks[y]) for y in all_years}
     per_organisation = {y: organisation_history(y, registry, year_roles[y], year_events[y]) for y in all_years}
 
     found = {}

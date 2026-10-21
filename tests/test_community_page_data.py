@@ -6,8 +6,10 @@ import pytest
 
 from scripts.derive import community_page
 from scripts.lib import paths
+from scripts.lib.model import events, load_registry, roles
 
 CONTRIBUTORS = 'username,total_commits,total_pull_requests\n'
+CONF_TALKS = 'event,scope,type,title,speakers,organisations,video,source,notes\n'
 ORGANISATIONS = 'organisation,total_commits,total_pull_requests,contributors_count\n'
 PLIPS = 'number,title,author,state,created_at,updated_at,closed_at,repository,html_url\n'
 LEVELS = ('Level,Min Points,Max Points,Description\nBronze Contributor,1,9,\nSilver Contributor,10,24,\n'
@@ -63,7 +65,7 @@ def test_people_active_counts_a_person_once_across_code_and_roles(repo):
     write(paths.COMMUNITY / '2025-release-managers.csv', RELEASE_MANAGERS + 'timo,https://a,\n')
     [entry] = community_page.build_page_data(2025)['people']['2025']
     assert entry == {'id': 'timo', 'name': 'timo', 'commits': 10, 'pull_requests': 5, 'roles': ['Release manager'],
-                     'organisation': 'kitconcept GmbH'}
+                     'talks': [], 'organisation': 'kitconcept GmbH'}
 
 
 def test_a_login_outside_the_register_is_keyed_by_the_login(repo):
@@ -133,7 +135,7 @@ def test_people_are_sorted_by_id_and_carry_no_rank(repo):
     write(paths.contributors_file(2025), CONTRIBUTORS + 'zed,1,1\nalice,5,9\n')
     people = community_page.build_page_data(2025)['people']['2025']
     assert [p['id'] for p in people] == ['alice', 'zed']
-    assert set(people[0]) == {'id', 'name', 'commits', 'pull_requests', 'roles', 'organisation'}
+    assert set(people[0]) == {'id', 'name', 'commits', 'pull_requests', 'roles', 'talks', 'organisation'}
 
 
 def test_data_is_deterministic(repo):
@@ -163,6 +165,48 @@ def test_a_second_login_is_keyed_to_the_same_person(repo):
     write(paths.contributors_file(2025), CONTRIBUTORS + 'tisto,10,5\nTisto-Work,1,1\n')
     [entry] = community_page.build_page_data(2025)['people']['2025']
     assert (entry['id'], entry['commits'], entry['pull_requests']) == ('timo', 11, 6)
+
+
+def test_a_speaker_is_active_and_lists_the_talks_sorted(repo):
+    write(paths.COMMUNITY / '2025-conference-talks.csv', CONF_TALKS +
+          'Plone Tagung 2025,regional,Talk,Zope news,timo,,,https://s/1,\n'
+          'Plone Conference 2025,global,Keynote,A keynote,timo;mauro,,https://v/1,https://s/2,\n')
+    write(paths.COMMUNITY / '2025-world-plone-day-talks.csv', TALKS + 'WPD talk,timo,,Talk,Online,https://v/3,\n')
+    data = community_page.build_page_data(2025)
+    timo = next(p for p in data['people']['2025'] if p['id'] == 'timo')
+    assert timo['roles'] == ['Speaker']
+    assert timo['talks'] == [{'title': 'A keynote', 'event': 'Plone Conference 2025', 'video': 'https://v/1'},
+                             {'title': 'Zope news', 'event': 'Plone Tagung 2025', 'video': None},
+                             {'title': 'WPD talk', 'event': 'World Plone Day 2025', 'video': 'https://v/3'}]
+    mauro = next(p for p in data['people']['2025'] if p['id'] == 'mauro')
+    assert mauro['talks'] == [{'title': 'A keynote', 'event': 'Plone Conference 2025', 'video': 'https://v/1'}]
+    assert data['history']['2025']['people_active'] == 2
+    assert data['headline']['year']['organisations'] == 2  # RedTurtle (conference, mauro) and kitconcept (timo)
+
+
+def test_people_without_talks_have_an_empty_list(repo):
+    write(paths.contributors_file(2025), CONTRIBUTORS + 'tisto,10,5\n')
+    [entry] = community_page.build_page_data(2025)['people']['2025']
+    assert entry['talks'] == []
+
+
+def test_a_team_conference_talk_counts_the_organisation(repo):
+    # No points, so kitconcept has no entry under data['organisations']; the history function shows the role count
+    write(paths.COMMUNITY / '2025-conference-talks.csv', CONF_TALKS +
+          'Plone Conference 2025,global,Talk,Team talk,,kitconcept,,https://s/1,\n')
+    data = community_page.build_page_data(2025)
+    assert data['headline']['year']['organisations'] == 2
+    assert data['history']['2025']['people_active'] == 0
+    registry = load_registry()
+    history = community_page.organisation_history(2025, registry, roles(2025), events(2025))
+    assert history['kitconcept GmbH']['roles'] == 1
+
+
+def test_conference_talks_earn_no_points(repo):
+    write(paths.COMMUNITY / '2025-conference-talks.csv', CONF_TALKS +
+          'Plone Conference 2025,global,Keynote,A keynote,timo,,https://v/1,https://s/2,\n')
+    data = community_page.build_page_data(2025)
+    assert 'kitconcept-gmbh' not in data['organisations']
 
 
 def test_people_names_find_a_registered_person_by_login(repo):
