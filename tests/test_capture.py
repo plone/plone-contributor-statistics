@@ -5,7 +5,7 @@ import pathlib
 
 import pytest
 
-from scripts.lib.capture import CaptureError, CaptureResult, capture
+from scripts.lib.capture import CaptureError, CaptureResult, capture, capture_commit
 from scripts.lib.capture import fetch as fetch_module
 from scripts.lib.capture.fetch import Fetcher
 from scripts.lib.model import load_sources, passages, read_excerpt, source_id
@@ -323,6 +323,37 @@ def test_commit_from_api(web):
     assert (row.kind, row.date, row.title) == ('commit', datetime.date(2012, 5, 6),
                                                'https://github.com/plone/Products.CMFPlone/commit/abc123')
     assert result.added == ('Author: Jane <jane@example.org>\nDate: 2012-05-06T07:08:09Z\n\nFix the release process',)
+
+
+def test_capture_commit_cites_the_author_line(web):
+    fetcher, _ = web(session=NoNetwork())
+    api = 'https://api.github.com/repos/acme/site/commits/abc123'
+    commit = {'commit': {'author': {'name': 'Jane', 'email': 'jane@acme.test', 'date': '2012-05-06T07:08:09Z'},
+                         'message': 'Fix the release process'}}
+    session = FakeSession({api: FakeResponse(body=json.dumps(commit).encode())})
+    url = 'https://github.com/acme/site/commit/abc123'
+    assert capture_commit(url, 'JANE@acme.test', fetcher=fetcher, session=session, run=no_run) == (
+        source_id(url), 'Author: Jane <jane@acme.test>')
+    # Captured once: the second call reads the register
+    assert capture_commit(url, 'jane@acme.test', fetcher=fetcher, session=NoNetwork(), run=no_run) == (
+        source_id(url), 'Author: Jane <jane@acme.test>')
+    # Without an address (the commit search found it in an organisation) the commit is stored whole, no snippet
+    other = 'https://github.com/acme/site/commit/def456'
+    session.pages['https://api.github.com/repos/acme/site/commits/def456'] = FakeResponse(body=json.dumps(
+        {'commit': {**commit['commit'], 'message': 'Another'}}).encode())
+    assert capture_commit(other, '', names=['Jane'], fetcher=fetcher, session=session, run=no_run) == (
+        source_id(other), None)
+    assert read_excerpt(source_id(other)).startswith('Author: Jane <jane@acme.test>')
+
+
+def test_capture_commit_fails_for_an_unreachable_commit(web):
+    url = 'https://github.com/plone/gone/commit/abc123'
+    availability = 'https://archive.org/wayback/available?url=https%3A%2F%2Fgithub.com%2Fplone%2Fgone%2Fcommit%2Fabc123'
+    fetcher, _ = web({availability: FakeResponse(body=b'{"archived_snapshots": {}}')})
+    session = FakeSession({'https://api.github.com/repos/plone/gone/commits/abc123':
+                           FakeResponse(404, b'{"message": "Not Found"}')})
+    with pytest.raises(CaptureError, match='could not be fetched'):
+        capture_commit(url, 'jane@acme.test', fetcher=fetcher, session=session, run=no_run)
 
 
 def test_video_uses_one_workdir_per_source(web):

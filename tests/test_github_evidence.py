@@ -6,8 +6,8 @@ import os
 import pytest
 
 from scripts.lib import paths
-from scripts.lib.model import affiliation_id, load_registry, read_rows
-from scripts.tools import github_evidence
+from scripts.lib.model import affiliation_id, load_registry, load_sources, read_rows, source_id
+from scripts.tools import check, datapackage, github_evidence
 from tests.conftest import record_source
 
 SOURCE = 'https://example.org/record'
@@ -34,6 +34,12 @@ def commit(email, date, sha):
             'commit': {'author': {'email': email, 'date': date}, 'committer': {'date': date}}}
 
 
+def api_commit(item):
+    """The answer of the commits API for a commit the search found."""
+    author = item['commit']['author']
+    return {'commit': {'author': {'name': 'Jane Doe', **author}, 'message': 'Fix a bug'}}
+
+
 class Response:
     status_code = 200
     headers = {}
@@ -46,12 +52,18 @@ class Response:
 
 
 class FakeSession:
-    """Answers search requests from a dict {query: payload}; an unknown query is an empty result."""
+    """Answers search requests from a dict {query: payload}, an unknown query with an empty result, and the
+    commits API with the commits of the answers."""
 
     def __init__(self, answers):
-        self.answers, self.calls = answers, []
+        self.answers, self.calls, self.commits = answers, [], []
+        self.items = {item['html_url'].rsplit('/', 1)[1]: item
+                      for answer in answers.values() for item in answer.get('items', [])}
 
     def get(self, url, params=None, timeout=None):
+        if url.startswith('https://api.github.com/repos/plone/repo/commits/'):
+            self.commits.append(url)
+            return Response(api_commit(self.items[url.rsplit('/', 1)[1]]))
         self.calls.append((url, dict(params)))
         return Response(self.answers.get(params['q'], {'total_count': 0, 'items': []}))
 
@@ -67,18 +79,19 @@ def q2(year, handle='greenfinity-hu', login='janedoe'):
 ANSWERS = {
     q1(2014): {'total_count': 4, 'items': [
         commit('jane@greenfinity.hu', '2014-05-02T10:00:00Z', 'aaa'),
-        commit('jane@greenfinity.hu', '2014-03-01T10:00:00Z', 'early'),
+        commit('jane@greenfinity.hu', '2014-03-01T10:00:00Z', 'ea7'),
         commit('jane@gmail.com', '2014-04-01T10:00:00Z', 'bbb'),
         commit('jane@janedoe.net', '2014-04-02T10:00:00Z', 'ccc'),
         commit('jane@nothing.test', '2014-04-03T10:00:00Z', 'ddd'),
         commit('', '2014-04-03T10:00:00Z', 'eee')]},
     q1(2015): {'total_count': 1, 'items': [commit('jane@greenfinity.hu', '2015-01-02T10:00:00Z', 'fff')]},
-    q2(2016): {'total_count': 3, 'items': [commit('x@y.test', '2016-01-01T00:00:00Z', 'ggg')]},
+    q2(2016): {'total_count': 3, 'items': [commit('x@y.test', '2016-01-01T00:00:00Z', 'abc')]},
 }
 
 
 @pytest.fixture
-def setup(tmp_repo):
+def setup(tmp_repo, monkeypatch):
+    monkeypatch.delenv('GITHUB_TOKEN', raising=False)  # the fake session answers every request
     sid = record_source(SOURCE)
     paths.PEOPLE.write_text('id,name\njane-doe,Jane Doe\nno-login,No Login\n', encoding='utf-8')
     paths.IDENTITIES.write_text('person,kind,value,source,snippet,notes\n'
@@ -131,7 +144,7 @@ def test_query_one_classifies_the_domains(setup):
     proposals = text.split('## Conflicts')[0]
     assert '| jane-doe | greenfinity | 2014-2015 | 3 | address @greenfinity.hu (name) |' in proposals
     # the earliest commit of the first year is the example
-    assert 'https://github.com/plone/repo/commit/early' in proposals
+    assert 'https://github.com/plone/repo/commit/ea7' in proposals
     unmapped = text.split('## Unmapped domains')[1].split('## Organisations')[0]
     assert '| nothing.test | 1 | 2014 | 1 |' in unmapped
     for ignored in ('gmail.com', 'janedoe.net'):
@@ -166,7 +179,7 @@ def test_the_evidence_texts(setup):
     _, added, _, _ = run(setup, write=True)
     assert [(p['from'], p['to']) for p in added] == [(2014, 2015), (2016, 2016)]
     assert added[0]['evidence'] == ('Company address @greenfinity.hu in commits 2014-2015 found by the GitHub '
-                                    'commit search (example: https://github.com/plone/repo/commit/early)')
+                                    'commit search (example: https://github.com/plone/repo/commit/ea7)')
     assert added[1]['evidence'].startswith(
         'Commits in the GitHub organisation @greenfinity-hu in 2016 (3 in 2016; search: https://github.com/search?q=')
 
@@ -185,7 +198,7 @@ def test_a_proposal_for_a_verified_row_is_left_out_but_a_guess_is_not(setup):
 
 
 def test_conflicts_say_whether_the_other_row_is_a_guess(setup):
-    answers = {q1(2017): {'total_count': 1, 'items': [commit('jane@greenfinity.hu', '2017-01-02T10:00:00Z', 'hhh')]}}
+    answers = {q1(2017): {'total_count': 1, 'items': [commit('jane@greenfinity.hu', '2017-01-02T10:00:00Z', 'dad')]}}
     text, _, _, _ = run(setup, answers=answers, people=['jane-doe'], all_years=True)
     conflicts = text.split('## Conflicts')[1].split('## Unmapped')[0]
     assert '| jane-doe | 2017 | greenfinity | bubblenet | no |' in conflicts
@@ -214,14 +227,34 @@ def test_requests_are_paced(setup):
 
 
 def test_write_appends_once(setup):
-    _, added, _, _ = run(setup, write=True)
+    _, added, session, _ = run(setup, write=True)
     assert len(added) == 2
     rows = proposed()
     assert [(r['person'], r['organisation'], r['from'], r['to']) for r in rows] == [
         ('jane-doe', 'greenfinity', 2014, 2015), ('jane-doe', 'greenfinity', 2016, 2016)]
-    _, again, _, _ = run(setup, write=True)
+    _, again, second, _ = run(setup, write=True)
     assert again == []
     assert len(proposed()) == 2
+    assert second.commits == []  # captured once
+    datapackage.main([])
+    assert check.validate() == []
+
+
+def test_the_example_commits_are_captured_and_cited(setup):
+    _, _, session, _ = run(setup, write=True)
+    early, org = 'https://github.com/plone/repo/commit/ea7', 'https://github.com/plone/repo/commit/abc'
+    assert session.commits == ['https://api.github.com/repos/plone/repo/commits/ea7',
+                               'https://api.github.com/repos/plone/repo/commits/abc']
+    citations = {r['affiliation']: r for r in read_rows(paths.CITATIONS)}
+    address = citations[affiliation_id('jane-doe', 'greenfinity', 2014, 2015)]
+    assert (address['source'], address['snippet'], address['notes']) == (
+        source_id(early), 'Author: Jane Doe <jane@greenfinity.hu>', None)
+    organisation = citations[affiliation_id('jane-doe', 'greenfinity', 2016, 2016)]
+    assert (organisation['source'], organisation['snippet']) == (source_id(org), 'Author: Jane Doe <x@y.test>')
+    assert organisation['notes'] == ('one of 3 commits in the GitHub organisation @greenfinity-hu in 2016 that the '
+                                     'search https://github.com/search?q=author%3Ajanedoe+org%3Agreenfinity-hu+'
+                                     'committer-date%3A2016-01-01..2016-12-31&type=commits found')
+    assert load_sources()[source_id(early)].kind == 'commit'
 
 
 def test_without_write_nothing_is_written(setup):

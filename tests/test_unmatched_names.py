@@ -1,7 +1,7 @@
 """Listing people without a GitHub login who appear as a login, and proposing the login (#117)."""
 
 from scripts.lib import paths
-from scripts.lib.model import load_registry
+from scripts.lib.model import load_registry, source_id
 from scripts.tools import unmatched_names
 from tests.conftest import record_source
 
@@ -42,9 +42,11 @@ def test_proposes_only_unique_exact_profile_names(tmp_repo):
     assert unmatched_names.propose(load_registry(), profiles) == [('jane-doe', 'janedoe', 'Jane  Doe')]
 
 
-def test_a_proposal_sets_the_github_of_the_person():
+def test_a_proposal_is_a_github_identity_citing_the_profile():
+    sid = source_id('https://github.com/janedoe')
     assert unmatched_names.proposal_line('jane-doe', 'janedoe', 'Jane Doe') == (
-        'people.csv: set github of jane-doe to janedoe (profile name "Jane Doe": https://github.com/janedoe)')
+        f'jane-doe,github,janedoe,{sid},,  # profile name "Jane Doe"; capture the profile first: '
+        'python -m scripts.tools.capture https://github.com/janedoe --name "Jane Doe"')
 
 
 def test_main_prints_people_proposals(tmp_repo, monkeypatch, capsys):
@@ -56,8 +58,9 @@ def test_main_prints_people_proposals(tmp_repo, monkeypatch, capsys):
     monkeypatch.setattr(unmatched_names, 'fetch_profile_names', lambda session, logins: {'janedoe': 'Jane Doe'})
     unmatched_names.main()
     out = capsys.readouterr().out
-    assert 'people.csv: set github of jane-doe to janedoe (profile name "Jane Doe": https://github.com/janedoe)' in out
-    assert 'identities.csv' not in out
+    assert 'Proposals for curated/mappings/identities.csv' in out
+    assert f'jane-doe,github,janedoe,{source_id("https://github.com/janedoe")},,  # profile name "Jane Doe"' in out
+    assert 'people.csv' not in out
 
 
 def test_does_not_propose_a_login_of_another_person(tmp_repo):

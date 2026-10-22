@@ -5,11 +5,13 @@ Reads the changelog files from the clones in the cache, as
 `make run-changelogs` left them, and lists the names without a mapping, by
 their number of entries. With --propose, it looks for the commits whose
 message repeats an entry with that name, in the same repository. When most
-of these commits have the same author, it prints a row for
-curated/mappings/identities.csv: the changelog entry and the commit are its
-public records. Commits of patches that someone else applied name the
-committer instead of the author, so a person checks each row before adding
-it; see docs/how-to/link-old-commits-to-a-person.md.
+of these commits have the same author, it captures the commit as a source
+(from its clone, curated/sources/) and prints a row for
+curated/mappings/identities.csv that cites it, with the author line as the
+snippet and the changelog entry and the commit in the notes. Commits of
+patches that someone else applied name the committer instead of the author,
+so a person checks each row before adding it; see
+docs/how-to/link-old-commits-to-a-person.md.
 """
 
 import argparse
@@ -24,11 +26,14 @@ from dotenv import load_dotenv
 
 from scripts.collect import plone_changelogs
 from scripts.lib import changelogs, git_history
+from scripts.lib.capture import CaptureError, capture_commit
 from scripts.lib.github_api import github_graphql
 from scripts.lib.model import load_excluded_repositories, load_registry
 
 # Entries shorter than this are too generic to find their commit
 MIN_TEXT = 25
+# The columns --propose prints: those of identities.csv, then three that are not part of the file
+HEADER = ['person', 'kind', 'value', 'source', 'snippet', 'notes', 'entries', 'commits', 'share']
 
 
 def message_key(text):
@@ -96,13 +101,15 @@ def evidence(unmatched, commits_of):
     return dict(found)
 
 
-def proposals(unmatched, found, resolve, registry, min_share=0.8):
-    """Rows for identities.csv: (person, 'name', changelog name, source, entries, commits, share).
+def proposals(unmatched, found, resolve, registry, min_share=0.8, cite=capture_commit):
+    """Rows for identities.csv: (person, 'name', changelog name, source, snippet, notes, entries, commits, share).
 
     `resolve(email, entry, commit)` returns the GitHub login of the commit author, None for a person
     without a GitHub account. The person is the one the register has for the login, else for the email
     address; when it has none, the person cell is a note and the row is not meant to be added as it is.
-    The last three columns are not part of the file.
+    `cite(commit url, email)` captures the commit and returns (source id, snippet); when it raises
+    CaptureError, source and snippet stay empty and the notes say why. The last three columns are not part of
+    the file.
     """
     rows = []
     for name, data in sorted(found.items(), key=lambda item: item[0].casefold()):
@@ -121,8 +128,13 @@ def proposals(unmatched, found, resolve, registry, min_share=0.8):
         else:
             who = f'?no person for {author} <{email}>'
         commit_url = f"https://github.com/plone/{entry.repository}/commit/{commit['sha']}"
-        source = f'Changelog entry: {entry.url}; the commit by {author} that repeats it: {commit_url}'
-        rows.append((who, 'name', name, source, len(unmatched[name]), commits, round(share, 2)))
+        notes = f'Changelog entry: {entry.url}; the commit by {author} that repeats it: {commit_url}'
+        try:
+            source, snippet = cite(commit_url, commit['author_email'])
+        except CaptureError as error:
+            source, snippet, notes = '', '', f'{notes}; not captured: {error}'
+        rows.append((who, 'name', name, source, snippet or '', notes, len(unmatched[name]), commits,
+                     round(share, 2)))
     return rows
 
 
@@ -181,7 +193,7 @@ def main():
                          args.min_share)
         print('\nProposals for identities.csv (check each; the last three columns are not part of the file):')
         writer = csv.writer(sys.stdout, lineterminator='\n')
-        writer.writerow(['person', 'kind', 'value', 'source', 'entries', 'commits', 'share'])
+        writer.writerow(HEADER)
         writer.writerows(rows)
 
 

@@ -1,7 +1,7 @@
 import pytest
 
 from scripts.lib import paths
-from scripts.lib.model import load_registry
+from scripts.lib.model import Identity, load_registry, source_id, split_archive_url
 from scripts.lib.model.names import unique_slug
 from scripts.tools import check, datapackage, person
 from tests.conftest import record_source
@@ -71,7 +71,24 @@ def test_add_refuses_a_login_of_another_person(registers):
         person.add(paths.MAPPINGS_DIR, 'New Person', None, 'https://example.org/unknown')
     with pytest.raises(ValueError, match='name'):
         person.add(paths.MAPPINGS_DIR, ' ', None, SRC)
+    with pytest.raises(ValueError, match=r'the id or the address of a source in the source register.*'
+                                         r'python -m scripts\.tools\.capture'):
+        person.add(paths.MAPPINGS_DIR, 'New Person', None, ' ')
     assert 'other-alan' not in load_registry().people
+
+
+def test_add_finds_the_source_by_its_archived_address(registers):
+    archived = 'https://web.archive.org/web/20100125023558/http://example.org/old'
+    sid = source_id(*split_archive_url(archived))
+    rows = paths.SOURCES.read_text(encoding='utf-8')
+    paths.SOURCES.write_text(rows + f'{sid},page,Old,2010-01-25,http://example.org/old,{archived},'
+                             '2026-10-22T10:00:00Z,\n', encoding='utf-8')
+    (paths.EXCERPTS_DIR / f'{sid}.md').write_text('Old.\n', encoding='utf-8')
+    _, identity = person.add(paths.MAPPINGS_DIR, 'Old Timer', None, archived)
+    assert identity == Identity('old-timer', 'name', 'Old Timer', sid)
+    # The live address is another source than its archived copy
+    with pytest.raises(ValueError, match='capture it first'):
+        person.add(paths.MAPPINGS_DIR, 'Ann Other', None, 'http://example.org/old')
 
 
 def test_main_add_prints_the_rows(registers, capsys):

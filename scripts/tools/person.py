@@ -6,8 +6,8 @@ import csv
 import re
 import sys
 
-from scripts.lib.model import (LOGIN_KINDS, MAPPINGS_DIR, Identity, Person, append_person, load_registry,
-                               load_sources, source_id, split_archive_url)
+from scripts.lib.model import (LOGIN_KINDS, MAPPINGS_DIR, Identity, Person, append_person, load_registry, source_id,
+                               split_archive_url)
 from scripts.lib.model.names import fold, unique_slug
 
 SOURCE_ID = re.compile(r'^[0-9a-f]{12}$')
@@ -32,16 +32,18 @@ def find(registry, query):
     return [registry.people[person_id] for person_id in sorted(found) if person_id in registry.people]
 
 
-def _source_of(source):
+CAPTURE_FIRST = 'capture it first with python -m scripts.tools.capture'
+
+
+def _source_of(registry, source):
     """The id of the source in the register: given as its id, its address or its archived copy's address."""
     if SOURCE_ID.match(source):
         sid = source
     else:
         archived = split_archive_url(source)
         sid = source_id(*archived) if archived else source_id(source)
-    if sid not in load_sources():
-        raise ValueError(f'The source {source} is not in the source register: '
-                         f'capture it first with python -m scripts.tools.capture')
+    if sid not in registry.sources:
+        raise ValueError(f'The source {source} is not in the source register: {CAPTURE_FIRST}')
     return sid
 
 
@@ -57,14 +59,15 @@ def add(mappings_dir, name, github, source):
     if not name:
         raise ValueError('The name is empty')
     if not source:
-        raise ValueError('The source needs a link to a public record (https://...)')
+        raise ValueError('The source of the public record is empty: give the id or the address of a source in the '
+                         f'source register; if the record is not in the register yet, {CAPTURE_FIRST}')
     registry = load_registry(mappings_dir)
     if github:
         login = github.casefold()
         owners = {i.person for i in registry.identities if i.kind in LOGIN_KINDS and i.value.casefold() == login}
         if owners:
             raise ValueError(f'The login {github} belongs to {", ".join(sorted(owners))} already')
-    sid = _source_of(source)
+    sid = _source_of(registry, source)
     person = Person(unique_slug(name, set(registry.people)), name)
     identity = Identity(person.id, 'github', github, sid) if github else Identity(person.id, 'name', name, sid)
     append_person(mappings_dir, person, identity)

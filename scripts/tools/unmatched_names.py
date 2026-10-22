@@ -4,8 +4,9 @@
 A person without a login counts by person id; if their code work comes under a login that the register does
 not know, they count twice. This lists the people whose name equals a collected login. With --propose, the
 GitHub profile names of the logins the register does not know are fetched (needs GITHUB_TOKEN) and exact,
-unique matches are printed as a `github` value to set in curated/mappings/people.csv: the login is the
-person's main account, which their code work counts under. Check each proposal before setting it.
+unique matches are printed as a `github` identity for curated/mappings/identities.csv, citing the GitHub
+profile: the login is the person's main account, which their code work counts under. Check each proposal,
+capture the profile (the command is printed with it), then add the row.
 """
 
 import argparse
@@ -20,7 +21,7 @@ from dotenv import load_dotenv
 
 from scripts.lib import paths
 from scripts.lib.github_api import github_graphql
-from scripts.lib.model import load_registry
+from scripts.lib.model import GITHUB, load_registry, source_id
 from scripts.lib.model.names import fold
 
 LOGIN = re.compile(r'[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})')
@@ -75,8 +76,10 @@ def propose(registry, profile_names):
 
 
 def proposal_line(person_id, login, name):
-    """The proposal as the line --propose prints."""
-    return f'people.csv: set github of {person_id} to {login} (profile name "{name}": https://github.com/{login})'
+    """The proposal as the line --propose prints: the identity row citing the profile, and how to capture it."""
+    profile = f'https://github.com/{login}'
+    return (f'{person_id},{GITHUB},{login},{source_id(profile)},,  # profile name "{name}"; capture the profile '
+            f'first: python -m scripts.tools.capture {profile} --name "{name}"')
 
 
 def fetch_profile_names(session, logins, batch=50):
@@ -110,7 +113,8 @@ def main():
         token = os.getenv('GITHUB_TOKEN')
         if token:
             session.headers['Authorization'] = f'token {token}'
-        print('\nProposals for people.csv (check each before setting it):')
+        print('\nProposals for curated/mappings/identities.csv (check each, capture the profile, then add the row '
+              'without the comment):')
         for proposal in propose(registry, fetch_profile_names(session, unregistered(registry, logins))):
             print(proposal_line(*proposal))
 

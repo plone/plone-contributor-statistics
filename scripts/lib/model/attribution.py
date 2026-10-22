@@ -129,6 +129,10 @@ class Attribution:
         """The id of the organisation the person counts for in the year, or None for Unmapped."""
         return self._decide(person_id, year)[0]
 
+    def conflict(self, person_id, year):
+        """The ids of the organisations between which no rule decides in the year; empty when one counts or none."""
+        return self._decide(person_id, year)[1]
+
     def conflicts(self, until=None):
         """[(person id, year, [organisation ids])] of the years that no rule decides.
 

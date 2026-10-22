@@ -40,6 +40,7 @@ from scripts.lib.model import (
     load_sources,
     normalize_url,
     passages,
+    read_excerpt,
     source_id,
     split_archive_url,
     write_source,
@@ -359,3 +360,24 @@ def _unreachable(existing, sid, original, timestamp, gone, quotes, kind, title, 
         write_source(_source(None, sid, read, kind, title, date, note, False))
         add_passage(sid, note)
     return CaptureResult(sid, existing is None, (), missing, True)
+
+
+def capture_commit(url: str, email: str, names: Sequence[str] = (), **options) -> tuple[str, str | None]:
+    """Capture a commit as the source that shows its author's address; return (source id, snippet).
+
+    The commit is read from the local clone when there is one, so no network is needed, else from the GitHub API;
+    its whole text is stored. The snippet is the line of the excerpt with the address (ignoring case),
+    `Author: Name <address>`; None without an address. Without an address, `names` (at least one) are what the
+    capture looks for. The other options go to `capture`. CaptureError when the commit could not be captured.
+    """
+    result = capture(url, names=(email,) if email else tuple(names), **options)
+    if result.unreachable:
+        raise CaptureError(f'{url}: could not be fetched')
+    if result.source_id not in load_sources():
+        raise CaptureError(f'{url}: not captured, {", ".join(result.missing) or "nothing"} not found')
+    if not email:
+        return result.source_id, None
+    excerpt = read_excerpt(result.source_id)
+    line = next((line.strip() for line in excerpt.splitlines()
+                 if line.startswith('Author: ') and email.lower() in line.lower()), None)
+    return result.source_id, line if line and find_quote(excerpt, line) else None

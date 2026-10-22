@@ -157,6 +157,11 @@ class Registry:
         return self._attribution_data()[0]
 
     @property
+    def sources(self):
+        """{id: Source} of the source register."""
+        return self._attribution_data()[1]
+
+    @property
     def attribution(self):
         """The attribution rules over the registers, built on first use."""
         if self._attribution is None:
