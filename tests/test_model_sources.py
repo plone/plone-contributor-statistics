@@ -1,4 +1,7 @@
 import datetime
+import os
+
+import pytest
 
 from scripts.lib import paths
 from scripts.lib.model import (
@@ -112,3 +115,27 @@ def test_google_doc_spellings_share_an_id():
     assert len(ids) == 1
     assert source_id('https://docs.google.com/document/d/OTHER') not in ids
     assert normalize_url(f'{base}/edit?usp=sharing') == 'docs.google.com/document/d/X1-y_z'
+
+
+def test_write_source_writes_through_the_memo(tmp_repo, monkeypatch):
+    from scripts.lib.model import sources as module
+    write_source(_source('aaaaaaaaaaaa'))
+    monkeypatch.setattr(module, 'read_rows', lambda path: pytest.fail('the register was read again'))
+    first = load_sources()
+    assert list(first) == ['aaaaaaaaaaaa']
+    first['bbbbbbbbbbbb'] = first['aaaaaaaaaaaa']  # each call gets its own dict
+    assert list(load_sources()) == ['aaaaaaaaaaaa']
+
+
+def test_registers_are_replaced_atomically(tmp_repo, monkeypatch):
+    """A crash while writing leaves the old file whole and no temporary file behind."""
+    write_source(_source('aaaaaaaaaaaa'))
+    add_passage('aaaaaaaaaaaa', 'He works for Zest.')
+    before = paths.SOURCES.read_text(encoding='utf-8'), read_excerpt('aaaaaaaaaaaa')
+    monkeypatch.setattr(os, 'replace', lambda *args: (_ for _ in ()).throw(OSError('disk full')))
+    with pytest.raises(OSError):
+        write_source(_source('bbbbbbbbbbbb'))
+    with pytest.raises(OSError):
+        add_passage('aaaaaaaaaaaa', 'Nowadays he works for kitconcept.')
+    assert (paths.SOURCES.read_text(encoding='utf-8'), read_excerpt('aaaaaaaaaaaa')) == before
+    assert sorted(path.name for path in paths.SOURCES.parent.rglob('.tmp-*')) == []

@@ -1,8 +1,13 @@
 """The register of sources: the pages, profiles, commits and videos that the other registers cite."""
 
+import contextlib
 import csv
 import hashlib
+import io
+import os
 import re
+import stat
+import tempfile
 from dataclasses import dataclass
 from datetime import UTC, date, datetime
 from pathlib import Path
@@ -107,6 +112,24 @@ def excerpt_path(source_id):
     return Path(paths.EXCERPTS_DIR) / f'{source_id}.md'
 
 
+def _write_atomic(path, text):
+    """Write to a temporary file next to the path, then rename it: readers see the old file or the whole new one.
+
+    The new file keeps the permissions of the old one (a temporary file is private to its owner).
+    """
+    path = Path(path)
+    handle, temporary = tempfile.mkstemp(dir=path.parent, prefix='.tmp-')
+    try:
+        with os.fdopen(handle, 'w', encoding='utf-8', newline='') as out:
+            out.write(text)
+        os.chmod(temporary, stat.S_IMODE(path.stat().st_mode) if path.exists() else 0o644)
+        os.replace(temporary, path)
+    except BaseException:
+        with contextlib.suppress(OSError):
+            os.unlink(temporary)
+        raise
+
+
 PASSAGE_SEPARATOR = '\n\n---\n\n'
 SOURCE_FIELDS = ('id', 'kind', 'title', 'date', 'url', 'archive_url', 'fetched', 'notes')
 
@@ -124,10 +147,11 @@ def write_source(source):
         rows.append({'id': item.id, 'kind': item.kind, 'title': item.title, 'date': item.date.isoformat(),
                      'url': item.url, 'archive_url': item.archive_url or '', 'fetched': fetched,
                      'notes': item.notes or ''})
-    with open(paths.SOURCES, 'w', newline='', encoding='utf-8') as f:
-        writer = csv.DictWriter(f, fieldnames=SOURCE_FIELDS, quoting=csv.QUOTE_MINIMAL, lineterminator='\n')
-        writer.writeheader()
-        writer.writerows(rows)
+    buffer = io.StringIO()
+    writer = csv.DictWriter(buffer, fieldnames=SOURCE_FIELDS, quoting=csv.QUOTE_MINIMAL, lineterminator='\n')
+    writer.writeheader()
+    writer.writerows(rows)
+    _write_atomic(paths.SOURCES, buffer.getvalue())
     _MEMO[str(Path(paths.SOURCES).resolve())] = (_stamp(paths.SOURCES), dict(sorted(existing.items())))
 
 
@@ -156,5 +180,5 @@ def add_passage(source_id, passage):
         return False
     path = excerpt_path(source_id)
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(PASSAGE_SEPARATOR.join([*existing, passage]) + '\n', encoding='utf-8')
+    _write_atomic(path, PASSAGE_SEPARATOR.join([*existing, passage]) + '\n')
     return True
