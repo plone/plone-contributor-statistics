@@ -254,7 +254,8 @@ def capture(url: str, quotes: Sequence[str] = (), kind: str | None = None, title
         except _Gone as gone:
             nearest = None if split else nearest_capture(fetcher, url)
             if nearest is None:
-                return _unreachable(sources.get(sid), sid, original, timestamp, gone, quotes or names, kind, title, date)
+                return _unreachable(sources.get(sid), sid, original, timestamp, gone, quotes or names, kind, title,
+                                    date)
             read = _read_archive(fetcher, nearest, KIND_BY_ADAPTER.get(adapter_for(url)), run)
     except _Gone as gone:  # the nearest capture is gone as well
         return _unreachable(sources.get(sid), sid, original, timestamp, gone, quotes or names, kind, title, date)

@@ -7,8 +7,8 @@ import subprocess
 import pytest
 
 from scripts.lib.capture.extract import (
-    ExtractError, adapter_for, decode, extract, extract_commit, extract_github_issue, extract_github_profile, extract_google_doc, extract_html, extract_pdf,
-    extract_video, extract_volto)
+    ExtractError, adapter_for, decode, extract, extract_commit, extract_github_issue, extract_github_profile,
+    extract_google_doc, extract_html, extract_pdf, extract_video, extract_volto)
 from scripts.lib.capture.fetch import FetchError, Raw
 
 FIXTURES = pathlib.Path(__file__).parent / 'fixtures' / 'capture'
@@ -183,7 +183,8 @@ def test_extract_volto_renders_blocks():
 
 
 def test_extract_volto_keeps_query_out_of_api_path():
-    fetcher = FakeFetcher(raw(json.dumps({'title': 'T', 'blocks': {'a': {'@type': 'text', 'text': {'blocks': [{'text': 'Body'}]}}}}).encode()))
+    page = {'title': 'T', 'blocks': {'a': {'@type': 'text', 'text': {'blocks': [{'text': 'Body'}]}}}}
+    fetcher = FakeFetcher(raw(json.dumps(page).encode()))
     extract_volto(fetcher, 'https://2023.ploneconf.org/talks/x?a=1')
     assert fetcher.urls == ['https://2023.ploneconf.org/++api++/talks/x']
 
@@ -464,7 +465,8 @@ def test_extract_issue_with_comments_paginates():
     blocks = result.text.split('\n\n')
     assert blocks[0] == 'Title: Map Fred\nAuthor: jane\nDate: 2026-10-01T00:00:00Z'
     assert blocks[1] == 'Please.'
-    assert result.text.count('Author: bob') == 100 and result.text.endswith('Author: amy\nDate: 2026-10-04T00:00:00Z\n\n')
+    assert result.text.count('Author: bob') == 100
+    assert result.text.endswith('Author: amy\nDate: 2026-10-04T00:00:00Z\n\n')
     assert result.title == 'Map Fred' and result.date == datetime.date(2026, 10, 1)
 
 

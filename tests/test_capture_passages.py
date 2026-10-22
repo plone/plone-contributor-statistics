@@ -90,6 +90,8 @@ def test_find_name_ignores_case_and_accents():
 
 
 def test_find_name_maps_decomposed_text_back_whole():
-    text = 'Müller wrote this'
+    decomposed = 'Mu\u0308ller'  # u and a combining diaeresis, as pdftotext writes it
+    text = f'{decomposed} wrote this'
     span = find_name(text, 'muller')
-    assert text[span[0]:span[1]] == 'Müller'
+    assert text[span[0]:span[1]] == decomposed
+    assert find_name(text, 'M\u00fcller') == span

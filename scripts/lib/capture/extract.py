@@ -420,7 +420,8 @@ def extract_video(url: str, workdir: str, run=subprocess.run, fetcher=None, whic
     except subprocess.TimeoutExpired as error:
         raise ExtractError(f'yt-dlp timed out after {error.timeout} seconds for {url}') from error
     except subprocess.CalledProcessError as error:
-        output = b''.join(part if isinstance(part, bytes) else str(part or '').encode() for part in (error.stderr, error.stdout))
+        output = b''.join(part if isinstance(part, bytes) else str(part or '').encode()
+                          for part in (error.stderr, error.stdout))
         if b'HTTP Error 429' in output:
             raise ExtractError(f'rate limited: YouTube answered HTTP 429 for {url}; retry later') from error
         raise ExtractError(f'yt-dlp failed for {url}: {error.stderr!r}') from error

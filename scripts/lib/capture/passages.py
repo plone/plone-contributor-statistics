@@ -118,7 +118,8 @@ def find_name(text: str, name: str) -> tuple[int, int] | None:
     pos = normalized.find(needle)
     while pos >= 0:
         end = pos + len(needle)
-        if (pos == 0 or not normalized[pos - 1].isalnum()) and (end == len(normalized) or not normalized[end].isalnum()):
+        if ((pos == 0 or not normalized[pos - 1].isalnum())
+                and (end == len(normalized) or not normalized[end].isalnum())):
             return starts[pos], ends[end - 1]
         pos = normalized.find(needle, pos + 1)
     return None

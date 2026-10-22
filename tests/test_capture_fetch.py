@@ -360,9 +360,11 @@ def test_old_cache_entry_without_final_url(tmp_path):
     fetcher, session, _ = make(tmp_path)
     fetcher.get('https://a.org/x')
     meta_path = fetcher._paths('https://a.org/x')[1]
-    meta = json.loads(open(meta_path).read())
+    with open(meta_path, encoding='utf-8') as f:
+        meta = json.load(f)
     meta.pop('final_url', None)
-    open(meta_path, 'w').write(json.dumps(meta))
+    with open(meta_path, 'w', encoding='utf-8') as f:
+        json.dump(meta, f)
     raw = fetcher.get('https://a.org/x')
     assert raw.final_url == 'https://a.org/x'
     assert len(session.requests) == 1

@@ -524,7 +524,8 @@ def issue_pages(owner_repo, number=5):
     issue = {'title': 'Map Fred', 'user': {'login': 'jane'}, 'created_at': '2026-10-01T00:00:00Z',
              'body': 'Please map Fred.\n\nHe works for Zest Software.'}
     comments = [{'user': {'login': 'bob'}, 'created_at': '2026-10-02T00:00:00Z', 'body': 'Unrelated remark.'},
-                {'user': {'login': 'amy'}, 'created_at': '2026-10-03T00:00:00Z', 'body': 'Confirmed: Fred is at kitconcept.'}]
+                {'user': {'login': 'amy'}, 'created_at': '2026-10-03T00:00:00Z',
+                 'body': 'Confirmed: Fred is at kitconcept.'}]
     return {f'{api}/issues/{number}': FakeResponse(body=json.dumps(issue).encode()),
             f'{api}/issues/{number}/comments': FakeResponse(body=json.dumps(comments).encode())}
 
