@@ -32,4 +32,19 @@ from scripts.lib.model.registers import (  # noqa: F401
     load_registry,
     load_rejections,
 )
+from scripts.lib.model.sources import (  # noqa: F401
+    PASSAGE_SEPARATOR,
+    SOURCE_KINDS,
+    Source,
+    add_passage,
+    archive_url_of,
+    excerpt_path,
+    load_sources,
+    normalize_url,
+    passages,
+    read_excerpt,
+    source_id,
+    split_archive_url,
+    write_source,
+)
 from scripts.lib.model.schema import read_rows, split_set  # noqa: F401

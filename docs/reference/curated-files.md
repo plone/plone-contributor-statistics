@@ -144,6 +144,35 @@ Checks beyond the schema:
 
 - The rows are sorted by `person`, `from`.
 
+## Sources
+
+The sources the registers cite, in `curated/sources/`, each with an excerpt file of the cited passages.
+
+### Sources
+
+File: `curated/sources/sources.csv`
+
+One row is one source: a page, profile, commit, video or decision that we read once; its excerpt file holds the passages we cite.
+
+| Field | Type | Constraints | Description |
+|---|---|---|---|
+| `id` | string | required; unique; pattern `^[0-9a-f]{12}$` | Opaque, stable identifier of the source: the first twelve hex digits of a hash of its normalised address and the archive timestamp. |
+| `kind` | string | required; one of `page`, `speaker-page`, `profile`, `commit`, `video`, `pdf`, `register`, `issue-comment`, `decision` | What kind of source it is. |
+| `title` | string | required | The title of the source as a reader sees it. |
+| `date` | date | required | The date the source speaks for: its publication date if it shows one, else the capture date of the archived copy, else the day it was fetched. |
+| `url` | string | required; pattern `^https?://.*$` | The address of the source on the web. |
+| `archive_url` | string | pattern `^https://web\.archive\.org/web/\d{14}/https?://.*$` | The address of the Wayback Machine copy that was read, if one was. |
+| `fetched` | datetime | required | When the source was read, in UTC. |
+| `notes` | string |  | Anything a reader of the source needs to know. |
+
+Primary key: `id`.
+
+Checks beyond the schema:
+
+- The id is the hash of the address and, for an archived copy, its timestamp.
+- The rows are sorted by `id`.
+- Every source has an excerpt file with a passage, and every excerpt file has a source.
+
 ## Lists
 
 Accounts and repositories that the collectors treat in a special way, in `curated/mappings/`.

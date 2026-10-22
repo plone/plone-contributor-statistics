@@ -19,6 +19,7 @@ prepare-a-new-year
 add-a-person
 add-an-affiliation
 add-curated-community-data
+capture-a-source
 regenerate-after-a-mapping-change
 find-a-contributor
 link-old-commits-to-a-person

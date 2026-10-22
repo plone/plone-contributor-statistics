@@ -2388,6 +2388,18 @@
    "name": "plone-plips-before-github",
    "path": "plips/plone-plips-before-github.csv",
    "schema": "schemas/plips-before-github.json"
+  },
+  {
+   "dialect": {
+    "csv": {
+     "delimiter": ","
+    }
+   },
+   "encoding": "utf-8",
+   "format": "csv",
+   "name": "sources",
+   "path": "sources/sources.csv",
+   "schema": "schemas/sources.json"
   }
  ]
 }

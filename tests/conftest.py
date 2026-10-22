@@ -20,7 +20,14 @@ EMPTY_MAPPINGS = {
     paths.ORGANISATIONS: 'id,name,kind,github,aliases,notes\n',
     paths.AFFILIATION_PROPOSALS: 'person,organisation,from,to,evidence\n',
     paths.REJECTED_PROPOSALS: 'person,organisation,from,to,reason,source\n',
+    paths.SOURCES: 'id,kind,title,date,url,archive_url,fetched,notes\n',
 }
+
+
+@pytest.fixture(autouse=True)
+def private_cache(tmp_path_factory, monkeypatch):
+    """Every test gets its own cache directory: no test reads or writes the cache of the real checkout."""
+    monkeypatch.setenv('PLONE_STATS_CACHE', str(tmp_path_factory.mktemp('cache')))
 
 
 @pytest.fixture

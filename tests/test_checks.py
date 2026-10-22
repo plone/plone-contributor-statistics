@@ -300,3 +300,74 @@ def test_site_js_normalise_is_fold():
     script = source + f'\nconsole.log(JSON.stringify({json.dumps(samples)}.map(normalise)));'
     out = subprocess.run(['node', '-e', script], capture_output=True, text=True, check=True).stdout
     assert json.loads(out) == [fold(sample) for sample in samples]
+
+
+SOURCE_HEADER = 'id,kind,title,date,url,archive_url,fetched,notes\n'
+
+
+def source_row(url='https://example.org/page', sid=None, timestamp=None):
+    from scripts.lib.model.sources import source_id
+
+    sid = sid or source_id(url, timestamp)
+    return f'{sid},page,A page,2026-01-01,{url},,2026-10-22T10:00:00Z,\n', sid
+
+
+def sources_files(row, excerpts):
+    files = {'sources/sources.csv': SOURCE_HEADER + row}
+    files.update({f'sources/excerpts/{name}.md': text for name, text in excerpts.items()})
+    return files
+
+
+def test_a_correct_source_has_no_errors(tmp_package):
+    row, sid = source_row()
+    assert check.validate(tmp_package(sources_files(row, {sid: 'A passage.\n'}))) == []
+
+
+def test_source_id_must_match_its_url(tmp_package):
+    row, sid = source_row(sid='0123456789ab')
+    errors = check.validate(tmp_package(sources_files(row, {'0123456789ab': 'A passage.\n'})))
+    assert len(errors) == 1
+    assert errors[0][:3] == ('curated/sources/sources.csv', 2, None)
+    assert '0123456789ab' in errors[0][3]
+
+
+def test_source_id_of_an_archive_copy_uses_its_timestamp(tmp_package):
+    archive = 'https://web.archive.org/web/20060101000000/http://example.org/page'
+    row = f'{{}},page,A page,2026-01-01,http://example.org/page,{archive},2026-10-22T10:00:00Z,\n'
+    from scripts.lib.model.sources import source_id
+
+    sid = source_id('http://example.org/page', '20060101000000')
+    files = sources_files(row.format(sid), {sid: 'A passage.\n'})
+    assert check.validate(tmp_package(files)) == []
+
+
+def test_source_without_excerpt_file_is_an_error(tmp_package):
+    row, _ = source_row()
+    errors = check.validate(tmp_package(sources_files(row, {})))
+    assert len(errors) == 1
+    assert errors[0][:2] == ('curated/sources/sources.csv', 2)
+    assert 'excerpt' in errors[0][3]
+
+
+def test_source_with_empty_excerpt_file_is_an_error(tmp_package):
+    row, sid = source_row()
+    errors = check.validate(tmp_package(sources_files(row, {sid: '\n  \n'})))
+    assert len(errors) == 1
+    assert 'passage' in errors[0][3]
+
+
+def test_excerpt_file_without_a_row_is_an_error(tmp_package):
+    row, sid = source_row()
+    errors = check.validate(tmp_package(sources_files(row, {sid: 'A passage.\n', 'ffffffffffff': 'Orphan.\n'})))
+    assert len(errors) == 1
+    file, _, _, message = errors[0]
+    assert file == 'curated/sources/sources.csv'
+    assert 'ffffffffffff.md' in message
+
+
+def test_sources_must_be_sorted_by_id(tmp_package):
+    first, a = source_row('https://example.org/a')
+    second, b = source_row('https://example.org/b')
+    rows = sorted([(a, first), (b, second)], reverse=True)
+    errors = check.validate(tmp_package(sources_files(''.join(r for _, r in rows), {a: 'x\n', b: 'y\n'})))
+    assert [e[3] for e in errors if 'sorts before' in e[3]]

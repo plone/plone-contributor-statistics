@@ -2,11 +2,13 @@
 
 import re
 from collections import defaultdict
+from pathlib import Path
 
 import attrs
 from frictionless import Check, errors
 
 from scripts.lib.model.names import fold
+from scripts.lib.model.sources import source_id, split_archive_url
 
 OPEN_END = 9999
 
@@ -73,6 +75,27 @@ class SourceLinkError(errors.CellError):
     title = 'Source Link'
     description = 'The source of an identity contains no web address.'
     template = 'The cell {cell} in row at position {rowNumber} and field {fieldName} has an error: {note}'
+
+
+class SourceIdError(errors.RowError):
+    type = 'source-id'
+    title = 'Source Id'
+    description = 'The id of a source is not the hash of its address and archive timestamp.'
+    template = 'The row at position {rowNumber} has an error: {note}'
+
+
+class SourceExcerptError(errors.RowError):
+    type = 'source-excerpt'
+    title = 'Source Excerpt'
+    description = 'A source has no excerpt file with a passage, or an excerpt file has no source.'
+    template = 'The row at position {rowNumber} has an error: {note}'
+
+
+class SourceExcerptOrphanError(errors.TableError):
+    type = 'source-excerpt'
+    title = 'Source Excerpt'
+    description = 'A source has no excerpt file with a passage, or an excerpt file has no source.'
+    template = 'General table error: {note}'
 
 
 @attrs.define(kw_only=True, repr=False)
@@ -286,6 +309,52 @@ class LinkUnlessEmail(Check):
             yield SourceLinkError.from_row(row, note='the source needs a link', field_name='source')
 
 
+@attrs.define(kw_only=True, repr=False)
+class SourceIdMatchesUrl(Check):
+    """The id is the hash of the address and, for an archived copy, its timestamp."""
+
+    type = 'source-id'
+    Errors = [SourceIdError]
+
+    def validate_row(self, row):
+        archive = split_archive_url(row['archive_url']) if row['archive_url'] else None
+        expected = source_id(row['url'], archive[1] if archive else None)
+        if row['id'] != expected:
+            yield SourceIdError.from_row(row, note=f'the id of {row["url"]} is {expected}, not {row["id"]}')
+
+
+@attrs.define(kw_only=True, repr=False)
+class SourceExcerptFiles(Check):
+    """Every source has an excerpt file with a passage, and every excerpt file has a source."""
+
+    type = 'source-excerpt'
+    Errors = [SourceExcerptError, SourceExcerptOrphanError]
+
+    folder: Path
+    """The folder of the excerpt files."""
+    stems: set = attrs.field(factory=set)
+    """The names, without `.md`, of the excerpt files on disk."""
+    _ids: set = attrs.field(factory=set, init=False)
+
+    def validate_row(self, row):
+        self._ids.add(row['id'])
+        path = self.folder / f'{row["id"]}.md'
+        if row['id'] not in self.stems:
+            yield SourceExcerptError.from_row(row, note=f'the excerpt file {path.name} is missing')
+        elif not path.read_text(encoding='utf-8').strip():
+            yield SourceExcerptError.from_row(row, note=f'the excerpt file {path.name} has no passage')
+
+    def validate_end(self):
+        for stem in sorted(self.stems - self._ids):
+            yield SourceExcerptOrphanError(note=f'the excerpt file {stem}.md has no row in sources.csv')
+
+
+def _excerpt_stems(package):
+    """The file names without `.md` in the excerpt folder next to the curated files of the package."""
+    folder = Path(package.basepath) / 'sources' / 'excerpts'
+    return {path.stem for path in folder.glob('*.md')} if folder.is_dir() else set()
+
+
 def _keys_of(package, resource_name):
     """The values of the primary key column of a resource in the package."""
     resource = package.get_resource(resource_name)
@@ -312,6 +381,9 @@ def checks_for(resource_name, package):
         'identities': lambda: [LinkUnlessEmail(), Sorted(fields=['person', 'kind', 'value'], casefold=False),
                                UniqueCasefold(field='value', scope='kind'),
                                LoginOwner(github=_github_owners(package))],
+        'sources': lambda: [SourceIdMatchesUrl(), Sorted(fields=['id'], casefold=False),
+                            SourceExcerptFiles(folder=Path(package.basepath) / 'sources' / 'excerpts',
+                                               stems=_excerpt_stems(package))],
     }
     result = checks.get(resource_name, lambda: [])()
     for field in package.get_resource(resource_name).schema.fields:

@@ -1,0 +1,82 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "Opaque, stable identifier of the source: the first twelve hex digits of a hash of its normalised address and the archive timestamp.",
+      "constraints": {
+        "required": true,
+        "unique": true,
+        "pattern": "^[0-9a-f]{12}$"
+      }
+    },
+    {
+      "name": "kind",
+      "type": "string",
+      "description": "What kind of source it is.",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "page",
+          "speaker-page",
+          "profile",
+          "commit",
+          "video",
+          "pdf",
+          "register",
+          "issue-comment",
+          "decision"
+        ]
+      }
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": "The title of the source as a reader sees it.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "date",
+      "type": "date",
+      "description": "The date the source speaks for: its publication date if it shows one, else the capture date of the archived copy, else the day it was fetched.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "url",
+      "type": "string",
+      "description": "The address of the source on the web.",
+      "constraints": {
+        "required": true,
+        "pattern": "^https?://.*$"
+      }
+    },
+    {
+      "name": "archive_url",
+      "type": "string",
+      "description": "The address of the Wayback Machine copy that was read, if one was.",
+      "constraints": {
+        "pattern": "^https://web\\.archive\\.org/web/\\d{14}/https?://.*$"
+      }
+    },
+    {
+      "name": "fetched",
+      "type": "datetime",
+      "description": "When the source was read, in UTC.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "notes",
+      "type": "string",
+      "description": "Anything a reader of the source needs to know."
+    }
+  ],
+  "primaryKey": [
+    "id"
+  ]
+}
