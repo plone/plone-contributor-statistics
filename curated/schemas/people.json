@@ -17,23 +17,6 @@
       "constraints": {
         "required": true
       }
-    },
-    {
-      "name": "github",
-      "type": "string",
-      "description": "The GitHub login of the person, with the case it has on GitHub.",
-      "constraints": {
-        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?$"
-      }
-    },
-    {
-      "name": "source",
-      "type": "string",
-      "description": "A public record, linked as a web address, that connects the person to the name and login.",
-      "constraints": {
-        "required": true,
-        "pattern": ".*https?://.*"
-      }
     }
   ],
   "primaryKey": [

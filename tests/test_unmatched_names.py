@@ -3,11 +3,14 @@
 from scripts.lib import paths
 from scripts.lib.model import load_registry
 from scripts.tools import unmatched_names
+from tests.conftest import record_source
 
 
 def write_people(rows):
-    paths.PEOPLE.write_text('id,name,github,source\n' + ''.join(
-        f'{i},{name},{github},https://example.org/{i}\n' for i, name, github in rows), encoding='utf-8')
+    sid = record_source()
+    paths.PEOPLE.write_text('id,name\n' + ''.join(f'{i},{name}\n' for i, name, _ in rows), encoding='utf-8')
+    paths.IDENTITIES.write_text('person,kind,value,source,snippet,notes\n' + ''.join(
+        f'{i},github,{github},{sid},,\n' for i, _, github in rows if github), encoding='utf-8')
 
 
 def write_contributors(*logins):

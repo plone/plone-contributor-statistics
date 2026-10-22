@@ -3,16 +3,14 @@ from pathlib import Path
 
 import pytest
 
+from scripts.lib.model import affiliation_id
 from scripts.lib.model.names import fold, slugify
+from scripts.lib.model.sources import source_id
 from scripts.tools import check, datapackage
 
 REPO = Path(__file__).resolve().parent.parent
 TRAININGS = 'community-contributions/2023-plone-conference-trainings.csv'
-PEOPLE = (
-    'id,name,github,source\n'
-    'pbauer,Philip Bauer,pbauer,https://github.com/pbauer\n'
-    'tschorr,Timo Stollenwerk,tschorr,https://github.com/tschorr\n'
-)
+PEOPLE = 'id,name\npbauer,Philip Bauer\ntschorr,Timo Stollenwerk\n'
 
 
 @pytest.fixture
@@ -57,59 +55,6 @@ def test_set_keys_rejects_unknown_key(tmp_package):
     assert 'nobody' in errors[0][3]
 
 
-def test_affiliation_overlap_names_both_rows(tmp_package):
-    root = tmp_package(
-        {
-            'mappings/people.csv': PEOPLE,
-            'mappings/organisations.csv': 'id,name,kind,github,aliases,notes\nacme,Acme,organisation,,,\n',
-            'mappings/affiliations.csv': (
-                'person,organisation,from,to,source,checked,notes\n'
-                'pbauer,acme,2010,2016,https://example.org/a,,\n'
-                'pbauer,acme,2016,,https://example.org/b,2026-10-19,\n'
-            ),
-        }
-    )
-    errors = check.validate(root)
-    assert len(errors) == 1
-    assert '2' in errors[0][3] and '3' in errors[0][3]
-
-
-def test_a_guess_does_not_reach_back_past_a_record_of_another_organisation(tmp_package):
-    guess = 'range from the current entry; years before 2026 not verified (#139)'
-    root = tmp_package(
-        {
-            'mappings/people.csv': PEOPLE,
-            'mappings/organisations.csv': ('id,name,kind,github,aliases,notes\nacme,Acme,organisation,,,\n'
-                                           'zeta,Zeta,organisation,,,\n'),
-            'mappings/affiliations.csv': (
-                'person,organisation,from,to,source,checked,notes\n'
-                f'pbauer,acme,2002,2009,https://example.org/a,2026-10-19,{guess}\n'
-                'pbauer,zeta,2010,2015,https://example.org/b,,\n'
-                f'pbauer,acme,2016,,https://example.org/a,2026-10-19,{guess}\n'
-            ),
-        }
-    )
-    errors = check.validate(root)
-    assert [e[3] for e in errors] == [
-        'The row at position 2 has an error: the guessed years 2002-2009 of acme lie before the record of zeta '
-        'in row 3, and acme returns later']
-    # A verified return is a real boomerang, and a guess that comes back after a guess is not a record
-    root = tmp_package(
-        {
-            'mappings/people.csv': PEOPLE,
-            'mappings/organisations.csv': ('id,name,kind,github,aliases,notes\nacme,Acme,organisation,,,\n'
-                                           'zeta,Zeta,organisation,,,\n'),
-            'mappings/affiliations.csv': (
-                'person,organisation,from,to,source,checked,notes\n'
-                'pbauer,acme,2002,2009,https://example.org/a,,\n'
-                'pbauer,zeta,2010,2015,https://example.org/b,,\n'
-                f'pbauer,acme,2016,,https://example.org/a,2026-10-19,{guess}\n'
-            ),
-        }
-    )
-    assert check.validate(root) == []
-
-
 def test_name_fold_rejects_near_duplicate(tmp_package):
     root = tmp_package(
         {
@@ -142,50 +87,6 @@ def test_check_hints_nearest_ids(tmp_package, capsys):
     assert 'nearest:' in out and 'pbauer' in out.split('nearest:')[1]
 
 
-def test_foreign_key_error_hints_nearest_ids(tmp_package):
-    root = tmp_package(
-        {
-            'mappings/people.csv': PEOPLE,
-            'mappings/organisations.csv': 'id,name,kind,github,aliases,notes\nacme,Acme,organisation,,,\n',
-            'mappings/affiliations.csv': (
-                'person,organisation,from,to,source,checked,notes\npbaur,acme,2010,2016,https://example.org/a,,\n'
-            ),
-        }
-    )
-    errors = check.validate(root)
-    assert len(errors) == 1
-    assert errors[0][1] == 2
-    assert errors[0][3].endswith('nearest: pbauer')
-
-
-def test_sorted_unique_github_and_identity_link(tmp_package):
-    root = tmp_package(
-        {
-            'mappings/people.csv': (
-                'id,name,github,source\nb,B,Same,https://example.org/b\na,A,same,https://example.org/a\n'
-            ),
-            'mappings/identities.csv': (
-                'person,kind,value,source\na,email,a@example.org,\na,website,https://a.example.org,not a link\n'
-            ),
-        }
-    )
-    found = [(file.rsplit('/', 1)[1], row) for file, row, _, _ in check.validate(root)]
-    assert found.count(('people.csv', 3)) == 2  # not sorted, and the login repeats
-    assert found.count(('identities.csv', 3)) >= 1
-    assert ('identities.csv', 2) not in found  # an email needs no link
-
-
-def test_identity_link_may_follow_text(tmp_package):
-    # As in every other source column, the link may come after the words that say what it shows
-    root = tmp_package(
-        {
-            'mappings/people.csv': 'id,name,github,source\na,A,a,https://example.org/a\n',
-            'mappings/identities.csv': 'person,kind,value,source\na,name,A B,example commit: https://example.org/c\n',
-        }
-    )
-    assert check.validate(root) == []
-
-
 def test_check_clean_prints_nothing(tmp_package, capsys):
     tmp_package(trainings('pbauer;tschorr'))
     check.main([])
@@ -213,70 +114,233 @@ def test_a_stale_descriptor_is_its_own_error_line(tmp_package, capsys):
 
 
 ACME = 'id,name,kind,github,aliases,notes\nacme,Acme,organisation,,,\n'
-AFFILIATIONS = 'person,organisation,from,to,source,checked,notes\n'
+BETA = ACME + 'beta,Beta,organisation,,,\n'
+ZETA = ACME + 'zeta,Zeta,organisation,,,\n'
+AFFILIATIONS = 'id,person,organisation,from,to,status,checked,notes\n'
+CITATIONS = 'affiliation,source,snippet,supersedes,notes\n'
+SOURCES_HEADER = 'id,kind,title,date,url,archive_url,fetched,notes\n'
+RECORD = 'https://example.org/record'
+RECORD_PAGE = (RECORD, 'page', '2026-01-01', 'Philip Bauer works at Acme.')
+DECISION_A = 'https://github.com/plone/plone-contributor-statistics/pull/1#issuecomment-1'
+DECISION_B = 'https://github.com/plone/plone-contributor-statistics/pull/2#issuecomment-2'
 
 
-def affiliations(*rows):
-    return {'mappings/people.csv': PEOPLE, 'mappings/organisations.csv': ACME,
-            'mappings/affiliations.csv': AFFILIATIONS + ''.join(f'{row}\n' for row in rows)}
+def sources(*pages):
+    """sources.csv and the excerpt files of the pages, each (url, kind, date, excerpt)."""
+    rows = sorted((source_id(url), kind, on, url, text) for url, kind, on, text in pages)
+    files = {'sources/sources.csv': SOURCES_HEADER + ''.join(
+        f'{sid},{kind},A page,{on},{url},,2026-10-22T10:00:00Z,\n' for sid, kind, on, url, _ in rows)}
+    files.update({f'sources/excerpts/{sid}.md': f'{text}\n' for sid, _, _, _, text in rows})
+    return files
+
+
+def affiliations(*rows, person='pbauer', organisations=ACME, citations=None, pages=(RECORD_PAGE,)):
+    """The registers with affiliations of the person, each (organisation, from, to[, status[, checked]]).
+
+    Every affiliation cites the record, unless `citations` gives the rows of citations.csv.
+    """
+    lines = []
+    for organisation, start, end, *rest in rows:
+        status, checked = (list(rest) + ['stated', ''][len(rest):])[:2]
+        aid = affiliation_id(person, organisation, start, end)
+        lines.append(f'{aid},{person},{organisation},{start},{"" if end is None else end},{status},{checked},')
+    if citations is None:
+        citations = sorted(f'{line.split(",")[0]},{source_id(RECORD)},,,' for line in lines)
+    return {'mappings/people.csv': PEOPLE, 'mappings/organisations.csv': organisations,
+            'mappings/affiliations.csv': AFFILIATIONS + ''.join(f'{line}\n' for line in lines),
+            'mappings/citations.csv': CITATIONS + ''.join(f'{row}\n' for row in citations),
+            **sources(*pages)}
+
+
+def test_foreign_key_error_hints_nearest_ids(tmp_package):
+    errors = check.validate(tmp_package(affiliations(('acme', 2010, 2016), person='pbaur')))
+    assert len(errors) == 1
+    assert errors[0][:2] == ('curated/mappings/affiliations.csv', 2)
+    assert errors[0][3].endswith('nearest: pbauer')
+
+
+def test_people_are_sorted_by_id(tmp_package):
+    errors = check.validate(tmp_package({'mappings/people.csv': 'id,name\nb,B\na,A\n'}))
+    assert [(file, row) for file, row, _, _ in errors] == [('curated/mappings/people.csv', 3)]
 
 
 def test_an_affiliation_may_not_end_before_it_starts(tmp_package):
-    errors = check.validate(tmp_package(affiliations('pbauer,acme,2016,2010,https://example.org/a,,')))
+    errors = check.validate(tmp_package(affiliations(('acme', 2016, 2010))))
     assert [(row, message) for _, row, _, message in errors] == [
         (2, 'The row at position 2 has an error: from 2016 is after to 2010')]
 
 
 def test_an_affiliation_of_one_year_is_fine(tmp_package):
-    assert check.validate(tmp_package(affiliations('pbauer,acme,2016,2016,https://example.org/a,,'))) == []
+    assert check.validate(tmp_package(affiliations(('acme', 2016, 2016)))) == []
 
 
 def test_an_open_ended_affiliation_needs_checked(tmp_package):
-    errors = check.validate(tmp_package(affiliations('pbauer,acme,2016,,https://example.org/a,,')))
+    errors = check.validate(tmp_package(affiliations(('acme', 2016, None))))
     assert len(errors) == 1
     assert errors[0][1] == 2 and 'needs checked' in errors[0][3]
 
 
 def test_an_open_ended_affiliation_with_checked_is_fine(tmp_package):
-    assert check.validate(tmp_package(affiliations('pbauer,acme,2016,,https://example.org/a,2026-10-19,'))) == []
+    assert check.validate(tmp_package(affiliations(('acme', 2016, None, 'stated', '2026-10-19')))) == []
+
+
+def test_affiliations_are_sorted_by_person_year_and_organisation(tmp_package):
+    files = affiliations(('beta', 2010, 2011, 'assumed'), ('acme', 2010, 2011), organisations=BETA)
+    errors = check.validate(tmp_package(files))
+    assert [(row, 'sorts before' in message) for _, row, _, message in errors] == [(3, True)]
+
+
+def test_an_affiliation_id_is_unique_and_its_status_one_of_four(tmp_package):
+    files = affiliations(('acme', 2010, 2011, 'guessed'), ('acme', 2012, 2013))
+    header, first, second = files['mappings/affiliations.csv'].splitlines()
+    files['mappings/affiliations.csv'] = '\n'.join([header, first, first.split(',')[0] + second[9:]]) + '\n'
+    errors = check.validate(tmp_package(files))
+    assert [(row, field) for file, row, field, _ in errors if file.endswith('affiliations.csv')] == [
+        (2, 'status'), (3, 'id'), (3, None)]
+
+
+def test_an_affiliation_needs_a_citation_unless_it_is_a_proposal(tmp_package):
+    errors = check.validate(tmp_package(affiliations(('acme', 2010, 2011), ('beta', 2014, 2015, 'proposed'),
+                                                     organisations=BETA, citations=[])))
+    assert [(file, row) for file, row, _, _ in errors] == [('curated/mappings/affiliations.csv', 2)]
+    assert 'no citation' in errors[0][3]
+
+
+def test_an_assumed_range_does_not_reach_back_past_a_record_of_another_organisation(tmp_package):
+    errors = check.validate(tmp_package(affiliations(
+        ('acme', 2002, 2009, 'assumed'), ('zeta', 2010, 2015), ('acme', 2016, None, 'assumed', '2026-10-19'),
+        organisations=ZETA)))
+    assert [e[3] for e in errors] == [
+        'The row at position 2 has an error: the assumed years 2002-2009 of acme lie before the record of zeta '
+        'in row 3, and acme returns later']
+    # A stated return is a real boomerang, and an assumed range that comes back after another is not a record
+    assert check.validate(tmp_package(affiliations(
+        ('acme', 2002, 2009), ('zeta', 2010, 2015), ('acme', 2016, None, 'assumed', '2026-10-19'),
+        organisations=ZETA))) == []
+    assert check.validate(tmp_package(affiliations(
+        ('acme', 2002, 2009, 'assumed'), ('zeta', 2010, 2015, 'assumed'), ('acme', 2016, None, 'assumed', '2026-10-19'),
+        organisations=ZETA))) == []
+
+
+def test_overlapping_affiliations_are_fine_when_a_rule_decides(tmp_package):
+    # Stated beats assumed in 2012-2013
+    assert check.validate(tmp_package(affiliations(('acme', 2010, 2015, 'assumed'), ('beta', 2012, 2013),
+                                                   organisations=BETA))) == []
+
+
+def test_an_unresolved_conflict_is_an_error(tmp_package):
+    # 2012-2013: two stated records, no change year, no record of the year, no commits
+    errors = check.validate(tmp_package(affiliations(('acme', 2010, 2014), ('beta', 2012, 2013), organisations=BETA)))
+    assert errors == [('curated/mappings/affiliations.csv', None, None,
+                       f'General table error: pbauer, {year}: no attribution rule decides between acme, beta; '
+                       f'record a decision') for year in (2012, 2013)]
+
+
+def decisions(supersedes):
+    """Two decisions for pbauer in 2012: acme, then beta, whose citation names the earlier one, or not."""
+    first, later = affiliation_id('pbauer', 'acme', 2012, 2012), affiliation_id('pbauer', 'beta', 2012, 2012)
+    a, b = source_id(DECISION_A), source_id(DECISION_B)
+    pages = [(DECISION_A, 'decision', '2026-01-01', 'Acme in 2012.'), (DECISION_B, 'decision', '2026-02-01', 'Beta.')]
+    rows = sorted([f'{first},{a},,,', f'{later},{b},,{supersedes},'])
+    return affiliations(('acme', 2012, 2012), ('beta', 2012, 2012), organisations=BETA, citations=rows, pages=pages)
+
+
+def test_a_later_decision_must_name_the_earlier_one(tmp_package):
+    errors = check.validate(tmp_package(decisions('')))
+    assert len(errors) == 1
+    assert errors[0][:3] == ('curated/mappings/affiliations.csv', None, None)
+    assert 'does not name the earlier decision' in errors[0][3] and 'for 2012' in errors[0][3]
+    assert check.validate(tmp_package(decisions(source_id(DECISION_A)))) == []
+
+
+def test_supersedes_names_sources(tmp_package):
+    errors = check.validate(tmp_package(decisions(f'{source_id(DECISION_A)};ffffffffffff')))
+    assert [(file, row, field) for file, row, field, _ in errors] == [
+        ('curated/mappings/citations.csv', 3, 'supersedes')]
+    assert '"ffffffffffff" is not in the register' in errors[0][3]
+
+
+def test_a_snippet_is_in_the_excerpt_of_its_source(tmp_package):
+    aid, record = affiliation_id('pbauer', 'acme', 2010, 2011), source_id(RECORD)
+    # Whitespace does not matter
+    rows = [f'{aid},{record},He founded Acme.,,', f'{aid},{record},Philip  Bauer works\tat Acme,,']
+    errors = check.validate(tmp_package(affiliations(('acme', 2010, 2011), citations=rows)))
+    assert [(file, row, field) for file, row, field, _ in errors] == [('curated/mappings/citations.csv', 2, 'snippet')]
+
+
+def test_citations_point_to_affiliations_and_sources(tmp_package):
+    aid, record = affiliation_id('pbauer', 'acme', 2010, 2011), source_id(RECORD)
+    rows = sorted([f'{aid},0123456789ab,,,', f'{aid},{record},,,', f'a12345678,{record},,,'])
+    errors = check.validate(tmp_package(affiliations(('acme', 2010, 2011), citations=rows)))
+    assert [(row, field) for _, row, field, _ in errors] == [(2, 'affiliation'), (3, 'source')]
+
+
+def test_citations_are_sorted(tmp_package):
+    aid, record = affiliation_id('pbauer', 'acme', 2010, 2011), source_id(RECORD)
+    rows = [f'{aid},{record},works at,,', f'{aid},{record},Philip Bauer,,']
+    errors = check.validate(tmp_package(affiliations(('acme', 2010, 2011), citations=rows)))
+    assert [(file, row) for file, row, _, _ in errors] == [('curated/mappings/citations.csv', 3)]
 
 
 def identities(*rows, people=PEOPLE):
-    return {'mappings/people.csv': people,
-            'mappings/identities.csv': 'person,kind,value,source\n' + ''.join(f'{row}\n' for row in rows)}
+    """The registers with the identities, each `person,kind,value,source,snippet,notes` with RECORD for the record."""
+    record = source_id(RECORD)
+    return {'mappings/people.csv': people, **sources(RECORD_PAGE),
+            'mappings/identities.csv': 'person,kind,value,source,snippet,notes\n' + ''.join(
+                f'{row.replace("RECORD", record)}\n' for row in rows)}
+
+
+def test_an_identity_cites_a_source_unless_an_early_address_says_what_it_rests_on(tmp_package):
+    errors = check.validate(tmp_package(identities('pbauer,email,old@localhost,,,',
+                                                   'pbauer,email,pb@localhost,,,the same SVN user as pbauer',
+                                                   'pbauer,name,Phil B,,,')))
+    assert [(row, field) for _, row, field, _ in errors] == [(2, 'source'), (4, 'source')]
+
+
+def test_an_identity_source_is_in_the_source_register(tmp_package):
+    errors = check.validate(tmp_package(identities('pbauer,name,Phil B,0123456789ab,,')))
+    assert [(file, row, field) for file, row, field, _ in errors] == [('curated/mappings/identities.csv', 2, 'source')]
+
+
+def test_identities_are_sorted(tmp_package):
+    errors = check.validate(tmp_package(identities('pbauer,name,Phil B,RECORD,,', 'pbauer,github,pbauer,RECORD,,')))
+    assert [(row, 'sorts before' in message) for _, row, _, message in errors] == [(3, True)]
 
 
 def test_an_identity_value_is_unique_within_its_kind_ignoring_case(tmp_package):
-    errors = check.validate(tmp_package(identities('pbauer,name,Phil B,https://example.org/a',
-                                                   'tschorr,name,phil b,https://example.org/b')))
+    errors = check.validate(tmp_package(identities('pbauer,name,Phil B,RECORD,,', 'tschorr,name,phil b,RECORD,,')))
     assert len(errors) == 1
     assert (errors[0][1], errors[0][2]) == (3, 'value') and 'row 2' in errors[0][3]
 
 
 def test_the_same_value_in_two_kinds_is_fine(tmp_package):
     # A login that is also a spelling in changelogs, of the same person
-    assert check.validate(tmp_package(identities('pbauer,login,pbauer2,https://example.org/a',
-                                                 'pbauer,name,pbauer2,https://example.org/b'))) == []
+    assert check.validate(tmp_package(identities('pbauer,github,pbauer2,RECORD,,',
+                                                 'pbauer,name,pbauer2,RECORD,,'))) == []
 
 
-def test_a_second_login_may_not_be_the_github_of_another_person(tmp_package):
-    errors = check.validate(tmp_package(identities('pbauer,login,TSCHORR,https://example.org/a')))
+def test_a_person_has_one_github_identity(tmp_package):
+    errors = check.validate(tmp_package(identities('pbauer,github,pbauer,RECORD,,', 'pbauer,github,pbauer2,RECORD,,')))
     assert len(errors) == 1
-    message = errors[0][3]
-    assert 'pbauer' in message and 'tschorr' in message and 'people.csv' in message
+    assert errors[0][1:3] == (3, 'value') and 'github-alias' in errors[0][3]
 
 
-def test_a_github_may_not_be_the_second_login_of_another_person(tmp_package):
-    # Seen from people.csv: a new person gets the login that is already another person's second account
-    people = PEOPLE + 'zoe,Zoe,zoe2,https://github.com/zoe2\n'
-    errors = check.validate(tmp_package(identities('pbauer,login,pbauer-old,https://example.org/a',
-                                                   'tschorr,login,zoe2,https://example.org/b', people=people)))
+def test_a_further_account_is_nobodys_github(tmp_package):
+    errors = check.validate(tmp_package(identities('pbauer,github-alias,TSCHORR,RECORD,,',
+                                                   'tschorr,github,tschorr,RECORD,,')))
     assert len(errors) == 1
-    assert 'tschorr' in errors[0][3] and 'zoe' in errors[0][3]
+    assert errors[0][1:3] == (2, 'value') and 'pbauer' in errors[0][3] and 'tschorr' in errors[0][3]
 
 
-def test_a_second_login_of_the_person_itself_is_fine(tmp_package):
-    assert check.validate(tmp_package(identities('pbauer,login,pbauer-old,https://example.org/a'))) == []
+def test_a_further_account_of_the_person_itself_is_fine(tmp_package):
+    assert check.validate(tmp_package(identities('pbauer,github,pbauer,RECORD,,',
+                                                 'pbauer,github-alias,pbauer-old,RECORD,,'))) == []
+
+
+def test_an_identity_snippet_is_in_the_excerpt_of_its_source(tmp_package):
+    errors = check.validate(tmp_package(identities('pbauer,name,Philip Bauer,RECORD,Philip Bauer works,',
+                                                   'tschorr,name,Timo,RECORD,Timo works,')))
+    assert [(row, field) for _, row, field, _ in errors] == [(3, 'snippet')]
 
 
 def test_fold_lower_cases_and_keeps_sharp_s():

@@ -2289,18 +2289,6 @@
    },
    "encoding": "utf-8",
    "format": "csv",
-   "name": "affiliation-proposals",
-   "path": "mappings/affiliation_proposals.csv",
-   "schema": "schemas/affiliation-proposals.json"
-  },
-  {
-   "dialect": {
-    "csv": {
-     "delimiter": ","
-    }
-   },
-   "encoding": "utf-8",
-   "format": "csv",
    "name": "affiliations",
    "path": "mappings/affiliations.csv",
    "schema": "schemas/affiliations.json"
@@ -2316,6 +2304,18 @@
    "name": "bot-accounts",
    "path": "mappings/bot_accounts.csv",
    "schema": "schemas/bot-accounts.json"
+  },
+  {
+   "dialect": {
+    "csv": {
+     "delimiter": ","
+    }
+   },
+   "encoding": "utf-8",
+   "format": "csv",
+   "name": "citations",
+   "path": "mappings/citations.csv",
+   "schema": "schemas/citations.json"
   },
   {
    "dialect": {
@@ -2364,18 +2364,6 @@
    "name": "people",
    "path": "mappings/people.csv",
    "schema": "schemas/people.json"
-  },
-  {
-   "dialect": {
-    "csv": {
-     "delimiter": ","
-    }
-   },
-   "encoding": "utf-8",
-   "format": "csv",
-   "name": "rejected-proposals",
-   "path": "mappings/rejected_proposals.csv",
-   "schema": "schemas/rejected-proposals.json"
   },
   {
    "dialect": {

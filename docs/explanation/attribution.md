@@ -48,9 +48,8 @@ It is then also evidence for the commits of that year, as signatures and partici
 Rows exist only where someone knew about the affiliation and recorded it.
 For the early years especially, many affiliations are unknown, and {doc}`history-and-coverage` explains what follows from that.
 
-Statements that no accepted record confirms yet wait in `curated/mappings/affiliation_proposals.csv`.
-No script reads it.
-A reviewer checks each proposal and moves it into `curated/mappings/affiliations.csv` with its record, or leaves it out.
+Statements that no accepted record confirms yet wait in `curated/mappings/affiliations.csv` as `proposed` rows, which never count.
+A reviewer checks each proposal and turns it into a stated row with its record, or into a `denied` row.
 
 ## Unmapped is not an organisation
 

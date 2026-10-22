@@ -1,7 +1,7 @@
 """Checks that a Table Schema cannot express, as Frictionless custom checks."""
 
-import re
 from collections import defaultdict
+from datetime import date
 from pathlib import Path
 
 import attrs
@@ -10,21 +10,12 @@ from frictionless import Check, errors
 from scripts.lib.model.names import fold
 from scripts.lib.model.sources import source_id, split_archive_url
 
-OPEN_END = 9999
-
 
 class SetKeysError(errors.CellError):
     type = 'set-keys'
     title = 'Set Keys'
     description = 'An element of a set cell is empty, repeated or not a key of the referenced register.'
     template = 'The cell {cell} in row at position {rowNumber} and field {fieldName} has an error: {note}'
-
-
-class AffiliationOverlapError(errors.RowError):
-    type = 'affiliation-overlap'
-    title = 'Affiliation Overlap'
-    description = 'Two affiliations of one person cover the same years.'
-    template = 'The row at position {rowNumber} has an error: {note}'
 
 
 class AffiliationPeriodError(errors.RowError):
@@ -42,10 +33,10 @@ class ReachingBackPastRecordError(errors.RowError):
     template = 'The row at position {rowNumber} has an error: {note}'
 
 
-class LoginOwnerError(errors.CellError):
-    type = 'login-owner'
-    title = 'Login Owner'
-    description = 'A second login of one person is the GitHub login of another person.'
+class GithubLoginError(errors.CellError):
+    type = 'github-login'
+    title = 'GitHub Login'
+    description = 'A person has two `github` identities, or a `github-alias` is the `github` identity of a person.'
     template = 'The cell {cell} in row at position {rowNumber} and field {fieldName} has an error: {note}'
 
 
@@ -70,11 +61,39 @@ class UniqueCasefoldError(errors.CellError):
     template = 'The cell {cell} in row at position {rowNumber} and field {fieldName} has an error: {note}'
 
 
-class SourceLinkError(errors.CellError):
-    type = 'source-link'
-    title = 'Source Link'
-    description = 'The source of an identity contains no web address.'
+class IdentitySourceError(errors.CellError):
+    type = 'identity-source'
+    title = 'Identity Source'
+    description = 'An identity cites no source, and is not an early commit address whose notes say what it rests on.'
     template = 'The cell {cell} in row at position {rowNumber} and field {fieldName} has an error: {note}'
+
+
+class SnippetError(errors.CellError):
+    type = 'snippet'
+    title = 'Snippet'
+    description = 'A snippet is not found in the excerpt of its source.'
+    template = 'The cell {cell} in row at position {rowNumber} and field {fieldName} has an error: {note}'
+
+
+class UncitedAffiliationError(errors.RowError):
+    type = 'uncited-affiliation'
+    title = 'Uncited Affiliation'
+    description = 'An affiliation that is not a proposal has no citation.'
+    template = 'The row at position {rowNumber} has an error: {note}'
+
+
+class ConflictError(errors.TableError):
+    type = 'unresolved-conflict'
+    title = 'Unresolved Conflict'
+    description = 'No attribution rule decides which organisation a person counts for in a year.'
+    template = 'General table error: {note}'
+
+
+class DecisionError(errors.TableError):
+    type = 'decision-supersedes'
+    title = 'Decision Supersedes'
+    description = 'Of two decisions for one person and year, the later does not name the earlier in `supersedes`.'
+    template = 'General table error: {note}'
 
 
 class SourceIdError(errors.RowError):
@@ -127,29 +146,6 @@ class SetKeys(Check):
 
 
 @attrs.define(kw_only=True, repr=False)
-class AffiliationOverlap(Check):
-    """The year ranges of one person's affiliations do not overlap."""
-
-    type = 'affiliation-overlap'
-    Errors = [AffiliationOverlapError]
-
-    _rows: dict = attrs.field(factory=lambda: defaultdict(list), init=False)
-
-    def validate_row(self, row):
-        if row['person'] and row['from'] is not None:
-            self._rows[row['person']].append((row['from'], row['to'] or OPEN_END, row))
-        yield from []
-
-    def validate_end(self):
-        for rows in self._rows.values():
-            for index, (start_a, end_a, row_a) in enumerate(rows):
-                for start_b, end_b, row_b in rows[index + 1:]:
-                    if start_a <= end_b and start_b <= end_a:
-                        note = f'rows {row_a.row_number} and {row_b.row_number} overlap'
-                        yield AffiliationOverlapError.from_row(row_b, note=note)
-
-
-@attrs.define(kw_only=True, repr=False)
 class AffiliationPeriod(Check):
     """`from` is not after `to`, and an affiliation without `to` says when its record was read."""
 
@@ -164,13 +160,16 @@ class AffiliationPeriod(Check):
             yield AffiliationPeriodError.from_row(row, note='an affiliation up to the present needs checked')
 
 
-GUESS_NOTE = 'not verified'
+ASSUMED = 'assumed'
+COUNTING = ('stated', ASSUMED)
 
 
 @attrs.define(kw_only=True, repr=False)
 class ReachingBackPastRecord(Check):
-    """A guessed range (its notes say "not verified") does not lie before a record of another organisation when its
-    own organisation returns later: a range reaching back from the current entry stops at the first record."""
+    """An assumed range stops at a record of another organisation that its own organisation returns after.
+
+    A range reaching back from the current entry does not lie before the first record of another organisation.
+    """
 
     type = 'reaching-back-past-record'
     Errors = [ReachingBackPastRecordError]
@@ -178,7 +177,7 @@ class ReachingBackPastRecord(Check):
     _rows: dict = attrs.field(factory=lambda: defaultdict(list), init=False)
 
     def validate_row(self, row):
-        if row['person'] and row['from'] is not None:
+        if row['person'] and row['from'] is not None and row['status'] in COUNTING:
             self._rows[row['person']].append(row)
         yield from []
 
@@ -186,38 +185,48 @@ class ReachingBackPastRecord(Check):
         for rows in self._rows.values():
             rows = sorted(rows, key=lambda r: r['from'])
             for index, row in enumerate(rows):
-                if row['to'] is None or GUESS_NOTE not in (row['notes'] or ''):
+                if row['to'] is None or row['status'] != ASSUMED:
                     continue
                 later = rows[index + 1:]
-                records = [r for r in later
-                           if r['organisation'] != row['organisation'] and GUESS_NOTE not in (r['notes'] or '')]
+                records = [r for r in later if r['organisation'] != row['organisation'] and r['status'] != ASSUMED]
                 if not records:
                     continue
                 record = records[0]
                 if any(r['organisation'] == row['organisation'] and r['from'] > record['from'] for r in later):
-                    note = (f"the guessed years {row['from']}-{row['to']} of {row['organisation']} lie before the "
+                    note = (f"the assumed years {row['from']}-{row['to']} of {row['organisation']} lie before the "
                             f"record of {record['organisation']} in row {record.row_number}, and "
                             f"{row['organisation']} returns later")
                     yield ReachingBackPastRecordError.from_row(row, note=note)
 
 
 @attrs.define(kw_only=True, repr=False)
-class LoginOwner(Check):
-    """A `login` identity is not the `github` of another person in the people register, ignoring case."""
+class GithubLogins(Check):
+    """A person has at most one `github` identity, and a `github-alias` is nobody's `github`, ignoring case."""
 
-    type = 'login-owner'
-    Errors = [LoginOwnerError]
+    type = 'github-login'
+    Errors = [GithubLoginError]
 
-    github: dict = attrs.field(factory=dict)
-    """The person id of every `people.github`, by the login in lower case."""
+    _github: dict = attrs.field(factory=dict, init=False)  # person -> row number of its github identity
+    _owners: dict = attrs.field(factory=dict, init=False)  # login in lower case -> person
+    _aliases: list = attrs.field(factory=list, init=False)
 
     def validate_row(self, row):
-        if row['kind'] != 'login' or not row['value']:
-            return
-        owner = self.github.get(row['value'].casefold())
-        if owner is not None and owner != row['person']:
-            note = f'the login "{row["value"]}" of {row["person"]} is the github of {owner} in people.csv'
-            yield LoginOwnerError.from_row(row, note=note, field_name='value')
+        if row['kind'] == 'github' and row['value']:
+            self._owners.setdefault(row['value'].casefold(), row['person'])
+            first = self._github.setdefault(row['person'], row.row_number)
+            if first != row.row_number:
+                note = (f'{row["person"]} has a github identity in row {first} already; a further account is a '
+                        f'github-alias')
+                yield GithubLoginError.from_row(row, note=note, field_name='value')
+        elif row['kind'] == 'github-alias' and row['value']:
+            self._aliases.append(row)
+
+    def validate_end(self):
+        for row in self._aliases:
+            owner = self._owners.get(row['value'].casefold())
+            if owner is not None:
+                note = f'the github-alias "{row["value"]}" of {row["person"]} is the github identity of {owner}'
+                yield GithubLoginError.from_row(row, note=note, field_name='value')
 
 
 @attrs.define(kw_only=True, repr=False)
@@ -298,15 +307,98 @@ class UniqueCasefold(Check):
 
 
 @attrs.define(kw_only=True, repr=False)
-class LinkUnlessEmail(Check):
-    """The source of an identity contains a web address, unless the identity is an email address."""
+class SourceUnlessEmail(Check):
+    """An identity cites a source, unless it is an early commit address whose notes say what it rests on."""
 
-    type = 'source-link'
-    Errors = [SourceLinkError]
+    type = 'identity-source'
+    Errors = [IdentitySourceError]
 
     def validate_row(self, row):
-        if row['kind'] != 'email' and not re.search(r'https?://', row['source'] or ''):
-            yield SourceLinkError.from_row(row, note='the source needs a link', field_name='source')
+        if row['source']:
+            return
+        if row['kind'] != 'email':
+            yield IdentitySourceError.from_row(row, note='the identity needs a source', field_name='source')
+        elif not row['notes']:
+            yield IdentitySourceError.from_row(row, note='an address without a source needs notes that say what '
+                                                         'it rests on', field_name='source')
+
+
+@attrs.define(kw_only=True, repr=False)
+class SnippetInExcerpt(Check):
+    """A snippet appears in the excerpt of its source, compared as the capture compares a quote (`find_quote`)."""
+
+    type = 'snippet'
+    Errors = [SnippetError]
+
+    folder: Path
+    """The folder of the excerpt files."""
+
+    def validate_row(self, row):
+        # Imported here: scripts.lib.capture imports the model
+        from scripts.lib.capture.passages import find_quote
+
+        if not row['snippet'] or not row['source']:
+            return
+        path = self.folder / f'{row["source"]}.md'
+        text = path.read_text(encoding='utf-8') if path.is_file() else ''
+        if find_quote(text, row['snippet']) is None:
+            note = f'the snippet is not in the excerpt of {row["source"]}'
+            yield SnippetError.from_row(row, note=note, field_name='snippet')
+
+
+@attrs.define(kw_only=True, repr=False)
+class Cited(Check):
+    """Every affiliation but a proposal has at least one citation."""
+
+    type = 'uncited-affiliation'
+    Errors = [UncitedAffiliationError]
+
+    cited: set = attrs.field(factory=set)
+    """The affiliation ids that citations.csv names."""
+
+    def validate_row(self, row):
+        if row['id'] and row['status'] != 'proposed' and row['id'] not in self.cited:
+            yield UncitedAffiliationError.from_row(row, note=f'the affiliation {row["id"]} has no citation')
+
+
+@attrs.define(kw_only=True, repr=False)
+class UnresolvedConflict(Check):
+    """No person-year is left undecided by the attribution rules: record a decision for each conflict."""
+
+    type = 'unresolved-conflict'
+    Errors = [ConflictError]
+
+    attribution: object
+    """A function that returns the `Attribution` of the registers, or None when they cannot be read."""
+    until: int
+
+    def validate_end(self):
+        attribution = self.attribution()
+        if attribution is None:
+            return
+        for person, year, organisations in attribution.conflicts(until=self.until):
+            note = (f'{person}, {year}: no attribution rule decides between {", ".join(organisations)}; '
+                    f'record a decision')
+            yield ConflictError(note=note)
+
+
+@attrs.define(kw_only=True, repr=False)
+class DecisionSupersedes(Check):
+    """Of two decisions for one person and year, the later names the earlier in `supersedes`."""
+
+    type = 'decision-supersedes'
+    Errors = [DecisionError]
+
+    attribution: object
+    """A function that returns the `Attribution` of the registers, or None when they cannot be read."""
+    until: int
+
+    def validate_end(self):
+        attribution = self.attribution()
+        if attribution is None:
+            return
+        for message in attribution.decision_errors(until=self.until):
+            yield DecisionError(note=message)
 
 
 @attrs.define(kw_only=True, repr=False)
@@ -362,28 +454,53 @@ def _keys_of(package, resource_name):
     return {row[key] for row in resource.read_rows() if row[key]}
 
 
-def _github_owners(package):
-    """{login in lower case: person id} of the `github` column of people.csv; {} without the register."""
-    if not package.has_resource('people'):
-        return {}
-    return {row['github'].casefold(): row['id'] for row in package.get_resource('people').read_rows()
-            if row['github'] and row['id']}
+def _cited(package):
+    """The affiliation ids that the citations name; empty without the register."""
+    if not package.has_resource('citations'):
+        return set()
+    return {row['affiliation'] for row in package.get_resource('citations').read_rows() if row['affiliation']}
 
 
-def checks_for(resource_name, package):
-    """The custom checks of a resource in the package."""
+def _attribution(package):
+    """A function returning the `Attribution` of the registers of the package, read once; None when the registers
+    cannot be read (the schema checks report why)."""
+    found = []
+
+    def attribution():
+        if not found:
+            # Imported here: the registers import the attribution engine, whose rules import other libraries
+            from scripts.lib.model.registers import load_registry
+
+            try:
+                found.append(load_registry(Path(package.basepath) / 'mappings').attribution)
+            except (FileNotFoundError, ValueError, KeyError):
+                found.append(None)
+        return found[0]
+
+    return attribution
+
+
+def checks_for(resource_name, package, until=None):
+    """The custom checks of a resource in the package; `until` is the last year the attribution checks follow
+    open-ended affiliations to (the current year by default)."""
+    until = until or date.today().year
+    excerpts = Path(package.basepath) / 'sources' / 'excerpts'
     checks = {
-        'people': lambda: [Sorted(fields=['id'], casefold=False), UniqueCasefold(field='github')],
-        'rejected-proposals': lambda: [Sorted(fields=['person', 'from'], casefold=False)],
+        'people': lambda: [Sorted(fields=['id'], casefold=False)],
         'organisations': lambda: [Sorted(fields=['id'], casefold=True), NameFold(), UniqueCasefold(field='github')],
-        'affiliations': lambda: [AffiliationOverlap(), AffiliationPeriod(), ReachingBackPastRecord(),
-                                 Sorted(fields=['person', 'from'], casefold=False)],
-        'identities': lambda: [LinkUnlessEmail(), Sorted(fields=['person', 'kind', 'value'], casefold=False),
-                               UniqueCasefold(field='value', scope='kind'),
-                               LoginOwner(github=_github_owners(package))],
+        'affiliations': lambda: [AffiliationPeriod(), ReachingBackPastRecord(),
+                                 Sorted(fields=['person', 'from', 'organisation'], casefold=False),
+                                 Cited(cited=_cited(package)),
+                                 *[check(attribution=attribution, until=until)
+                                   for attribution in [_attribution(package)]
+                                   for check in (UnresolvedConflict, DecisionSupersedes)]],
+        'citations': lambda: [SnippetInExcerpt(folder=excerpts),
+                              Sorted(fields=['affiliation', 'source', 'snippet'], casefold=False)],
+        'identities': lambda: [SourceUnlessEmail(), SnippetInExcerpt(folder=excerpts),
+                               Sorted(fields=['person', 'kind', 'value'], casefold=False),
+                               UniqueCasefold(field='value', scope='kind'), GithubLogins()],
         'sources': lambda: [SourceIdMatchesUrl(), Sorted(fields=['id'], casefold=False),
-                            SourceExcerptFiles(folder=Path(package.basepath) / 'sources' / 'excerpts',
-                                               stems=_excerpt_stems(package))],
+                            SourceExcerptFiles(folder=excerpts, stems=_excerpt_stems(package))],
     }
     result = checks.get(resource_name, lambda: [])()
     for field in package.get_resource(resource_name).schema.fields:

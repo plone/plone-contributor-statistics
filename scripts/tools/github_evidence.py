@@ -10,10 +10,10 @@ each person and year:
 2. when that finds no organisation: commits of the person in the year in the GitHub organisation of an
    organisation of the person (the `github` column of organisations.csv).
 
-The people are those with a login and an affiliation that is "not verified", or those given with --person. The
+The people are those with a login and an `assumed` affiliation, or those given with --person. The
 years are those of the rows in which the person has commits or pull requests in the collected data. Every
-response is cached, so that an interrupted run resumes. The proposals go to
-curated/mappings/affiliation_proposals.csv (with --write); a reviewer moves them into affiliations.csv.
+response is cached, so that an interrupted run resumes. The proposals go to curated/mappings/affiliations.csv as
+`proposed` rows (with --write); a reviewer turns them into stated rows.
 
 Needs a GitHub token in the environment variable GITHUB_TOKEN. The search allows 30 requests a minute.
 """
@@ -33,6 +33,7 @@ import requests
 from scripts.lib import paths
 from scripts.lib.github_api import github_get
 from scripts.lib.model import MAPPINGS_DIR, append_proposals, load_registry, load_rejections
+from scripts.lib.model.attribution import ASSUMED, COUNTING
 from scripts.tools.address_proposals import _runs, _years, is_company_domain, is_own_domain
 
 SEARCH_URL = 'https://api.github.com/search/commits'
@@ -40,7 +41,6 @@ CACHE_DIR = os.path.join('.cache', 'github-search')
 LAST_YEAR = 2025  # the years before 2026 are the guessed ones
 PACE = 2.5  # seconds between requests: the search allows 30 a minute, and a secondary limit watches bursts
 PER_PAGE = 100
-NOT_VERIFIED = 'not verified'
 CONTRIBUTORS_FILE = re.compile(r'^(\d{4})-plone-contributors\.csv$')
 
 
@@ -97,20 +97,26 @@ def active_years(contributors_dir=paths.CONTRIBUTORS_DIR):
 
 
 def is_guess(affiliation):
-    """Whether the row is one of the migration's "not verified" guesses."""
-    return NOT_VERIFIED in (affiliation.notes or '').casefold()
+    """Whether the row is a guess: an `assumed` range (the migration's "not verified" rows)."""
+    return affiliation.status == ASSUMED
+
+
+def _counting(registry, person_id):
+    """The stated and assumed affiliations of the person."""
+    return [a for a in registry.affiliations if a.person == person_id and a.status in COUNTING]
 
 
 def targets(registry, people, all_years, activity, last_year=LAST_YEAR):
-    """{person id: [years]} to query: years of the "not verified" rows (of all rows for given people)."""
+    """{person id: [years]} to query: years of the assumed rows (of all rows for given people)."""
     result = {}
     for person in registry.people.values():
-        if not person.github or (people and person.id not in people):
+        login = registry.github_of(person.id)
+        if not login or (people and person.id not in people):
             continue
-        rows = [a for a in registry.affiliations if a.person == person.id and (people or is_guess(a))]
+        rows = [a for a in _counting(registry, person.id) if people or is_guess(a)]
         years = {y for a in rows for y in range(a.from_year, min(a.to_year or last_year, last_year) + 1)}
         if not all_years:
-            years = {y for y in years if person.github.casefold() in activity.get(y, set())}
+            years = {y for y in years if login.casefold() in activity.get(y, set())}
         if years:
             result[person.id] = sorted(years)
     return result
@@ -119,8 +125,8 @@ def targets(registry, people, all_years, activity, last_year=LAST_YEAR):
 def candidates(registry, person, year):
     """The organisations of the person in the year and the neighbouring years: the guess and recorded ones."""
     found = []
-    for affiliation in registry.affiliations:
-        if affiliation.person == person and any(affiliation.covers(y) for y in (year - 1, year, year + 1)):
+    for affiliation in _counting(registry, person):
+        if any(affiliation.covers(y) for y in (year - 1, year, year + 1)):
             organisation = registry.organisations[affiliation.organisation]
             if organisation.kind == 'organisation' and organisation not in found:
                 found.append(organisation)
@@ -141,7 +147,7 @@ def classify(registry, person, data):
             continue
         match = registry.match_domain(domain)
         if match is None:
-            if not is_own_domain(domain, person):
+            if not is_own_domain(domain, person, registry.logins_of(person.id)):
                 unmapped[domain] += 1
             continue
         organisation, how = match
@@ -171,7 +177,7 @@ def gather(registry, searcher, wanted):
     open_guesses = defaultdict(int)
     for person_id, years in sorted(wanted.items()):
         person = registry.people[person_id]
-        login = person.github
+        login = registry.github_of(person_id)
         for year in years:
             span = f'committer-date:{year}-01-01..{year}-12-31'
             data = searcher.search(f'{login}/{year}.json', f'author:{login} {span}',
@@ -199,18 +205,19 @@ def gather(registry, searcher, wanted):
 
 
 def propose(registry, evidence, rejected=frozenset()):
-    """(proposals, conflicts). A proposal has the keys of the proposals file, plus found, commits and example.
+    """(proposals, conflicts). A proposal is a dict with the keys `append_proposals` takes (person, organisation,
+    from, to, sources, notes), plus evidence, found, commits and example.
 
-    rejected: {(person, organisation, year)} that a reviewer turned down, see rejected_proposals.csv.
+    rejected: {(person, organisation, year)} that a reviewer turned down, the `denied` affiliations.
     """
     proposals, conflicts = [], []
     for (person, organisation, kind), by_year in sorted(evidence.items()):
-        own = [a for a in registry.affiliations if a.person == person]
+        own = _counting(registry, person)
         # An affiliation of the same organisation covers a year, unless it is a guess: that is what this is for
         same = {y for y in by_year
                 if any(a.organisation == organisation and a.covers(y) and not is_guess(a) for a in own)}
         turned_down = {y for y in by_year if (person, organisation, y) in rejected}
-        login = registry.people[person].github
+        login = registry.github_of(person)
         for first, last in _runs(set(by_year) - same - turned_down):
             years = range(first, last + 1)
             if kind == 'address':
@@ -228,6 +235,7 @@ def propose(registry, evidence, rejected=frozenset()):
                 found, example = f'organisation @{handle}', url
             proposals.append({
                 'person': person, 'organisation': organisation, 'from': first, 'to': last,
+                'sources': [], 'notes': evidence_text,
                 'evidence': evidence_text, 'found': found, 'commits': commits, 'example': example})
             for other in sorted({a.organisation for a in own if a.organisation != organisation}):
                 overlap = [y for y in years if any(a.organisation == other and a.covers(y) for a in own)]
@@ -249,7 +257,7 @@ def report(proposals, conflicts, unmapped, open_guesses):
     else:
         lines.append('None.')
     lines += ['', '## Conflicts', '',
-              'Proposed years that another organisation covers in affiliations.csv; a guess is a "not verified" row.',
+              'Proposed years that another organisation covers in affiliations.csv; a guess is an assumed row.',
               '']
     if conflicts:
         lines += ['| Person | Years | Proposed | Existing | Existing is a guess |', '|---|---|---|---|---|']
@@ -280,14 +288,14 @@ def report(proposals, conflicts, unmapped, open_guesses):
 
 def run(people=(), all_years=False, write=False, refresh=False, cache=CACHE_DIR, mappings_dir=MAPPINGS_DIR,
         contributors_dir=paths.CONTRIBUTORS_DIR, session=None, sleep=None):
-    """Query, propose, and (with write) append to the proposals file; return (report, proposals added)."""
+    """Query, propose, and (with write) add the proposed affiliations; return (report, proposals added)."""
     registry = load_registry(mappings_dir)
     unknown = [p for p in people if p not in registry.people]
     if unknown:
         raise SystemExit(f'Not in people.csv: {", ".join(unknown)}')
-    without_login = [p for p in people if not registry.people[p].github]
+    without_login = [p for p in people if not registry.github_of(p)]
     if without_login:
-        raise SystemExit(f'No GitHub login in people.csv: {", ".join(without_login)}')
+        raise SystemExit(f'No GitHub login in identities.csv: {", ".join(without_login)}')
     wanted = targets(registry, set(people), all_years, active_years(contributors_dir))
     searcher = Searcher(cache, session, sleep, refresh)
     evidence, unmapped, open_guesses = gather(registry, searcher, wanted)
@@ -303,14 +311,14 @@ def main(argv=None):
                         help='only this person, with all rows (repeat for several)')
     parser.add_argument('--all-years', action='store_true',
                         help='query every year of the rows, not only those with commits or pull requests')
-    parser.add_argument('--write', action='store_true', help='append the proposals to affiliation_proposals.csv')
+    parser.add_argument('--write', action='store_true', help='add the proposals to affiliations.csv as proposed rows')
     parser.add_argument('--refresh', action='store_true', help='ignore the cache and ask GitHub again')
     parser.add_argument('--cache', default=CACHE_DIR, help='directory of the cached responses')
     args = parser.parse_args(argv)
     text, added = run(args.person, args.all_years, args.write, args.refresh, args.cache)
     sys.stdout.write(text)
     if args.write:
-        print(f'\nWrote {len(added)} new proposals to the proposals file.')
+        print(f'\nWrote {len(added)} new proposals to affiliations.csv.')
 
 
 if __name__ == '__main__':

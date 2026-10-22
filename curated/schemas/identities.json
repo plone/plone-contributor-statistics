@@ -12,20 +12,24 @@
     {
       "name": "kind",
       "type": "string",
-      "description": "The kind of identity: a name, an email address or a login.",
+      "description": "The kind of identity: `github` the GitHub login the collected files count the person under (at most one per person), `github-alias` a further GitHub account, `email` a commit address, `name` a spelling of the name, `svn` a Subversion or CVS user, `irc` an IRC nick, `discourse` a handle on community.plone.org.",
       "constraints": {
         "required": true,
         "enum": [
-          "name",
+          "github",
+          "github-alias",
           "email",
-          "login"
+          "name",
+          "svn",
+          "irc",
+          "discourse"
         ]
       }
     },
     {
       "name": "value",
       "type": "string",
-      "description": "The spelling of the name, the email address or the login as it appears in the data.",
+      "description": "The login, address, spelling or handle as it appears in the data; a login with the case it has on GitHub.",
       "constraints": {
         "required": true
       }
@@ -33,7 +37,20 @@
     {
       "name": "source",
       "type": "string",
-      "description": "What the identification rests on; early commit authors may have no public record."
+      "description": "The id of the source in the source register that connects the person to the value. Required, except for an early commit address whose notes say what it rests on.",
+      "constraints": {
+        "pattern": "^[0-9a-f]{12}$"
+      }
+    },
+    {
+      "name": "snippet",
+      "type": "string",
+      "description": "The words of the source that make the connection, verbatim from its excerpt; empty when no quote was verified."
+    },
+    {
+      "name": "notes",
+      "type": "string",
+      "description": "Free-text remarks: what the source shows, in our words, and other records."
     }
   ],
   "primaryKey": [
@@ -47,6 +64,17 @@
       ],
       "reference": {
         "resource": "people",
+        "fields": [
+          "id"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "source"
+      ],
+      "reference": {
+        "resource": "sources",
         "fields": [
           "id"
         ]

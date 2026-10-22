@@ -12,7 +12,7 @@ import json
 from collections import defaultdict
 
 from scripts.lib import paths
-from scripts.lib.model import TALK_TYPES, UNMAPPED, events, items, load_registry, roles, talks
+from scripts.lib.model import LOGIN_KINDS, TALK_TYPES, UNMAPPED, events, items, load_registry, roles, talks
 from scripts.lib.model.names import fold, slugify
 from scripts.lib.model.registers import PERSON_PREFIX
 from scripts.lib.years import RECOGNITION_YEAR
@@ -181,10 +181,8 @@ def people_names(registry):
     keys = defaultdict(set)
     for person in registry.people.values():
         keys[fold(person.name)].add(person.id)
-        if person.github:
-            keys[fold(person.github)].add(person.id)
     for identity in registry.identities:
-        if identity.kind in ('name', 'login'):
+        if identity.kind in ('name', *LOGIN_KINDS):
             keys[fold(identity.value)].add(identity.person)
     return {key: next(iter(ids)) for key, ids in sorted(keys.items()) if len(ids) == 1}
 

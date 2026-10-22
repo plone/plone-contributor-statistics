@@ -355,6 +355,11 @@ def _old_repository(tmp_repo):
     _write_csv(paths.PEOPLE, [person('jane-doe', 'Jane Doe', 'janedoe')], ['id', 'name', 'github', 'source'])
     _write_csv(paths.AFFILIATIONS, [affiliation('jane-doe', 'acme', 2010)],
                ['person', 'organisation', 'from', 'to', 'source', 'checked', 'notes'])
+    paths.IDENTITIES.write_text('person,kind,value,source\n', encoding='utf-8')
+    (paths.MAPPINGS_DIR / 'affiliation_proposals.csv').write_text('person,organisation,from,to,evidence\n',
+                                                                  encoding='utf-8')
+    (paths.MAPPINGS_DIR / 'rejected_proposals.csv').write_text('person,organisation,from,to,reason,source\n',
+                                                               encoding='utf-8')
     archive = tmp_repo / 'archive/migration-to-sources'
     archive.mkdir(parents=True)
     (archive / 'capture-results.jsonl').write_text(
@@ -387,5 +392,5 @@ def test_command_with_write_writes_the_new_registers(tmp_repo):
     assert citations[1:] == [f"{affiliation_id('jane-doe', 'acme', '2010', '')},{source_id(PAGE)},,,cited as: {PAGE}"]
     assert source_id(PAGE) in load_sources()
     assert read_excerpt(source_id(PAGE)).strip() == 'not captured on 2026-10-22: nothing found'
-    assert not paths.AFFILIATION_PROPOSALS.exists()
-    assert not paths.REJECTED_PROPOSALS.exists()
+    assert not (paths.MAPPINGS_DIR / 'affiliation_proposals.csv').exists()
+    assert not (paths.MAPPINGS_DIR / 'rejected_proposals.csv').exists()

@@ -6,11 +6,10 @@ Ids are opaque and never renamed; add a person with `python -m scripts.tools.per
 | File | Holds |
 |---|---|
 | `people.csv` | One row per person, with an id. |
-| `identities.csv` | Names, commit email addresses and second logins that denote a person in a source. |
-| `affiliations.csv` | The organisation of a person for a range of years. A year that no row covers is Unmapped. |
+| `identities.csv` | GitHub logins, names and commit email addresses that denote a person, each with its source. |
+| `affiliations.csv` | The organisation of a person for a range of years, with a status: `stated`, `assumed`, `denied` (a proposal a reviewer turned down) or `proposed` (never counted). A year that no row decides is Unmapped. |
+| `citations.csv` | The sources each affiliation rests on, with the passages they say it in. |
 | `organisations.csv` | One row per organisation, with an id, a name and a kind. |
-| `affiliation_proposals.csv` | Affiliations that a source states and that no accepted record confirms yet. No script reads it. |
-| `rejected_proposals.csv` | Proposals a reviewer turned down, with the reason and the link to the review; the tools that propose affiliations don't propose those years again. |
 | `bot_accounts.csv` | GitHub accounts that are bots. |
 | `excluded_repositories.csv` | Repositories that the statistics skip. |
 

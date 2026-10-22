@@ -6,8 +6,8 @@ from pathlib import Path
 SCRIPTS = Path(__file__).resolve().parent.parent / 'scripts'
 
 # Where curated/ is named in code
-CONSTANTS = ('COMMUNITY', 'MAPPINGS_DIR', 'PEOPLE', 'IDENTITIES', 'AFFILIATIONS', 'ORGANISATIONS',
-             'AFFILIATION_PROPOSALS', 'REJECTED_PROPOSALS', 'RECOGNITION_LEVELS', 'BOT_ACCOUNTS',
+CONSTANTS = ('COMMUNITY', 'MAPPINGS_DIR', 'PEOPLE', 'IDENTITIES', 'AFFILIATIONS', 'CITATIONS', 'ORGANISATIONS',
+             'RECOGNITION_LEVELS', 'BOT_ACCOUNTS',
              'EXCLUDED_REPOSITORIES', 'PLIPS_BEFORE_GITHUB', 'SCHEMAS_DIR', 'DATAPACKAGE',
              'SOURCES_DIR', 'SOURCES', 'EXCERPTS_DIR')
 CURATED_MARKERS = re.compile(r'\bpaths\.(' + '|'.join(CONSTANTS) + r')\b|[\'"]curated/')
@@ -26,8 +26,9 @@ ALLOWED = {
     # Names the two files that the model's loaders read, so that the tests can write them
     'scripts/collect/plone_contributors.py': {'paths.BOT_ACCOUNTS', 'paths.EXCLUDED_REPOSITORIES'},
     # Migration code of plan 2c, archived after its one use: reads the old registers, whose schemas the switch
-    # removes, with plain csv, and writes the new ones
+    # removed, with plain csv, and writes the new ones
     'scripts/tools/migrate_registers.py': {'paths.MAPPINGS_DIR'},
+    'scripts/tools/cited_sources.py': {'paths.MAPPINGS_DIR'},
 }
 
 

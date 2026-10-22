@@ -4,18 +4,19 @@ Collected by `scripts.collect.plone_commit_domains`.
 """
 import csv
 from collections import Counter, defaultdict
+from pathlib import Path
 
 from scripts.lib import paths
 from scripts.lib.commit_authors import is_company_domain
 
 
-def load_commit_domains(year):
+def load_commit_domains(year, root=Path('.')):
     """{username: Counter({domain: commits})} of a year; {} when no commit was identified.
 
-    Raises FileNotFoundError when the year was never collected.
+    `root` is the repository root. Raises FileNotFoundError when the year was never collected.
     """
     counts = defaultdict(Counter)
-    with open(paths.commit_domains_file(year), newline='', encoding='utf-8') as handle:
+    with open(Path(root) / paths.commit_domains_file(year), newline='', encoding='utf-8') as handle:
         for row in csv.DictReader(handle):
             counts[row['username']][row['domain']] += int(row['commits'])
     return dict(counts)

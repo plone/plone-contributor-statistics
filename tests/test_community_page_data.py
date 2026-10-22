@@ -7,6 +7,7 @@ import pytest
 from scripts.derive import community_page
 from scripts.lib import paths
 from scripts.lib.model import events, load_registry, roles
+from tests.conftest import record_source
 
 CONTRIBUTORS = 'username,total_commits,total_pull_requests\n'
 CONF_TALKS = 'event,scope,type,title,speakers,organisations,video,source,notes\n'
@@ -33,6 +34,20 @@ REGISTER_ORGANISATIONS = [('kitconcept', 'kitconcept GmbH'), ('redturtle', 'RedT
 def write(path, text):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(text, encoding='utf-8')
+
+
+def register(people, identities=()):
+    """people.csv and identities.csv: people as (id, name, GitHub login), identities as (person, kind, value)."""
+    sid = record_source()
+    write(paths.PEOPLE, 'id,name\n' + ''.join(f'{i},{name}\n' for i, name, _ in people))
+    rows = [(i, 'github', github) for i, _, github in people if github] + list(identities)
+    write(paths.IDENTITIES, 'person,kind,value,source,snippet,notes\n' + ''.join(
+        f'{person},{kind},{value},{sid},,\n' for person, kind, value in rows))
+
+
+def add_identity(person, kind, value):
+    with open(paths.IDENTITIES, 'a', encoding='utf-8') as f:
+        f.write(f'{person},{kind},{value},{record_source()},,\n')
 
 
 @pytest.fixture
@@ -161,7 +176,7 @@ def test_organisation_only_talk_counts_the_organisation(repo):
 
 
 def test_a_second_login_is_keyed_to_the_same_person(repo):
-    write(paths.IDENTITIES, 'person,kind,value,source\ntimo,login,tisto-work,https://r\n')
+    add_identity('timo', 'github-alias', 'tisto-work')
     write(paths.contributors_file(2025), CONTRIBUTORS + 'tisto,10,5\nTisto-Work,1,1\n')
     [entry] = community_page.build_page_data(2025)['people']['2025']
     assert (entry['id'], entry['commits'], entry['pull_requests']) == ('timo', 11, 6)
@@ -210,15 +225,14 @@ def test_conference_talks_earn_no_points(repo):
 
 
 def test_people_names_find_a_registered_person_by_login(repo):
-    write(paths.IDENTITIES, 'person,kind,value,source\ntimo,login,tisto-work,https://r\n')
+    add_identity('timo', 'github-alias', 'tisto-work')
     names = community_page.build_page_data(2025)['people_names']
     assert names['tisto'] == 'timo'
     assert names[community_page.fold('tisto-work')] == 'timo'
 
 
 def test_people_names_drop_an_ambiguous_name(repo):
-    write(paths.PEOPLE, 'id,name,github,source\nana-1,Ana Silva,,https://r\nana-2,Ana Silva,,https://r\n'
-                        'bob,Bob Jones,,https://r\n')
+    register([('ana-1', 'Ana Silva', ''), ('ana-2', 'Ana Silva', ''), ('bob', 'Bob Jones', '')])
     assert community_page.build_page_data(2025)['people_names'] == {'bob jones': 'bob'}
 
 
@@ -241,7 +255,7 @@ def test_unmapped_is_not_listed_as_an_event_organiser(repo):
 
 
 def test_board_and_team_leads_carry_the_display_name_and_organisation(repo):
-    write(paths.PEOPLE, 'id,name,github,source\ntimo,Timo Stollenwerk,tisto,https://r\nanna,Anna Board,,https://r\n')
+    register([('timo', 'Timo Stollenwerk', 'tisto'), ('anna', 'Anna Board', '')])
     write(paths.COMMUNITY / '2025-board-of-directors.csv', BOARD + 'anna,voting,https://b,\n')
     write(paths.COMMUNITY / '2025-team-leaders.csv', TEAM_LEADERS + 'timo,Volto Team,https://c,\n')
     history = community_page.build_page_data(2025)['history']['2025']
@@ -268,8 +282,7 @@ def test_equal_contributions_are_merged(repo):
 
 def test_names_of_the_register_are_in_the_data(repo):
     # The people search finds a person by name or by another name of the person
-    write(paths.PEOPLE, 'id,name,github,source\ndavid-glick,David Glick,davisagli,https://r\n')
-    write(paths.IDENTITIES, 'person,kind,value,source\ndavid-glick,name,D. Glick,https://r\n')
+    register([('david-glick', 'David Glick', 'davisagli')], [('david-glick', 'name', 'D. Glick')])
     assert community_page.build_page_data(2025)['people_names'] == {'david glick': 'david-glick',
                                                                     'd glick': 'david-glick',
                                                                     'davisagli': 'david-glick'}
@@ -277,8 +290,7 @@ def test_names_of_the_register_are_in_the_data(repo):
 
 def test_people_names_are_keyed_by_fold(repo):
     # The page computes the same key in site.js; lower case, not casefold: ß stays ß
-    write(paths.PEOPLE, 'id,name,github,source\n'
-                        'tamara-eer,Tamara Eßer,,https://r\nvictor,Víctor  Fernández,,https://r\n')
+    register([('tamara-eer', 'Tamara Eßer', ''), ('victor', 'Víctor  Fernández', '')])
     names = community_page.build_page_data(2025)['people_names']
     assert names == {community_page.fold('Tamara Eßer'): 'tamara-eer',
                      community_page.fold('Víctor  Fernández'): 'victor'}
@@ -294,10 +306,10 @@ def test_people_carry_the_organisation_of_the_year(repo):
     assert people == {'timo': 'kitconcept GmbH', 'anna': 'Unmapped', 'zed': 'Unmapped'}
 
 
-def test_the_organisation_of_a_person_follows_the_years_of_the_affiliation(repo):
+def test_the_organisation_of_a_person_follows_the_years_of_the_affiliation(repo, write_registers):
     # timo left kitconcept after 2023 and joined RedTurtle in 2025: each year's entry says where he was
-    write(paths.AFFILIATIONS, 'person,organisation,from,to,source,checked,notes\n'
-                              'timo,kitconcept,2000,2023,https://r,,\ntimo,redturtle,2025,,https://r,,\n')
+    write_registers(PEOPLE, [('timo', 'kitconcept', 2000, 2023), ('timo', 'redturtle', 2025, '')],
+                    REGISTER_ORGANISATIONS)
     for year in (2023, 2024, 2025):
         write(paths.contributors_file(year), CONTRIBUTORS + 'tisto,1,0\n')
     data = community_page.build_page_data(2025)

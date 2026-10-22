@@ -6,8 +6,9 @@ import subprocess
 import pytest
 
 from scripts.lib import git_history, paths
-from scripts.lib.model import load_registry, read_rows
+from scripts.lib.model import affiliation_id, load_registry, read_rows
 from scripts.tools import address_proposals, check, datapackage
+from tests.conftest import record_source
 
 SOURCE = 'https://example.org/record'
 NOREPLY = '1234+janedoe@users.noreply.github.com'
@@ -36,6 +37,35 @@ def make_clone(cache, repository, commits):
     return work, target
 
 
+def write_people(people, identities=()):
+    """people.csv and identities.csv: people as (id, name, GitHub login), identities as (person, kind, value)."""
+    sid = record_source(SOURCE)
+    paths.PEOPLE.write_text('id,name\n' + ''.join(f'{i},{name}\n' for i, name, _ in sorted(people)), encoding='utf-8')
+    rows = sorted([(i, 'github', github) for i, _, github in people if github] + list(identities))
+    paths.IDENTITIES.write_text('person,kind,value,source,snippet,notes\n' + ''.join(
+        f'{person},{kind},{value},{sid},,\n' for person, kind, value in rows), encoding='utf-8')
+
+
+PEOPLE = [('bob-builder', 'Bob Builder', ''), ('hanno-schlichting', 'Hanno Schlichting', 'hannosch'),
+          ('jane-doe', 'Jane Doe', 'janedoe'), ('mononym', 'Mononym', '')]
+IDENTITIES = [('bob-builder', 'email', 'bob@old.example.org')]
+
+
+def write_affiliations(*rows):
+    """affiliations.csv with stated rows (person, organisation, from, to), each citing the record."""
+    sid = record_source(SOURCE)
+    ids = [affiliation_id(*row) for row in rows]
+    paths.AFFILIATIONS.write_text('id,person,organisation,from,to,status,checked,notes\n' + ''.join(
+        f'{aid},{person},{org},{start},{end},stated,,\n' for aid, (person, org, start, end) in zip(ids, rows)),
+        encoding='utf-8')
+    paths.CITATIONS.write_text('affiliation,source,snippet,supersedes,notes\n' + ''.join(
+        f'{aid},{sid},,,\n' for aid in sorted(ids)), encoding='utf-8')
+
+
+def proposed():
+    return [row for row in read_rows(paths.AFFILIATIONS) if row['status'] == 'proposed']
+
+
 def sha_of(work, number=0):
     return git(work, 'log', '--reverse', '--format=%H').split()[number]
 
@@ -47,14 +77,7 @@ def setup(tmp_repo, write_registers):
         affiliations=[('jane-doe', 'oldco', 2012, 2012)],
         organisations=[('greenfinity', 'Greenfinity'), ('bubblenet', 'BubbleNet'), ('oldco', 'Old Co'),
                        ('acme', 'Acme Industries')])
-    paths.PEOPLE.write_text(
-        'id,name,github,source\n'
-        f'bob-builder,Bob Builder,,{SOURCE}\n'
-        f'hanno-schlichting,Hanno Schlichting,hannosch,{SOURCE}\n'
-        f'jane-doe,Jane Doe,janedoe,{SOURCE}\n'
-        f'mononym,Mononym,,{SOURCE}\n', encoding='utf-8')
-    paths.IDENTITIES.write_text('person,kind,value,source\n'
-                                f'bob-builder,email,bob@old.example.org,{SOURCE}\n', encoding='utf-8')
+    write_people(PEOPLE, IDENTITIES)
     paths.ORGANISATIONS.write_text(
         'id,name,kind,github,aliases,notes\n'
         'acme,Acme Industries,organisation,,acme-industries.test;widgets.test,\n'
@@ -166,8 +189,8 @@ def test_company_domain(domain, company):
 
 
 class Person:
-    def __init__(self, name, github=None):
-        self.name, self.github = name, github
+    def __init__(self, name):
+        self.name = name
 
 
 @pytest.mark.parametrize('domain,name,github,own', [
@@ -181,7 +204,7 @@ class Person:
     ('ab.test', 'Abe Bee', None, False),  # a part shorter than four letters is no evidence in a longer label
 ])
 def test_own_domain(domain, name, github, own):
-    assert address_proposals.is_own_domain(domain, Person(name, github)) is own
+    assert address_proposals.is_own_domain(domain, Person(name), [github] if github else []) is own
 
 
 def test_registrable_label():
@@ -194,8 +217,7 @@ def test_registrable_label():
 def test_a_registered_organisation_wins_over_the_own_domain(setup):
     paths.ORGANISATIONS.write_text(paths.ORGANISATIONS.read_text(encoding='utf-8')
                                    + 'glick-software,Glick Software,organisation,,,\n', encoding='utf-8')
-    paths.PEOPLE.write_text(paths.PEOPLE.read_text(encoding='utf-8')
-                            + f'david-glick,David Glick,davisagli,{SOURCE}\n', encoding='utf-8')
+    write_people(PEOPLE + [('david-glick', 'David Glick', 'davisagli')], IDENTITIES)
     cache = setup / 'cache'
     make_clone(cache, 'r', [('David Glick', 'david@glicksoftware.com', 2011), ('Tom', 'x@foo.com.au', 2011)])
     text, _ = run(cache)
@@ -207,8 +229,7 @@ def test_a_registered_organisation_wins_over_the_own_domain(setup):
 
 
 def test_the_foo_and_andersonleeb_cases(setup):
-    paths.PEOPLE.write_text(paths.PEOPLE.read_text(encoding='utf-8')
-                            + f'tom-comer,Tom Comer,,{SOURCE}\njane-leeb,Jane Leeb,,{SOURCE}\n', encoding='utf-8')
+    write_people(PEOPLE + [('tom-comer', 'Tom Comer', ''), ('jane-leeb', 'Jane Leeb', '')], IDENTITIES)
     cache = setup / 'cache'
     make_clone(cache, 'r', [('Tom Comer', 'tom@foo.com.au', 2011), ('Jane Leeb', 'jane@andersonleeb.com', 2011)])
     text, _ = run(cache)
@@ -257,19 +278,15 @@ def test_a_rejected_year_is_not_proposed_again(setup):
     cache = setup / 'cache'
     make_clone(cache, 'plone.app.x', [('Hanno Schlichting', 'hanno@greenfinity.hu', 2016),
                                       ('Hanno Schlichting', 'hanno@greenfinity.hu', 2017)])
-    paths.REJECTED_PROPOSALS.write_text(
-        'person,organisation,from,to,reason,source\n'
-        'hanno-schlichting,greenfinity,2016,2016,the year of a change,https://example.org/review\n', encoding='utf-8')
+    with open(paths.AFFILIATIONS, 'a', encoding='utf-8') as f:
+        f.write('a00000001,hanno-schlichting,greenfinity,2016,2016,denied,,the year of a change\n')
     text, _ = run(cache)
     assert '| hanno-schlichting | greenfinity | 2017 | 1 |' in text
     assert '2016' not in text.split('## Conflicts')[0]
 
 
 def test_covered_year_splits_the_run_and_other_organisation_conflicts(setup):
-    paths.AFFILIATIONS.write_text(
-        'person,organisation,from,to,source,checked,notes\n'
-        f'jane-doe,greenfinity,2016,2016,{SOURCE},,\n'
-        f'jane-doe,oldco,2018,2018,{SOURCE},,\n', encoding='utf-8')
+    write_affiliations(('jane-doe', 'greenfinity', 2016, 2016), ('jane-doe', 'oldco', 2018, 2018))
     cache = setup / 'cache'
     make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.hu', y) for y in (2015, 2016, 2017, 2018)])
     text, _ = run(cache)
@@ -288,20 +305,18 @@ def test_example_is_the_earliest_commit_and_each_run_has_its_own(setup):
                                         ('Jane Doe', 'jane@greenfinity.hu', '2017-03-01T00:00:00Z')])
     work_b, _ = make_clone(cache, 'b', [('Jane Doe', 'jane@greenfinity.hu', '2015-02-01T00:00:00Z')])
     text, _ = run(cache, write=True)
-    rows = read_rows(paths.AFFILIATION_PROPOSALS)
+    rows = proposed()
     assert [(r['from'], r['to']) for r in rows] == [(2015, 2015), (2017, 2017)]
-    assert rows[0]['evidence'].endswith(f'(example: https://github.com/plone/b/commit/{sha_of(work_b)})')
-    assert rows[1]['evidence'].endswith(f'(example: https://github.com/plone/a/commit/{sha_of(work_a, 1)})')
+    assert rows[0]['notes'].endswith(f'(example: https://github.com/plone/b/commit/{sha_of(work_b)})')
+    assert rows[1]['notes'].endswith(f'(example: https://github.com/plone/a/commit/{sha_of(work_a, 1)})')
 
 
 def test_a_covered_block_of_several_years(setup):
-    paths.AFFILIATIONS.write_text(
-        'person,organisation,from,to,source,checked,notes\n'
-        f'jane-doe,greenfinity,2015,2017,{SOURCE},,\n', encoding='utf-8')
+    write_affiliations(('jane-doe', 'greenfinity', 2015, 2017))
     cache = setup / 'cache'
     make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.hu', y) for y in range(2014, 2020)])
     run(cache, write=True)
-    assert [(r['from'], r['to']) for r in read_rows(paths.AFFILIATION_PROPOSALS)] == [(2014, 2014), (2018, 2019)]
+    assert [(r['from'], r['to']) for r in proposed()] == [(2014, 2014), (2018, 2019)]
 
 
 def test_since(setup):
@@ -328,13 +343,14 @@ def test_write_appends_once_and_stays_valid(setup):
     work, _ = make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.hu', y) for y in (2015, 2016)])
     _, added = run(cache, write=True)
     assert len(added) == 1
-    rows = read_rows(paths.AFFILIATION_PROPOSALS)
-    assert rows == [{'person': 'jane-doe', 'organisation': 'greenfinity', 'from': 2015, 'to': 2016,
-                     'evidence': f'Company address @greenfinity.hu in commits 2015-2016 '
-                                 f'(example: https://github.com/plone/r/commit/{sha_of(work, 0)})'}]
+    assert proposed() == [{'id': affiliation_id('jane-doe', 'greenfinity', 2015, 2016), 'person': 'jane-doe',
+                           'organisation': 'greenfinity', 'from': 2015, 'to': 2016, 'status': 'proposed',
+                           'checked': None,
+                           'notes': f'Company address @greenfinity.hu in commits 2015-2016 '
+                                    f'(example: https://github.com/plone/r/commit/{sha_of(work, 0)})'}]
     _, again = run(cache, write=True)
     assert again == []
-    assert len(read_rows(paths.AFFILIATION_PROPOSALS)) == 1
+    assert len(proposed()) == 1
     datapackage.main([])
     assert check.validate() == []
 
@@ -342,8 +358,9 @@ def test_write_appends_once_and_stays_valid(setup):
 def test_no_write_leaves_the_file_alone(setup):
     cache = setup / 'cache'
     make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.hu', 2015)])
+    before = paths.AFFILIATIONS.read_text(encoding='utf-8')
     run(cache)
-    assert read_rows(paths.AFFILIATION_PROPOSALS) == []
+    assert paths.AFFILIATIONS.read_text(encoding='utf-8') == before
 
 
 def test_missing_cache_names_the_command(setup):

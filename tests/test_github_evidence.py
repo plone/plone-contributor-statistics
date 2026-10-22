@@ -6,11 +6,27 @@ import os
 import pytest
 
 from scripts.lib import paths
-from scripts.lib.model import load_registry, read_rows
+from scripts.lib.model import affiliation_id, load_registry, read_rows
 from scripts.tools import github_evidence
+from tests.conftest import record_source
 
 SOURCE = 'https://example.org/record'
 GUESS = 'range from the current entry; years before 2026 not verified (#139)'
+
+
+def write_affiliations(*rows):
+    """affiliations.csv: (person, organisation, from, to, status, notes), each citing the record."""
+    sid = record_source(SOURCE)
+    ids = [affiliation_id(*row[:4]) for row in rows]
+    paths.AFFILIATIONS.write_text('id,person,organisation,from,to,status,checked,notes\n' + ''.join(
+        f'{aid},{person},{org},{start},{end},{status},,{notes}\n'
+        for aid, (person, org, start, end, status, notes) in zip(ids, rows)), encoding='utf-8')
+    paths.CITATIONS.write_text('affiliation,source,snippet,supersedes,notes\n' + ''.join(
+        f'{aid},{sid},,,\n' for aid in sorted(ids)), encoding='utf-8')
+
+
+def proposed():
+    return [row for row in read_rows(paths.AFFILIATIONS) if row['status'] == 'proposed']
 
 
 def commit(email, date, sha):
@@ -63,17 +79,17 @@ ANSWERS = {
 
 @pytest.fixture
 def setup(tmp_repo):
-    paths.PEOPLE.write_text('id,name,github,source\n'
-                            f'jane-doe,Jane Doe,janedoe,{SOURCE}\n'
-                            f'no-login,No Login,,{SOURCE}\n', encoding='utf-8')
+    sid = record_source(SOURCE)
+    paths.PEOPLE.write_text('id,name\njane-doe,Jane Doe\nno-login,No Login\n', encoding='utf-8')
+    paths.IDENTITIES.write_text('person,kind,value,source,snippet,notes\n'
+                                f'jane-doe,github,janedoe,{sid},,\nno-login,name,No Login,{sid},,\n',
+                                encoding='utf-8')
     paths.ORGANISATIONS.write_text(
         'id,name,kind,github,aliases,notes\n'
         'bubblenet,BubbleNet,organisation,,,\n'
         'greenfinity,Greenfinity,organisation,greenfinity-hu,,\n', encoding='utf-8')
-    paths.AFFILIATIONS.write_text(
-        'person,organisation,from,to,source,checked,notes\n'
-        f'jane-doe,greenfinity,2014,2016,{SOURCE},,{GUESS}\n'
-        f'jane-doe,bubblenet,2017,2018,{SOURCE},,\n', encoding='utf-8')
+    write_affiliations(('jane-doe', 'greenfinity', 2014, 2016, 'assumed', GUESS),
+                       ('jane-doe', 'bubblenet', 2017, 2018, 'stated', ''))
     for year, rows in {2013: 'otheruser,5,0', 2014: 'janedoe,5,1', 2015: 'JaneDoe,0,2', 2016: 'janedoe,1,0',
                        2017: 'janedoe,0,0'}.items():
         (paths.CONTRIBUTORS_DIR / f'{year}-plone-contributors.csv').write_text(
@@ -123,9 +139,8 @@ def test_query_one_classifies_the_domains(setup):
 
 
 def test_a_rejected_year_is_not_proposed_again(setup):
-    paths.REJECTED_PROPOSALS.write_text(
-        'person,organisation,from,to,reason,source\n'
-        'jane-doe,greenfinity,2014,2014,the year of a change,https://example.org/review\n', encoding='utf-8')
+    with open(paths.AFFILIATIONS, 'a', encoding='utf-8') as f:
+        f.write('a00000001,jane-doe,greenfinity,2014,2014,denied,,the year of a change\n')
     text, _, _, _ = run(setup)
     proposals = text.split('## Conflicts')[0]
     assert '| jane-doe | greenfinity | 2015 | 1 | address @greenfinity.hu (name) |' in proposals
@@ -163,10 +178,8 @@ def test_organisations_without_a_handle_are_listed(setup):
 
 
 def test_a_proposal_for_a_verified_row_is_left_out_but_a_guess_is_not(setup):
-    paths.AFFILIATIONS.write_text(
-        'person,organisation,from,to,source,checked,notes\n'
-        f'jane-doe,greenfinity,2014,2014,{SOURCE},,\n'
-        f'jane-doe,greenfinity,2015,2016,{SOURCE},,{GUESS}\n', encoding='utf-8')
+    write_affiliations(('jane-doe', 'greenfinity', 2014, 2014, 'stated', ''),
+                       ('jane-doe', 'greenfinity', 2015, 2016, 'assumed', GUESS))
     _, added, _, _ = run(setup, write=True)
     assert [(p['from'], p['to']) for p in added] == [(2015, 2015), (2016, 2016)]
 
@@ -176,9 +189,7 @@ def test_conflicts_say_whether_the_other_row_is_a_guess(setup):
     text, _, _, _ = run(setup, answers=answers, people=['jane-doe'], all_years=True)
     conflicts = text.split('## Conflicts')[1].split('## Unmapped')[0]
     assert '| jane-doe | 2017 | greenfinity | bubblenet | no |' in conflicts
-    paths.AFFILIATIONS.write_text(
-        'person,organisation,from,to,source,checked,notes\n'
-        f'jane-doe,bubblenet,2014,2016,{SOURCE},,{GUESS}\n', encoding='utf-8')
+    write_affiliations(('jane-doe', 'bubblenet', 2014, 2016, 'assumed', GUESS))
     text, _, _, _ = run(setup, answers={q1(2015): ANSWERS[q1(2015)]}, people=['jane-doe'],
                         cache=str(setup / 'cache2'))
     assert '| jane-doe | 2015 | greenfinity | bubblenet | yes |' in text
@@ -205,17 +216,18 @@ def test_requests_are_paced(setup):
 def test_write_appends_once(setup):
     _, added, _, _ = run(setup, write=True)
     assert len(added) == 2
-    rows = read_rows(paths.AFFILIATION_PROPOSALS)
+    rows = proposed()
     assert [(r['person'], r['organisation'], r['from'], r['to']) for r in rows] == [
         ('jane-doe', 'greenfinity', 2014, 2015), ('jane-doe', 'greenfinity', 2016, 2016)]
     _, again, _, _ = run(setup, write=True)
     assert again == []
-    assert len(read_rows(paths.AFFILIATION_PROPOSALS)) == 2
+    assert len(proposed()) == 2
 
 
 def test_without_write_nothing_is_written(setup):
+    before = paths.AFFILIATIONS.read_text(encoding='utf-8')
     run(setup)
-    assert read_rows(paths.AFFILIATION_PROPOSALS) == []
+    assert paths.AFFILIATIONS.read_text(encoding='utf-8') == before
 
 
 def test_unknown_people_and_people_without_a_login_stop_the_run(setup):

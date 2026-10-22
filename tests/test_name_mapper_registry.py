@@ -1,7 +1,8 @@
 """The changelog NameMapper asks the registry: identities first, then collected logins, then bots."""
 
 from scripts.lib.changelogs import NameMapper
-from scripts.lib.model import Identity, Person, Registry
+from scripts.lib.model import Identity
+from tests.conftest import registry_of
 
 SVN = '8e7b5d44-0c2e-0410-a6c3-b8c4e1e1bd1f'
 
@@ -9,16 +10,16 @@ SVN = '8e7b5d44-0c2e-0410-a6c3-b8c4e1e1bd1f'
 def make_mapper(logins=(), bots=(), people=(), identities=()):
     people = [
         *people,
-        Person('alex-clark', 'Alex Clark', 'aclark4life', 'https://example.org/a'),
-        Person('riaan-booysen', 'Riaan Booysen', None, 'https://example.org/r'),
-        Person('runyaga', 'Alan Runyan', 'runyaga', 'https://example.org/y'),
+        ('alex-clark', 'Alex Clark', 'aclark4life', 'https://example.org/a'),
+        ('riaan-booysen', 'Riaan Booysen', None, 'https://example.org/r'),
+        ('runyaga', 'Alan Runyan', 'runyaga', 'https://example.org/y'),
     ]
     identities = [
         *identities,
         Identity('alex-clark', 'email', f'aclark@{SVN}', 'https://example.org/a'),
-        Identity('runyaga', 'login', 'bobdobbs666', 'https://example.org/y'),
+        Identity('runyaga', 'github-alias', 'bobdobbs666', 'https://example.org/y'),
     ]
-    return NameMapper(Registry(people, identities, [], []), logins, bots)
+    return NameMapper(registry_of(people, identities), logins, bots)
 
 
 def test_svn_local_part_resolves_through_email_identity():
@@ -52,7 +53,7 @@ def test_unknown_name_stays_unmatched():
 
 
 def test_single_token_name_identity_matches():
-    mapper = make_mapper(people=[Person('jens-w-klein', 'Jens W. Klein', 'jensens', 'https://example.org/j')],
+    mapper = make_mapper(people=[('jens-w-klein', 'Jens W. Klein', 'jensens', 'https://example.org/j')],
                          identities=[Identity('jens-w-klein', 'name', 'yenzens', 'https://example.org/j')])
     assert mapper.map('yenzens') == ('jensens', 'identity')
 
@@ -67,8 +68,8 @@ def test_local_part_of_an_ordinary_address_does_not_resolve():
 
 
 def kims(logins=()):
-    people = [Person('kim-a', 'Kim A', 'kima', 'https://example.org/a'),
-              Person('kim-b', 'Kim B', 'kimb', 'https://example.org/b')]
+    people = [('kim-a', 'Kim A', 'kima', 'https://example.org/a'),
+              ('kim-b', 'Kim B', 'kimb', 'https://example.org/b')]
     identities = [Identity('kim-a', 'name', 'Kim', 'https://example.org/a'),
                   Identity('kim-b', 'name', 'Kim', 'https://example.org/b')]
     return make_mapper(logins=logins, people=people, identities=identities)
@@ -80,8 +81,8 @@ def test_ambiguous_name_falls_through():
 
 
 def test_ambiguous_svn_local_part_is_unmatched():
-    people = [Person('pat-a', 'Pat A', 'pata', 'https://example.org/a'),
-              Person('pat-b', 'Pat B', 'patb', 'https://example.org/b')]
+    people = [('pat-a', 'Pat A', 'pata', 'https://example.org/a'),
+              ('pat-b', 'Pat B', 'patb', 'https://example.org/b')]
     identities = [Identity('pat-a', 'email', 'pat@localhost', 'https://example.org/a'),
                   Identity('pat-b', 'email', 'pat@localhost', 'https://example.org/b')]
     assert make_mapper(people=people, identities=identities).map('pat') == ('pat', 'unmatched')

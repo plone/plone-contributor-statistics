@@ -1,6 +1,16 @@
 {
   "fields": [
     {
+      "name": "id",
+      "type": "string",
+      "description": "Opaque, stable identifier of the affiliation: `a` and eight hex digits of a hash made once from person, organisation and years when the row is created, and kept when the row changes. The citations refer to it.",
+      "constraints": {
+        "required": true,
+        "unique": true,
+        "pattern": "^a[0-9a-f]{8}$"
+      }
+    },
+    {
       "name": "person",
       "type": "string",
       "description": "The id of the person in the people register.",
@@ -36,12 +46,17 @@
       }
     },
     {
-      "name": "source",
+      "name": "status",
       "type": "string",
-      "description": "A public record, linked as a web address, that shows the affiliation.",
+      "description": "How the row reads its citations: `stated` they say so; `assumed` a range extended beyond its records, counted where no stated row covers the year; `denied` the person did not belong to the organisation in those years, which removes it from the counting; `proposed` a reading a tool produced and nobody has reviewed, never counted.",
       "constraints": {
         "required": true,
-        "pattern": ".*https?://.*"
+        "enum": [
+          "stated",
+          "assumed",
+          "denied",
+          "proposed"
+        ]
       }
     },
     {
@@ -52,8 +67,11 @@
     {
       "name": "notes",
       "type": "string",
-      "description": "Free-text remarks on the row."
+      "description": "Free-text remarks on the row; for a denied row, the reason."
     }
+  ],
+  "primaryKey": [
+    "id"
   ],
   "foreignKeys": [
     {

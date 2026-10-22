@@ -5,7 +5,7 @@ The attribution rules accept a company address in the commits of a person as evi
 commits, in commits made in Git only. This reads the author of every commit of the cached clones of the plone
 repositories, leaves out the commits imported from Subversion, finds the person in the registers, keeps the
 addresses of companies, and proposes the years as an affiliation. The proposals go to
-curated/mappings/affiliation_proposals.csv (with --write); a reviewer moves them into affiliations.csv. Domains
+curated/mappings/affiliations.csv as `proposed` rows (with --write); a reviewer turns them into stated rows. Domains
 that belong to no organisation are listed, so that they can be added to the `aliases` of the organisation.
 
 Needs the clones: `make run-changelogs` fills the cache.
@@ -22,13 +22,17 @@ from scripts.lib import git_history
 from scripts.lib.commit_authors import (Finder, is_company_domain, is_own_domain_for,  # noqa: F401
                                         registrable_label)
 from scripts.lib.model import MAPPINGS_DIR, append_proposals, load_bot_accounts, load_registry, load_rejections
+from scripts.lib.model.attribution import COUNTING
 
 DEFAULT_SINCE = 2002
 
 
-def is_own_domain(domain, person):
-    """Whether the domain looks like the person's own, see `is_own_domain_for`; only for unclaimed domains."""
-    return is_own_domain_for(domain, person.name, [person.github] if person.github else [])
+def is_own_domain(domain, person, logins=()):
+    """Whether the domain looks like the person's own, see `is_own_domain_for`; only for unclaimed domains.
+
+    `logins` are the person's GitHub logins (`Registry.logins_of`).
+    """
+    return is_own_domain_for(domain, person.name, list(logins))
 
 
 def _runs(years):
@@ -68,7 +72,7 @@ def gather(clones, finder, since):
                 continue
             match = registry.match_domain(domain)
             if match is None:
-                if is_own_domain(domain, person):
+                if is_own_domain(domain, person, registry.logins_of(person.id)):
                     continue
                 entry = unmapped[domain]
                 entry['commits'] += 1
@@ -85,13 +89,14 @@ def gather(clones, finder, since):
 
 
 def propose(registry, found, rejected=frozenset()):
-    """(proposals, conflicts). A proposal is a dict with the keys of the proposals file, plus commits and example.
+    """(proposals, conflicts). A proposal is a dict with the keys `append_proposals` takes (person, organisation,
+    from, to, sources, notes), plus evidence, domain, match, commits and example.
 
-    rejected: {(person, organisation, year)} that a reviewer turned down, see rejected_proposals.csv.
+    rejected: {(person, organisation, year)} that a reviewer turned down, the `denied` affiliations.
     """
     proposals, conflicts = [], []
     for (person, organisation), by_year in sorted(found.items()):
-        own = [a for a in registry.affiliations if a.person == person]
+        own = [a for a in registry.affiliations if a.person == person and a.status in COUNTING]
         same = {y for y in by_year if any(a.organisation == organisation and a.covers(y) for a in own)}
         turned_down = {y for y in by_year if (person, organisation, y) in rejected}
         for first, last in _runs(set(by_year) - same - turned_down):
@@ -99,10 +104,11 @@ def propose(registry, found, rejected=frozenset()):
             first_slots = by_year[first].items()
             domain, (_, (_, repository, sha), how) = min(first_slots, key=lambda item: (item[1][1], item[0]))
             repository = repository.removesuffix('.git')
+            evidence = (f'Company address @{domain} in commits {_years(first, last)} '
+                        f'(example: https://github.com/{ORGANISATION}/{repository}/commit/{sha})')
             proposals.append({
                 'person': person, 'organisation': organisation, 'from': first, 'to': last,
-                'evidence': f'Company address @{domain} in commits {_years(first, last)} '
-                            f'(example: https://github.com/{ORGANISATION}/{repository}/commit/{sha})',
+                'sources': [], 'notes': evidence, 'evidence': evidence,
                 'domain': domain, 'match': how,
                 'commits': sum(v[0] for y in years for v in by_year[y].values()),
                 'example': f'{repository}@{sha[:10]}',
@@ -149,7 +155,7 @@ def report(proposals, conflicts, unmapped):
 
 
 def run(cache=git_history.CACHE_DIR, since=DEFAULT_SINCE, people=(), write=False, mappings_dir=MAPPINGS_DIR):
-    """Gather, propose, and (with write) append to the proposals file; return (report, proposals added)."""
+    """Gather, propose, and (with write) add the proposed affiliations; return (report, proposals added)."""
     if not os.path.isdir(os.path.join(cache, ORGANISATION)):
         raise SystemExit(f'No clones in {cache}/{ORGANISATION}; fill the cache with `make run-changelogs`.')
     registry = load_registry(mappings_dir)
@@ -175,12 +181,12 @@ def main(argv=None):
                         help='only this person (repeat for several)')
     parser.add_argument('--since', type=int, default=DEFAULT_SINCE, help='ignore commits before this year')
     parser.add_argument('--cache', default=git_history.CACHE_DIR, help='directory of the clones')
-    parser.add_argument('--write', action='store_true', help='append the proposals to affiliation_proposals.csv')
+    parser.add_argument('--write', action='store_true', help='add the proposals to affiliations.csv as proposed rows')
     args = parser.parse_args(argv)
     text, added = run(args.cache, args.since, args.person, args.write)
     sys.stdout.write(text)
     if args.write:
-        print(f'\nWrote {len(added)} new proposals to the proposals file.')
+        print(f'\nWrote {len(added)} new proposals to affiliations.csv.')
 
 
 if __name__ == '__main__':

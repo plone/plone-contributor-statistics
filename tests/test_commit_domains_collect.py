@@ -9,6 +9,7 @@ from scripts.collect import plone_commit_domains
 from scripts.lib import paths
 from scripts.lib.commit_authors import Finder
 from scripts.lib.model import load_bot_accounts, load_registry
+from tests.conftest import record_source
 from tests.test_address_proposals import SOURCE, git, make_clone
 
 
@@ -16,14 +17,13 @@ from tests.test_address_proposals import SOURCE, git, make_clone
 def setup(tmp_repo, write_registers):
     write_registers(people=[('jane-doe', 'janedoe'), ('bob-builder', '')], affiliations=[],
                     organisations=[('acme', 'Acme Industries')])
-    paths.PEOPLE.write_text(
-        'id,name,github,source\n'
-        f'bob-builder,Bob Builder,,{SOURCE}\n'
-        f'jane-doe,Jane Doe,janedoe,{SOURCE}\n', encoding='utf-8')
-    paths.IDENTITIES.write_text('person,kind,value,source\n'
-                                f'bob-builder,email,bob@old.test,{SOURCE}\n'
-                                f'jane-doe,email,jane@acme.test,{SOURCE}\n'
-                                f'jane-doe,email,j.doe@ACME.test.,{SOURCE}\n', encoding='utf-8')
+    sid = record_source(SOURCE)
+    paths.PEOPLE.write_text('id,name\nbob-builder,Bob Builder\njane-doe,Jane Doe\n', encoding='utf-8')
+    paths.IDENTITIES.write_text('person,kind,value,source,snippet,notes\n'
+                                f'bob-builder,email,bob@old.test,{sid},,\n'
+                                f'jane-doe,email,j.doe@ACME.test.,{sid},,\n'
+                                f'jane-doe,email,jane@acme.test,{sid},,\n'
+                                f'jane-doe,github,janedoe,{sid},,\n', encoding='utf-8')
     paths.BOT_ACCOUNTS.write_text('login,reason\nrobot,a bot\n', encoding='utf-8')
     return tmp_repo
 

@@ -33,11 +33,10 @@ You need a GitHub account, and a public record for the affiliation: a link, or a
     A year that no row covers is Unmapped, and `Unmapped` is never written.
     If the person moved, give the earlier organisation its own row and end it the year before the next one starts; the rows of one person must not overlap.
 
-4.  If a statement has no accepted record yet, add it to `curated/mappings/affiliation_proposals.csv` with the evidence, instead of `curated/mappings/affiliations.csv`.
-    No script reads that file.
+4.  If a statement has no accepted record yet, add it to `curated/mappings/affiliations.csv` with the status `proposed`; a proposed row never counts.
     A finding that no record supports some years, with what was checked, goes into the `notes` of the neighbouring row, because `Unmapped` is never written as a row; a later reviewer then knows what was looked at.
     A row never loses a source: new evidence is added to the `source` cell, and a year changes its organisation only for stronger evidence, see {doc}`/explanation/attribution`.
-    A proposal that the review turns down goes to `curated/mappings/rejected_proposals.csv`, with the reason and a link to where it was decided, so that the tools below don't propose those years again.
+    A proposal that the review turns down becomes a `denied` row, with the reason in its `notes` and a citation of where it was decided, so that the tools below don't propose those years again.
 
 5.  Validate the files:
 
@@ -83,9 +82,9 @@ The report has three tables:
     If the organisation is not in the register, add it first, see step 1 above.
     Skip domains that are an employer of nobody, such as a university alumni address or a private domain with no person's name in it; a domain the tool takes for a company is not yet one.
 
-With `--write`, the proposals go to `curated/mappings/affiliation_proposals.csv`; a proposal that is in the file already is not written twice.
+With `--write`, the proposals go to `curated/mappings/affiliations.csv` as `proposed` rows; a proposal that is in the file already is not written twice.
 A run that has grown since the last `--write`, because newer commits extend it, is a different row and appears next to the earlier one; keep the longer one when you review.
-The tool never writes `curated/mappings/affiliations.csv`.
+The tool never writes a row that counts.
 Review each proposal as any other: check that the domain is a company's, and that the person worked for the company and not only used its address, then move the row into `curated/mappings/affiliations.csv` with the example commit as `source`, and run `make check`.
 A match by a first word can be wrong, so look at the organisation before you accept it.
 
@@ -125,7 +124,7 @@ The report has four tables:
 -   **Organisations without a handle**: the guessed organisations of the years that no address explained, with the number of person-years.
     Fill the `github` column for the organisations you can name a GitHub organisation for, and run the tool again.
 
-With `--write`, the proposals go to `curated/mappings/affiliation_proposals.csv`.
+With `--write`, the proposals go to `curated/mappings/affiliations.csv` as `proposed` rows.
 Review them like the address proposals.
 A proposal that confirms a guessed row turns the years of that row into verified ones: the evidence goes into its `source` and the note goes.
 A proposal that contradicts a guess splits the guess around the evidence.

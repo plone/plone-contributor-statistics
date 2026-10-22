@@ -2,7 +2,8 @@
 
 from scripts.lib import changelogs
 from scripts.lib.changelogs import NameMapper, Occurrence
-from scripts.lib.model import Identity, Person, Registry
+from scripts.lib.model import Identity, Registry
+from tests.conftest import registry_of
 from scripts.tools import unmatched_changelog_names as tool
 
 
@@ -16,9 +17,9 @@ def commit(sha, email, name, message, date='2005-02-01T12:00:00Z'):
     return {'sha': sha, 'author_email': email, 'author_name': name, 'date': date, 'message': message}
 
 
-REGISTRY = Registry(
-    [Person('alec-mitchell', 'Alec Mitchell', 'alecpm', 'https://example.org/a'),
-     Person('hanno-schlichting', 'Hanno Schlichting', None, 'https://example.org/h')],
+REGISTRY = registry_of(
+    [('alec-mitchell', 'Alec Mitchell', 'alecpm', 'https://example.org/a'),
+     ('hanno-schlichting', 'Hanno Schlichting', None, 'https://example.org/h')],
     [Identity('hanno-schlichting', 'email', 'hanno@hannosch.eu', 'https://example.org/h')], [], [])
 MAPPER = NameMapper(REGISTRY, ['limi'], {})
 ENTRIES = [

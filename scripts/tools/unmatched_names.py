@@ -29,7 +29,7 @@ LOGIN = re.compile(r'[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})')
 def contributor_logins(registry=None, contributors_dir=paths.CONTRIBUTORS_DIR):
     """Every GitHub login with code work in the collected files, or in the register."""
     registry = registry or load_registry()
-    logins = {person.github for person in registry.people.values() if person.github}
+    logins = {login for login in map(registry.github_of, registry.people) if login}
     for path in sorted(contributors_dir.glob('*-plone-contributors.csv')):
         with open(path, newline='', encoding='utf-8') as f:
             logins.update(row['username'] for row in csv.DictReader(f))
@@ -49,7 +49,7 @@ def unmatched_people(registry, logins):
     found = {}
     for person in registry.people.values():
         key = fold(person.name).replace(' ', '')
-        if not person.github and by_key.get(key):
+        if not registry.github_of(person.id) and by_key.get(key):
             found[person.id] = sorted(by_key[key])
     return found
 
@@ -64,7 +64,7 @@ def propose(registry, profile_names):
         ids_by_name[fold(person.name)].add(person.id)
     proposals = []
     for person in sorted(registry.people.values(), key=lambda person: person.id):
-        if person.github:
+        if registry.github_of(person.id):
             continue
         logins = logins_by_name.get(fold(person.name), set())
         if len(logins) == 1 and len(ids_by_name[fold(person.name)]) == 1:

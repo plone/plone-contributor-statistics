@@ -1,25 +1,26 @@
 import pytest
 
 from scripts.lib import paths
-from scripts.lib.model import Person, append_person, load_registry
+from scripts.lib.model import load_registry
 from scripts.lib.model.names import unique_slug
 from scripts.tools import check, datapackage, person
+from tests.conftest import record_source
 
 SRC = 'https://example.org/record'
 
 
 @pytest.fixture
 def registers(tmp_repo):
-    paths.PEOPLE.write_text(
-        'id,name,github,source\n'
-        f'alan-runyan,Alan Runyan,runyaga,{SRC}\n'
-        f'jane-doe,Jane Doe,JaneDoe,{SRC}\n'
-        f'zed,Zed Zeta,,{SRC}\n', encoding='utf-8')
+    sid = record_source(SRC)
+    paths.PEOPLE.write_text('id,name\nalan-runyan,Alan Runyan\njane-doe,Jane Doe\nzed,Zed Zeta\n', encoding='utf-8')
     paths.IDENTITIES.write_text(
-        'person,kind,value,source\n'
-        f'alan-runyan,login,bobdobbs666,{SRC}\n'
-        f'zed,email,Zed@Example.org,{SRC}\n'
-        f'zed,name,Zédd Zeta,{SRC}\n', encoding='utf-8')
+        'person,kind,value,source,snippet,notes\n'
+        f'alan-runyan,github,runyaga,{sid},,\n'
+        f'alan-runyan,github-alias,bobdobbs666,{sid},,\n'
+        f'jane-doe,github,JaneDoe,{sid},,\n'
+        f'zed,email,Zed@Example.org,{sid},,\n'
+        f'zed,name,Zed Zeta,{sid},,\n'
+        f'zed,name,Zédd Zeta,{sid},,\n', encoding='utf-8')
     return tmp_repo
 
 
@@ -49,13 +50,14 @@ def test_find_by_login_ignores_case(registers):
 
 
 def test_add_generates_unique_id_and_keeps_sort(registers):
-    added = person.add(paths.MAPPINGS_DIR, 'Jane Doe', 'jdoe2', SRC)
-    assert added.id == 'jane-doe-2'
-    assert person.add(paths.MAPPINGS_DIR, 'Abe Able', None, SRC).id == 'abe-able'
+    added, identity = person.add(paths.MAPPINGS_DIR, 'Jane Doe', 'jdoe2', SRC)
+    assert added.id == 'jane-doe-2' and (identity.kind, identity.value) == ('github', 'jdoe2')
+    assert person.add(paths.MAPPINGS_DIR, 'Abe Able', None, SRC)[0].id == 'abe-able'
     registry = load_registry()
     assert list(registry.people) == ['abe-able', 'alan-runyan', 'jane-doe', 'jane-doe-2', 'zed']
-    assert registry.people['abe-able'].github is None
-    assert registry.people['jane-doe-2'].github == 'jdoe2'
+    assert registry.github_of('abe-able') is None
+    assert [(i.kind, i.value) for i in registry.identities if i.person == 'abe-able'] == [('name', 'Abe Able')]
+    assert registry.github_of('jane-doe-2') == 'jdoe2'
     datapackage.main([])
     assert check.validate() == []
 
@@ -65,48 +67,45 @@ def test_add_refuses_a_login_of_another_person(registers):
         person.add(paths.MAPPINGS_DIR, 'Other Alan', 'RUNYAGA', SRC)
     with pytest.raises(ValueError, match='belongs to alan-runyan'):
         person.add(paths.MAPPINGS_DIR, 'Other Alan', 'bobdobbs666', SRC)
-    with pytest.raises(ValueError, match='link'):
-        person.add(paths.MAPPINGS_DIR, 'New Person', None, 'memory')
+    with pytest.raises(ValueError, match='capture it first'):
+        person.add(paths.MAPPINGS_DIR, 'New Person', None, 'https://example.org/unknown')
     with pytest.raises(ValueError, match='name'):
         person.add(paths.MAPPINGS_DIR, ' ', None, SRC)
     assert 'other-alan' not in load_registry().people
 
 
-def test_main_add_prints_the_row(registers, capsys):
-    assert person.main(['--add', 'Ann Lee', '--github', 'annlee', '--source', SRC]) == 0
-    assert capsys.readouterr().out.strip() == f'ann-lee,Ann Lee,annlee,{SRC}'
+def test_main_add_prints_the_rows(registers, capsys):
+    sid = record_source(SRC)
+    assert person.main(['--add', 'Ann Lee', '--github', 'annlee', '--source', sid]) == 0
+    assert capsys.readouterr().out == f'ann-lee,Ann Lee\nann-lee,github,annlee,{sid},,\n'
 
 
 def test_main_find_prints_rows_and_fails_without_match(registers, capsys):
+    sid = record_source(SRC)
     assert person.main(['Jane Doe']) == 0
     assert capsys.readouterr().out == (
-        f'# curated/mappings/people.csv\nid,name,github,source\njane-doe,Jane Doe,JaneDoe,{SRC}\n')
+        '# curated/mappings/people.csv\nid,name\njane-doe,Jane Doe\n'
+        f'# curated/mappings/identities.csv\nperson,kind,value,source,snippet,notes\njane-doe,github,JaneDoe,{sid},,\n')
     assert person.main(['nobody']) == 1
     assert capsys.readouterr().out == ''
 
 
 def test_main_prints_identities_and_affiliations_of_the_match(registers, capsys):
+    sid = record_source(SRC)
     paths.AFFILIATIONS.write_text(
-        'person,organisation,from,to,source,checked,notes\n'
-        f'zed,zeta,2015,,{SRC},2024-05-01,"one, two"\n', encoding='utf-8')
+        'id,person,organisation,from,to,status,checked,notes\n'
+        'a12345678,zed,zeta,2015,,stated,2024-05-01,"one, two"\n', encoding='utf-8')
     paths.ORGANISATIONS.write_text('id,name,kind,github,aliases,notes\nzeta,Zeta,organisation,,,\n', encoding='utf-8')
     assert person.main(['  zed ']) == 0
     assert capsys.readouterr().out == (
         '# curated/mappings/people.csv\n'
-        'id,name,github,source\n'
-        f'zed,Zed Zeta,,{SRC}\n'
+        'id,name\n'
+        'zed,Zed Zeta\n'
         '# curated/mappings/identities.csv\n'
-        'person,kind,value,source\n'
-        f'zed,email,Zed@Example.org,{SRC}\n'
-        f'zed,name,Zédd Zeta,{SRC}\n'
+        'person,kind,value,source,snippet,notes\n'
+        f'zed,email,Zed@Example.org,{sid},,\n'
+        f'zed,name,Zed Zeta,{sid},,\n'
+        f'zed,name,Zédd Zeta,{sid},,\n'
         '# curated/mappings/affiliations.csv\n'
-        'person,organisation,from,to,source,checked,notes\n'
-        f'zed,zeta,2015,,{SRC},2024-05-01,"one, two"\n')
-
-
-def test_append_person_refuses_an_existing_id_or_login(registers):
-    with pytest.raises(ValueError, match='id zed'):
-        append_person(paths.MAPPINGS_DIR, Person('zed', 'Another', None, SRC))
-    with pytest.raises(ValueError, match='login JANEDOE'):
-        append_person(paths.MAPPINGS_DIR, Person('new', 'New', 'JANEDOE', SRC))
-    assert 'new' not in load_registry().people
+        'id,person,organisation,from,to,status,checked,notes\n'
+        'a12345678,zed,zeta,2015,,stated,2024-05-01,"one, two"\n')

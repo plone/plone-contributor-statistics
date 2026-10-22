@@ -1,30 +1,25 @@
 import pytest
 
-from scripts.lib import paths
-from scripts.lib.model import load_registry
+from scripts.lib.model import affiliation_id, load_registry
 from scripts.tools import affiliation
-
-ROWS = """person,organisation,from,to,source,checked,notes
-jane-doe,old-co,2010,2014,https://example.org/a,,
-jane-doe,example-company,2015,2019,https://example.org/b,2024-05-01,
-jane-doe,new-co,2020,,https://example.org/c,,
-"""
 
 
 @pytest.fixture
 def registry(write_registers):
     write_registers(people=[('jane-doe', 'janedoe'), ('other', '')],
+                    affiliations=[('jane-doe', 'old-co', 2010, 2014), ('jane-doe', 'example-company', 2015, 2019),
+                                  ('jane-doe', 'new-co', 2020, None)],
                     organisations=[('old-co', 'Old Co'), ('example-company', 'Example Company'),
                                    ('new-co', 'New Co')])
-    paths.AFFILIATIONS.write_text(ROWS, encoding='utf-8')
     return load_registry()
 
 
 def test_explain_names_the_row(registry):
     assert affiliation.explain(registry, 'jane-doe', 2017) == (
-        'Example Company (affiliations.csv line 3: 2015–2019, https://example.org/b)')
+        'Example Company (affiliations.csv line 3: 2015–2019, stated, '
+        f'{affiliation_id("jane-doe", "example-company", 2015, 2019)})')
     assert affiliation.explain(registry, 'jane-doe', 2024) == (
-        'New Co (affiliations.csv line 4: 2020–present, https://example.org/c)')
+        f'New Co (affiliations.csv line 4: 2020–present, stated, {affiliation_id("jane-doe", "new-co", 2020, None)})')
 
 
 def test_explain_takes_a_login_or_a_username(registry):

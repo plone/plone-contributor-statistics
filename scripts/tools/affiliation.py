@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Explain which row of affiliations.csv gives the organisation of a person in a year."""
+"""Explain which row of affiliations.csv gives the organisation a person counts for in a year."""
 
 import argparse
 import sys
 
 from scripts.lib.model import UNMAPPED, load_registry
+from scripts.lib.model.attribution import COUNTING
 
 
 def explain(registry, person, year):
@@ -19,12 +20,17 @@ def explain(registry, person, year):
         if found is None:
             raise ValueError(f'Unknown person: {person}')
         person_id = found.id
+    organisation = registry.organisation_of(person_id, year)
     # Rows are in file order and the header is line 1
-    for line, affiliation in enumerate(registry.affiliations, start=2):
-        if affiliation.person == person_id and affiliation.covers(year):
+    rows = [(line, a) for line, a in enumerate(registry.affiliations, start=2)
+            if a.person == person_id and a.covers(year) and a.status in COUNTING]
+    for line, affiliation in rows:
+        if registry.organisation_name(affiliation.organisation) == organisation:
             end = affiliation.to_year if affiliation.to_year is not None else 'present'
-            return (f'{registry.organisation_name(affiliation.organisation)} '
-                    f'(affiliations.csv line {line}: {affiliation.from_year}–{end}, {affiliation.source})')
+            return (f'{organisation} (affiliations.csv line {line}: {affiliation.from_year}–{end}, '
+                    f'{affiliation.status}, {affiliation.id})')
+    if rows:
+        return f'{UNMAPPED} (no attribution rule decides {year})'
     return f'{UNMAPPED} (no row covers {year})'
 
 

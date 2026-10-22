@@ -18,13 +18,12 @@ PAGE = Path('docs/reference/curated-files.md')
 
 # Group -> (what it holds, [(kind, title)]), in the order of the page
 GROUPS = [
-    ('Registers', 'People, identities, affiliations and organisations, in `curated/mappings/`.', [
+    ('Registers', 'People, identities, affiliations, citations and organisations, in `curated/mappings/`.', [
         ('people', 'People'),
         ('identities', 'Identities'),
         ('affiliations', 'Affiliations'),
+        ('citations', 'Citations'),
         ('organisations', 'Organisations'),
-        ('affiliation-proposals', 'Affiliation proposals'),
-        ('rejected-proposals', 'Rejected proposals'),
     ]),
     ('Sources', 'The sources the registers cite, in `curated/sources/`, each with an excerpt file of the cited passages.', [
         ('sources', 'Sources'),
@@ -55,14 +54,13 @@ GROUPS = [
 
 ONE_ROW_IS = {
     'people': 'one person.',
-    'identities': 'one string that denotes a person in a source: a name, a commit address or a second login.',
-    'affiliations': 'one person, one organisation and one period.',
+    'identities': 'one string that denotes a person in the data: a GitHub login, a further GitHub account, a commit'
+                  ' address or a spelling of the name, with the source that connects it to the person.',
+    'affiliations': 'one reading of the sources: one person, one organisation and one period, with its status.',
+    'citations': 'one source that an affiliation rests on, with a passage of it; a source with several passages'
+                 ' is cited once per passage.',
     'organisations': 'one organisation.',
     'sources': 'one source: a page, profile, commit, video or decision that we read once; its excerpt file holds the passages we cite.',
-    'affiliation-proposals': 'one affiliation that a source states and that no accepted record confirms yet.'
-                             ' No script reads the file.',
-    'rejected-proposals': 'one proposal that a reviewer turned down, with the reason and a link to the review;'
-                          ' the tools that propose affiliations leave those years out.',
     'bot-accounts': 'one GitHub account that is a bot.',
     'excluded-repositories': 'one repository of the `plone` organisation that the statistics skip.',
     'board-of-directors': 'one member of the Board of Directors whose term ends in the year.',
