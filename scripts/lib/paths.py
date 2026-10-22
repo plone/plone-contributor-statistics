@@ -21,6 +21,9 @@ DATAPACKAGE = Path('curated/datapackage.json')
 COMMUNITY = Path('curated/community-contributions')
 RECOGNITION_LEVELS = COMMUNITY / 'community-recognition-levels.csv'
 PLIPS_BEFORE_GITHUB = Path('curated/plips/plone-plips-before-github.csv')
+SOURCES_DIR = Path('curated/sources')
+SOURCES = SOURCES_DIR / 'sources.csv'
+EXCERPTS_DIR = SOURCES_DIR / 'excerpts'
 
 # Collected by the collectors; never edit by hand
 CONTRIBUTORS_DIR = Path('collected/contributors')

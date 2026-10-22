@@ -7,7 +7,7 @@ KINDS = {'people', 'identities', 'affiliations', 'organisations', 'affiliation-p
          'bot-accounts', 'excluded-repositories', 'board-of-directors', 'team-leaders', 'release-managers', 'podcasts',
          'plone-conference-trainings', 'world-plone-day-talks', 'sprints', 'plone-conference',
          'world-plone-day-event', 'conference-talks', 'community-recognition-levels', 'community-recognition-points',
-         'plips-before-github'}
+         'plips-before-github', 'sources'}
 
 def test_every_kind_has_a_valid_schema():
     assert {p.stem for p in SCHEMAS.glob('*.json')} == KINDS

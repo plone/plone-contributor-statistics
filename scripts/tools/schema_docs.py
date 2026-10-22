@@ -26,6 +26,9 @@ GROUPS = [
         ('affiliation-proposals', 'Affiliation proposals'),
         ('rejected-proposals', 'Rejected proposals'),
     ]),
+    ('Sources', 'The sources the registers cite, in `curated/sources/`, each with an excerpt file of the cited passages.', [
+        ('sources', 'Sources'),
+    ]),
     ('Lists', 'Accounts and repositories that the collectors treat in a special way, in `curated/mappings/`.', [
         ('bot-accounts', 'Bot accounts'),
         ('excluded-repositories', 'Excluded repositories'),
@@ -55,6 +58,7 @@ ONE_ROW_IS = {
     'identities': 'one string that denotes a person in a source: a name, a commit address or a second login.',
     'affiliations': 'one person, one organisation and one period.',
     'organisations': 'one organisation.',
+    'sources': 'one source: a page, profile, commit, video or decision that we read once; its excerpt file holds the passages we cite.',
     'affiliation-proposals': 'one affiliation that a source states and that no accepted record confirms yet.'
                              ' No script reads the file.',
     'rejected-proposals': 'one proposal that a reviewer turned down, with the reason and a link to the review;'

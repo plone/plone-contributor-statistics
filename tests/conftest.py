@@ -20,6 +20,7 @@ EMPTY_MAPPINGS = {
     paths.ORGANISATIONS: 'id,name,kind,github,aliases,notes\n',
     paths.AFFILIATION_PROPOSALS: 'person,organisation,from,to,evidence\n',
     paths.REJECTED_PROPOSALS: 'person,organisation,from,to,reason,source\n',
+    paths.SOURCES: 'id,kind,title,date,url,archive_url,fetched,notes\n',
 }
 
 
