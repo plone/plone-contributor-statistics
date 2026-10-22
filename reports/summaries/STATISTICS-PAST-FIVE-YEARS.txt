@@ -2,7 +2,7 @@
 
 - 83 total organisations tracked across the past 5 years
 - 41,001 total commits and 9,917 pull requests
-- 349 unique contributors across all organisations
+- 350 unique contributors across all organisations
 - File generated: derived/summaries/summary-past-five-years-2021-2025.csv
 
 ## Top 10 contributors by pull requests (2021-2025)
@@ -38,13 +38,13 @@
 3. der Freitag: 706 PRs
 4. Kombinat: 653 PRs
 5. Zest Software: 575 PRs
-6. Eau de Web: 389 PRs
+6. Eau de Web: 391 PRs
 7. Syslab: 365 PRs
 8. PY76: 359 PRs
 9. RedTurtle: 344 PRs
 10. Codesyntax: 289 PRs
 
-Not mapped to an organisation: 631 PRs
+Not mapped to an organisation: 627 PRs
 
 ## Top 10 organisations by commits (2021-2025)
 
@@ -59,4 +59,4 @@ Not mapped to an organisation: 631 PRs
 9. Derico: 1,110 commits
 10. Rohberg: 1,010 commits
 
-Not mapped to an organisation: 1,794 commits
+Not mapped to an organisation: 1,758 commits

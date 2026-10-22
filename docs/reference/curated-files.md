@@ -278,7 +278,7 @@ Checks beyond the schema:
 
 ### Conference talks
 
-File: `curated/community-contributions/2021-conference-talks.csv`
+File: `curated/community-contributions/YYYY-conference-talks.csv`
 
 One row is one keynote, talk or panel at a Plone conference, global or regional.
 
