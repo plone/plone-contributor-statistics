@@ -1,6 +1,6 @@
 # Plone Community Recognition Program 2025
 
-*Generated: 2026-10-21 22:36:47*
+*Generated: 2026-10-22 03:43:43*
 
 ## Executive Summary
 
@@ -115,7 +115,7 @@
 | 3 | der Freitag | 20 | Lead | 141.2 |
 | 4 | Kombinat | 20 | Lead | 130.6 |
 | 5 | Zest Software | 20 | Lead | 115.0 |
-| 6 | Eau de Web | 10 | Core Member | 77.8 |
+| 6 | Eau de Web | 10 | Core Member | 78.2 |
 | 7 | Syslab | 10 | Core Member | 73.0 |
 | 8 | PY76 | 10 | Core Member | 71.8 |
 | 9 | RedTurtle | 10 | Core Member | 68.8 |
@@ -211,7 +211,7 @@
 |----------|-------:|:--------|
 | Strategic Sprint | 12.0 | • Bucharest Plone Sprint 2025 |
 | WPD Talk | 4.0 | • Plone Hands On: Customize your site theme through the web with Volto!<br>• Select user widget feature in Volto<br>• Volto block style: Start customizing your site through the web<br>• Dynamic Vocabulary Based on Context in Plone |
-| PR Contributions | 10.0 | • Core Member (77.8 PRs/year) |
+| PR Contributions | 10.0 | • Core Member (78.2 PRs/year) |
 | PLIP Contributions | 3.0 | • Occasional PLIP Contributor (2 PLIPs) |
 
 ### PY76
