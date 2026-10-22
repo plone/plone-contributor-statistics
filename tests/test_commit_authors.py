@@ -6,7 +6,7 @@ import subprocess
 import pytest
 
 from scripts.lib import git_history
-from scripts.lib.commit_authors import domain_of, is_company_domain
+from scripts.lib.commit_authors import domain_of, is_company_domain, is_own_domain_for
 from tests.test_address_proposals import make_clone
 
 # Names of machines and placeholders, no public mail domains; some of them carry a person's name
@@ -84,3 +84,13 @@ def test_read_authors_can_leave_out_copies_and_duplicates(tmp_path):
     assert len(git_history.read_authors(work)) == 5
     assert sorted(a[1] for a in git_history.read_authors(work, duplicates=False)) == [
         'ann@x.test', 'cy@z.test', 'di@w.test']
+
+
+@pytest.mark.parametrize('domain,logins,own', [
+    ('vanrees.org', [], True),  # a name part of four letters or more inside the label
+    ('mvr.net', ['mvr'], True),  # the login
+    ('maurits.net', ['other', 'Maurits'], True),  # any of the logins, folded
+    ('zestsoftware.nl', ['mauritsvanrees'], False),
+])
+def test_own_domain_for_name_and_logins(domain, logins, own):
+    assert is_own_domain_for(domain, 'Maurits van Rees', logins) is own

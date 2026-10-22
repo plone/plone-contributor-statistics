@@ -21,17 +21,21 @@ def load_commit_domains(year):
     return dict(counts)
 
 
-def organisation_commits(counts, registry):
+def organisation_commits(counts, match_domain, is_own=None):
     """(commits per organisation id, commits under personal domains, commits under unmatched company domains).
 
-    `counts` is the Counter of one person, as `load_commit_domains` returns it.
+    `counts` is the Counter of one person, as `load_commit_domains` returns it; `match_domain` is the registers'
+    `match_domain`. A company domain that no organisation claims and that `is_own(domain)` recognises as the
+    person's own (`is_own_domain_for`) counts as personal.
     """
     per_organisation, personal, unmatched = Counter(), 0, 0
     for domain, commits in counts.items():
         if not is_company_domain(domain):
             personal += commits
-        elif (match := registry.match_domain(domain)) is None:
-            unmatched += commits
-        else:
+        elif (match := match_domain(domain)) is not None:
             per_organisation[match[0]] += commits
+        elif is_own is not None and is_own(domain):
+            personal += commits
+        else:
+            unmatched += commits
     return per_organisation, personal, unmatched

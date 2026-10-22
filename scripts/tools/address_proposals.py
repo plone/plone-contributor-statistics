@@ -19,37 +19,16 @@ from concurrent.futures import ThreadPoolExecutor
 
 from scripts.collect.plone_changelogs import ORGANISATION, cached_repositories
 from scripts.lib import git_history
-from scripts.lib.commit_authors import Finder, is_company_domain
+from scripts.lib.commit_authors import (Finder, is_company_domain, is_own_domain_for,  # noqa: F401
+                                        registrable_label)
 from scripts.lib.model import MAPPINGS_DIR, append_proposals, load_bot_accounts, load_registry, load_rejections
-from scripts.lib.model.names import fold
 
 DEFAULT_SINCE = 2002
 
-MIN_NAME_PART = 4  # a name part shorter than this inside a domain label is no evidence that the domain is own
-# Second-level labels under a two-letter country domain: foo.com.au, foo.co.uk, foo.ac.at
-_SECOND_LEVEL = {'com', 'co', 'org', 'net', 'ac', 'gov', 'edu', 'or', 'ne', 'go', 'ltd', 'plc'}
-
-
-def registrable_label(domain):
-    """The label that the owner of the domain chose: `foo` in foo.com, foo.com.au and mail.foo.co.uk."""
-    labels = domain.lower().strip().split('.')
-    if len(labels) >= 3 and len(labels[-1]) == 2 and labels[-2] in _SECOND_LEVEL:
-        return labels[-3]
-    return labels[-2] if len(labels) >= 2 else labels[0]
-
 
 def is_own_domain(domain, person):
-    """Whether the domain looks like the person's own, which says nothing about an employer.
-
-    Its registrable label equals the login or a whole part of the folded name, or contains a part of at
-    least four letters (`leeb` in andersonleeb.com). Use it only for a domain that no organisation claims: a
-    registered organisation always wins, so the company of a self-employed person is never lost.
-    """
-    label = fold(registrable_label(domain)).replace(' ', '')
-    parts = fold(person.name).split()
-    login = fold(person.github or '').replace(' ', '')
-    return bool(label) and (label == login or label in parts
-                            or any(len(part) >= MIN_NAME_PART and part in label for part in parts))
+    """Whether the domain looks like the person's own, see `is_own_domain_for`; only for unclaimed domains."""
+    return is_own_domain_for(domain, person.name, [person.github] if person.github else [])
 
 
 def _runs(years):
