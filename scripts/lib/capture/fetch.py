@@ -105,21 +105,23 @@ class Fetcher:
         with open(meta_path, 'w', encoding='utf-8') as handle:
             json.dump(meta, handle, indent=2)
 
-    def _pace(self, url):
+    def _pace(self, url, backoff=0):
+        """Wait before a request: the longer of the back-off and what is left of the host's pace."""
         host = urllib.parse.urlsplit(url).hostname or ''
         last = self.last_request.get(host)
+        wait = backoff
         if last is not None:
-            wait = PACE.get(host, DEFAULT_PACE) - (self.clock() - last)
-            if wait > 0:
-                self.sleep(wait)
+            wait = max(wait, PACE.get(host, DEFAULT_PACE) - (self.clock() - last))
+        if wait > 0:
+            self.sleep(wait)
         self.last_request[host] = self.clock()
 
     def get(self, url):
         cached = self._cached(url)
         if cached is not None:
             return cached
-        self._pace(url)
-        for attempt in range(1, MAX_RETRIES + 1):
+        for attempt in range(MAX_RETRIES):
+            self._pace(url, 2 ** attempt if attempt else 0)
             try:
                 response = self.session.get(url, timeout=TIMEOUT)
             except CONNECTION_ERRORS as error:
@@ -133,9 +135,7 @@ class Fetcher:
                 if status not in RETRY_STATUSES:
                     raise FetchError(f'{url}: HTTP {status}')
                 failure = f'HTTP {status}'
-            if attempt == MAX_RETRIES:
-                raise FetchError(f'{url}: {failure} after {MAX_RETRIES} attempts')
-            self.sleep(2 ** attempt)
+        raise FetchError(f'{url}: {failure} after {MAX_RETRIES} attempts')
 
 
 def nearest_capture(fetcher, url, timestamp=None):

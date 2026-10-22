@@ -130,3 +130,22 @@ def test_nearest_capture(tmp_path):
     assert 'timestamp=20091001' in session.requests[0]
     fetcher, _, _ = make(tmp_path / 'b', FakeResponse(200, b'{"archived_snapshots": {}}'))
     assert nearest_capture(fetcher, 'http://x.org/') is None
+
+
+def test_wayback_retries_keep_the_pace(tmp_path):
+    now = [100.0]
+    times = []
+
+    class TimedSession(FakeSession):
+        def get(self, url, **kwargs):
+            times.append(now[0])
+            return super().get(url, **kwargs)
+
+    def sleep(seconds):
+        now[0] += seconds
+
+    session = TimedSession(FakeResponse(429), FakeResponse(429), FakeResponse())
+    fetcher = Fetcher(cache=str(tmp_path), session=session, sleep=sleep, clock=lambda: now[0])
+    fetcher.get('https://web.archive.org/web/20100101000000id_/http://a.org/')
+    assert len(times) == 3
+    assert all(later - earlier >= 4.0 for earlier, later in zip(times, times[1:]))
