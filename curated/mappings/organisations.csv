@@ -3,8 +3,10 @@ id,name,kind,github,aliases,notes
 2i-ltd,2i Ltd,organisation,,,
 3bl-executive-forum,3BL Executive Forum,organisation,,,
 3months,3months,organisation,,,
+4-am-productions,4-AM Productions,organisation,,,named on a speaker page of the Plone Conference 2003: http://web.archive.org/web/20031013220520/http://plone.org/events/conferences/1/PloneConferenceSchedule.pdf
 4teamwork,4Teamwork,organisation,4teamwork,,
 7technw,7TechNW,organisation,,,
+abstract-edge,Abstract Edge,organisation,,,named on a speaker page of the Plone Conference 2003: http://web.archive.org/web/20031013220520/http://plone.org/events/conferences/1/PloneConferenceSchedule.pdf
 abstract-gmbh,Abstract GmbH,organisation,,,
 abstract-it,Abstract IT,organisation,,,
 abstract-open-solutions,Abstract Open Solutions,organisation,,,
@@ -13,6 +15,7 @@ academy-of-fa-vienna,Academy of FA Vienna,organisation,,akbild.ac.at,
 aclark-net-llc,"ACLARK.NET, LLC",organisation,,,
 acproll,ACPROLL,organisation,,,
 acsr-industrialdesign,acsr industrialdesign,organisation,,,
+adaptive-path,Adaptive Path,organisation,,,named on a speaker page of the Plone Conference 2011: https://web.archive.org/web/20120105044052/http://2011ploneconference.sched.org/event/d3e2f88f6c10f366d1a31a3853c71dcf
 aday,Aday,organisation,,,
 adm-o-kipcak-partner-ges-m-b-h,adm o.kipcak & partner ges.m.b.h.,organisation,,adm.at,"media design and research agency, Graz and Vienna: https://adm.at/"
 affinitic,Affinitic,organisation,affinitic,,
@@ -20,24 +23,29 @@ agendaless-consulting,Agendaless Consulting,organisation,,,
 agitator,Agitator,organisation,,agitator,
 agm-web-consulting,AGM Web consulting,organisation,,,
 alec-mitchell-independent,Alec Mitchell (independent),independent,,,
+aleix-ruiz-de-villa-independent,Aleix Ruiz de Villa (independent),independent,,,
 alter-way-solutions,Alter Way Solutions,organisation,,,
 alteroo,Alteroo,organisation,alteroo,,
 amp-sport,AMP Sport,organisation,,,
 aquino-com,Aquino.Com,organisation,,,
 associacao-python-brasil-apyb,Associação Python Brasil (APyB),organisation,,,
+atitus,Atitus,organisation,,,named on a speaker page of the Plone Conference 2024: https://2024.ploneconf.org/en/schedule/speakers/lccruz
 atreal,atReal,organisation,,,
 ausl-piacenza,AUSL Piacenza,organisation,,,
 ausl-romagna,AUSL Romagna,organisation,,,
 azienda-usl-di-ferrara,Azienda USL di Ferrara,organisation,,,
 barcelona-plone-meetup-group,Barcelona Plone Meetup group,organisation,,,
 bearstech,Bearstech,organisation,,,
+belgian-institute-for-sustainable-it,Belgian Institute for Sustainable IT,organisation,,,named on a speaker page of the Plone Conference 2022: https://2022.ploneconf.org/speakers/olivier-vergeynst.html
 berlin-brandenburg-plone-community,Berlin-Brandenburg Plone Community,organisation,,,
 berlin-zope-user-group,Berlin Zope User Group,organisation,,,
 bertelsmann-foundation,Bertelsmann Foundation,organisation,,,
 bethesda-allgemeines-krankenhaus-bergedorf-ggmbh,Bethesda Allgemeines Krankenhaus Bergedorf gGmbH,organisation,,,
 bibest,BIBEST,organisation,,,
 bibliotheca-hertziana,Bibliotheca Hertziana,organisation,,,
+bilbomatica,Bilbomática,organisation,,,named on a speaker page of the Plone Conference 2023: https://2023.ploneconf.org/speakers/alberto-telletxea
 biodec,BioDec,organisation,biodec,,
+bloodhound-ssc-project,Bloodhound SSC Project,organisation,,,named on a speaker page of the Plone Conference 2010: https://web.archive.org/web/20101104095653/http://www.ploneconf2010.org/the-event/talks/guest-keynote-challenging-business
 blue-fountain,Blue Fountain,organisation,,,
 bluedynamics-kg,BlueDynamics KG,organisation,,BlueDynamics GmbH;Bluedynamics Auersperg-Castell KG,one row for the BlueDynamics GmbH of Neuötting (2002-2003 on the archived site) and the Austrian Bluedynamics Auersperg-Castell KG of 2004: https://www.evi.gv.at/f/249555v
 boss,BOSS,organisation,,,
@@ -50,28 +58,38 @@ burning-man-project,Burning Man Project,organisation,,burningman.com;Black Rock 
 c-dac,C-DAC,organisation,,,
 c-squared-enterprises,C Squared Enterprises,organisation,,,
 caixa-economica-federal,Caixa Econômica Federal,organisation,,,
+camara-municipal-de-curitiba,Câmara Municipal de Curitiba,organisation,,,named on a speaker page of the Plone Conference 2020: https://2020.ploneconf.org/speakers/ramiro-luz.html
 camera-di-commercio-di-padova,Camera di Commercio di Padova,organisation,,,
 canonical,Canonical,organisation,canonical,canonical.com,
+carlos-de-la-guardia-independent,Carlos de la Guardia (independent),independent,,,
 catworkx,catWorkX,organisation,,,
 ccc,CCC,organisation,,cleanclothes.org,
+ccnmtl-columbia-university,"CCNMTL, Columbia University",organisation,,,named on a speaker page of the Plone Conference 2005: http://web.archive.org/web/20051017043355/http://ploneconf2005.bluedynamics.net:80/speakers/jonah-bossewitch
 cenditel,CENDITEL,organisation,,,
+center-for-open-sustainable-learning-utah-state-university,"Center for Open Sustainable Learning, Utah State University",organisation,,,named on a speaker page of the Plone Conference 2007: http://web.archive.org/web/20071012192316/http://plone.org:80/events/conferences/2007-naples/speakers-1/sessions/plone-in-education-a-case-study-of-the-use-of-plone-and-educational-content
 christian-heimes-independent,Christian Heimes (independent),independent,,,
 christian-science-monitor,Christian Science Monitor,organisation,,,
+cidc,CIDC,organisation,,,named on a speaker page of the Plone Conference 2010: https://web.archive.org/web/20101104095611/http://www.ploneconf2010.org/the-event/talks/the-state-of-plone-caching
 cignex,CIGNEX,organisation,,,
+city-of-newport-news,City of Newport News,organisation,,,named on a speaker page of the Plone Conference 2004: http://web.archive.org/web/20130907015022/http://plone.org/events/conferences/vienna-2004/speakers
 clear-noodle,Clear Noodle,organisation,,,
 clearwind-consulting,Clearwind Consulting,organisation,,,
 cloud19,cloud19,organisation,,,
 cms-communications-inc,CMS Communications Inc.,organisation,,cmscom.jp,
 cocos,CoCOS,organisation,,,
 codehutlabs,CodeHutLabs,organisation,,,
+coders51,Coders51,organisation,,,named on a speaker page of the Plone Conference 2019: https://2019.ploneconf.org/people/gianluca-padovani/
 codesyntax,Codesyntax,organisation,codesyntax,codesyntax,
 codigo23,Codigo23,organisation,,,
+colliberty,Colliberty,organisation,,,named on a speaker page of the Plone Conference 2010: https://web.archive.org/web/20101104095707/http://www.ploneconf2010.org/the-event/talks/how-not-to-develop-plone-products
 columbia-university-s-center-for-new-media-teaching-and-learning,Columbia University's Center for New Media Teaching and Learning,organisation,ccnmtl,,
 com-lounge,COM.lounge,organisation,,,
 computer-associates,Computer Associates,organisation,,,
 computing-centre-of-the-university-of-bonn,Computing Centre of the University of Bonn,organisation,,,
 comune-di-mirandola,Comune di Mirandola,organisation,,,
 comune-di-modena,Comune di Modena,organisation,,,
+condat-ag,Condat AG,organisation,,,named on a speaker page of the Plone Conference 2010: https://web.archive.org/web/20101104094348/http://www.ploneconf2010.org/the-event/talks/boosting-productivity-with-201cplone-driven-plone-development201d
+connect,Connect,organisation,,,named on a speaker page of the Plone Conference 2022: https://2022.ploneconf.org/speakers/julie-de-schampheleer.html
 contextual-corp,Contextual Corp,organisation,,,
 core-software-group,Core Software Group,organisation,,,
 correios,Correios,organisation,,,
@@ -82,58 +100,87 @@ cusy,cusy,organisation,cusyio,,
 d2m-at,d2m.at,organisation,,,
 d9t,d9t,organisation,,,
 dabawegnu,DabaweGNU,organisation,,,
+dale-strategies-ltd,"Dale Strategies, Ltd.",organisation,,,named on a speaker page of the Plone Conference 2005: http://web.archive.org/web/20051017042853/http://ploneconf2005.bluedynamics.net:80/speakers/peter-hollands
 daniel-nouri-independent,Daniel Nouri (independent),independent,,,
+datawire,Datawire,organisation,,,named on a speaker page of the Plone Conference 2016: https://2016.ploneconf.org/people/phil-lombardi.html
 davis-community-network,Davis Community Network,organisation,,dcn.org,"nonprofit in Davis, California, with year-round staff: http://www2.dcn.org/"
 dell,Dell,organisation,dell,,
 deloitte-digital,Deloitte Digital,organisation,DeloitteDigitalUK,,
 denver-plone-user-group,Denver Plone User Group,organisation,,,
 der-freitag,der Freitag,organisation,derFreitag,freitag,
 derico,Derico,organisation,,derico,
+devhelp-online,DevHelp.Online,organisation,,,named on a speaker page of the Plone Conference 2017: https://2017.ploneconf.org/talks/keynotes/mark-pieszak.html
+digital-artefacts,Digital Artefacts,organisation,,,named on a speaker page of the Plone Conference 2011: https://web.archive.org/web/20111108002832/http://2011ploneconference.sched.org/event/561036fd2c625091ccc434a47af3e34a
 domsense,Domsense,organisation,,,
 doofinder,Doofinder,organisation,doofinder,,
+dropbox,Dropbox,organisation,,,named on a speaker page of the Plone Conference 2016: http://web.archive.org/web/20190716023655/https://2016.ploneconf.org/people/brandon-rhodes.html
 dzug,DZUG,organisation,,,
 e-ventis-gmbh,e-ventis GmbH,organisation,,,
+east-of-eaton,East of Eaton,organisation,,,named on a speaker page of the Plone Conference 2010: https://web.archive.org/web/20101104094111/http://www.ploneconf2010.org/the-event/talks/fixing-the-ungoogleable-managing-disasters-without-losing-your-cool
 eau-de-web,Eau de Web,organisation,eaudeweb,eau-de-web,
 ebc,EBC,organisation,,,
 ecityclic,eCityclic,organisation,,,
 ecreall,Ecréall,organisation,ecreall,,
+educorvi,educorvi,organisation,,,named on a speaker page of the Plone Conference 2019: https://2019.ploneconf.org/people/lars-walther/
 eestec,EESTEC,organisation,,,
 eestec-lc-helsinki,EESTEC LC Helsinki,organisation,,,
+ela-sindikatua,ELA Sindikatua,organisation,,,named on a speaker page of the Plone Conference 2023: https://2023.ploneconf.org/speakers/asier-espilla-bidaurrazaga
+electoral-justice-digisystem,Electoral Justice/Digisystem,organisation,,,named on a speaker page of the Plone Conference 2024: https://2024.ploneconf.org/en/schedule/speakers/lucas-aquino
 elizabeth-leddy-independent,Elizabeth Leddy (independent),independent,,,
 emergetec,Emergetec,organisation,,,
+empresa-brasil-de-comunicacao,Empresa Brasil de Comunicação,organisation,,,named on a speaker page of the Plone Conference 2024: https://2024.ploneconf.org/en/schedule/speakers/luis-flavio-loreto-da-rocha
 enea,ENEA,organisation,,,
 enfold,Enfold,organisation,enfold,enfoldsystems.com,
+enlitic,Enlitic,organisation,,,named on a speaker page of the Plone Conference 2017: https://2017.ploneconf.org/people/devon-bernard.html
+enquos,enquos,organisation,,,named on a speaker page of the Plone Conference 2014: http://web.archive.org/web/20141208145401/http://2014.ploneconf.org/talks
 er-go,Er.GO,organisation,,,
+eurotux,Eurotux,organisation,,,named on a speaker page of the Plone Conference 2008: http://web.archive.org/web/20080913203003/http://plone.org:80/events/conferences/2008-washington-dc/agenda/all-sessions
+euskal-kultur-erakundea-eke,Euskal Kultur Erakundea - EKE,organisation,,,named on a speaker page of the Plone Conference 2023: https://2023.ploneconf.org/speakers/jakes-larre
 fairsay,FairSay,organisation,,,
+federico-campoli-independent,Federico Campoli (independent),independent,,,
 fgrcon,FGRcon,organisation,,,
 fh-st-polten,FH St. Pölten,organisation,fhstp,fhstp.ac.at,
 fhnw,FHNW,organisation,FHNW,,
 florian-schulze-independent,Florian Schulze (independent),independent,,,
+fostermilo-web-architects,FosterMilo Web Architects,organisation,,,named on a speaker page of the Plone Conference 2009: http://web.archive.org/web/20100626001457/http://ploneconf2009.org/program/talks/list/?searchterm=None
 four-digits,Four Digits,organisation,fourdigits,,
 franco-pellegrini-independent,Franco Pellegrini (independent),independent,,,
 friends-of-the-earth-netherlands,Friends of the Earth Netherlands,organisation,,,
+fry,Fry,organisation,,,named on a speaker page of the Plone Conference 2022: https://2022.ploneconf.org/speakers/tim-jones.html
 geoff-davis-independent,Geoff Davis (independent),independent,,,
 geosphere,Geosphere,organisation,,,
 german-zope-user-group,German Zope User Group,organisation,,,
 gfu-cyrus-ag,GfU Cyrus AG,organisation,,,
 giallocobalto,Giallocobalto,organisation,,,
+gisweb,GisWeb,organisation,,,named on a speaker page of the Plone Conference 2013: http://web.archive.org/web/20160508191952/http://2013.pythonbrasil.org.br/program/pc/plone_gov/plone-and-the-gis-when-the-map-is-not-optional
 glick-software,Glick Software,organisation,,,
 gocept,gocept,organisation,gocept,,
 goldmund-wyldebeast-wunderliebe,"Goldmund, Wyldebeast & Wunderliebe",organisation,Goldmund-Wyldebeast-Wunderliebe,gw20e.com,
 google,Google,organisation,,,
 greenfinity-llc,Greenfinity LLC,organisation,greenfinity,,
+grofers,Grofers,organisation,,,named on a speaker page of the Plone Conference 2016: https://2016.ploneconf.org/people/prakhar-joshi.html
 groundwire,Groundwire,organisation,Groundwire,,
+growth-software,Growth.Software,organisation,,,named on a speaker page of the Plone Conference 2024: https://2024.ploneconf.org/en/schedule/speakers/lccruz
+grupo-tv1,Grupo TV1,organisation,,,named on a speaker page of the Plone Conference 2013: http://web.archive.org/web/20160511001314/http://2013.pythonbrasil.org.br/program/pc/plone_integrators/funcionalidades-que-todo-gestor-de-conteudo-plone-deveria-saber
 grupy-df,GruPy-DF,organisation,,,
 grupy-sp,GruPy-SP,organisation,,,
 guell-consulting,Güell Consulting,organisation,,,
+hadicom,HaDiCom Enterprise,organisation,,,named on a speaker page of the Plone Conference 2014: http://web.archive.org/web/20141113061401/http://2014.ploneconf.org/talks/@@list#talk_22
 harvard-school-of-engineering,Harvard School of Engineering,organisation,,,
 haufe-mediengruppe,Haufe Mediengruppe,organisation,,,
 headnet,Headnet,organisation,,,
 hector-velarde-independent,Héctor Velarde (independent),independent,,,
+hewlett-packard,Hewlett-Packard,organisation,,,named on a speaker page of the Plone Conference 2014: http://web.archive.org/web/20141113061401/http://2014.ploneconf.org/talks/@@list#talk_41
+highradius,HighRadius,organisation,,,named on a speaker page of the Plone Conference 2022: https://2022.ploneconf.org/speakers/avi-mishra.html
 hippo,Hippo,organisation,hippo-digital,,
 htwk-leipzig,HTWK Leipzig,organisation,,,
+humboldt-university-berlin,Humboldt University Berlin,organisation,,,named on a speaker page of the Plone Conference 2004: http://web.archive.org/web/20130907015022/http://plone.org/events/conferences/vienna-2004/speakers
 hunter-college,Hunter College,organisation,,,
+ibm,IBM,organisation,,,named on a speaker page of the Plone Conference 2020: https://2020.ploneconf.org/speakers/matt-hamilton.html
 iem,IEM,organisation,,,
+ifpeople,ifPeople,organisation,,,named on a speaker page of the Plone Conference 2008: http://web.archive.org/web/20080913203003/http://plone.org:80/events/conferences/2008-washington-dc/agenda/all-sessions
+image-conscious-studios,Image Conscious Studios,organisation,,,named on a speaker page of the Plone Conference 2016: http://web.archive.org/web/20210511042538/https://2016.ploneconf.org/people/adam-gesuero.html
+imc-krems,IMC University of Applied Sciences Krems,organisation,,,named on a speaker page of the Plone Conference 2004: http://web.archive.org/web/20130907015022/http://plone.org/events/conferences/vienna-2004/speakers
 imio,iMio,organisation,IMIO,,
 ims-inc,IMS Inc.,organisation,imsweb,imsweb.com,
 incept,Incept,organisation,,incept.ch,"""information concepts"", Switzerland (site of 2009): http://web.archive.org/web/20090405052852/http://www.incept.ch/"
@@ -142,13 +189,22 @@ infrae,Infrae,organisation,,,
 ingeniweb,Ingeniweb,organisation,,,
 inqbus,Inqbus,organisation,Inqbus,,
 inquant-gmbh,InQuant GmbH,organisation,,,
+instabug,Instabug,organisation,,,named on a speaker page of the Plone Conference 2024: https://2024.ploneconf.org/en/schedule/speakers/danielnabil
+institute-for-the-study-of-the-ancient-world-new-york-university,"Institute for the Study of the Ancient World, New York University",organisation,,,named on a speaker page of the Plone Conference 2020: https://2020.ploneconf.org/speakers/tom-elliott.html
+institute-for-theoretical-biology,Institute for Theoretical Biology,organisation,,,named on a speaker page of the Plone Conference 2005: http://web.archive.org/web/20051017043302/http://ploneconf2005.bluedynamics.net:80/speakers/thomas-foerster
+instituto-communitas,Instituto Communitas,organisation,,,named on a speaker page of the Plone Conference 2013: http://web.archive.org/web/20160511123241/http://2013.pythonbrasil.org.br/program/pc/plone_edu/python-zope-plone-now
+integrity-calculation-systems,Integrity Calculation Systems,organisation,,,named on a speaker page of the Plone Conference 2005: http://web.archive.org/web/20051227212953/http://ploneconf2005.bluedynamics.net:80/speakers/jerry-mcrae
+interagi-tecnologia,Interagi Tecnologia,organisation,,,named on a speaker page of the Plone Conference 2024: https://2024.ploneconf.org/en/schedule/speakers/fabricio_cotag
 interaktiv,Interaktiv,organisation,,,
 interlegis-program-senado-federal,Interlegis Program (Senado Federal),organisation,interlegis,,
 international-open-source-network-asean-3,International Open Source Network ASEAN+3,organisation,,,
+intk-software,INTK Software,organisation,,,named on a speaker page of the Plone Conference 2010: https://web.archive.org/web/20101104095606/http://www.ploneconf2010.org/the-event/talks/solving-social-network-fatigue-with-plone
 intranetum,Intranetum,organisation,,,
 irr,IRR,organisation,,,
 iskra,Iskra,organisation,,iskra,
+it-services-city-of-bern,"IT Services, City of Bern",organisation,,,named on a speaker page of the Plone Conference 2005: http://web.archive.org/web/20051017042942/http://ploneconf2005.bluedynamics.net:80/speakers/thomas-goetsch
 it-spirit,it-spirit,organisation,it-spirit,it-spir.it,
+iw-learn,IW:LEARN,organisation,,,named on a speaker page of the Plone Conference 2014: http://web.archive.org/web/20141113061401/http://2014.ploneconf.org/talks/@@list#talk_15
 j-cameron-cooper-independent,J Cameron Cooper (independent),independent,,,
 james-cook-university-eresearch-centre,James Cook University eResearch Centre,organisation,,,
 jarn,Jarn,organisation,Jarn,,
@@ -159,51 +215,76 @@ jetbrains,JetBrains,organisation,,,
 joel-burton-independent,Joel Burton (independent),independent,,,
 jowett-enterprises-ltd,Jowett Enterprises Ltd,organisation,,jowettenterprises.com,
 juizi,Juizi,organisation,,,
+kapil-thangavelu-independent,Kapil Thangavelu (independent),independent,,,
+keas-inc,"Keas, Inc",organisation,,,named on a speaker page of the Plone Conference 2008: https://plone.org/news-and-events/events/plone-conferences/washington-dc-2008/agenda/state-of-zope-3/conference_session
 kitconcept-gmbh,kitconcept GmbH,organisation,kitconcept,kitconcept,
 klein-partner-kg,Klein & Partner KG,organisation,,kleinundpartner;klein und partner,
 kleist-it-consulting,Kleist IT Consulting,organisation,,,
 kombinat,Kombinat,organisation,kombinat,kombinat,
 ku-leuven,KU Leuven,organisation,kuleuven,,
+kulturaz,Kulturaz,organisation,,,named on a speaker page of the Plone Conference 2023: https://2023.ploneconf.org/speakers/ander-mujika-zubiaurre
+larus-business-automation,LARUS Business Automation,organisation,,,named on a speaker page of the Plone Conference 2019: https://2019.ploneconf.org/people/lorenzo-speranzoni/
 leonardo-caballero-independent,Leonardo Caballero (independent),independent,,,
+liberiun,Liberiun,organisation,,,named on a speaker page of the Plone Conference 2013: http://web.archive.org/web/20160508192016/http://2013.pythonbrasil.org.br/program/pc/plone_cases/vindula-sua-intranet-esta-pronta
 link-srl,Link srl,organisation,,,
+ljusa-tider-ab,Ljusa Tider AB,organisation,,,named on a speaker page of the Plone Conference 2025: https://2025.ploneconf.org/schedule/speakers/mack-palomaki
 los-angeles-plone-users-group,Los Angeles Plone Users Group,organisation,,,
 lovely-systems,Lovely Systems,organisation,lovelysystems,,
 ludwig-maximilian-university-munich,Ludwig Maximilian University Munich,organisation,,lmu.de,
 lynn-university,Lynn University,organisation,,,
+magenta-aps,Magenta ApS,organisation,,,named on a speaker page of the Plone Conference 2017: https://2017.ploneconf.org/people/carsten-agger.html
 makina-corpus,Makina Corpus,organisation,makinacorpus,,
 malthe-borch-independent,Malthe Borch (independent),independent,,,
+mamami-digital,Mamami Digital,organisation,,,named on a speaker page of the Plone Conference 2019: https://2019.ploneconf.org/people/lorenzo-marin/
 markus-hilbert-independent,Markus Hilbert (independent),independent,,,
 matthew-wilkes-independent,Matthew Wilkes (independent),independent,,,
 may-international,May International,organisation,,,
+medical-sciences-division-university-of-oxford,"Medical Sciences Division, University of Oxford",organisation,,,named on a speaker page of the Plone Conference 2010: https://web.archive.org/web/20101101212416/http://www.ploneconf2010.org/the-event/talks/plone-alone/
 medienkunstlabor,medienkunstlabor,organisation,,,
 menttes,Menttes,organisation,,,
+metapolis,Metapolis,organisation,,,named on a speaker page of the Plone Conference 2022: https://2022.ploneconf.org/speakers/vincent-relin.html
+metatorial-services,Metatorial Services,organisation,,,named on a speaker page of the Plone Conference 2006: http://web.archive.org/web/20060930034750/http://plone.org/events/conferences/seattle-2006/agenda/agenda
+mfabrik,mFabrik,organisation,,,named on a speaker page of the Plone Conference 2010: https://web.archive.org/web/20101104095534/http://www.ploneconf2010.org/the-event/talks/mad-about-mobile
+microsoft,Microsoft,organisation,,,named on a speaker page of the Plone Conference 2017: https://2017.ploneconf.org/talks/keynotes/simona-cotin.html
 mindanao-open-source-society,Mindanao Open Source Society,organisation,,,
 minddistrict,minddistrict,organisation,minddistrict,,
 mirantis,Mirantis,organisation,,,
+mit-media-lab,MIT Media Lab,organisation,,,named on a speaker page of the Plone Conference 2016: https://2016.ploneconf.org/people/ethan-zuckerman.html
 mobility-house,Mobility House,organisation,,,
+mog,Mog,organisation,,,named on a speaker page of the Plone Conference 2011: https://web.archive.org/web/20120105050032/http://2011ploneconference.sched.org/event/ffd1d0b80ab4018ac3ccc79a26436f01
+mongodb,MongoDB,organisation,,,named on a speaker page of the Plone Conference 2017: https://2017.ploneconf.org/talks/keynotes/a-jesse-jiryu-davis.html
 mooball-technologies,Mooball Technologies,organisation,mooball,mooball.com,"digital agency, Brisbane: https://mooball.com/"
 mozilla,Mozilla,organisation,mozilla,,
 munchner-plone-user-group,Münchner Plone User Group,organisation,,,
 mur-at,mur.at,organisation,,,
+n-v-nederlandse-gasunie,N.V. Nederlandse Gasunie,organisation,,,named on a speaker page of the Plone Conference 2009: http://web.archive.org/web/20100626001457/http://ploneconf2009.org/program/talks/list/?searchterm=None
 nelen-schuurmans,Nelen-Schuurmans,organisation,nens,,
 net-easy-inc,"Net Easy, Inc.",organisation,,,
 netflix,Netflix,organisation,,,
 netsight,Netsight,organisation,netsight,,
+nexedi-japan,Nexedi Japan,organisation,,,named on a speaker page of the Plone Conference 2018: https://2018.ploneconf.org/people/yusei-tahara.html
 nextg-solutions,NextG Solutions,organisation,,,
 nextma,Nextma,organisation,,,
 ng-logic,NG Logic,organisation,,,
 niteo,Niteo,organisation,,,
+novareto-gmbh,novareto GmbH,organisation,,,named on a speaker page of the Plone Conference 2019: https://2019.ploneconf.org/people/lars-walther/
+novell,Novell,organisation,,,named on a speaker page of the Plone Conference 2007: http://web.archive.org/web/20071012192226/http://plone.org:80/events/conferences/2007-naples/speakers-1/sessions/open-source-in-the-enterprise-plone-novell
+npower-seattle,NPower Seattle,organisation,,,named on a speaker page of the Plone Conference 2006: http://web.archive.org/web/20070104004427/http://plone.org/events/conferences/seattle-2006/all-twenty-plone-conference-videos-now-available-for-download
 nrcfoss,NRCFOSS,organisation,,,
 nuclia,Nuclia,organisation,nuclia,nuclia,
 nuxeo,Nuxeo,organisation,,,
 objectrealms,ObjectRealms,organisation,,,
 ochanomizu-university,Ochanomizu University,organisation,,,
+oddbird,OddBird,organisation,,,named on a speaker page of the Plone Conference 2016: https://2016.ploneconf.org/people/david-glick.html
 one-northwest,ONE/Northwest,organisation,,,
 onna,Onna,organisation,onna,atlasense.com,"atlasense.com: Atlasense SL, the former name of Onna Search Technologies SL (Spanish company register): https://www.einforma.com/informacion-empresa/atlasense"
 open-society-institute,Open Society Institute,organisation,,,
 operun,operun,organisation,,,
 opkode,Opkode,organisation,,,
 oregon-state-library,Oregon State Library,organisation,,,
+oxfam-gb,Oxfam GB,organisation,,,named on a speaker page of the Plone Conference 2006: http://web.archive.org/web/20080531033959/http://plone.org/events/conferences/seattle-2006/agenda/session-details/
+palladion-software,Palladion Software,organisation,,,named on a speaker page of the Plone Conference 2005: http://web.archive.org/web/20051017042225/http://ploneconf2005.bluedynamics.net:80/speakers/tres-seaver
+pareto,Pareto,organisation,,,named on a speaker page of the Plone Conference 2009: http://web.archive.org/web/20100626001457/http://ploneconf2009.org/program/talks/list/?searchterm=None
 pendect,Pendect,organisation,Pendect,,
 penn-state-university,Penn State University,organisation,,psu.edu,
 pexego,Pexego,organisation,,,
@@ -222,6 +303,8 @@ plonebootcamps-com,Plonebootcamps.com,organisation,,,
 plonegov,PloneGov,organisation,,,
 plonegov-br,PloneGov-BR,organisation,,,
 plonesoft,Plonesoft,organisation,,,
+plumb-development,Plumb Development,organisation,,,named on a speaker page of the Plone Conference 2016: https://2016.ploneconf.org/people/bill-blanchard.html
+pocketspacecraft-com,Pocketspacecraft.com,organisation,,,named on a speaker page of the Plone Conference 2014: http://web.archive.org/web/20141208145401/http://2014.ploneconf.org/talks
 praekelt,Praekelt,organisation,,,
 pretaweb,Pretaweb,organisation,pretagov,pretaweb;pretagov;pretagov.co.uk,
 programmatic,programmatic,organisation,,programmatic.pro,Johannes Raggam's business in Graz: http://web.archive.org/web/20180902014812/https://programmatic.pro/
@@ -233,14 +316,17 @@ pyladies-df,PyLadies-DF,organisation,,,
 python-software-verband-e-v,Python Software Verband e.V.,organisation,,,
 pythonistas-de-venezuela,Pythonistas de Venezuela,organisation,,,
 pythonjamaica,PythonJamaica,organisation,,,
+q42,Q42,organisation,,,named on a speaker page of the Plone Conference 2003: http://web.archive.org/web/20031013220520/http://plone.org/events/conferences/1/PloneConferenceSchedule.pdf
 quadra-informatique,Quadra Informatique,organisation,,,
 qubicaamf,QubicaAMF,organisation,,,
 quintagroup,Quintagroup,organisation,,,
 r2-solutions-gmbh,r2 Solutions GmbH,organisation,,r2solutions.at,
 radio-free-asia,Radio Free Asia,organisation,RadioFreeAsia,,
+ragingweb,RagingWeb,organisation,,,named on a speaker page of the Plone Conference 2006: http://web.archive.org/web/20080531033959/http://plone.org/events/conferences/seattle-2006/agenda/session-details/
 rai-way,Rai Way,organisation,,,
 ravvit,Ravvit,organisation,,,
 rawmaterial,RawMaterial,organisation,,,
+rba-international,RBA International,organisation,,,named on a speaker page of the Plone Conference 2003: http://web.archive.org/web/20031013220520/http://plone.org/events/conferences/1/PloneConferenceSchedule.pdf
 rcom,RCOM,organisation,,,
 red-innovation-oy,Red Innovation Oy,organisation,,redinnovation.com,"Python and Plone consulting, Finland (site of 2013): http://web.archive.org/web/20130228072111/http://redinnovation.com/"
 redcor,redCOR,organisation,,,
@@ -252,6 +338,7 @@ regione-emilia-romagna,Regione Emilia-Romagna,organisation,,,
 reid-mcmahon,Reid-McMahon,organisation,,,
 rheinland-group-of-the-german-zope-user-group,Rheinland group of the German Zope User group,organisation,,,
 rice-university,Rice University,organisation,,Connexions;rice.edu,Connexions (cnx.org) was the university's open education project
+riding-bytes,RIDING BYTES,organisation,,,named on a speaker page of the Plone Conference 2017: https://2017.ploneconf.org/people/ramon-bartl.html
 rios-rete-italiana-open-source,RIOS (Rete Italiana Open Source),organisation,,,
 rob-gietema-independent,Rob Gietema (independent),independent,,,
 roel-bruggink-independent,Roel Bruggink (independent),independent,,,
@@ -259,26 +346,42 @@ rohberg,Rohberg,organisation,rohberg,rohberg,
 rok-garbas-independent,Rok Garbas (independent),independent,,,
 ross-patterson-independent,Ross Patterson (independent),independent,,,
 royal-belgium-institute-of-natural-sciences,Royal Belgium Institute of Natural Sciences,organisation,naturalsciences,,
+runyaga-llc,"Runyaga, LLC",organisation,,,named on a speaker page of the Plone Conference 2003: http://web.archive.org/web/20031013220520/http://plone.org/events/conferences/1/PloneConferenceSchedule.pdf
 ryan-foster-independent,Ryan Foster (independent),independent,,rynamic.com,
+saic,SAIC,organisation,,,named on a speaker page of the Plone Conference 2004: http://web.archive.org/web/20060930031957/http://plone.org/events/conferences/vienna-2004/talks
 salesforce,Salesforce,organisation,salesforce,,
 saltalug,SaltaLug,organisation,,,
 salween-solutions,Salween Solutions,organisation,,,
+san-diego-tribune,San Diego Tribune,organisation,,,named on a speaker page of the Plone Conference 2003: http://web.archive.org/web/20031013220520/http://plone.org/events/conferences/1/PloneConferenceSchedule.pdf
+sapientnitro,SapientNitro,organisation,,,named on a speaker page of the Plone Conference 2016: https://2016.ploneconf.org/people/ken-wasetis.html
 sapienza-universita-di-roma,Sapienza Università di Roma,organisation,,,
+schibsted,Schibsted,organisation,,,named on a speaker page of the Plone Conference 2017: https://2017.ploneconf.org/people/tudor-barbu.html
 scryent,Scryent,organisation,,,
+seabright,Seabright,organisation,,,named on a speaker page of the Plone Conference 2011: https://web.archive.org/web/20111107013515/http://2011ploneconference.sched.org/attendees/speakers
+seacom-srl,Seacom Srl,organisation,,,named on a speaker page of the Plone Conference 2019: https://2019.ploneconf.org/people/enrico-polesel/
 sean-kelly-consulting,Sean Kelly Consulting,organisation,,,
 seattle-plone-user-s-group,Seattle Plone user's group,organisation,,,
+secom-presidencia-da-republica,Secretaria de Comunicação Social da Presidência da República,organisation,,,named on a speaker page of the Plone Conference 2013: http://web.archive.org/web/20160508144904/http://2013.pythonbrasil.org.br/program/pc/plone_gov/identidade-digital-de-governo-eletronico-com-plone
 serpro,Serpro,organisation,,serpro,
 serverzen-software,ServerZen Software,organisation,,,
 sfscon,SFSCon,organisation,,,
 sharkbyte-studios-ltd,Sharkbyte Studios Ltd,organisation,,,
+shoobx,Shoobx,organisation,,,named on a speaker page of the Plone Conference 2016: https://2016.ploneconf.org/people/lennart-regebro.html
 shuttle-thread,Shuttle Thread,organisation,,,
+shuttleworth-foundation,Shuttleworth Foundation,organisation,,,named on a speaker page of the Plone Conference 2010: https://web.archive.org/web/20101104094424/http://www.ploneconf2010.org/the-event/talks/fullmarks-for-plone
+simon-fraser-university,Simon Fraser University,organisation,,,named on a speaker page of the Plone Conference 2003: http://web.archive.org/web/20031013220520/http://plone.org/events/conferences/1/PloneConferenceSchedule.pdf
 simples-consultoria,Simples Consultoria,organisation,simplesconsultoria,,
+simplistix,Simplistix,organisation,,,named on a speaker page of the Plone Conference 2005: http://web.archive.org/web/20051017041547/http://ploneconf2005.bluedynamics.net:80/speakers/chris-withers
 simplon,Simplon,organisation,,,
 singapore-python-user-group,Singapore Python User Group,organisation,,,
 sixfeetup,Sixfeetup,organisation,sixfeetup,,
 sketchin,Sketchin,organisation,,,
+skyscanner,Skyscanner,organisation,,,named on a speaker page of the Plone Conference 2017: https://2017.ploneconf.org/people/jordi-soucheiron.html
+softformance,SoftFormance,organisation,,,named on a speaker page of the Plone Conference 2025: https://2025.ploneconf.org/schedule/speakers/vitaliy-podoba
+software-freedom-law-center,Software Freedom Law Center,organisation,,,named on a speaker page of the Plone Conference 2006: https://archive.org/details/eben-moglen-oct-2006
 soliton-consulting,Soliton Consulting,organisation,,,
 solution2u-net-gmbh,solution2u.net GmbH,organisation,,,
+southeast-coastal-ocean-observing-system,Southeast Coastal Ocean Observing System,organisation,,,named on a speaker page of the Plone Conference 2008: http://web.archive.org/web/20080913203003/http://plone.org:80/events/conferences/2008-washington-dc/agenda/all-sessions
 spr-inc,SPR Inc.,organisation,,,
 squarewave-engineering,squarewave engineering,organisation,,,
 stanford-university,Stanford University,organisation,,,
@@ -287,13 +390,18 @@ steve-piercy-website-builder,Steve Piercy - Website Builder,organisation,,stevep
 struktur-ag,struktur AG,organisation,,,
 studio-zoo,studio ZOO,organisation,,,
 stx-next,STX Next,organisation,,,
+surveymonkey,SurveyMonkey,organisation,,,named on a speaker page of the Plone Conference 2011: https://web.archive.org/web/20111107013515/http://2011ploneconference.sched.org/attendees/speakers
 syslab,Syslab,organisation,syslabcom,syslab,
+systemvaruhuset,Systemvaruhuset,organisation,,,named on a speaker page of the Plone Conference 2005: http://web.archive.org/web/20051017041346/http://ploneconf2005.bluedynamics.net:80/speakers/sasha-vincic
 t-kim-nguyen-independent,T. Kim Nguyen (independent),independent,,,
 taipei-py,Taipei.py,organisation,,,
+takealot,takealot.com,organisation,,,named on a speaker page of the Plone Conference 2025: https://2025.ploneconf.org/schedule/speakers/johan-beyers
 team-rubber,Team Rubber,organisation,,,
+telecommunications-research-center-vienna,Telecommunications Research Center Vienna,organisation,,,named on a speaker page of the Plone Conference 2006: https://plone.org/news-and-events/events/plone-conferences/seattle-2006/presentations/plone_for_european_research_projects_ploneconf2006-final.pdf/@@download/file
 telesis,Telesis,organisation,,,
 termitnjak-d-o-o,Termitnjak d.o.o.,organisation,termitnjak,termitnjak.si,"Plone and Python development company, Slovenia: https://termitnjak.si/"
 the-code-distillery,The Code Distillery,organisation,,,
+the-mountaineers,The Mountaineers,organisation,,,named on a speaker page of the Plone Conference 2016: https://2016.ploneconf.org/people/jeff-bowman.html
 the-open-planning-project,The Open Planning Project,organisation,,openplans.org,
 the-treasury,The Treasury,organisation,,,
 thomas-schorr-independent,Thomas Schorr (independent),independent,,,
@@ -301,32 +409,53 @@ thoughtworks,Thoughtworks,organisation,,,
 threepointsweb,ThreePointsWeb,organisation,,,
 timo-stollenwerk-independent,Timo Stollenwerk (independent),independent,,,
 tis-free-software-center,TIS - Free Software Center,organisation,,,
+tokenmarket,TokenMarket,organisation,,,named on a speaker page of the Plone Conference 2016: https://2016.ploneconf.org/people/mikko-ohtamaa.html
 tom-lazar-independent,Tom Lazar (independent),independent,,,
+topquadrant,TopQuadrant,organisation,,,named on a speaker page of the Plone Conference 2011: https://web.archive.org/web/20120105043037/http://2011ploneconference.sched.org/event/f37064b6e7d7d95b8e4489adc66b392c
 toronto-plone-users,Toronto Plone Users,organisation,,,
 tribunal-superior-eleitoral-tse,Tribunal Superior Eleitoral (TSE),organisation,,,
 trizpug,TriZPUG,organisation,,,
+true-blade-systems-inc,"True Blade Systems, Inc.",organisation,,,named on a speaker page of the Plone Conference 2006: https://plone.org/news-and-events/events/plone-conferences/seattle-2006/presentations/Improving%20Plone%20and%20Zope%20Market%20Acceptance.pdf/@@download/file
+trust-commerce,Trust Commerce,organisation,,,named on a speaker page of the Plone Conference 2003: http://web.archive.org/web/20031013220520/http://plone.org/events/conferences/1/PloneConferenceSchedule.pdf
 tu-dresden,TU Dresden,organisation,tud-mit-plone,,
 tyrell,Tyrell,organisation,,,
 ucla-plone-users-group,UCLA Plone Users Group,organisation,,,
+udako-euskal-unibertsitatea,Udako Euskal Unibertsitatea,organisation,,,named on a speaker page of the Plone Conference 2023: https://2023.ploneconf.org/speakers/emilio-delgado
+ufrgs,UFRGS,organisation,,,named on a speaker page of the Plone Conference 2013: http://web.archive.org/web/20160511001351/http://2013.pythonbrasil.org.br/program/pc/plone_edu/plumi-compatilhamento-de-videos-na-ufrgs
+ulma-construction,ULMA Construction,organisation,,,named on a speaker page of the Plone Conference 2023: https://2023.ploneconf.org/speakers/irati-goitia
+ulma-packaging,ULMA Packaging,organisation,,,named on a speaker page of the Plone Conference 2023: https://2023.ploneconf.org/speakers/joseba-alberdi
 unam,UNAM,organisation,,mathematics institute unam;mathematics institute at unam,
+unamur,UNamur,organisation,,,named on a speaker page of the Plone Conference 2022: https://2022.ploneconf.org/speakers/johan-yans.html
+unc-health-care-system,UNC Health Care System,organisation,,,named on a speaker page of the Plone Conference 2009: http://web.archive.org/web/20100626001457/http://ploneconf2009.org/program/talks/list/?searchterm=None
 uni-hospital-dresden,Uni. Hospital Dresden,organisation,,university-hospital-dresden,
 unione-comuni-modenesi-area-nord,Unione Comuni Modenesi Area Nord,organisation,,,
+united-nations-environment-programme,United Nations Environment Programme,organisation,,,named on a speaker page of the Plone Conference 2006: https://plone.org/news-and-events/events/plone-conferences/seattle-2006/presentations/plone-at-un__gerry.ppt/@@download/file
 universidad-nacional-de-cordoba,Universidad Nacional de Córdoba,organisation,,,
+universidade-federal-do-acre,Universidade Federal do Acre,organisation,,,named on a speaker page of the Plone Conference 2024: https://2024.ploneconf.org/en/schedule/speakers/gilbertoloboac
 universita-di-bologna,Università di Bologna,organisation,unibo,unibo.it,
 universita-di-macerata,Università di Macerata,organisation,,,
 universitat-politecnica-de-catalunya-barcelonatech,Universitat Politècnica de Catalunya · BarcelonaTech,organisation,,,
+university-of-cambridge,University of Cambridge,organisation,,,named on a speaker page of the Plone Conference 2014: http://web.archive.org/web/20141113061401/http://2014.ploneconf.org/talks/@@list#talk_29
 university-of-jyvaskyla,University of Jyväskylä,organisation,,jyu.fi,
 university-of-koblenz,University of Koblenz,organisation,,uni-koblenz.de,
 university-of-north-carolina-department-of-marine-sciences,University of North Carolina Department of Marine Sciences,organisation,,,
+university-of-the-basque-country,University of the Basque Country,organisation,,,named on a speaker page of the Plone Conference 2023: https://2023.ploneconf.org/speakers/olatz-perez-de-vinaspre
+university-of-utah,University of Utah,organisation,,,named on a speaker page of the Plone Conference 2016: https://2016.ploneconf.org/people/sean-upton.html
+university-of-utah-health-sciences-center,University of Utah Health Sciences Center,organisation,,,named on a speaker page of the Plone Conference 2011: https://web.archive.org/web/20120105043022/http://2011ploneconference.sched.org/event/2c6828cf6764a4b2ee7f94edef60d65f
 university-of-virginia,University of Virginia,organisation,,,
+university-of-washington,University of Washington,organisation,,,named on a speaker page of the Plone Conference 2008: http://web.archive.org/web/20080913203003/http://plone.org:80/events/conferences/2008-washington-dc/agenda/all-sessions
 university-of-wisconsin-oshkosh,University of Wisconsin Oshkosh,organisation,,,
 upcnet-slu,"UPCnet, SLU",organisation,UPCnet,,
 upfront-systems,Upfront Systems,organisation,,,
+v-studios,V! Studios,organisation,,,named on a speaker page of the Plone Conference 2017: https://2017.ploneconf.org/people/chris-shenton.html
 valentine-web-systems,Valentine Web Systems,organisation,,,
+varnish-software,Varnish Software,organisation,,,named on a speaker page of the Plone Conference 2024: https://2024.ploneconf.org/en/schedule/speakers/thijsferyn
 veit-schiele-communications-gmbh,Veit Schiele Communications GmbH,organisation,,,
 victor-fernandez-de-alba-independent,Víctor Fernández de Alba (independent),independent,,,
+vilax-ab,Vilax AB,organisation,,,named on a speaker page of the Plone Conference 2025: https://2025.ploneconf.org/schedule/speakers/mack-palomaki
 vincent-fretin-independent,Vincent Fretin (independent),independent,,,
 vinissimus,Vinissimus,organisation,,,
+web-collective,Web Collective,organisation,,,named on a speaker page of the Plone Conference 2010: https://web.archive.org/web/20120516095001/http://www.ploneconf2010.org/the-event/talks/plone-at-the-university-of-washington
 webcloud7-ag,webcloud7 ag,organisation,,,
 webmeisterei,Webmeisterei,organisation,webmeisterei,,
 webtide,WebTide,organisation,,,
@@ -335,9 +464,11 @@ wildcard-corp,Wildcard Corp,organisation,wildcardcorp,,
 wundertax,Wundertax,organisation,,,
 x3ng-web-technology,X3ng Web Technology,organisation,,,
 zest-software,Zest Software,organisation,zestsoftware,,
+zettai,Zettai,organisation,,,named on a speaker page of the Plone Conference 2003: http://web.archive.org/web/20031013220520/http://plone.org/events/conferences/1/PloneConferenceSchedule.pdf
 zettwerk,Zettwerk,organisation,,,
 zetwork,Zetwork,organisation,,zetwork.com;Zetwork GmbH,"Jens Vagelpohl's GmbH in Oldenburg; from 2018 he trades under the name as a sole proprietor, which counts as his own name (jens-vagelpohl-independent)"
 zitc,ZITC,organisation,,,
+zope-corporation,Zope Corporation,organisation,,,named on a speaker page of the Plone Conference 2003: http://web.archive.org/web/20031013220520/http://plone.org/events/conferences/1/PloneConferenceSchedule.pdf
 zope-europe,Zope Europe,organisation,,,
 zope-user-group-munich,Zope User Group Munich,organisation,,,
 zopyx,Zopyx,organisation,,zopyx,
