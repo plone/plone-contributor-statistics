@@ -337,7 +337,11 @@ def main(argv=None):
     parser.add_argument('--refresh', action='store_true', help='ignore the cache and ask GitHub again')
     parser.add_argument('--cache', default=CACHE_DIR, help='directory of the cached responses')
     args = parser.parse_args(argv)
-    text, added = run(args.person, args.all_years, args.write, args.refresh, args.cache)
+    try:
+        text, added = run(args.person, args.all_years, args.write, args.refresh, args.cache)
+    except ValueError as error:  # a proposal whose id an affiliation has already: append_proposals wrote nothing
+        print(f'Nothing written: {error}', file=sys.stderr)
+        sys.exit(1)
     sys.stdout.write(text)
     if args.write:
         print(f'\nWrote {len(added)} new proposals to affiliations.csv.')

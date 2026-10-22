@@ -6,13 +6,16 @@ not know, they count twice. This lists the people whose name equals a collected 
 GitHub profile names of the logins the register does not know are fetched (needs GITHUB_TOKEN) and exact,
 unique matches are printed as a `github` identity for curated/mappings/identities.csv, citing the GitHub
 profile: the login is the person's main account, which their code work counts under. Check each proposal,
-capture the profile (the command is printed with it), then add the row.
+run the capture command printed with it, then add the row: the snippet is the profile name, which the
+capture finds on the profile.
 """
 
 import argparse
 import csv
+import io
 import os
 import re
+import shlex
 import sys
 from collections import defaultdict
 
@@ -76,10 +79,13 @@ def propose(registry, profile_names):
 
 
 def proposal_line(person_id, login, name):
-    """The proposal as the line --propose prints: the identity row citing the profile, and how to capture it."""
+    """The proposal as --propose prints it: the command that captures the profile, as a comment, and the
+    identity row citing the profile with the profile name as its snippet."""
     profile = f'https://github.com/{login}'
-    return (f'{person_id},{GITHUB},{login},{source_id(profile)},,  # profile name "{name}"; capture the profile '
-            f'first: python -m scripts.tools.capture {profile} --name "{name}"')
+    command = f'python -m scripts.tools.capture {shlex.quote(profile)} --name {shlex.quote(name)}'
+    row = io.StringIO()
+    csv.writer(row, lineterminator='').writerow([person_id, GITHUB, login, source_id(profile), name, ''])
+    return f'# capture first: {command}\n{row.getvalue()}'
 
 
 def fetch_profile_names(session, logins, batch=50):
@@ -113,8 +119,8 @@ def main():
         token = os.getenv('GITHUB_TOKEN')
         if token:
             session.headers['Authorization'] = f'token {token}'
-        print('\nProposals for curated/mappings/identities.csv (check each, capture the profile, then add the row '
-              'without the comment):')
+        print('\nProposals for curated/mappings/identities.csv (check each, run its capture command, then add '
+              'the row):')
         for proposal in propose(registry, fetch_profile_names(session, unregistered(registry, logins))):
             print(proposal_line(*proposal))
 

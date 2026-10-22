@@ -413,3 +413,16 @@ def test_main_prints_the_report(setup, capsys):
     make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.hu', 2015)])
     address_proposals.main(['--cache', str(cache)])
     assert '## Proposals' in capsys.readouterr().out
+
+
+def test_main_reports_an_id_clash_without_a_traceback(setup, monkeypatch, capsys):
+    def clash(*args, **kwargs):
+        raise ValueError('The id a12345678 of the proposal jane-doe, greenfinity, 2015-2015 is the id of an '
+                         'affiliation already')
+
+    monkeypatch.setattr(address_proposals, 'run', clash)
+    with pytest.raises(SystemExit) as exit_info:
+        address_proposals.main(['--write'])
+    assert exit_info.value.code == 1
+    assert capsys.readouterr().err == ('Nothing written: The id a12345678 of the proposal jane-doe, greenfinity, '
+                                       '2015-2015 is the id of an affiliation already\n')

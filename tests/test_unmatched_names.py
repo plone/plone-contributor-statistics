@@ -45,8 +45,15 @@ def test_proposes_only_unique_exact_profile_names(tmp_repo):
 def test_a_proposal_is_a_github_identity_citing_the_profile():
     sid = source_id('https://github.com/janedoe')
     assert unmatched_names.proposal_line('jane-doe', 'janedoe', 'Jane Doe') == (
-        f'jane-doe,github,janedoe,{sid},,  # profile name "Jane Doe"; capture the profile first: '
-        'python -m scripts.tools.capture https://github.com/janedoe --name "Jane Doe"')
+        "# capture first: python -m scripts.tools.capture https://github.com/janedoe --name 'Jane Doe'\n"
+        f'jane-doe,github,janedoe,{sid},Jane Doe,')
+
+
+def test_a_proposal_quotes_the_profile_name():
+    sid = source_id('https://github.com/obrien')
+    assert unmatched_names.proposal_line('pat', 'obrien', "Pat O'Brien, Jr.") == (
+        "# capture first: python -m scripts.tools.capture https://github.com/obrien --name 'Pat O'\"'\"'Brien, Jr.'\n"
+        f'pat,github,obrien,{sid},"Pat O\'Brien, Jr.",')
 
 
 def test_main_prints_people_proposals(tmp_repo, monkeypatch, capsys):
@@ -59,7 +66,7 @@ def test_main_prints_people_proposals(tmp_repo, monkeypatch, capsys):
     unmatched_names.main()
     out = capsys.readouterr().out
     assert 'Proposals for curated/mappings/identities.csv' in out
-    assert f'jane-doe,github,janedoe,{source_id("https://github.com/janedoe")},,  # profile name "Jane Doe"' in out
+    assert f'jane-doe,github,janedoe,{source_id("https://github.com/janedoe")},Jane Doe,\n' in out
     assert 'people.csv' not in out
 
 

@@ -293,8 +293,13 @@ class UniqueCasefold(Check):
 
     field: str
     scope: str = None
-    only: tuple = None
+    only: tuple = attrs.field(default=None)
     _seen: dict = attrs.field(factory=dict, init=False)
+
+    @only.validator
+    def _only_needs_scope(self, attribute, value):
+        if value is not None and not self.scope:
+            raise ValueError('`only` names values of the `scope` field: give a scope')
 
     def validate_row(self, row):
         value = row[self.field]

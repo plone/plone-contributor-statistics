@@ -10,7 +10,9 @@ curated/mappings/affiliations.csv as a `proposed` row citing it, with the author
 a reviewer turns it into a stated row. Domains that belong to no organisation are listed, so that they can be added
 to the `aliases` of the organisation.
 
-Needs the clones: `make run-changelogs` fills the cache.
+Needs the clones: `make run-changelogs` fills the cache. The capture of the evidence commits reads the clones of
+the shared cache of the main checkout (PLONE_STATS_CACHE, else `.cache` of the main checkout), not those of
+--cache: with another --cache, the capture may fall back to the GitHub API, which needs GITHUB_TOKEN.
 """
 
 import argparse
@@ -220,12 +222,18 @@ def main(argv=None):
     parser.add_argument('--person', action='append', default=[], metavar='ID',
                         help='only this person (repeat for several)')
     parser.add_argument('--since', type=int, default=DEFAULT_SINCE, help='ignore commits before this year')
-    parser.add_argument('--cache', default=git_history.CACHE_DIR, help='directory of the clones')
+    parser.add_argument('--cache', default=git_history.CACHE_DIR,
+                        help='directory of the clones whose authors are read; the capture of the evidence commits '
+                             'reads the clones of the shared cache (PLONE_STATS_CACHE) and may use the GitHub API')
     parser.add_argument('--write', action='store_true',
                         help='capture the example commits as sources and add the proposals to affiliations.csv as '
                              'proposed rows citing them')
     args = parser.parse_args(argv)
-    text, added = run(args.cache, args.since, args.person, args.write)
+    try:
+        text, added = run(args.cache, args.since, args.person, args.write)
+    except ValueError as error:  # a proposal whose id an affiliation has already: append_proposals wrote nothing
+        print(f'Nothing written: {error}', file=sys.stderr)
+        sys.exit(1)
     sys.stdout.write(text)
     if args.write:
         print(f'\nWrote {len(added)} new proposals to affiliations.csv.')

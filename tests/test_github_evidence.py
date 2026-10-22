@@ -287,3 +287,14 @@ def test_main_prints_the_report(setup, monkeypatch, capsys):
     out = capsys.readouterr().out
     assert out.startswith('# Affiliations from the GitHub commit search')
     assert 'Wrote 2 new proposals' in out
+
+
+def test_main_reports_an_id_clash_without_a_traceback(setup, monkeypatch, capsys):
+    def clash(*args, **kwargs):
+        raise ValueError('The id a12345678 is the id of an affiliation already')
+
+    monkeypatch.setattr(github_evidence, 'run', clash)
+    with pytest.raises(SystemExit) as exit_info:
+        github_evidence.main(['--write'])
+    assert exit_info.value.code == 1
+    assert capsys.readouterr().err == 'Nothing written: The id a12345678 is the id of an affiliation already\n'

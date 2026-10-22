@@ -115,8 +115,6 @@ def main(argv=None):
     args = parser.parse_args(argv)
     writer = csv.writer(sys.stdout, lineterminator='\n')
     if args.add:
-        if not args.source:
-            parser.error('--add needs --source')
         try:
             person, identity = add(MAPPINGS_DIR, args.add, args.github, args.source)
         except ValueError as error:

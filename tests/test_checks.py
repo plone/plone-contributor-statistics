@@ -465,3 +465,11 @@ def test_the_attribution_checks_say_when_they_are_skipped(tmp_package):
     assert [message.split(': ', 1)[1] for _, _, _, message in errors] == [
         f'the {name} check was skipped: the registers cannot be read: {root}/curated/mappings/identities.csv is '
         f'missing' for name in ('conflict', 'decision')]
+
+
+def test_unique_casefold_only_needs_a_scope():
+    from scripts.lib.model.checks import UniqueCasefold
+
+    with pytest.raises(ValueError, match='scope'):
+        UniqueCasefold(field='value', only=('email',))
+    assert UniqueCasefold(field='value', scope='kind', only=('email',)).only == ('email',)

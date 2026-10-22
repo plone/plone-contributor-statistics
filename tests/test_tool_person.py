@@ -126,3 +126,14 @@ def test_main_prints_identities_and_affiliations_of_the_match(registers, capsys)
         '# curated/mappings/affiliations.csv\n'
         'id,person,organisation,from,to,status,checked,notes\n'
         'a12345678,zed,zeta,2015,,stated,2024-05-01,"one, two"\n')
+
+
+@pytest.mark.parametrize('extra', [[], ['--source', '']])
+def test_main_add_without_a_source_says_how_to_give_one(registers, capsys, extra):
+    with pytest.raises(SystemExit) as exit_info:
+        person.main(['--add', 'New Person', *extra])
+    assert exit_info.value.code == 2
+    err = capsys.readouterr().err
+    assert 'the id or the address of a source in the source register' in err
+    assert 'python -m scripts.tools.capture' in err
+    assert 'new-person' not in load_registry().people

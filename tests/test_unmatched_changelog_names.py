@@ -1,9 +1,8 @@
 """Proposals for identities.csv from commits that repeat the entries (#71)."""
 
-from scripts.lib import changelogs
-from scripts.lib.capture import CaptureError
+from scripts.lib import changelogs, paths
 from scripts.lib.changelogs import NameMapper, Occurrence
-from scripts.lib.model import Identity, Registry
+from scripts.lib.model import Identity, Registry, source_id
 from tests.conftest import registry_of
 from scripts.tools import unmatched_changelog_names as tool
 
@@ -60,45 +59,43 @@ def test_evidence_from_the_first_commit_of_single_name_entries():
     assert found['wald']['authors'] == {('hanno@hannosch.eu', 'Hanno Schlichting'): 1}
 
 
-def cite(url, email):
-    """A capture that records which commits it was asked for."""
-    CITED.append((url, email))
-    return f'{len(CITED):012x}', f'Author: Someone <{email}>'
+C1 = 'https://github.com/plone/Products.CMFPlone/commit/c1'
 
 
-CITED = []
-
-
-def test_proposals_cite_the_commit_and_link_the_entry():
-    CITED.clear()
+def test_proposals_cite_the_commit_to_capture_and_link_the_entry():
     unmatched = tool.unmatched_entries(ENTRIES, MAPPER, range(2004, 2013))
     logins = {'apm13@columbia.edu': 'alecpm'}
 
-    rows = tool.proposals(unmatched, tool.evidence(unmatched, COMMITS.get),
-                          lambda email, entry, commit: logins.get(email), REGISTRY, cite=cite)
+    found = tool.proposals(unmatched, tool.evidence(unmatched, COMMITS.get),
+                           lambda email, entry, commit: logins.get(email), REGISTRY)
 
-    assert rows[0] == (
-        'alec-mitchell', 'name', 'alecm', '000000000001', 'Author: Someone <apm13@columbia.edu>',
+    command, row = found[0]
+    assert command == f'python -m scripts.tools.capture {C1} --name apm13@columbia.edu'
+    assert row == (
+        'alec-mitchell', 'name', 'alecm', source_id(C1), 'Author: Alec Mitchell <apm13@columbia.edu>',
         'Changelog entry: https://github.com/plone/Products.CMFPlone/blob/tip/HISTORY.txt#L7; the commit by '
-        'Alec Mitchell that repeats it: https://github.com/plone/Products.CMFPlone/commit/c1',
+        f'Alec Mitchell that repeats it: {C1}',
         4, 2, 1.0)
-    assert CITED[0] == ('https://github.com/plone/Products.CMFPlone/commit/c1', 'apm13@columbia.edu')
     # Without a login, the person comes from the email address of the commit
-    assert rows[1][:3] == ('hanno-schlichting', 'name', 'wald')
+    assert found[1][1][:3] == ('hanno-schlichting', 'name', 'wald')
     assert tool.HEADER == ['person', 'kind', 'value', 'source', 'snippet', 'notes', 'entries', 'commits', 'share']
 
 
-def test_a_commit_not_captured_leaves_the_source_empty_and_says_why():
+def test_the_capture_command_is_quoted_for_the_shell():
+    assert tool.capture_command(C1, "o'brien@example.org") == (
+        f"python -m scripts.tools.capture {C1} --name 'o'\"'\"'brien@example.org'")
+
+
+def test_listing_writes_nothing(tmp_repo, capsys):
     unmatched = tool.unmatched_entries(ENTRIES, MAPPER, range(2004, 2013))
-
-    def fail(url, email):
-        raise CaptureError(f'{url}: could not be fetched')
-
-    rows = tool.proposals(unmatched, tool.evidence(unmatched, COMMITS.get), lambda *args: None, REGISTRY, cite=fail)
-
-    assert rows[0][3:5] == ('', '')
-    assert rows[0][5].endswith('; not captured: https://github.com/plone/Products.CMFPlone/commit/c1: could not be '
-                               'fetched')
+    before = paths.SOURCES.read_text(encoding='utf-8')
+    logins = {'apm13@columbia.edu': 'alecpm'}
+    tool.print_proposals(tool.proposals(unmatched, tool.evidence(unmatched, COMMITS.get),
+                                        lambda email, entry, commit: logins.get(email), REGISTRY))
+    assert paths.SOURCES.read_text(encoding='utf-8') == before
+    out = capsys.readouterr().out
+    assert f'# capture first: python -m scripts.tools.capture {C1} --name apm13@columbia.edu\n' in out
+    assert f'alec-mitchell,name,alecm,{source_id(C1)},Author: Alec Mitchell <apm13@columbia.edu>,' in out
 
 
 def test_a_login_without_a_person_is_a_note():
@@ -106,11 +103,11 @@ def test_a_login_without_a_person_is_a_note():
     found = tool.evidence(unmatched, COMMITS.get)
     empty = Registry([], [], [], [])
 
-    rows = tool.proposals(unmatched, found, lambda email, entry, commit: 'unknown-login', empty, cite=cite)
+    rows = tool.proposals(unmatched, found, lambda email, entry, commit: 'unknown-login', empty)
 
-    assert rows[0][:3] == ('?no person for the login unknown-login', 'name', 'alecm')
-    rows = tool.proposals(unmatched, found, lambda email, entry, commit: None, empty, cite=cite)
-    assert rows[1][0] == '?no person for Hanno Schlichting <hanno@hannosch.eu>'
+    assert rows[0][1][:3] == ('?no person for the login unknown-login', 'name', 'alecm')
+    rows = tool.proposals(unmatched, found, lambda email, entry, commit: None, empty)
+    assert rows[1][1][0] == '?no person for Hanno Schlichting <hanno@hannosch.eu>'
 
 
 def test_authors_below_the_share_are_not_proposed():
@@ -119,5 +116,5 @@ def test_authors_below_the_share_are_not_proposed():
 
     found = tool.evidence(unmatched, COMMITS.get)
 
-    assert tool.proposals(unmatched, found, lambda *args: None, REGISTRY, cite=cite) == []
-    assert len(tool.proposals(unmatched, found, lambda *args: None, REGISTRY, min_share=0.5, cite=cite)) == 1
+    assert tool.proposals(unmatched, found, lambda *args: None, REGISTRY) == []
+    assert len(tool.proposals(unmatched, found, lambda *args: None, REGISTRY, min_share=0.5)) == 1

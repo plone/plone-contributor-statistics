@@ -5,19 +5,20 @@ Reads the changelog files from the clones in the cache, as
 `make run-changelogs` left them, and lists the names without a mapping, by
 their number of entries. With --propose, it looks for the commits whose
 message repeats an entry with that name, in the same repository. When most
-of these commits have the same author, it captures the commit as a source
-(from its clone, curated/sources/) and prints a row for
-curated/mappings/identities.csv that cites it, with the author line as the
-snippet and the changelog entry and the commit in the notes. Commits of
-patches that someone else applied name the committer instead of the author,
-so a person checks each row before adding it; see
-docs/how-to/link-old-commits-to-a-person.md.
+of these commits have the same author, it prints the command that captures
+the commit as a source, and a row for curated/mappings/identities.csv that
+cites it, with the author line as the snippet and the changelog entry and
+the commit in the notes. It writes nothing itself: run the capture command,
+then add the row. Commits of patches that someone else applied name the
+committer instead of the author, so a person checks each row before adding
+it; see docs/how-to/link-old-commits-to-a-person.md.
 """
 
 import argparse
 import csv
 import os
 import re
+import shlex
 import sys
 from collections import Counter, defaultdict
 
@@ -26,9 +27,8 @@ from dotenv import load_dotenv
 
 from scripts.collect import plone_changelogs
 from scripts.lib import changelogs, git_history
-from scripts.lib.capture import CaptureError, capture_commit
 from scripts.lib.github_api import github_graphql
-from scripts.lib.model import load_excluded_repositories, load_registry
+from scripts.lib.model import load_excluded_repositories, load_registry, source_id
 
 # Entries shorter than this are too generic to find their commit
 MIN_TEXT = 25
@@ -101,15 +101,20 @@ def evidence(unmatched, commits_of):
     return dict(found)
 
 
-def proposals(unmatched, found, resolve, registry, min_share=0.8, cite=capture_commit):
-    """Rows for identities.csv: (person, 'name', changelog name, source, snippet, notes, entries, commits, share).
+def capture_command(commit_url, email):
+    """The shell command that captures the commit as a source, finding its author by the address."""
+    return f'python -m scripts.tools.capture {shlex.quote(commit_url)} --name {shlex.quote(email)}'
+
+
+def proposals(unmatched, found, resolve, registry, min_share=0.8):
+    """[(capture command, row)]: the command that captures the commit, and the row for identities.csv citing it,
+    (person, 'name', changelog name, source, snippet, notes, entries, commits, share).
 
     `resolve(email, entry, commit)` returns the GitHub login of the commit author, None for a person
     without a GitHub account. The person is the one the register has for the login, else for the email
     address; when it has none, the person cell is a note and the row is not meant to be added as it is.
-    `cite(commit url, email)` captures the commit and returns (source id, snippet); when it raises
-    CaptureError, source and snippet stay empty and the notes say why. The last three columns are not part of
-    the file.
+    The source is the id the commit gets once captured, the snippet its author line as the capture stores it.
+    The last three columns are not part of the file. Nothing is written.
     """
     rows = []
     for name, data in sorted(found.items(), key=lambda item: item[0].casefold()):
@@ -129,13 +134,20 @@ def proposals(unmatched, found, resolve, registry, min_share=0.8, cite=capture_c
             who = f'?no person for {author} <{email}>'
         commit_url = f"https://github.com/plone/{entry.repository}/commit/{commit['sha']}"
         notes = f'Changelog entry: {entry.url}; the commit by {author} that repeats it: {commit_url}'
-        try:
-            source, snippet = cite(commit_url, commit['author_email'])
-        except CaptureError as error:
-            source, snippet, notes = '', '', f'{notes}; not captured: {error}'
-        rows.append((who, 'name', name, source, snippet or '', notes, len(unmatched[name]), commits,
-                     round(share, 2)))
+        snippet = f"Author: {commit['author_name']} <{commit['author_email']}>"
+        rows.append((capture_command(commit_url, commit['author_email']),
+                     (who, 'name', name, source_id(commit_url), snippet, notes, len(unmatched[name]), commits,
+                      round(share, 2))))
     return rows
+
+
+def print_proposals(found):
+    """Print the header, then for each proposal its capture command as a comment and its row."""
+    writer = csv.writer(sys.stdout, lineterminator='\n')
+    writer.writerow(HEADER)
+    for command, row in found:
+        sys.stdout.write(f'# capture first: {command}\n')
+        writer.writerow(row)
 
 
 class Resolver:
@@ -160,7 +172,8 @@ def main():
     parser.add_argument('--to-year', type=int, default=changelogs.REPORTED_YEARS[-1],
                         help=f'Last year (default: {changelogs.REPORTED_YEARS[-1]})')
     parser.add_argument('--propose', action='store_true',
-                        help='Propose people from the commits that repeat the entries (needs GITHUB_TOKEN)')
+                        help='Propose people from the commits that repeat the entries (needs GITHUB_TOKEN); '
+                             'prints the capture command and the identity row of each, writes nothing')
     parser.add_argument('--min-share', type=float, default=0.8,
                         help="Share of the matching commits the author must have (default: 0.8)")
     args = parser.parse_args()
@@ -191,10 +204,9 @@ def main():
 
         rows = proposals(unmatched, evidence(unmatched, commits_of), Resolver(session), load_registry(),
                          args.min_share)
-        print('\nProposals for identities.csv (check each; the last three columns are not part of the file):')
-        writer = csv.writer(sys.stdout, lineterminator='\n')
-        writer.writerow(HEADER)
-        writer.writerows(rows)
+        print('\nProposals for identities.csv (check each, run its capture command, then add the row; the last '
+              'three columns are not part of the file):')
+        print_proposals(rows)
 
 
 if __name__ == '__main__':
