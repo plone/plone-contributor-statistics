@@ -157,6 +157,8 @@ GITHUB_RESERVED = {'search', 'orgs', 'settings', 'topics', 'marketplace', 'spons
                    'events', 'new', 'apps', 'enterprise', 'security', 'customer-stories', 'readme', 'site'}
 SUBTITLE_LANGUAGES = 'en.*,de.*,es.*,pt.*,it.*,nl.*,fr.*'
 VIDEO_TIMEOUT = 600  # seconds for one call of yt-dlp
+ISSUE_PATH = re.compile(r'^/([^/]+)/([^/]+)/(?:issues|pull)/(\d+)/?$')
+COMMENT_FRAGMENT = re.compile(r'^(issuecomment|discussion_r|pullrequestreview)-?(\d+)$')
 COMMIT_PATH = re.compile(r'^/([^/]+)/([^/]+)/commit/([0-9a-fA-F]+)/?$')
 VTT_TAG = re.compile(r'<[^>]*>')
 VTT_TIME = re.compile(r'(?:(\d+):)?(\d{2}):(\d{2})\.\d+')
@@ -168,7 +170,7 @@ def host_of(url: str) -> str:
 
 
 def adapter_for(url: str) -> str:
-    """Which extractor reads this address: volto, github-profile, commit, video or generic."""
+    """Which extractor reads this address: volto, github-issue, github-profile, commit, video or generic."""
     if split_archive_url(url):
         return 'generic'  # a Wayback copy is the raw capture, whatever the original was
     host = host_of(url)
@@ -181,6 +183,8 @@ def adapter_for(url: str) -> str:
         segments = [segment for segment in path.split('/') if segment]
         if len(segments) == 1 and segments[0].lower() not in GITHUB_RESERVED:
             return 'github-profile'
+        if ISSUE_PATH.match(path):
+            return 'github-issue'
         if COMMIT_PATH.match(path):
             return 'commit'
     return 'generic'
@@ -252,6 +256,42 @@ def extract_github_profile(login: str, session) -> Extracted:
     text = '\n'.join(lines)
     return Extracted(text=text, full_text=text, title=profile.get('name') or None,
                      date=datetime.datetime.now(datetime.timezone.utc).date())
+
+
+ISSUE_ENDPOINTS = {'issuecomment': 'issues/comments/{id}', 'discussion_r': 'pulls/comments/{id}',
+                   'pullrequestreview': 'pulls/{number}/reviews/{id}'}
+
+
+def _comment_block(data: dict, *, title: str | None = None) -> str:
+    login = (data.get('user') or {}).get('login') or 'ghost'
+    date = data.get('created_at') or data.get('submitted_at') or ''
+    head = ([f'Title: {title}'] if title is not None else []) + [f'Author: {login}', f'Date: {date}']
+    return '\n'.join(head) + '\n\n' + (data.get('body') or '').replace('\r\n', '\n').strip()
+
+
+def extract_github_issue(owner: str, repo: str, number: str, fragment: str | None, session) -> Extracted:
+    """An issue or pull request with its comments, or the one comment or review its fragment names."""
+    base = f'https://api.github.com/repos/{owner}/{repo}'
+    match = COMMENT_FRAGMENT.match(fragment or '')
+    if match:
+        path = ISSUE_ENDPOINTS[match.group(1)].format(id=match.group(2), number=number)
+        data = github_get(session, f'{base}/{path}').json()
+        text = _comment_block(data)
+        return Extracted(text=text, full_text=text, title=None,
+                         date=parse_date(data.get('created_at') or data.get('submitted_at')))
+    issue = github_get(session, f'{base}/issues/{number}').json()
+    blocks = [_comment_block(issue, title=issue.get('title') or '')]
+    page = 1
+    while True:
+        comments = github_get(session, f'{base}/issues/{number}/comments',
+                              params={'per_page': 100, 'page': page}).json()
+        blocks.extend(_comment_block(comment) for comment in comments)
+        if len(comments) < 100:
+            break
+        page += 1
+    text = '\n\n'.join(blocks)
+    return Extracted(text=text, full_text=text, title=issue.get('title') or None,
+                     date=parse_date(issue.get('created_at')))
 
 
 def extract_commit(owner: str, repo: str, sha: str, run=subprocess.run, session=None) -> Extracted:

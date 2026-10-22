@@ -93,3 +93,13 @@ def test_load_sources_memo_sees_external_edits(tmp_repo):
     assert list(load_sources()) == ['aaaaaaaaaaaa', 'bbbbbbbbbbbb']
     paths.SOURCES.write_text(header + two, encoding='utf-8')
     assert list(load_sources()) == ['bbbbbbbbbbbb']
+
+
+def test_comment_fragments_are_kept():
+    pr = 'https://github.com/plone/plone-contributor-statistics/pull/153'
+    first, second = f'{pr}#issuecomment-6297324385', f'{pr}#issuecomment-6297324386'
+    assert len({source_id(first), source_id(second), source_id(pr)}) == 3
+    assert source_id(f'{pr}#top') == source_id(pr) == source_id(f'{pr}/')
+    assert normalize_url(f'{pr}#discussion_r12') != normalize_url(f'{pr}#pullrequestreview-12')
+    assert source_id(first) == source_id(first.replace('https://', 'http://').replace('github.com', 'GitHub.com'))
+    assert source_id('https://example.org/x#issuecomment-1') == source_id('https://example.org/x')

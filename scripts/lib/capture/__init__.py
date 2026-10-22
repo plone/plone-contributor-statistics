@@ -7,6 +7,7 @@ around each quote is stored, through the model, never the whole page.
 import dataclasses
 import datetime
 import os
+import re
 import subprocess
 import urllib.parse
 from collections.abc import Sequence
@@ -17,9 +18,11 @@ from scripts.lib.capture import extract as extraction  # the module: a name `ext
 from scripts.lib.capture import fetch
 from scripts.lib.capture.extract import (
     COMMIT_PATH,
+    ISSUE_PATH,
     ExtractError,
     adapter_for,
     extract_commit,
+    extract_github_issue,
     extract_github_profile,
     extract_video,
     extract_volto,
@@ -39,8 +42,11 @@ from scripts.lib.model import (
     write_source,
 )
 
-KIND_BY_ADAPTER = {'github-profile': 'profile', 'commit': 'commit', 'video': 'video'}
+KIND_BY_ADAPTER = {'github-profile': 'profile', 'github-issue': 'issue-comment', 'commit': 'commit', 'video': 'video'}
 WHOLE_TEXT_KINDS = ('profile', 'commit')
+OWN_REPOSITORY = 'plone/plone-contributor-statistics'  # its issues and comments are our own public record
+# a block of an issue page starts after a blank line with its optional title and its author and date lines
+BLOCK_START = re.compile(r'\n\n(?=(?:Title: [^\n]*\n)?Author: [^\n]*\nDate: )')
 GONE_STATUSES = (404, 410)
 
 
@@ -152,6 +158,10 @@ def _read_live(url, sid, fetcher, session, run):
         if adapter == 'github-profile':
             login = [segment for segment in urllib.parse.urlsplit(url).path.split('/') if segment][0]
             extracted = extract_github_profile(login, session)
+        elif adapter == 'github-issue':
+            parts = urllib.parse.urlsplit(url)
+            owner, repo, number = ISSUE_PATH.match(parts.path).groups()
+            extracted = extract_github_issue(owner, repo, number, parts.fragment, session)
         elif adapter == 'commit':
             owner, repo, sha = COMMIT_PATH.match(urllib.parse.urlsplit(url).path).groups()
             extracted = extract_commit(owner, repo, sha, run=run, session=session)
@@ -259,14 +269,24 @@ def _passage(read, quote):
     """The passage to store for the quote, or None when the quote is not in the text.
 
     A live profile or commit is short and its parts belong together (the author and date of a commit message),
-    so its passage is the whole text; anything else gets the paragraph around the quote.
+    so its passage is the whole text, and so is a live issue or comment of this repository, our own public
+    record; the text of an issue of another repository is cut to the block (issue or comment) with the quote
+    and then to the paragraph around it; anything else gets the paragraph around the quote.
     """
-    whole = read.timestamp is None and read.kind in WHOLE_TEXT_KINDS
+    live = read.timestamp is None
+    whole = live and (read.kind in WHOLE_TEXT_KINDS or (read.kind == 'issue-comment' and _is_own(read.original)))
     for text in (read.text, read.full_text):
+        if live and read.kind == 'issue-comment' and not whole:
+            text = next((block for block in BLOCK_START.split(text) if find_quote(block, quote)), text)
         span = find_quote(text, quote)
         if span is not None:
             return text.strip() if whole else cut_passage(text, span)
     return None
+
+
+def _is_own(url):
+    match = ISSUE_PATH.match(urllib.parse.urlsplit(url).path)
+    return bool(match) and f'{match.group(1)}/{match.group(2)}'.lower() == OWN_REPOSITORY
 
 
 def _unreachable(existing, sid, original, timestamp, gone, quotes, kind, title, date):

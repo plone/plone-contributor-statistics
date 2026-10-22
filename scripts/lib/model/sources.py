@@ -14,6 +14,7 @@ SOURCE_KINDS = ('page', 'speaker-page', 'profile', 'commit', 'video', 'pdf', 're
 
 _ARCHIVE = re.compile(r'^https?://web\.archive\.org/web/(\d{14})(?:[a-z]{2}_)?/(.+)$', re.IGNORECASE)
 _SCHEME = re.compile(r'^https?://', re.IGNORECASE)
+_COMMENT_FRAGMENT = re.compile(r'^(issuecomment-\d+|discussion_r\d+|pullrequestreview-\d+)$')
 _DEFAULT_PORT = re.compile(r':(?:80|443)(?=/|\?|$)')
 
 
@@ -32,9 +33,10 @@ class Source:
 def normalize_url(url):
     """The key of a web address: no scheme, lower-case host, no default port, no fragment, no trailing slash.
 
-    The query stays, because pages that differ in their query differ in their content.
+    The query stays, because pages that differ in their query differ in their content. So does the fragment
+    of a GitHub comment, review or review comment: it names a different text on the same page.
     """
-    url = _SCHEME.sub('', url.strip()).split('#', 1)[0]
+    url, _, fragment = _SCHEME.sub('', url.strip()).partition('#')
     rest = url.find('/')
     query = url.find('?')
     ends = [i for i in (rest, query) if i >= 0]
@@ -43,7 +45,8 @@ def normalize_url(url):
     host = _DEFAULT_PORT.sub('', host)
     path, _, query = tail.partition('?')
     path = path.rstrip('/')
-    return host + path + (f'?{query}' if query else '')
+    keep = f'#{fragment}' if host in ('github.com', 'www.github.com') and _COMMENT_FRAGMENT.match(fragment) else ''
+    return host + path + (f'?{query}' if query else '') + keep
 
 
 def split_archive_url(url):

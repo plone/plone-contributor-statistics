@@ -496,3 +496,54 @@ def test_redirected_capture_is_recorded_under_its_own_timestamp(web):
     assert row.archive_url == 'https://web.archive.org/web/20100125023558/http://a.org/x'
     assert row.date == datetime.date(2010, 1, 25)
     assert source_id('http://a.org/x', '20100101000000') not in load_sources()
+
+
+def issue_pages(owner_repo, number=5):
+    api = f'https://api.github.com/repos/{owner_repo}'
+    issue = {'title': 'Map Fred', 'user': {'login': 'jane'}, 'created_at': '2026-10-01T00:00:00Z',
+             'body': 'Please map Fred.\n\nHe works for Zest Software.'}
+    comments = [{'user': {'login': 'bob'}, 'created_at': '2026-10-02T00:00:00Z', 'body': 'Unrelated remark.'},
+                {'user': {'login': 'amy'}, 'created_at': '2026-10-03T00:00:00Z', 'body': 'Confirmed: Fred is at kitconcept.'}]
+    return {f'{api}/issues/{number}': FakeResponse(body=json.dumps(issue).encode()),
+            f'{api}/issues/{number}/comments': FakeResponse(body=json.dumps(comments).encode())}
+
+
+def test_own_repository_issue_is_stored_whole(web):
+    fetcher, _ = web(session=NoNetwork())
+    session = FakeSession(issue_pages('Plone/Plone-Contributor-Statistics'))
+    result = capture('https://github.com/Plone/Plone-Contributor-Statistics/issues/5', ['Confirmed: Fred is at'],
+                     fetcher=fetcher, session=session, run=no_run)
+    row = load_sources()[result.source_id]
+    assert (row.kind, row.title, row.date) == ('issue-comment', 'Map Fred', datetime.date(2026, 10, 1))
+    assert len(result.added) == 1
+    assert result.added[0].startswith('Title: Map Fred\nAuthor: jane') and 'Unrelated remark.' in result.added[0]
+
+
+def test_other_repository_issue_stores_the_block(web):
+    fetcher, _ = web(session=NoNetwork())
+    session = FakeSession(issue_pages('plone/Products.CMFPlone'))
+    result = capture('https://github.com/plone/Products.CMFPlone/issues/5', ['Fred is at kitconcept'],
+                     fetcher=fetcher, session=session, run=no_run)
+    assert result.added == ('Confirmed: Fred is at kitconcept.',)  # the comment's paragraph, not the issue or the others
+
+
+def test_own_repository_comment_by_fragment(web):
+    fetcher, _ = web(session=NoNetwork())
+    api = 'https://api.github.com/repos/plone/plone-contributor-statistics/issues/comments/6297324385'
+    comment = {'user': {'login': 'jensens'}, 'created_at': '2026-10-20T08:00:00Z', 'body': 'Decided: leave unmapped.'}
+    session = FakeSession({api: FakeResponse(body=json.dumps(comment).encode())})
+    url = 'https://github.com/plone/plone-contributor-statistics/pull/153#issuecomment-6297324385'
+    result = capture(url, ['leave unmapped'], fetcher=fetcher, session=session, run=no_run)
+    assert result.source_id == source_id(url) != source_id(url.split('#')[0])
+    assert result.added == ('Author: jensens\nDate: 2026-10-20T08:00:00Z\n\nDecided: leave unmapped.',)
+
+
+def test_deleted_issue_without_capture_is_unreachable(web):
+    availability = ('https://archive.org/wayback/available?url='
+                    'https%3A%2F%2Fgithub.com%2Fplone%2Fgone%2Fissues%2F5')
+    fetcher, _ = web({availability: FakeResponse(body=b'{"archived_snapshots": {}}')})
+    api = 'https://api.github.com/repos/plone/gone/issues/5'
+    session = FakeSession({api: FakeResponse(404, b'{"message": "Not Found"}')})
+    result = capture('https://github.com/plone/gone/issues/5', ['x'], fetcher=fetcher, session=session, run=no_run)
+    assert result.unreachable
+    assert load_sources()[result.source_id].kind == 'issue-comment'

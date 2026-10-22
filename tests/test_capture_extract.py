@@ -7,7 +7,7 @@ import subprocess
 import pytest
 
 from scripts.lib.capture.extract import (
-    ExtractError, adapter_for, decode, extract, extract_commit, extract_github_profile, extract_html, extract_pdf,
+    ExtractError, adapter_for, decode, extract, extract_commit, extract_github_issue, extract_github_profile, extract_html, extract_pdf,
     extract_video, extract_volto)
 from scripts.lib.capture.fetch import FetchError, Raw
 
@@ -128,6 +128,11 @@ def test_decode_treats_iso_8859_1_as_windows_1252():
     ('https://github.com/search?q=plone', 'generic'),
     ('https://github.com/plone/Products.CMFPlone', 'generic'),
     ('https://github.com/plone/Products.CMFPlone/commit/abc1234', 'commit'),
+    ('https://github.com/plone/plone-contributor-statistics/issues/142', 'github-issue'),
+    ('https://github.com/plone/plone-contributor-statistics/pull/153#issuecomment-6297324385', 'github-issue'),
+    ('https://github.com/plone/Products.CMFPlone/pull/9/', 'github-issue'),
+    ('https://github.com/plone/Products.CMFPlone/pull/9/files', 'generic'),
+    ('https://github.com/plone/Products.CMFPlone/issues', 'generic'),
     ('https://www.youtube.com/watch?v=x', 'video'),
     ('https://youtu.be/x', 'video'),
     ('https://vimeo.com/123', 'video'),
@@ -408,3 +413,39 @@ def test_extract_video_timeout_raises(tmp_path):
         raise subprocess.TimeoutExpired(command, kwargs.get('timeout'))
     with pytest.raises(ExtractError, match='timed out'):
         extract_video('https://youtu.be/x', str(tmp_path), run=run)
+
+
+def issue_session(*responses):
+    return FakeGitHubSession(*[FakeGitHubResponse(data) for data in responses])
+
+
+@pytest.mark.parametrize('fragment, path', [
+    ('issuecomment-77', 'issues/comments/77'),
+    ('discussion_r77', 'pulls/comments/77'),
+    ('pullrequestreview-77', 'pulls/5/reviews/77'),
+])
+def test_extract_issue_comment(fragment, path):
+    stamp = {'submitted_at': '2026-10-01T10:00:00Z'} if 'review' in fragment else {'created_at': '2026-10-01T10:00:00Z'}
+    session = issue_session({'user': {'login': 'jane'}, 'body': 'Fred is at Zest.\r\nSure.', **stamp})
+    result = extract_github_issue('plone', 'x', '5', fragment, session)
+    assert session.urls == [f'https://api.github.com/repos/plone/x/{path}']
+    assert result.text == 'Author: jane\nDate: 2026-10-01T10:00:00Z\n\nFred is at Zest.\nSure.'
+    assert result.date == datetime.date(2026, 10, 1)
+
+
+def test_extract_issue_with_comments_paginates():
+    comment = {'user': {'login': 'bob'}, 'body': 'again', 'created_at': '2026-10-03T00:00:00Z'}
+    session = issue_session(
+        {'title': 'Map Fred', 'user': {'login': 'jane'}, 'body': 'Please.', 'created_at': '2026-10-01T00:00:00Z'},
+        [comment] * 100,
+        [{'user': {'login': 'amy'}, 'body': None, 'created_at': '2026-10-04T00:00:00Z'}])
+    calls = []
+    original = session.get
+    session.get = lambda url, params=None, timeout=None: (calls.append(params), original(url, params, timeout))[1]
+    result = extract_github_issue('plone', 'x', '5', '', session)
+    assert calls == [None, {'per_page': 100, 'page': 1}, {'per_page': 100, 'page': 2}]
+    blocks = result.text.split('\n\n')
+    assert blocks[0] == 'Title: Map Fred\nAuthor: jane\nDate: 2026-10-01T00:00:00Z'
+    assert blocks[1] == 'Please.'
+    assert result.text.count('Author: bob') == 100 and result.text.endswith('Author: amy\nDate: 2026-10-04T00:00:00Z\n\n')
+    assert result.title == 'Map Fred' and result.date == datetime.date(2026, 10, 1)
