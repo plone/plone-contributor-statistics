@@ -216,13 +216,23 @@ def slate_paragraphs(nodes) -> list[str]:
     return paragraphs
 
 
+def draft_paragraphs(draft) -> list[str]:
+    """Text of draft.js blocks, one paragraph per block."""
+    if not isinstance(draft, list):
+        return []
+    return [item['text'].strip() for item in draft if isinstance(item, dict) and str(item.get('text', '')).strip()]
+
+
 def block_paragraphs(block: dict) -> list[str]:
     paragraphs = slate_paragraphs(block.get('value'))
+    if block.get('@type') == 'text7':  # plone.org: a title (such as a person's name) over draft.js `content`
+        title, content = block.get('title'), block.get('content')
+        if isinstance(title, str) and title.strip():
+            paragraphs.append(title.strip())
+        paragraphs.extend(draft_paragraphs(content.get('blocks') if isinstance(content, dict) else None))
+        return paragraphs
     text = block.get('text')
-    draft = text.get('blocks') if isinstance(text, dict) else block.get('blocks')
-    if isinstance(draft, list):
-        paragraphs.extend(item['text'].strip() for item in draft
-                          if isinstance(item, dict) and str(item.get('text', '')).strip())
+    paragraphs.extend(draft_paragraphs(text.get('blocks') if isinstance(text, dict) else block.get('blocks')))
     return paragraphs
 
 
@@ -260,9 +270,10 @@ def google_doc_id(url: str) -> str:
 
 
 def extract_google_doc(fetcher, doc_id: str) -> Extracted:
-    """Text of a public Google Doc from its plain-text export; a private document answers with a login page."""
+    """Text of a public Google Doc from its plain-text export; a private document raises ExtractError."""
     raw = fetcher.get(f'https://docs.google.com/document/d/{doc_id}/export?format=txt')
-    if raw.status != 200:
+    # a private document answers with an error or redirects to a sign-in page, which is HTML, not plain text
+    if raw.status != 200 or not (raw.content_type or '').lower().startswith('text/plain'):
         raise ExtractError('not a public document')
     lines = [line.strip() for line in raw.body.decode('utf-8', errors='replace').lstrip('\ufeff').splitlines()]
     paragraphs = [line for line in lines if line]

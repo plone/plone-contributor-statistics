@@ -484,6 +484,35 @@ def test_private_google_doc_raises():
         extract_google_doc(FakeFetcher(private), 'X1')
 
 
+def test_private_google_doc_redirected_to_a_login_page_raises():
+    login = Raw(url='https://docs.google.com/document/d/X1/export?format=txt', status=200,
+                content_type='text/html; charset=utf-8', body=b'<html>Sign in</html>', fetched=NOW,
+                final_url='https://accounts.google.com/v3/signin/identifier?continue=https://docs.google.com/')
+    with pytest.raises(ExtractError, match='not a public document'):
+        extract_google_doc(FakeFetcher(login), 'X1')
+
+
+def test_volto_text7_block_renders_title_and_content():
+    """plone.org shows people with a `text7` block: a title and draft.js `content` (from a real page)."""
+    text7 = {
+        '@type': 'text7', 'title': 'Sébastien Verbois', 'img_column_width': '3',
+        'url': 'https://plone.org/news-and-events/news/news-for-2026/x/sebastien-verbios.jpeg',
+        'image_scales': {'image': [{'content-type': 'image/jpeg', 'filename': 'sebastien-verbios.jpeg'}]},
+        'content': {'entityMap': {}, 'blocks': [
+            {'data': {}, 'depth': 0, 'entityRanges': [], 'inlineStyleRanges': [], 'key': '3674r',
+             'type': 'unstyled', 'text': 'Sébastien has been working with Plone since 2004.'},
+            {'data': {}, 'depth': 0, 'entityRanges': [], 'inlineStyleRanges': [], 'key': '41cpm',
+             'type': 'unstyled', 'text': 'Sébastien works as an Enterprise Architect at IMIO.'}]},
+    }
+    page = {'title': 'New members', 'blocks': {'t': {'@type': 'title'}, 'p': text7},
+            'blocks_layout': {'items': ['t', 'p']}}
+    result = extract_volto(FakeFetcher(raw(json.dumps(page).encode(), 'application/json')),
+                           'https://plone.org/news-and-events/news/news-for-2026/x')
+    assert result.text.split('\n\n') == [
+        'New members', 'Sébastien Verbois', 'Sébastien has been working with Plone since 2004.',
+        'Sébastien works as an Enterprise Architect at IMIO.']
+
+
 def test_extract_video_without_node_has_no_js_runtime(tmp_path):
     calls = []
     extract_video('https://youtu.be/x', str(tmp_path), run=caption_run(tmp_path, {'x.en.vtt': vtt('a')}, calls),
