@@ -21,8 +21,8 @@ def main(argv=None):
     parser.add_argument('--quote', action='append', metavar='TEXT',
                         help='text to cite, as it stands on the page; repeat for several quotes')
     parser.add_argument('--name', action='append', default=[], metavar='TEXT',
-                        help='a name to find instead of a quote: stores the passage around its first '
-                             'occurrence; repeat for several names, ignored when a quote is given')
+                        help='a name to find when no quote is given or found: stores the passage around its '
+                             'first occurrence; repeat for several names')
     parser.add_argument('--kind', choices=SOURCE_KINDS, help='kind of source, default: guessed from the address')
     parser.add_argument('--title', help='title, default: the title of the page')
     parser.add_argument('--date', type=datetime.date.fromisoformat, metavar='YYYY-MM-DD',

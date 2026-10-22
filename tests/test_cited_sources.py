@@ -7,7 +7,8 @@ import pytest
 from scripts.lib import paths
 from scripts.lib.model import load_registry, load_rejection_rows
 from scripts.tools import cited_sources
-from scripts.tools.cited_sources import Cited, kind_hint, parse_segment, resolve_searches, split_segments, work_list
+from scripts.tools.cited_sources import (Cited, kind_hint, parse_segment, resolve_searches, review, split_segments,
+                                         work_list)
 
 SPEAKER = 'https://2017.ploneconf.org/people/jane-doe.html'
 ARCHIVED = 'https://web.archive.org/web/20171020000000/https://2017.ploneconf.org/people/jane-doe.html'
@@ -62,6 +63,12 @@ def test_every_quote_before_the_first_url_counts_and_quoted_urls_are_not_cited()
                                               'signature in her messages: 2007')]
 
 
+def test_a_quote_cut_short_keeps_its_beginning():
+    segment = 'signature "Jane Doe | Owner at …: https://a.org/one'
+    assert parse_segment(segment) == [Cited('https://a.org/one', ('Jane Doe | Owner at',), 'signature')]
+    assert parse_segment('lists "Jane Doe ... …: https://a.org/team')[0].quotes == ('Jane Doe',)
+
+
 def test_kind_hint():
     assert kind_hint(SPEAKER, 'Plone Conference 2017 Speaker Page') == 'speaker-page'
     assert kind_hint('https://github.com/janedoe', 'GitHub profile, company: Acme') == 'profile'
@@ -110,8 +117,8 @@ def test_work_list_merges_urls_across_files(registers):
         'names': ['Jane Doe', 'Jane M. Doe', 'Acme', 'Acme GmbH', 'ACME Inc.', 'John Roe', 'Beta'],
         'kind': 'speaker-page'}
     assert found[ARCHIVED]['quotes'] == ['Jane works at Acme; she leads it.']
-    assert found['https://github.com/janedoe'] == {
-        'url': 'https://github.com/janedoe', 'quotes': [],
+    assert found['https://github.com/janedoe'] == {  # the quote of the cell's other segment comes along
+        'url': 'https://github.com/janedoe', 'quotes': ['Jane works at Acme; she leads it.'],
         'names': ['Jane Doe', 'Jane M. Doe', 'Acme', 'Acme GmbH', 'ACME Inc.'], 'kind': 'profile'}
     assert found['https://github.com/plone/a/commit/abc']['names'] == ['Jane Doe', 'Jane M. Doe']
     assert found['https://a.org/roe'] == {'url': 'https://a.org/roe', 'quotes': ['John Roe works at Beta.'],
@@ -177,4 +184,58 @@ def test_main_writes_the_work_list_and_the_searches(registers, monkeypatch, tmp_
     assert [line['url'] for line in lines] == sorted(line['url'] for line in lines)
     assert json.loads(searches.read_text(encoding='utf-8')) == {SEARCH: []}
     err = capsys.readouterr().err
-    assert '7 items' in err and '3 with quotes' in err
+    assert '7 items' in err and '4 with quotes' in err
+
+
+def cell_registers(source):
+    """Registers with one affiliation of Jane Doe at Acme, cited by the given cell."""
+    write(paths.PEOPLE, 'id,name,github,source', ['jane-doe,Jane Doe,,https://github.com/janedoe'])
+    write(paths.ORGANISATIONS, 'id,name,kind,github,aliases,notes', ['acme,Acme,organisation,,,'])
+    quoted = source.replace('"', '""')
+    write(paths.AFFILIATIONS, 'person,organisation,from,to,source,checked,notes',
+          [f'jane-doe,acme,2016,2017,"{quoted}",,'])
+    return load_registry(), load_rejection_rows()
+
+
+def test_quotes_carry_to_the_continuation_urls_of_the_cell(tmp_repo):
+    # the 2016/2017 shape: the second year in its own segment, labelled only with the year
+    registry, rejections = cell_registers(
+        '"Jane works at Acme.", speaker page 2016: https://a.org/2016; 2017: https://a.org/2017; '
+        '"Jane leads Acme.", team page (Jan 2011): https://web.archive.org/web/20090101000000/https://acme.example/ '
+        '; (archived 2011) https://web.archive.org/web/20110101000000/https://acme.example/')
+    found = by_url(work_list(registry, rejections))
+    both = ['Jane works at Acme.', 'Jane leads Acme.']
+    assert found['https://a.org/2016']['quotes'] == both
+    assert found['https://a.org/2017']['quotes'] == both
+    assert found['https://web.archive.org/web/20090101000000/https://acme.example/']['quotes'] == both[::-1]
+    assert found['https://web.archive.org/web/20110101000000/https://acme.example/']['quotes'] == both
+    entries = review(registry, rejections)
+    assert [entry['url'] for entry in entries] == [
+        'https://a.org/2017', 'https://web.archive.org/web/20110101000000/https://acme.example/']
+    assert entries[0] == {'problem': 'quotes from elsewhere in the cell', 'file': 'affiliations.csv',
+                          'column': 'source', 'person': 'jane-doe', 'organisation': 'acme',
+                          'url': 'https://a.org/2017', 'segment': '2017: https://a.org/2017', 'quotes': both}
+
+
+def test_a_quote_without_url_goes_to_the_urls_of_its_cell(tmp_repo):
+    registry, rejections = cell_registers(
+        'team page lists "Jane Doe, Acme"; signature "Jane Doe | Acme …: https://a.org/team ; https://a.org/list')
+    found = by_url(work_list(registry, rejections))
+    assert found['https://a.org/team']['quotes'] == ['Jane Doe | Acme', 'Jane Doe, Acme']
+    assert found['https://a.org/list']['quotes'] == ['Jane Doe, Acme', 'Jane Doe | Acme']
+    entries = review(registry, rejections)
+    assert entries[0] == {'problem': 'quotes without address', 'file': 'affiliations.csv', 'column': 'source',
+                          'person': 'jane-doe', 'organisation': 'acme', 'segment': 'team page lists "Jane Doe, Acme"',
+                          'quotes': ['Jane Doe, Acme']}
+    assert [entry.get('url') for entry in entries] == [None, 'https://a.org/list']
+
+
+def test_main_writes_the_review_file(tmp_repo, monkeypatch, tmp_path, capsys):
+    cell_registers('team page lists "Jane Doe, Acme"; profile: https://a.org/team')
+    monkeypatch.setattr(cited_sources, 'github_session', lambda: FakeSession({}))
+    paths_ = {name: tmp_path / name for name in ('worklist.jsonl', 'searches.json', 'review.jsonl')}
+    assert cited_sources.main(['--worklist', str(paths_['worklist.jsonl']), '--searches',
+                               str(paths_['searches.json']), '--review', str(paths_['review.jsonl'])]) == 0
+    lines = [json.loads(line) for line in paths_['review.jsonl'].read_text(encoding='utf-8').splitlines()]
+    assert [line['problem'] for line in lines] == ['quotes without address', 'quotes from elsewhere in the cell']
+    assert '1 segments with quotes but no address, 1 addresses with quotes from elsewhere' in capsys.readouterr().err

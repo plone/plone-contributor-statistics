@@ -217,13 +217,14 @@ def capture(url: str, quotes: Sequence[str] = (), kind: str | None = None, title
     nearest Wayback capture; without one the source is recorded as unreachable. Quotes that are already in a
     stored passage are skipped; quotes not found on the page are reported as missing, never stored. A new
     source none of whose quotes is found is not recorded at all.
-    Without quotes the names decide: the passage around the first occurrence of each name is stored, and a
-    name that is not found is reported as missing; a profile, a commit and an issue or comment of this
-    repository store their whole text then, found name or not. Names are ignored when quotes are given.
+    When no quote is given or none is found, the names decide: the passage around the first occurrence of each
+    name is stored, and a name that is not found is reported as missing; a profile, a commit and an issue or
+    comment of this repository store their whole text then, found name or not. Names are ignored when a quote
+    is found; quotes not found are reported as missing either way.
     A fetcher given here keeps its own refresh setting; one built here refetches when refresh is true.
     """
     quotes = tuple(quotes)
-    names = () if quotes else tuple(names)
+    names = tuple(names)
     split = split_archive_url(url)
     if split is None and _is_wayback(url):
         raise CaptureError(f'{url}: give the full 14-digit capture URL, '
@@ -257,24 +258,27 @@ def capture(url: str, quotes: Sequence[str] = (), kind: str | None = None, title
     sid = source_id(read.original, read.timestamp)
     existing = sources.get(sid)
     found, missing = [], []
-    if not quotes and _is_whole(read):
-        found.append(read.text.strip())
-    for name in names:
-        if _is_whole(read):
-            break
-        passage = _name_passage(read, name)
-        if passage is None:
-            missing.append(name)
-        elif passage not in found:
-            found.append(passage)
+    quote_found = False
     for quote in quotes:
         if _stored(sid, quote):
+            quote_found = True
             continue
         passage = _passage(read, quote)
         if passage is None:
             missing.append(quote)
         else:
+            quote_found = True
             found.append(passage)
+    if not quote_found and (names or not quotes):  # no quote found: the names decide
+        if _is_whole(read):
+            found.append(read.text.strip())
+        else:
+            for name in names:
+                passage = _name_passage(read, name)
+                if passage is None:
+                    missing.append(name)
+                elif passage not in found:
+                    found.append(passage)
     if existing is None and not found:  # a new source is recorded only with a passage that supports something
         return CaptureResult(sid, False, (), tuple(missing), False)
     row = _source(existing, sid, read, kind, title, date, None, refresh)
