@@ -1,6 +1,6 @@
 # Plone Core Contributor Statistics Report
 
-Generated on: 2026-10-22 09:54:18
+Generated on: 2026-10-22 10:01:23
 
 This report shows the top contributors and organizations in the Plone ecosystem across different time periods.
 
@@ -186,7 +186,7 @@ See [how contributions are counted](https://plone.github.io/plone-contributor-st
 
 | Rank | Organization | Changelog entries | Commits | Contributors |
 |------|-------------|-------------------|---------|--------------|
-| 1 | Jarn | 1,882 | 9,514 | 14 |
+| 1 | Jarn | 1,819 | 8,999 | 14 |
 | 2 | Groundwire | 580 | 1,923 | 2 |
 | 3 | Simplon | 397 | 1,714 | 1 |
 | 4 | Deloitte Digital | 360 | 2,820 | 1 |

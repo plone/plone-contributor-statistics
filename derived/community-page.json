@@ -969,7 +969,7 @@
     },
     {
      "name": "Alex Limi",
-     "organisation": "Jarn",
+     "organisation": "Google",
      "source": "https://plone.org/foundation/board/list_board_4"
     },
     {
@@ -1260,7 +1260,7 @@
     },
     {
      "name": "Alex Limi",
-     "organisation": "Jarn",
+     "organisation": "Google",
      "source": "https://web.archive.org/web/20070115043228/http://plone.org/development/teams/",
      "team": "UI Team"
     }
@@ -21931,7 +21931,7 @@
     "commits": 515,
     "id": "alex-limi",
     "name": "Alex Limi",
-    "organisation": "Jarn",
+    "organisation": "Google",
     "pull_requests": 0,
     "roles": [
      "Board",
