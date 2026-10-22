@@ -54,6 +54,7 @@
     }
   ],
   "primaryKey": [
+    "person",
     "kind",
     "value"
   ],

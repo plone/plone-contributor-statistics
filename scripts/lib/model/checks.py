@@ -8,6 +8,7 @@ import attrs
 from frictionless import Check, errors
 
 from scripts.lib.model.names import fold
+from scripts.lib.model.registers import UNIQUE_IDENTITY_KINDS
 from scripts.lib.model.sources import source_id, split_archive_url
 
 
@@ -71,7 +72,7 @@ class IdentitySourceError(errors.CellError):
 class SnippetError(errors.CellError):
     type = 'snippet'
     title = 'Snippet'
-    description = 'A snippet is not found in the excerpt of its source.'
+    description = 'A snippet has no source, or is not found in the excerpt of its source.'
     template = 'The cell {cell} in row at position {rowNumber} and field {fieldName} has an error: {note}'
 
 
@@ -284,7 +285,7 @@ class UniqueCasefold(Check):
     """No two rows have values in the field that differ only in case; empty cells are skipped.
 
     With `scope`, the value is unique among the rows with the same value in that field, e.g. an identity
-    value within its kind.
+    value within its kind; with `only`, among the rows whose scope is one of these values.
     """
 
     type = 'unique-casefold'
@@ -292,11 +293,12 @@ class UniqueCasefold(Check):
 
     field: str
     scope: str = None
+    only: tuple = None
     _seen: dict = attrs.field(factory=dict, init=False)
 
     def validate_row(self, row):
         value = row[self.field]
-        if not value:
+        if not value or (self.only is not None and row[self.scope] not in self.only):
             return
         key = (row[self.scope] if self.scope else None, value.casefold())
         first = self._seen.setdefault(key, row.row_number)
@@ -337,7 +339,10 @@ class SnippetInExcerpt(Check):
         # Imported here: scripts.lib.capture imports the model
         from scripts.lib.capture.passages import find_quote
 
-        if not row['snippet'] or not row['source']:
+        if not row['snippet']:
+            return
+        if not row['source']:
+            yield SnippetError.from_row(row, note='the snippet has no source', field_name='snippet')
             return
         path = self.folder / f'{row["source"]}.md'
         text = path.read_text(encoding='utf-8') if path.is_file() else ''
@@ -369,12 +374,13 @@ class UnresolvedConflict(Check):
     Errors = [ConflictError]
 
     attribution: object
-    """A function that returns the `Attribution` of the registers, or None when they cannot be read."""
+    """A function that returns the `Attribution` of the registers, or the reason why they cannot be read."""
     until: int
 
     def validate_end(self):
         attribution = self.attribution()
-        if attribution is None:
+        if isinstance(attribution, str):
+            yield ConflictError(note=f'the conflict check was skipped: {attribution}')
             return
         for person, year, organisations in attribution.conflicts(until=self.until):
             note = (f'{person}, {year}: no attribution rule decides between {", ".join(organisations)}; '
@@ -390,12 +396,13 @@ class DecisionSupersedes(Check):
     Errors = [DecisionError]
 
     attribution: object
-    """A function that returns the `Attribution` of the registers, or None when they cannot be read."""
+    """A function that returns the `Attribution` of the registers, or the reason why they cannot be read."""
     until: int
 
     def validate_end(self):
         attribution = self.attribution()
-        if attribution is None:
+        if isinstance(attribution, str):
+            yield DecisionError(note=f'the decision check was skipped: {attribution}')
             return
         for message in attribution.decision_errors(until=self.until):
             yield DecisionError(note=message)
@@ -462,8 +469,8 @@ def _cited(package):
 
 
 def _attribution(package):
-    """A function returning the `Attribution` of the registers of the package, read once; None when the registers
-    cannot be read (the schema checks report why)."""
+    """A function returning the `Attribution` of the registers of the package, read once; when a file of the
+    registers is missing, the reason, which the attribution checks report as skipped."""
     found = []
 
     def attribution():
@@ -473,8 +480,8 @@ def _attribution(package):
 
             try:
                 found.append(load_registry(Path(package.basepath) / 'mappings').attribution)
-            except (FileNotFoundError, ValueError, KeyError):
-                found.append(None)
+            except FileNotFoundError as error:
+                found.append(f'the registers cannot be read: {error.filename or error} is missing')
         return found[0]
 
     return attribution
@@ -498,7 +505,8 @@ def checks_for(resource_name, package, until=None):
                               Sorted(fields=['affiliation', 'source', 'snippet'], casefold=False)],
         'identities': lambda: [SourceUnlessEmail(), SnippetInExcerpt(folder=excerpts),
                                Sorted(fields=['person', 'kind', 'value'], casefold=False),
-                               UniqueCasefold(field='value', scope='kind'), GithubLogins()],
+                               UniqueCasefold(field='value', scope='kind', only=UNIQUE_IDENTITY_KINDS),
+                               GithubLogins()],
         'sources': lambda: [SourceIdMatchesUrl(), Sorted(fields=['id'], casefold=False),
                             SourceExcerptFiles(folder=excerpts, stems=_excerpt_stems(package))],
     }

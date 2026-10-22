@@ -80,7 +80,7 @@ def test_conference_host_and_podcast_host_may_be_empty():
 
 def test_keys_make_rows_unique():
     expected = {'board-of-directors': ['person'], 'release-managers': ['person'], 'team-leaders': ['person', 'team'],
-                'sprints': ['sprint'], 'plone-conference-trainings': ['title'], 'identities': ['kind', 'value'],
+                'sprints': ['sprint'], 'plone-conference-trainings': ['title'], 'identities': ['person', 'kind', 'value'],
                 'affiliations': ['id']}
     for kind, key in expected.items():
         assert json.loads((SCHEMAS / f'{kind}.json').read_text())['primaryKey'] == key

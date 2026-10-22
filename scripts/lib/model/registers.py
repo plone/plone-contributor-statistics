@@ -18,6 +18,7 @@ MIN_DOMAIN_KEY = 3  # the first word of an organisation name is a key for domain
 GITHUB = 'github'  # the login the collected files count a person under; at most one per person
 GITHUB_ALIAS = 'github-alias'  # a further GitHub account of the person
 LOGIN_KINDS = (GITHUB, GITHUB_ALIAS)
+UNIQUE_IDENTITY_KINDS = (GITHUB, GITHUB_ALIAS, 'email')  # one person's each; a name may be shared by homonyms
 
 
 @dataclass(frozen=True)
@@ -271,8 +272,10 @@ def load_citations(mappings_dir=paths.MAPPINGS_DIR):
 def load_registry(mappings_dir=paths.MAPPINGS_DIR):
     """Read the registers in the directory; the citations, sources, excerpts and commit domains on first use.
 
-    The sources, their excerpts and the commit domains are read from the repository the directory is part of
-    (`curated/mappings` two levels below its root).
+    The sources, their excerpts and the commit domains are read from the repository the directory is part of.
+    This assumes the layout of the repository: the directory is `curated/mappings`, two levels below the root
+    (`mappings_dir.parent.parent`), as in the checkout and in the temporary repositories of the tests. A
+    directory elsewhere gets the sources and commit domains of whatever lies two levels above it.
     """
     mappings_dir = Path(mappings_dir)
     root = mappings_dir.parent.parent
@@ -335,21 +338,31 @@ def affiliation_id(person, organisation, start, end):
     return 'a' + hashlib.sha1(f'{person}|{organisation}|{start}|{end}'.encode()).hexdigest()[:8]
 
 
+def _same_identity(row, identity):
+    """Whether the identity row records the identity's login or address (ignoring case), or is the same row."""
+    if row['value'].casefold() != identity.value.casefold():
+        return False
+    if identity.kind in LOGIN_KINDS:  # a login is one person's, whether as the github one or a further account
+        return row['kind'] in LOGIN_KINDS
+    if identity.kind in UNIQUE_IDENTITY_KINDS:
+        return row['kind'] == identity.kind
+    return (row['person'], row['kind'], row['value']) == (identity.person, identity.kind, identity.value)
+
+
 def append_person(mappings_dir, person, identity):
     """Add the person to people.csv and the identity that records the name or login to identities.csv.
 
-    Both files stay sorted. ValueError for an existing id, or for a GitHub login that is a login of a person
-    already (ignoring case).
+    Both files stay sorted. ValueError for an existing id, or for an identity that exists already: a GitHub login
+    or an address (ignoring case) of anyone. A name may be the name of another person too (homonyms).
     """
     mappings_dir = Path(mappings_dir)
     people = read_rows(mappings_dir / paths.PEOPLE.name)
     identities = read_rows(mappings_dir / paths.IDENTITIES.name)
     if any(row['id'] == person.id for row in people):
         raise ValueError(f'The id {person.id} exists already')
-    if identity.kind in LOGIN_KINDS and any(row['kind'] in LOGIN_KINDS
-                                            and row['value'].casefold() == identity.value.casefold()
-                                            for row in identities):
-        raise ValueError(f'The login {identity.value} exists already')
+    if any(_same_identity(row, identity) for row in identities):
+        what = 'login' if identity.kind in LOGIN_KINDS else identity.kind
+        raise ValueError(f'The {what} {identity.value} exists already')
     people.append({'id': person.id, 'name': person.name})
     identities.append({field: getattr(identity, field) for field in IDENTITY_FIELDS})
     _write_rows(mappings_dir / paths.PEOPLE.name, PEOPLE_FIELDS, sorted(people, key=lambda row: row['id']))
@@ -369,9 +382,11 @@ def append_proposals(rows, mappings_dir=MAPPINGS_DIR):
     """Add rows as `proposed` affiliations with their citations, leaving out those in the register already;
     return those added.
 
-    A row is a dict with the keys person, organisation, from, to and sources, a list of (source id, snippet),
-    and optionally notes. It is in the register already when an affiliation of any status has the same person,
-    organisation, first and last year. Both files stay sorted.
+    A row is a dict with the keys person, organisation, from, to and sources, a list of (source id, snippet) or
+    (source id, snippet, notes of the citation), and optionally notes. It is in the register already when an
+    affiliation of any status has the same person, organisation, first and last year. Both files stay sorted.
+    ValueError, and nothing written, when the id of a new row is the id of an affiliation already: ids are not
+    recomputed when a row changes, so a row whose years changed later keeps the id of its first years.
     """
     mappings_dir = Path(mappings_dir)
     affiliations = read_rows(mappings_dir / paths.AFFILIATIONS.name)
@@ -381,20 +396,24 @@ def append_proposals(rows, mappings_dir=MAPPINGS_DIR):
         return (row['person'], row['organisation'], int(row['from']), int(row['to']) if row['to'] else None)
 
     known = {key(row) for row in affiliations}
+    ids = {row['id'] for row in affiliations}
     added = []
     for row in rows:
         if key(row) in known:
             continue
         known.add(key(row))
+        aid = affiliation_id(*key(row))
+        if aid in ids:
+            raise ValueError(f'The id {aid} of the proposal {row["person"]}, {row["organisation"]}, '
+                             f'{row["from"]}-{row["to"] or ""} is the id of an affiliation already')
+        ids.add(aid)
         added.append(row)
-        aid = affiliation_id(row['person'], row['organisation'], int(row['from']),
-                             int(row['to']) if row['to'] else None)
         affiliations.append({'id': aid, 'person': row['person'], 'organisation': row['organisation'],
                              'from': int(row['from']), 'to': int(row['to']) if row['to'] else None,
                              'status': PROPOSED, 'checked': None, 'notes': row.get('notes')})
-        for source, snippet in row['sources']:
+        for source, snippet, *notes in row['sources']:
             citations.append({'affiliation': aid, 'source': source, 'snippet': snippet or None, 'supersedes': None,
-                              'notes': None})
+                              'notes': (notes[0] if notes else None) or None})
     if added:
         _write_rows(mappings_dir / paths.AFFILIATIONS.name, AFFILIATION_FIELDS,
                     sorted(affiliations, key=lambda row: (row['person'], row['from'], row['organisation'])))

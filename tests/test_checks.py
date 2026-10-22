@@ -307,10 +307,25 @@ def test_identities_are_sorted(tmp_package):
     assert [(row, 'sorts before' in message) for _, row, _, message in errors] == [(3, True)]
 
 
-def test_an_identity_value_is_unique_within_its_kind_ignoring_case(tmp_package):
-    errors = check.validate(tmp_package(identities('pbauer,name,Phil B,RECORD,,', 'tschorr,name,phil b,RECORD,,')))
-    assert len(errors) == 1
-    assert (errors[0][1], errors[0][2]) == (3, 'value') and 'row 2' in errors[0][3]
+@pytest.mark.parametrize('kind,value,other', [('email', 'pb@example.org', 'PB@Example.org'),
+                                              ('github', 'pbauer', 'PBauer'),
+                                              ('github-alias', 'pbauer-old', 'PBAUER-OLD')])
+def test_a_login_or_an_address_is_unique_within_its_kind_ignoring_case(tmp_package, kind, value, other):
+    errors = check.validate(tmp_package(identities(f'pbauer,{kind},{value},RECORD,,',
+                                                   f'tschorr,{kind},{other},RECORD,,')))
+    assert [(row, field) for _, row, field, _ in errors] == [(3, 'value')]
+    assert 'row 2' in errors[0][3]
+
+
+def test_a_name_may_belong_to_two_people(tmp_package):
+    # Homonyms without GitHub: the name finds neither of them, but both keep the public record of their name
+    assert check.validate(tmp_package(identities('pbauer,name,Phil B,RECORD,,', 'tschorr,name,Phil B,RECORD,,',
+                                                 'tschorr,name,phil b,RECORD,,'))) == []
+
+
+def test_an_identity_is_unique_per_person_kind_and_value(tmp_package):
+    errors = check.validate(tmp_package(identities('pbauer,name,Phil B,RECORD,,', 'pbauer,name,Phil B,RECORD,,')))
+    assert [(row, field) for _, row, field, _ in errors] == [(3, None)]
 
 
 def test_the_same_value_in_two_kinds_is_fine(tmp_package):
@@ -335,6 +350,12 @@ def test_a_further_account_is_nobodys_github(tmp_package):
 def test_a_further_account_of_the_person_itself_is_fine(tmp_package):
     assert check.validate(tmp_package(identities('pbauer,github,pbauer,RECORD,,',
                                                  'pbauer,github-alias,pbauer-old,RECORD,,'))) == []
+
+
+def test_a_snippet_needs_a_source(tmp_package):
+    errors = check.validate(tmp_package(identities('pbauer,email,pb@localhost,,Philip Bauer,an SVN user')))
+    assert [(row, field) for _, row, field, _ in errors] == [(2, 'snippet')]
+    assert 'no source' in errors[0][3]
 
 
 def test_an_identity_snippet_is_in_the_excerpt_of_its_source(tmp_package):
@@ -435,3 +456,12 @@ def test_sources_must_be_sorted_by_id(tmp_package):
     rows = sorted([(a, first), (b, second)], reverse=True)
     errors = check.validate(tmp_package(sources_files(''.join(r for _, r in rows), {a: 'x\n', b: 'y\n'})))
     assert [e[3] for e in errors if 'sorts before' in e[3]]
+
+
+def test_the_attribution_checks_say_when_they_are_skipped(tmp_package):
+    root = tmp_package(affiliations(('acme', 2010, 2014), ('beta', 2012, 2013), organisations=BETA))
+    (root / 'curated/mappings/identities.csv').unlink()
+    errors = [error for error in check.validate(root) if error[0] == 'curated/mappings/affiliations.csv']
+    assert [message.split(': ', 1)[1] for _, _, _, message in errors] == [
+        f'the {name} check was skipped: the registers cannot be read: {root}/curated/mappings/identities.csv is '
+        f'missing' for name in ('conflict', 'decision')]

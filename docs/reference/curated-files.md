@@ -55,14 +55,14 @@ One row is one string that denotes a person in the data: a GitHub login, a furth
 | `snippet` | string |  | The words of the source that make the connection, verbatim from its excerpt; empty when no quote was verified. |
 | `notes` | string |  | Free-text remarks: what the source shows, in our words, and other records. |
 
-Primary key: `kind`, `value`.
+Primary key: `person`, `kind`, `value`.
 
 Checks beyond the schema:
 
 - An identity cites a source, unless it is an early commit address whose notes say what it rests on.
 - A snippet appears in the excerpt of its source, compared as the capture compares a quote (`find_quote`).
 - The rows are sorted by `person`, `kind`, `value`.
-- `value` is unique within its `kind`, ignoring case.
+- `value` is unique within its `kind`, ignoring case for the kinds `github`, `github-alias`, `email`.
 - A person has at most one `github` identity, and a `github-alias` is nobody's `github`, ignoring case.
 
 ### Affiliations

@@ -276,3 +276,37 @@ def test_append_person_adds_the_person_and_the_identity(tmp_repo):
     with pytest.raises(ValueError, match='login zedz'):
         append_person(paths.MAPPINGS_DIR, Person('new', 'New'), Identity('new', 'github', 'zedz', sid))
     assert 'new' not in load_registry().people
+
+
+@pytest.mark.parametrize('kind,value', [('github', 'ZEDZ'), ('github-alias', 'zedz'), ('email', 'ZED@example.org')])
+def test_append_person_refuses_a_login_or_an_address_of_another_person(tmp_repo, kind, value):
+    sid = record_source()
+    paths.IDENTITIES.write_text('person,kind,value,source,snippet,notes\n'
+                                f'zed,email,zed@example.org,{sid},,\nzed,github,ZedZ,{sid},,\n', encoding='utf-8')
+    paths.PEOPLE.write_text('id,name\nzed,Zed Zeta\n', encoding='utf-8')
+    with pytest.raises(ValueError, match='exists already'):
+        append_person(paths.MAPPINGS_DIR, Person('new', 'New'), Identity('new', kind, value, sid))
+    assert list(load_registry().people) == ['zed']
+
+
+def test_append_person_allows_a_homonym(tmp_repo):
+    sid = record_source()
+    append_person(paths.MAPPINGS_DIR, Person('kim-a', 'Kim Lee'), Identity('kim-a', 'name', 'Kim Lee', sid))
+    append_person(paths.MAPPINGS_DIR, Person('kim-b', 'Kim Lee'), Identity('kim-b', 'name', 'Kim Lee', sid))
+    registry = load_registry()
+    assert [(i.person, i.value) for i in registry.identities] == [('kim-a', 'Kim Lee'), ('kim-b', 'Kim Lee')]
+    assert registry.person_for(name='Kim Lee') is None  # ambiguous
+
+
+def test_append_proposals_refuses_an_existing_id(write_registers):
+    write_registers(people=[('jane', 'jane')], affiliations=[('jane', 'acme', 2010, 2012)],
+                    organisations=[('acme', 'Acme')])
+    sid = record_source()
+    # The row of 2010-2012 was changed to end in 2013 later: its id stays, and the proposal would reuse it
+    rows = paths.AFFILIATIONS.read_text(encoding='utf-8')
+    paths.AFFILIATIONS.write_text(rows.replace(',2012,stated', ',2013,stated'), encoding='utf-8')
+    before = paths.AFFILIATIONS.read_text(encoding='utf-8')
+    with pytest.raises(ValueError, match=affiliation_id('jane', 'acme', 2010, 2012)):
+        append_proposals([{'person': 'jane', 'organisation': 'acme', 'from': 2010, 'to': 2012,
+                           'sources': [(sid, None)]}])
+    assert paths.AFFILIATIONS.read_text(encoding='utf-8') == before
