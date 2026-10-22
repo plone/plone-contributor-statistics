@@ -266,7 +266,7 @@ def test_github_profile(web):
     result = capture('https://github.com/fredvd', ['Zest Software'], fetcher=fetcher, session=session, run=no_run)
     row = load_sources()[result.source_id]
     assert (row.kind, row.title, row.date, row.fetched) == ('profile', 'Fred van Dijk', NOW.date(), NOW)
-    assert result.added == ('Name: Fred van Dijk\nCompany: Zest Software\nBio: Plone developer',)
+    assert result.added == ('Login: fredvd\nName: Fred van Dijk\nCompany: Zest Software\nBio: Plone developer',)
 
 
 def test_github_profile_needs_a_token(web, monkeypatch):
@@ -468,7 +468,7 @@ def test_profile_passage_is_the_whole_profile(web):
     profile = {'name': 'Fred van Dijk', 'bio': 'Plone developer\n\nWorks for Zest'}
     session = FakeSession({PROFILE_API: FakeResponse(body=json.dumps(profile).encode())})
     result = capture('https://github.com/fredvd', ['Works for Zest'], fetcher=fetcher, session=session, run=no_run)
-    assert result.added == ('Name: Fred van Dijk\nBio: Plone developer\n\nWorks for Zest',)
+    assert result.added == ('Login: fredvd\nName: Fred van Dijk\nBio: Plone developer\n\nWorks for Zest',)
 
 
 @pytest.mark.parametrize('url', [

@@ -229,10 +229,19 @@ def test_extract_github_profile_lines():
         'location': '', 'blog': 'https://jane.example'}))
     result = extract_github_profile('jane', session)
     assert session.urls == ['https://api.github.com/users/jane']
-    assert result.text.splitlines() == ['Name: Jane Doe', 'Company: @kitconcept', 'Blog: https://jane.example']
+    assert result.text.splitlines() == [
+        'Login: jane', 'Name: Jane Doe', 'Company: @kitconcept', 'Blog: https://jane.example']
     assert 'Bio' not in result.text and 'Location' not in result.text
     assert result.date == datetime.datetime.now(datetime.timezone.utc).date()
     assert result.title == 'Jane Doe'
+
+
+def test_extract_github_profile_without_other_fields_has_a_login_line():
+    session = FakeGitHubSession(FakeGitHubResponse({
+        'login': 'Taito', 'name': None, 'company': None, 'bio': None, 'location': None, 'blog': ''}))
+    assert extract_github_profile('taito', session).text == 'Login: Taito'
+    session = FakeGitHubSession(FakeGitHubResponse({}))
+    assert extract_github_profile('taito', session).text == 'Login: taito'
 
 
 class FakeRun:
@@ -499,6 +508,31 @@ def test_extract_video_downloads_are_paced_across_videos(tmp_path):
     workdir.mkdir()
     extract_video('https://youtu.be/c', str(workdir), run=caption_run(workdir, {'c.en.vtt': vtt('x')}), fetcher=other)
     assert sleeps == [20.0, 20.0]
+
+
+def test_extract_video_title_call_runs_inside_the_pace(tmp_path):
+    from scripts.lib.capture.fetch import Fetcher
+    fetcher = Fetcher(cache=str(tmp_path / 'cache'), sleep=lambda seconds: None, clock=lambda: 1000.0)
+    inside, plain = [], caption_run(tmp_path, {'x.en.vtt': vtt('a')})
+    original = fetcher.paced
+
+    class Spy:
+        def __enter__(self):
+            self.context = original('youtube.com')
+            inside.append(True)
+            return self.context.__enter__()
+
+        def __exit__(self, *exc):
+            inside.clear()
+            return self.context.__exit__(*exc)
+    fetcher.paced = lambda key: Spy()
+    seen = []
+
+    def run(command, **kwargs):
+        seen.append(bool(inside))
+        return plain(command, **kwargs)
+    extract_video('https://youtu.be/x', str(tmp_path), run=run, fetcher=fetcher)
+    assert seen == [True, True]
 
 
 def test_extract_video_rate_limit_is_named(tmp_path):

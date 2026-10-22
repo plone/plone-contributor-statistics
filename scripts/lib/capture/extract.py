@@ -272,7 +272,8 @@ def extract_google_doc(fetcher, doc_id: str) -> Extracted:
 
 def extract_github_profile(login: str, session) -> Extracted:
     profile = github_get(session, f'https://api.github.com/users/{login}').json()
-    lines = [f'{label}: {profile[key]}' for label, key in (
+    # the Login line keeps the text of an account without any other field from being empty
+    lines = [f'Login: {profile.get("login") or login}'] + [f'{label}: {profile[key]}' for label, key in (
         ('Name', 'name'), ('Company', 'company'), ('Bio', 'bio'), ('Location', 'location'), ('Blog', 'blog'))
         if profile.get(key)]
     text = '\n'.join(lines)
@@ -401,8 +402,8 @@ def extract_video(url: str, workdir: str, run=subprocess.run, fetcher=None, whic
     try:
         with fetcher.paced(VIDEO_PACE_KEY):
             run(command + [url], capture_output=True, check=True, timeout=VIDEO_TIMEOUT)
-        title = run(['yt-dlp', '--skip-download', '--print', 'title', url], capture_output=True, check=False,
-                    timeout=VIDEO_TIMEOUT)
+            title = run(['yt-dlp', '--skip-download', '--print', 'title', url], capture_output=True, check=False,
+                        timeout=VIDEO_TIMEOUT)
     except FileNotFoundError as error:
         raise ExtractError('yt-dlp is not installed; install it to read video sources') from error
     except subprocess.TimeoutExpired as error:
