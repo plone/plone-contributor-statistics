@@ -320,7 +320,7 @@ def test_commit_from_api(web):
     row = load_sources()[result.source_id]
     assert (row.kind, row.date, row.title) == ('commit', datetime.date(2012, 5, 6),
                                                'https://github.com/plone/Products.CMFPlone/commit/abc123')
-    assert result.added == ('Fix the release process',)
+    assert result.added == ('Author: Jane <jane@example.org>\nDate: 2012-05-06T07:08:09Z\n\nFix the release process',)
 
 
 def test_video_uses_one_workdir_per_source(web):
@@ -428,3 +428,55 @@ def test_video_quote_in_another_track_is_cut_from_that_track(web):
 
     result = capture(url, ['arbeite bei Zest'], fetcher=fetcher, run=run)
     assert result.added == ('[00:01] Ich arbeite bei Zest Software',)
+
+
+def test_new_source_without_any_quote_found_stores_nothing(web, tmp_repo):
+    fetcher, _ = web({URL: FakeResponse(body=ARTICLE)})
+    result = capture(URL, ['not on the page', 'nor this'], fetcher=fetcher, run=no_run)
+    assert result == CaptureResult(source_id(URL), False, (), ('not on the page', 'nor this'), False)
+    assert load_sources() == {}
+    assert not any((tmp_repo / 'curated' / 'sources' / 'excerpts').glob('*.md'))
+
+
+def test_known_source_with_a_missing_quote_stays_as_it_is(web):
+    fetcher, _ = web({URL: FakeResponse(body=ARTICLE)})
+    capture(URL, ['Zest Software'], fetcher=fetcher, run=no_run)
+    before = load_sources()
+    result = capture(URL, ['not on the page'], fetcher=fetcher, run=no_run)
+    assert result == CaptureResult(source_id(URL), False, (), ('not on the page',), False)
+    assert load_sources() == before
+    assert passages(source_id(URL)) == [PARAGRAPH]
+
+
+def test_commit_quote_in_the_message_keeps_author_and_date(web):
+    """A commit is short: the passage is the whole text, so the author and the date stay with the message."""
+    fetcher, _ = web(session=NoNetwork())
+    api = 'https://api.github.com/repos/plone/plone.api/commits/abc123'
+    message = 'Fix the release process\n\nJane works for Acme on this.'
+    commit = {'commit': {'author': {'name': 'Jane', 'email': 'jane@example.org', 'date': '2012-05-06T07:08:09Z'},
+                         'message': message}}
+    session = FakeSession({api: FakeResponse(body=json.dumps(commit).encode())})
+    result = capture('https://github.com/plone/plone.api/commit/abc123', ['works for Acme'],
+                     fetcher=fetcher, session=session, run=no_run)
+    assert result.added == (f'Author: Jane <jane@example.org>\nDate: 2012-05-06T07:08:09Z\n\n{message}',)
+
+
+def test_profile_passage_is_the_whole_profile(web):
+    fetcher, _ = web(session=NoNetwork())
+    profile = {'name': 'Fred van Dijk', 'bio': 'Plone developer\n\nWorks for Zest'}
+    session = FakeSession({PROFILE_API: FakeResponse(body=json.dumps(profile).encode())})
+    result = capture('https://github.com/fredvd', ['Works for Zest'], fetcher=fetcher, session=session, run=no_run)
+    assert result.added == ('Name: Fred van Dijk\nBio: Plone developer\n\nWorks for Zest',)
+
+
+@pytest.mark.parametrize('url', [
+    'https://web.archive.org/web/2015/https://plone.org/foundation',
+    'https://web.archive.org/web/20150312/https://plone.org/foundation',
+    'http://web.archive.org/web/2015*/https://plone.org/foundation',
+])
+def test_wayback_address_without_a_full_timestamp_is_refused(web, url):
+    fetcher, session = web({})
+    with pytest.raises(CaptureError, match='full 14-digit capture'):
+        capture(url, ['Plone'], fetcher=fetcher, run=no_run)
+    assert session.requests == []
+    assert load_sources() == {}

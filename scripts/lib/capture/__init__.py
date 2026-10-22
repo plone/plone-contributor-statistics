@@ -40,6 +40,7 @@ from scripts.lib.model import (
 )
 
 KIND_BY_ADAPTER = {'github-profile': 'profile', 'commit': 'commit', 'video': 'video'}
+WHOLE_TEXT_KINDS = ('profile', 'commit')
 GONE_STATUSES = (404, 410)
 
 
@@ -111,6 +112,11 @@ def _is_gone(error):
             return any(f'HTTP {status}' in str(error) for status in GONE_STATUSES)
         error = error.__cause__
     return False
+
+
+def _is_wayback(url):
+    parts = urllib.parse.urlsplit(url.strip())
+    return (parts.hostname or '').lower() == 'web.archive.org' and parts.path.startswith('/web/')
 
 
 def _timestamp_date(timestamp):
@@ -191,11 +197,15 @@ def capture(url: str, quotes: Sequence[str] = (), kind: str | None = None, title
 
     A Wayback address is stored readable and fetched raw. A live address that is gone is replaced by its
     nearest Wayback capture; without one the source is recorded as unreachable. Quotes that are already in a
-    stored passage are skipped; quotes not found on the page are reported as missing, never stored.
+    stored passage are skipped; quotes not found on the page are reported as missing, never stored. A new
+    source none of whose quotes is found is not recorded at all.
     A fetcher given here keeps its own refresh setting; one built here refetches when refresh is true.
     """
     quotes = tuple(quotes)
     split = split_archive_url(url)
+    if split is None and _is_wayback(url):
+        raise CaptureError(f'{url}: give the full 14-digit capture URL, '
+                           'such as https://web.archive.org/web/20100125023558/http://limi.net/about')
     original, timestamp = split if split else (url, None)
     sid = source_id(original, timestamp)
     sources = load_sources()
@@ -224,23 +234,36 @@ def capture(url: str, quotes: Sequence[str] = (), kind: str | None = None, title
 
     sid = source_id(read.original, read.timestamp)
     existing = sources.get(sid)
-    row = _source(existing, sid, read, kind, title, date, None, refresh)
-    if row is not None:
-        write_source(row)
-    added, missing = [], []
+    found, missing = [], []
     for quote in quotes:
         if _stored(sid, quote):
             continue
-        for text in (read.text, read.full_text):
-            span = find_quote(text, quote)
-            if span is not None:
-                passage = cut_passage(text, span)
-                if add_passage(sid, passage):
-                    added.append(passage)
-                break
-        else:
+        passage = _passage(read, quote)
+        if passage is None:
             missing.append(quote)
-    return CaptureResult(sid, existing is None, tuple(added), tuple(missing), False)
+        else:
+            found.append(passage)
+    if existing is None and not found:  # a new source is recorded only with a passage that supports something
+        return CaptureResult(sid, False, (), tuple(missing), False)
+    row = _source(existing, sid, read, kind, title, date, None, refresh)
+    if row is not None:
+        write_source(row)
+    added = tuple(passage for passage in found if add_passage(sid, passage))
+    return CaptureResult(sid, existing is None, added, tuple(missing), False)
+
+
+def _passage(read, quote):
+    """The passage to store for the quote, or None when the quote is not in the text.
+
+    A live profile or commit is short and its parts belong together (the author and date of a commit message),
+    so its passage is the whole text; anything else gets the paragraph around the quote.
+    """
+    whole = read.timestamp is None and read.kind in WHOLE_TEXT_KINDS
+    for text in (read.text, read.full_text):
+        span = find_quote(text, quote)
+        if span is not None:
+            return text.strip() if whole else cut_passage(text, span)
+    return None
 
 
 def _unreachable(existing, sid, original, timestamp, gone, quotes, kind, title, date):
