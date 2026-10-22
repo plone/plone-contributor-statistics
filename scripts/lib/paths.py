@@ -29,6 +29,7 @@ EXCERPTS_DIR = SOURCES_DIR / 'excerpts'
 CONTRIBUTORS_DIR = Path('collected/contributors')
 PR_INTERACTIONS_DIR = Path('collected/pr-interactions')
 CHANGELOGS_DIR = Path('collected/changelogs')
+COMMIT_DOMAINS_DIR = Path('collected/commit-domains')
 PLIPS = Path('collected/plips/plone-plips.csv')
 PLIPS_DETAILED = Path('collected/plips/plone-plips-detailed.csv')
 
@@ -62,6 +63,11 @@ def checkpoint_file(label):
 def changelog_entries_file(year):
     """The changelog entries per person of a year (#71)."""
     return CHANGELOGS_DIR / f'{year}-plone-changelog-entries.csv'
+
+
+def commit_domains_file(year):
+    """The mail domains of the commit authors per person of a year."""
+    return COMMIT_DOMAINS_DIR / f'{year}-plone-commit-domains.csv'
 
 
 def pr_interactions_file(label):

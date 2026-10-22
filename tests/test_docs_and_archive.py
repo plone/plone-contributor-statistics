@@ -119,7 +119,8 @@ DOCS = ROOT / 'docs'
 
 # Files and Make targets the docs name on purpose although they don't
 # exist: they are broken or missing, see docs/explanation/known-limitations.md
-KNOWN_MISSING = set()
+# TODO(Task 4): remove the commit-domains entry once the first run has written the files
+KNOWN_MISSING = {'collected/commit-domains/YYYY-plone-commit-domains.csv'}
 
 
 def docs_pages():

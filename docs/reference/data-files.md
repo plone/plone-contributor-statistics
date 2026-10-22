@@ -35,6 +35,17 @@ See {doc}`/explanation/counting-rules` for why the files count the way they do.
     Columns: `repo`, `pr_number`, `title`, `author`, `created_at`, `merged_at`, `state`, `merged`, `issue_comments_count`, `review_comments_count`, `reviews_count`, `total_comments`, `participants_count`, `reviewers_count`, `commenters_count`, `approved_reviews`, `changes_requested_reviews`, `comment_reviews`, `reactions_total`, `first_response_time`.
     `first_response_time` is in hours.
 
+`collected/commit-domains/YYYY-plone-commit-domains.csv`
+:   Written by `scripts/collect/plone_commit_domains.py`.
+    One row per person and mail domain of the commits made in the year, by author date, in all clones of the `plone` repositories except the excluded ones.
+    `username` is the GitHub login, or `person:<id>` for a person without a GitHub account.
+    Columns: `username`, `domain`, `commits`.
+    The domain is lower case without trailing dots; GitHub noreply addresses give `users.noreply.github.com`.
+    Only the domain is stored, never the local part of an address.
+    `commits` counts each commit once, however many branches hold it.
+    Merge commits, commits imported from Subversion, bots and authors that no register identifies are left out.
+    A year without such commits has a file with the header only.
+
 `collected/changelogs/YYYY-plone-changelog-entries.csv`
 :   Written by `scripts/collect/plone_changelogs.py`.
     One row per person named in at least one changelog entry of a release in the year.
