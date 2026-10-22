@@ -25,6 +25,9 @@ ALLOWED = {
     'scripts/tools/schema_docs.py': {'paths.SCHEMAS_DIR', 'paths.DATAPACKAGE', "'curated/", '"curated/'},
     # Names the two files that the model's loaders read, so that the tests can write them
     'scripts/collect/plone_contributors.py': {'paths.BOT_ACCOUNTS', 'paths.EXCLUDED_REPOSITORIES'},
+    # Migration code of plan 2c, archived after its one use: reads the old registers, whose schemas the switch
+    # removes, with plain csv, and writes the new ones
+    'scripts/tools/migrate_registers.py': {'paths.MAPPINGS_DIR'},
 }
 
 
