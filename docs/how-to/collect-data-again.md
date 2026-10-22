@@ -60,6 +60,17 @@ make run-changelogs
 The collector reads the changelog files from the clones in `.cache/repositories/`, and fetches only the files it needs into them.
 It uses the token only to list the repositories, so it also works without one.
 
+## Collect commit mail domains
+
+To collect the mail domains of the commit authors of all years from the clones, which `make run-changelogs` fills:
+
+```shell
+make run-commit-domains
+```
+
+It needs no token and no network.
+It stores only the domains, never the local part of an address.
+
 ## If a run stops
 
 When GitHub's rate limit is reached, the collectors wait until it resets and then go on.

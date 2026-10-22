@@ -50,6 +50,7 @@ Set a variable on the command line to use another year, for example `make five-y
 | `make pr-interactions` | Collects pull request interactions of `YEAR`. | works |
 | `make run-plips` | Collects all PLIPs. | works |
 | `make run-changelogs` | Collects the changelog entries per person of all years, from 2002 to the last completed year, in one run. | works |
+| `make run-commit-domains` | Collects the mail domains of the commit authors per person and year, from 2002 to the current year, from the clones in the cache. Run `make run-changelogs` first to fill it. | works offline |
 
 ## Aggregation and reports
 

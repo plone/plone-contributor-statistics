@@ -13,49 +13,21 @@ Needs the clones: `make run-changelogs` fills the cache.
 
 import argparse
 import os
-import re
 import sys
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor
 
 from scripts.collect.plone_changelogs import ORGANISATION, cached_repositories
 from scripts.lib import git_history
-from scripts.lib.changelogs import SVN_DOMAIN
+from scripts.lib.commit_authors import Finder, is_company_domain
 from scripts.lib.model import MAPPINGS_DIR, append_proposals, load_bot_accounts, load_registry, load_rejections
 from scripts.lib.model.names import fold
 
 DEFAULT_SINCE = 2002
-NOREPLY = re.compile(r'^(?:\d+\+)?(?P<login>[^@]+)@users\.noreply\.github\.com$', re.IGNORECASE)
 
-# Domains that say nothing about an employer, see the attribution rules. A "*" stands for any top-level domain
-# or part of the name: yahoo.* is yahoo.com and yahoo.co.uk. Subdomains count as well (lists.plone.org).
-PERSONAL_DOMAINS = [
-    'gmail.com', 'googlemail.com', 'yahoo.*', 'hotmail.*', 'outlook.*', 'live.*', 'msn.com', 'aol.com', 'gmx.*',
-    'web.de', 'posteo.*', 'mailbox.org', 'protonmail.*', 'fastmail.*', 'me.com', 'mac.com', 'icloud.com',
-    'free.fr', 'wanadoo.fr', 'laposte.net', 'users.noreply.github.com', 'localhost', 'localhost.localdomain',
-    'plone.org', 'zope.org',
-    # Mail services of internet providers: a mailbox there says nothing about an employer either
-    'arcor.de', 't-online.de', 'freenet.de', 'aon.at', 'chello.at', 'bluewin.ch', 'orange.fr', 'libero.it',
-    'tiscali.*', 'mail.ru', 'yandex.*',
-    # Mail aliases that professional societies give their members
-    'computer.org', 'acm.org', 'ieee.org',
-    # Addresses of other projects and of the Finnish members' mail service
-    'gnome.org', 'apache.org', 'debian.org', 'kde.org', 'iki.fi',
-    # The BlueDynamics Alliance is a network of companies, each of them the employer, not the alliance
-    'bluedynamics.com',
-]
-_PERSONAL = re.compile(
-    r'^(?:.+\.)?(?:' + '|'.join(re.escape(d).replace(r'\*', '.+') for d in PERSONAL_DOMAINS) + ')$')
 MIN_NAME_PART = 4  # a name part shorter than this inside a domain label is no evidence that the domain is own
 # Second-level labels under a two-letter country domain: foo.com.au, foo.co.uk, foo.ac.at
 _SECOND_LEVEL = {'com', 'co', 'org', 'net', 'ac', 'gov', 'edu', 'or', 'ne', 'go', 'ltd', 'plc'}
-
-
-def is_company_domain(domain):
-    """Whether the domain may name an employer: not personal, not a local name, not Subversion-era."""
-    domain = domain.lower().strip()
-    return not (not domain or '.' not in domain or domain.endswith(('.local', '.lan', '(none)'))
-                or _PERSONAL.match(domain) or SVN_DOMAIN.match(domain))
 
 
 def registrable_label(domain):
@@ -78,38 +50,6 @@ def is_own_domain(domain, person):
     login = fold(person.github or '').replace(' ', '')
     return bool(label) and (label == login or label in parts
                             or any(len(part) >= MIN_NAME_PART and part in label for part in parts))
-
-
-class Finder:
-    """The person behind the author of a commit, and whether the author is a bot."""
-
-    def __init__(self, registry, bots):
-        self.registry = registry
-        self.bots = {bot.casefold() for bot in bots}
-        self._cache = {}
-
-    def person(self, email, name):
-        """The person, or None when the author is a bot or matches nobody. Noreply login, address, then name."""
-        key = (email.lower(), name)
-        if key not in self._cache:
-            self._cache[key] = self._find(email, name)
-        return self._cache[key]
-
-    def _is_bot(self, login):
-        return login.endswith('[bot]') or login.casefold() in self.bots
-
-    def _find(self, email, name):
-        found = NOREPLY.match(email)
-        if found:
-            login = found.group('login')
-            if self._is_bot(login):
-                return None
-            person = self.registry.person_for(login=login)
-            if person:
-                return person
-        if self._is_bot(name.strip()):
-            return None
-        return self.registry.person_for(email=email) or self.registry.person_for(name=name)
 
 
 def _runs(years):

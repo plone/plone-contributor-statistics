@@ -11,7 +11,7 @@ summary_years = $(shell seq $$(($(SUMMARY_END) - $(1) + 1)) $(SUMMARY_END))
 
 .PHONY: help install setup dev-setup year \
 	run-stats run-stats-all-years run-stats-custom pr-interactions pr-interactions-all-years \
-	run-plips run-changelogs \
+	run-plips run-changelogs run-commit-domains \
 	run-organisation-stats run-organisation-stats-year run-plip-organisations \
 	three-year-summary five-year-summary ten-year-summary yearly-activity \
 	yearly-graphs generate-report community-recognition community-page \
@@ -37,6 +37,7 @@ help:
 	@echo "  pr-interactions-all-years Pull request interactions, 2010 to now, in one run"
 	@echo "  run-plips         All PLIPs"
 	@echo "  run-changelogs    Changelog entries per person, 2002 to the last completed year"
+	@echo "  run-commit-domains Mail domains of the commit authors per person and year, from the cached clones"
 	@echo ""
 	@echo "Derive:"
 	@echo "  run-organisation-stats Organisation statistics of every year with a contributor file"
@@ -135,6 +136,10 @@ run-plips:
 # All years in one run; the names in changelogs are a measure of their own in 2004-2012 (#71)
 run-changelogs:
 	python -m scripts.collect.plone_changelogs
+
+# Reads the clones that run-changelogs fills
+run-commit-domains:
+	python -m scripts.collect.plone_commit_domains
 
 # Derive
 
