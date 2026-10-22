@@ -351,3 +351,60 @@ def test_extract_html_main_text_keeps_the_spelling_of_the_page():
     assert any(p.endswith('item *one* of the list that the sprint team worked on') for p in paragraphs)
     assert '\\' not in text and '**' not in text and '#' not in text
     assert all(p and p == p.strip() for p in paragraphs)
+
+
+def vtt(*lines):
+    cues = [f'00:00:{second:02d}.000 --> 00:00:{second + 1:02d}.000\n{line}' for second, line in enumerate(lines)]
+    return 'WEBVTT\n\n' + '\n\n'.join(cues) + '\n'
+
+
+def caption_run(workdir, tracks, calls=None):
+    def run(command, **kwargs):
+        if calls is not None:
+            calls.append((command, kwargs))
+        if '--print' in command:
+            return subprocess.CompletedProcess(command, 0, stdout=b'T\n', stderr=b'')
+        for name, text in tracks.items():
+            (workdir / name).write_text(text, encoding='utf-8')
+        return subprocess.CompletedProcess(command, 0, stdout=b'', stderr=b'')
+    return run
+
+
+def test_extract_video_prefers_the_original_track(tmp_path):
+    """yt-dlp names auto-translations by their language, the original auto-captions `-orig`."""
+    tracks = {'x.de.vtt': vtt('Ich arbeite bei Zest'), 'x.en-orig.vtt': vtt('I work for Zest')}
+    result = extract_video('https://youtu.be/x', str(tmp_path), run=caption_run(tmp_path, tracks))
+    assert result.text == '[00:00] I work for Zest'
+    assert result.full_text.split('\n\n') == ['[00:00] I work for Zest', '[00:00] Ich arbeite bei Zest']
+
+
+@pytest.mark.parametrize('names, preferred', [
+    (['x.de.vtt', 'x.en.vtt'], 'x.en.vtt'),
+    (['x.fr.vtt', 'x.de-DE.vtt'], 'x.de-DE.vtt'),
+    (['x.de.vtt', 'x.en-US.vtt', 'x.nl.vtt'], 'x.en-US.vtt'),
+    (['x.en.vtt', 'x.nl-orig.vtt'], 'x.nl-orig.vtt'),
+])
+def test_extract_video_language_order(tmp_path, names, preferred):
+    tracks = {name: vtt(f'line of {name}') for name in names}
+    result = extract_video('https://youtu.be/x', str(tmp_path), run=caption_run(tmp_path, tracks))
+    assert result.text == f'[00:00] line of {preferred}'
+    assert len(result.full_text.split('\n\n')) == len(names)
+
+
+def test_extract_video_skips_an_empty_track(tmp_path):
+    tracks = {'x.en-orig.vtt': 'WEBVTT\n', 'x.de.vtt': vtt('Ich arbeite bei Zest')}
+    result = extract_video('https://youtu.be/x', str(tmp_path), run=caption_run(tmp_path, tracks))
+    assert result.text == result.full_text == '[00:00] Ich arbeite bei Zest'
+
+
+def test_extract_video_has_a_timeout(tmp_path):
+    calls = []
+    extract_video('https://youtu.be/x', str(tmp_path), run=caption_run(tmp_path, {'x.en.vtt': vtt('a')}, calls))
+    assert [kwargs.get('timeout') for _, kwargs in calls] == [600, 600]
+
+
+def test_extract_video_timeout_raises(tmp_path):
+    def run(command, **kwargs):
+        raise subprocess.TimeoutExpired(command, kwargs.get('timeout'))
+    with pytest.raises(ExtractError, match='timed out'):
+        extract_video('https://youtu.be/x', str(tmp_path), run=run)

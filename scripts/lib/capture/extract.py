@@ -156,6 +156,7 @@ GITHUB_RESERVED = {'search', 'orgs', 'settings', 'topics', 'marketplace', 'spons
                    'pricing', 'login', 'join', 'notifications', 'issues', 'pulls', 'trending', 'collections',
                    'events', 'new', 'apps', 'enterprise', 'security', 'customer-stories', 'readme', 'site'}
 SUBTITLE_LANGUAGES = 'en.*,de.*,es.*,pt.*,it.*,nl.*,fr.*'
+VIDEO_TIMEOUT = 600  # seconds for one call of yt-dlp
 COMMIT_PATH = re.compile(r'^/([^/]+)/([^/]+)/commit/([0-9a-fA-F]+)/?$')
 VTT_TAG = re.compile(r'<[^>]*>')
 VTT_TIME = re.compile(r'(?:(\d+):)?(\d{2}):(\d{2})\.\d+')
@@ -307,24 +308,47 @@ def parse_vtt(vtt: str) -> list[str]:
     return lines
 
 
+def track_rank(name: str):
+    """Sort key of a caption file `<id>.<language>.vtt`: the original track first, then by SUBTITLE_LANGUAGES.
+
+    yt-dlp names YouTube's automatic captions in the spoken language `<language>-orig`, and its machine
+    translations by their target language.
+    """
+    language = name[:-len('.vtt')].rsplit('.', 1)[-1]
+    patterns = SUBTITLE_LANGUAGES.split(',')
+    order = next((i for i, pattern in enumerate(patterns) if re.fullmatch(pattern, language)), len(patterns))
+    return (0 if language.endswith('-orig') else 1, order, name)
+
+
 def extract_video(url: str, workdir: str, run=subprocess.run) -> Extracted:
-    """Captions of a video (manual or automatic) with timestamps; the caption files stay in workdir."""
+    """Captions of a video (manual or automatic) with timestamps; the caption files stay in workdir.
+
+    `text` is the preferred track, `full_text` every track as its own paragraph, so a quote in another
+    language is still found and cut from the lines of its own track.
+    """
     os.makedirs(workdir, exist_ok=True)
     try:
         run(['yt-dlp', '--skip-download', '--write-auto-sub', '--write-sub', '--sub-langs', SUBTITLE_LANGUAGES,
              '--sub-format', 'vtt', '-o', os.path.join(workdir, '%(id)s'), url],
-            capture_output=True, check=True)
-        title = run(['yt-dlp', '--skip-download', '--print', 'title', url], capture_output=True, check=False)
+            capture_output=True, check=True, timeout=VIDEO_TIMEOUT)
+        title = run(['yt-dlp', '--skip-download', '--print', 'title', url], capture_output=True, check=False,
+                    timeout=VIDEO_TIMEOUT)
     except FileNotFoundError as error:
         raise ExtractError('yt-dlp is not installed; install it to read video sources') from error
+    except subprocess.TimeoutExpired as error:
+        raise ExtractError(f'yt-dlp timed out after {error.timeout} seconds for {url}') from error
     except subprocess.CalledProcessError as error:
         raise ExtractError(f'yt-dlp failed for {url}: {error.stderr!r}') from error
-    captions = sorted(name for name in os.listdir(workdir) if name.endswith('.vtt'))
+    captions = sorted((name for name in os.listdir(workdir) if name.endswith('.vtt')), key=track_rank)
     if not captions:
         raise ExtractError(f'{url} has no captions')
-    with open(os.path.join(workdir, captions[0]), encoding='utf-8') as handle:
-        text = '\n'.join(parse_vtt(handle.read()))
-    if not text:
+    tracks = []
+    for name in captions:
+        with open(os.path.join(workdir, name), encoding='utf-8') as handle:
+            lines = parse_vtt(handle.read())
+        if lines:
+            tracks.append('\n'.join(lines))
+    if not tracks:
         raise ExtractError(f'{url} has empty captions')
-    return Extracted(text=text, full_text=text, title=(title.stdout or b'').decode('utf-8', 'replace').strip() or None,
-                     date=None)
+    return Extracted(text=tracks[0], full_text='\n\n'.join(tracks),
+                     title=(title.stdout or b'').decode('utf-8', 'replace').strip() or None, date=None)

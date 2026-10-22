@@ -407,3 +407,24 @@ def test_new_source_without_quotes_is_refused(web):
         capture(URL, [], fetcher=fetcher, run=no_run)
     assert session.requests == []
     assert load_sources() == {}
+
+
+def test_video_quote_in_another_track_is_cut_from_that_track(web):
+    fetcher, _ = web(session=NoNetwork())
+    url = 'https://www.youtube.com/watch?v=abc'
+    tracks = {'abc.en-orig.vtt': 'WEBVTT\n\n00:00:01.000 --> 00:00:02.000\nI work for Zest Software\n',
+              'abc.de.vtt': 'WEBVTT\n\n00:00:01.000 --> 00:00:02.000\nIch arbeite bei Zest Software\n'}
+
+    class Done:
+        stdout = b'A talk\n'
+
+    def run(cmd, **kwargs):
+        if '--print' not in cmd:
+            workdir = os.path.dirname(cmd[cmd.index('-o') + 1])
+            for name, text in tracks.items():
+                with open(os.path.join(workdir, name), 'w', encoding='utf-8') as handle:
+                    handle.write(text)
+        return Done()
+
+    result = capture(url, ['arbeite bei Zest'], fetcher=fetcher, run=run)
+    assert result.added == ('[00:01] Ich arbeite bei Zest Software',)
