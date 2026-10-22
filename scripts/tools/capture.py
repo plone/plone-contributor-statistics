@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Capture a source once: its row in curated/sources/sources.csv and the passages around the given quotes.
 
-Needs GITHUB_TOKEN in the environment for GitHub profiles and commits. See docs/how-to/capture-a-source.md.
+Needs GITHUB_TOKEN in the environment for GitHub profiles, commits, issues, pull requests and comments.
+See docs/how-to/capture-a-source.md.
 """
 
 import argparse

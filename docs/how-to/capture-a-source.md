@@ -9,8 +9,10 @@ Do this when a fact rests on a page, a profile, a commit or a video, and you wan
     Typographic quotes, dashes, line breaks and non-breaking spaces do not matter, and `…` stands for text you skip.
 
 2.  Capture the page with the tool.
-    A GitHub profile or commit is read through the GitHub API, so set `GITHUB_TOKEN` in the environment for those; never pass a token on the command line.
+    A GitHub profile, commit, issue, pull request or comment is read through the GitHub API, so set `GITHUB_TOKEN` in the environment for those; never pass a token on the command line.
     A PDF is read with `pdftotext` from poppler, and a video with `yt-dlp`; install them to capture those.
+    A Google Doc is read through its plain-text export, so only a public document can be captured; a private one, which asks to sign in, is refused with `not a public document`.
+    Its spellings with `/edit`, `?usp=sharing` or a heading anchor are one source.
     A Wayback address needs the full 14-digit timestamp of the capture, as in the example.
 
     ```shell
@@ -25,13 +27,17 @@ Do this when a fact rests on a page, a profile, a commit or a video, and you wan
     The tool then stores the paragraph around the first place where the page names them, ignoring case and accents, and prints `! not found: <name>` for a name the page does not show.
     A GitHub profile, a commit and an issue or comment of this repository are stored whole in that case, whether or not the name is found.
     Names are also used when you give quotes and the page shows none of them; they are ignored as soon as one quote is found.
+    For a source that is already in the register, names without a quote add nothing and the tool does not fetch the page again; add `--refresh` to look for them.
     `--kind`, `--title` and `--date` override what the tool finds on the page.
     Give `--kind speaker-page` for the page of a speaker at a conference, because it is the person's own statement.
     A live page is dated by `--date`, else by the date the page shows, else by the day of the capture.
-    A Wayback copy is dated by `--date`, else by the day of its capture, which the address names; a date the page shows is not trusted for it, and a different one is kept in the `notes` of the new row as `page shows date YYYY-MM-DD`.
+    A Wayback copy is dated by `--date`, else by the day of its capture; a date the page shows is not trusted for it, and a different one is kept in the `notes` of the new row as `page shows date YYYY-MM-DD`.
+    The capture is the one the Archive actually served: when it redirects to a capture of another day, the source is recorded under that capture, with its own address and date.
+    When it serves a capture of another page, the row keeps the address you gave and says in its `notes` which capture was read, as `served <Wayback address>`.
 
 3.  Check the result: a row in `curated/sources/sources.csv` and the passage in the excerpt file `curated/sources/excerpts/<id>.md`.
     The passage of a page is the paragraph around the quote; the passage of a GitHub profile or commit is all of it, so the author and date of a commit stay with its message.
+    For GitHub issues and comments, see {ref}`how-to-capture-a-source-github-issues`.
     Do not edit these files by hand.
     Then validate the files:
 
@@ -42,6 +48,18 @@ Do this when a fact rests on a page, a profile, a commit or a video, and you wan
 4.  Open a pull request with the new source.
     Nothing cites sources by their id yet: keep the address, with its quote, in the `source` cells of the rows that rest on it, as before.
     A later change switches the registers to citations of the source register.
+
+(how-to-capture-a-source-github-issues)=
+
+## GitHub issues, pull requests and comments
+
+An address with a comment fragment, `#issuecomment-…`, `#discussion_r…` or `#pullrequestreview-…`, names one comment, review comment or review.
+Each of them is a source of its own, apart from the issue or pull request and from its other comments, and the tool reads only that text.
+An address without a fragment is the issue or pull request with the comments of its conversation.
+The review comments on the code of a pull request are not part of it: cite such a comment by its `#discussion_r…` address.
+
+An issue or comment of this repository, `plone/plone-contributor-statistics`, is our own public record, so its passage is its whole text, with its title, author and date.
+Of another repository, the tool keeps only the issue or comment that holds the quote, cuts the paragraph around the quote from it, and heads that paragraph with the `Author:` and `Date:` lines of the issue or comment, so the passage still says who wrote it.
 
 ## Why only passages are stored
 
@@ -89,7 +107,8 @@ python -m scripts.tools.capture --batch worklist.jsonl --results results.jsonl
 The work list is a JSON lines file, one object per line, for example `{"url": "https://example.org/sprint", "quotes": ["a quote"], "names": [], "kind": null}`.
 `quotes` and `names` work as `--quote` and `--name` do, `kind` is a kind of source or `null` to guess it.
 The tool appends one line per source to the results file and writes it at once: `{"url": …, "source_id": …, "created": true, "added": […], "missing": […], "unreachable": false, "error": null}`.
-A source the tool cannot capture gets `"source_id": null` and the message in `error`, and the run goes on.
+A source the tool cannot capture gets `"source_id": null` and the message in `error`, and the run goes on; an error the tool does not expect reads `unexpected: <type>: <message>`.
+`"source_id": null` without an error means that nothing was recorded: a new source on which none of its quotes and names was found.
 It prints its progress to the error output every 25 sources and exits with status 0 when it reached the end, whatever the outcomes; read `missing`, `unreachable` and `error` in the results.
 
 An interrupted run resumes when you start it again with the same two files: sources with a line in the results file are skipped, and a half-written last line is ignored.

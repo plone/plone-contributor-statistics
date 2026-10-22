@@ -156,7 +156,7 @@ One row is one source: a page, profile, commit, video or decision that we read o
 
 | Field | Type | Constraints | Description |
 |---|---|---|---|
-| `id` | string | required; unique; pattern `^[0-9a-f]{12}$` | Opaque, stable identifier of the source: the first twelve hex digits of a hash of its normalised address and the archive timestamp. |
+| `id` | string | required; unique; pattern `^[0-9a-f]{12}$` | Opaque, stable identifier of the source: the first twelve hex digits of a hash of its normalised address and the archive timestamp. The normalised address keeps the fragment of a GitHub comment or review, which is a source of its own, and reduces a Google Doc to its document id. |
 | `kind` | string | required; one of `page`, `speaker-page`, `profile`, `commit`, `video`, `pdf`, `register`, `issue-comment`, `decision` | What kind of source it is. |
 | `title` | string | required | The title of the source as a reader sees it. |
 | `date` | date | required | The date the source speaks for: its publication date if it shows one, else the capture date of the archived copy, else the day it was fetched. |
