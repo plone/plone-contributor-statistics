@@ -380,3 +380,11 @@ def test_archived_copy_that_is_gone_is_unreachable(web):
     row = load_sources()[result.source_id]
     assert row.archive_url == 'https://web.archive.org/web/20100125023558/http://limi.net/about'
     assert row.date == datetime.date(2010, 1, 25)
+
+
+def test_new_source_without_quotes_is_refused(web):
+    fetcher, session = web({URL: FakeResponse(body=ARTICLE)})
+    with pytest.raises(CaptureError, match='at least one quote'):
+        capture(URL, [], fetcher=fetcher, run=no_run)
+    assert session.requests == []
+    assert load_sources() == {}

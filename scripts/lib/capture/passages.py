@@ -2,7 +2,7 @@
 
 Pure text functions, no I/O. The repository stores only the passages it cites,
 so a captured source keeps the paragraph around the quote, in the page's own
-spelling. See docs/explanation for the reasons.
+spelling. See docs/how-to/capture-a-source.md for the reasons.
 """
 
 import re

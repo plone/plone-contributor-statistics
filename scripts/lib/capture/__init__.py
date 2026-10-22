@@ -191,6 +191,8 @@ def capture(url: str, quotes: Sequence[str] = (), kind: str | None = None, title
     original, timestamp = split if split else (url, None)
     sid = source_id(original, timestamp)
     sources = load_sources()
+    if sid not in sources and not quotes:
+        raise CaptureError(f'{url}: a new source needs at least one quote')
     if sid in sources and not refresh and all(_stored(sid, quote) for quote in quotes):
         return CaptureResult(sid, False, (), (), False)
 
