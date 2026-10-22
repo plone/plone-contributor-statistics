@@ -1,0 +1,1 @@
+Since 2007 Alin has worked at Eau de Web Romania, mainly on European Environment Agency projects designing and developing small to large-scale Plone solutions. Many of the features that were developed (EEA Faceted Navigation, EEA Daviz, etc) are available as Plone add-ons and very popular within the Plone community.

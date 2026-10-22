@@ -1,0 +1,1 @@
+Sebastian works at the Media Center of the Technical University of Dresden as a front-end developer. Next to web development, he is interested in User Experience, Usability and Virtual/Augmented Reality.

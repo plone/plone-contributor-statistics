@@ -1,0 +1,1 @@
+After getting his degree in Biology in 2003, Thomas Förster started to work in the NIP project at the Institute for Theoretical Biology. There he has been caught up by his past as his very first Zope project back from 1999 was still lurking around unmaintained for a mere 3 years. Still running it is quite a nice example of an antipattern though.

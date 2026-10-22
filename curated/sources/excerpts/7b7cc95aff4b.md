@@ -1,0 +1,1 @@
+The CanDo project will be holding its Summer kick off Sprint from Thursday, June 28th through Sunday, July 1, at the Arlington Career Center. Folks from the Zope / Python communities interested in joining us are welcome. Please contact either Alex Clark ( aclark at aclark dot net ) or Jeff Elkner ( jeff at elkner dot net ) if you would like to attend.

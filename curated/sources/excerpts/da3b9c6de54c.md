@@ -1,0 +1,1 @@
+Adam is a software engineer at PretaWeb based in Sydney Australia. He has given talks before Sydney Python Users Group and the PyCon-AU. Since joining PretaWeb he has been involved in many sites, including the high availability VicSES site.

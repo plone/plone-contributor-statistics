@@ -1,0 +1,1 @@
+Sally Kleinfeldt manages Jazkarta, a Boston-based Plone consulting firm. Sally has used Python since 2000 and Plone since 2004. She has presented numerous talks at Plone conferences and loves hanging out with the Plone community. She has a Ph.D. in biology and likes to create websites that make scientists more productive.

@@ -1,0 +1,1 @@
+In 2022, a colleague, Christoph Brütsch, and I founded Webcloud7, a Swiss company. Our goal from the beginning was to build a new product on top of Plone 6 Classic UI, with a focus on upselling services such as data migrations from Plone 4/5 to Plone 6.

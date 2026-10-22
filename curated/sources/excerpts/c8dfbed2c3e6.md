@@ -1,0 +1,1 @@
+Sean develops Plone-based collaborative tools for healthcare quality improvement at the University of Utah School of Medicine, and has been involved to one degree or another with Plone and Zope development and communities since 1999.

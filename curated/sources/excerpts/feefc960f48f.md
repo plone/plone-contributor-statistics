@@ -1,0 +1,1 @@
+Roger: My name is Roger Boixader Güell, I come from Berga, Barcelona, Catalunya and I am 28 years old. I studied computer engineering in Girona, Catalunya. I had never used Python before entering Iskra and for the first year I have mainly used JavaScript. My first steps with Python were with Django and then with Guillotina.

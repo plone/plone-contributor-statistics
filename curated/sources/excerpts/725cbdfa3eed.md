@@ -1,0 +1,1 @@
+I am Vitaliy Podoba, an entrepreneur, software solutions designer, and founder of SoftFormance, a Python-focused development agency established in 2011. My career spans over 20 years, starting as a backend Python developer before transitioning into technical leadership and business strategy.
