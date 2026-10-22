@@ -18,6 +18,10 @@ CHARSET_HEADER = re.compile(r'charset\s*=\s*["\']?([\w.:-]+)', re.IGNORECASE)
 CHARSET_META = re.compile(rb'<meta[^>]+charset\s*=\s*["\']?([\w.:-]+)', re.IGNORECASE)
 
 
+# Browsers read these labels as windows-1252 (WHATWG Encoding), and old pages rely on it
+WINDOWS_1252_LABELS = {'iso-8859-1', 'iso8859-1', 'latin1', 'latin-1', 'ascii', 'us-ascii'}
+
+
 class ExtractError(Exception):
     """Text could not be extracted from a page."""
 
@@ -42,6 +46,8 @@ def decode(raw: Raw) -> str:
     """Decode with the declared charset; otherwise UTF-8, falling back to cp1252."""
     charset = declared_charset(raw)
     if charset:
+        if charset.lower() in WINDOWS_1252_LABELS:
+            charset = 'cp1252'
         try:
             return raw.body.decode(charset, errors='replace')
         except LookupError:

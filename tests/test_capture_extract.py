@@ -87,3 +87,10 @@ def test_extract_dispatches_by_type_and_url():
     assert extract(raw(b'x', 'application/octet-stream', 'https://example.org/f.pdf'), run=run).text == 'from pdf'
     html = (FIXTURES / 'article.html').read_bytes()
     assert 'Zest Software' in extract(raw(html), run=run).text
+
+
+def test_decode_treats_iso_8859_1_as_windows_1252():
+    body = b'\x93quoted\x94 \x96 dash'
+    assert decode(raw(body, 'text/html; charset=iso-8859-1')) == '\u201cquoted\u201d \u2013 dash'
+    meta = b'<meta charset="ISO-8859-1">' + body
+    assert '\u201cquoted\u201d' in decode(raw(meta))
