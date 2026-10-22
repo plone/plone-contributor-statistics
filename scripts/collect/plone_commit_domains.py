@@ -6,7 +6,8 @@ rules accept as evidence (docs/explanation/attribution.md). This reads the autho
 cached clones of the plone repositories, leaves out merge commits, the commits imported from Subversion (the
 migration assigned their addresses) and the excluded repositories, finds the person in the registers, skips bots
 and authors that no register identifies, and counts the commits per person, domain and year of the author date.
-Only the domain is stored, never the local part of an address; see docs/reference/data-files.md.
+Each change counts once, see `collect`. Only the domain is stored, never the local part of an address, and no
+names of machines (`domain_of`); see docs/reference/data-files.md.
 
 Needs the clones: `make run-changelogs` fills the cache.
 """
@@ -28,15 +29,24 @@ COLUMNS = ['username', 'domain', 'commits']
 
 
 def collect(clones, finder, registry, workers=8):
-    """{year: Counter[(username, domain)]} of the commits in the clones, [(name, path)], each commit once."""
+    """{year: Counter[(username, domain)]} of the commits in the clones, [(name, path)].
+
+    A change counts once, as in the commit statistics (docs/explanation/counting-rules.md): a commit on several
+    branches, the "[fc]" copies in buildout.coredev, and the commits with the same author date and subject in one
+    repository. Unlike the commit statistics, a commit that two clones share counts once as well.
+    """
     def read(clone):
-        return git_history.read_authors(clone[1], converted=False, merges=False)
+        return git_history.read_authors(clone[1], converted=False, merges=False, duplicates=False)
 
     counts = defaultdict(Counter)
     with ThreadPoolExecutor(max_workers=workers) as pool:
         results = list(pool.map(read, clones))
+    seen = set()
     for authors in results:
-        for _, email, name, commit_date in authors:
+        for sha, email, name, commit_date in authors:
+            if sha in seen:
+                continue
+            seen.add(sha)
             domain = domain_of(email)
             if domain is None:
                 continue
@@ -66,8 +76,7 @@ def main(argv=None):
                         help='last year to write (default: the current year)')
     args = parser.parse_args(argv)
     if args.first_year > args.last_year:
-        print('Error: --first-year must not be after --last-year')
-        return 1
+        parser.error('--first-year must not be after --last-year')
     excluded = load_excluded_repositories()
     names = [name for name, _ in cached_repositories(args.cache) if name not in excluded]
     if not names:

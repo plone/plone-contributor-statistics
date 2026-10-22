@@ -1,4 +1,7 @@
-"""Read the mail domains of the commit authors per person and year (collected by `scripts.collect.commit_domains`)."""
+"""Read the mail domains of the commit authors per person and year.
+
+Collected by `scripts.collect.plone_commit_domains`.
+"""
 import csv
 from collections import Counter, defaultdict
 

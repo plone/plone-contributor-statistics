@@ -57,7 +57,7 @@ def setup(tmp_repo, write_registers):
                                 f'bob-builder,email,bob@old.example.org,{SOURCE}\n', encoding='utf-8')
     paths.ORGANISATIONS.write_text(
         'id,name,kind,github,aliases,notes\n'
-        'acme,Acme Industries,organisation,,acme-industries.example;widgets.example,\n'
+        'acme,Acme Industries,organisation,,acme-industries.test;widgets.test,\n'
         'bubblenet,BubbleNet,organisation,,,\n'
         'greenfinity,Greenfinity,organisation,,,\n'
         'oldco,Old Co,organisation,,,\n', encoding='utf-8')
@@ -70,41 +70,41 @@ def run(cache, **kwargs):
 
 
 def test_read_authors_of_bare_and_non_bare_clones(tmp_path):
-    work, bare = make_clone(tmp_path, 'a', [('Ann Author', 'ann@x.example', 2010), ('Bo Bee', 'bo@y.example', 2011)])
+    work, bare = make_clone(tmp_path, 'a', [('Ann Author', 'ann@x.test', 2010), ('Bo Bee', 'bo@y.test', 2011)])
     for path in (work, bare):
         assert sorted(git_history.read_authors(path), key=lambda a: a[3]) == [
-            (sha_of(work, 0), 'ann@x.example', 'Ann Author', '2010-06-01T12:00:00Z'),
-            (sha_of(work, 1), 'bo@y.example', 'Bo Bee', '2011-06-01T12:00:00Z')]
+            (sha_of(work, 0), 'ann@x.test', 'Ann Author', '2010-06-01T12:00:00Z'),
+            (sha_of(work, 1), 'bo@y.test', 'Bo Bee', '2011-06-01T12:00:00Z')]
 
 
 def test_read_authors_includes_other_branches(tmp_path):
-    work, _ = make_clone(tmp_path, 'a', [('Ann', 'ann@x.example', 2010)])
+    work, _ = make_clone(tmp_path, 'a', [('Ann', 'ann@x.test', 2010)])
     git(work, 'checkout', '-q', '-b', 'feature')
-    git(work, 'commit', '--allow-empty', '-q', '-m', 'on a branch', author=('Bo', 'bo@y.example'),
+    git(work, 'commit', '--allow-empty', '-q', '-m', 'on a branch', author=('Bo', 'bo@y.test'),
         date='2012-01-01T00:00:00Z')
     git(work, 'checkout', '-q', 'main')
-    assert {a[1] for a in git_history.read_authors(work)} == {'ann@x.example', 'bo@y.example'}
+    assert {a[1] for a in git_history.read_authors(work)} == {'ann@x.test', 'bo@y.test'}
 
 
 def test_read_authors_can_leave_out_the_commits_imported_from_subversion(tmp_path):
     work, _ = make_clone(tmp_path, 'a', [
-        ('Ann', 'ann@x.example', 2010),
-        ('Bo', 'bo@y.example', 2005, 'Fix the thing\n\nsvn path=/CMFPlone/trunk/; revision=917\n'),
-        ('Cy', 'cy@z.example', 2006, 'Fix\n\ngit-svn-id: https://svn.example/trunk@12 0000-uuid\n'),
-        ('Di', 'di@w.example', 2012, 'Mentions svn path= and revision=3 in the middle of a line'),
+        ('Ann', 'ann@x.test', 2010),
+        ('Bo', 'bo@y.test', 2005, 'Fix the thing\n\nsvn path=/CMFPlone/trunk/; revision=917\n'),
+        ('Cy', 'cy@z.test', 2006, 'Fix\n\ngit-svn-id: https://svn.test/trunk@12 0000-uuid\n'),
+        ('Di', 'di@w.test', 2012, 'Mentions svn path= and revision=3 in the middle of a line'),
     ])
-    everything = {'ann@x.example', 'bo@y.example', 'cy@z.example', 'di@w.example'}
+    everything = {'ann@x.test', 'bo@y.test', 'cy@z.test', 'di@w.test'}
     assert {a[1] for a in git_history.read_authors(work)} == everything
-    assert {a[1] for a in git_history.read_authors(work, converted=False)} == {'ann@x.example', 'di@w.example'}
+    assert {a[1] for a in git_history.read_authors(work, converted=False)} == {'ann@x.test', 'di@w.test'}
 
 
 def test_organisation_for_domain(setup):
     registry = load_registry()
     assert registry.organisation_for_domain('greenfinity.hu') == 'greenfinity'
     assert registry.organisation_for_domain('mail.bubblenet.be') == 'bubblenet'
-    assert registry.organisation_for_domain('widgets.example') == 'acme'  # an alias
-    assert registry.organisation_for_domain('acme.example') == 'acme'  # the first word of the name
-    assert registry.organisation_for_domain('nothing.example') is None
+    assert registry.organisation_for_domain('widgets.test') == 'acme'  # an alias
+    assert registry.organisation_for_domain('acme.test') == 'acme'  # the first word of the name
+    assert registry.organisation_for_domain('nothing.test') is None
     assert registry.organisation_for_domain('greenfinity') is None  # no dot: the label is the top-level domain
 
 
@@ -120,8 +120,8 @@ def test_domain_keys_have_two_tiers(tmp_repo, write_registers):
 
 def test_match_domain_says_alias(setup):
     registry = load_registry()
-    assert registry.match_domain('widgets.example') == ('acme', 'alias')
-    assert registry.match_domain('acme.example') == ('acme', 'first word')
+    assert registry.match_domain('widgets.test') == ('acme', 'alias')
+    assert registry.match_domain('acme.test') == ('acme', 'first word')
     assert registry.match_domain('greenfinity.hu') == ('greenfinity', 'name')
 
 
@@ -131,8 +131,8 @@ def test_organisation_for_domain_ignores_independents_and_ambiguous_keys(tmp_rep
         'id,name,kind,github,aliases,notes\none,Twin One,organisation,,,\ntwo,Twin Two,organisation,,,\n'
         'solo,Twin Solo (independent),independent,,,\n', encoding='utf-8')
     registry = load_registry()
-    assert registry.organisation_for_domain('twin.example') is None  # the first word names three organisations
-    assert registry.organisation_for_domain('twinone.example') == 'one'
+    assert registry.organisation_for_domain('twin.test') is None  # the first word names three organisations
+    assert registry.organisation_for_domain('twinone.test') == 'one'
 
 
 def test_matching_by_login_email_and_name(setup):
@@ -177,8 +177,8 @@ class Person:
     ('foo.com.au', 'Tom Comer', None, False),  # `com` is no part of the name; only the label `foo` counts
     ('andersonleeb.com', 'Jane Leeb', None, True),
     ('mail.glicksoftware.com', 'David Glick', None, True),
-    ('com.example', 'Tom Comer', None, False),
-    ('ab.example', 'Abe Bee', None, False),  # a part shorter than four letters is no evidence in a longer label
+    ('com.test', 'Tom Comer', None, False),
+    ('ab.test', 'Abe Bee', None, False),  # a part shorter than four letters is no evidence in a longer label
 ])
 def test_own_domain(domain, name, github, own):
     assert address_proposals.is_own_domain(domain, Person(name, github)) is own
@@ -226,9 +226,9 @@ def test_proposals_runs_evidence_and_unmapped(setup):
         ('Hanno Schlichting', 'hanno@hannosch.eu', 2016),  # own domain
         ('Hanno Schlichting', 'hanno@gmail.com', 2016),  # personal
         ('Hanno Schlichting', 'hanno@localhost', 2005),  # Subversion era
-        ('Hanno Schlichting', 'hanno@widgets.example', 2018),  # alias
-        ('Hanno Schlichting', 'hanno@mystery.example', 2018),  # unmapped
-        ('Hanno Schlichting', 'hanno@mystery.example', 2019),
+        ('Hanno Schlichting', 'hanno@widgets.test', 2018),  # alias
+        ('Hanno Schlichting', 'hanno@mystery.test', 2018),  # unmapped
+        ('Hanno Schlichting', 'hanno@mystery.test', 2019),
         ('Stranger', 'x@greenfinity.hu', 2016),  # nobody
         ('dependabot[bot]', '1+dependabot[bot]@users.noreply.github.com', 2016),
         # Imported from Subversion: the address was assigned by the migration, not used in 2008
@@ -249,7 +249,7 @@ def test_proposals_runs_evidence_and_unmapped(setup):
                                  f'(example: https://github.com/plone/plone.app.x/commit/{sha})')
     assert conflicts == []
     assert '## Proposals' in text and '## Conflicts' in text and '## Unmapped domains' in text
-    assert '| mystery.example | 2 | 2018-2019 | 1 |' in text
+    assert '| mystery.test | 2 | 2018-2019 | 1 |' in text
     assert 'hannosch.eu' not in text and 'gmail' not in text and 'localhost' not in text
 
 
@@ -316,9 +316,9 @@ def test_person_option(setup):
     cache = setup / 'cache'
     make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.hu', 2015),
                             ('Hanno Schlichting', 'hanno@bubblenet.be', 2015),
-                            ('Hanno Schlichting', 'hanno@mystery.example', 2015)])
+                            ('Hanno Schlichting', 'hanno@mystery.test', 2015)])
     text, _ = run(cache, people=['hanno-schlichting'])
-    assert 'bubblenet' in text and 'jane-doe' not in text and 'mystery.example' in text
+    assert 'bubblenet' in text and 'jane-doe' not in text and 'mystery.test' in text
     with pytest.raises(SystemExit, match='nobody'):
         run(cache, people=['nobody'])
 

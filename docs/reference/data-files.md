@@ -42,7 +42,10 @@ See {doc}`/explanation/counting-rules` for why the files count the way they do.
     Columns: `username`, `domain`, `commits`.
     The domain is lower case without trailing dots; GitHub noreply addresses give `users.noreply.github.com`.
     Only the domain is stored, never the local part of an address.
-    `commits` counts each commit once, however many branches hold it.
+    The names of machines and placeholders are left out, since they are no public mail domains and some carry a person's name: names without a dot, names that end in `.local`, `.lan`, `.home`, `.localdomain`, `.fritz.box`, `.in-addr.arpa` or `.example`, names with `(none)`, and `example.com`, `example.org` and `example.net` with their subdomains.
+    So are the domains of the Subversion years: `localhost`, the repository UUIDs and `users.sourceforge.net`.
+    `commits` follows the rules of "A change counts once" in {doc}`/explanation/counting-rules`: a commit counts once however many branches hold it, the `[fc]` copies in `buildout.coredev` don't count, and commits with the same author date and subject in one repository count once.
+    A commit that two repositories share counts once as well, which the commit statistics don't check.
     Merge commits, commits imported from Subversion, bots and authors that no register identifies are left out.
     A year without such commits has a file with the header only.
 

@@ -30,11 +30,23 @@ _PERSONAL = re.compile(
     r'^(?:.+\.)?(?:' + '|'.join(re.escape(d).replace(r'\*', '.+') for d in PERSONAL_DOMAINS) + ')$')
 
 
+# The names of machines in a local network, which git takes when nobody set an address, and the domains reserved
+# for examples (RFC 2606): no public mail domain, and some of them carry a person's name (katjas-imac.local)
+LOCAL_ENDINGS = ('.local', '.lan', '.home', '.localdomain', '.fritz.box', '.in-addr.arpa', '.example')
+_EXAMPLE = re.compile(r'^(?:.+\.)?example\.(?:com|org|net)$')
+
+
+def is_local_name(domain):
+    """Whether the domain is the name of a machine or a placeholder: no dot, a local ending, `(none)`, example.com."""
+    domain = domain.lower().strip().rstrip('.')
+    return ('.' not in domain or '(none)' in domain or domain.endswith(LOCAL_ENDINGS)
+            or bool(_EXAMPLE.match(domain)))
+
+
 def is_company_domain(domain):
     """Whether the domain may name an employer: not personal, not a local name, not Subversion-era."""
     domain = domain.lower().strip()
-    return not (not domain or '.' not in domain or domain.endswith(('.local', '.lan', '(none)'))
-                or _PERSONAL.match(domain) or SVN_DOMAIN.match(domain))
+    return not (not domain or is_local_name(domain) or _PERSONAL.match(domain) or SVN_DOMAIN.match(domain))
 
 
 class Finder:
@@ -72,12 +84,14 @@ class Finder:
 def domain_of(email):
     """The mail domain of an address: lower case, without trailing dots.
 
-    None for an address without `@`, for a Subversion-UUID domain and for localhost: those say nothing.
-    GitHub noreply addresses give `users.noreply.github.com`.
+    None for an address without `@`, for the Subversion-era domains (a repository UUID, localhost and
+    `users.sourceforge.net`, see `SVN_DOMAIN`) and for the names of machines and placeholders (`is_local_name`:
+    pepper.local, rudolf.(none), example.com): those say nothing about an employer, and some of them carry a
+    person's name. GitHub noreply addresses give `users.noreply.github.com`.
     """
     if '@' not in email:
         return None
     domain = email.rsplit('@', 1)[1].strip().lower().rstrip('.')
-    if not domain or SVN_DOMAIN.match(domain):
+    if not domain or SVN_DOMAIN.match(domain) or is_local_name(domain):
         return None
     return domain

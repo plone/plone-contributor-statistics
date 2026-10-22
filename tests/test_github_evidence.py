@@ -54,10 +54,10 @@ ANSWERS = {
         commit('jane@greenfinity.hu', '2014-03-01T10:00:00Z', 'early'),
         commit('jane@gmail.com', '2014-04-01T10:00:00Z', 'bbb'),
         commit('jane@janedoe.net', '2014-04-02T10:00:00Z', 'ccc'),
-        commit('jane@nothing.example', '2014-04-03T10:00:00Z', 'ddd'),
+        commit('jane@nothing.test', '2014-04-03T10:00:00Z', 'ddd'),
         commit('', '2014-04-03T10:00:00Z', 'eee')]},
     q1(2015): {'total_count': 1, 'items': [commit('jane@greenfinity.hu', '2015-01-02T10:00:00Z', 'fff')]},
-    q2(2016): {'total_count': 3, 'items': [commit('x@y.example', '2016-01-01T00:00:00Z', 'ggg')]},
+    q2(2016): {'total_count': 3, 'items': [commit('x@y.test', '2016-01-01T00:00:00Z', 'ggg')]},
 }
 
 
@@ -117,7 +117,7 @@ def test_query_one_classifies_the_domains(setup):
     # the earliest commit of the first year is the example
     assert 'https://github.com/plone/repo/commit/early' in proposals
     unmapped = text.split('## Unmapped domains')[1].split('## Organisations')[0]
-    assert '| nothing.example | 1 | 2014 | 1 |' in unmapped
+    assert '| nothing.test | 1 | 2014 | 1 |' in unmapped
     for ignored in ('gmail.com', 'janedoe.net'):
         assert ignored not in unmapped
 
