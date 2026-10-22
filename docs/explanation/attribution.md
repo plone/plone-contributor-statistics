@@ -43,7 +43,7 @@ A row never loses a source: new evidence is a new citation, and an old one stays
 An affiliation is a reading of its sources, and its status says what kind of reading it is:
 
 - `stated`: the sources say that the person belonged to the organisation in those years.
-- `assumed`: the row extends a range beyond its records, such as today's organisation for the years before the first record. It counts only in years that no stated row covers, and its notes say what it rests on. When the registers were introduced, today's organisation was kept for every year of a person's activity; those rows are assumed until a record dates them.
+- `assumed`: the row extends a range beyond its records, such as today's organisation for the years before the first record. It counts only in years that no stated row covers, unless a decision chooses it, and its notes say what it rests on. When the registers were introduced, today's organisation was kept for every year of a person's activity; those rows are assumed until a record dates them.
 - `denied`: the person did not belong to the organisation in those years. A denied row removes its organisation from its years, whatever other rows say, and its notes give the reason. A reviewer writes it when a proposal turns out wrong, citing where it was decided, so that the tools don't propose those years again.
 - `proposed`: a tool or a contributor read the sources this way, and nobody has reviewed it yet. A proposed row never counts. A reviewer turns it into a stated or an assumed row, or into a denied one.
 
@@ -82,6 +82,7 @@ The statistics, the community page and `python -m scripts.tools.affiliation` all
 1.  **Proposals and denials.**
     Proposed rows are ignored.
     A denied row removes its organisation from its years.
+    A denied row without an organisation, which would record a reviewed "stays Unmapped", is not used here.
 2.  **Decision.**
     When the records of a year disagree, a reviewer can decide in public, in a comment on an issue or pull request of this repository.
     The comment is captured as a source of the kind `decision`, and the row it chooses cites it.
@@ -96,15 +97,26 @@ The statistics, the community page and `python -m scripts.tools.affiliation` all
     Of two organisations, the one that also covers the year before and not the year after counts, when the other covers the year after and not the year before.
     A record dated in the year of the change may therefore name the new organisation without changing how the year is counted.
 5.  **Bridging** is part of the rows, as described above, and is not computed.
-6.  **Tie-breaks**, among the organisations that are left:
-    1.  Named first: where one record names two organisations for the same time, the first one counts.
-        When the rows of all of them cite the same source with a snippet, the organisation whose snippet comes first in its excerpt counts, and when one sentence names them all, the one whose name or alias comes first in it.
-    2.  Commits: the year goes to the organisation whose address most of the person's commits of that year carry, because the commits are what the statistics count.
-        This holds when the commits under the addresses of the organisations in question outnumber those under personal addresses; commits under other addresses are left out, and a domain of the person's own, such as one with their name, is personal.
-    3.  Own statement: when most of those commits carry a personal address, the year follows the person's own public statement of that year, a speaker page or profile dated in the year, if it names one of the organisations.
-    4.  Records: otherwise the organisation that more distinct sources dated in the year name counts.
+6.  **Tie-breaks**, among the organisations that are left, in this order:
 
-    A source that could not be captured has no passage, and only the day of the attempt as its date, so the own statement and the records leave it out.
+    6a. Named first
+    : Where one record names two organisations for the same time, the first one counts.
+      When the rows of all of them cite the same source with a snippet, the organisation whose snippet comes first in its excerpt counts, and when one sentence names them all, the one whose name or alias comes first in it.
+      When the shared sources name different organisations first, this rule doesn't decide.
+
+    6b. Commits
+    : The year goes to the organisation whose address most of the person's commits of that year carry, because the commits are what the statistics count.
+      This holds when the commits under the addresses of the organisations in question outnumber those under personal addresses; commits under other addresses are left out.
+      A domain of the person's own, such as one with their name, is personal, unless an organisation of the register claims it.
+
+    6c. Own statement
+    : When most of those commits carry a personal address, the year follows the person's own public statement of that year, a speaker page or profile dated in the year, if the statements name exactly one of the organisations.
+
+    6d. Records
+    : Otherwise the organisation that more distinct sources dated in the year name counts.
+
+    Rules 6b and 6c read the commits that the collected files count under the person's `github` login, so they don't apply to a person without one.
+    A source that could not be captured has no passage, and only the day of the attempt as its date, so rules 6c and 6d leave it out.
 7.  **Conflict.**
     Otherwise the year is a conflict: it is Unmapped, and `make check` fails and names the person, the year and the organisations until a decision settles it.
 
@@ -129,7 +141,8 @@ A signature is evidence for the year of the message, and so is the company addre
 A personal website is no employer, and a link to it says nothing about one; but what the person writes there about an employer or their own business is evidence for the time it was written.
 A confirmation that exists only in private doesn't count, because nobody else can check it.
 A company email address in the person's commits is evidence for the years in which the person used it, but only in commits made in Git, see {doc}`history-and-coverage`.
-An address can outlive the employment, as an old mailbox: where a dated record names another organisation for the same years, such as the person's own business on its own or an alliance's page, the record counts, and the address only documents the mailbox and becomes no row of its own.
+An address can outlive the employment, as an old mailbox: where a dated record names another organisation for the same years, such as the person's own business on its own or an alliance's page, the record counts, and the address only documents the mailbox.
+The address never becomes a stated row: a proposal from it becomes a `denied` row with the reason in its notes, so the tools don't propose those years again.
 The tool described in {ref}`find-affiliations-in-commit-addresses` proposes such affiliations.
 Commits in the repositories of an organisation's own GitHub organisation are evidence of the same kind for that organisation in the year of the commits.
 The tool described in {ref}`find-affiliations-in-the-github-commit-search` finds both kinds in the GitHub commit search, for the years that assumed rows only guess.

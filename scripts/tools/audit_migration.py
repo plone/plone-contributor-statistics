@@ -93,11 +93,11 @@ class _Matcher:
         self.sources = sources
 
     def is_source_of(self, url, sid):
-        if self.recorded.get(url) == sid:
-            return True
         source = self.sources.get(sid)
         if source is None:
             return False
+        if self.recorded.get(url) == sid:
+            return True
         key = normalize_url(_archive_https(url))
         return any(normalize_url(_archive_https(address)) == key
                    for address in (source.url, source.archive_url) if address)
@@ -125,9 +125,8 @@ def _audit_cell(report, where, cell, citations, matcher):
     notes = [_squash(citation.notes) for citation in citations]
     unquoted = [_squash(_unquoted(citation.notes)) for citation in citations]
     snippets = {_squash(citation.snippet) for citation in citations if citation.snippet}
-    addresses = {_squash(address) for citation in citations for address in
-                 (matcher.sources[citation.source].url, matcher.sources[citation.source].archive_url)
-                 if citation.source in matcher.sources and address}
+    cited = [matcher.sources[citation.source] for citation in citations if citation.source in matcher.sources]
+    addresses = {_squash(address) for source in cited for address in (source.url, source.archive_url) if address}
     sids = [citation.source for citation in citations]
 
     def in_notes(text):

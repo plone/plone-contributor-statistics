@@ -194,7 +194,9 @@ With `--write`, the tool captures the example commit of each proposal as a sourc
 A commit that the search in a GitHub organisation found is cited with the search in the notes of its citation.
 Review the proposals like the address proposals.
 A proposal that confirms an assumed row becomes a stated row of those years; the assumed row keeps the years that no record dates yet.
-A proposal that contradicts an assumed row becomes a stated row too, which wins over the assumed one in its years; `make check` says when the assumed row has to stop before it, because the organisation of the assumed row returns after it.
+A proposal that contradicts an assumed row becomes a stated row too, which wins over the assumed one in its years.
+When the assumed row covers years before the stated row and its organisation covers years after it, whether in the assumed row itself or in another row, `make check` reports that the assumed years lie before the record and the organisation returns later: the assumed row reached back through an older employer.
+Then move the `from` of the assumed row past the stated record, and keep a note of what the earlier years rested on.
 A proposal against a dated record goes to the reviewer.
 Commits in the GitHub organisation of an employer show that the person worked on its code, which an employee does, but so does a volunteer; check the organisation before you accept.
 

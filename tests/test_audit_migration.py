@@ -132,6 +132,12 @@ def test_an_address_not_cited():
     assert 'url' in kinds(found)
 
 
+def test_a_cited_source_must_be_in_the_register():
+    new = new_data()
+    del new['sources']['s2']
+    assert ('cited', 'affiliation jane-doe acme 2010-2014', ARCHIVED) in losses(new=new)
+
+
 def test_a_search_is_cited_through_its_commits():
     new = new_data()
     new['citations'][2] = replace(new['citations'][2], source='s1')

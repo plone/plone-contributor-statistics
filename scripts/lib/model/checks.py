@@ -169,7 +169,9 @@ COUNTING = ('stated', ASSUMED)
 class ReachingBackPastRecord(Check):
     """An assumed range stops at a record of another organisation that its own organisation returns after.
 
-    A range reaching back from the current entry does not lie before the first record of another organisation.
+    An assumed row, open-ended or not, is an error when it covers years before a stated row of another
+    organisation and its own organisation covers years after that row: a current entry extended back through an
+    older employer. Overlapping the stated row doesn't help, because the stated row wins only in its own years.
     """
 
     type = 'reaching-back-past-record'
@@ -185,18 +187,18 @@ class ReachingBackPastRecord(Check):
     def validate_end(self):
         for rows in self._rows.values():
             rows = sorted(rows, key=lambda r: r['from'])
-            for index, row in enumerate(rows):
-                if row['to'] is None or row['status'] != ASSUMED:
+            for row in rows:
+                if row['status'] != ASSUMED:
                     continue
-                later = rows[index + 1:]
-                records = [r for r in later if r['organisation'] != row['organisation'] and r['status'] != ASSUMED]
-                if not records:
-                    continue
-                record = records[0]
-                if any(r['organisation'] == row['organisation'] and r['from'] > record['from'] for r in later):
-                    note = (f"the assumed years {row['from']}-{row['to']} of {row['organisation']} lie before the "
-                            f"record of {record['organisation']} in row {record.row_number}, and "
-                            f"{row['organisation']} returns later")
+                own = [r for r in rows if r['organisation'] == row['organisation']]
+                records = [r for r in rows if r['organisation'] != row['organisation'] and r['status'] != ASSUMED
+                           and r['to'] is not None and row['from'] < r['from']
+                           and any(o['to'] is None or o['to'] > r['to'] for o in own)]
+                if records:
+                    record = records[0]
+                    note = (f"the assumed years {row['from']}-{'' if row['to'] is None else row['to']} of "
+                            f"{row['organisation']} lie before the record of {record['organisation']} in row "
+                            f"{record.row_number}, and {row['organisation']} returns later")
                     yield ReachingBackPastRecordError.from_row(row, note=note)
 
 

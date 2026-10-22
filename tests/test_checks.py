@@ -222,9 +222,29 @@ def test_an_assumed_range_does_not_reach_back_past_a_record_of_another_organisat
         organisations=ZETA))) == []
 
 
+def test_an_open_or_overlapping_assumed_range_does_not_reach_back_past_a_record(tmp_package):
+    # Open-ended: acme would count for 2005-2011 and again from 2013 on, around the record of zeta
+    errors = check.validate(tmp_package(affiliations(
+        ('acme', 2005, None, 'assumed', '2026-10-19'), ('zeta', 2012, 2012), organisations=ZETA)))
+    assert [e[3] for e in errors] == [
+        'The row at position 2 has an error: the assumed years 2005- of acme lie before the record of zeta '
+        'in row 3, and acme returns later']
+    # Closed and overlapping the record, with acme covering the years after it
+    errors = check.validate(tmp_package(affiliations(
+        ('acme', 2005, 2016, 'assumed'), ('zeta', 2010, 2012), organisations=ZETA)))
+    assert [e[3] for e in errors] == [
+        'The row at position 2 has an error: the assumed years 2005-2016 of acme lie before the record of zeta '
+        'in row 3, and acme returns later']
+    # Moving `from` past the record is the fix; an assumed range that ends with the record does not return
+    assert check.validate(tmp_package(affiliations(
+        ('zeta', 2012, 2012), ('acme', 2013, None, 'assumed', '2026-10-19'), organisations=ZETA))) == []
+    assert check.validate(tmp_package(affiliations(
+        ('acme', 2005, 2012, 'assumed'), ('zeta', 2010, 2012), organisations=ZETA))) == []
+
+
 def test_overlapping_affiliations_are_fine_when_a_rule_decides(tmp_package):
-    # Stated beats assumed in 2012-2013
-    assert check.validate(tmp_package(affiliations(('acme', 2010, 2015, 'assumed'), ('beta', 2012, 2013),
+    # Stated beats assumed in 2012-2013; acme doesn't return after beta, see the reaching-back tests
+    assert check.validate(tmp_package(affiliations(('acme', 2010, 2013, 'assumed'), ('beta', 2012, 2013),
                                                    organisations=BETA))) == []
 
 
