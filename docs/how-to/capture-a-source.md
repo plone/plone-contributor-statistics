@@ -76,6 +76,25 @@ When the address is gone, the tool looks for the nearest Wayback capture and rec
 Without a capture, it records the source as unreachable with a note, and prints `! unreachable`.
 A fetch error such as a refusal or a timeout is not a gone page: the tool prints `! <message>`, exits with status 1 and writes nothing.
 
+## Capture many sources at once
+
+Capturing a few hundred sources one at a time is not practical.
+For a migration, give the tool a work list and a results file:
+
+```shell
+python -m scripts.tools.capture --batch worklist.jsonl --results results.jsonl
+```
+
+The work list is a JSON lines file, one object per line, for example `{"url": "https://example.org/sprint", "quotes": ["a quote"], "names": [], "kind": null}`.
+`quotes` and `names` work as `--quote` and `--name` do, `kind` is a kind of source or `null` to guess it.
+The tool appends one line per source to the results file and writes it at once: `{"url": …, "source_id": …, "created": true, "added": […], "missing": […], "unreachable": false, "error": null}`.
+A source the tool cannot capture gets `"source_id": null` and the message in `error`, and the run goes on.
+It prints its progress to the error output every 25 sources and exits with status 0 when it reached the end, whatever the outcomes; read `missing`, `unreachable` and `error` in the results.
+
+An interrupted run resumes when you start it again with the same two files: sources with a line in the results file are skipped, and a half-written last line is ignored.
+`--batch` and `--results` go together, and no address or other option is allowed with them.
+This mode is meant for migrations, not for everyday work.
+
 ## Refresh a page that changes
 
 Profiles and other live pages change.
