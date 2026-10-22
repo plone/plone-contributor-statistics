@@ -167,6 +167,12 @@ One row is one source: a page, profile, commit, video or decision that we read o
 
 Primary key: `id`.
 
+Checks beyond the schema:
+
+- The id is the hash of the address and, for an archived copy, its timestamp.
+- The rows are sorted by `id`.
+- Every source has an excerpt file with a passage, and every excerpt file has a source.
+
 ## Lists
 
 Accounts and repositories that the collectors treat in a special way, in `curated/mappings/`.
