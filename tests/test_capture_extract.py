@@ -7,8 +7,8 @@ import subprocess
 import pytest
 
 from scripts.lib.capture.extract import (
-    ExtractError, adapter_for, decode, extract, extract_commit, extract_github_profile, extract_html, extract_pdf,
-    extract_video, extract_volto)
+    ExtractError, adapter_for, decode, extract, extract_commit, extract_github_issue, extract_github_profile,
+    extract_google_doc, extract_html, extract_pdf, extract_video, extract_volto)
 from scripts.lib.capture.fetch import FetchError, Raw
 
 FIXTURES = pathlib.Path(__file__).parent / 'fixtures' / 'capture'
@@ -128,6 +128,11 @@ def test_decode_treats_iso_8859_1_as_windows_1252():
     ('https://github.com/search?q=plone', 'generic'),
     ('https://github.com/plone/Products.CMFPlone', 'generic'),
     ('https://github.com/plone/Products.CMFPlone/commit/abc1234', 'commit'),
+    ('https://github.com/plone/plone-contributor-statistics/issues/142', 'github-issue'),
+    ('https://github.com/plone/plone-contributor-statistics/pull/153#issuecomment-6297324385', 'github-issue'),
+    ('https://github.com/plone/Products.CMFPlone/pull/9/', 'github-issue'),
+    ('https://github.com/plone/Products.CMFPlone/pull/9/files', 'generic'),
+    ('https://github.com/plone/Products.CMFPlone/issues', 'generic'),
     ('https://www.youtube.com/watch?v=x', 'video'),
     ('https://youtu.be/x', 'video'),
     ('https://vimeo.com/123', 'video'),
@@ -135,6 +140,10 @@ def test_decode_treats_iso_8859_1_as_windows_1252():
     ('https://web.archive.org/web/20150312000000id_/https://www.youtube.com/watch?v=x', 'generic'),
     ('https://web.archive.org/web/2015/https://plone.org/', 'generic'),
     ('https://example.org/a', 'generic'),
+    ('https://docs.google.com/document/d/X1/edit', 'google-doc'),
+    ('https://docs.google.com/document/d/X1', 'google-doc'),
+    ('https://docs.google.com/spreadsheets/d/X1/edit', 'generic'),
+    ('https://web.archive.org/web/20150312000000/https://docs.google.com/document/d/X1/edit', 'generic'),
 ])
 def test_adapter_for(url, expected):
     assert adapter_for(url) == expected
@@ -174,7 +183,8 @@ def test_extract_volto_renders_blocks():
 
 
 def test_extract_volto_keeps_query_out_of_api_path():
-    fetcher = FakeFetcher(raw(json.dumps({'title': 'T', 'blocks': {'a': {'@type': 'text', 'text': {'blocks': [{'text': 'Body'}]}}}}).encode()))
+    page = {'title': 'T', 'blocks': {'a': {'@type': 'text', 'text': {'blocks': [{'text': 'Body'}]}}}}
+    fetcher = FakeFetcher(raw(json.dumps(page).encode()))
     extract_volto(fetcher, 'https://2023.ploneconf.org/talks/x?a=1')
     assert fetcher.urls == ['https://2023.ploneconf.org/++api++/talks/x']
 
@@ -220,10 +230,19 @@ def test_extract_github_profile_lines():
         'location': '', 'blog': 'https://jane.example'}))
     result = extract_github_profile('jane', session)
     assert session.urls == ['https://api.github.com/users/jane']
-    assert result.text.splitlines() == ['Name: Jane Doe', 'Company: @kitconcept', 'Blog: https://jane.example']
+    assert result.text.splitlines() == [
+        'Login: jane', 'Name: Jane Doe', 'Company: @kitconcept', 'Blog: https://jane.example']
     assert 'Bio' not in result.text and 'Location' not in result.text
     assert result.date == datetime.datetime.now(datetime.timezone.utc).date()
     assert result.title == 'Jane Doe'
+
+
+def test_extract_github_profile_without_other_fields_has_a_login_line():
+    session = FakeGitHubSession(FakeGitHubResponse({
+        'login': 'Taito', 'name': None, 'company': None, 'bio': None, 'location': None, 'blog': ''}))
+    assert extract_github_profile('taito', session).text == 'Login: Taito'
+    session = FakeGitHubSession(FakeGitHubResponse({}))
+    assert extract_github_profile('taito', session).text == 'Login: taito'
 
 
 class FakeRun:
@@ -315,10 +334,14 @@ def test_extract_video_command(tmp_path):
         if '--print' not in command:
             (tmp_path / 'abc.en.vtt').write_text(VTT, encoding='utf-8')
         return subprocess.CompletedProcess(command, 0, stdout=b'T\n', stderr=b'')
-    extract_video('https://youtu.be/abc', str(tmp_path), run=run)
+    extract_video('https://youtu.be/abc', str(tmp_path), run=run, which=lambda name: '/usr/bin/node')
     download = next(c for c in calls if '--print' not in c)
     assert download[0] == 'yt-dlp' and '--skip-download' in download
-    assert download[download.index('--sub-langs') + 1] == 'en.*,de.*,es.*,pt.*,it.*,nl.*,fr.*'
+    assert download[download.index('--sub-langs') + 1] == (
+        'en-orig,de-orig,es-orig,pt-orig,it-orig,nl-orig,fr-orig,en,de,es,pt,it,nl,fr')
+    assert download[download.index('--sleep-subtitles') + 1] == '5'
+    assert download[download.index('--sleep-requests') + 1] == '2'
+    assert download[download.index('--js-runtimes') + 1] == 'node'
     assert download[download.index('-o') + 1] == os.path.join(str(tmp_path), '%(id)s')
 
 
@@ -407,4 +430,145 @@ def test_extract_video_timeout_raises(tmp_path):
     def run(command, **kwargs):
         raise subprocess.TimeoutExpired(command, kwargs.get('timeout'))
     with pytest.raises(ExtractError, match='timed out'):
+        extract_video('https://youtu.be/x', str(tmp_path), run=run)
+
+
+def issue_session(*responses):
+    return FakeGitHubSession(*[FakeGitHubResponse(data) for data in responses])
+
+
+@pytest.mark.parametrize('fragment, path', [
+    ('issuecomment-77', 'issues/comments/77'),
+    ('discussion_r77', 'pulls/comments/77'),
+    ('pullrequestreview-77', 'pulls/5/reviews/77'),
+])
+def test_extract_issue_comment(fragment, path):
+    stamp = {'submitted_at': '2026-10-01T10:00:00Z'} if 'review' in fragment else {'created_at': '2026-10-01T10:00:00Z'}
+    session = issue_session({'user': {'login': 'jane'}, 'body': 'Fred is at Zest.\r\nSure.', **stamp})
+    result = extract_github_issue('plone', 'x', '5', fragment, session)
+    assert session.urls == [f'https://api.github.com/repos/plone/x/{path}']
+    assert result.text == 'Author: jane\nDate: 2026-10-01T10:00:00Z\n\nFred is at Zest.\nSure.'
+    assert result.date == datetime.date(2026, 10, 1)
+
+
+def test_extract_issue_with_comments_paginates():
+    comment = {'user': {'login': 'bob'}, 'body': 'again', 'created_at': '2026-10-03T00:00:00Z'}
+    session = issue_session(
+        {'title': 'Map Fred', 'user': {'login': 'jane'}, 'body': 'Please.', 'created_at': '2026-10-01T00:00:00Z'},
+        [comment] * 100,
+        [{'user': {'login': 'amy'}, 'body': None, 'created_at': '2026-10-04T00:00:00Z'}])
+    calls = []
+    original = session.get
+    session.get = lambda url, params=None, timeout=None: (calls.append(params), original(url, params, timeout))[1]
+    result = extract_github_issue('plone', 'x', '5', '', session)
+    assert calls == [None, {'per_page': 100, 'page': 1}, {'per_page': 100, 'page': 2}]
+    blocks = result.text.split('\n\n')
+    assert blocks[0] == 'Title: Map Fred\nAuthor: jane\nDate: 2026-10-01T00:00:00Z'
+    assert blocks[1] == 'Please.'
+    assert result.text.count('Author: bob') == 100
+    assert result.text.endswith('Author: amy\nDate: 2026-10-04T00:00:00Z\n\n')
+    assert result.title == 'Map Fred' and result.date == datetime.date(2026, 10, 1)
+
+
+def test_extract_google_doc():
+    body = '\ufeffSprint participants\r\nJane Doe, Acme\r\n\r\n  John Roe, Beta  \r\n'.encode()
+    fetcher = FakeFetcher(raw(body, 'text/plain'))
+    result = extract_google_doc(fetcher, 'X1')
+    assert fetcher.urls == ['https://docs.google.com/document/d/X1/export?format=txt']
+    assert result.title == 'Sprint participants'
+    assert result.text.split('\n\n') == ['Sprint participants', 'Jane Doe, Acme', 'John Roe, Beta']
+    assert result.date is None
+
+
+def test_private_google_doc_raises():
+    private = Raw(url='u', status=401, content_type='text/html', body=b'<html>login</html>', fetched=NOW)
+    with pytest.raises(ExtractError, match='not a public document'):
+        extract_google_doc(FakeFetcher(private), 'X1')
+
+
+def test_private_google_doc_redirected_to_a_login_page_raises():
+    login = Raw(url='https://docs.google.com/document/d/X1/export?format=txt', status=200,
+                content_type='text/html; charset=utf-8', body=b'<html>Sign in</html>', fetched=NOW,
+                final_url='https://accounts.google.com/v3/signin/identifier?continue=https://docs.google.com/')
+    with pytest.raises(ExtractError, match='not a public document'):
+        extract_google_doc(FakeFetcher(login), 'X1')
+
+
+def test_volto_text7_block_renders_title_and_content():
+    """plone.org shows people with a `text7` block: a title and draft.js `content` (from a real page)."""
+    text7 = {
+        '@type': 'text7', 'title': 'Sébastien Verbois', 'img_column_width': '3',
+        'url': 'https://plone.org/news-and-events/news/news-for-2026/x/sebastien-verbios.jpeg',
+        'image_scales': {'image': [{'content-type': 'image/jpeg', 'filename': 'sebastien-verbios.jpeg'}]},
+        'content': {'entityMap': {}, 'blocks': [
+            {'data': {}, 'depth': 0, 'entityRanges': [], 'inlineStyleRanges': [], 'key': '3674r',
+             'type': 'unstyled', 'text': 'Sébastien has been working with Plone since 2004.'},
+            {'data': {}, 'depth': 0, 'entityRanges': [], 'inlineStyleRanges': [], 'key': '41cpm',
+             'type': 'unstyled', 'text': 'Sébastien works as an Enterprise Architect at IMIO.'}]},
+    }
+    page = {'title': 'New members', 'blocks': {'t': {'@type': 'title'}, 'p': text7},
+            'blocks_layout': {'items': ['t', 'p']}}
+    result = extract_volto(FakeFetcher(raw(json.dumps(page).encode(), 'application/json')),
+                           'https://plone.org/news-and-events/news/news-for-2026/x')
+    assert result.text.split('\n\n') == [
+        'New members', 'Sébastien Verbois', 'Sébastien has been working with Plone since 2004.',
+        'Sébastien works as an Enterprise Architect at IMIO.']
+
+
+def test_extract_video_without_node_has_no_js_runtime(tmp_path):
+    calls = []
+    extract_video('https://youtu.be/x', str(tmp_path), run=caption_run(tmp_path, {'x.en.vtt': vtt('a')}, calls),
+                  which=lambda name: None)
+    assert all('--js-runtimes' not in command for command, _ in calls)
+
+
+def test_extract_video_downloads_are_paced_across_videos(tmp_path):
+    from scripts.lib.capture.fetch import Fetcher
+    sleeps, now = [], [1000.0]
+    fetcher = Fetcher(cache=str(tmp_path / 'cache'), sleep=sleeps.append, clock=lambda: now[0])
+    for name in ('a', 'b'):
+        workdir = tmp_path / name
+        workdir.mkdir()
+        extract_video(f'https://youtu.be/{name}', str(workdir), run=caption_run(workdir, {f'{name}.en.vtt': vtt('x')}),
+                      fetcher=fetcher)
+        now[0] += 10
+    assert sleeps == [20.0]
+    # another fetcher on the same cache (another process) keeps the pace too
+    other = Fetcher(cache=str(tmp_path / 'cache'), sleep=sleeps.append, clock=lambda: now[0])
+    workdir = tmp_path / 'c'
+    workdir.mkdir()
+    extract_video('https://youtu.be/c', str(workdir), run=caption_run(workdir, {'c.en.vtt': vtt('x')}), fetcher=other)
+    assert sleeps == [20.0, 20.0]
+
+
+def test_extract_video_title_call_runs_inside_the_pace(tmp_path):
+    from scripts.lib.capture.fetch import Fetcher
+    fetcher = Fetcher(cache=str(tmp_path / 'cache'), sleep=lambda seconds: None, clock=lambda: 1000.0)
+    inside, plain = [], caption_run(tmp_path, {'x.en.vtt': vtt('a')})
+    original = fetcher.paced
+
+    class Spy:
+        def __enter__(self):
+            self.context = original('youtube.com')
+            inside.append(True)
+            return self.context.__enter__()
+
+        def __exit__(self, *exc):
+            inside.clear()
+            return self.context.__exit__(*exc)
+    fetcher.paced = lambda key: Spy()
+    seen = []
+
+    def run(command, **kwargs):
+        seen.append(bool(inside))
+        return plain(command, **kwargs)
+    extract_video('https://youtu.be/x', str(tmp_path), run=run, fetcher=fetcher)
+    assert seen == [True, True]
+
+
+def test_extract_video_rate_limit_is_named(tmp_path):
+    def run(command, **kwargs):
+        raise subprocess.CalledProcessError(
+            1, command, stderr=b'ERROR: Unable to download: HTTP Error 429: Too Many Requests')
+    with pytest.raises(ExtractError, match='^rate limited:'):
         extract_video('https://youtu.be/x', str(tmp_path), run=run)

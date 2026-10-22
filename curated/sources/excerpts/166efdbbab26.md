@@ -1,0 +1,1 @@
+Matt is responsible for the technical consulting and training that Netsight undertakes. He was the technical consultant for various large commercial intranet projects, and specialises in integration, authentication and performance optimisation.

@@ -1,0 +1,1 @@
+Pellegrini is an independent Plone consultant and Plone core developer who has been growing and improving the content management system (CMS) for more than 15 years. As part of Plone's Framework team, Pellegrini reviews new feature requests and bug fixes to determine what gets added to the next release cycle.

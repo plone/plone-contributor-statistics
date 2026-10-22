@@ -250,16 +250,19 @@ def append_person(mappings_dir, person):
 PROPOSAL_FIELDS = ('person', 'organisation', 'from', 'to', 'evidence')
 
 
+def load_rejection_rows(mappings_dir=MAPPINGS_DIR):
+    """The rows of rejected_proposals.csv as dicts, with their reason and source; [] when the file is missing."""
+    try:
+        return read_rows(mappings_dir / paths.REJECTED_PROPOSALS.name)
+    except FileNotFoundError:
+        return []
+
+
 def load_rejections(mappings_dir=MAPPINGS_DIR):
     """{(person, organisation, year)} of rejected_proposals.csv: evidence a reviewer turned down, which the tools
     don't propose again. An empty set when the file is missing."""
-    path = mappings_dir / paths.REJECTED_PROPOSALS.name
-    try:
-        rows = read_rows(path)
-    except FileNotFoundError:
-        return set()
     return {(row['person'], row['organisation'], year)
-            for row in rows for year in range(row['from'], row['to'] + 1)}
+            for row in load_rejection_rows(mappings_dir) for year in range(row['from'], row['to'] + 1)}
 
 
 def append_proposals(rows, mappings_dir=MAPPINGS_DIR):

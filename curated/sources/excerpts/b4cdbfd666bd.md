@@ -1,0 +1,1 @@
+Ramon is Chief of the Technology Office at Intranetum and Iskra.cat, the AI system that helps organize your information and a provider for content management solutions. He has played a major role in Plone's multilingual support and Javascript integration and has been a member of the Framework and UI Teams.

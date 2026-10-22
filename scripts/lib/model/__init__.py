@@ -30,6 +30,7 @@ from scripts.lib.model.registers import (  # noqa: F401
     load_bot_accounts,
     load_excluded_repositories,
     load_registry,
+    load_rejection_rows,
     load_rejections,
 )
 from scripts.lib.model.sources import (  # noqa: F401

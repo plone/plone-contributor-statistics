@@ -1,0 +1,1 @@
+When you want a Plone Site for your organisation, you have come to the right spot: I am Release Manager of Plone, and member of the Plone Security team. I have experience with Plone since 2005 at my former employer in The Netherlands. In January 2023 I have started my own company on the side. Since January 2024 I am fully independent.

@@ -12,7 +12,9 @@ from scripts.lib.capture.fetch import FetchError, Fetcher, nearest_capture, raw_
 
 
 class FakeResponse:
-    def __init__(self, status=200, body=b'hello', content_type='text/html'):
+    def __init__(self, status=200, body=b'hello', content_type='text/html', url=None):
+        if url is not None:
+            self.url = url
         self.status_code = status
         self.content = body
         self.headers = {'Content-Type': content_type}
@@ -342,3 +344,27 @@ def test_default_cache_is_resolved_when_the_fetcher_is_built(monkeypatch, tmp_pa
 def test_tests_never_use_the_real_cache():
     """conftest points the cache to a temporary directory for every test."""
     assert fetch.cache_root().startswith(tempfile.gettempdir())
+
+
+def test_raw_records_the_final_url(tmp_path):
+    asked = 'https://web.archive.org/web/20100101000000id_/http://a.org/x'
+    served = 'https://web.archive.org/web/20100125023558id_/http://a.org/x'
+    fetcher, _, _ = make(tmp_path, FakeResponse(url=served))
+    raw = fetcher.get(asked)
+    assert raw.url == asked
+    assert raw.final_url == served
+    assert fetcher.get(asked).final_url == served  # also from the cache
+
+
+def test_old_cache_entry_without_final_url(tmp_path):
+    fetcher, session, _ = make(tmp_path)
+    fetcher.get('https://a.org/x')
+    meta_path = fetcher._paths('https://a.org/x')[1]
+    with open(meta_path, encoding='utf-8') as f:
+        meta = json.load(f)
+    meta.pop('final_url', None)
+    with open(meta_path, 'w', encoding='utf-8') as f:
+        json.dump(meta, f)
+    raw = fetcher.get('https://a.org/x')
+    assert raw.final_url == 'https://a.org/x'
+    assert len(session.requests) == 1

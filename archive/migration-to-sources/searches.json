@@ -1,0 +1,267 @@
+{
+ "https://github.com/search?q=author%3AGagaro+org%3Amakinacorpus+committer-date%3A2013-01-01..2013-12-31&type=commits": [
+  "https://github.com/makinacorpus/ODE/commit/983449b208348748340a662765d4c067f4dd0f7c",
+  "https://github.com/makinacorpus/ODE/commit/57ce3b691a5e1046845c21de4d3acfeae57d5619",
+  "https://github.com/makinacorpus/ODE/commit/64717e787ccdbda4c643e9764b419043f2b8dbc1"
+ ],
+ "https://github.com/search?q=author%3AGagaro+org%3Amakinacorpus+committer-date%3A2020-01-01..2020-12-31&type=commits": [
+  "https://github.com/makinacorpus/django-admin-watchdog/commit/b12229d41105dd34431cae2546ee7d5e74179177",
+  "https://github.com/makinacorpus/django-admin-watchdog/commit/dabb3ef08ff2b8a5841af0906aa75301b7151971",
+  "https://github.com/makinacorpus/django-admin-watchdog/commit/01355d7ee4d17b6a79bfbcb62d6c29eed93a242a"
+ ],
+ "https://github.com/search?q=author%3AGagaro+org%3Amakinacorpus+committer-date%3A2022-01-01..2022-12-31&type=commits": [
+  "https://github.com/makinacorpus/django-admin-watchdog/commit/3f2c81ae3e83e7cf8dd38778846bae597b4b07dd",
+  "https://github.com/makinacorpus/django-admin-watchdog/commit/6cefae524182c04e9d0049bbfb831cf5e9fec36f",
+  "https://github.com/makinacorpus/django-admin-watchdog/commit/984467e679c32c5b47622306f51d5cb0223c7e95"
+ ],
+ "https://github.com/search?q=author%3AGomez+org%3Astarzel+committer-date%3A2013-01-01..2013-12-31&type=commits": [
+  "https://github.com/starzel/operun.media/commit/165e228b8d6860f9e8c57ed13dc4db07d6d41281",
+  "https://github.com/starzel/operun.media/commit/ac779dfbac9281949ca26b63c64b86f0bfe94b69",
+  "https://github.com/starzel/operun.media/commit/4fb1915affd6c3ae3dd4fa2865cd661c0659dc72"
+ ],
+ "https://github.com/search?q=author%3AGomez+org%3Astarzel+committer-date%3A2016-01-01..2016-12-31&type=commits": [],
+ "https://github.com/search?q=author%3AGomez+org%3Astarzel+committer-date%3A2019-01-01..2019-12-31&type=commits": [
+  "https://github.com/starzel/buildout/commit/97ca8e32ed2dd732e850b26a21ea64a0a2d7225a",
+  "https://github.com/starzel/buildout/commit/8094a6e53e0472389a13d4debcb8a0b861d31bbe",
+  "https://github.com/starzel/buildout/commit/ca67cb0b5ac208aea947c833c7449a4cbc3cfb90"
+ ],
+ "https://github.com/search?q=author%3AGomez+org%3Astarzel+committer-date%3A2024-01-01..2024-12-31&type=commits": [
+  "https://github.com/starzel/volto-subnavigation/commit/76976d743a543227255e12b6037e57cb9cd5a784",
+  "https://github.com/starzel/volto-subnavigation/commit/52302e9b5ee6700020199c17694d0ec7b537f941",
+  "https://github.com/starzel/volto-subnavigation/commit/3048c44e46a907e0cce0decf62fa92abed11d503"
+ ],
+ "https://github.com/search?q=author%3AJeffersonBledsoe+org%3Apretagov+committer-date%3A2022-01-01..2022-12-31&type=commits": [
+  "https://github.com/pretagov/nsw-design-system-plone6-kit/commit/e7e4b7bdfb0dbe898c540d30c5f915f972fb1e83",
+  "https://github.com/pretagov/nswdesignsystem.plone6/commit/f4cf9d0fa06d8bae0d89de36bcfdefc41c324b07",
+  "https://github.com/pretagov/nswdesignsystem.plone6/commit/ab3f12df58de8f5182b03df4d22ddeb01ca685bf"
+ ],
+ "https://github.com/search?q=author%3ATishasoumya-02+org%3Akitconcept+committer-date%3A2024-01-01..2024-12-31&type=commits": [
+  "https://github.com/kitconcept/volto-light-theme/commit/092015c69a060edc7a8f47d5ab0c3a092234ff28"
+ ],
+ "https://github.com/search?q=author%3Aale-rt+org%3Asyslabcom+committer-date%3A2017-01-01..2017-12-31&type=commits": [
+  "https://github.com/syslabcom/casc.alt/commit/1d318be1cac973b92423ffcb45f2a86222ea93e4",
+  "https://github.com/syslabcom/casc.alt/commit/90b28707829c58f36716418a1db2f70350cc19e2",
+  "https://github.com/syslabcom/recensio.buildout/commit/f10ffe6bb72f319a5fb55372b8179b858c208f30"
+ ],
+ "https://github.com/search?q=author%3Aale-rt+org%3Asyslabcom+committer-date%3A2019-01-01..2019-12-31&type=commits": [
+  "https://github.com/syslabcom/slc.mailrouter/commit/7892f96232cadcc64bdcf65836f91dfe2aeea378",
+  "https://github.com/syslabcom/slc.mailrouter/commit/b5dfc0315ccf073d6054fbb705f4032abe6ecd3f",
+  "https://github.com/syslabcom/slc.mailrouter/commit/ea420e122bff93a9569b85cedebd9b1adf95f6eb"
+ ],
+ "https://github.com/search?q=author%3Aale-rt+org%3Asyslabcom+committer-date%3A2023-01-01..2023-12-31&type=commits": [
+  "https://github.com/syslabcom/recensio.plone/commit/884ed051ed9d9e38b06c03b96cf918911d0e63f7",
+  "https://github.com/syslabcom/recensio.plone/commit/4d849f0773a96343bd35bd8c5715a8a85070d371",
+  "https://github.com/syslabcom/recensio.plone/commit/48e38bd551643968bef4296ab149c2466e6c7338"
+ ],
+ "https://github.com/search?q=author%3Abipoza+org%3Acodesyntax+committer-date%3A2022-01-01..2022-12-31&type=commits": [
+  "https://github.com/codesyntax/ionic-react-capacitor-demo/commit/0cd32c64757ce3fdd3430678df593e8451dd6e3a",
+  "https://github.com/codesyntax/ionic-react-capacitor-demo/commit/3573d782f8386193f01703d4060918493d7a2480",
+  "https://github.com/codesyntax/ionic-react-capacitor-demo/commit/288496a59acb5d12d961750a9fcf1d99c2071d95"
+ ],
+ "https://github.com/search?q=author%3Abloodbare+org%3Anuclia+committer-date%3A2021-01-01..2021-12-31&type=commits": [
+  "https://github.com/nuclia/demo.nuclia.io/commit/845d8af839c07c9f03c851335d6cd4ee602149d7",
+  "https://github.com/nuclia/demo.nuclia.io/commit/90cbc1a128ad9b1231f7cbea816b371dbb1a6ba9",
+  "https://github.com/nuclia/demo.nuclia.io/commit/aa439a8fbde7e79bc95c8a7aaf58bc2411c2b1a5"
+ ],
+ "https://github.com/search?q=author%3Abloodbare+org%3Aonna+committer-date%3A2019-01-01..2019-12-31&type=commits": [
+  "https://github.com/onna/guillotina_elasticsearch/commit/7fab8bfe29904754305794bb053dd9e4d4615e25",
+  "https://github.com/onna/guillotina_elasticsearch/commit/2e0f0a31ba9f958f8b1e90f3cbde7e2e141b5476",
+  "https://github.com/onna/guillotina_elasticsearch/commit/4e1d967c207502f4140c2ad13af41aed595ae284"
+ ],
+ "https://github.com/search?q=author%3Acekk+org%3ARedTurtle+committer-date%3A2013-01-01..2013-12-31&type=commits": [
+  "https://github.com/RedTurtle/pas.plugins.velruse/commit/bf822779be5ec1c21fcc9e26adca34010fac6782",
+  "https://github.com/RedTurtle/pas.plugins.velruse/commit/1637ee60f266a7c7e33d8fa8f68854f001709029",
+  "https://github.com/RedTurtle/pas.plugins.velruse/commit/cefee1e7de92f6420ee5de71808e12fabc4b321c"
+ ],
+ "https://github.com/search?q=author%3Acekk+org%3ARedTurtle+committer-date%3A2017-01-01..2017-12-31&type=commits": [
+  "https://github.com/RedTurtle/rt.purge/commit/a0eef5f67813b80ff34d23e453e3fc84f3766b39",
+  "https://github.com/RedTurtle/rt.purge/commit/df22df5e1cb5e78ddb0e92bde181ac57518bbe5f",
+  "https://github.com/RedTurtle/rt.purge/commit/4f8bfcdf364269fa1861aa0d0553121aa80ce037"
+ ],
+ "https://github.com/search?q=author%3Acihanandac+org%3AderFreitag+committer-date%3A2025-01-01..2025-12-31&type=commits": [
+  "https://github.com/derFreitag/freitagde-upptime/commit/0c758ff5bb6a7b63b929a3386cd132dee9fd64c5",
+  "https://github.com/derFreitag/freitagde-upptime/commit/564e4487d1ea789d4fe0c92543492fae0ac01d94",
+  "https://github.com/derFreitag/freitagde-upptime/commit/8f00a6438dc673f8db0268ab529b4262cc11d3b6"
+ ],
+ "https://github.com/search?q=author%3Acillianderoiste+org%3Asyslabcom+committer-date%3A2015-01-01..2015-12-31&type=commits": [
+  "https://github.com/syslabcom/recensio.theme/commit/bf91ae644d5d6f2a2a117e606769487735d9797f",
+  "https://github.com/syslabcom/recensio.theme/commit/2552f064b728bede9b88f877bdeef782ec913bb2",
+  "https://github.com/syslabcom/recensio.theme/commit/35eee5cc403f9964f73a84293ab72e000cbfc2c1"
+ ],
+ "https://github.com/search?q=author%3Aclaudiaifrim+org%3Aeaudeweb+committer-date%3A2023-01-01..2023-12-31&type=commits": [
+  "https://github.com/eaudeweb/university-app/commit/c4c8ca8c84762b0eaa36c7694d9f31b482355a21",
+  "https://github.com/eaudeweb/barcelona-convention-webforms/commit/8b86084a0f7c0f252ca7285807a573ba9fdd5540",
+  "https://github.com/eaudeweb/barcelona-convention-webforms/commit/4a1cb7c1141c4200a7bae3507d7467748c17090a"
+ ],
+ "https://github.com/search?q=author%3Adanalvrz+org%3Akitconcept+committer-date%3A2022-01-01..2022-12-31&type=commits": [],
+ "https://github.com/search?q=author%3Adobri1408+org%3Aeaudeweb+committer-date%3A2022-01-01..2022-12-31&type=commits": [
+  "https://github.com/eaudeweb/drupal_event/commit/b9d426cd5cc5308cd59344bbc5c9eda36b487495",
+  "https://github.com/eaudeweb/drupal_event/commit/ba3dbdb0bc70f4ecdc826d3e445c61c13ef31f29",
+  "https://github.com/eaudeweb/drupal_event/commit/01ce8d7d971e945bd5d3d9bd76194c8ea4135c77"
+ ],
+ "https://github.com/search?q=author%3Aebrehault+org%3Anuclia+committer-date%3A2022-01-01..2022-12-31&type=commits": [
+  "https://github.com/nuclia/nucliadb/commit/0b30c652671945a4b582d5d873c167fd03fa15d4",
+  "https://github.com/nuclia/nucliadb/commit/f86854fdc77b1030395129b3a9b299eae0ec603e",
+  "https://github.com/nuclia/nucliadb/commit/2bd3e3786ad5ec71ebbcc3e2c0fc414b5c64284e"
+ ],
+ "https://github.com/search?q=author%3Aericof+org%3Akitconcept+committer-date%3A2022-01-01..2022-12-31&type=commits": [
+  "https://github.com/kitconcept/kitconcept.richpage/commit/685943dcb600012bbbc366f5835713fe53a9bf91",
+  "https://github.com/kitconcept/kitconcept.richpage/commit/90886b7c0044b6e4b48954d22f5d91dcef411fec",
+  "https://github.com/kitconcept/kitconcept.richpage/commit/d6add01e27b2313d0464bd52434a2eedc969e643"
+ ],
+ "https://github.com/search?q=author%3Afabiorauber+org%3Ainterlegis+committer-date%3A2023-01-01..2023-12-31&type=commits": [
+  "https://github.com/interlegis/alpine-postfix/commit/416d5a43ff6085ea3cfa43e31e1f9510b7a194f4"
+ ],
+ "https://github.com/search?q=author%3Aflipmcf+org%3ARadioFreeAsia+committer-date%3A2018-01-01..2018-12-31&type=commits": [
+  "https://github.com/RadioFreeAsia/Products.BigramSplitter-1.0/commit/6aacb90e2499cf6563986388182a4059f374e4e3"
+ ],
+ "https://github.com/search?q=author%3Afredvd+org%3Akitconcept+committer-date%3A2024-01-01..2024-12-31&type=commits": [
+  "https://github.com/kitconcept/.github/commit/1aab931472784fba5177de460b91b4f86f6db86f",
+  "https://github.com/kitconcept/volto-quote-block/commit/07f9b6f666452fea1a3e30b90c3786cae3f12987"
+ ],
+ "https://github.com/search?q=author%3Agforcada+org%3AderFreitag+committer-date%3A2015-01-01..2015-12-31&type=commits": [
+  "https://github.com/derFreitag/freitag.releaser/commit/f26769dc8f070986fd61c20c18dc0e8ede29cf00",
+  "https://github.com/derFreitag/freitag.releaser/commit/42c2b11bbfa725af4a32938c544d07a20da39002",
+  "https://github.com/derFreitag/freitag.releaser/commit/edd78744deeaa0abcd24e4efcb60342984547f4c"
+ ],
+ "https://github.com/search?q=author%3Agforcada+org%3AderFreitag+committer-date%3A2017-01-01..2017-12-31&type=commits": [
+  "https://github.com/derFreitag/freitag.releaser/commit/9b040b06567ed9e1c5d266283e07a094464424fa",
+  "https://github.com/derFreitag/freitag.releaser/commit/a270ee5cd241174f8b7cdee75c19efa227a6d9f7",
+  "https://github.com/derFreitag/freitag.releaser/commit/eeb9c50749e4f2a088afb30d3852c3d8e6583cc5"
+ ],
+ "https://github.com/search?q=author%3AiFlameing+org%3Akitconcept+committer-date%3A2020-01-01..2020-12-31&type=commits": [
+  "https://github.com/kitconcept/volto-form-builder/commit/dacf2189f11f22f4b9b5b814e3d261eda62da8a0",
+  "https://github.com/kitconcept/volto-form-builder/commit/afd6577bffc3382dad29a902993f3d02fbe22d11",
+  "https://github.com/kitconcept/volto-form-builder/commit/f5d3a80bda96b339c5a8cc342e6c6fc4c01c60c1"
+ ],
+ "https://github.com/search?q=author%3AiRohitSingh+org%3Akitconcept+committer-date%3A2021-01-01..2021-12-31&type=commits": [
+  "https://github.com/kitconcept/volto-theme-plone-regional/commit/b2a2d8bd09983be526d37a9c16a8f4ba0f8e95cf",
+  "https://github.com/kitconcept/volto-theme-plone-regional/commit/cff7edbaead5c5b1e0ac8fa170a2c2026397ced3"
+ ],
+ "https://github.com/search?q=author%3Aichim-david+org%3Aeaudeweb+committer-date%3A2013-01-01..2013-12-31&type=commits": [
+  "https://github.com/eaudeweb/theme.plone.ro/commit/c5d315b0097a962d0db83afbdebc56d3e6a75a63",
+  "https://github.com/eaudeweb/theme.plone.ro/commit/488d8f84b3053b086a7cc635a208ce62223fd424",
+  "https://github.com/eaudeweb/theme.plone.ro/commit/a4e2fd4b3d379637461509940849044805bee88d"
+ ],
+ "https://github.com/search?q=author%3Aichim-david+org%3Aeaudeweb+committer-date%3A2015-01-01..2015-12-31&type=commits": [
+  "https://github.com/eaudeweb/edw.userhistory/commit/6a371aac041655085e951db2e5515f07e894d0fc",
+  "https://github.com/eaudeweb/edw.userhistory/commit/63c795fa009e1cc640748b868edf852dc0d09fdb"
+ ],
+ "https://github.com/search?q=author%3Ainstification+org%3Apretagov+committer-date%3A2015-01-01..2015-12-31&type=commits": [
+  "https://github.com/pretagov/pretaweb.plomino2pdf/commit/30eef957853c2e2569980485a7381b4cc5f5cd1e",
+  "https://github.com/pretagov/pretaweb.plomino2pdf/commit/bc1372599790ed722baa60586778786c4fb9aed3",
+  "https://github.com/pretagov/pretaweb.plomino2pdf/commit/33d00a8246739dd0fa5a27df9955fd2b3d7329b2"
+ ],
+ "https://github.com/search?q=author%3Ajone+org%3A4teamwork+committer-date%3A2009-01-01..2009-12-31&type=commits": [
+  "https://github.com/4teamwork/ftw.downloadtoken/commit/d25e5de0203e0a138ccc6791677377fde1e542ef"
+ ],
+ "https://github.com/search?q=author%3Ajone+org%3A4teamwork+committer-date%3A2019-01-01..2019-12-31&type=commits": [
+  "https://github.com/4teamwork/ftw.solr/commit/6cf5c091f459c8fc6587dc1a6486e87e0a73444c",
+  "https://github.com/4teamwork/ftw.chameleon/commit/1847d1536fd64ffdf593e6eae8c2ec59f868dd50",
+  "https://github.com/4teamwork/ftw.chameleon/commit/8a8486a60a359dcc476d0c8bce77fdee2de56cbd"
+ ],
+ "https://github.com/search?q=author%3Ajotare+org%3Anuclia+committer-date%3A2022-01-01..2022-12-31&type=commits": [
+  "https://github.com/nuclia/nucliadb/commit/982ad55d8a30b3cdeed83cb311798e3da27d3209",
+  "https://github.com/nuclia/nucliadb/commit/b9c93e760f252d05f0a5b250d2beadc501eb8235",
+  "https://github.com/nuclia/nucliadb/commit/9ea871f1c255498d7f3f78a9b093e456d4bc688d"
+ ],
+ "https://github.com/search?q=author%3Alaulaz+org%3Aaffinitic+committer-date%3A2008-01-01..2008-12-31&type=commits": [
+  "https://github.com/affinitic/Products.MailmanSubForm/commit/6c7fb81827eb8f9cc5a8cd8537882e30d2b99a04",
+  "https://github.com/affinitic/Products.MailmanSubForm/commit/9fca660792a29521f6937853460bcc56690677dc",
+  "https://github.com/affinitic/Products.MailmanSubForm/commit/6cd93bbf9286215e2ce10d1ff75e9c3d3a0771e0"
+ ],
+ "https://github.com/search?q=author%3Alaulaz+org%3Aaffinitic+committer-date%3A2012-01-01..2012-12-31&type=commits": [
+  "https://github.com/affinitic/buildout.affinitic/commit/c1639383a1aa45aba567913773dc9de566014d83",
+  "https://github.com/affinitic/buildout.affinitic/commit/0becb3e5d792e78fdb809f4bad68960cfdec6043",
+  "https://github.com/affinitic/affinitic.skin/commit/523b90998b6528e04399b2dc397fde92bfd48c47"
+ ],
+ "https://github.com/search?q=author%3Amamico+org%3ARedTurtle+committer-date%3A2021-01-01..2021-12-31&type=commits": [
+  "https://github.com/RedTurtle/lighthouse-audit/commit/fde3194525e4e462b9c65de75fcc6640172f2dbb",
+  "https://github.com/RedTurtle/lighthouse-audit/commit/92acc6df6bdd4c5128f7d95d9f0b3f38259a3924",
+  "https://github.com/RedTurtle/lighthouse-audit/commit/f76e440c44a54a36b727c59c0347d047834df047"
+ ],
+ "https://github.com/search?q=author%3Ampellerin42+org%3Anuclia+committer-date%3A2023-01-01..2023-12-31&type=commits": [
+  "https://github.com/nuclia/e2e/commit/86426d498bbadadfb993687bf976b295a93fd45e",
+  "https://github.com/nuclia/e2e/commit/698fd1f3f3e77b4c26426bb5e52bae2f7d6344c5",
+  "https://github.com/nuclia/e2e/commit/39fc231475828ad611526a40c7467abc2024b866"
+ ],
+ "https://github.com/search?q=author%3Anzambello+org%3ARedTurtle+committer-date%3A2021-01-01..2021-12-31&type=commits": [
+  "https://github.com/RedTurtle/rendertron-volto/commit/8c01c7b709a83501a4ee15fea233b6422bf5dfcb",
+  "https://github.com/RedTurtle/rendertron-volto/commit/69a452df5036a4d8df072c3b2218f4bf1a0b0c80",
+  "https://github.com/RedTurtle/rendertron-volto/commit/d013475e6c233b0ef7657b9970fab6546ec811ef"
+ ],
+ "https://github.com/search?q=author%3Areinout+org%3Anens+committer-date%3A2014-01-01..2014-12-31&type=commits": [
+  "https://github.com/nens/spoc/commit/87974896725c0678298ab42284d007fc17f616f9",
+  "https://github.com/nens/spoc/commit/e421044fb3dc32a9f0af3e1dc214cbaa7ff1fde9",
+  "https://github.com/nens/spoc/commit/79832d06466f4a4a6ebed1018c6882e168325c0f"
+ ],
+ "https://github.com/search?q=author%3Areinout+org%3Anens+committer-date%3A2024-01-01..2024-12-31&type=commits": [
+  "https://github.com/nens/nens-auth-client/commit/c7ec89a3c7b4ccbd54d1b3d1f3d13b161953bbb0",
+  "https://github.com/nens/nens-auth-client/commit/70125620eeb94137cff93a449a5f72d34b483ba6",
+  "https://github.com/nens/serverscripts/commit/7ef1a5aaaa32c71445ede7bb15aa935cfc1ca782"
+ ],
+ "https://github.com/search?q=author%3Arobgietema+org%3Akitconcept+committer-date%3A2023-01-01..2023-12-31&type=commits": [
+  "https://github.com/kitconcept/volto-blocks-grid/commit/018e088fafa6eefb355948f25841f9bf074f62ce",
+  "https://github.com/kitconcept/volto-light-theme/commit/73fbc0dc9b90fe6cf6164277b9b478a0eb5238cd"
+ ],
+ "https://github.com/search?q=author%3Arristow+org%3AFHNW+committer-date%3A2014-01-01..2014-12-31&type=commits": [
+  "https://github.com/FHNW/collective.clipboardupload/commit/a0bdf2ba759350fbfd7c41611996930e7b1f14d5"
+ ],
+ "https://github.com/search?q=author%3Asneridagh+org%3Akitconcept+committer-date%3A2018-01-01..2018-12-31&type=commits": [
+  "https://github.com/kitconcept/kitconcept.github.io/commit/e09657663f290667fc9215405fcbd40f2c80c537",
+  "https://github.com/kitconcept/kitconcept.github.io/commit/b8a6d58c3ea719b306b6ee3930d3d2ffdc972e17",
+  "https://github.com/kitconcept/kitconcept.github.io/commit/1580f622b5489cb34aa24a40a19d84915d936b92"
+ ],
+ "https://github.com/search?q=author%3Astefanholek+org%3AJarn+committer-date%3A2011-01-01..2011-12-31&type=commits": [
+  "https://github.com/Jarn/jarn.kommuner/commit/556dedfa023bc4289d1e34db2aa9ebbf760ef670",
+  "https://github.com/Jarn/jarn.kommuner/commit/e27f75c978567c339a901a4c1fb55f3eba818d2f",
+  "https://github.com/Jarn/jarn.kommuner/commit/03c1c00c5de70011abe043e5213541924de8a21d"
+ ],
+ "https://github.com/search?q=author%3Atdesvenain+org%3Amakinacorpus+committer-date%3A2018-01-01..2018-12-31&type=commits": [
+  "https://github.com/makinacorpus/blogposts-angular/commit/fbe30dfcb9b57e0a349889c632808880a2ac63c5",
+  "https://github.com/makinacorpus/blogposts-angular/commit/0977ac435c17be7c87d0685b091110e7c52e5780",
+  "https://github.com/makinacorpus/blogposts-angular/commit/a96d2f7b6bbc5f64e66c18fa5b3853a63b3637e6"
+ ],
+ "https://github.com/search?q=author%3Atedw87+org%3Aeaudeweb+committer-date%3A2024-01-01..2024-12-31&type=commits": [
+  "https://github.com/eaudeweb/volto-3d-block/commit/a031c802b8374a40a1d51bb64a3dd068177fa319",
+  "https://github.com/eaudeweb/volto-3d-block/commit/c28c2ec92ed5bdcc4083bb8a131a6c00cf2d1560",
+  "https://github.com/eaudeweb/volto-3d-block/commit/e1c9b1e9e3b608e1c1b69e4eb4caac119cdafe8a"
+ ],
+ "https://github.com/search?q=author%3Atiberiuichim+org%3Aeaudeweb+committer-date%3A2019-01-01..2019-12-31&type=commits": [
+  "https://github.com/eaudeweb/NLPService/commit/350b3077f1f152f224640d0bab2f21a79273c0f5",
+  "https://github.com/eaudeweb/NLPService/commit/8782126b6832a6f15a0b1ac92da0eeb520382ee4",
+  "https://github.com/eaudeweb/NLPService/commit/d5bf6867a5cdc8bd93053aa0943c06d68f8351af"
+ ],
+ "https://github.com/search?q=author%3Atiberiuichim+org%3Aeaudeweb+committer-date%3A2024-01-01..2024-12-31&type=commits": [
+  "https://github.com/eaudeweb/edw.logger/commit/66005a62c58dfb07a1604c5c9ee32e68a7cb94fc",
+  "https://github.com/eaudeweb/edw.logger/commit/0c81c3661950f2ef63e36d3b3d82b332d3b0ba86"
+ ],
+ "https://github.com/search?q=author%3Atisto+org%3Akitconcept+committer-date%3A2016-01-01..2016-12-31&type=commits": [
+  "https://github.com/kitconcept/robotframework-webpack/commit/0f6980717238db453131475066bb938b4b29c1a9",
+  "https://github.com/kitconcept/robotframework-webpack/commit/f75f68f951a26df5ea54bd347a2e83003bd68d6b",
+  "https://github.com/kitconcept/robotframework-webpack/commit/2387847eb96888e701edef6cf137803695badc00"
+ ],
+ "https://github.com/search?q=author%3Atisto+org%3Akitconcept+committer-date%3A2018-01-01..2018-12-31&type=commits": [
+  "https://github.com/kitconcept/robotframework-webpack/commit/3fa1745adcf1776b9e371adb51c42c86184d053a",
+  "https://github.com/kitconcept/robotframework-webpack/commit/e52112498e46fb35b8e0e90c2adfa35800dd8096",
+  "https://github.com/kitconcept/robotframework-webpack/commit/feccf0ccc73a96527a1b293f3eeb6f868ff657e3"
+ ],
+ "https://github.com/search?q=author%3Atlotze+org%3Astarzel+committer-date%3A2017-01-01..2017-12-31&type=commits": [
+  "https://github.com/starzel/buildout/commit/23dca075192163c719ca30b1e01560295cc16dc4"
+ ],
+ "https://github.com/search?q=author%3Atomgross+org%3AFHNW+committer-date%3A2013-01-01..2013-12-31&type=commits": [
+  "https://github.com/FHNW/Kampangne-ZusammenBilden/commit/610d2fb9a141114e91258d4614de0674447925b8",
+  "https://github.com/FHNW/Kampangne-ZusammenBilden/commit/c0e20b71284c75a919a2ef61d555842e5dc8030f",
+  "https://github.com/FHNW/Kampangne-ZusammenBilden/commit/a27f34125008fac8d2b9f4c2594f9927585d9e75"
+ ],
+ "https://github.com/search?q=author:lukasgraf+org:4teamwork&type=commits": [
+  "https://github.com/4teamwork/ftw.poodle/commit/650fc789750833f83b970d3ca3f804b3a6e7fe49",
+  "https://github.com/4teamwork/ftw.solr/commit/58d7b46b49ea8714962c3a20e673ed350055bb27",
+  "https://github.com/4teamwork/ftw.solr/commit/81bca03428d044cc11163608280ac115fc00ad06"
+ ],
+ "https://github.com/search?q=author:mpellerin42+org:nuclia&type=commits": [
+  "https://github.com/nuclia/e2e/commit/d18efe6652a5927d63603eeafb52f0d7293c4d73",
+  "https://github.com/nuclia/e2e/commit/f3230b74fc7e04edd9b0aa12ec619460e594648d",
+  "https://github.com/nuclia/e2e/commit/b54ad553e72dccf2c34481f668060a41aa49da56"
+ ]
+}

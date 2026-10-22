@@ -31,7 +31,7 @@ USER_AGENT = 'plone-contributor-statistics/1.0 (+https://github.com/plone/plone-
 # Hosts paced together: the Internet Archive counts its requests across its hosts
 PACE_KEYS = {'web.archive.org': 'archive.org', 'archive.org': 'archive.org'}
 # Seconds between two requests to a pace key: at most 15 a minute to the Internet Archive
-PACE = {'archive.org': 4.0}
+PACE = {'archive.org': 4.0, 'youtube.com': 30.0}  # youtube.com: the yt-dlp caption downloads
 DEFAULT_PACE = 1.0
 MAX_RETRIES = 5
 CACHED_STATUSES = (200, 404, 410)
@@ -96,6 +96,11 @@ class Raw:
     content_type: str
     body: bytes
     fetched: datetime.datetime
+    final_url: str = ''  # the address after redirects; the requested one when nothing says otherwise
+
+    def __post_init__(self):
+        if not self.final_url:
+            object.__setattr__(self, 'final_url', self.url)
 
 
 def now():
@@ -148,7 +153,7 @@ class Fetcher:
             with open(body_path, 'rb') as handle:
                 body = handle.read()
             return Raw(meta['url'], meta['status'], meta['content_type'], body,
-                       datetime.datetime.fromisoformat(meta['fetched']))
+                       datetime.datetime.fromisoformat(meta['fetched']), meta.get('final_url') or meta['url'])
         except (OSError, ValueError, KeyError, TypeError):
             return None
 
@@ -158,7 +163,7 @@ class Fetcher:
         os.makedirs(self.cache, exist_ok=True)
         _write_atomic(body_path, raw.body)
         meta = {'url': raw.url, 'status': raw.status, 'content_type': raw.content_type,
-                'fetched': raw.fetched.isoformat()}
+                'fetched': raw.fetched.isoformat(), 'final_url': raw.final_url}
         _write_atomic(meta_path, json.dumps(meta, indent=2).encode('utf-8'))
 
     def _pace_path(self, key):
@@ -175,7 +180,9 @@ class Fetcher:
         return max(times, default=None)
 
     def _mark(self, url):
-        key = pace_key(url)
+        self._mark_key(pace_key(url))
+
+    def _mark_key(self, key):
         self.last_request[key] = self.clock()
         path = self._pace_path(key)
         try:
@@ -186,7 +193,9 @@ class Fetcher:
 
     def _pace(self, url, backoff=0):
         """Wait before a request: the longest of the back-off and what is left of the host's pace."""
-        key = pace_key(url)
+        self._pace_key(pace_key(url), backoff)
+
+    def _pace_key(self, key, backoff=0):
         pace = PACE.get(key, DEFAULT_PACE)
         last = self._last_request(key)
         wait = backoff
@@ -195,6 +204,19 @@ class Fetcher:
             wait = max(wait, min(pace, pace - (self.clock() - last)))
         if wait > 0:
             self.sleep(wait)
+
+    @contextlib.contextmanager
+    def paced(self, key):
+        """Wait for the pace of a key, then run the request in the block and mark it as sent, also when it fails.
+
+        For requests that do not go through `get`, such as the yt-dlp downloads of `youtube.com`; the pace files
+        are shared with `get`, so other fetchers and processes keep the pace too.
+        """
+        self._pace_key(key)
+        try:
+            yield
+        finally:
+            self._mark_key(key)
 
     def get(self, url):
         cached = self._cached(url)
@@ -216,7 +238,8 @@ class Fetcher:
             else:
                 status = response.status_code
                 if status in CACHED_STATUSES:
-                    raw = Raw(url, status, response.headers.get('Content-Type', ''), response.content, now())
+                    raw = Raw(url, status, response.headers.get('Content-Type', ''), response.content, now(),
+                              str(getattr(response, 'url', '') or url))
                     self._store(raw)
                     return raw
                 if status not in RETRY_STATUSES:

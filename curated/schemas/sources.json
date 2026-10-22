@@ -3,7 +3,7 @@
     {
       "name": "id",
       "type": "string",
-      "description": "Opaque, stable identifier of the source: the first twelve hex digits of a hash of its normalised address and the archive timestamp.",
+      "description": "Opaque, stable identifier of the source: the first twelve hex digits of a hash of its normalised address and the archive timestamp. The normalised address keeps the fragment of a GitHub comment or review, which is a source of its own, and reduces a Google Doc to its document id.",
       "constraints": {
         "required": true,
         "unique": true,

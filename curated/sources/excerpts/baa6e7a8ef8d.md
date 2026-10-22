@@ -1,0 +1,1 @@
+I've been coding for almost 20 years and nowadays I'm writing software as a Senior Software Engineer for Skyscanner. I discovered Python a long time ago when there was the 2.2 release. The first thing that I loved so much about Python was the CPython library interface, it was so clean and consistent that took my heart forever.

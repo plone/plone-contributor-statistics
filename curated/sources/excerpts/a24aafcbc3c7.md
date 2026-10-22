@@ -1,0 +1,1 @@
+Janina Hard https://2020.ploneconf.org/speakers/janina-hard https://2020.ploneconf.org/@@site-logo/logo-alpha-small.png Janina Hard Web Developer at Werkbank GmbH and working with Plone since 2010, Plone Contributor since 2019, Craftsman of nerdy stuff in her freetime. Twitter: @woollyseal | Github: wkbkhard Related content Form Block / Formbuilder

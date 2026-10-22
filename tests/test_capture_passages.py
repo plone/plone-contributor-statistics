@@ -1,6 +1,6 @@
 import pytest
 
-from scripts.lib.capture.passages import cut_passage, find_quote, normalize_text
+from scripts.lib.capture.passages import cut_passage, find_name, find_quote, normalize_text
 
 TEXT = 'Intro.\n\nMaurits has been a Plone programmer for Zest Software since 2005.\nMore.\n\nOutro.'
 
@@ -76,3 +76,22 @@ def test_cut_passage_windows_a_long_paragraph():
     passage = cut_passage(long, find_quote(long, 'QUOTE HERE'), limit=200)
     assert 'QUOTE HERE' in passage and len(passage) <= 210
     assert passage.startswith('…') and passage.endswith('…')
+
+
+def test_find_name_ignores_case_and_accents():
+    text = 'Intro.\n\nThe sprint was held in Jyväskylä with Annette and Ann.'
+    span = find_name(text, 'jyvaskyla')
+    assert text[span[0]:span[1]] == 'Jyväskylä'
+    span = find_name(text, 'ann')
+    assert text[span[0]:span[1]] == 'Ann'
+    assert text.index('Ann.') == span[0]  # not the one inside Annette
+    assert find_name('Annette only', 'Ann') is None
+    assert find_name('anything', '  ') is None
+
+
+def test_find_name_maps_decomposed_text_back_whole():
+    decomposed = 'Mu\u0308ller'  # u and a combining diaeresis, as pdftotext writes it
+    text = f'{decomposed} wrote this'
+    span = find_name(text, 'muller')
+    assert text[span[0]:span[1]] == decomposed
+    assert find_name(text, 'M\u00fcller') == span

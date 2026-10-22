@@ -1,0 +1,1 @@
+Maurits has been working with Plone since 2005 at Zest Software, the Netherlands. Next to this work, he is currently starting up his own Belgian Plone company: Py76. He is Plone Release Manager since 2020, and Plone Security Team member since 2016. He specialises in the Plone backend, and in solving nasty Python packaging problems.

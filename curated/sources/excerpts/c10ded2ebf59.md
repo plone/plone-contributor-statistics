@@ -1,0 +1,1 @@
+Especialização em Ciência de Dados pela UCS. MBA em Gestão Estratégica de Tecnologia da Informação pela IMED. Bacharel em Ciência da Computação pela Universidade de Caxias do Sul, desenvolvedor de software, entusiasta GNU/Linux. Atualmente é CTO na Growth.Software e Professor na Atitus.

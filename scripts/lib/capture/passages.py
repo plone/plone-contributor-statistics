@@ -28,19 +28,26 @@ def _clusters(text: str):
         start = end
 
 
-def _normalize_with_map(text: str, offset: int = 0) -> tuple[str, list[int], list[int]]:
+def _fold(text: str) -> str:
+    """Casefolded text without accents: NFKD minus the combining marks."""
+    return ''.join(c for c in unicodedata.normalize('NFKD', text) if not unicodedata.combining(c)).casefold()
+
+
+def _normalize_with_map(text: str, offset: int = 0, fold: bool = False) -> tuple[str, list[int], list[int]]:
     """Return the normalized text and, per normalized char, where its cluster starts and ends in the original.
 
     NFKC works on a base character together with its combining marks, so a decomposed `a` + `\u0308` from
     pdftotext matches a composed `ä`. Every char that a cluster becomes points to the whole cluster, so a span
-    in the normalized text maps back to whole characters of the original.
+    in the normalized text maps back to whole characters of the original. With ``fold`` the text is also
+    casefolded and loses its accents.
     """
     chars: list[str] = []
     starts: list[int] = []
     ends: list[int] = []
     pending_space = False
     for start, end in _clusters(text):
-        for char in unicodedata.normalize('NFKC', text[start:end]):
+        normalized_cluster = unicodedata.normalize('NFKC', text[start:end])
+        for char in (_fold(normalized_cluster) if fold else normalized_cluster):
             for out in _CHAR_MAP.get(char, char):
                 if out.isspace():
                     pending_space = True
@@ -95,6 +102,26 @@ def find_quote(text: str, quote: str) -> tuple[int, int] | None:
             pos = last_end = found + len(part)
         else:
             return starts[first_start], ends[last_end - 1]
+    return None
+
+
+def find_name(text: str, name: str) -> tuple[int, int] | None:
+    """Span of the first occurrence of the name in the original text.
+
+    Case and accents do not matter, the other normalization of ``find_quote`` applies, and the match must
+    stand at word boundaries: the characters before and after it are not letters or digits.
+    """
+    needle = _fold(normalize_text(name)).strip()
+    if not needle:
+        return None
+    normalized, starts, ends = _normalize_with_map(text, fold=True)
+    pos = normalized.find(needle)
+    while pos >= 0:
+        end = pos + len(needle)
+        if ((pos == 0 or not normalized[pos - 1].isalnum())
+                and (end == len(normalized) or not normalized[end].isalnum())):
+            return starts[pos], ends[end - 1]
+        pos = normalized.find(needle, pos + 1)
     return None
 
 

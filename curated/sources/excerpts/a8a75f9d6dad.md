@@ -1,0 +1,1 @@
+- 100 Hours or Less: Creating A Scope of Work for A Simple Plone Website - Patrick Shaw, NPower Seattle

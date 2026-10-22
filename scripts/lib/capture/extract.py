@@ -11,15 +11,17 @@ import html as html_lib
 import json
 import os
 import re
+import shutil
 import subprocess
 import urllib.parse
 
 import trafilatura
 from trafilatura.utils import load_html
 
-from scripts.lib.capture.fetch import FetchError, Raw, cache_dir
+from scripts.lib.capture.fetch import Fetcher, FetchError, Raw, cache_dir
 from scripts.lib.github_api import GitHubAPIError, github_get
 from scripts.lib.model import split_archive_url
+from scripts.lib.model.sources import GOOGLE_DOC_PATH
 
 CHARSET_HEADER = re.compile(r'charset\s*=\s*["\']?([\w.:-]+)', re.IGNORECASE)
 CHARSET_META = re.compile(rb'<meta[^>]+charset\s*=\s*["\']?([\w.:-]+)', re.IGNORECASE)
@@ -155,8 +157,13 @@ VIDEO_HOSTS = {'youtube.com', 'youtu.be', 'vimeo.com'}
 GITHUB_RESERVED = {'search', 'orgs', 'settings', 'topics', 'marketplace', 'sponsors', 'explore', 'features', 'about',
                    'pricing', 'login', 'join', 'notifications', 'issues', 'pulls', 'trending', 'collections',
                    'events', 'new', 'apps', 'enterprise', 'security', 'customer-stories', 'readme', 'site'}
-SUBTITLE_LANGUAGES = 'en.*,de.*,es.*,pt.*,it.*,nl.*,fr.*'
+LANGUAGES = ('en', 'de', 'es', 'pt', 'it', 'nl', 'fr')
+# Explicit tracks, no wildcards: a wildcard also matches every automatic translation (`en-it`, `de-en`)
+SUBTITLE_LANGUAGES = ','.join([f'{language}-orig' for language in LANGUAGES] + list(LANGUAGES))
+VIDEO_PACE_KEY = 'youtube.com'  # paced with the Fetcher: 30 seconds between two yt-dlp downloads
 VIDEO_TIMEOUT = 600  # seconds for one call of yt-dlp
+ISSUE_PATH = re.compile(r'^/([^/]+)/([^/]+)/(?:issues|pull)/(\d+)/?$')
+COMMENT_FRAGMENT = re.compile(r'^(issuecomment|discussion_r|pullrequestreview)-?(\d+)$')
 COMMIT_PATH = re.compile(r'^/([^/]+)/([^/]+)/commit/([0-9a-fA-F]+)/?$')
 VTT_TAG = re.compile(r'<[^>]*>')
 VTT_TIME = re.compile(r'(?:(\d+):)?(\d{2}):(\d{2})\.\d+')
@@ -168,10 +175,12 @@ def host_of(url: str) -> str:
 
 
 def adapter_for(url: str) -> str:
-    """Which extractor reads this address: volto, github-profile, commit, video or generic."""
+    """Which extractor reads this address: volto, google-doc, github-issue, github-profile, commit, video or generic."""
     if split_archive_url(url):
         return 'generic'  # a Wayback copy is the raw capture, whatever the original was
     host = host_of(url)
+    if host == 'docs.google.com' and GOOGLE_DOC_PATH.match(urllib.parse.urlsplit(url).path):
+        return 'google-doc'
     if host in VOLTO_HOSTS:
         return 'volto'
     if host in VIDEO_HOSTS:
@@ -181,6 +190,8 @@ def adapter_for(url: str) -> str:
         segments = [segment for segment in path.split('/') if segment]
         if len(segments) == 1 and segments[0].lower() not in GITHUB_RESERVED:
             return 'github-profile'
+        if ISSUE_PATH.match(path):
+            return 'github-issue'
         if COMMIT_PATH.match(path):
             return 'commit'
     return 'generic'
@@ -205,13 +216,23 @@ def slate_paragraphs(nodes) -> list[str]:
     return paragraphs
 
 
+def draft_paragraphs(draft) -> list[str]:
+    """Text of draft.js blocks, one paragraph per block."""
+    if not isinstance(draft, list):
+        return []
+    return [item['text'].strip() for item in draft if isinstance(item, dict) and str(item.get('text', '')).strip()]
+
+
 def block_paragraphs(block: dict) -> list[str]:
     paragraphs = slate_paragraphs(block.get('value'))
+    if block.get('@type') == 'text7':  # plone.org: a title (such as a person's name) over draft.js `content`
+        title, content = block.get('title'), block.get('content')
+        if isinstance(title, str) and title.strip():
+            paragraphs.append(title.strip())
+        paragraphs.extend(draft_paragraphs(content.get('blocks') if isinstance(content, dict) else None))
+        return paragraphs
     text = block.get('text')
-    draft = text.get('blocks') if isinstance(text, dict) else block.get('blocks')
-    if isinstance(draft, list):
-        paragraphs.extend(item['text'].strip() for item in draft
-                          if isinstance(item, dict) and str(item.get('text', '')).strip())
+    paragraphs.extend(draft_paragraphs(text.get('blocks') if isinstance(text, dict) else block.get('blocks')))
     return paragraphs
 
 
@@ -244,14 +265,67 @@ def extract_volto(fetcher, url: str) -> Extracted:
     return extract_html(fetcher.get(url))
 
 
+def google_doc_id(url: str) -> str:
+    return GOOGLE_DOC_PATH.match(urllib.parse.urlsplit(url).path).group(1)
+
+
+def extract_google_doc(fetcher, doc_id: str) -> Extracted:
+    """Text of a public Google Doc from its plain-text export; a private document raises ExtractError."""
+    raw = fetcher.get(f'https://docs.google.com/document/d/{doc_id}/export?format=txt')
+    # a private document answers with an error or redirects to a sign-in page, which is HTML, not plain text
+    if raw.status != 200 or not (raw.content_type or '').lower().startswith('text/plain'):
+        raise ExtractError('not a public document')
+    lines = [line.strip() for line in raw.body.decode('utf-8', errors='replace').lstrip('\ufeff').splitlines()]
+    paragraphs = [line for line in lines if line]
+    text = '\n\n'.join(paragraphs)
+    return Extracted(text=text, full_text=text, title=paragraphs[0] if paragraphs else None, date=None)
+
+
 def extract_github_profile(login: str, session) -> Extracted:
     profile = github_get(session, f'https://api.github.com/users/{login}').json()
-    lines = [f'{label}: {profile[key]}' for label, key in (
+    # the Login line keeps the text of an account without any other field from being empty
+    lines = [f'Login: {profile.get("login") or login}'] + [f'{label}: {profile[key]}' for label, key in (
         ('Name', 'name'), ('Company', 'company'), ('Bio', 'bio'), ('Location', 'location'), ('Blog', 'blog'))
         if profile.get(key)]
     text = '\n'.join(lines)
     return Extracted(text=text, full_text=text, title=profile.get('name') or None,
                      date=datetime.datetime.now(datetime.timezone.utc).date())
+
+
+ISSUE_ENDPOINTS = {'issuecomment': 'issues/comments/{id}', 'discussion_r': 'pulls/comments/{id}',
+                   'pullrequestreview': 'pulls/{number}/reviews/{id}'}
+
+
+def _comment_block(data: dict, *, title: str | None = None) -> str:
+    login = (data.get('user') or {}).get('login') or 'ghost'
+    date = data.get('created_at') or data.get('submitted_at') or ''
+    head = ([f'Title: {title}'] if title is not None else []) + [f'Author: {login}', f'Date: {date}']
+    return '\n'.join(head) + '\n\n' + (data.get('body') or '').replace('\r\n', '\n').strip()
+
+
+def extract_github_issue(owner: str, repo: str, number: str, fragment: str | None, session) -> Extracted:
+    """An issue or pull request with its comments, or the one comment or review its fragment names."""
+    base = f'https://api.github.com/repos/{owner}/{repo}'
+    match = COMMENT_FRAGMENT.match(fragment or '')
+    if match:
+        path = ISSUE_ENDPOINTS[match.group(1)].format(id=match.group(2), number=number)
+        data = github_get(session, f'{base}/{path}').json()
+        text = _comment_block(data)
+        return Extracted(text=text, full_text=text, title=None,
+                         date=parse_date(data.get('created_at') or data.get('submitted_at')))
+    issue = github_get(session, f'{base}/issues/{number}').json()
+    blocks = [_comment_block(issue, title=issue.get('title') or '')]
+    page = 1
+    while True:
+        comments = github_get(session, f'{base}/issues/{number}/comments',
+                              params={'per_page': 100, 'page': page}).json()
+        blocks.extend(_comment_block(comment) for comment in comments)
+        if len(comments) < 100:
+            break
+        page += 1
+    text = '\n\n'.join(blocks)
+    return Extracted(text=text, full_text=text, title=issue.get('title') or None,
+                     date=parse_date(issue.get('created_at')))
 
 
 def extract_commit(owner: str, repo: str, sha: str, run=subprocess.run, session=None) -> Extracted:
@@ -315,29 +389,41 @@ def track_rank(name: str):
     translations by their target language.
     """
     language = name[:-len('.vtt')].rsplit('.', 1)[-1]
-    patterns = SUBTITLE_LANGUAGES.split(',')
-    order = next((i for i, pattern in enumerate(patterns) if re.fullmatch(pattern, language)), len(patterns))
+    languages = language.removesuffix('-orig').split('-')[0]
+    order = LANGUAGES.index(languages) if languages in LANGUAGES else len(LANGUAGES)
     return (0 if language.endswith('-orig') else 1, order, name)
 
 
-def extract_video(url: str, workdir: str, run=subprocess.run) -> Extracted:
+def extract_video(url: str, workdir: str, run=subprocess.run, fetcher=None, which=shutil.which) -> Extracted:
     """Captions of a video (manual or automatic) with timestamps; the caption files stay in workdir.
 
     `text` is the preferred track, `full_text` every track as its own paragraph, so a quote in another
     language is still found and cut from the lines of its own track.
+
+    Polite to YouTube: only the original tracks, a pause between the downloads of all processes (the pace of
+    the fetcher), and a distinct error when YouTube answers HTTP 429.
     """
     os.makedirs(workdir, exist_ok=True)
+    fetcher = fetcher or Fetcher()
+    command = ['yt-dlp', '--skip-download', '--write-auto-sub', '--write-sub', '--sub-langs', SUBTITLE_LANGUAGES,
+               '--sleep-subtitles', '5', '--sleep-requests', '2', '--sub-format', 'vtt',
+               '-o', os.path.join(workdir, '%(id)s')]
+    if which('node'):
+        command += ['--js-runtimes', 'node']
     try:
-        run(['yt-dlp', '--skip-download', '--write-auto-sub', '--write-sub', '--sub-langs', SUBTITLE_LANGUAGES,
-             '--sub-format', 'vtt', '-o', os.path.join(workdir, '%(id)s'), url],
-            capture_output=True, check=True, timeout=VIDEO_TIMEOUT)
-        title = run(['yt-dlp', '--skip-download', '--print', 'title', url], capture_output=True, check=False,
-                    timeout=VIDEO_TIMEOUT)
+        with fetcher.paced(VIDEO_PACE_KEY):
+            run(command + [url], capture_output=True, check=True, timeout=VIDEO_TIMEOUT)
+            title = run(['yt-dlp', '--skip-download', '--print', 'title', url], capture_output=True, check=False,
+                        timeout=VIDEO_TIMEOUT)
     except FileNotFoundError as error:
         raise ExtractError('yt-dlp is not installed; install it to read video sources') from error
     except subprocess.TimeoutExpired as error:
         raise ExtractError(f'yt-dlp timed out after {error.timeout} seconds for {url}') from error
     except subprocess.CalledProcessError as error:
+        output = b''.join(part if isinstance(part, bytes) else str(part or '').encode()
+                          for part in (error.stderr, error.stdout))
+        if b'HTTP Error 429' in output:
+            raise ExtractError(f'rate limited: YouTube answered HTTP 429 for {url}; retry later') from error
         raise ExtractError(f'yt-dlp failed for {url}: {error.stderr!r}') from error
     captions = sorted((name for name in os.listdir(workdir) if name.endswith('.vtt')), key=track_rank)
     if not captions:

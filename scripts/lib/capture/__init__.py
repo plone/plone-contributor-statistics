@@ -7,6 +7,7 @@ around each quote is stored, through the model, never the whole page.
 import dataclasses
 import datetime
 import os
+import re
 import subprocess
 import urllib.parse
 from collections.abc import Sequence
@@ -17,30 +18,39 @@ from scripts.lib.capture import extract as extraction  # the module: a name `ext
 from scripts.lib.capture import fetch
 from scripts.lib.capture.extract import (
     COMMIT_PATH,
+    ISSUE_PATH,
     ExtractError,
     adapter_for,
     extract_commit,
+    extract_github_issue,
     extract_github_profile,
+    extract_google_doc,
     extract_video,
     extract_volto,
+    google_doc_id,
     is_pdf,
 )
 from scripts.lib.capture.fetch import FetchError, Fetcher, nearest_capture, raw_capture_url
-from scripts.lib.capture.passages import cut_passage, find_quote
+from scripts.lib.capture.passages import cut_passage, find_name, find_quote
 from scripts.lib.github_api import GitHubAPIError
 from scripts.lib.model import (
     Source,
     add_passage,
     archive_url_of,
     load_sources,
+    normalize_url,
     passages,
     source_id,
     split_archive_url,
     write_source,
 )
 
-KIND_BY_ADAPTER = {'github-profile': 'profile', 'commit': 'commit', 'video': 'video'}
+KIND_BY_ADAPTER = {'github-profile': 'profile', 'github-issue': 'issue-comment', 'commit': 'commit', 'video': 'video',
+                   'google-doc': 'page'}
 WHOLE_TEXT_KINDS = ('profile', 'commit')
+OWN_REPOSITORY = 'plone/plone-contributor-statistics'  # its issues and comments are our own public record
+# a block of an issue page starts after a blank line with its optional title and its author and date lines
+BLOCK_START = re.compile(r'\n\n(?=(?:Title: [^\n]*\n)?Author: [^\n]*\nDate: )')
 GONE_STATUSES = (404, 410)
 
 
@@ -94,6 +104,7 @@ class _Read:
     title: str | None
     date: datetime.date | None
     fetched: datetime.datetime
+    notes: str | None = None
 
 
 class _Gone(Exception):
@@ -128,9 +139,16 @@ def _read_archive(fetcher, archive_url, kind, run):
     raw = fetcher.get(raw_capture_url(archive_url))
     if raw.status in GONE_STATUSES:
         raise _Gone(raw.fetched, kind or ('pdf' if is_pdf(raw) else 'page'))
+    served = split_archive_url(raw.final_url)
+    notes = None
+    if served is not None:
+        if served[1] != timestamp:  # the Archive sent us to another capture: record that one
+            timestamp = served[1]
+        if normalize_url(served[0]) != normalize_url(original):  # a capture of another page: keep the address asked
+            notes = f'served {archive_url_of(served[0], served[1])}'
     extracted = extraction.extract(raw, run=run)
     return _Read(original, timestamp, kind or ('pdf' if is_pdf(raw) else 'page'), extracted.text,
-                 extracted.full_text, extracted.title, extracted.date, raw.fetched)
+                 extracted.full_text, extracted.title, extracted.date, raw.fetched, notes)
 
 
 def _read_live(url, sid, fetcher, session, run):
@@ -146,14 +164,20 @@ def _read_live(url, sid, fetcher, session, run):
                      extracted.title, extracted.date, raw.fetched)
     fetched = fetch.now()
     try:
-        if adapter == 'github-profile':
+        if adapter == 'google-doc':
+            extracted = extract_google_doc(fetcher, google_doc_id(url))
+        elif adapter == 'github-profile':
             login = [segment for segment in urllib.parse.urlsplit(url).path.split('/') if segment][0]
             extracted = extract_github_profile(login, session)
+        elif adapter == 'github-issue':
+            parts = urllib.parse.urlsplit(url)
+            owner, repo, number = ISSUE_PATH.match(parts.path).groups()
+            extracted = extract_github_issue(owner, repo, number, parts.fragment, session)
         elif adapter == 'commit':
             owner, repo, sha = COMMIT_PATH.match(urllib.parse.urlsplit(url).path).groups()
             extracted = extract_commit(owner, repo, sha, run=run, session=session)
         else:
-            extracted = extract_video(url, fetch.cache_dir(fetch.SOURCES_CACHE, 'video', sid), run=run)
+            extracted = extract_video(url, fetch.cache_dir(fetch.SOURCES_CACHE, 'video', sid), run=run, fetcher=fetcher)
     except (GitHubAPIError, ExtractError) as error:
         if _is_gone(error):
             raise _Gone(fetched, kind) from error
@@ -192,16 +216,21 @@ def _source(existing, sid, read, kind, title, date, notes, refresh):
 
 def capture(url: str, quotes: Sequence[str] = (), kind: str | None = None, title: str | None = None,
             date: datetime.date | None = None, refresh: bool = False, fetcher: Fetcher | None = None,
-            session=None, run=subprocess.run) -> CaptureResult:
+            session=None, run=subprocess.run, names: Sequence[str] = ()) -> CaptureResult:
     """Capture the source at the address: write its row if new and add the passages around the quotes.
 
     A Wayback address is stored readable and fetched raw. A live address that is gone is replaced by its
     nearest Wayback capture; without one the source is recorded as unreachable. Quotes that are already in a
     stored passage are skipped; quotes not found on the page are reported as missing, never stored. A new
     source none of whose quotes is found is not recorded at all.
+    When no quote is given or none is found, the names decide: the passage around the first occurrence of each
+    name is stored, and a name that is not found is reported as missing; a profile, a commit and an issue or
+    comment of this repository store their whole text then, found name or not. Names are ignored when a quote
+    is found; quotes not found are reported as missing either way.
     A fetcher given here keeps its own refresh setting; one built here refetches when refresh is true.
     """
     quotes = tuple(quotes)
+    names = tuple(names)
     split = split_archive_url(url)
     if split is None and _is_wayback(url):
         raise CaptureError(f'{url}: give the full 14-digit capture URL, '
@@ -209,8 +238,8 @@ def capture(url: str, quotes: Sequence[str] = (), kind: str | None = None, title
     original, timestamp = split if split else (url, None)
     sid = source_id(original, timestamp)
     sources = load_sources()
-    if sid not in sources and not quotes:
-        raise CaptureError(f'{url}: a new source needs at least one quote')
+    if sid not in sources and not quotes and not names:
+        raise CaptureError(f'{url}: a new source needs at least one quote or name')
     if sid in sources and not refresh and all(_stored(sid, quote) for quote in quotes):
         return CaptureResult(sid, False, (), (), False)
 
@@ -225,27 +254,41 @@ def capture(url: str, quotes: Sequence[str] = (), kind: str | None = None, title
         except _Gone as gone:
             nearest = None if split else nearest_capture(fetcher, url)
             if nearest is None:
-                return _unreachable(sources.get(sid), sid, original, timestamp, gone, quotes, kind, title, date)
+                return _unreachable(sources.get(sid), sid, original, timestamp, gone, quotes or names, kind, title,
+                                    date)
             read = _read_archive(fetcher, nearest, KIND_BY_ADAPTER.get(adapter_for(url)), run)
     except _Gone as gone:  # the nearest capture is gone as well
-        return _unreachable(sources.get(sid), sid, original, timestamp, gone, quotes, kind, title, date)
+        return _unreachable(sources.get(sid), sid, original, timestamp, gone, quotes or names, kind, title, date)
     except (FetchError, ExtractError, GitHubAPIError) as error:
         raise CaptureError(f'{url}: {error}') from error
 
     sid = source_id(read.original, read.timestamp)
     existing = sources.get(sid)
     found, missing = [], []
+    quote_found = False
     for quote in quotes:
         if _stored(sid, quote):
+            quote_found = True
             continue
         passage = _passage(read, quote)
         if passage is None:
             missing.append(quote)
         else:
+            quote_found = True
             found.append(passage)
+    if not quote_found and (names or not quotes):  # no quote found: the names decide
+        if _is_whole(read):
+            found.append(read.text.strip())
+        else:
+            for name in names:
+                passage = _name_passage(read, name)
+                if passage is None:
+                    missing.append(name)
+                elif passage not in found:
+                    found.append(passage)
     if existing is None and not found:  # a new source is recorded only with a passage that supports something
         return CaptureResult(sid, False, (), tuple(missing), False)
-    row = _source(existing, sid, read, kind, title, date, None, refresh)
+    row = _source(existing, sid, read, kind, title, date, read.notes, refresh)
     if row is not None:
         write_source(row)
     added = tuple(passage for passage in found if add_passage(sid, passage))
@@ -256,14 +299,55 @@ def _passage(read, quote):
     """The passage to store for the quote, or None when the quote is not in the text.
 
     A live profile or commit is short and its parts belong together (the author and date of a commit message),
-    so its passage is the whole text; anything else gets the paragraph around the quote.
+    so its passage is the whole text, and so is a live issue or comment of this repository, our own public
+    record; the text of an issue of another repository is cut to the block (issue or comment) with the quote,
+    then to the paragraph around it, headed by the block's author and date; anything else gets the paragraph
+    around the quote.
     """
-    whole = read.timestamp is None and read.kind in WHOLE_TEXT_KINDS
+    whole = _is_whole(read)
     for text in (read.text, read.full_text):
-        span = find_quote(text, quote)
+        block = _block(read, text, lambda part: find_quote(part, quote)) if not whole else None
+        span = find_quote(block or text, quote)
         if span is not None:
-            return text.strip() if whole else cut_passage(text, span)
+            return text.strip() if whole else _headed(cut_passage(block or text, span), block)
     return None
+
+
+def _is_whole(read):
+    """True when the whole text of the live source is stored: a profile, a commit, an issue of this repository."""
+    return read.timestamp is None and (
+        read.kind in WHOLE_TEXT_KINDS or (read.kind == 'issue-comment' and _is_own(read.original)))
+
+
+def _name_passage(read, name):
+    """The passage around the first occurrence of the name, or None when the text does not name it."""
+    for text in (read.text, read.full_text):
+        block = _block(read, text, lambda part: find_name(part, name))
+        span = find_name(block or text, name)
+        if span is not None:
+            return _headed(cut_passage(block or text, span), block)
+    return None
+
+
+def _block(read, text, finds):
+    """The block (issue or comment) of a live issue page in which `finds` finds something, else None."""
+    if read.timestamp is not None or read.kind != 'issue-comment':
+        return None
+    return next((block for block in BLOCK_START.split(text) if finds(block)), None)
+
+
+def _headed(passage, block):
+    """The passage headed by the author and date lines of its block, unless it holds them already."""
+    if block is None:
+        return passage
+    head = '\n'.join(line for line in block.strip().split('\n\n', 1)[0].split('\n')
+                     if line.startswith(('Author: ', 'Date: ')))
+    return passage if not head or head in passage else f'{head}\n\n{passage}'
+
+
+def _is_own(url):
+    match = ISSUE_PATH.match(urllib.parse.urlsplit(url).path)
+    return bool(match) and f'{match.group(1)}/{match.group(2)}'.lower() == OWN_REPOSITORY
 
 
 def _unreachable(existing, sid, original, timestamp, gone, quotes, kind, title, date):

@@ -1,4 +1,7 @@
 import datetime
+import os
+
+import pytest
 
 from scripts.lib import paths
 from scripts.lib.model import (
@@ -81,3 +84,58 @@ def test_add_passage_is_idempotent(tmp_repo):
     assert add_passage('aaaaaaaaaaaa', 'Nowadays he works for kitconcept.') is True
     assert passages('aaaaaaaaaaaa') == ['He works for Zest.', 'Nowadays he works for kitconcept.']
     assert read_excerpt('aaaaaaaaaaaa').endswith('kitconcept.\n')
+
+
+def test_load_sources_memo_sees_external_edits(tmp_repo):
+    header = 'id,kind,title,date,url,archive_url,fetched,notes\n'
+    one = 'aaaaaaaaaaaa,page,One,2010-01-25,https://a.org/1,,2026-10-22T09:30:00Z,\n'
+    two = 'bbbbbbbbbbbb,page,Two,2010-01-25,https://a.org/2,,2026-10-22T09:30:00Z,\n'
+    paths.SOURCES.write_text(header + one, encoding='utf-8')
+    assert list(load_sources()) == ['aaaaaaaaaaaa']
+    paths.SOURCES.write_text(header + one + two, encoding='utf-8')
+    assert list(load_sources()) == ['aaaaaaaaaaaa', 'bbbbbbbbbbbb']
+    paths.SOURCES.write_text(header + two, encoding='utf-8')
+    assert list(load_sources()) == ['bbbbbbbbbbbb']
+
+
+def test_comment_fragments_are_kept():
+    pr = 'https://github.com/plone/plone-contributor-statistics/pull/153'
+    first, second = f'{pr}#issuecomment-6297324385', f'{pr}#issuecomment-6297324386'
+    assert len({source_id(first), source_id(second), source_id(pr)}) == 3
+    assert source_id(f'{pr}#top') == source_id(pr) == source_id(f'{pr}/')
+    assert normalize_url(f'{pr}#discussion_r12') != normalize_url(f'{pr}#pullrequestreview-12')
+    assert source_id(first) == source_id(first.replace('https://', 'http://').replace('github.com', 'GitHub.com'))
+    assert source_id('https://example.org/x#issuecomment-1') == source_id('https://example.org/x')
+
+
+def test_google_doc_spellings_share_an_id():
+    base = 'https://docs.google.com/document/d/X1-y_z'
+    ids = {source_id(u) for u in (base, f'{base}/edit', f'{base}/edit?usp=sharing', f'{base}/edit#heading=h.1',
+                                  base.replace('https://', 'http://'))}
+    assert len(ids) == 1
+    assert source_id('https://docs.google.com/document/d/OTHER') not in ids
+    assert normalize_url(f'{base}/edit?usp=sharing') == 'docs.google.com/document/d/X1-y_z'
+
+
+def test_write_source_writes_through_the_memo(tmp_repo, monkeypatch):
+    from scripts.lib.model import sources as module
+    write_source(_source('aaaaaaaaaaaa'))
+    monkeypatch.setattr(module, 'read_rows', lambda path: pytest.fail('the register was read again'))
+    first = load_sources()
+    assert list(first) == ['aaaaaaaaaaaa']
+    first['bbbbbbbbbbbb'] = first['aaaaaaaaaaaa']  # each call gets its own dict
+    assert list(load_sources()) == ['aaaaaaaaaaaa']
+
+
+def test_registers_are_replaced_atomically(tmp_repo, monkeypatch):
+    """A crash while writing leaves the old file whole and no temporary file behind."""
+    write_source(_source('aaaaaaaaaaaa'))
+    add_passage('aaaaaaaaaaaa', 'He works for Zest.')
+    before = paths.SOURCES.read_text(encoding='utf-8'), read_excerpt('aaaaaaaaaaaa')
+    monkeypatch.setattr(os, 'replace', lambda *args: (_ for _ in ()).throw(OSError('disk full')))
+    with pytest.raises(OSError):
+        write_source(_source('bbbbbbbbbbbb'))
+    with pytest.raises(OSError):
+        add_passage('aaaaaaaaaaaa', 'Nowadays he works for kitconcept.')
+    assert (paths.SOURCES.read_text(encoding='utf-8'), read_excerpt('aaaaaaaaaaaa')) == before
+    assert sorted(path.name for path in paths.SOURCES.parent.rglob('.tmp-*')) == []

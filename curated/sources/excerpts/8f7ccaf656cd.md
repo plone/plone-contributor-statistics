@@ -1,0 +1,1 @@
+Paul is the PyCharm/WebStorm Developer Advocate at JetBrains. Before that, Paul took Zope Corporation, the first open source application server, through $14M of funding. Paul has bootstrapped both the Plone Foundation and the Python Software Foundation. Before that, Paul was an officer in the US Navy, starting www.navy.mil in 1993.

@@ -1,8 +1,13 @@
 """The register of sources: the pages, profiles, commits and videos that the other registers cite."""
 
+import contextlib
 import csv
 import hashlib
+import io
+import os
 import re
+import stat
+import tempfile
 from dataclasses import dataclass
 from datetime import UTC, date, datetime
 from pathlib import Path
@@ -14,6 +19,8 @@ SOURCE_KINDS = ('page', 'speaker-page', 'profile', 'commit', 'video', 'pdf', 're
 
 _ARCHIVE = re.compile(r'^https?://web\.archive\.org/web/(\d{14})(?:[a-z]{2}_)?/(.+)$', re.IGNORECASE)
 _SCHEME = re.compile(r'^https?://', re.IGNORECASE)
+_COMMENT_FRAGMENT = re.compile(r'^(issuecomment-\d+|discussion_r\d+|pullrequestreview-\d+)$')
+GOOGLE_DOC_PATH = re.compile(r'^/document/d/([^/?#]+)')
 _DEFAULT_PORT = re.compile(r':(?:80|443)(?=/|\?|$)')
 
 
@@ -32,9 +39,11 @@ class Source:
 def normalize_url(url):
     """The key of a web address: no scheme, lower-case host, no default port, no fragment, no trailing slash.
 
-    The query stays, because pages that differ in their query differ in their content.
+    The query stays, because pages that differ in their query differ in their content. So does the fragment
+    of a GitHub comment, review or review comment: it names a different text on the same page.
+    A Google Doc is its id alone: `/edit`, `?usp=sharing` and the like are the same document.
     """
-    url = _SCHEME.sub('', url.strip()).split('#', 1)[0]
+    url, _, fragment = _SCHEME.sub('', url.strip()).partition('#')
     rest = url.find('/')
     query = url.find('?')
     ends = [i for i in (rest, query) if i >= 0]
@@ -43,7 +52,11 @@ def normalize_url(url):
     host = _DEFAULT_PORT.sub('', host)
     path, _, query = tail.partition('?')
     path = path.rstrip('/')
-    return host + path + (f'?{query}' if query else '')
+    doc = GOOGLE_DOC_PATH.match(path) if host == 'docs.google.com' else None
+    if doc:
+        return f'{host}/document/d/{doc.group(1)}'
+    keep = f'#{fragment}' if host in ('github.com', 'www.github.com') and _COMMENT_FRAGMENT.match(fragment) else ''
+    return host + path + (f'?{query}' if query else '') + keep
 
 
 def split_archive_url(url):
@@ -67,17 +80,54 @@ def source_id(url, timestamp=None):
     return hashlib.sha1(f'{normalize_url(url)} {timestamp or ""}'.encode()).hexdigest()[:12]
 
 
+_MEMO = {}  # resolved path -> ((st_mtime_ns, st_size), register)
+
+
+def _stamp(path):
+    stat = Path(path).stat()
+    return stat.st_mtime_ns, stat.st_size
+
+
 def load_sources(path=None):
-    """The register, by id. Raises FileNotFoundError without the file."""
-    rows = read_rows(path or paths.SOURCES)
-    return {row['id']: Source(row['id'], row['kind'], row['title'], row['date'], row['url'], row['archive_url'],
-                              row['fetched'], row['notes'])
-            for row in rows}
+    """The register, by id. Raises FileNotFoundError without the file.
+
+    Kept in memory while the file is unchanged (same path, modification time and size), so a run of thousands
+    of captures reads it once; each call gets its own dict.
+    """
+    path = path or paths.SOURCES
+    stamp = _stamp(path)  # raises FileNotFoundError
+    key = str(Path(path).resolve())
+    memo = _MEMO.get(key)
+    if memo is None or memo[0] != stamp:
+        rows = read_rows(path)
+        register = {row['id']: Source(row['id'], row['kind'], row['title'], row['date'], row['url'],
+                                      row['archive_url'], row['fetched'], row['notes'])
+                    for row in rows}
+        memo = _MEMO[key] = (stamp, register)
+    return dict(memo[1])
 
 
 def excerpt_path(source_id):
     """The file that holds the passages cited from the source."""
     return Path(paths.EXCERPTS_DIR) / f'{source_id}.md'
+
+
+def _write_atomic(path, text):
+    """Write to a temporary file next to the path, then rename it: readers see the old file or the whole new one.
+
+    The new file keeps the permissions of the old one (a temporary file is private to its owner).
+    """
+    path = Path(path)
+    handle, temporary = tempfile.mkstemp(dir=path.parent, prefix='.tmp-')
+    try:
+        with os.fdopen(handle, 'w', encoding='utf-8', newline='') as out:
+            out.write(text)
+        os.chmod(temporary, stat.S_IMODE(path.stat().st_mode) if path.exists() else 0o644)
+        os.replace(temporary, path)
+    except BaseException:
+        with contextlib.suppress(OSError):
+            os.unlink(temporary)
+        raise
 
 
 PASSAGE_SEPARATOR = '\n\n---\n\n'
@@ -97,10 +147,12 @@ def write_source(source):
         rows.append({'id': item.id, 'kind': item.kind, 'title': item.title, 'date': item.date.isoformat(),
                      'url': item.url, 'archive_url': item.archive_url or '', 'fetched': fetched,
                      'notes': item.notes or ''})
-    with open(paths.SOURCES, 'w', newline='', encoding='utf-8') as f:
-        writer = csv.DictWriter(f, fieldnames=SOURCE_FIELDS, quoting=csv.QUOTE_MINIMAL, lineterminator='\n')
-        writer.writeheader()
-        writer.writerows(rows)
+    buffer = io.StringIO()
+    writer = csv.DictWriter(buffer, fieldnames=SOURCE_FIELDS, quoting=csv.QUOTE_MINIMAL, lineterminator='\n')
+    writer.writeheader()
+    writer.writerows(rows)
+    _write_atomic(paths.SOURCES, buffer.getvalue())
+    _MEMO[str(Path(paths.SOURCES).resolve())] = (_stamp(paths.SOURCES), dict(sorted(existing.items())))
 
 
 def read_excerpt(source_id):
@@ -128,5 +180,5 @@ def add_passage(source_id, passage):
         return False
     path = excerpt_path(source_id)
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(PASSAGE_SEPARATOR.join([*existing, passage]) + '\n', encoding='utf-8')
+    _write_atomic(path, PASSAGE_SEPARATOR.join([*existing, passage]) + '\n')
     return True
