@@ -20,6 +20,7 @@ from trafilatura.utils import load_html
 from scripts.lib.capture.fetch import FetchError, Raw, cache_dir
 from scripts.lib.github_api import GitHubAPIError, github_get
 from scripts.lib.model import split_archive_url
+from scripts.lib.model.sources import GOOGLE_DOC_PATH
 
 CHARSET_HEADER = re.compile(r'charset\s*=\s*["\']?([\w.:-]+)', re.IGNORECASE)
 CHARSET_META = re.compile(rb'<meta[^>]+charset\s*=\s*["\']?([\w.:-]+)', re.IGNORECASE)
@@ -170,10 +171,12 @@ def host_of(url: str) -> str:
 
 
 def adapter_for(url: str) -> str:
-    """Which extractor reads this address: volto, github-issue, github-profile, commit, video or generic."""
+    """Which extractor reads this address: volto, google-doc, github-issue, github-profile, commit, video or generic."""
     if split_archive_url(url):
         return 'generic'  # a Wayback copy is the raw capture, whatever the original was
     host = host_of(url)
+    if host == 'docs.google.com' and GOOGLE_DOC_PATH.match(urllib.parse.urlsplit(url).path):
+        return 'google-doc'
     if host in VOLTO_HOSTS:
         return 'volto'
     if host in VIDEO_HOSTS:
@@ -246,6 +249,21 @@ def extract_volto(fetcher, url: str) -> Extracted:
             return Extracted(text=text, full_text=text, title=page.get('title') or None,
                              date=parse_date(page.get('effective') or page.get('modified')))
     return extract_html(fetcher.get(url))
+
+
+def google_doc_id(url: str) -> str:
+    return GOOGLE_DOC_PATH.match(urllib.parse.urlsplit(url).path).group(1)
+
+
+def extract_google_doc(fetcher, doc_id: str) -> Extracted:
+    """Text of a public Google Doc from its plain-text export; a private document answers with a login page."""
+    raw = fetcher.get(f'https://docs.google.com/document/d/{doc_id}/export?format=txt')
+    if raw.status != 200:
+        raise ExtractError('not a public document')
+    lines = [line.strip() for line in raw.body.decode('utf-8', errors='replace').lstrip('\ufeff').splitlines()]
+    paragraphs = [line for line in lines if line]
+    text = '\n\n'.join(paragraphs)
+    return Extracted(text=text, full_text=text, title=paragraphs[0] if paragraphs else None, date=None)
 
 
 def extract_github_profile(login: str, session) -> Extracted:

@@ -24,8 +24,10 @@ from scripts.lib.capture.extract import (
     extract_commit,
     extract_github_issue,
     extract_github_profile,
+    extract_google_doc,
     extract_video,
     extract_volto,
+    google_doc_id,
     is_pdf,
 )
 from scripts.lib.capture.fetch import FetchError, Fetcher, nearest_capture, raw_capture_url
@@ -42,7 +44,8 @@ from scripts.lib.model import (
     write_source,
 )
 
-KIND_BY_ADAPTER = {'github-profile': 'profile', 'github-issue': 'issue-comment', 'commit': 'commit', 'video': 'video'}
+KIND_BY_ADAPTER = {'github-profile': 'profile', 'github-issue': 'issue-comment', 'commit': 'commit', 'video': 'video',
+                   'google-doc': 'page'}
 WHOLE_TEXT_KINDS = ('profile', 'commit')
 OWN_REPOSITORY = 'plone/plone-contributor-statistics'  # its issues and comments are our own public record
 # a block of an issue page starts after a blank line with its optional title and its author and date lines
@@ -155,7 +158,9 @@ def _read_live(url, sid, fetcher, session, run):
                      extracted.title, extracted.date, raw.fetched)
     fetched = fetch.now()
     try:
-        if adapter == 'github-profile':
+        if adapter == 'google-doc':
+            extracted = extract_google_doc(fetcher, google_doc_id(url))
+        elif adapter == 'github-profile':
             login = [segment for segment in urllib.parse.urlsplit(url).path.split('/') if segment][0]
             extracted = extract_github_profile(login, session)
         elif adapter == 'github-issue':

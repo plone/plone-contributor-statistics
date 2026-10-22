@@ -15,6 +15,7 @@ SOURCE_KINDS = ('page', 'speaker-page', 'profile', 'commit', 'video', 'pdf', 're
 _ARCHIVE = re.compile(r'^https?://web\.archive\.org/web/(\d{14})(?:[a-z]{2}_)?/(.+)$', re.IGNORECASE)
 _SCHEME = re.compile(r'^https?://', re.IGNORECASE)
 _COMMENT_FRAGMENT = re.compile(r'^(issuecomment-\d+|discussion_r\d+|pullrequestreview-\d+)$')
+GOOGLE_DOC_PATH = re.compile(r'^/document/d/([^/?#]+)')
 _DEFAULT_PORT = re.compile(r':(?:80|443)(?=/|\?|$)')
 
 
@@ -35,6 +36,7 @@ def normalize_url(url):
 
     The query stays, because pages that differ in their query differ in their content. So does the fragment
     of a GitHub comment, review or review comment: it names a different text on the same page.
+    A Google Doc is its id alone: `/edit`, `?usp=sharing` and the like are the same document.
     """
     url, _, fragment = _SCHEME.sub('', url.strip()).partition('#')
     rest = url.find('/')
@@ -45,6 +47,9 @@ def normalize_url(url):
     host = _DEFAULT_PORT.sub('', host)
     path, _, query = tail.partition('?')
     path = path.rstrip('/')
+    doc = GOOGLE_DOC_PATH.match(path) if host == 'docs.google.com' else None
+    if doc:
+        return f'{host}/document/d/{doc.group(1)}'
     keep = f'#{fragment}' if host in ('github.com', 'www.github.com') and _COMMENT_FRAGMENT.match(fragment) else ''
     return host + path + (f'?{query}' if query else '') + keep
 

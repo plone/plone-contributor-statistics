@@ -7,7 +7,7 @@ import subprocess
 import pytest
 
 from scripts.lib.capture.extract import (
-    ExtractError, adapter_for, decode, extract, extract_commit, extract_github_issue, extract_github_profile, extract_html, extract_pdf,
+    ExtractError, adapter_for, decode, extract, extract_commit, extract_github_issue, extract_github_profile, extract_google_doc, extract_html, extract_pdf,
     extract_video, extract_volto)
 from scripts.lib.capture.fetch import FetchError, Raw
 
@@ -140,6 +140,10 @@ def test_decode_treats_iso_8859_1_as_windows_1252():
     ('https://web.archive.org/web/20150312000000id_/https://www.youtube.com/watch?v=x', 'generic'),
     ('https://web.archive.org/web/2015/https://plone.org/', 'generic'),
     ('https://example.org/a', 'generic'),
+    ('https://docs.google.com/document/d/X1/edit', 'google-doc'),
+    ('https://docs.google.com/document/d/X1', 'google-doc'),
+    ('https://docs.google.com/spreadsheets/d/X1/edit', 'generic'),
+    ('https://web.archive.org/web/20150312000000/https://docs.google.com/document/d/X1/edit', 'generic'),
 ])
 def test_adapter_for(url, expected):
     assert adapter_for(url) == expected
@@ -449,3 +453,19 @@ def test_extract_issue_with_comments_paginates():
     assert blocks[1] == 'Please.'
     assert result.text.count('Author: bob') == 100 and result.text.endswith('Author: amy\nDate: 2026-10-04T00:00:00Z\n\n')
     assert result.title == 'Map Fred' and result.date == datetime.date(2026, 10, 1)
+
+
+def test_extract_google_doc():
+    body = '\ufeffSprint participants\r\nJane Doe, Acme\r\n\r\n  John Roe, Beta  \r\n'.encode()
+    fetcher = FakeFetcher(raw(body, 'text/plain'))
+    result = extract_google_doc(fetcher, 'X1')
+    assert fetcher.urls == ['https://docs.google.com/document/d/X1/export?format=txt']
+    assert result.title == 'Sprint participants'
+    assert result.text.split('\n\n') == ['Sprint participants', 'Jane Doe, Acme', 'John Roe, Beta']
+    assert result.date is None
+
+
+def test_private_google_doc_raises():
+    private = Raw(url='u', status=401, content_type='text/html', body=b'<html>login</html>', fetched=NOW)
+    with pytest.raises(ExtractError, match='not a public document'):
+        extract_google_doc(FakeFetcher(private), 'X1')

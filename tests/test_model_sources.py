@@ -103,3 +103,12 @@ def test_comment_fragments_are_kept():
     assert normalize_url(f'{pr}#discussion_r12') != normalize_url(f'{pr}#pullrequestreview-12')
     assert source_id(first) == source_id(first.replace('https://', 'http://').replace('github.com', 'GitHub.com'))
     assert source_id('https://example.org/x#issuecomment-1') == source_id('https://example.org/x')
+
+
+def test_google_doc_spellings_share_an_id():
+    base = 'https://docs.google.com/document/d/X1-y_z'
+    ids = {source_id(u) for u in (base, f'{base}/edit', f'{base}/edit?usp=sharing', f'{base}/edit#heading=h.1',
+                                  base.replace('https://', 'http://'))}
+    assert len(ids) == 1
+    assert source_id('https://docs.google.com/document/d/OTHER') not in ids
+    assert normalize_url(f'{base}/edit?usp=sharing') == 'docs.google.com/document/d/X1-y_z'
