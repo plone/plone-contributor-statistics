@@ -17,8 +17,7 @@ import urllib.parse
 import trafilatura
 from trafilatura.utils import load_html
 
-from scripts.lib import git_history
-from scripts.lib.capture.fetch import FetchError, Raw
+from scripts.lib.capture.fetch import FetchError, Raw, cache_dir
 from scripts.lib.github_api import GitHubAPIError, github_get
 from scripts.lib.model import split_archive_url
 
@@ -253,7 +252,8 @@ def extract_github_profile(login: str, session) -> Extracted:
 
 def extract_commit(owner: str, repo: str, sha: str, run=subprocess.run, session=None) -> Extracted:
     """Author, date and message of a commit, from the bare clone when there is one, else from the API."""
-    clone = os.path.join(git_history.CACHE_DIR, owner, f'{repo}.git')
+    # the clones of the collectors (git_history), in the cache shared by the worktrees of the checkout
+    clone = cache_dir('repositories', owner, f'{repo}.git')
     if os.path.isdir(clone):
         try:
             result = run(['git', '--git-dir', clone, 'show', '-s', '--format=%an <%ae>%n%aI%n%n%B', sha],

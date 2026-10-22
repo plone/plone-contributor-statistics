@@ -343,7 +343,7 @@ def test_video_uses_one_workdir_per_source(web):
         return Done()
 
     result = capture(url, ['work for Zest'], fetcher=fetcher, run=run)
-    assert workdirs == [os.path.join(fetch_module.CACHE_DIR, 'video', sid)]
+    assert workdirs == [os.path.join(os.environ['PLONE_STATS_CACHE'], 'sources', 'video', sid)]
     row = load_sources()[sid]
     assert (row.kind, row.title, row.date) == ('video', 'A talk', NOW.date())
     assert result.added == ('[01:02] I work for Zest Software',)

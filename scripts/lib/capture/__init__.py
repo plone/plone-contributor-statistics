@@ -147,7 +147,7 @@ def _read_live(url, sid, fetcher, session, run):
             owner, repo, sha = COMMIT_PATH.match(urllib.parse.urlsplit(url).path).groups()
             extracted = extract_commit(owner, repo, sha, run=run, session=session)
         else:
-            extracted = extract_video(url, os.path.join(fetch.CACHE_DIR, 'video', sid), run=run)
+            extracted = extract_video(url, fetch.cache_dir(fetch.SOURCES_CACHE, 'video', sid), run=run)
     except (GitHubAPIError, ExtractError) as error:
         if _is_gone(error):
             raise _Gone(fetched, kind) from error

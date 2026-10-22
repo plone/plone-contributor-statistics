@@ -6,7 +6,6 @@ import subprocess
 
 import pytest
 
-from scripts.lib.capture import extract as extract_module
 from scripts.lib.capture.extract import (
     ExtractError, adapter_for, decode, extract, extract_commit, extract_github_profile, extract_html, extract_pdf,
     extract_video, extract_volto)
@@ -239,8 +238,9 @@ class FakeRun:
 
 
 def test_extract_commit_prefers_the_clone(tmp_path, monkeypatch):
-    monkeypatch.setattr(extract_module.git_history, 'CACHE_DIR', str(tmp_path))
-    clone = tmp_path / 'plone' / 'Products.CMFPlone.git'
+    """The clones are those of the collectors, in the cache shared by the worktrees of the checkout."""
+    monkeypatch.setenv('PLONE_STATS_CACHE', str(tmp_path))
+    clone = tmp_path / 'repositories' / 'plone' / 'Products.CMFPlone.git'
     clone.mkdir(parents=True)
     run = FakeRun(b'Jane Doe <jane@example.org>\n2015-03-12T10:00:00+01:00\n\nFix the thing\n\nLonger text\n')
     session = FakeGitHubSession()
@@ -254,7 +254,7 @@ def test_extract_commit_prefers_the_clone(tmp_path, monkeypatch):
 
 
 def test_extract_commit_falls_back_to_api(tmp_path, monkeypatch):
-    monkeypatch.setattr(extract_module.git_history, 'CACHE_DIR', str(tmp_path))
+    monkeypatch.setenv('PLONE_STATS_CACHE', str(tmp_path))
     run = FakeRun()
     session = FakeGitHubSession(FakeGitHubResponse({'commit': {
         'author': {'name': 'Jane Doe', 'email': 'jane@example.org', 'date': '2015-03-12T09:00:00Z'},

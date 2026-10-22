@@ -24,6 +24,12 @@ EMPTY_MAPPINGS = {
 }
 
 
+@pytest.fixture(autouse=True)
+def private_cache(tmp_path_factory, monkeypatch):
+    """Every test gets its own cache directory: no test reads or writes the cache of the real checkout."""
+    monkeypatch.setenv('PLONE_STATS_CACHE', str(tmp_path_factory.mktemp('cache')))
+
+
 @pytest.fixture
 def tmp_repo(tmp_path, monkeypatch):
     """An empty repository in tmp_path, as the current directory, with the folders and empty registers."""
