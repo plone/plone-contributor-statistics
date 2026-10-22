@@ -115,7 +115,8 @@ def test_404_is_cached_and_returned(tmp_path):
 def test_sends_the_user_agent(monkeypatch, tmp_path):
     fetcher = Fetcher(cache=str(tmp_path), sleep=lambda s: None, clock=lambda: 0.0)
     assert fetcher.session.headers['User-Agent'] == fetch.USER_AGENT
-    assert fetch.USER_AGENT == 'plone-contributor-statistics/1.0 (+https://github.com/plone/plone-contributor-statistics)'
+    assert fetch.USER_AGENT == ('plone-contributor-statistics/1.0 '
+                                '(+https://github.com/plone/plone-contributor-statistics)')
 
 
 def test_nearest_capture(tmp_path):
