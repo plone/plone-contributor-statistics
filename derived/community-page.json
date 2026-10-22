@@ -672,7 +672,7 @@
    "board": [
     {
      "name": "Joel Burton",
-     "organisation": "Plonebootcamps.com",
+     "organisation": "Joel Burton (independent)",
      "source": "https://plone.org/foundation/board/list_board_2"
     },
     {
@@ -842,7 +842,7 @@
     },
     {
      "name": "Joel Burton",
-     "organisation": "Plonebootcamps.com",
+     "organisation": "Joel Burton (independent)",
      "source": "https://web.archive.org/web/20060203041531/http://plone.org/development/teams/",
      "team": "Documentation Team"
     },
@@ -908,7 +908,7 @@
     },
     {
      "name": "Joel Burton",
-     "organisation": "Plonebootcamps.com",
+     "organisation": "Joel Burton (independent)",
      "source": "https://web.archive.org/web/20060203041531/http://plone.org/development/teams/",
      "team": "Marketing Team"
     },
@@ -2379,8 +2379,8 @@
      "level": "",
      "name": "No-Fun ZopeSkel BBQ Sprint",
      "organisations": [
-      "TriZPUG",
-      "Plonebootcamps.com"
+      "Joel Burton (independent)",
+      "TriZPUG"
      ],
      "sources": [
       "https://plone.org/news-and-events/news/2009/zopeskel-usability-sprint-requests-your-support"
@@ -21171,7 +21171,7 @@
     "commits": 3,
     "id": "joel-burton",
     "name": "Joel Burton",
-    "organisation": "Plonebootcamps.com",
+    "organisation": "Joel Burton (independent)",
     "pull_requests": 0,
     "roles": [
      "Board",
