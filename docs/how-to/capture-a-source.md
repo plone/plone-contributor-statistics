@@ -10,6 +10,8 @@ Do this when a fact rests on a page, a profile, a commit or a video, and you wan
 
 2.  Capture the page with the tool.
     A GitHub profile or commit is read through the GitHub API, so set `GITHUB_TOKEN` in the environment for those; never pass a token on the command line.
+    A PDF is read with `pdftotext` from poppler, and a video with `yt-dlp`; install them to capture those.
+    A Wayback address needs the full 14-digit timestamp of the capture, as in the example.
 
     ```shell
     python -m scripts.tools.capture "http://web.archive.org/web/20100125023558/http://limi.net:80/about" \
@@ -25,6 +27,7 @@ Do this when a fact rests on a page, a profile, a commit or a video, and you wan
     A Wayback copy is dated by `--date`, else by the day of its capture, which the address names; a date the page shows is not trusted for it, and a different one is kept in the `notes` of the new row as `page shows date YYYY-MM-DD`.
 
 3.  Check the result: a row in `curated/sources/sources.csv` and the passage in the excerpt file `curated/sources/excerpts/<id>.md`.
+    The passage of a page is the paragraph around the quote; the passage of a GitHub profile or commit is all of it, so the author and date of a commit stay with its message.
     Do not edit these files by hand.
     Then validate the files:
 
@@ -32,25 +35,35 @@ Do this when a fact rests on a page, a profile, a commit or a video, and you wan
     make check
     ```
 
-4.  Cite the source by its id in the `source` column of the row that rests on it, and open a pull request.
+4.  Open a pull request with the new source.
+    Nothing cites sources by their id yet: keep the address, with its quote, in the `source` cells of the rows that rest on it, as before.
+    A later change switches the registers to citations of the source register.
 
 ## Why only passages are stored
 
 The repository keeps the paragraph around each quote, in the page's own spelling, and never the whole page.
 A short quotation to support a statement is allowed; a copy of a page, of a Wayback capture or of a full caption is not.
-The complete download goes to the local cache `.cache/sources/`, which Git ignores and which nobody publishes.
+The complete download goes to the local cache, which Git ignores and which nobody publishes.
 
 ## The local cache and the limits
 
+The cache is the folder `.cache/sources/` of the main checkout, so all worktrees of a checkout share it, also with a capture made in another worktree.
+The environment variable `PLONE_STATS_CACHE` names another folder to use instead of `.cache/`.
+The commit adapter reads commits from the clones of the collectors in `.cache/repositories/` of the main checkout, and asks the GitHub API only for a repository without a clone.
+
 A page that is in the cache is not fetched again, so running the tool twice makes one request.
 This also lets you finish a capture that was interrupted without asking the web again.
-The tool waits between requests: about one second between requests to the same host, and four seconds for `web.archive.org` and `archive.org`.
+The tool waits between requests: about one second between requests to the same host, and four seconds between two requests to the Internet Archive, whether to `web.archive.org` or to `archive.org`.
+It keeps the time of the last request to each host in the cache, so the pace holds across several runs of the tool.
+When a server answers that there are too many requests and says how many seconds to wait, the tool waits that long before it tries again.
 
 ## A quote is not found
 
 The tool prints `! not found: <quote>` and exits with status 1; it stores nothing for that quote.
+When none of the quotes for a new source is found, it stores nothing at all, not even the row of the source.
 Open the page, copy the sentence again and check the spelling.
 The text may sit in a part of the page that is not part of the article, in which case the tool also searches the rest of the page.
+For a video, the tool searches the captions in the spoken language first, then the captions in the other languages it downloaded.
 Do not shorten a quote until it matches something that does not say what you cite.
 
 ## A page is not reachable
@@ -63,6 +76,7 @@ A fetch error such as a refusal or a timeout is not a gone page: the tool prints
 
 Profiles and other live pages change.
 Fetch such a page again with `--refresh`, which replaces the cached copy and updates the fetch time of the row.
+`--refresh` needs a `--quote` as well.
 Passages that are already stored stay as they are.
 
 {ref}`reference-curated-files` describes the fields of `curated/sources/sources.csv`.
