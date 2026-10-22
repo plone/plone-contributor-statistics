@@ -9,6 +9,18 @@
    },
    "encoding": "utf-8",
    "format": "csv",
+   "name": "2003-conference-talks",
+   "path": "community-contributions/2003-conference-talks.csv",
+   "schema": "schemas/conference-talks.json"
+  },
+  {
+   "dialect": {
+    "csv": {
+     "delimiter": ","
+    }
+   },
+   "encoding": "utf-8",
+   "format": "csv",
    "name": "2003-plone-conference-trainings",
    "path": "community-contributions/2003-plone-conference-trainings.csv",
    "schema": "schemas/plone-conference-trainings.json"
@@ -357,6 +369,18 @@
    },
    "encoding": "utf-8",
    "format": "csv",
+   "name": "2008-conference-talks",
+   "path": "community-contributions/2008-conference-talks.csv",
+   "schema": "schemas/conference-talks.json"
+  },
+  {
+   "dialect": {
+    "csv": {
+     "delimiter": ","
+    }
+   },
+   "encoding": "utf-8",
+   "format": "csv",
    "name": "2008-plone-conference-trainings",
    "path": "community-contributions/2008-plone-conference-trainings.csv",
    "schema": "schemas/plone-conference-trainings.json"
@@ -432,6 +456,18 @@
    "name": "2009-board-of-directors",
    "path": "community-contributions/2009-board-of-directors.csv",
    "schema": "schemas/board-of-directors.json"
+  },
+  {
+   "dialect": {
+    "csv": {
+     "delimiter": ","
+    }
+   },
+   "encoding": "utf-8",
+   "format": "csv",
+   "name": "2009-conference-talks",
+   "path": "community-contributions/2009-conference-talks.csv",
+   "schema": "schemas/conference-talks.json"
   },
   {
    "dialect": {
@@ -525,6 +561,18 @@
    },
    "encoding": "utf-8",
    "format": "csv",
+   "name": "2010-conference-talks",
+   "path": "community-contributions/2010-conference-talks.csv",
+   "schema": "schemas/conference-talks.json"
+  },
+  {
+   "dialect": {
+    "csv": {
+     "delimiter": ","
+    }
+   },
+   "encoding": "utf-8",
+   "format": "csv",
    "name": "2010-plone-conference-trainings",
    "path": "community-contributions/2010-plone-conference-trainings.csv",
    "schema": "schemas/plone-conference-trainings.json"
@@ -609,6 +657,18 @@
    },
    "encoding": "utf-8",
    "format": "csv",
+   "name": "2011-conference-talks",
+   "path": "community-contributions/2011-conference-talks.csv",
+   "schema": "schemas/conference-talks.json"
+  },
+  {
+   "dialect": {
+    "csv": {
+     "delimiter": ","
+    }
+   },
+   "encoding": "utf-8",
+   "format": "csv",
    "name": "2011-plone-conference-trainings",
    "path": "community-contributions/2011-plone-conference-trainings.csv",
    "schema": "schemas/plone-conference-trainings.json"
@@ -684,6 +744,18 @@
    "name": "2012-board-of-directors",
    "path": "community-contributions/2012-board-of-directors.csv",
    "schema": "schemas/board-of-directors.json"
+  },
+  {
+   "dialect": {
+    "csv": {
+     "delimiter": ","
+    }
+   },
+   "encoding": "utf-8",
+   "format": "csv",
+   "name": "2012-conference-talks",
+   "path": "community-contributions/2012-conference-talks.csv",
+   "schema": "schemas/conference-talks.json"
   },
   {
    "dialect": {
@@ -852,6 +924,18 @@
    "name": "2014-board-of-directors",
    "path": "community-contributions/2014-board-of-directors.csv",
    "schema": "schemas/board-of-directors.json"
+  },
+  {
+   "dialect": {
+    "csv": {
+     "delimiter": ","
+    }
+   },
+   "encoding": "utf-8",
+   "format": "csv",
+   "name": "2014-conference-talks",
+   "path": "community-contributions/2014-conference-talks.csv",
+   "schema": "schemas/conference-talks.json"
   },
   {
    "dialect": {
@@ -1317,6 +1401,18 @@
    },
    "encoding": "utf-8",
    "format": "csv",
+   "name": "2019-conference-talks",
+   "path": "community-contributions/2019-conference-talks.csv",
+   "schema": "schemas/conference-talks.json"
+  },
+  {
+   "dialect": {
+    "csv": {
+     "delimiter": ","
+    }
+   },
+   "encoding": "utf-8",
+   "format": "csv",
    "name": "2019-plone-conference-trainings",
    "path": "community-contributions/2019-plone-conference-trainings.csv",
    "schema": "schemas/plone-conference-trainings.json"
@@ -1392,6 +1488,18 @@
    "name": "2020-board-of-directors",
    "path": "community-contributions/2020-board-of-directors.csv",
    "schema": "schemas/board-of-directors.json"
+  },
+  {
+   "dialect": {
+    "csv": {
+     "delimiter": ","
+    }
+   },
+   "encoding": "utf-8",
+   "format": "csv",
+   "name": "2020-conference-talks",
+   "path": "community-contributions/2020-conference-talks.csv",
+   "schema": "schemas/conference-talks.json"
   },
   {
    "dialect": {
@@ -1596,6 +1704,18 @@
    "name": "2022-board-of-directors",
    "path": "community-contributions/2022-board-of-directors.csv",
    "schema": "schemas/board-of-directors.json"
+  },
+  {
+   "dialect": {
+    "csv": {
+     "delimiter": ","
+    }
+   },
+   "encoding": "utf-8",
+   "format": "csv",
+   "name": "2022-conference-talks",
+   "path": "community-contributions/2022-conference-talks.csv",
+   "schema": "schemas/conference-talks.json"
   },
   {
    "dialect": {
