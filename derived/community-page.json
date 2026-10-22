@@ -11885,10 +11885,10 @@
      "roles": 0
     },
     "2019": {
-     "commits": 1,
+     "commits": 204,
      "events": 0,
-     "pull_requests": 2,
-     "roles": 0
+     "pull_requests": 57,
+     "roles": 3
     },
     "2020": {
      "commits": 3,
@@ -13742,10 +13742,10 @@
      "roles": 5
     },
     "2019": {
-     "commits": 995,
+     "commits": 792,
      "events": 1,
-     "pull_requests": 336,
-     "roles": 9
+     "pull_requests": 281,
+     "roles": 6
     },
     "2020": {
      "commits": 216,
@@ -49484,7 +49484,7 @@
     "commits": 203,
     "id": "ramon-navarro-bosch",
     "name": "Ramon Navarro Bosch",
-    "organisation": "Onna",
+    "organisation": "Iskra",
     "pull_requests": 55,
     "roles": [
      "Speaker",
