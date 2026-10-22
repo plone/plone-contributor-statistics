@@ -5,6 +5,8 @@ import hashlib
 import json
 from datetime import UTC, datetime
 
+import pytest
+
 from scripts.lib import paths
 from scripts.lib.model import load_sources, read_excerpt
 from scripts.lib.model.sources import source_id
@@ -111,56 +113,89 @@ def test_identity_without_captured_address_cites_an_uncaptured_source():
 
 def test_snippet_only_where_verified():
     # The quote is in the archived copy only: the live page gets no snippet
-    row = affiliation('jane-doe', 'acme', 2010, 2012,
-                      source=f'"Jane Doe, developer", team page: {PAGE} (archived: {ARCHIVED})')
+    cell = f'"Jane Doe, developer", team page: {PAGE} (archived: {ARCHIVED})'
+    row = affiliation('jane-doe', 'acme', 2010, 2012, source=cell)
     migrated = run(people=[person('jane-doe', 'Jane Doe', 'janedoe')], affiliations=[row],
                    results=[result(PROFILE, 'p1'), result(PAGE, 'live'), result(ARCHIVED, 'old')],
                    excerpts={'p1': 'x', 'live': 'Our team: John Smith', 'old': 'Our team: Jane Doe, developer'})
     aid = affiliation_id('jane-doe', 'acme', '2010', '2012')
     assert citations_of(migrated) == [
-        {'affiliation': aid, 'source': 'live', 'snippet': '', 'supersedes': '',
-         'notes': 'label: team page; not found: "Jane Doe, developer"'},
+        {'affiliation': aid, 'source': 'live', 'snippet': '', 'supersedes': '', 'notes': f'cited as: {cell}'},
         {'affiliation': aid, 'source': 'old', 'snippet': 'Jane Doe, developer', 'supersedes': '',
-         'notes': 'label: team page'},
+         'notes': f'cited as: {cell}'},
     ]
 
 
-def test_citation_per_snippet_and_label_in_notes():
-    row = affiliation('jane-doe', 'acme', 2010, source=f'"Jane Doe", "Acme team", team page: {PAGE}')
+def test_citation_per_snippet_and_segment_in_notes():
+    cell = f'"Jane Doe", "Acme team", team page: {PAGE}'
+    row = affiliation('jane-doe', 'acme', 2010, source=cell)
     migrated = run(affiliations=[row], results=[result(PAGE, 's1')],
                    excerpts={'s1': 'The Acme team.\n\nJane Doe joined.'})
     assert [(c['source'], c['snippet'], c['notes']) for c in migrated.citations] == [
-        ('s1', 'Acme team', 'label: team page'), ('s1', 'Jane Doe', 'label: team page')]
+        ('s1', 'Acme team', f'cited as: {cell}'), ('s1', 'Jane Doe', f'cited as: {cell}')]
 
 
 def test_unverified_quote_kept_in_notes():
-    # A quote of another segment stays out of a citation that never claimed it, unless no address holds it
+    # Every quote of the cell is a candidate snippet; one that no excerpt holds stays in its segment's notes
     other = 'https://other.example/about'
-    cell = f'listed on the team page: {PAGE}; "Two of our developers (Jane Doe)", about page: {other}'
-    row = affiliation('jane-doe', 'acme', 2010, source=cell)
+    first, second = f'listed on the team page: {PAGE}', f'"Two of our developers (Jane Doe)", about page: {other}'
+    row = affiliation('jane-doe', 'acme', 2010, source=f'{first}; {second}')
     found = run(affiliations=[row], results=[result(PAGE, 's1'), result(other, 's2')],
                 excerpts={'s1': 'Team', 's2': 'Two of our developers (Jane Doe) build sites.'})
     assert [(c['source'], c['snippet'], c['notes']) for c in found.citations] == [
-        ('s1', '', 'label: listed on the team page'),
-        ('s2', 'Two of our developers (Jane Doe)', 'label: about page')]
+        ('s1', '', f'cited as: {first}'), ('s2', 'Two of our developers (Jane Doe)', f'cited as: {second}')]
     lost = run(affiliations=[row], results=[result(PAGE, 's1'), result(other, 's2')],
                excerpts={'s1': 'Team', 's2': 'Nothing'})
-    assert [(c['source'], c['notes']) for c in lost.citations] == [
-        ('s1', 'label: listed on the team page'),
-        ('s2', 'label: about page; not found: "Two of our developers (Jane Doe)"')]
-    homeless = affiliation('jane-doe', 'acme', 2010, source=f'team page: {PAGE}; "Jane Doe at Acme"')
-    lost = run(affiliations=[homeless], results=[result(PAGE, 's1')], excerpts={'s1': 'Team'})
-    assert [c['notes'] for c in lost.citations] == ['label: team page; not found: "Jane Doe at Acme"']
+    assert [(c['source'], c['snippet'], c['notes']) for c in lost.citations] == [
+        ('s1', '', f'cited as: {first}'), ('s2', '', f'cited as: {second}')]
 
 
-def test_notes_cell_is_cited_and_kept():
-    notes = f'confirmed by her: {COMMIT}'
+def test_segment_without_address_joins_the_one_before():
+    # A segment without an address joins the segment before it; one in front of every address the one after it
+    other = 'https://other.example/about'
+    cell = (f'"Jane Doe at Acme"; team page: {PAGE}; in the signature of her messages; (#70); '
+            f'about page: {other}; 2014 only')
+    row = affiliation('jane-doe', 'acme', 2010, source=cell)
+    migrated = run(affiliations=[row], results=[result(PAGE, 's1'), result(other, 's2')],
+                   excerpts={'s1': 'Jane Doe at Acme', 's2': 'x'})
+    assert [(c['source'], c['snippet'], c['notes']) for c in migrated.citations] == [
+        ('s1', 'Jane Doe at Acme',
+         f'cited as: "Jane Doe at Acme"; team page: {PAGE}; in the signature of her messages; (#70)'),
+        ('s2', '', f'cited as: about page: {other}; 2014 only')]
+
+
+def test_text_after_the_address_kept():
+    cell = 'Py76: https://py76.be/en (Py76 since 2023 on the side; fully independent since 2024)'
+    row = affiliation('jane-doe', 'py76', 2023, source=cell)
+    migrated = run(affiliations=[row], results=[result('https://py76.be/en', 's1')], excerpts={'s1': 'x'})
+    assert [c['notes'] for c in migrated.citations] == [f'cited as: {cell}']
+
+
+def test_cited_address_differing_from_the_source_kept():
+    # Two talks on one list page are one source: the notes keep both addresses as cited, in the order of the cell
+    talk1, talk2 = 'https://2014.ploneconf.org/talks/@@list#talk_1', 'https://2014.ploneconf.org/talks/@@list#talk_2'
+    wayback = 'http://web.archive.org/web/2010id_/http://acme.example:80/team/'
+    cell = f'talk: {talk1}; second talk: {talk2}; team page: {wayback}'
+    row = affiliation('jane-doe', 'acme', 2014, source=cell)
+    migrated = run(affiliations=[row], results=[result(talk1, 's1'), result(talk2, 's1'), result(wayback, 'w1')],
+                   excerpts={'s1': 'x', 'w1': 'y'})
+    assert [(c['source'], c['notes']) for c in migrated.citations] == [
+        ('s1', f'cited as: talk: {talk1}; second talk: {talk2}'), ('w1', f'cited as: team page: {wayback}')]
+
+
+def test_cell_without_address_is_an_error():
+    row = affiliation('jane-doe', 'acme', 2010, source='she told us')
+    with pytest.raises(ValueError, match='without an address'):
+        run(affiliations=[row])
+
+
+def test_notes_cell_is_not_cited():
+    notes = f'but her commits of that year are for another client: {COMMIT}'
     row = affiliation('jane-doe', 'acme', 2010, notes=notes)
     migrated = run(affiliations=[row], results=[result(PAGE, 's1'), result(COMMIT, 'c1')],
                    excerpts={'s1': 'x', 'c1': 'y'})
     assert migrated.affiliations[0]['notes'] == notes
-    assert [(c['source'], c['notes']) for c in migrated.citations] == [('c1', 'label: confirmed by her'),
-                                                                       ('s1', '')]
+    assert [(c['source'], c['notes']) for c in migrated.citations] == [('s1', f'cited as: {PAGE}')]
 
 
 def test_uncaptured_url_becomes_a_source():
@@ -169,8 +204,7 @@ def test_uncaptured_url_becomes_a_source():
             affiliation('jane-doe', 'acme', 2012, source=f'talk: {video}')]
     migrated = run(affiliations=rows,
                    results=[result(video, error=f'{video}: yt-dlp failed for {video}\nHTTP Error 429'),
-                            result(ARCHIVED)],
-                   worklist=[{'url': video, 'quotes': [], 'names': [], 'kind': 'video'}])
+                            result(ARCHIVED)])
     video_id = source_id(video)
     archived_id = source_id('https://acme.example/team', '20101010101010')
     expected = [
@@ -186,24 +220,40 @@ def test_uncaptured_url_becomes_a_source():
     assert sorted(c['source'] for c in migrated.citations) == sorted([video_id, archived_id, video_id])
 
 
+def test_kind_of_an_uncaptured_source():
+    # The work list's hint first, else the kind the capture would give the address
+    urls = {'https://2017.ploneconf.org/people/jane': 'speaker-page', 'https://github.com/janedoe': 'profile',
+            COMMIT: 'commit', 'https://github.com/plone/x/issues/5': 'issue-comment',
+            'https://www.youtube.com/watch?v=abc': 'video', 'https://acme.example/report.pdf': 'pdf',
+            'https://acme.example/team': 'page'}
+    rows = [affiliation('jane-doe', 'acme', 2000 + number, 2000 + number, source=url)
+            for number, url in enumerate(urls)]
+    migrated = run(affiliations=rows, results=[result(url) for url in urls],
+                   worklist=[{'url': 'https://2017.ploneconf.org/people/jane', 'kind': 'speaker-page'}])
+    assert {row['url']: row['kind'] for row in migrated.new_sources} == urls
+
+
 def test_search_url_cited_through_its_commits():
     other = 'https://github.com/acme/thing/commit/def456'
-    empty = SEARCH.replace('2014', '2015')
-    row = affiliation('jane-doe', 'acme', 2014, 2015, source=f'commits in @acme: {SEARCH}; and 2015: {empty}')
-    migrated = run(affiliations=[row], searches={SEARCH: [COMMIT, other], empty: []},
+    cell = f'commits in @acme: {SEARCH}'
+    row = affiliation('jane-doe', 'acme', 2014, source=cell)
+    migrated = run(affiliations=[row], searches={SEARCH: [COMMIT, other]},
                    results=[result(COMMIT, 'c1'), result(other, 'c2')], excerpts={'c1': 'x', 'c2': 'y'})
     assert [(c['source'], c['notes']) for c in migrated.citations] == [
-        ('c1', f'label: commits in @acme; search: {SEARCH}; label: and 2015; search without results: {empty}'),
-        ('c2', f'label: commits in @acme; search: {SEARCH}')]
+        ('c1', f'cited as: {cell}'), ('c2', f'cited as: {cell}')]
     assert migrated.new_sources == []
 
 
-def test_search_without_results_alone_cites_the_search():
-    row = affiliation('jane-doe', 'acme', 2014, source=f'commits in @acme: {SEARCH}')
-    migrated = run(affiliations=[row], searches={SEARCH: []})
-    assert [(c['source'], c['notes']) for c in migrated.citations] == [
-        (source_id(SEARCH), f'label: commits in @acme; search without results: {SEARCH}')]
-    assert migrated.new_sources[0]['notes'] == 'not captured on 2026-10-22: nothing found'
+def test_search_without_results_is_an_uncaptured_source():
+    empty = SEARCH.replace('2014', '2015')
+    cell = f'commits in @acme: {SEARCH}; and 2015: {empty}'
+    row = affiliation('jane-doe', 'acme', 2014, 2015, source=cell)
+    migrated = run(affiliations=[row], searches={SEARCH: [COMMIT], empty: []}, results=[result(COMMIT, 'c1')],
+                   excerpts={'c1': 'x'})
+    assert sorted((c['source'], c['notes']) for c in migrated.citations) == sorted([
+        ('c1', f'cited as: commits in @acme: {SEARCH}'), (source_id(empty), f'cited as: and 2015: {empty}')])
+    assert [(row['id'], row['kind'], row['notes']) for row in migrated.new_sources] == [
+        (source_id(empty), 'page', 'not captured on 2026-10-22: nothing found')]
 
 
 def test_not_verified_rows_are_assumed():
@@ -229,20 +279,26 @@ def test_rejection_becomes_denied_with_decision_source():
                               'organisation': 'zest', 'from': '2024', 'to': '2025', 'status': 'denied',
                               'checked': '', 'notes': 'an old mailbox'}
     assert denied['beta']['status'] == 'denied'
-    assert [(c['source'], c['snippet']) for c in citations_of(migrated, denied['zest'])] == [('d1', 'an old mailbox')]
+    assert [(c['source'], c['snippet'], c['notes']) for c in citations_of(migrated, denied['zest'])] == [
+        ('d1', 'an old mailbox', f'cited as: {decision}')]
     assert [(c['source'], c['notes']) for c in citations_of(migrated, denied['beta'])] == [
-        ('e1', 'label: listed on the team page')]
+        ('e1', f'cited as: listed on the team page: {evidence}')]
     assert migrated.kind_updates == {'d1': 'decision'}
 
 
-def test_uncaptured_decision_source_is_a_decision():
-    decision = 'https://github.com/plone/plone-contributor-statistics/pull/90'
-    rejection = {'person': 'jane-doe', 'organisation': 'beta', 'from': '2023', 'to': '2023',
-                 'reason': 'did no Plone projects', 'source': decision}
-    migrated = run(rejections=[rejection], results=[result(decision)])
-    assert [(row['id'], row['kind']) for row in migrated.new_sources] == [(source_id(decision), 'decision')]
+def test_only_a_comment_becomes_a_decision():
+    # A whole pull request page stays an issue page; an uncaptured comment becomes a decision source
+    pull = 'https://github.com/plone/plone-contributor-statistics/pull/90'
+    comment = 'https://github.com/plone/plone-contributor-statistics/pull/158#issuecomment-7'
+    rejections = [{'person': 'jane-doe', 'organisation': 'beta', 'from': '2023', 'to': '2023',
+                   'reason': 'did no Plone projects', 'source': pull},
+                  {'person': 'jane-doe', 'organisation': 'gamma', 'from': '2024', 'to': '2024',
+                   'reason': 'the tie-breaker', 'source': comment}]
+    migrated = run(rejections=rejections, results=[result(pull, 'p1'), result(comment)],
+                   excerpts={'p1': 'x'}, kinds={'p1': 'issue-comment'})
     assert migrated.kind_updates == {}
-    assert migrated.citations[0]['snippet'] == ''
+    assert [(row['id'], row['kind']) for row in migrated.new_sources] == [(source_id(comment), 'decision')]
+    assert [c['snippet'] for c in migrated.citations] == ['', '']
 
 
 def test_affiliation_id_is_stable():
@@ -328,7 +384,7 @@ def test_command_with_write_writes_the_new_registers(tmp_repo):
         'id,person,organisation,from,to,status,checked,notes')
     citations = (paths.MAPPINGS_DIR / 'citations.csv').read_text(encoding='utf-8').splitlines()
     assert citations[0] == 'affiliation,source,snippet,supersedes,notes'
-    assert citations[1:] == [f"{affiliation_id('jane-doe', 'acme', '2010', '')},{source_id(PAGE)},,,"]
+    assert citations[1:] == [f"{affiliation_id('jane-doe', 'acme', '2010', '')},{source_id(PAGE)},,,cited as: {PAGE}"]
     assert source_id(PAGE) in load_sources()
     assert read_excerpt(source_id(PAGE)).strip() == 'not captured on 2026-10-22: nothing found'
     assert not paths.AFFILIATION_PROPOSALS.exists()

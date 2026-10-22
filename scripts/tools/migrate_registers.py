@@ -15,17 +15,19 @@ The rules (the decisions of plan 2c):
   its notes keep the old cell as it was.
 - An affiliation gets an opaque id (`affiliation_id`) and a status: `assumed` when its notes say `not verified`,
   else `stated`. A rejected proposal becomes a `denied` affiliation whose notes are the reason.
-- Every address of an affiliation's `source` and `notes` cells (of a rejection's `source` and `reason` cells) is
-  cited: one citation per quote of the cell that the source's excerpt holds, else one without a snippet. The
-  citation's notes keep the label of the address's segment (`label: …`) and the quotes not found in the excerpt
-  (`not found: "…"`): those of its own segment, and those of no segment that no address of the cell holds.
-- A GitHub commit search is cited through the commits it found (`search: <address>` in the notes); a search
-  that found nothing is named in the notes of the affiliation's first citation (`search without results: …`),
-  or cited as an uncaptured source when the affiliation has no other citation.
-- An address the capture did not record becomes an uncaptured source: kind by the work list's hint, else
-  `page`, its address as title, the capture day as date, and the reason in its notes and its excerpt.
-- A rejection whose source is a pull request or issue of this repository cites it as a source of kind
-  `decision`; its snippet is the reason when the excerpt holds it word for word.
+- Every address of an affiliation's `source` cell (of a rejection's `source` cell) is cited: one citation per
+  quote of the cell that the source's excerpt holds (for a rejection also its reason), else one without a
+  snippet. The citation's notes are `cited as: ` and the segment of the cell that cites the address, verbatim,
+  with its label, quotes and address as written; a segment without an address joins the nearest segment
+  before it that has one (else the one after it), and the segments that cite one source are joined with `; `
+  in the order of the cell. The old `notes` cell is not cited: it stays the affiliation's notes, as it was.
+- A GitHub commit search is cited through the commits it found; a search that found nothing is cited as an
+  uncaptured source.
+- An address the capture did not record becomes an uncaptured source: kind by the work list's hint, else by
+  the capture adapter of the address (else `pdf` for a PDF address, else `page`), its address as title, the
+  capture day as date, and the reason in its notes and its excerpt.
+- A comment on a pull request or issue of this repository (`#issuecomment-…`) that a rejection cites becomes a
+  source of kind `decision`.
 
 Run `python -m scripts.tools.migrate_registers` for a summary of what it would write, `--write` to write it.
 """
@@ -41,6 +43,8 @@ from datetime import UTC, date, datetime
 from pathlib import Path
 
 from scripts.lib import paths
+from scripts.lib.capture import KIND_BY_ADAPTER
+from scripts.lib.capture.extract import adapter_for
 from scripts.lib.capture.passages import find_quote
 from scripts.lib.model import load_sources, read_excerpt
 from scripts.lib.model.sources import (Source, add_passage, archive_url_of, source_id, split_archive_url,
@@ -50,7 +54,9 @@ from scripts.tools.cited_sources import is_search, parse_segment, quotes_of, spl
 CAPTURE_DAY = '2026-10-22'
 UNCAPTURED = f'not captured on {CAPTURE_DAY}: '
 NOTHING_FOUND = 'nothing found'
-DECISION_URL = re.compile(r'^https://github\.com/plone/plone-contributor-statistics/(?:pull|issues)/\d+(?:#\S+)?$')
+DECISION_URL = re.compile(r'^https://github\.com/plone/plone-contributor-statistics/(?:pull|issues)/\d+'
+                          r'#issuecomment-\d+$')
+CITED_AS = 'cited as: '
 ARCHIVE = Path('archive/migration-to-sources')
 
 PEOPLE_FIELDS = ('id', 'name')
@@ -84,6 +90,14 @@ def _add(values, new):
     for value in new:
         if value not in values:
             values.append(value)
+
+
+def _kind_of(url):
+    """The kind the capture would give the address: by its adapter, else pdf or page by the address."""
+    kind = KIND_BY_ADAPTER.get(adapter_for(url))
+    if kind and kind != 'page':
+        return kind
+    return 'pdf' if url.lower().split('?')[0].split('#')[0].endswith('.pdf') else 'page'
 
 
 class _Sources:
@@ -128,7 +142,7 @@ class _Sources:
             return sid
         if sid not in self.new:
             note = UNCAPTURED + reason
-            self.new[sid] = {'id': sid, 'kind': kind or self.hints.get(url) or 'page', 'title': url,
+            self.new[sid] = {'id': sid, 'kind': kind or self.hints.get(url) or _kind_of(url), 'title': url,
                              'date': CAPTURE_DAY, 'url': original,
                              'archive_url': archive_url_of(original, timestamp) if archived else '',
                              'fetched': self.fetched, 'notes': note}
@@ -148,72 +162,64 @@ class _Sources:
 
 
 class _Citations:
-    """The citations of the affiliations: per affiliation and source, its snippets and the parts of its notes."""
+    """The citations of the affiliations: per affiliation and source, its snippets and the segments citing it."""
 
     def __init__(self):
-        self.entries = {}  # (affiliation, source) -> {'snippets': [...], 'notes': [...]}
+        self.entries = {}  # (affiliation, source) -> {'snippets': [...], 'segments': [...]}
 
-    def add(self, affiliation, sid, snippets=(), notes=()):
-        entry = self.entries.setdefault((affiliation, sid), {'snippets': [], 'notes': []})
+    def add(self, affiliation, sid, snippets=(), segments=()):
+        entry = self.entries.setdefault((affiliation, sid), {'snippets': [], 'segments': []})
         _add(entry['snippets'], snippets)
-        _add(entry['notes'], notes)
-
-    def of(self, affiliation):
-        return sorted(sid for aid, sid in self.entries if aid == affiliation)
+        _add(entry['segments'], segments)
 
     def rows(self):
         rows = []
         for (affiliation, sid), entry in self.entries.items():
-            notes = '; '.join(entry['notes'])
+            notes = CITED_AS + '; '.join(entry['segments']) if entry['segments'] else ''
             for snippet in entry['snippets'] or ['']:
                 rows.append({'affiliation': affiliation, 'source': sid, 'snippet': snippet, 'supersedes': '',
                              'notes': notes})
         return sorted(rows, key=lambda row: (row['affiliation'], row['source'], row['snippet']))
 
 
-def _not_found(quote):
-    return f'not found: "{quote}"'
+def _groups(cell):
+    """[(segments, cited addresses)] of the cell: each segment with addresses, with the segments without an
+    address that follow it (those before the first segment with addresses join that one), in the order of the
+    cell. ValueError for a cell with text but no address, whose text would be lost."""
+    groups, leading = [], []
+    for segment in split_segments(cell):
+        cited = parse_segment(segment)
+        if cited:
+            groups.append(([*leading, segment], cited))
+            leading = []
+        elif groups:
+            groups[-1][0].append(segment)
+        else:
+            leading.append(segment)
+    if leading:
+        raise ValueError(f'a cell without an address: {cell}')
+    return groups
 
 
-def _cite_cell(cell, aid, sources, searches, citations, empty_searches):
-    """Cite every address of the cell for the affiliation; searches without results go to `empty_searches`."""
+def _cite_cell(cell, aid, sources, searches, citations, extra_quotes=()):
+    """Cite every address of the cell for the affiliation, with the cell's segments verbatim in the notes;
+    the quotes of the cell and the `extra_quotes` are the candidate snippets."""
     if not cell:
         return
     pool = quotes_of(cell)
-    cited = [item for segment in split_segments(cell) for item in parse_segment(segment)]
-    homed = {quote for item in cited for quote in item.quotes}
-    targets, empty = [], []  # (cited, source id, search address or None); searches without results
-    for item in cited:
-        if not is_search(item.url):
-            targets.append((item, sources.resolve(item.url), None))
-        elif item.url not in searches:
-            raise ValueError(f'the search {item.url} is not in searches.json')
-        elif searches[item.url]:
-            targets += [(item, sources.resolve(commit), item.url) for commit in searches[item.url]]
-        else:
-            empty.append(item)
-    held = {quote for quote in pool if any(sources.holds(sid, quote) for _, sid, _ in targets)}
-    for item, sid, search in targets:
-        notes = [f'label: {item.label}'] if item.label else []
-        if search:
-            notes.append(f'search: {search}')
-        notes += [_not_found(quote) for quote in pool if not sources.holds(sid, quote)
-                  and (quote in item.quotes or (quote not in homed and quote not in held))]
-        citations.add(aid, sid, [quote for quote in pool if sources.holds(sid, quote)], notes)
-    for item in empty:
-        # A search without results keeps the quotes of its segment that no address holds, and those of no
-        # segment when the cell has no other address
-        empty_searches.append((item, [quote for quote in pool if quote not in held and (
-            quote in item.quotes or (not targets and quote not in homed))]))
-
-
-def _cite_empty_searches(aid, empty_searches, sources, citations):
-    for item, quotes in empty_searches:
-        notes = [f'label: {item.label}'] if item.label else []
-        notes.append(f'search without results: {item.url}')
-        notes += [_not_found(quote) for quote in quotes]
-        cited = citations.of(aid)
-        citations.add(aid, cited[0] if cited else sources.uncaptured(item.url, NOTHING_FOUND), notes=notes)
+    _add(pool, [quote for quote in extra_quotes if quote])
+    for segments, cited in _groups(cell):
+        for item in cited:
+            if not is_search(item.url):
+                sids = [sources.resolve(item.url)]
+            elif item.url not in searches:
+                raise ValueError(f'the search {item.url} is not in searches.json')
+            elif searches[item.url]:
+                sids = [sources.resolve(commit) for commit in searches[item.url]]
+            else:
+                sids = [sources.uncaptured(item.url, NOTHING_FOUND)]
+            for sid in sids:
+                citations.add(aid, sid, [quote for quote in pool if sources.holds(sid, quote)], segments)
 
 
 def _identity(person, kind, value, cell, sources, searches):
@@ -264,7 +270,7 @@ def migrate(old_people, old_identities, old_affiliations, old_rejections, result
     citations = _Citations()
     affiliations = {}  # id -> row
 
-    def affiliation(row, status, checked, notes, cells):
+    def affiliation(row, status, checked, notes):
         aid = affiliation_id(row['person'], row['organisation'], row['from'], row['to'])
         if aid in affiliations:
             raise ValueError(f'two affiliations with the id {aid}: {row["person"]}, {row["organisation"]}, '
@@ -272,26 +278,21 @@ def migrate(old_people, old_identities, old_affiliations, old_rejections, result
         affiliations[aid] = {'id': aid, 'person': row['person'], 'organisation': row['organisation'],
                              'from': row['from'], 'to': row['to'] or '', 'status': status,
                              'checked': checked or '', 'notes': notes or ''}
-        empty_searches = []
-        for cell in cells:
-            _cite_cell(cell, aid, found, searches, citations, empty_searches)
-        _cite_empty_searches(aid, empty_searches, found, citations)
         return aid
 
     for row in old_affiliations:
         status = 'assumed' if 'not verified' in (row['notes'] or '').casefold() else 'stated'
-        affiliation(row, status, row['checked'], row['notes'], [row['source'], row['notes']])
+        aid = affiliation(row, status, row['checked'], row['notes'])
+        _cite_cell(row['source'], aid, found, searches, citations)
     for row in old_rejections:
-        decision = (row['source'] or '').strip()
-        if not DECISION_URL.match(decision):
-            affiliation(row, 'denied', '', row['reason'], [row['source'], row['reason']])
-            continue
-        aid = affiliation(row, 'denied', '', row['reason'], [row['reason']])
-        sid = found.resolve(decision, kind='decision')
-        if sid not in found.new and found.kind(sid) != 'decision':
-            migrated.kind_updates[sid] = 'decision'
-        reason = (row['reason'] or '').strip()
-        citations.add(aid, sid, [reason] if found.holds(sid, reason) else [])
+        aid = affiliation(row, 'denied', '', row['reason'])
+        _cite_cell(row['source'], aid, found, searches, citations, [(row['reason'] or '').strip()])
+        for segment in split_segments(row['source'] or ''):
+            for item in parse_segment(segment):
+                if DECISION_URL.match(item.url):
+                    sid = found.resolve(item.url, kind='decision')
+                    if sid not in found.new and found.kind(sid) != 'decision':
+                        migrated.kind_updates[sid] = 'decision'
 
     migrated.affiliations = sorted(affiliations.values(),
                                    key=lambda row: (row['person'], int(row['from']), row['organisation']))
@@ -354,10 +355,7 @@ def main(argv=None):
     print(summary(migrated))
     if not args.write:
         return 0
-    _write_csv(mappings / 'people.csv', PEOPLE_FIELDS, migrated.people)
-    _write_csv(mappings / 'identities.csv', IDENTITY_FIELDS, migrated.identities)
-    _write_csv(mappings / 'affiliations.csv', AFFILIATION_FIELDS, migrated.affiliations)
-    _write_csv(mappings / 'citations.csv', CITATION_FIELDS, migrated.citations)
+    # The sources first: a failure part-way leaves extra sources, never registers citing missing ones
     for row in migrated.new_sources:
         write_source(Source(row['id'], row['kind'], row['title'], date.fromisoformat(row['date']), row['url'],
                             row['archive_url'] or None,
@@ -366,6 +364,10 @@ def main(argv=None):
         add_passage(row['id'], migrated.new_excerpts[row['id']])
     for sid, kind in migrated.kind_updates.items():
         write_source(replace(register[sid], kind=kind))
+    _write_csv(mappings / 'people.csv', PEOPLE_FIELDS, migrated.people)
+    _write_csv(mappings / 'identities.csv', IDENTITY_FIELDS, migrated.identities)
+    _write_csv(mappings / 'affiliations.csv', AFFILIATION_FIELDS, migrated.affiliations)
+    _write_csv(mappings / 'citations.csv', CITATION_FIELDS, migrated.citations)
     for name in PROPOSAL_FILES:
         (mappings / name).unlink(missing_ok=True)
     print('written', file=sys.stderr)
