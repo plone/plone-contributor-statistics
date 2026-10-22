@@ -67,12 +67,31 @@ def source_id(url, timestamp=None):
     return hashlib.sha1(f'{normalize_url(url)} {timestamp or ""}'.encode()).hexdigest()[:12]
 
 
+_MEMO = {}  # resolved path -> ((st_mtime_ns, st_size), register)
+
+
+def _stamp(path):
+    stat = Path(path).stat()
+    return stat.st_mtime_ns, stat.st_size
+
+
 def load_sources(path=None):
-    """The register, by id. Raises FileNotFoundError without the file."""
-    rows = read_rows(path or paths.SOURCES)
-    return {row['id']: Source(row['id'], row['kind'], row['title'], row['date'], row['url'], row['archive_url'],
-                              row['fetched'], row['notes'])
-            for row in rows}
+    """The register, by id. Raises FileNotFoundError without the file.
+
+    Kept in memory while the file is unchanged (same path, modification time and size), so a run of thousands
+    of captures reads it once; each call gets its own dict.
+    """
+    path = path or paths.SOURCES
+    stamp = _stamp(path)  # raises FileNotFoundError
+    key = str(Path(path).resolve())
+    memo = _MEMO.get(key)
+    if memo is None or memo[0] != stamp:
+        rows = read_rows(path)
+        register = {row['id']: Source(row['id'], row['kind'], row['title'], row['date'], row['url'],
+                                      row['archive_url'], row['fetched'], row['notes'])
+                    for row in rows}
+        memo = _MEMO[key] = (stamp, register)
+    return dict(memo[1])
 
 
 def excerpt_path(source_id):
@@ -101,6 +120,7 @@ def write_source(source):
         writer = csv.DictWriter(f, fieldnames=SOURCE_FIELDS, quoting=csv.QUOTE_MINIMAL, lineterminator='\n')
         writer.writeheader()
         writer.writerows(rows)
+    _MEMO[str(Path(paths.SOURCES).resolve())] = (_stamp(paths.SOURCES), dict(sorted(existing.items())))
 
 
 def read_excerpt(source_id):

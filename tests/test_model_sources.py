@@ -81,3 +81,15 @@ def test_add_passage_is_idempotent(tmp_repo):
     assert add_passage('aaaaaaaaaaaa', 'Nowadays he works for kitconcept.') is True
     assert passages('aaaaaaaaaaaa') == ['He works for Zest.', 'Nowadays he works for kitconcept.']
     assert read_excerpt('aaaaaaaaaaaa').endswith('kitconcept.\n')
+
+
+def test_load_sources_memo_sees_external_edits(tmp_repo):
+    header = 'id,kind,title,date,url,archive_url,fetched,notes\n'
+    one = 'aaaaaaaaaaaa,page,One,2010-01-25,https://a.org/1,,2026-10-22T09:30:00Z,\n'
+    two = 'bbbbbbbbbbbb,page,Two,2010-01-25,https://a.org/2,,2026-10-22T09:30:00Z,\n'
+    paths.SOURCES.write_text(header + one, encoding='utf-8')
+    assert list(load_sources()) == ['aaaaaaaaaaaa']
+    paths.SOURCES.write_text(header + one + two, encoding='utf-8')
+    assert list(load_sources()) == ['aaaaaaaaaaaa', 'bbbbbbbbbbbb']
+    paths.SOURCES.write_text(header + two, encoding='utf-8')
+    assert list(load_sources()) == ['bbbbbbbbbbbb']

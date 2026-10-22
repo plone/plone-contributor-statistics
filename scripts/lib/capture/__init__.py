@@ -128,6 +128,9 @@ def _read_archive(fetcher, archive_url, kind, run):
     raw = fetcher.get(raw_capture_url(archive_url))
     if raw.status in GONE_STATUSES:
         raise _Gone(raw.fetched, kind or ('pdf' if is_pdf(raw) else 'page'))
+    served = split_archive_url(raw.final_url)
+    if served is not None and served[1] != timestamp:  # the Archive sent us to another capture: record that one
+        timestamp = served[1]
     extracted = extraction.extract(raw, run=run)
     return _Read(original, timestamp, kind or ('pdf' if is_pdf(raw) else 'page'), extracted.text,
                  extracted.full_text, extracted.title, extracted.date, raw.fetched)

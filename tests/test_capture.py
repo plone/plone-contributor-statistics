@@ -20,7 +20,9 @@ PARAGRAPH = ('Maurits van Rees is a long time contributor. He works for Zest Sof
 
 
 class FakeResponse:
-    def __init__(self, status=200, body=b'', content_type='text/html; charset=utf-8'):
+    def __init__(self, status=200, body=b'', content_type='text/html; charset=utf-8', url=None):
+        if url is not None:
+            self.url = url
         self.status_code = status
         self.content = body
         self.headers = {'Content-Type': content_type}
@@ -480,3 +482,17 @@ def test_wayback_address_without_a_full_timestamp_is_refused(web, url):
         capture(url, ['Plone'], fetcher=fetcher, run=no_run)
     assert session.requests == []
     assert load_sources() == {}
+
+
+def test_redirected_capture_is_recorded_under_its_own_timestamp(web):
+    asked = 'https://web.archive.org/web/20100101000000id_/http://a.org/x'
+    served = 'https://web.archive.org/web/20100125023558id_/http://a.org/x'
+    fetcher, _ = web({asked: FakeResponse(body=ARTICLE, url=served)})
+    result = capture('https://web.archive.org/web/20100101000000/http://a.org/x',
+                     ['He works for Zest Software'], fetcher=fetcher, run=no_run)
+    sid = source_id('http://a.org/x', '20100125023558')
+    assert result.source_id == sid
+    row = load_sources()[sid]
+    assert row.archive_url == 'https://web.archive.org/web/20100125023558/http://a.org/x'
+    assert row.date == datetime.date(2010, 1, 25)
+    assert source_id('http://a.org/x', '20100101000000') not in load_sources()

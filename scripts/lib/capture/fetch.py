@@ -96,6 +96,11 @@ class Raw:
     content_type: str
     body: bytes
     fetched: datetime.datetime
+    final_url: str = ''  # the address after redirects; the requested one when nothing says otherwise
+
+    def __post_init__(self):
+        if not self.final_url:
+            object.__setattr__(self, 'final_url', self.url)
 
 
 def now():
@@ -148,7 +153,7 @@ class Fetcher:
             with open(body_path, 'rb') as handle:
                 body = handle.read()
             return Raw(meta['url'], meta['status'], meta['content_type'], body,
-                       datetime.datetime.fromisoformat(meta['fetched']))
+                       datetime.datetime.fromisoformat(meta['fetched']), meta.get('final_url') or meta['url'])
         except (OSError, ValueError, KeyError, TypeError):
             return None
 
@@ -158,7 +163,7 @@ class Fetcher:
         os.makedirs(self.cache, exist_ok=True)
         _write_atomic(body_path, raw.body)
         meta = {'url': raw.url, 'status': raw.status, 'content_type': raw.content_type,
-                'fetched': raw.fetched.isoformat()}
+                'fetched': raw.fetched.isoformat(), 'final_url': raw.final_url}
         _write_atomic(meta_path, json.dumps(meta, indent=2).encode('utf-8'))
 
     def _pace_path(self, key):
@@ -216,7 +221,8 @@ class Fetcher:
             else:
                 status = response.status_code
                 if status in CACHED_STATUSES:
-                    raw = Raw(url, status, response.headers.get('Content-Type', ''), response.content, now())
+                    raw = Raw(url, status, response.headers.get('Content-Type', ''), response.content, now(),
+                              str(getattr(response, 'url', '') or url))
                     self._store(raw)
                     return raw
                 if status not in RETRY_STATUSES:
