@@ -1,7 +1,18 @@
 import datetime
 
 from scripts.lib import paths
-from scripts.lib.model import excerpt_path, load_sources, normalize_url, source_id, split_archive_url
+from scripts.lib.model import (
+    Source,
+    add_passage,
+    excerpt_path,
+    load_sources,
+    normalize_url,
+    passages,
+    read_excerpt,
+    source_id,
+    split_archive_url,
+    write_source,
+)
 
 
 def test_source_id_ignores_url_noise():
@@ -43,3 +54,30 @@ def test_load_sources_reads_the_register(tmp_repo):
     assert source.date == datetime.date(2010, 1, 25)
     assert source.fetched.tzinfo is not None
     assert excerpt_path(sid) == paths.EXCERPTS_DIR / f'{sid}.md'
+
+
+def _source(sid, title='A page'):
+    return Source(sid, 'page', title, datetime.date(2010, 1, 25), 'https://limi.net/about', None,
+                  datetime.datetime(2026, 10, 22, 14, 3, 51, tzinfo=datetime.timezone.utc), None)
+
+
+def test_write_source_keeps_rows_sorted(tmp_repo):
+    write_source(_source('bbbbbbbbbbbb'))
+    write_source(_source('aaaaaaaaaaaa'))
+    assert list(load_sources()) == ['aaaaaaaaaaaa', 'bbbbbbbbbbbb']
+    write_source(_source('aaaaaaaaaaaa', title='A new title'))
+    sources = load_sources()
+    assert list(sources) == ['aaaaaaaaaaaa', 'bbbbbbbbbbbb']
+    assert sources['aaaaaaaaaaaa'].title == 'A new title'
+    text = paths.SOURCES.read_text(encoding='utf-8')
+    assert '2026-10-22T14:03:51Z' in text
+    assert text.count('\n') == 3
+
+
+def test_add_passage_is_idempotent(tmp_repo):
+    assert read_excerpt('aaaaaaaaaaaa') == ''
+    assert add_passage('aaaaaaaaaaaa', 'He works for Zest.') is True
+    assert add_passage('aaaaaaaaaaaa', 'He  works for\nZest.') is False
+    assert add_passage('aaaaaaaaaaaa', 'Nowadays he works for kitconcept.') is True
+    assert passages('aaaaaaaaaaaa') == ['He works for Zest.', 'Nowadays he works for kitconcept.']
+    assert read_excerpt('aaaaaaaaaaaa').endswith('kitconcept.\n')

@@ -1,9 +1,10 @@
 """The register of sources: the pages, profiles, commits and videos that the other registers cite."""
 
+import csv
 import hashlib
 import re
 from dataclasses import dataclass
-from datetime import date, datetime
+from datetime import UTC, date, datetime
 from pathlib import Path
 
 from scripts.lib import paths
@@ -77,3 +78,55 @@ def load_sources(path=None):
 def excerpt_path(source_id):
     """The file that holds the passages cited from the source."""
     return Path(paths.EXCERPTS_DIR) / f'{source_id}.md'
+
+
+PASSAGE_SEPARATOR = '\n\n---\n\n'
+SOURCE_FIELDS = ('id', 'kind', 'title', 'date', 'url', 'archive_url', 'fetched', 'notes')
+
+
+def write_source(source):
+    """Add the source to sources.csv or replace the row with its id; the file stays sorted by id."""
+    try:
+        existing = load_sources()
+    except FileNotFoundError:
+        existing = {}
+    existing[source.id] = source
+    rows = []
+    for item in sorted(existing.values(), key=lambda item: item.id):
+        fetched = item.fetched.astimezone(UTC).strftime('%Y-%m-%dT%H:%M:%SZ')
+        rows.append({'id': item.id, 'kind': item.kind, 'title': item.title, 'date': item.date.isoformat(),
+                     'url': item.url, 'archive_url': item.archive_url or '', 'fetched': fetched,
+                     'notes': item.notes or ''})
+    with open(paths.SOURCES, 'w', newline='', encoding='utf-8') as f:
+        writer = csv.DictWriter(f, fieldnames=SOURCE_FIELDS, quoting=csv.QUOTE_MINIMAL, lineterminator='\n')
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def read_excerpt(source_id):
+    """The text of the excerpt file of the source; empty without the file."""
+    path = excerpt_path(source_id)
+    return path.read_text(encoding='utf-8') if path.is_file() else ''
+
+
+def passages(source_id):
+    """The passages cited from the source."""
+    text = read_excerpt(source_id).strip()
+    return text.split(PASSAGE_SEPARATOR) if text else []
+
+
+def _collapse(text):
+    return ' '.join(text.split())
+
+
+def add_passage(source_id, passage):
+    """Append the passage unless one of the passages contains it already, ignoring whitespace; True if added."""
+    passage = passage.strip()
+    wanted = _collapse(passage)
+    existing = passages(source_id)
+    if any(wanted in _collapse(other) for other in existing):
+        return False
+    path = excerpt_path(source_id)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(PASSAGE_SEPARATOR.join([*existing, passage]) + '\n', encoding='utf-8')
+    return True
