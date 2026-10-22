@@ -334,3 +334,20 @@ def test_extract_video_without_yt_dlp_raises(tmp_path):
         raise FileNotFoundError('yt-dlp')
     with pytest.raises(ExtractError):
         extract_video('https://youtu.be/abc', str(tmp_path), run=run)
+
+
+def test_extract_html_main_text_keeps_the_spelling_of_the_page():
+    """No Markdown: underscores and asterisks stay, bold and headings add nothing, one paragraph per block."""
+    html = (b'<html><head><title>T</title></head><body><article><h1>The sprint</h1>'
+            b'<p>It took a_long_time to fix the release process of Plone, but it worked out well in the end.</p>'
+            b'<p>The sprint was held in <b>Rotterdam</b> at the office of Zest Software in the spring.</p>'
+            b'<ul><li>item *one* of the list that the sprint team worked on</li>'
+            b'<li>item two of the same list, also done during that week</li></ul>'
+            b'</article></body></html>')
+    text = extract_html(raw(html)).text
+    paragraphs = text.split('\n\n')
+    assert 'It took a_long_time to fix the release process of Plone, but it worked out well in the end.' in paragraphs
+    assert 'The sprint was held in Rotterdam at the office of Zest Software in the spring.' in paragraphs
+    assert any(p.endswith('item *one* of the list that the sprint team worked on') for p in paragraphs)
+    assert '\\' not in text and '**' not in text and '#' not in text
+    assert all(p and p == p.strip() for p in paragraphs)

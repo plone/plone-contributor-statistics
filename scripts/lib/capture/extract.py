@@ -111,8 +111,11 @@ def block_text(html: str) -> str:
 
 def extract_html(raw: Raw) -> Extracted:
     html = decode(raw)
-    text = trafilatura.extract(html, output_format='markdown', include_comments=False,
-                               include_tables=True, favor_recall=True, with_metadata=False) or ''
+    # plain text, not Markdown: Markdown escapes `_` and `*` and adds `**` and `#`, so passages would not be
+    # in the page's own spelling; trafilatura puts each block on a line, which becomes a paragraph here
+    plain = trafilatura.extract(html, output_format='txt', include_comments=False,
+                                include_tables=True, favor_recall=True, with_metadata=False) or ''
+    text = '\n\n'.join(line.strip() for line in plain.splitlines() if line.strip())
     full_text = block_text(html)
     metadata = trafilatura.extract_metadata(html)
     title = getattr(metadata, 'title', None) or None
