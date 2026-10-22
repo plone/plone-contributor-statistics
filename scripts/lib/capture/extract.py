@@ -15,6 +15,7 @@ import subprocess
 import urllib.parse
 
 import trafilatura
+from trafilatura.utils import load_html
 
 from scripts.lib import git_history
 from scripts.lib.capture.fetch import FetchError, Raw
@@ -72,11 +73,48 @@ def parse_date(value: str | None) -> datetime.date | None:
         return None
 
 
+BLOCK_TAGS = {'address', 'article', 'aside', 'blockquote', 'center', 'dd', 'details', 'dialog', 'div', 'dl', 'dt',
+              'fieldset', 'figcaption', 'figure', 'footer', 'form', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'header',
+              'hr', 'legend', 'li', 'main', 'nav', 'ol', 'p', 'pre', 'section', 'summary', 'table', 'td', 'th',
+              'tr', 'ul'}
+HIDDEN_TAGS = {'head', 'noscript', 'script', 'style', 'template'}
+BLOCK, LINE = '\ue000', '\ue001'  # markers from the private use area: lxml refuses control characters
+
+
+def block_text(html: str) -> str:
+    """Everything readable on the page, one paragraph per block element, separated by blank lines.
+
+    A `<br>` is a line break, two of them a paragraph break, as old pages use them.
+    """
+    tree = load_html(html)
+    body = tree.find('.//body') if tree is not None else None
+    if body is None:
+        return ''
+    for element in list(body.iter()):
+        tag = element.tag if isinstance(element.tag, str) else None
+        if tag is None or tag.lower() in HIDDEN_TAGS:
+            if element.getparent() is not None:
+                element.drop_tree()  # keeps the text that follows the element
+            continue
+        tag = tag.lower()
+        if tag in BLOCK_TAGS:
+            element.text = BLOCK + (element.text or '')
+            element.tail = BLOCK + (element.tail or '')
+        elif tag == 'br':
+            element.tail = LINE + (element.tail or '')
+    text = ' '.join(body.text_content().split())
+    paragraphs = []
+    for block in text.split(BLOCK):
+        lines = '\n'.join(line.strip() for line in block.split(LINE))
+        paragraphs.extend(part.strip() for part in re.split(r'\n\s*\n', lines) if part.strip())
+    return '\n\n'.join(paragraphs)
+
+
 def extract_html(raw: Raw) -> Extracted:
     html = decode(raw)
     text = trafilatura.extract(html, output_format='markdown', include_comments=False,
                                include_tables=True, favor_recall=True, with_metadata=False) or ''
-    full_text = trafilatura.html2txt(html, clean=False) or ''
+    full_text = block_text(html)
     metadata = trafilatura.extract_metadata(html)
     title = getattr(metadata, 'title', None) or None
     return Extracted(text=text, full_text=full_text, title=title,

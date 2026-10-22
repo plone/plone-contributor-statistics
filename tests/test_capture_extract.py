@@ -31,6 +31,21 @@ def test_extract_html_keeps_sidebar_in_full_text():
     assert 'Acme Corporation' in result.full_text
 
 
+def test_extract_html_full_text_keeps_paragraphs():
+    """A quote found only in the full text is cut as its paragraph, so the full text must have paragraphs."""
+    result = extract_html(raw((FIXTURES / 'article.html').read_bytes()))
+    paragraphs = result.full_text.split('\n\n')
+    assert 'About the author: Jane Doe leads the Plone team at Acme Corporation.' in paragraphs
+    assert 'Privacy policy' in paragraphs
+    assert not any('<' in p or 'charset' in p for p in paragraphs)
+
+
+def test_extract_html_full_text_line_breaks():
+    html = (b'<html><head><style>p {color: red}</style><script>var x = 1;</script></head><body>'
+            b'<div>One\n   line<br>next line<br><br>new  paragraph<!-- hidden --></div>tail text</body></html>')
+    assert extract_html(raw(html)).full_text == 'One line\nnext line\n\nnew paragraph\n\ntail text'
+
+
 def test_extract_html_title_and_date():
     result = extract_html(raw((FIXTURES / 'article.html').read_bytes()))
     assert result.title == 'Plone sprint report'
