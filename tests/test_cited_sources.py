@@ -239,3 +239,15 @@ def test_main_writes_the_review_file(tmp_repo, monkeypatch, tmp_path, capsys):
     lines = [json.loads(line) for line in paths_['review.jsonl'].read_text(encoding='utf-8').splitlines()]
     assert [line['problem'] for line in lines] == ['quotes without address', 'quotes from elsewhere in the cell']
     assert '1 segments with quotes but no address, 1 addresses with quotes from elsewhere' in capsys.readouterr().err
+
+
+def test_a_name_with_a_trailing_bracket_is_also_looked_for_without_it(tmp_repo):
+    write(paths.PEOPLE, 'id,name,github,source', ['rocky,Rocky Burt (sprint leaders),,https://a.org/sprint'])
+    write(paths.ORGANISATIONS, 'id,name,kind,github,aliases,notes',
+          ['leo,Leonardo Caballero (independent),independent,,,'])
+    write(paths.AFFILIATIONS, 'person,organisation,from,to,source,checked,notes',
+          ['rocky,leo,2007,2007,https://a.org/team,,'])
+    found = by_url(work_list(load_registry(), load_rejection_rows()))
+    assert found['https://a.org/sprint']['names'] == ['Rocky Burt (sprint leaders)', 'Rocky Burt']
+    assert found['https://a.org/team']['names'] == ['Rocky Burt (sprint leaders)', 'Rocky Burt',
+                                                     'Leonardo Caballero (independent)', 'Leonardo Caballero']

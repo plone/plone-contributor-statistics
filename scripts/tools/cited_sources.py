@@ -10,7 +10,8 @@ Every address gets the quotes in front of the first address of its segment (a li
 copy alike), then every other quote of its cell: the capture keeps only the quotes it finds in a source, so its
 results tell which quote belongs to which address. The work list has one line per distinct address with its
 quotes, the names to look for when no quote is found (the person's names, and the organisation's for an
-affiliation or a rejected proposal), and a kind hinted by the label. A GitHub commit search is no source: the
+affiliation or a rejected proposal; a name with a trailing bracket also without it), and a kind hinted by the
+label. A GitHub commit search is no source: the
 first three commits it finds are, with the names of the person whose cell cites the search. The review file
 lists the segments with quotes but no address and the addresses that got their quotes only from elsewhere in
 their cell.
@@ -42,6 +43,7 @@ SEARCH_API = 'https://api.github.com/search/commits'
 SEARCH_CACHE = 'github-search'
 SEARCH_COMMITS = 3
 PACE = 2.5  # seconds between searches: the search allows 30 requests a minute
+TRAILING_BRACKET = re.compile(r'^(.*\S)\s*\([^()]*\)$')  # "Rocky Burt (sprint leaders)"
 
 
 @dataclasses.dataclass(frozen=True)
@@ -156,6 +158,15 @@ def _add(values, new):
             values.append(value)
 
 
+def _with_bare_names(names):
+    """The names, each followed by its form without a trailing bracket, such as a role, when it has one."""
+    result = []
+    for name in names:
+        bare = TRAILING_BRACKET.match(name)
+        _add(result, [name, bare.group(1)] if bare else [name])
+    return result
+
+
 def _collect(registry, rejections):
     """({address: work-list item}, {search address: [person names]}, [review entries]) of the cells that cite.
 
@@ -171,11 +182,11 @@ def _collect(registry, rejections):
         person = registry.people.get(person_id)
         names = [person.name] if person else []
         _add(names, name_identities.get(person_id, []))
-        return names
+        return _with_bare_names(names)
 
     def organisation_names(org_id):
         organisation = registry.organisations.get(org_id)
-        return [organisation.name, *organisation.aliases] if organisation else []
+        return _with_bare_names([organisation.name, *organisation.aliases]) if organisation else []
 
     cells = []  # (cell, file, column, person id, organisation id or None)
     cells += [(p.source, 'people.csv', 'source', p.id, None) for p in registry.people.values()]
