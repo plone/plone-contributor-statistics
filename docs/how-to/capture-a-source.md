@@ -20,6 +20,9 @@ Do this when a fact rests on a page, a profile, a commit or a video, and you wan
     Repeat `--quote` for more passages of the same page.
     At least one quote is required for a new source.
     `--kind`, `--title` and `--date` override what the tool finds on the page.
+    Give `--kind speaker-page` for the page of a speaker at a conference, because it is the person's own statement.
+    A live page is dated by `--date`, else by the date the page shows, else by the day of the capture.
+    A Wayback copy is dated by `--date`, else by the day of its capture, which the address names; a date the page shows is not trusted for it, and a different one is kept in the `notes` of the new row as `page shows date YYYY-MM-DD`.
 
 3.  Check the result: a row in `curated/sources/sources.csv` and the passage in the excerpt file `curated/sources/excerpts/<id>.md`.
     Do not edit these files by hand.

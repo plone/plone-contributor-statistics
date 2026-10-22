@@ -164,11 +164,19 @@ def _source(existing, sid, read, kind, title, date, notes, refresh):
     archive_url = archive_url_of(read.original, read.timestamp) if read.timestamp else None
     if existing is not None:
         return dataclasses.replace(existing, fetched=read.fetched) if refresh else None
+    if read.timestamp:  # an archived copy speaks for the day of its capture, not for a date the page shows
+        captured = _timestamp_date(read.timestamp)
+        if read.date and read.date != captured:
+            shown = f'page shows date {read.date.isoformat()}'
+            notes = f'{notes}; {shown}' if notes else shown
+        chosen = date or captured
+    else:
+        chosen = date or read.date or read.fetched.date()
     return Source(
         id=sid,
         kind=kind or read.kind,
         title=title or read.title or read.original,
-        date=date or read.date or (_timestamp_date(read.timestamp) if read.timestamp else read.fetched.date()),
+        date=chosen,
         url=read.original,
         archive_url=archive_url,
         fetched=read.fetched,

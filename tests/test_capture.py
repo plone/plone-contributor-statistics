@@ -164,6 +164,25 @@ def test_wayback_url_is_stored_readable_and_fetched_raw(web):
     assert '20100125023558id_/' in session.requests[0]
 
 
+def test_archived_page_dates_by_capture_and_notes_the_page_date(web):
+    raw_url = 'https://web.archive.org/web/20100125023558id_/http://limi.net:80/about'
+    fetcher, _ = web({raw_url: FakeResponse(body=ARTICLE)})
+    result = capture('https://web.archive.org/web/20100125023558/http://limi.net:80/about',
+                     ['He works for Zest Software'], fetcher=fetcher, run=no_run)
+    row = load_sources()[result.source_id]
+    assert row.date == datetime.date(2010, 1, 25)
+    assert row.notes == 'page shows date 2015-03-12'
+
+
+def test_archived_page_with_given_date(web):
+    raw_url = 'https://web.archive.org/web/20100125023558id_/http://limi.net:80/about'
+    fetcher, _ = web({raw_url: FakeResponse(body=UNDATED)})
+    result = capture('https://web.archive.org/web/20100125023558/http://limi.net:80/about',
+                     ['He works for Zest Software'], date=datetime.date(2009, 5, 1), fetcher=fetcher, run=no_run)
+    row = load_sources()[result.source_id]
+    assert (row.date, row.notes) == (datetime.date(2009, 5, 1), None)
+
+
 def test_dead_live_url_falls_back_to_nearest_capture(web):
     dead = 'https://ploneconf2009.org/x'
     availability = 'https://archive.org/wayback/available?url=https%3A%2F%2Fploneconf2009.org%2Fx'
