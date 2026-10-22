@@ -32,7 +32,7 @@
     {
       "name": "notes",
       "type": "string",
-      "description": "Free-text remarks: how the old data cited the source, and quotes not verified in its excerpt."
+      "description": "Free-text remarks: what the source shows, in our words, and quotes not verified in its excerpt. A row from the migration to citations keeps the words of the old cell that cited the source, after `cited as: `."
     }
   ],
   "foreignKeys": [

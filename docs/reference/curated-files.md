@@ -105,7 +105,7 @@ One row is one source that an affiliation rests on, with a passage of it; a sour
 | `source` | string | required; pattern `^[0-9a-f]{12}$`; id of a row of `sources` | The id of the source in the source register that the affiliation rests on. |
 | `snippet` | string |  | The words of the source that support the affiliation, verbatim from its excerpt; empty when no quote was verified. A source with several such passages is cited once per passage. |
 | `supersedes` | string | ids of rows of `sources` separated by semicolons | For the citation of a decision: the ids of the earlier decisions that this one overrules. Several values are separated by semicolons. |
-| `notes` | string |  | Free-text remarks: how the old data cited the source, and quotes not verified in its excerpt. |
+| `notes` | string |  | Free-text remarks: what the source shows, in our words, and quotes not verified in its excerpt. A row from the migration to citations keeps the words of the old cell that cited the source, after `cited as: `. |
 
 Checks beyond the schema:
 

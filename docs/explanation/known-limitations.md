@@ -81,7 +81,7 @@ Multi-year summaries split people who moved
 :   A person who changed organisations appears under each organisation, for the years they were there.
 
 A mistyped login leaves its owner Unmapped
-:   Logins are compared ignoring case, but a typo in `curated/mappings/people.csv` sends the person's work to Unmapped.
+:   Logins are compared ignoring case, but a typo in `curated/mappings/identities.csv` sends the person's work to Unmapped.
     The checks cannot catch a typo that is itself a valid login.
 
 ## Parts with a different method

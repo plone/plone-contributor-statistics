@@ -29,6 +29,8 @@ ALLOWED = {
     # removed, with plain csv, and writes the new ones
     'scripts/tools/migrate_registers.py': {'paths.MAPPINGS_DIR'},
     'scripts/tools/cited_sources.py': {'paths.MAPPINGS_DIR'},
+    # Its audit reads the old registers from git
+    'scripts/tools/audit_migration.py': {'paths.MAPPINGS_DIR'},
 }
 
 

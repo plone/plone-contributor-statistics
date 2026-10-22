@@ -18,27 +18,36 @@ You need to know who is behind the address, and a source for it.
 ## Add the person and the identity
 
 Find the person, or add them if they are not in the register, see {doc}`add-a-person`.
+Capture the record that connects the address to the person, such as a commit linked to the person's account or the [credits of Plone 2.0](https://github.com/plone/Products.CMFPlone/blob/2.0/CREDITS.txt), see {doc}`capture-a-source`:
+
+```shell
+python -m scripts.tools.capture https://github.com/plone/plone.api/commit/<commit> --name "name@localhost"
+```
+
 Then add one row to `curated/mappings/identities.csv`, sorted by person, kind and value:
 
 ```text
-person,kind,value,source
-jane-doe,email,name@localhost,Same name in commits linked to this account
+person,kind,value,source,snippet,notes
+jane-doe,email,name@localhost,0123456789ab,name@localhost,Same name in commits linked to this account
 ```
 
 - Write the email address in lower case, with the kind `email`.
+- `source` is the id of the source that the tool printed, and `snippet` the words of its excerpt that make the connection, such as the address; leave the snippet empty when the excerpt has no such words.
+- In `notes`, say how you know: the same name in commits that are linked to the account, an entry in the credits, the account profile, or a confirmation by the person in public.
 - A person with a GitHub account is counted under their login, a person without one as `person:<id>`.
-- For addresses from the CVS and Subversion years, a public record is often impossible. There, the source may be a confirmation by people who worked with the person; say so in `source`.
-- In `source`, say how you know: the same name in commits that are linked to the account, an entry in the [credits of Plone 2.0](https://github.com/plone/Products.CMFPlone/blob/2.0/CREDITS.txt), the account profile, or a confirmation by the person or by people who worked with them.
-  For any other kind than `email`, the source needs a link.
+- For addresses from the CVS and Subversion years, a public record is often impossible. There, the identification may rest on a confirmation by people who worked with the person: leave `source` empty and say in `notes` what the identification rests on. Only an identity of the kind `email` may be without a source.
 
 ## Merge a second account
 
-If GitHub links the address to a second account of a person, add the account as an identity of the kind `login` instead:
+If GitHub links the address to a second account of a person, add the account as an identity of the kind `github-alias` instead:
 
 ```text
-person,kind,value,source
-jane-doe,login,oldaccount,https://github.com/oldaccount (the account has no name or repositories; the commits are by Jane Doe)
+person,kind,value,source,snippet,notes
+jane-doe,github-alias,oldaccount,0123456789ab,,the account has no name or repositories; the commits are by Jane Doe
 ```
+
+Its source is the captured profile of the account or a commit of it.
+The commits and pull requests of the further account count for the person, under the login of their `github` identity.
 
 ## Link a changelog name
 
@@ -62,7 +71,8 @@ Names that no identity links to a person count as written, see {doc}`/explanatio
 
     It needs `GITHUB_TOKEN` in `.env` or in the environment, see {doc}`collect-data-again`.
     It prints rows for `curated/mappings/identities.csv`: the author of most of these commits, with the GitHub account that GitHub links to the commit, or the person that an email identity gives.
-    Each row links a changelog entry with the name and the commit that repeats it.
+    Each row cites the commit that repeats an entry with the name, by the id its source will have, with the `Author:` line of the commit as the snippet, and its notes link the changelog entry and the commit.
+    The tool writes nothing: above each row it prints the command that captures the commit, as `# capture first: …`.
     The last three columns, the number of entries, of matching commits and the author's share of them, are for your review and don't go into the file.
 
 3.  Check each proposal before you add it.
@@ -70,11 +80,11 @@ Names that no identity links to a person count as written, see {doc}`/explanatio
     Open the linked entry and commit, and look at a few more entries with the name.
     A short name that several people may have used, such as a first name, needs particular care.
 
-4.  Add the row to `curated/mappings/identities.csv`, with the kind `name`, in its place sorted by person, kind and value:
+4.  Run the capture command of each row you accept, then add the row to `curated/mappings/identities.csv`, with the kind `name`, in its place sorted by person, kind and value:
 
     ```text
-    person,kind,value,source
-    alec-mitchell,name,alecm,Changelog entry: https://github.com/plone/Products.CMFPlone/blob/<commit>/HISTORY.txt#L123; the commit by Alec Mitchell that repeats it: https://github.com/plone/Products.CMFPlone/commit/<commit>
+    person,kind,value,source,snippet,notes
+    alec-mitchell,name,alecm,0123456789ab,Author: Alec Mitchell <alecm@example.org>,Changelog entry: https://github.com/plone/Products.CMFPlone/blob/<commit>/HISTORY.txt#L123; the commit by Alec Mitchell that repeats it: https://github.com/plone/Products.CMFPlone/commit/<commit>
     ```
 
     If the person is not in the register, add them first, see {doc}`add-a-person`.

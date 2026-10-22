@@ -4,6 +4,9 @@
 
 This guide shows you how to update the organisation statistics and reports after a change to the registers.
 You don't need a GitHub token, because nothing is collected from GitHub again.
+The organisation of a person in a year is computed from the affiliations, their citations and the sources they cite, see {ref}`explanation-attribution-rules`.
+So a change to `curated/mappings/citations.csv` or to the source register can change the organisation statistics as much as a change to `curated/mappings/affiliations.csv`.
+`python -m scripts.tools.affiliation jane-doe` shows the organisations of a person before you regenerate.
 
 1.  Install the dependencies, if you haven't yet:
 

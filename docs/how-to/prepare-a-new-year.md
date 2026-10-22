@@ -41,8 +41,9 @@ You need a GitHub personal access token, see {doc}`collect-data-again` for how t
     python -m scripts.tools.unmatched_names --propose
     ```
 
-    The tool prints, per person, the login to set as `github` in `curated/mappings/people.csv`, with the GitHub profile as its record.
-    Set the logins you can confirm, extend the person's `source` with the profile link, and run `make community-page` again.
+    The tool prints, per person, a row for `curated/mappings/identities.csv`: an identity of the kind `github` with the login, citing the GitHub profile, with the profile name as the snippet.
+    It writes nothing: above each row it prints the command that captures the profile, as `# capture first: …`.
+    For the logins you can confirm, run the capture command, add the row in its place sorted by person, kind and value, and run `make community-page` again.
 
 5.  Validate the curated files, run the tests and review the changed files:
 

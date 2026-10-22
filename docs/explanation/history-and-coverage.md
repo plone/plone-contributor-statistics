@@ -112,7 +112,7 @@ Comments in [#69](https://github.com/plone/plone-contributor-statistics/issues/6
 Comparisons between recent years are on firm ground: the same sources, the same rules, and accounts for almost everyone.
 Comparisons that reach back before 2011 compare commits only.
 Comparisons that reach back before 2006 may still miss some authors.
-And organisation statistics of the early years rest on few known affiliations, and the work of everyone else is Unmapped; until a follow-up trims them, some early affiliation rows only repeat today's organisation, and `notes` marks them.
+And organisation statistics of the early years rest on few known affiliations, and the work of everyone else is Unmapped; until a follow-up trims them, some early affiliation rows only repeat today's organisation, and their status `assumed` marks them.
 
 ```{seealso}
 {doc}`method-history` shows when each of these limits was found and addressed.
