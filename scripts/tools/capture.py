@@ -11,6 +11,7 @@ import pathlib
 import sys
 
 from scripts.lib.capture import CaptureError, Fetcher, capture, github_session
+from scripts.lib.model import load_sources
 from scripts.lib.model.sources import SOURCE_KINDS
 
 
@@ -44,8 +45,8 @@ def main(argv=None):
     if not args.quote and not args.name:
         parser.error('give at least one --quote or --name')
     try:
-        result = capture(args.url, quotes=args.quote or (), names=args.name, kind=args.kind, title=args.title, date=args.date,
-                         refresh=args.refresh)
+        result = capture(args.url, quotes=args.quote or (), names=args.name, kind=args.kind, title=args.title,
+                         date=args.date, refresh=args.refresh)
     except CaptureError as error:
         print(f'! {error}', file=sys.stderr)
         return 1
@@ -71,8 +72,21 @@ def _read_results(path):
     return done
 
 
+def _recorded(sid):
+    """True when the source is in the register (read once while the file is unchanged)."""
+    try:
+        return sid in load_sources()
+    except FileNotFoundError:
+        return False
+
+
 def run_batch(worklist, results_path):
-    """Capture the sources of a work list, appending one result line each; return 0 when the end is reached."""
+    """Capture the sources of a work list, appending one result line each; return 0 when the end is reached.
+
+    A result names its source only when the source is in the register: a new source none of whose quotes or
+    names was found is not recorded, and its `source_id` is null. Any error of one source is recorded in its
+    result, and the run goes on.
+    """
     items = [json.loads(line) for line in worklist.read_text(encoding='utf-8').splitlines() if line.strip()]
     done = _read_results(results_path)
     todo = [item for item in items if item['url'] not in done]
@@ -86,15 +100,21 @@ def run_batch(worklist, results_path):
                     out.write('\n')
         for count, item in enumerate(todo, 1):
             url = item['url']
+            error = None
             try:
-                result = capture(url, quotes=item.get('quotes') or (), kind=item.get('kind'), names=item.get('names') or (),
-                                 fetcher=fetcher, session=session)
-                row = {'url': url, 'source_id': result.source_id, 'created': result.created,
-                       'added': list(result.added), 'missing': list(result.missing),
+                result = capture(url, quotes=item.get('quotes') or (), kind=item.get('kind'),
+                                 names=item.get('names') or (), fetcher=fetcher, session=session)
+            except CaptureError as caught:
+                error = str(caught)
+            except Exception as caught:  # one bad item must not stop the run, nor every resume after it
+                error = f'unexpected: {type(caught).__name__}: {caught}'
+            if error is None:
+                row = {'url': url, 'source_id': result.source_id if _recorded(result.source_id) else None,
+                       'created': result.created, 'added': list(result.added), 'missing': list(result.missing),
                        'unreachable': result.unreachable, 'error': None}
-            except CaptureError as error:
+            else:
                 row = {'url': url, 'source_id': None, 'created': False, 'added': [], 'missing': [],
-                       'unreachable': False, 'error': str(error)}
+                       'unreachable': False, 'error': error}
             created += row['created']
             missing += bool(row['missing'])
             errors += row['error'] is not None
@@ -104,7 +124,6 @@ def run_batch(worklist, results_path):
                 print(f'{count}/{len(todo)}  {created} new, {missing} with missing quotes, {errors} errors',
                       file=sys.stderr)
     return 0
-
 
 if __name__ == '__main__':
     sys.exit(main())
