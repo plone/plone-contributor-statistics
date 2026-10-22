@@ -324,10 +324,14 @@ def test_extract_video_command(tmp_path):
         if '--print' not in command:
             (tmp_path / 'abc.en.vtt').write_text(VTT, encoding='utf-8')
         return subprocess.CompletedProcess(command, 0, stdout=b'T\n', stderr=b'')
-    extract_video('https://youtu.be/abc', str(tmp_path), run=run)
+    extract_video('https://youtu.be/abc', str(tmp_path), run=run, which=lambda name: '/usr/bin/node')
     download = next(c for c in calls if '--print' not in c)
     assert download[0] == 'yt-dlp' and '--skip-download' in download
-    assert download[download.index('--sub-langs') + 1] == 'en.*,de.*,es.*,pt.*,it.*,nl.*,fr.*'
+    assert download[download.index('--sub-langs') + 1] == (
+        'en-orig,de-orig,es-orig,pt-orig,it-orig,nl-orig,fr-orig,en,de,es,pt,it,nl,fr')
+    assert download[download.index('--sleep-subtitles') + 1] == '5'
+    assert download[download.index('--sleep-requests') + 1] == '2'
+    assert download[download.index('--js-runtimes') + 1] == 'node'
     assert download[download.index('-o') + 1] == os.path.join(str(tmp_path), '%(id)s')
 
 
@@ -469,3 +473,37 @@ def test_private_google_doc_raises():
     private = Raw(url='u', status=401, content_type='text/html', body=b'<html>login</html>', fetched=NOW)
     with pytest.raises(ExtractError, match='not a public document'):
         extract_google_doc(FakeFetcher(private), 'X1')
+
+
+def test_extract_video_without_node_has_no_js_runtime(tmp_path):
+    calls = []
+    extract_video('https://youtu.be/x', str(tmp_path), run=caption_run(tmp_path, {'x.en.vtt': vtt('a')}, calls),
+                  which=lambda name: None)
+    assert all('--js-runtimes' not in command for command, _ in calls)
+
+
+def test_extract_video_downloads_are_paced_across_videos(tmp_path):
+    from scripts.lib.capture.fetch import Fetcher
+    sleeps, now = [], [1000.0]
+    fetcher = Fetcher(cache=str(tmp_path / 'cache'), sleep=sleeps.append, clock=lambda: now[0])
+    for name in ('a', 'b'):
+        workdir = tmp_path / name
+        workdir.mkdir()
+        extract_video(f'https://youtu.be/{name}', str(workdir), run=caption_run(workdir, {f'{name}.en.vtt': vtt('x')}),
+                      fetcher=fetcher)
+        now[0] += 10
+    assert sleeps == [20.0]
+    # another fetcher on the same cache (another process) keeps the pace too
+    other = Fetcher(cache=str(tmp_path / 'cache'), sleep=sleeps.append, clock=lambda: now[0])
+    workdir = tmp_path / 'c'
+    workdir.mkdir()
+    extract_video('https://youtu.be/c', str(workdir), run=caption_run(workdir, {'c.en.vtt': vtt('x')}), fetcher=other)
+    assert sleeps == [20.0, 20.0]
+
+
+def test_extract_video_rate_limit_is_named(tmp_path):
+    def run(command, **kwargs):
+        raise subprocess.CalledProcessError(
+            1, command, stderr=b'ERROR: Unable to download: HTTP Error 429: Too Many Requests')
+    with pytest.raises(ExtractError, match='^rate limited:'):
+        extract_video('https://youtu.be/x', str(tmp_path), run=run)

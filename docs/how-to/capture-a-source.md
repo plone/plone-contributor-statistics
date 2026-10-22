@@ -68,6 +68,7 @@ When none of the quotes for a new source is found, it stores nothing at all, not
 Open the page, copy the sentence again and check the spelling.
 The text may sit in a part of the page that is not part of the article, in which case the tool also searches the rest of the page.
 For a video, the tool searches the captions in the spoken language first, then the captions in the other languages it downloaded.
+It asks YouTube only for the original caption tracks, never for translations, and waits at least 30 seconds between two downloads, also across runs; a video that YouTube refuses with `rate limited:` can be captured again later.
 Do not shorten a quote until it matches something that does not say what you cite.
 
 ## A page is not reachable

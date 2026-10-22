@@ -11,13 +11,14 @@ import html as html_lib
 import json
 import os
 import re
+import shutil
 import subprocess
 import urllib.parse
 
 import trafilatura
 from trafilatura.utils import load_html
 
-from scripts.lib.capture.fetch import FetchError, Raw, cache_dir
+from scripts.lib.capture.fetch import Fetcher, FetchError, Raw, cache_dir
 from scripts.lib.github_api import GitHubAPIError, github_get
 from scripts.lib.model import split_archive_url
 from scripts.lib.model.sources import GOOGLE_DOC_PATH
@@ -156,7 +157,10 @@ VIDEO_HOSTS = {'youtube.com', 'youtu.be', 'vimeo.com'}
 GITHUB_RESERVED = {'search', 'orgs', 'settings', 'topics', 'marketplace', 'sponsors', 'explore', 'features', 'about',
                    'pricing', 'login', 'join', 'notifications', 'issues', 'pulls', 'trending', 'collections',
                    'events', 'new', 'apps', 'enterprise', 'security', 'customer-stories', 'readme', 'site'}
-SUBTITLE_LANGUAGES = 'en.*,de.*,es.*,pt.*,it.*,nl.*,fr.*'
+LANGUAGES = ('en', 'de', 'es', 'pt', 'it', 'nl', 'fr')
+# Explicit tracks, no wildcards: a wildcard also matches every automatic translation (`en-it`, `de-en`)
+SUBTITLE_LANGUAGES = ','.join([f'{language}-orig' for language in LANGUAGES] + list(LANGUAGES))
+VIDEO_PACE_KEY = 'youtube.com'  # paced with the Fetcher: 30 seconds between two yt-dlp downloads
 VIDEO_TIMEOUT = 600  # seconds for one call of yt-dlp
 ISSUE_PATH = re.compile(r'^/([^/]+)/([^/]+)/(?:issues|pull)/(\d+)/?$')
 COMMENT_FRAGMENT = re.compile(r'^(issuecomment|discussion_r|pullrequestreview)-?(\d+)$')
@@ -373,22 +377,30 @@ def track_rank(name: str):
     translations by their target language.
     """
     language = name[:-len('.vtt')].rsplit('.', 1)[-1]
-    patterns = SUBTITLE_LANGUAGES.split(',')
-    order = next((i for i, pattern in enumerate(patterns) if re.fullmatch(pattern, language)), len(patterns))
+    languages = language.removesuffix('-orig').split('-')[0]
+    order = LANGUAGES.index(languages) if languages in LANGUAGES else len(LANGUAGES)
     return (0 if language.endswith('-orig') else 1, order, name)
 
 
-def extract_video(url: str, workdir: str, run=subprocess.run) -> Extracted:
+def extract_video(url: str, workdir: str, run=subprocess.run, fetcher=None, which=shutil.which) -> Extracted:
     """Captions of a video (manual or automatic) with timestamps; the caption files stay in workdir.
 
     `text` is the preferred track, `full_text` every track as its own paragraph, so a quote in another
     language is still found and cut from the lines of its own track.
+
+    Polite to YouTube: only the original tracks, a pause between the downloads of all processes (the pace of
+    the fetcher), and a distinct error when YouTube answers HTTP 429.
     """
     os.makedirs(workdir, exist_ok=True)
+    fetcher = fetcher or Fetcher()
+    command = ['yt-dlp', '--skip-download', '--write-auto-sub', '--write-sub', '--sub-langs', SUBTITLE_LANGUAGES,
+               '--sleep-subtitles', '5', '--sleep-requests', '2', '--sub-format', 'vtt',
+               '-o', os.path.join(workdir, '%(id)s')]
+    if which('node'):
+        command += ['--js-runtimes', 'node']
     try:
-        run(['yt-dlp', '--skip-download', '--write-auto-sub', '--write-sub', '--sub-langs', SUBTITLE_LANGUAGES,
-             '--sub-format', 'vtt', '-o', os.path.join(workdir, '%(id)s'), url],
-            capture_output=True, check=True, timeout=VIDEO_TIMEOUT)
+        with fetcher.paced(VIDEO_PACE_KEY):
+            run(command + [url], capture_output=True, check=True, timeout=VIDEO_TIMEOUT)
         title = run(['yt-dlp', '--skip-download', '--print', 'title', url], capture_output=True, check=False,
                     timeout=VIDEO_TIMEOUT)
     except FileNotFoundError as error:
@@ -396,6 +408,9 @@ def extract_video(url: str, workdir: str, run=subprocess.run) -> Extracted:
     except subprocess.TimeoutExpired as error:
         raise ExtractError(f'yt-dlp timed out after {error.timeout} seconds for {url}') from error
     except subprocess.CalledProcessError as error:
+        output = b''.join(part if isinstance(part, bytes) else str(part or '').encode() for part in (error.stderr, error.stdout))
+        if b'HTTP Error 429' in output:
+            raise ExtractError(f'rate limited: YouTube answered HTTP 429 for {url}; retry later') from error
         raise ExtractError(f'yt-dlp failed for {url}: {error.stderr!r}') from error
     captions = sorted((name for name in os.listdir(workdir) if name.endswith('.vtt')), key=track_rank)
     if not captions:
