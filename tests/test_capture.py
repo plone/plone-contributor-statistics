@@ -545,7 +545,27 @@ def test_other_repository_issue_stores_the_block(web):
     session = FakeSession(issue_pages('plone/Products.CMFPlone'))
     result = capture('https://github.com/plone/Products.CMFPlone/issues/5', ['Fred is at kitconcept'],
                      fetcher=fetcher, session=session, run=no_run)
-    assert result.added == ('Confirmed: Fred is at kitconcept.',)  # the comment's paragraph, not the issue or the others
+    # the comment's paragraph with its author and date, not the issue or the other comments
+    assert result.added == ('Author: amy\nDate: 2026-10-03T00:00:00Z\n\nConfirmed: Fred is at kitconcept.',)
+
+
+def test_other_repository_issue_keeps_the_author_with_a_name(web):
+    fetcher, _ = web(session=NoNetwork())
+    session = FakeSession(issue_pages('plone/Products.CMFPlone'))
+    result = capture('https://github.com/plone/Products.CMFPlone/issues/5', names=['zest software'],
+                     fetcher=fetcher, session=session, run=no_run)
+    assert result.added == ('Author: jane\nDate: 2026-10-01T00:00:00Z\n\nHe works for Zest Software.',)
+
+
+def test_other_repository_comment_by_fragment_keeps_its_author(web):
+    fetcher, _ = web(session=NoNetwork())
+    api = 'https://api.github.com/repos/plone/volto/issues/comments/12'
+    body = 'Thanks.\n\nI work for kitconcept now.'
+    comment = {'user': {'login': 'fredvd'}, 'created_at': '2020-05-01T08:00:00Z', 'body': body}
+    session = FakeSession({api: FakeResponse(body=json.dumps(comment).encode())})
+    result = capture('https://github.com/plone/volto/pull/7#issuecomment-12', ['I work for kitconcept'],
+                     fetcher=fetcher, session=session, run=no_run)
+    assert result.added == ('Author: fredvd\nDate: 2020-05-01T08:00:00Z\n\nI work for kitconcept now.',)
 
 
 def test_own_repository_comment_by_fragment(web):

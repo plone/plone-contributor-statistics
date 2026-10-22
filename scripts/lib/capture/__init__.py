@@ -299,17 +299,16 @@ def _passage(read, quote):
 
     A live profile or commit is short and its parts belong together (the author and date of a commit message),
     so its passage is the whole text, and so is a live issue or comment of this repository, our own public
-    record; the text of an issue of another repository is cut to the block (issue or comment) with the quote
-    and then to the paragraph around it; anything else gets the paragraph around the quote.
+    record; the text of an issue of another repository is cut to the block (issue or comment) with the quote,
+    then to the paragraph around it, headed by the block's author and date; anything else gets the paragraph
+    around the quote.
     """
-    live = read.timestamp is None
     whole = _is_whole(read)
     for text in (read.text, read.full_text):
-        if live and read.kind == 'issue-comment' and not whole:
-            text = next((block for block in BLOCK_START.split(text) if find_quote(block, quote)), text)
-        span = find_quote(text, quote)
+        block = _block(read, text, lambda part: find_quote(part, quote)) if not whole else None
+        span = find_quote(block or text, quote)
         if span is not None:
-            return text.strip() if whole else cut_passage(text, span)
+            return text.strip() if whole else _headed(cut_passage(block or text, span), block)
     return None
 
 
@@ -322,12 +321,27 @@ def _is_whole(read):
 def _name_passage(read, name):
     """The passage around the first occurrence of the name, or None when the text does not name it."""
     for text in (read.text, read.full_text):
-        if read.timestamp is None and read.kind == 'issue-comment':
-            text = next((block for block in BLOCK_START.split(text) if find_name(block, name)), text)
-        span = find_name(text, name)
+        block = _block(read, text, lambda part: find_name(part, name))
+        span = find_name(block or text, name)
         if span is not None:
-            return cut_passage(text, span)
+            return _headed(cut_passage(block or text, span), block)
     return None
+
+
+def _block(read, text, finds):
+    """The block (issue or comment) of a live issue page in which `finds` finds something, else None."""
+    if read.timestamp is not None or read.kind != 'issue-comment':
+        return None
+    return next((block for block in BLOCK_START.split(text) if finds(block)), None)
+
+
+def _headed(passage, block):
+    """The passage headed by the author and date lines of its block, unless it holds them already."""
+    if block is None:
+        return passage
+    head = '\n'.join(line for line in block.strip().split('\n\n', 1)[0].split('\n')
+                     if line.startswith(('Author: ', 'Date: ')))
+    return passage if not head or head in passage else f'{head}\n\n{passage}'
 
 
 def _is_own(url):
