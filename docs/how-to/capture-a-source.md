@@ -20,7 +20,11 @@ Do this when a fact rests on a page, a profile, a commit or a video, and you wan
 
     The tool prints the id of the source, then one line for each passage it added.
     Repeat `--quote` for more passages of the same page.
-    At least one quote is required for a new source.
+    At least one quote or name is required for a new source.
+    When the cell that cites the page has no quote, only a label in our own words, give the name of the person or organisation with `--name` instead; repeat it for several names.
+    The tool then stores the paragraph around the first place where the page names them, ignoring case and accents, and prints `! not found: <name>` for a name the page does not show.
+    A GitHub profile, a commit and an issue or comment of this repository are stored whole in that case, whether or not the name is found.
+    Names are ignored when you give a quote.
     `--kind`, `--title` and `--date` override what the tool finds on the page.
     Give `--kind speaker-page` for the page of a speaker at a conference, because it is the person's own statement.
     A live page is dated by `--date`, else by the date the page shows, else by the day of the capture.
@@ -76,7 +80,7 @@ A fetch error such as a refusal or a timeout is not a gone page: the tool prints
 
 Profiles and other live pages change.
 Fetch such a page again with `--refresh`, which replaces the cached copy and updates the fetch time of the row.
-`--refresh` needs a `--quote` as well.
+`--refresh` needs a `--quote` or a `--name` as well.
 Passages that are already stored stay as they are.
 
 {ref}`reference-curated-files` describes the fields of `curated/sources/sources.csv`.

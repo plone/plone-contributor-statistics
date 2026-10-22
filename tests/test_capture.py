@@ -547,3 +547,35 @@ def test_deleted_issue_without_capture_is_unreachable(web):
     result = capture('https://github.com/plone/gone/issues/5', ['x'], fetcher=fetcher, session=session, run=no_run)
     assert result.unreachable
     assert load_sources()[result.source_id].kind == 'issue-comment'
+
+
+def test_names_cut_the_passage_when_no_quote_is_given(web):
+    fetcher, _ = web({URL: FakeResponse(body=ARTICLE)})
+    result = capture(URL, names=['maurits van rees', 'Nobody Known'], fetcher=fetcher, run=no_run)
+    assert result.added == (PARAGRAPH,)
+    assert result.missing == ('Nobody Known',)
+    assert passages(result.source_id) == [PARAGRAPH]
+
+
+def test_new_source_without_a_found_name_stores_nothing(web):
+    fetcher, _ = web({URL: FakeResponse(body=ARTICLE)})
+    result = capture(URL, names=['Nobody Known'], fetcher=fetcher, run=no_run)
+    assert result.missing == ('Nobody Known',)
+    assert load_sources() == {}
+
+
+def test_names_are_ignored_when_quotes_are_given(web):
+    fetcher, _ = web({URL: FakeResponse(body=ARTICLE)})
+    result = capture(URL, ['Zest Software'], names=['Nobody Known'], fetcher=fetcher, run=no_run)
+    assert result.added == (PARAGRAPH,)
+    assert result.missing == ()
+
+
+def test_profile_with_name_stores_whole_text(web):
+    fetcher, _ = web(session=NoNetwork())
+    profile = {'name': None, 'login': 'fredvd', 'bio': 'Plone developer'}
+    session = FakeSession({PROFILE_API: FakeResponse(body=json.dumps(profile).encode())})
+    result = capture('https://github.com/fredvd', names=['Fred van Dijk'], fetcher=fetcher, session=session,
+                     run=no_run)
+    assert len(result.added) == 1 and 'Plone developer' in result.added[0]
+    assert result.missing == ()

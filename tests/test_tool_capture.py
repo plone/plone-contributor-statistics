@@ -69,3 +69,17 @@ def test_quote_is_required(monkeypatch, capsys):
     with pytest.raises(SystemExit) as exit_info:
         tool.main([URL])
     assert exit_info.value.code == 2
+
+
+def test_cli_accepts_name_without_quote(monkeypatch, capsys):
+    result = CaptureResult('example-org-sprint', True, ('Passage',), ('Nobody',), False)
+    status, out, calls = run(monkeypatch, capsys, result, [URL, '--name', 'Maurits', '--name', 'Nobody'])
+    assert status == 1
+    assert calls[0][1]['names'] == ['Maurits', 'Nobody']
+    assert calls[0][1]['quotes'] == ()
+    assert '! not found: Nobody' in out.out
+
+
+def test_cli_needs_a_quote_or_a_name(monkeypatch, capsys):
+    with pytest.raises(SystemExit):
+        run(monkeypatch, capsys, None, [URL])

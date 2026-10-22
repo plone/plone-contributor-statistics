@@ -31,7 +31,7 @@ from scripts.lib.capture.extract import (
     is_pdf,
 )
 from scripts.lib.capture.fetch import FetchError, Fetcher, nearest_capture, raw_capture_url
-from scripts.lib.capture.passages import cut_passage, find_quote
+from scripts.lib.capture.passages import cut_passage, find_name, find_quote
 from scripts.lib.github_api import GitHubAPIError
 from scripts.lib.model import (
     Source,
@@ -210,16 +210,20 @@ def _source(existing, sid, read, kind, title, date, notes, refresh):
 
 def capture(url: str, quotes: Sequence[str] = (), kind: str | None = None, title: str | None = None,
             date: datetime.date | None = None, refresh: bool = False, fetcher: Fetcher | None = None,
-            session=None, run=subprocess.run) -> CaptureResult:
+            session=None, run=subprocess.run, names: Sequence[str] = ()) -> CaptureResult:
     """Capture the source at the address: write its row if new and add the passages around the quotes.
 
     A Wayback address is stored readable and fetched raw. A live address that is gone is replaced by its
     nearest Wayback capture; without one the source is recorded as unreachable. Quotes that are already in a
     stored passage are skipped; quotes not found on the page are reported as missing, never stored. A new
     source none of whose quotes is found is not recorded at all.
+    Without quotes the names decide: the passage around the first occurrence of each name is stored, and a
+    name that is not found is reported as missing; a profile, a commit and an issue or comment of this
+    repository store their whole text then, found name or not. Names are ignored when quotes are given.
     A fetcher given here keeps its own refresh setting; one built here refetches when refresh is true.
     """
     quotes = tuple(quotes)
+    names = () if quotes else tuple(names)
     split = split_archive_url(url)
     if split is None and _is_wayback(url):
         raise CaptureError(f'{url}: give the full 14-digit capture URL, '
@@ -227,8 +231,8 @@ def capture(url: str, quotes: Sequence[str] = (), kind: str | None = None, title
     original, timestamp = split if split else (url, None)
     sid = source_id(original, timestamp)
     sources = load_sources()
-    if sid not in sources and not quotes:
-        raise CaptureError(f'{url}: a new source needs at least one quote')
+    if sid not in sources and not quotes and not names:
+        raise CaptureError(f'{url}: a new source needs at least one quote or name')
     if sid in sources and not refresh and all(_stored(sid, quote) for quote in quotes):
         return CaptureResult(sid, False, (), (), False)
 
@@ -243,16 +247,26 @@ def capture(url: str, quotes: Sequence[str] = (), kind: str | None = None, title
         except _Gone as gone:
             nearest = None if split else nearest_capture(fetcher, url)
             if nearest is None:
-                return _unreachable(sources.get(sid), sid, original, timestamp, gone, quotes, kind, title, date)
+                return _unreachable(sources.get(sid), sid, original, timestamp, gone, quotes or names, kind, title, date)
             read = _read_archive(fetcher, nearest, KIND_BY_ADAPTER.get(adapter_for(url)), run)
     except _Gone as gone:  # the nearest capture is gone as well
-        return _unreachable(sources.get(sid), sid, original, timestamp, gone, quotes, kind, title, date)
+        return _unreachable(sources.get(sid), sid, original, timestamp, gone, quotes or names, kind, title, date)
     except (FetchError, ExtractError, GitHubAPIError) as error:
         raise CaptureError(f'{url}: {error}') from error
 
     sid = source_id(read.original, read.timestamp)
     existing = sources.get(sid)
     found, missing = [], []
+    if not quotes and _is_whole(read):
+        found.append(read.text.strip())
+    for name in names:
+        if _is_whole(read):
+            break
+        passage = _name_passage(read, name)
+        if passage is None:
+            missing.append(name)
+        elif passage not in found:
+            found.append(passage)
     for quote in quotes:
         if _stored(sid, quote):
             continue
@@ -279,13 +293,30 @@ def _passage(read, quote):
     and then to the paragraph around it; anything else gets the paragraph around the quote.
     """
     live = read.timestamp is None
-    whole = live and (read.kind in WHOLE_TEXT_KINDS or (read.kind == 'issue-comment' and _is_own(read.original)))
+    whole = _is_whole(read)
     for text in (read.text, read.full_text):
         if live and read.kind == 'issue-comment' and not whole:
             text = next((block for block in BLOCK_START.split(text) if find_quote(block, quote)), text)
         span = find_quote(text, quote)
         if span is not None:
             return text.strip() if whole else cut_passage(text, span)
+    return None
+
+
+def _is_whole(read):
+    """True when the whole text of the live source is stored: a profile, a commit, an issue of this repository."""
+    return read.timestamp is None and (
+        read.kind in WHOLE_TEXT_KINDS or (read.kind == 'issue-comment' and _is_own(read.original)))
+
+
+def _name_passage(read, name):
+    """The passage around the first occurrence of the name, or None when the text does not name it."""
+    for text in (read.text, read.full_text):
+        if read.timestamp is None and read.kind == 'issue-comment':
+            text = next((block for block in BLOCK_START.split(text) if find_name(block, name)), text)
+        span = find_name(text, name)
+        if span is not None:
+            return cut_passage(text, span)
     return None
 
 
