@@ -38,6 +38,7 @@ from scripts.lib.model import (
     add_passage,
     archive_url_of,
     load_sources,
+    normalize_url,
     passages,
     source_id,
     split_archive_url,
@@ -103,6 +104,7 @@ class _Read:
     title: str | None
     date: datetime.date | None
     fetched: datetime.datetime
+    notes: str | None = None
 
 
 class _Gone(Exception):
@@ -138,11 +140,15 @@ def _read_archive(fetcher, archive_url, kind, run):
     if raw.status in GONE_STATUSES:
         raise _Gone(raw.fetched, kind or ('pdf' if is_pdf(raw) else 'page'))
     served = split_archive_url(raw.final_url)
-    if served is not None and served[1] != timestamp:  # the Archive sent us to another capture: record that one
-        timestamp = served[1]
+    notes = None
+    if served is not None:
+        if served[1] != timestamp:  # the Archive sent us to another capture: record that one
+            timestamp = served[1]
+        if normalize_url(served[0]) != normalize_url(original):  # a capture of another page: keep the address asked
+            notes = f'served {archive_url_of(served[0], served[1])}'
     extracted = extraction.extract(raw, run=run)
     return _Read(original, timestamp, kind or ('pdf' if is_pdf(raw) else 'page'), extracted.text,
-                 extracted.full_text, extracted.title, extracted.date, raw.fetched)
+                 extracted.full_text, extracted.title, extracted.date, raw.fetched, notes)
 
 
 def _read_live(url, sid, fetcher, session, run):
@@ -281,7 +287,7 @@ def capture(url: str, quotes: Sequence[str] = (), kind: str | None = None, title
                     found.append(passage)
     if existing is None and not found:  # a new source is recorded only with a passage that supports something
         return CaptureResult(sid, False, (), tuple(missing), False)
-    row = _source(existing, sid, read, kind, title, date, None, refresh)
+    row = _source(existing, sid, read, kind, title, date, read.notes, refresh)
     if row is not None:
         write_source(row)
     added = tuple(passage for passage in found if add_passage(sid, passage))

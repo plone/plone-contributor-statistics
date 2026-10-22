@@ -498,6 +498,27 @@ def test_redirected_capture_is_recorded_under_its_own_timestamp(web):
     assert source_id('http://a.org/x', '20100101000000') not in load_sources()
 
 
+def test_capture_of_another_page_is_noted(web):
+    asked = 'https://web.archive.org/web/20100101000000id_/http://a.org/x'
+    served = 'https://web.archive.org/web/20100125023558id_/http://www.a.org/start'
+    fetcher, _ = web({asked: FakeResponse(body=UNDATED, url=served)})
+    result = capture('https://web.archive.org/web/20100101000000/http://a.org/x',
+                     ['He works for Zest Software'], fetcher=fetcher, run=no_run)
+    assert result.source_id == source_id('http://a.org/x', '20100125023558')
+    row = load_sources()[result.source_id]
+    assert row.url == 'http://a.org/x'  # the page that was asked for
+    assert row.notes == 'served https://web.archive.org/web/20100125023558/http://www.a.org/start'
+
+
+def test_capture_of_the_same_page_in_another_spelling_is_not_noted(web):
+    asked = 'https://web.archive.org/web/20100101000000id_/http://a.org/x'
+    served = 'https://web.archive.org/web/20100125023558id_/https://a.org/x/'
+    fetcher, _ = web({asked: FakeResponse(body=UNDATED, url=served)})
+    result = capture('https://web.archive.org/web/20100101000000/http://a.org/x',
+                     ['He works for Zest Software'], fetcher=fetcher, run=no_run)
+    assert load_sources()[result.source_id].notes is None
+
+
 def issue_pages(owner_repo, number=5):
     api = f'https://api.github.com/repos/{owner_repo}'
     issue = {'title': 'Map Fred', 'user': {'login': 'jane'}, 'created_at': '2026-10-01T00:00:00Z',
