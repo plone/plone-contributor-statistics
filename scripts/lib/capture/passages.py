@@ -17,25 +17,43 @@ _CHAR_MAP = {
 _PARAGRAPH_BREAK = re.compile(r'\n[^\S\n]*(?:\n[^\S\n]*)+')
 
 
-def _normalize_with_map(text: str, offset: int = 0) -> tuple[str, list[int]]:
-    """Return the normalized text and, per normalized char, its index in the original."""
+def _clusters(text: str):
+    """(start, end) of each base character with the combining marks that follow it."""
+    start = 0
+    while start < len(text):
+        end = start + 1
+        while end < len(text) and unicodedata.combining(text[end]):
+            end += 1
+        yield start, end
+        start = end
+
+
+def _normalize_with_map(text: str, offset: int = 0) -> tuple[str, list[int], list[int]]:
+    """Return the normalized text and, per normalized char, where its cluster starts and ends in the original.
+
+    NFKC works on a base character together with its combining marks, so a decomposed `a` + `\u0308` from
+    pdftotext matches a composed `ä`. Every char that a cluster becomes points to the whole cluster, so a span
+    in the normalized text maps back to whole characters of the original.
+    """
     chars: list[str] = []
-    index: list[int] = []
+    starts: list[int] = []
+    ends: list[int] = []
     pending_space = False
-    for i, original in enumerate(text):
-        for char in unicodedata.normalize('NFKC', original):
-            char = _CHAR_MAP.get(char, char)
-            for out in char:
+    for start, end in _clusters(text):
+        for char in unicodedata.normalize('NFKC', text[start:end]):
+            for out in _CHAR_MAP.get(char, char):
                 if out.isspace():
                     pending_space = True
                     continue
                 if pending_space and chars:
                     chars.append(' ')
-                    index.append(i + offset)
+                    starts.append(start + offset)
+                    ends.append(start + offset)
                 pending_space = False
                 chars.append(out)
-                index.append(i + offset)
-    return ''.join(chars), index
+                starts.append(start + offset)
+                ends.append(end + offset)
+    return ''.join(chars), starts, ends
 
 
 def normalize_text(text: str) -> str:
@@ -64,7 +82,7 @@ def find_quote(text: str, quote: str) -> tuple[int, int] | None:
     if not parts:
         return None
     for p_start, p_end in _paragraphs(text):
-        normalized, index = _normalize_with_map(text[p_start:p_end], p_start)
+        normalized, starts, ends = _normalize_with_map(text[p_start:p_end], p_start)
         first_start = None
         pos = 0
         last_end = 0
@@ -76,7 +94,7 @@ def find_quote(text: str, quote: str) -> tuple[int, int] | None:
                 first_start = found
             pos = last_end = found + len(part)
         else:
-            return index[first_start], index[last_end - 1] + 1
+            return starts[first_start], ends[last_end - 1]
     return None
 
 
