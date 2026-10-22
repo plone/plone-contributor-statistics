@@ -171,6 +171,13 @@ def _collapse(text):
     return ' '.join(text.split())
 
 
+def replace_excerpt(source_id, text):
+    """Replace the whole excerpt of the source by the text (passages joined by PASSAGE_SEPARATOR), atomically."""
+    path = excerpt_path(source_id)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    _write_atomic(path, text.strip() + '\n')
+
+
 def add_passage(source_id, passage):
     """Append the passage unless one of the passages contains it already, ignoring whitespace; True if added."""
     passage = passage.strip()

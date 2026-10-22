@@ -51,6 +51,7 @@ from scripts.lib.model.sources import (  # noqa: F401
     normalize_url,
     passages,
     read_excerpt,
+    replace_excerpt,
     source_id,
     split_archive_url,
     write_source,

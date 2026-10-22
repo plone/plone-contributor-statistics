@@ -25,7 +25,9 @@ The rules (the decisions of plan 2c):
   uncaptured source.
 - An address the capture did not record becomes an uncaptured source: kind by the work list's hint, else by
   the capture adapter of the address (else `pdf` for a PDF address, else `page`), its address as title, the
-  capture day as date, and the reason in its notes and its excerpt.
+  capture day as date, and the reason in its notes and its excerpt, shortened (`short_reason`): a rate limit of
+  yt-dlp is `rate limited (HTTP 429)`, another yt-dlp failure its `ERROR:` line, any other reason its first line,
+  with a quoted byte string (`b"..."`) in it decoded.
 - A comment on a pull request or issue of this repository (`#issuecomment-…`) that a rejection cites becomes a
   source of kind `decision`.
 
@@ -33,6 +35,7 @@ Run `python -m scripts.tools.migrate_registers` for a summary of what it would w
 """
 
 import argparse
+import ast
 import csv
 import hashlib
 import json
@@ -57,6 +60,7 @@ NOTHING_FOUND = 'nothing found'
 DECISION_URL = re.compile(r'^https://github\.com/plone/plone-contributor-statistics/(?:pull|issues)/\d+'
                           r'#issuecomment-\d+$')
 CITED_AS = 'cited as: '
+BYTES = re.compile(r'''(?<![A-Za-z0-9_])b(["'])(.*?)(?<!\\)\1''', re.S)
 ARCHIVE = Path('archive/migration-to-sources')
 
 PEOPLE_FIELDS = ('id', 'name')
@@ -100,6 +104,33 @@ def _kind_of(url):
     return 'pdf' if url.lower().split('?')[0].split('#')[0].endswith('.pdf') else 'page'
 
 
+def _decoded(text):
+    """The text with its first quoted byte string (`b"..."`, as Python prints bytes) decoded."""
+    match = BYTES.search(text)
+    if match is None:
+        return text
+    try:
+        decoded = ast.literal_eval(match.group(0)).decode('utf-8', 'replace')
+    except (ValueError, SyntaxError):
+        return text
+    return text[:match.start()] + decoded + text[match.end():]
+
+
+def short_reason(reason):
+    """The reason why an address was not captured, in one line: a rate limit of yt-dlp as `rate limited (HTTP
+    429)`, another failure of yt-dlp as its `ERROR:` line without the prefix, any other reason as its first
+    line; a byte string in it decoded."""
+    text = _decoded(reason)
+    lines = [line.strip() for line in text.splitlines() if line.strip()] or ['']
+    if 'yt-dlp' in reason:
+        if 'HTTP Error 429' in text:
+            return 'rate limited (HTTP 429)'
+        error = next((line for line in lines if line.startswith('ERROR:')), None)
+        if error is not None:
+            return error.removeprefix('ERROR:').strip()
+    return lines[0]
+
+
 class _Sources:
     """Finds the source of a cited address and creates a source for each address the capture did not record."""
 
@@ -130,7 +161,7 @@ class _Sources:
                 raise ValueError(f'the capture result of {url} names {found}, which is not in the register')
             return found
         error = self._result(url)['error']
-        reason = error.splitlines()[0].removeprefix(f'{url}: ') if error else NOTHING_FOUND
+        reason = short_reason(error.removeprefix(f'{url}: ')) if error else NOTHING_FOUND
         return self.uncaptured(url, reason, kind)
 
     def uncaptured(self, url, reason, kind=None):

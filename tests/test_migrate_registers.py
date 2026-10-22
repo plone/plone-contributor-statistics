@@ -212,12 +212,30 @@ def test_uncaptured_url_becomes_a_source():
          'url': 'https://acme.example/team', 'archive_url': ARCHIVED, 'fetched': '2026-10-22T18:00:00Z',
          'notes': 'not captured on 2026-10-22: nothing found'},
         {'id': video_id, 'kind': 'video', 'title': video, 'date': '2026-10-22', 'url': video, 'archive_url': '',
-         'fetched': '2026-10-22T18:00:00Z', 'notes': f'not captured on 2026-10-22: yt-dlp failed for {video}'},
+         'fetched': '2026-10-22T18:00:00Z', 'notes': 'not captured on 2026-10-22: rate limited (HTTP 429)'},
     ]
     assert migrated.new_sources == sorted(expected, key=lambda row: row['id'])
-    assert migrated.new_excerpts[video_id] == f'not captured on 2026-10-22: yt-dlp failed for {video}'
+    assert migrated.new_excerpts[video_id] == 'not captured on 2026-10-22: rate limited (HTTP 429)'
     assert migrated.new_excerpts[archived_id] == 'not captured on 2026-10-22: nothing found'
     assert sorted(c['source'] for c in migrated.citations) == sorted([video_id, archived_id, video_id])
+
+
+YT_DLP = ('yt-dlp failed for https://www.youtube.com/watch?v=abc: b"WARNING: [youtube] No supported JavaScript '
+          'runtime could be found.\\nERROR: [youtube] abc: Video unavailable. This video is private\\n"')
+
+
+@pytest.mark.parametrize('reason,short', [
+    (YT_DLP.replace('Video unavailable. This video is private', "Unable to download video subtitles for 'en': "
+                    'HTTP Error 429: Too Many Requests'), 'rate limited (HTTP 429)'),
+    (YT_DLP, '[youtube] abc: Video unavailable. This video is private'),
+    ('yt-dlp failed for https://www.youtube.com/watch?v=abc', 'yt-dlp failed for https://www.youtube.com/watch?v=abc'),
+    ('HTTP 403', 'HTTP 403'),
+    ('nothing found', 'nothing found'),
+    ("pdftotext failed: b'Syntax Error: bad xref\\nmore'", 'pdftotext failed: Syntax Error: bad xref'),
+    ('first line\nsecond line', 'first line'),
+])
+def test_short_reason(reason, short):
+    assert migrate_registers.short_reason(reason) == short
 
 
 def test_kind_of_an_uncaptured_source():

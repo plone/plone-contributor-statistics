@@ -12,6 +12,7 @@ from scripts.lib.model import (
     normalize_url,
     passages,
     read_excerpt,
+    replace_excerpt,
     source_id,
     split_archive_url,
     write_source,
@@ -139,3 +140,13 @@ def test_registers_are_replaced_atomically(tmp_repo, monkeypatch):
         add_passage('aaaaaaaaaaaa', 'Nowadays he works for kitconcept.')
     assert (paths.SOURCES.read_text(encoding='utf-8'), read_excerpt('aaaaaaaaaaaa')) == before
     assert sorted(path.name for path in paths.SOURCES.parent.rglob('.tmp-*')) == []
+
+
+def test_replace_excerpt_rewrites_every_passage(tmp_repo, monkeypatch):
+    add_passage('aaaaaaaaaaaa', 'not captured on 2026-10-22: a long message')
+    replace_excerpt('aaaaaaaaaaaa', 'not captured on 2026-10-22: rate limited (HTTP 429)\n')
+    assert read_excerpt('aaaaaaaaaaaa') == 'not captured on 2026-10-22: rate limited (HTTP 429)\n'
+    monkeypatch.setattr(os, 'replace', lambda *args: (_ for _ in ()).throw(OSError('disk full')))
+    with pytest.raises(OSError):
+        replace_excerpt('aaaaaaaaaaaa', 'other')
+    assert passages('aaaaaaaaaaaa') == ['not captured on 2026-10-22: rate limited (HTTP 429)']
