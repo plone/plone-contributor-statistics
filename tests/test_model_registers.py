@@ -1,8 +1,6 @@
 """The registers: typed reading through the schema, and the lookups of the Registry."""
 
-import csv
 import datetime
-from pathlib import Path
 
 import pytest
 
@@ -12,7 +10,6 @@ from scripts.lib.model import (UNMAPPED, affiliation_id, append_person, append_p
 from scripts.lib.model.registers import Identity, Person
 from tests.conftest import record_source
 
-REPO = Path(__file__).resolve().parent.parent
 SRC = 'https://example.org/record'
 SID = '0123456789ab'  # a source id; the registers are read without following it
 
@@ -177,15 +174,6 @@ def test_login_organisations_omits_ambiguous_login(tmp_repo):
     registry = load_registry()
     assert registry.person_for(login='k1') is None
     assert registry.login_organisations(2020) == {}
-
-
-def test_username_of_unchanged_on_real_registers():
-    # The logins of people.csv before the switch to identities (git HEAD before the migration, plan 2c): the
-    # collected files count every person under the same username as before
-    registry = load_registry(REPO / 'curated/mappings')
-    with open(REPO / 'tests/fixtures/people-github-before-citations.csv', newline='', encoding='utf-8') as f:
-        before = {row['id']: row['github'] or f'person:{row["id"]}' for row in csv.DictReader(f)}
-    assert {person_id: registry.username_of(person) for person_id, person in registry.people.items()} == before
 
 
 def test_github_and_further_accounts(registry):

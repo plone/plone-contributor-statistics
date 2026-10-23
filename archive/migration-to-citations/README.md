@@ -1,7 +1,7 @@
 # Migration to citations, 2026-10-23
 
-The code that migrated the registers in `curated/registers/` to citations (plan 2c of the data structure work), with its audit and its tests.
-It ran once, on 2026-10-23: the switch commit is 1c8e0bb, and the data commit before it is part of the run.
+The code that migrated the registers in `curated/mappings/` to citations (plan 2c of the data structure work), with its audit and its tests.
+It ran once, on 2026-10-23: the code that reads the new registers and the migrated data are the single commit 1c8e0bb, because neither can read the registers of the other.
 The files are kept unchanged and do not run any more: the old registers and their schemas were removed by the switch.
 
 ## Files
@@ -10,6 +10,7 @@ The files are kept unchanged and do not run any more: the old registers and thei
 - `cited_sources.py`: the tool of plan 2a that built the work list of the cited URLs from the old `source` cells, and the parser of those cells (`split_segments`, `parse_segment`) that the migration and the audit used.
 - `audit_migration.py`: the lossless check. It read the old registers with `git show <rev>:…` and the new ones through the model, and reported every URL, quote, label and note of an old `source` cell that was missing in the new data.
 - `tests/`: the offline tests of the three scripts. `pytest.ini` collects only `tests/`, so they do not run.
+- `tests/test_username_of_unchanged.py` with `tests/people-github-before-citations.csv`: the migration check that every person counts under the same username as before (the `github` column of `people.csv` before the switch). It reads the current registers, so it held for the migrated data and stops holding with the first person added after it; run it with `python -m pytest archive/migration-to-citations/tests/test_username_of_unchanged.py` only against the data of 1c8e0bb.
 
 ## Audit result
 
