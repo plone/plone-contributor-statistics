@@ -543,8 +543,8 @@ def test_an_affiliation_is_unique_per_person_organisation_and_years(tmp_package)
     files = affiliations(('acme', 2010, 2011))
     line = files['mappings/affiliations.csv'].splitlines()[1]
     files['mappings/affiliations.csv'] += line.replace(aid, 'a00000000').replace(',stated,', ',assumed,') + '\n'
-    files['mappings/citations.csv'] = CITATIONS + ''.join(sorted(f'{a},{source_id(RECORD)},,,\n'
-                                                                for a in (aid, 'a00000000')))
+    rows = sorted(f'{a},{source_id(RECORD)},,,\n' for a in (aid, 'a00000000'))
+    files['mappings/citations.csv'] = CITATIONS + ''.join(rows)
     errors = check.validate(tmp_package(files))
     assert [(file, row) for file, row, _, _ in errors] == [('curated/mappings/affiliations.csv', 3)]
     assert 'row 2' in errors[0][3]
