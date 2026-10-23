@@ -111,6 +111,7 @@ python -m scripts.tools.capture "https://github.com/plone/plone-contributor-stat
 ```
 
 The latest decision for a person and year counts.
+A decision covers every year of the row that cites it: when it is meant for only some of those years, split the row first, so that the decision is cited only by the row of those years.
 A decision that overrules an earlier one names the id of the earlier source in the `supersedes` column of its citation, separated by semicolons if there are several; `make check` fails until it does.
 
 (find-affiliations-in-commit-addresses)=

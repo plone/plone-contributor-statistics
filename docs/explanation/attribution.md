@@ -115,7 +115,7 @@ The statistics, the community page and `python -m scripts.tools.affiliation` all
     6d. Records
     : Otherwise the organisation that more distinct sources dated in the year name counts.
 
-    Rules 6b and 6c read the commits that the collected files count under the person's `github` login, so they don't apply to a person without one.
+    Rules 6b and 6c read the commits that the collected files count under the person's username: the `github` login, or `person:<id>` for a person without one, whose commits the collected files count by the commit addresses.
     A source that could not be captured has no passage, and only the day of the attempt as its date, so rules 6c and 6d leave it out.
 7.  **Conflict.**
     Otherwise the year is a conflict: it is Unmapped, and `make check` fails and names the person, the year and the organisations until a decision settles it.
