@@ -24,8 +24,8 @@ The rules are those of docs/explanation/attribution.md, in this order:
       person's own statements of the year name counts (citations of sources of kind `speaker-page` or
       `profile` dated in the year), if they name exactly one;
    d. records: the candidate that more distinct cited sources dated in the year name counts.
-   Sources that were never captured (notes `not captured on …`) carry no text and only the capture day as their
-   date: rules c and d leave them out.
+   Sources that were never captured (notes `not captured on …` or `could not be fetched on …`, `is_uncaptured`)
+   carry no text and only the capture day as their date: rules c and d leave them out.
 7. Otherwise the year is a conflict: Unmapped, and listed by `conflicts`, until a decision settles it.
 """
 
@@ -33,11 +33,12 @@ from collections import defaultdict
 from dataclasses import dataclass
 from datetime import date
 
+from scripts.lib.model.sources import is_uncaptured
+
 STATED, ASSUMED, DENIED, PROPOSED = 'stated', 'assumed', 'denied', 'proposed'
 COUNTING = (STATED, ASSUMED)
 DECISION = 'decision'
 OWN_STATEMENT_KINDS = ('speaker-page', 'profile')
-UNCAPTURED = 'not captured on'
 
 
 @dataclass(frozen=True)
@@ -213,8 +214,7 @@ class Attribution:
     def _captured_in(self, source_id, year):
         """Whether the source was captured and speaks for the year."""
         source = self._source(source_id)
-        return (source is not None and source.date.year == year
-                and not (source.notes or '').startswith(UNCAPTURED))
+        return source is not None and source.date.year == year and not is_uncaptured(source)
 
     def _decisions(self, rows):
         """({decision source: date}, {decision source: the sources its citations supersede}) of the rows."""

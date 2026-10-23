@@ -672,3 +672,61 @@ def test_profile_with_name_stores_whole_text(web):
                      run=no_run)
     assert len(result.added) == 1 and 'Plone developer' in result.added[0]
     assert result.missing == ()
+
+
+def uncaptured_source(url, notes, timestamp=None, kind='video'):
+    """A source that the capture did not read: the address as its title, the note as its only passage."""
+    from scripts.lib.model import Source, archive_url_of, write_source
+    from scripts.lib.model.sources import replace_excerpt, split_archive_url
+
+    split = split_archive_url(url)
+    original = split[0] if split else url
+    sid = source_id(original, timestamp)
+    write_source(Source(sid, kind, url, datetime.date(2026, 10, 22), original,
+                        archive_url_of(original, timestamp) if timestamp else None,
+                        datetime.datetime(2026, 10, 22, 22, 29, tzinfo=datetime.UTC), notes))
+    replace_excerpt(sid, notes)
+    return sid
+
+
+def test_capturing_an_uncaptured_source_renews_it(web):
+    sid = uncaptured_source(URL, 'not captured on 2026-10-22: rate limited (HTTP 429)')
+    fetcher, _ = web({URL: FakeResponse(body=ARTICLE)})
+    result = capture(URL, ['He works for Zest Software'], fetcher=fetcher, run=no_run)
+    assert result == CaptureResult(sid, False, (PARAGRAPH,), (), False)
+    row = load_sources()[sid]
+    assert (row.kind, row.title, row.date, row.url, row.fetched, row.notes) == (
+        'page', 'Plone sprint report', datetime.date(2015, 3, 12), URL, NOW, None)
+    assert read_excerpt(sid) == PARAGRAPH + '\n'
+
+
+def test_capturing_an_unfetched_archived_copy_renews_it_with_the_notes_of_the_read(web):
+    archived = 'https://web.archive.org/web/20100125023558/http://limi.net/about'
+    sid = uncaptured_source(archived, 'could not be fetched on 2026-10-01', timestamp='20100125023558', kind='page')
+    raw_url = 'https://web.archive.org/web/20100125023558id_/http://limi.net/about'
+    fetcher, _ = web({raw_url: FakeResponse(body=ARTICLE)})
+    result = capture(archived, ['He works for Zest Software'], fetcher=fetcher, run=no_run)
+    assert result == CaptureResult(sid, False, (PARAGRAPH,), (), False)
+    row = load_sources()[sid]
+    assert (row.title, row.date, row.archive_url, row.notes) == (
+        'Plone sprint report', datetime.date(2010, 1, 25), archived, 'page shows date 2015-03-12')
+    assert passages(sid) == [PARAGRAPH]
+
+
+def test_an_uncaptured_source_is_read_again_for_names(web):
+    # The capture does not skip a known source whose excerpt holds only the note
+    sid = uncaptured_source(URL, 'not captured on 2026-10-22: nothing found', kind='page')
+    fetcher, _ = web({URL: FakeResponse(body=ARTICLE)})
+    result = capture(URL, names=['Maurits van Rees'], fetcher=fetcher, run=no_run)
+    assert result.added == (PARAGRAPH,)
+    assert load_sources()[sid].notes is None
+
+
+def test_an_uncaptured_source_without_a_found_quote_stays_uncaptured(web):
+    sid = uncaptured_source(URL, 'not captured on 2026-10-22: nothing found', kind='page')
+    before = load_sources()[sid]
+    fetcher, _ = web({URL: FakeResponse(body=ARTICLE)})
+    result = capture(URL, ['not on the page'], fetcher=fetcher, run=no_run)
+    assert result == CaptureResult(sid, False, (), ('not on the page',), False)
+    assert load_sources()[sid] == before
+    assert read_excerpt(sid) == 'not captured on 2026-10-22: nothing found\n'

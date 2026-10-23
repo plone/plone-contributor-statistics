@@ -34,17 +34,21 @@ from scripts.lib.capture.fetch import FetchError, Fetcher, nearest_capture, raw_
 from scripts.lib.capture.passages import cut_passage, find_name, find_quote
 from scripts.lib.github_api import GitHubAPIError
 from scripts.lib.model import (
+    PASSAGE_SEPARATOR,
     Source,
     add_passage,
     archive_url_of,
+    is_uncaptured,
     load_sources,
     normalize_url,
     passages,
     read_excerpt,
+    replace_excerpt,
     source_id,
     split_archive_url,
     write_source,
 )
+from scripts.lib.model.sources import UNCAPTURED_MARKERS
 
 KIND_BY_ADAPTER = {'github-profile': 'profile', 'github-issue': 'issue-comment', 'commit': 'commit', 'video': 'video',
                    'google-doc': 'page'}
@@ -241,7 +245,8 @@ def capture(url: str, quotes: Sequence[str] = (), kind: str | None = None, title
     sources = load_sources()
     if sid not in sources and not quotes and not names:
         raise CaptureError(f'{url}: a new source needs at least one quote or name')
-    if sid in sources and not refresh and all(_stored(sid, quote) for quote in quotes):
+    if (sid in sources and not refresh and not is_uncaptured(sources[sid])
+            and all(_stored(sid, quote) for quote in quotes)):
         return CaptureResult(sid, False, (), (), False)
 
     fetcher = fetcher or Fetcher(refresh=refresh)
@@ -289,11 +294,26 @@ def capture(url: str, quotes: Sequence[str] = (), kind: str | None = None, title
                     found.append(passage)
     if existing is None and not found:  # a new source is recorded only with a passage that supports something
         return CaptureResult(sid, False, (), tuple(missing), False)
+    if existing is not None and found and is_uncaptured(existing):
+        return _renew(existing, read, kind, title, date, found, missing)
     row = _source(existing, sid, read, kind, title, date, read.notes, refresh)
     if row is not None:
         write_source(row)
     added = tuple(passage for passage in found if add_passage(sid, passage))
     return CaptureResult(sid, existing is None, added, tuple(missing), False)
+
+
+def _renew(existing, read, kind, title, date, found, missing):
+    """Renew a source that was never read from this read, which found passages: its kind, title, date, fetch
+    time and notes come from the read as for a new source (the notes of the read, such as `served …`, stay),
+    and the passages replace the note that its excerpt held."""
+    new = _source(None, existing.id, read, kind, title, date, read.notes, False)
+    write_source(dataclasses.replace(existing, kind=new.kind, title=new.title, date=new.date, fetched=new.fetched,
+                                     notes=new.notes))
+    kept = [passage for passage in passages(existing.id) if not passage.startswith(UNCAPTURED_MARKERS)]
+    replace_excerpt(existing.id, PASSAGE_SEPARATOR.join(kept))
+    added = tuple(passage for passage in found if add_passage(existing.id, passage))
+    return CaptureResult(existing.id, False, added, tuple(missing), False)
 
 
 def _passage(read, quote):

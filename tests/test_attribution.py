@@ -207,9 +207,10 @@ def test_records_of_the_year_decide():
     assert attribution.organisation(PERSON, 2019) is None  # no records of 2019
 
 
-def test_uncaptured_sources_are_no_records_and_no_statements():
+@pytest.mark.parametrize('notes', ['not captured on 2026-10-22: nothing found', 'could not be fetched on 2026-10-22'])
+def test_uncaptured_sources_are_no_records_and_no_statements(notes):
     acme, beta = aff('acme', 2026, 2026), aff('beta', 2026, 2026)
-    uncaptured = src('gone', 'profile', '2026-10-22', 'not captured on 2026-10-22: nothing found')
+    uncaptured = src('gone', 'profile', '2026-10-22', notes)
     attribution = engine([acme, beta], [cite(acme, 'gone')], [uncaptured],
                          domains={2026: Counter({'gmail.com': 5})})
     assert attribution.organisation(PERSON, 2026) is None

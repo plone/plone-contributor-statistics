@@ -36,6 +36,16 @@ class Source:
     notes: str | None
 
 
+UNCAPTURED_MARKERS = ('not captured on', 'could not be fetched on')
+"""How the notes of a source that was never read start, and so does the only passage of its excerpt."""
+
+
+def is_uncaptured(source):
+    """Whether the source was never read: recorded by the migration without a capture (`not captured on …`)
+    or by a capture that could not fetch it (`could not be fetched on …`)."""
+    return (source.notes or '').startswith(UNCAPTURED_MARKERS)
+
+
 def normalize_url(url):
     """The key of a web address: no scheme, lower-case host, no default port, no fragment, no trailing slash.
 

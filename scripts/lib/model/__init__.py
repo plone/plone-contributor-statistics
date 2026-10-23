@@ -47,6 +47,7 @@ from scripts.lib.model.sources import (  # noqa: F401
     add_passage,
     archive_url_of,
     excerpt_path,
+    is_uncaptured,
     load_sources,
     normalize_url,
     passages,
