@@ -36,6 +36,7 @@ from scripts.lib import paths
 from scripts.lib.github_api import github_get
 from scripts.lib.model import MAPPINGS_DIR, append_proposals, load_registry, load_rejections
 from scripts.lib.model.attribution import ASSUMED, COUNTING
+from scripts.lib.model.schema import CellTypeError
 from scripts.tools.address_proposals import _runs, _years, cite, is_company_domain, is_own_domain, not_captured
 
 SEARCH_URL = 'https://api.github.com/search/commits'
@@ -339,6 +340,9 @@ def main(argv=None):
     args = parser.parse_args(argv)
     try:
         text, added = run(args.person, args.all_years, args.write, args.refresh, args.cache)
+    except CellTypeError as error:  # a cell of a curated file has the wrong type: its own message says which
+        print(error, file=sys.stderr)
+        sys.exit(1)
     except ValueError as error:  # a proposal whose id an affiliation has already: append_proposals wrote nothing
         print(f'Nothing written: {error}', file=sys.stderr)
         sys.exit(1)

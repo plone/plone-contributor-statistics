@@ -89,6 +89,7 @@ Checks beyond the schema:
 - `from` is not after `to`, and an affiliation without `to` says when its record was read.
 - An assumed range stops at a record of another organisation that its own organisation returns after.
 - The rows are sorted by `person`, `from`, `organisation`.
+- No two rows have the same `person`, `organisation`, `from`, `to`.
 - Every affiliation but a proposal has at least one citation.
 - No person-year is left undecided by the attribution rules: record a decision for each conflict.
 - Of two decisions for one person and year, the later names the earlier in `supersedes`.
@@ -111,6 +112,7 @@ Checks beyond the schema:
 
 - A snippet appears in the excerpt of its source, compared as the capture compares a quote (`find_quote`).
 - The rows are sorted by `affiliation`, `source`, `snippet`.
+- No two rows have the same `affiliation`, `source`, `snippet`.
 - `supersedes`: every element is the id of a row of the register, and none is repeated.
 
 ### Organisations

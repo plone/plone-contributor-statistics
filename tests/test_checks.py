@@ -493,3 +493,58 @@ def test_unique_casefold_only_needs_a_scope():
     with pytest.raises(ValueError, match='scope'):
         UniqueCasefold(field='value', only=('email',))
     assert UniqueCasefold(field='value', scope='kind', only=('email',)).only == ('email',)
+
+
+@pytest.mark.parametrize('file, old, new, field', [
+    ('mappings/affiliations.csv', ',2010,2014,', ',20O0,2014,', 'from'),
+    ('mappings/affiliations.csv', ',stated,,', ',stated,2024-02-30,', 'checked'),
+    ('sources/sources.csv', ',2026-01-01,', ',2026-13-20,', 'date'),
+])
+def test_a_cell_of_the_wrong_type_skips_the_attribution_checks(tmp_package, file, old, new, field):
+    # The schema validation reports the cell; the attribution checks cannot read the registers and say so
+    root = tmp_package(affiliations(('acme', 2010, 2014)))
+    path = root / 'curated' / file
+    text = path.read_text(encoding='utf-8')
+    assert old in text
+    path.write_text(text.replace(old, new, 1), encoding='utf-8')
+    errors = check.validate(root)
+    assert [(f, row, name) for f, row, name, _ in errors if row is not None] == [(f'curated/{file}', 2, field)]
+    assert [message for _, row, _, message in errors if row is not None][0].startswith('Type error in the cell')
+    skipped = [message.split(': ', 1)[1] for f, row, _, message in errors if row is None]
+    assert len(skipped) == 2
+    for name, message in zip(('conflict', 'decision'), skipped):
+        assert message.startswith(f'the {name} check was skipped: the registers cannot be read: ')
+        assert f'{root}/curated/{file}, row 2, field {field}: cannot read' in message
+
+
+def test_read_rows_raises_a_cell_type_error(tmp_package):
+    from scripts.lib.model.schema import CellTypeError, read_rows
+
+    root = tmp_package(affiliations(('acme', 2010, 2014)))
+    path = root / 'curated/mappings/affiliations.csv'
+    path.write_text(path.read_text(encoding='utf-8').replace(',2010,', ',20O0,'), encoding='utf-8')
+    with pytest.raises(CellTypeError, match='row 2, field from: cannot read "20O0"'):
+        read_rows(path)
+    assert issubclass(CellTypeError, ValueError)
+
+
+def test_a_citation_is_unique_per_affiliation_source_and_snippet(tmp_package):
+    aid, record = affiliation_id('pbauer', 'acme', 2010, 2011), source_id(RECORD)
+    rows = [f'{aid},{record},,,', f'{aid},{record},,,first', f'{aid},{record},Philip Bauer,,',
+            f'{aid},{record},Philip Bauer,,again']
+    errors = check.validate(tmp_package(affiliations(('acme', 2010, 2011), citations=rows)))
+    assert [(file, row) for file, row, _, _ in errors] == [('curated/mappings/citations.csv', 3),
+                                                           ('curated/mappings/citations.csv', 5)]
+    assert 'row 2' in errors[0][3] and 'row 4' in errors[1][3]
+
+
+def test_an_affiliation_is_unique_per_person_organisation_and_years(tmp_package):
+    aid = affiliation_id('pbauer', 'acme', 2010, 2011)
+    files = affiliations(('acme', 2010, 2011))
+    line = files['mappings/affiliations.csv'].splitlines()[1]
+    files['mappings/affiliations.csv'] += line.replace(aid, 'a00000000').replace(',stated,', ',assumed,') + '\n'
+    files['mappings/citations.csv'] = CITATIONS + ''.join(sorted(f'{a},{source_id(RECORD)},,,\n'
+                                                                for a in (aid, 'a00000000')))
+    errors = check.validate(tmp_package(files))
+    assert [(file, row) for file, row, _, _ in errors] == [('curated/mappings/affiliations.csv', 3)]
+    assert 'row 2' in errors[0][3]

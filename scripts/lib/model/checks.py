@@ -7,8 +7,10 @@ from pathlib import Path
 import attrs
 from frictionless import Check, errors
 
+from scripts.lib.model.attribution import ASSUMED, COUNTING
 from scripts.lib.model.names import fold
 from scripts.lib.model.registers import UNIQUE_IDENTITY_KINDS
+from scripts.lib.model.schema import CellTypeError
 from scripts.lib.model.sources import source_id, split_archive_url
 
 
@@ -60,6 +62,13 @@ class UniqueCasefoldError(errors.CellError):
     title = 'Unique Casefold'
     description = 'Two rows have values that differ only in case.'
     template = 'The cell {cell} in row at position {rowNumber} and field {fieldName} has an error: {note}'
+
+
+class UniqueRowError(errors.RowError):
+    type = 'unique-row'
+    title = 'Unique Row'
+    description = 'Two rows have the same values in the fields that make a row unique.'
+    template = 'The row at position {rowNumber} has an error: {note}'
 
 
 class IdentitySourceError(errors.CellError):
@@ -159,10 +168,6 @@ class AffiliationPeriod(Check):
             yield AffiliationPeriodError.from_row(row, note=f'from {start} is after to {end}')
         if end is None and not row['checked']:
             yield AffiliationPeriodError.from_row(row, note='an affiliation up to the present needs checked')
-
-
-ASSUMED = 'assumed'
-COUNTING = ('stated', ASSUMED)
 
 
 @attrs.define(kw_only=True, repr=False)
@@ -313,6 +318,24 @@ class UniqueCasefold(Check):
             within = f' of {self.scope} {row[self.scope]}' if self.scope else ''
             note = f'"{value}" is the same as the value{within} in row {first} once case goes'
             yield UniqueCasefoldError.from_row(row, note=note, field_name=self.field)
+
+
+@attrs.define(kw_only=True, repr=False)
+class UniqueRow(Check):
+    """No two rows have the same values in the fields; an empty cell counts as a value."""
+
+    type = 'unique-row'
+    Errors = [UniqueRowError]
+
+    fields: list
+    _seen: dict = attrs.field(factory=dict, init=False)
+
+    def validate_row(self, row):
+        key = tuple(row[name] for name in self.fields)
+        first = self._seen.setdefault(key, row.row_number)
+        if first != row.row_number:
+            names = ', '.join(self.fields)
+            yield UniqueRowError.from_row(row, note=f'row {first} has the same {names}')
 
 
 @attrs.define(kw_only=True, repr=False)
@@ -477,7 +500,8 @@ def _cited(package):
 
 def _attribution(package):
     """A function returning the `Attribution` of the registers of the package, read once; when a file of the
-    registers is missing, the reason, which the attribution checks report as skipped."""
+    registers is missing or has a cell of the wrong type, the reason, which the attribution checks report as
+    skipped (the validation of that file reports the cell itself)."""
     found = []
 
     def attribution():
@@ -489,6 +513,8 @@ def _attribution(package):
                 found.append(load_registry(Path(package.basepath) / 'mappings').attribution)
             except FileNotFoundError as error:
                 found.append(f'the registers cannot be read: {error.filename or error} is missing')
+            except CellTypeError as error:
+                found.append(f'the registers cannot be read: {error}')
         return found[0]
 
     return attribution
@@ -504,12 +530,14 @@ def checks_for(resource_name, package, until=None):
         'organisations': lambda: [Sorted(fields=['id'], casefold=True), NameFold(), UniqueCasefold(field='github')],
         'affiliations': lambda: [AffiliationPeriod(), ReachingBackPastRecord(),
                                  Sorted(fields=['person', 'from', 'organisation'], casefold=False),
+                                 UniqueRow(fields=['person', 'organisation', 'from', 'to']),
                                  Cited(cited=_cited(package)),
                                  *[check(attribution=attribution, until=until)
                                    for attribution in [_attribution(package)]
                                    for check in (UnresolvedConflict, DecisionSupersedes)]],
         'citations': lambda: [SnippetInExcerpt(folder=excerpts),
-                              Sorted(fields=['affiliation', 'source', 'snippet'], casefold=False)],
+                              Sorted(fields=['affiliation', 'source', 'snippet'], casefold=False),
+                              UniqueRow(fields=['affiliation', 'source', 'snippet'])],
         'identities': lambda: [SourceUnlessEmail(), SnippetInExcerpt(folder=excerpts),
                                Sorted(fields=['person', 'kind', 'value'], casefold=False),
                                UniqueCasefold(field='value', scope='kind', only=UNIQUE_IDENTITY_KINDS),

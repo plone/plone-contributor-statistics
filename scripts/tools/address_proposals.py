@@ -28,6 +28,7 @@ from scripts.lib.commit_authors import (Finder, is_company_domain, is_own_domain
                                         registrable_label)
 from scripts.lib.model import MAPPINGS_DIR, append_proposals, load_bot_accounts, load_registry, load_rejections
 from scripts.lib.model.attribution import COUNTING
+from scripts.lib.model.schema import CellTypeError
 
 DEFAULT_SINCE = 2002
 
@@ -231,6 +232,9 @@ def main(argv=None):
     args = parser.parse_args(argv)
     try:
         text, added = run(args.cache, args.since, args.person, args.write)
+    except CellTypeError as error:  # a cell of a curated file has the wrong type: its own message says which
+        print(error, file=sys.stderr)
+        sys.exit(1)
     except ValueError as error:  # a proposal whose id an affiliation has already: append_proposals wrote nothing
         print(f'Nothing written: {error}', file=sys.stderr)
         sys.exit(1)

@@ -176,6 +176,9 @@ def _check_lines(kind, package):
         elif check.type == 'not-sorted':
             order = ', '.join(f'`{name}`' for name in check.fields)
             lines.append(f'- The rows are sorted by {order}' + (', ignoring case.' if check.casefold else '.'))
+        elif check.type == 'unique-row':
+            fields = ', '.join(f'`{name}`' for name in check.fields)
+            lines.append(f'- No two rows have the same {fields}.')
         elif check.type == 'unique-casefold':
             within = f' within its `{check.scope}`' if check.scope else ''
             only = (f' for the {check.scope}s ' + ', '.join(f'`{value}`' for value in check.only)

@@ -298,3 +298,17 @@ def test_main_reports_an_id_clash_without_a_traceback(setup, monkeypatch, capsys
         github_evidence.main(['--write'])
     assert exit_info.value.code == 1
     assert capsys.readouterr().err == 'Nothing written: The id a12345678 is the id of an affiliation already\n'
+
+
+def test_main_reports_a_cell_of_the_wrong_type_as_itself(setup, monkeypatch, capsys):
+    from scripts.lib.model.schema import CellTypeError
+
+    def bad_cell(*args, **kwargs):
+        raise CellTypeError('affiliations.csv, row 2, field from: cannot read "20O5" (type is "integer/default")')
+
+    monkeypatch.setattr(github_evidence, 'run', bad_cell)
+    with pytest.raises(SystemExit) as exit_info:
+        github_evidence.main(['--write'])
+    assert exit_info.value.code == 1
+    assert capsys.readouterr().err == ('affiliations.csv, row 2, field from: cannot read "20O5" '
+                                       '(type is "integer/default")\n')
