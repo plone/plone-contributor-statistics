@@ -11,7 +11,7 @@ They count commits and merged pull requests in the repositories of the [`plone` 
 The commits and pull requests are public on GitHub.
 Every attribution to a person or an organisation, and every row of curated community data, needs a public record: a web page, an archived page, a register entry, a conference biography, a public commit, or a public confirmation by the person.
 A memory alone is not enough; without a public record, an entry stays out, and a contributor stays Unmapped.
-The one exception is identifying the people behind early CVS and Subversion commit addresses, where public records are often impossible; there, the source says what the identification rests on.
+The one exception is identifying the people behind early CVS and Subversion commit addresses, where public records are often impossible; there, the notes of the identity say what the identification rests on.
 Some older files still lack linked sources, and [#86](https://github.com/plone/plone-contributor-statistics/issues/86) tracks them.
 
 The documentation explains where the data comes from, how it is counted, and why.

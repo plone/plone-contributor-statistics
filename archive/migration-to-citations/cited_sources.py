@@ -5,7 +5,8 @@ Migration code for plan 2c, which turns the free-text `source` cells of the mapp
 source register: it is archived to archive/ after its last use, as scripts/tools/migrate_data_structure.py was.
 
 It reads every cell that cites sources (people.source, identities.source, affiliations.source and .notes,
-rejected_proposals.source and .reason) through the model and splits it into segments at "; " outside quotes.
+rejected_proposals.source and .reason) of the registers as they were before plan 2c, with plain csv, since their
+schemas went away with the switch (`load_old_registers`), and splits it into segments at "; " outside quotes.
 Every address gets the quotes in front of the first address of its segment (a live address and its archived
 copy alike), then every other quote of its cell: the capture keeps only the quotes it finds in a source, so its
 results tell which quote belongs to which address. The work list has one line per distinct address with its
@@ -21,6 +22,7 @@ a minute.
 """
 
 import argparse
+import csv
 import dataclasses
 import hashlib
 import json
@@ -29,11 +31,14 @@ import re
 import sys
 import time
 import urllib.parse
+from pathlib import Path
+from types import SimpleNamespace
 
+from scripts.lib import paths
 from scripts.lib.capture import CaptureError, github_session
 from scripts.lib.capture.fetch import cache_dir
 from scripts.lib.github_api import GitHubAPIError, github_get
-from scripts.lib.model import load_registry, load_rejection_rows
+from scripts.lib.model import split_set
 
 URL = re.compile(r'https?://[^\s;"<>]+')
 QUOTE_MARK = re.compile(r'(?<!\\)"')  # a backslash-escaped quote mark is part of the quote
@@ -44,6 +49,36 @@ SEARCH_CACHE = 'github-search'
 SEARCH_COMMITS = 3
 PACE = 2.5  # seconds between searches: the search allows 30 requests a minute
 TRAILING_BRACKET = re.compile(r'^(.*\S)\s*\([^()]*\)$')  # "Rocky Burt (sprint leaders)"
+
+
+def _old_rows(path):
+    try:
+        with open(path, newline='', encoding='utf-8') as f:
+            return list(csv.DictReader(f))
+    except FileNotFoundError:
+        return []
+
+
+def load_old_registers(mappings_dir=paths.MAPPINGS_DIR):
+    """(registry, rejections) of the registers as they were before plan 2c, read with plain csv.
+
+    The registry has `people` ({id: person with id, name, source}), `identities` (person, kind, value, source),
+    `affiliations` (person, organisation, source, notes) and `organisations` ({id: organisation with name and
+    aliases}); the rejections are the rows of rejected_proposals.csv, [] without the file.
+    """
+    mappings_dir = Path(mappings_dir)
+    people = {row['id']: SimpleNamespace(id=row['id'], name=row['name'], source=row['source'] or None)
+              for row in _old_rows(mappings_dir / 'people.csv')}
+    identities = [SimpleNamespace(person=row['person'], kind=row['kind'], value=row['value'],
+                                  source=row['source'] or None) for row in _old_rows(mappings_dir / 'identities.csv')]
+    affiliations = [SimpleNamespace(person=row['person'], organisation=row['organisation'],
+                                    source=row['source'] or None, notes=row['notes'] or None)
+                    for row in _old_rows(mappings_dir / 'affiliations.csv')]
+    organisations = {row['id']: SimpleNamespace(id=row['id'], name=row['name'], aliases=split_set(row['aliases']))
+                     for row in _old_rows(mappings_dir / 'organisations.csv')}
+    registry = SimpleNamespace(people=people, identities=identities, affiliations=affiliations,
+                               organisations=organisations)
+    return registry, _old_rows(mappings_dir / 'rejected_proposals.csv')
 
 
 @dataclasses.dataclass(frozen=True)
@@ -239,7 +274,7 @@ def search_urls(registry, rejections) -> list[str]:
 def work_list(registry, rejections, searches: dict[str, list[str]] | None = None) -> list[dict]:
     """One item {url, quotes, names, kind} per distinct cited address, sorted by address.
 
-    `rejections` are the rows of rejected_proposals.csv (load_rejection_rows). `searches` maps each commit search
+    `rejections` are the rows of rejected_proposals.csv (load_old_registers). `searches` maps each commit search
     to its commits (resolve_searches): they become items with the names of the person whose cell cites the
     search; the searches themselves are no items.
     """
@@ -290,7 +325,7 @@ def main(argv=None):
                         help='JSON lines file of the quotes without an address and the addresses with quotes '
                              'from elsewhere in their cell')
     args = parser.parse_args(argv)
-    registry, rejections = load_registry(), load_rejection_rows()
+    registry, rejections = load_old_registers()
     try:
         resolved = resolve_searches(search_urls(registry, rejections), github_session())
     except (CaptureError, GitHubAPIError) as error:

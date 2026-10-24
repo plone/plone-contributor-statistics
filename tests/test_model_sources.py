@@ -12,6 +12,7 @@ from scripts.lib.model import (
     normalize_url,
     passages,
     read_excerpt,
+    replace_excerpt,
     source_id,
     split_archive_url,
     write_source,
@@ -139,3 +140,28 @@ def test_registers_are_replaced_atomically(tmp_repo, monkeypatch):
         add_passage('aaaaaaaaaaaa', 'Nowadays he works for kitconcept.')
     assert (paths.SOURCES.read_text(encoding='utf-8'), read_excerpt('aaaaaaaaaaaa')) == before
     assert sorted(path.name for path in paths.SOURCES.parent.rglob('.tmp-*')) == []
+
+
+def test_replace_excerpt_rewrites_every_passage(tmp_repo, monkeypatch):
+    add_passage('aaaaaaaaaaaa', 'not captured on 2026-10-22: a long message')
+    replace_excerpt('aaaaaaaaaaaa', 'not captured on 2026-10-22: rate limited (HTTP 429)\n')
+    assert read_excerpt('aaaaaaaaaaaa') == 'not captured on 2026-10-22: rate limited (HTTP 429)\n'
+    monkeypatch.setattr(os, 'replace', lambda *args: (_ for _ in ()).throw(OSError('disk full')))
+    with pytest.raises(OSError):
+        replace_excerpt('aaaaaaaaaaaa', 'other')
+    assert passages('aaaaaaaaaaaa') == ['not captured on 2026-10-22: rate limited (HTTP 429)']
+
+
+@pytest.mark.parametrize('notes, uncaptured', [
+    ('not captured on 2026-10-22: nothing found', True),
+    ('could not be fetched on 2026-10-22', True),
+    ('page shows date 2015-03-12', False),
+    ('served https://web.archive.org/web/20100125023558/http://a.org/x', False),
+    (None, False),
+])
+def test_is_uncaptured_knows_both_markers(notes, uncaptured):
+    from scripts.lib.model.sources import is_uncaptured
+
+    source = Source('0123456789ab', 'page', 'A page', datetime.date(2026, 10, 22), 'https://a.org/', None,
+                    datetime.datetime(2026, 10, 22, tzinfo=datetime.UTC), notes)
+    assert is_uncaptured(source) is uncaptured

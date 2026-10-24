@@ -28,6 +28,7 @@ Do this when a fact rests on a page, a profile, a commit or a video, and you wan
     A GitHub profile, a commit and an issue or comment of this repository are stored whole in that case, whether or not the name is found.
     Names are also used when you give quotes and the page shows none of them; they are ignored as soon as one quote is found.
     For a source that is already in the register, names without a quote add nothing and the tool does not fetch the page again; add `--refresh` to look for them.
+    A source that was never read is the exception, see {ref}`how-to-capture-a-source-not-read`.
     `--kind`, `--title` and `--date` override what the tool finds on the page.
     Give `--kind speaker-page` for the page of a speaker at a conference, because it is the person's own statement.
     A live page is dated by `--date`, else by the date the page shows, else by the day of the capture.
@@ -45,9 +46,9 @@ Do this when a fact rests on a page, a profile, a commit or a video, and you wan
     make check
     ```
 
-4.  Open a pull request with the new source.
-    Nothing cites sources by their id yet: keep the address, with its quote, in the `source` cells of the rows that rest on it, as before.
-    A later change switches the registers to citations of the source register.
+4.  Cite the source by its id from the rows that rest on it: an affiliation in `curated/mappings/citations.csv`, with the quote as its snippet, see {doc}`add-an-affiliation`, or an identity in its `source` and `snippet` columns, see {doc}`add-a-person`.
+    The curated community data still links its records by address in its source column.
+    Then open a pull request with the new source and the rows that cite it.
 
 (how-to-capture-a-source-github-issues)=
 
@@ -94,6 +95,16 @@ Do not shorten a quote until it matches something that does not say what you cit
 When the address is gone, the tool looks for the nearest Wayback capture and records that one.
 Without a capture, it records the source as unreachable with a note, and prints `! unreachable`.
 A fetch error such as a refusal or a timeout is not a gone page: the tool prints `! <message>`, exits with status 1 and writes nothing.
+
+(how-to-capture-a-source-not-read)=
+
+## Capture a source that was not read
+
+Some sources are in the register without their text: their `notes` start with `not captured on` (a URL that the migration to citations could not capture) or `could not be fetched on` (a page that was gone, without a Wayback capture), and their excerpt holds only that note.
+Capture such a source as any other, with `--quote` or `--name`; the tool fetches it even though it is in the register.
+When it reads the page and finds at least one passage, it renews the row from what it read, as for a new source: the kind, the title, the date and the fetch time, and the notes, which lose the old note and keep only what this read notes, such as `served …` or `page shows date …`.
+The passages it found replace the note in the excerpt.
+When it finds nothing, or the page is still gone, the row and its note stay as they are.
 
 ## Capture many sources at once
 

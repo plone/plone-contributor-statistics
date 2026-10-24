@@ -4,14 +4,18 @@
 A person without a login counts by person id; if their code work comes under a login that the register does
 not know, they count twice. This lists the people whose name equals a collected login. With --propose, the
 GitHub profile names of the logins the register does not know are fetched (needs GITHUB_TOKEN) and exact,
-unique matches are printed as a `github` value to set in curated/mappings/people.csv: the login is the
-person's main account, which their code work counts under. Check each proposal before setting it.
+unique matches are printed as a `github` identity for curated/mappings/identities.csv, citing the GitHub
+profile: the login is the person's main account, which their code work counts under. Check each proposal,
+run the capture command printed with it, then add the row: the snippet is the profile name, which the
+capture finds on the profile.
 """
 
 import argparse
 import csv
+import io
 import os
 import re
+import shlex
 import sys
 from collections import defaultdict
 
@@ -20,7 +24,7 @@ from dotenv import load_dotenv
 
 from scripts.lib import paths
 from scripts.lib.github_api import github_graphql
-from scripts.lib.model import load_registry
+from scripts.lib.model import GITHUB, load_registry, source_id
 from scripts.lib.model.names import fold
 
 LOGIN = re.compile(r'[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})')
@@ -29,7 +33,7 @@ LOGIN = re.compile(r'[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})')
 def contributor_logins(registry=None, contributors_dir=paths.CONTRIBUTORS_DIR):
     """Every GitHub login with code work in the collected files, or in the register."""
     registry = registry or load_registry()
-    logins = {person.github for person in registry.people.values() if person.github}
+    logins = {login for login in map(registry.github_of, registry.people) if login}
     for path in sorted(contributors_dir.glob('*-plone-contributors.csv')):
         with open(path, newline='', encoding='utf-8') as f:
             logins.update(row['username'] for row in csv.DictReader(f))
@@ -49,7 +53,7 @@ def unmatched_people(registry, logins):
     found = {}
     for person in registry.people.values():
         key = fold(person.name).replace(' ', '')
-        if not person.github and by_key.get(key):
+        if not registry.github_of(person.id) and by_key.get(key):
             found[person.id] = sorted(by_key[key])
     return found
 
@@ -64,7 +68,7 @@ def propose(registry, profile_names):
         ids_by_name[fold(person.name)].add(person.id)
     proposals = []
     for person in sorted(registry.people.values(), key=lambda person: person.id):
-        if person.github:
+        if registry.github_of(person.id):
             continue
         logins = logins_by_name.get(fold(person.name), set())
         if len(logins) == 1 and len(ids_by_name[fold(person.name)]) == 1:
@@ -75,8 +79,13 @@ def propose(registry, profile_names):
 
 
 def proposal_line(person_id, login, name):
-    """The proposal as the line --propose prints."""
-    return f'people.csv: set github of {person_id} to {login} (profile name "{name}": https://github.com/{login})'
+    """The proposal as --propose prints it: the command that captures the profile, as a comment, and the
+    identity row citing the profile with the profile name as its snippet."""
+    profile = f'https://github.com/{login}'
+    command = f'python -m scripts.tools.capture {shlex.quote(profile)} --name {shlex.quote(name)}'
+    row = io.StringIO()
+    csv.writer(row, lineterminator='').writerow([person_id, GITHUB, login, source_id(profile), name, ''])
+    return f'# capture first: {command}\n{row.getvalue()}'
 
 
 def fetch_profile_names(session, logins, batch=50):
@@ -110,7 +119,8 @@ def main():
         token = os.getenv('GITHUB_TOKEN')
         if token:
             session.headers['Authorization'] = f'token {token}'
-        print('\nProposals for people.csv (check each before setting it):')
+        print('\nProposals for curated/mappings/identities.csv (check each, run its capture command, then add '
+              'the row):')
         for proposal in propose(registry, fetch_profile_names(session, unregistered(registry, logins))):
             print(proposal_line(*proposal))
 

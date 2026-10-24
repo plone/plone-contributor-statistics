@@ -31,7 +31,7 @@ Unmapped people and self-employed people count.
 Groups, such as a team or an organisation, are not people: they are not in a person column, they count for their organisation.
 
 Code work identifies people by their GitHub login, and community roles by their id in `curated/mappings/people.csv`.
-The register joins the two: a login resolves to the person who has it as `github` or as an identity of the kind `login`.
+The register joins the two: a login resolves to the person who has it as an identity of the kind `github` or `github-alias`.
 A person counts once, however many roles and logins they have.
 Someone who did both code and community work can be counted twice only while the register holds them as two people, or does not know the login of their code work ([#117](https://github.com/plone/plone-contributor-statistics/issues/117)); `python -m scripts.tools.unmatched_names` lists such people.
 

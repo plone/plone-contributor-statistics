@@ -1,0 +1,62 @@
+{
+  "fields": [
+    {
+      "name": "affiliation",
+      "type": "string",
+      "description": "The id of the affiliation in the affiliations register.",
+      "constraints": {
+        "required": true,
+        "pattern": "^a[0-9a-f]{8}$"
+      }
+    },
+    {
+      "name": "source",
+      "type": "string",
+      "description": "The id of the source in the source register that the affiliation rests on.",
+      "constraints": {
+        "required": true,
+        "pattern": "^[0-9a-f]{12}$"
+      }
+    },
+    {
+      "name": "snippet",
+      "type": "string",
+      "description": "The words of the source that support the affiliation, verbatim from its excerpt; empty when no quote was verified. A source with several such passages is cited once per passage."
+    },
+    {
+      "name": "supersedes",
+      "type": "string",
+      "description": "For the citation of a decision: the ids of the earlier decisions that this one overrules. Several values are separated by semicolons.",
+      "x-set": "sources"
+    },
+    {
+      "name": "notes",
+      "type": "string",
+      "description": "Free-text remarks: what the source shows, in our words, and quotes not verified in its excerpt. A row from the migration to citations keeps the words of the old cell that cited the source, after `cited as: `."
+    }
+  ],
+  "foreignKeys": [
+    {
+      "fields": [
+        "affiliation"
+      ],
+      "reference": {
+        "resource": "affiliations",
+        "fields": [
+          "id"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "source"
+      ],
+      "reference": {
+        "resource": "sources",
+        "fields": [
+          "id"
+        ]
+      }
+    }
+  ]
+}

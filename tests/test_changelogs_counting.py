@@ -5,7 +5,8 @@ import pytest
 from scripts.collect import plone_changelogs
 from scripts.lib import changelogs
 from scripts.lib.changelogs import NameMapper, Occurrence, deduplicate
-from scripts.lib.model import Identity, Person, Registry
+from scripts.lib.model import Identity
+from tests.conftest import registry_of
 
 
 def occurrence(text, release_date='2010-05-04', repository='plone.app.x', branch='master', default=True,
@@ -106,17 +107,17 @@ def test_a_long_text_copied_to_another_repository_counts_once():
 def mapper():
     src = 'https://example.org/record'
     people = [
-        Person('alecpm', 'Alec Mitchell', 'alecpm', src), Person('wichert', 'Wichert Akkerman', 'wichert', src),
-        Person('andy-mckay', 'Andy McKay', 'andym', src), Person('whitmo', 'Whit Morriss', 'whitmo', src),
-        Person('tiran', 'Christian Heimes', 'tiran', src), Person('runyaga', 'Alan Runyan', 'runyaga', src),
-        Person('ebrehault', 'Eric Bréhault', 'ebrehault', src),
+        ('alecpm', 'Alec Mitchell', 'alecpm', src), ('wichert', 'Wichert Akkerman', 'wichert', src),
+        ('andy-mckay', 'Andy McKay', 'andym', src), ('whitmo', 'Whit Morriss', 'whitmo', src),
+        ('tiran', 'Christian Heimes', 'tiran', src), ('runyaga', 'Alan Runyan', 'runyaga', src),
+        ('ebrehault', 'Eric Bréhault', 'ebrehault', src),
     ]
     identities = [
         Identity('alecpm', 'name', 'alecm', src), Identity('wichert', 'name', 'Wiggy', src),
         Identity('andy-mckay', 'email', 'andyd_@localhost', src), Identity('whitmo', 'email', 'whit@localhost', src),
-        Identity('tiran', 'email', 'tiran@example.org', src), Identity('runyaga', 'login', 'bobdobbs666', src),
+        Identity('tiran', 'email', 'tiran@example.org', src), Identity('runyaga', 'github-alias', 'bobdobbs666', src),
     ]
-    return NameMapper(Registry(people, identities, [], []), ['hannosch', 'Limi', 'bobdobbs666', 'whitmo'],
+    return NameMapper(registry_of(people, identities), ['hannosch', 'Limi', 'bobdobbs666', 'whitmo'],
                       {'mister-roboto': 'bot'})
 
 

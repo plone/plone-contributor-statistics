@@ -23,19 +23,20 @@ python -m scripts.tools.person janedoe
 ```
 
 The tool finds a person by id, name, login or email, and prints their rows of `curated/mappings/people.csv`, `curated/mappings/identities.csv` and `curated/mappings/affiliations.csv`, each group under the name of its file.
-To see which affiliation row gives the organisation in a year, run:
+To see the organisation of the person in each year, and the sources of each affiliation, run:
 
 ```shell
 python -m scripts.tools.affiliation jane-doe 2017
 ```
 
 The tool takes the id of the person, a GitHub login, or a username as the collected files write it, such as `person:jane-doe`.
+It computes the organisation of each year from all affiliations of the person, see {doc}`/explanation/attribution`.
 
 You can also search the files directly:
 
 ```shell
-grep -i "janedoe" curated/mappings/people.csv curated/mappings/identities.csv
-grep "^jane-doe," curated/mappings/affiliations.csv
+grep -i "janedoe" curated/mappings/identities.csv
+grep ",jane-doe," curated/mappings/affiliations.csv
 ```
 
 ## Search by name
@@ -48,7 +49,7 @@ grep -i "jane doe" curated/mappings/people.csv curated/mappings/identities.csv
 grep -r "jane-doe" curated/community-contributions/
 ```
 
-`curated/mappings/people.csv` links the id to the name and the GitHub login, and `curated/mappings/identities.csv` to other spellings of the name.
+`curated/mappings/people.csv` links the id to the name, and `curated/mappings/identities.csv` to the GitHub login and to other spellings of the name.
 
 ## Browse a year
 

@@ -6,8 +6,8 @@ from pathlib import Path
 SCRIPTS = Path(__file__).resolve().parent.parent / 'scripts'
 
 # Where curated/ is named in code
-CONSTANTS = ('COMMUNITY', 'MAPPINGS_DIR', 'PEOPLE', 'IDENTITIES', 'AFFILIATIONS', 'ORGANISATIONS',
-             'AFFILIATION_PROPOSALS', 'REJECTED_PROPOSALS', 'RECOGNITION_LEVELS', 'BOT_ACCOUNTS',
+CONSTANTS = ('COMMUNITY', 'MAPPINGS_DIR', 'PEOPLE', 'IDENTITIES', 'AFFILIATIONS', 'CITATIONS', 'ORGANISATIONS',
+             'RECOGNITION_LEVELS', 'BOT_ACCOUNTS',
              'EXCLUDED_REPOSITORIES', 'PLIPS_BEFORE_GITHUB', 'SCHEMAS_DIR', 'DATAPACKAGE',
              'SOURCES_DIR', 'SOURCES', 'EXCERPTS_DIR')
 CURATED_MARKERS = re.compile(r'\bpaths\.(' + '|'.join(CONSTANTS) + r')\b|[\'"]curated/')

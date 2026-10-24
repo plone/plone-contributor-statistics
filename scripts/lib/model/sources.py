@@ -36,6 +36,16 @@ class Source:
     notes: str | None
 
 
+UNCAPTURED_MARKERS = ('not captured on', 'could not be fetched on')
+"""How the notes of a source that was never read start, and so does the only passage of its excerpt."""
+
+
+def is_uncaptured(source):
+    """Whether the source was never read: recorded by the migration without a capture (`not captured on …`)
+    or by a capture that could not fetch it (`could not be fetched on …`)."""
+    return (source.notes or '').startswith(UNCAPTURED_MARKERS)
+
+
 def normalize_url(url):
     """The key of a web address: no scheme, lower-case host, no default port, no fragment, no trailing slash.
 
@@ -169,6 +179,13 @@ def passages(source_id):
 
 def _collapse(text):
     return ' '.join(text.split())
+
+
+def replace_excerpt(source_id, text):
+    """Replace the whole excerpt of the source by the text (passages joined by PASSAGE_SEPARATOR), atomically."""
+    path = excerpt_path(source_id)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    _write_atomic(path, text.strip() + '\n')
 
 
 def add_passage(source_id, passage):

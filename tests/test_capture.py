@@ -5,7 +5,7 @@ import pathlib
 
 import pytest
 
-from scripts.lib.capture import CaptureError, CaptureResult, capture
+from scripts.lib.capture import CaptureError, CaptureResult, capture, capture_commit
 from scripts.lib.capture import fetch as fetch_module
 from scripts.lib.capture.fetch import Fetcher
 from scripts.lib.model import load_sources, passages, read_excerpt, source_id
@@ -325,6 +325,37 @@ def test_commit_from_api(web):
     assert result.added == ('Author: Jane <jane@example.org>\nDate: 2012-05-06T07:08:09Z\n\nFix the release process',)
 
 
+def test_capture_commit_cites_the_author_line(web):
+    fetcher, _ = web(session=NoNetwork())
+    api = 'https://api.github.com/repos/acme/site/commits/abc123'
+    commit = {'commit': {'author': {'name': 'Jane', 'email': 'jane@acme.test', 'date': '2012-05-06T07:08:09Z'},
+                         'message': 'Fix the release process'}}
+    session = FakeSession({api: FakeResponse(body=json.dumps(commit).encode())})
+    url = 'https://github.com/acme/site/commit/abc123'
+    assert capture_commit(url, 'JANE@acme.test', fetcher=fetcher, session=session, run=no_run) == (
+        source_id(url), 'Author: Jane <jane@acme.test>')
+    # Captured once: the second call reads the register
+    assert capture_commit(url, 'jane@acme.test', fetcher=fetcher, session=NoNetwork(), run=no_run) == (
+        source_id(url), 'Author: Jane <jane@acme.test>')
+    # Without an address (the commit search found it in an organisation) the commit is stored whole, no snippet
+    other = 'https://github.com/acme/site/commit/def456'
+    session.pages['https://api.github.com/repos/acme/site/commits/def456'] = FakeResponse(body=json.dumps(
+        {'commit': {**commit['commit'], 'message': 'Another'}}).encode())
+    assert capture_commit(other, '', names=['Jane'], fetcher=fetcher, session=session, run=no_run) == (
+        source_id(other), None)
+    assert read_excerpt(source_id(other)).startswith('Author: Jane <jane@acme.test>')
+
+
+def test_capture_commit_fails_for_an_unreachable_commit(web):
+    url = 'https://github.com/plone/gone/commit/abc123'
+    availability = 'https://archive.org/wayback/available?url=https%3A%2F%2Fgithub.com%2Fplone%2Fgone%2Fcommit%2Fabc123'
+    fetcher, _ = web({availability: FakeResponse(body=b'{"archived_snapshots": {}}')})
+    session = FakeSession({'https://api.github.com/repos/plone/gone/commits/abc123':
+                           FakeResponse(404, b'{"message": "Not Found"}')})
+    with pytest.raises(CaptureError, match='could not be fetched'):
+        capture_commit(url, 'jane@acme.test', fetcher=fetcher, session=session, run=no_run)
+
+
 def test_video_uses_one_workdir_per_source(web):
     fetcher, _ = web(session=NoNetwork())
     url = 'https://www.youtube.com/watch?v=abc'
@@ -641,3 +672,61 @@ def test_profile_with_name_stores_whole_text(web):
                      run=no_run)
     assert len(result.added) == 1 and 'Plone developer' in result.added[0]
     assert result.missing == ()
+
+
+def uncaptured_source(url, notes, timestamp=None, kind='video'):
+    """A source that the capture did not read: the address as its title, the note as its only passage."""
+    from scripts.lib.model import Source, archive_url_of, write_source
+    from scripts.lib.model.sources import replace_excerpt, split_archive_url
+
+    split = split_archive_url(url)
+    original = split[0] if split else url
+    sid = source_id(original, timestamp)
+    write_source(Source(sid, kind, url, datetime.date(2026, 10, 22), original,
+                        archive_url_of(original, timestamp) if timestamp else None,
+                        datetime.datetime(2026, 10, 22, 22, 29, tzinfo=datetime.UTC), notes))
+    replace_excerpt(sid, notes)
+    return sid
+
+
+def test_capturing_an_uncaptured_source_renews_it(web):
+    sid = uncaptured_source(URL, 'not captured on 2026-10-22: rate limited (HTTP 429)')
+    fetcher, _ = web({URL: FakeResponse(body=ARTICLE)})
+    result = capture(URL, ['He works for Zest Software'], fetcher=fetcher, run=no_run)
+    assert result == CaptureResult(sid, False, (PARAGRAPH,), (), False)
+    row = load_sources()[sid]
+    assert (row.kind, row.title, row.date, row.url, row.fetched, row.notes) == (
+        'page', 'Plone sprint report', datetime.date(2015, 3, 12), URL, NOW, None)
+    assert read_excerpt(sid) == PARAGRAPH + '\n'
+
+
+def test_capturing_an_unfetched_archived_copy_renews_it_with_the_notes_of_the_read(web):
+    archived = 'https://web.archive.org/web/20100125023558/http://limi.net/about'
+    sid = uncaptured_source(archived, 'could not be fetched on 2026-10-01', timestamp='20100125023558', kind='page')
+    raw_url = 'https://web.archive.org/web/20100125023558id_/http://limi.net/about'
+    fetcher, _ = web({raw_url: FakeResponse(body=ARTICLE)})
+    result = capture(archived, ['He works for Zest Software'], fetcher=fetcher, run=no_run)
+    assert result == CaptureResult(sid, False, (PARAGRAPH,), (), False)
+    row = load_sources()[sid]
+    assert (row.title, row.date, row.archive_url, row.notes) == (
+        'Plone sprint report', datetime.date(2010, 1, 25), archived, 'page shows date 2015-03-12')
+    assert passages(sid) == [PARAGRAPH]
+
+
+def test_an_uncaptured_source_is_read_again_for_names(web):
+    # The capture does not skip a known source whose excerpt holds only the note
+    sid = uncaptured_source(URL, 'not captured on 2026-10-22: nothing found', kind='page')
+    fetcher, _ = web({URL: FakeResponse(body=ARTICLE)})
+    result = capture(URL, names=['Maurits van Rees'], fetcher=fetcher, run=no_run)
+    assert result.added == (PARAGRAPH,)
+    assert load_sources()[sid].notes is None
+
+
+def test_an_uncaptured_source_without_a_found_quote_stays_uncaptured(web):
+    sid = uncaptured_source(URL, 'not captured on 2026-10-22: nothing found', kind='page')
+    before = load_sources()[sid]
+    fetcher, _ = web({URL: FakeResponse(body=ARTICLE)})
+    result = capture(URL, ['not on the page'], fetcher=fetcher, run=no_run)
+    assert result == CaptureResult(sid, False, (), ('not on the page',), False)
+    assert load_sources()[sid] == before
+    assert read_excerpt(sid) == 'not captured on 2026-10-22: nothing found\n'

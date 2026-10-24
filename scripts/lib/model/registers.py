@@ -1,23 +1,30 @@
-"""The registers of people, identities, affiliations and organisations, and the lookups on them."""
+"""The registers of people, identities, affiliations, citations and organisations, and the lookups on them."""
 
 import csv
+import hashlib
 from dataclasses import dataclass
+from datetime import date
+from pathlib import Path
 
 from scripts.lib import paths
+from scripts.lib.model.attribution import DENIED, PROPOSED, Affiliation, Attribution, Citation
 from scripts.lib.model.names import fold
 from scripts.lib.model.schema import read_rows, split_set
+from scripts.lib.model.sources import load_sources
 
 UNMAPPED = 'Unmapped'
 PERSON_PREFIX = 'person:'
 MIN_DOMAIN_KEY = 3  # the first word of an organisation name is a key for domains only from this length on
+GITHUB = 'github'  # the login the collected files count a person under; at most one per person
+GITHUB_ALIAS = 'github-alias'  # a further GitHub account of the person
+LOGIN_KINDS = (GITHUB, GITHUB_ALIAS)
+UNIQUE_IDENTITY_KINDS = (GITHUB, GITHUB_ALIAS, 'email')  # one person's each; a name may be shared by homonyms
 
 
 @dataclass(frozen=True)
 class Person:
     id: str
     name: str
-    github: str | None
-    source: str
 
 
 @dataclass(frozen=True)
@@ -25,22 +32,9 @@ class Identity:
     person: str
     kind: str
     value: str
-    source: str
-
-
-@dataclass(frozen=True)
-class Affiliation:
-    person: str
-    organisation: str
-    from_year: int
-    to_year: int | None
-    source: str
-    checked: object
-    notes: str | None
-
-    def covers(self, year):
-        """Whether the affiliation holds in the year."""
-        return self.from_year <= year and (self.to_year is None or year <= self.to_year)
+    source: str | None
+    snippet: str | None = None
+    notes: str | None = None
 
 
 @dataclass(frozen=True)
@@ -53,33 +47,54 @@ class Organisation:
     notes: str | None
 
 
-class Registry:
-    """The four registers, indexed for the lookups the pipeline needs.
+def _no_attribution_inputs(citations):
+    return lambda: (list(citations), {}, lambda source_id: '', lambda year: {})
 
-    A name finds a person through a `name` identity of any length, or through the display name in people.csv
-    when that has more than one word: a one-word display name, such as a login used as the name, is not
-    evidence that the person wrote a changelog entry signed with that word.
+
+class Registry:
+    """The registers, indexed for the lookups the pipeline needs.
+
+    A login finds a person through a `github` or `github-alias` identity. A name finds a person through a `name`
+    identity of any length, or through the display name in people.csv when that has more than one word: a
+    one-word display name, such as a login used as the name, is not evidence that the person wrote a changelog
+    entry signed with that word. A `name` identity that spells the display name (the public record of the name
+    of a person without GitHub) follows the rule of the display name.
+
+    The organisation of a person in a year is computed by the attribution rules (`Attribution`) from the
+    affiliations, their citations, the sources and the commit domains. `attribution_inputs` is a function that
+    returns (citations, {id: Source}, excerpt(source id), commit_domains(year)); it is called on the first
+    question about an organisation, so code that never asks reads none of them. Without it, the registry uses
+    `citations` and no sources.
     """
 
-    def __init__(self, people, identities, affiliations, organisations):
+    def __init__(self, people, identities, affiliations, organisations, citations=(), *, attribution_inputs=None):
         self.people = {person.id: person for person in people}
         self.identities = list(identities)
         self.affiliations = list(affiliations)
         self.organisations = {organisation.id: organisation for organisation in organisations}
+        self._attribution_inputs = attribution_inputs or _no_attribution_inputs(citations)
+        self._inputs = None
+        self._attribution = None
+        self._github = {}
+        self._logins = {}
         self._by_login = {}
         self._by_email = {}
         self._by_name = {}
         for person in self.people.values():
-            if person.github:
-                self._by_login.setdefault(person.github.casefold(), set()).add(person.id)
             if len(fold(person.name).split()) > 1:
                 self._by_name.setdefault(fold(person.name), set()).add(person.id)
         for identity in self.identities:
-            if identity.kind == 'login':
+            if identity.kind in LOGIN_KINDS:
+                if identity.kind == GITHUB:
+                    self._github.setdefault(identity.person, identity.value)
+                self._logins.setdefault(identity.person, []).append(identity.value)
                 self._by_login.setdefault(identity.value.casefold(), set()).add(identity.person)
             elif identity.kind == 'email':
                 self._by_email.setdefault(identity.value.lower(), set()).add(identity.person)
             elif identity.kind == 'name':
+                person = self.people.get(identity.person)
+                if person is not None and fold(identity.value) == fold(person.name):
+                    continue  # the display name, indexed above when it has more than one word
                 self._by_name.setdefault(fold(identity.value), set()).add(identity.person)
         self._organisation_ids = {}
         self._name_keys = {}  # folded name or alias without spaces -> {organisation id: 'name' or 'alias'}
@@ -119,16 +134,53 @@ class Registry:
             return self.people.get(username[len(PERSON_PREFIX):])
         return self.person_for(login=username)
 
+    def github_of(self, person_id):
+        """The `github` login of the person, else None."""
+        return self._github.get(person_id)
+
+    def logins_of(self, person_id):
+        """Every GitHub login of the person: the `github` one and the further accounts, in register order."""
+        return list(self._logins.get(person_id, []))
+
     def username_of(self, person):
-        """The username the collected files count the person under: the GitHub login, else `person:<id>`."""
-        return person.github or f'{PERSON_PREFIX}{person.id}'
+        """The username the collected files count the person under: the `github` login, else `person:<id>`."""
+        return self.github_of(person.id) or f'{PERSON_PREFIX}{person.id}'
+
+    def _attribution_data(self):
+        if self._inputs is None:
+            self._inputs = self._attribution_inputs()
+        return self._inputs
+
+    @property
+    def citations(self):
+        """The citations of the affiliations."""
+        return self._attribution_data()[0]
+
+    @property
+    def sources(self):
+        """{id: Source} of the source register."""
+        return self._attribution_data()[1]
+
+    @property
+    def attribution(self):
+        """The attribution rules over the registers, built on first use."""
+        if self._attribution is None:
+            citations, sources, excerpt, commit_domains = self._attribution_data()
+            self._attribution = Attribution(
+                self.affiliations, citations, sources, excerpt, commit_domains, match_domain=self.match_domain,
+                name_of=lambda person_id: self.people[person_id].name if person_id in self.people else '',
+                logins_of=self.logins_of,
+                username_of=lambda person_id: (self.username_of(self.people[person_id])
+                                               if person_id in self.people else None),
+                names_of_organisation=lambda org_id: ([self.organisations[org_id].name,
+                                                       *self.organisations[org_id].aliases]
+                                                      if org_id in self.organisations else []))
+        return self._attribution
 
     def organisation_of(self, person_id, year):
-        """The name of the organisation the person belonged to in the year, else UNMAPPED."""
-        for affiliation in self.affiliations:
-            if affiliation.person == person_id and affiliation.covers(year):
-                return self.organisation_name(affiliation.organisation)
-        return UNMAPPED
+        """The name of the organisation the person counts for in the year, else UNMAPPED."""
+        org_id = self.attribution.organisation(person_id, year)
+        return self.organisation_name(org_id) if org_id is not None else UNMAPPED
 
     def organisation_for_username(self, username, year):
         """The organisation of the person behind a username in the year, else UNMAPPED."""
@@ -136,16 +188,16 @@ class Registry:
         return self.organisation_of(person.id, year) if person else UNMAPPED
 
     def login_organisations(self, year):
-        """The organisation of each GitHub login (including second accounts) that has one in the year."""
-        logins = [(person.github, person.id) for person in self.people.values() if person.github]
-        logins += [(i.value, i.person) for i in self.identities if i.kind == 'login']
+        """The organisation of each GitHub login (including further accounts) that has one in the year."""
         result = {}
-        for login, person_id in logins:
-            if len(self._by_login[login.casefold()]) != 1:
+        for identity in self.identities:
+            if identity.kind not in LOGIN_KINDS:
+                continue
+            if len(self._by_login[identity.value.casefold()]) != 1:
                 continue  # an ambiguous login, as person_for sees it
-            organisation = self.organisation_of(person_id, year)
+            organisation = self.organisation_of(identity.person, year)
             if organisation != UNMAPPED:
-                result[login] = organisation
+                result[identity.value] = organisation
         return result
 
     def organisation_name(self, org_id):
@@ -198,18 +250,54 @@ class Registry:
         return person.name if person else username
 
 
+def _excerpt_reader(root):
+    def read(source_id):
+        path = Path(root) / paths.EXCERPTS_DIR / f'{source_id}.md'
+        return path.read_text(encoding='utf-8') if path.is_file() else ''
+    return read
+
+
+def _commit_domains_reader(root):
+    def read(year):
+        # Imported here: commit_domains imports commit_authors, which imports the model
+        from scripts.lib.commit_domains import load_commit_domains
+        try:
+            return load_commit_domains(year, root)
+        except FileNotFoundError:
+            return {}
+    return read
+
+
+def load_citations(mappings_dir=paths.MAPPINGS_DIR):
+    """The rows of citations.csv."""
+    return [Citation(r['affiliation'], r['source'], r['snippet'], r['supersedes'], r['notes'])
+            for r in read_rows(Path(mappings_dir) / paths.CITATIONS.name)]
+
+
 def load_registry(mappings_dir=paths.MAPPINGS_DIR):
-    """Read the four register files in the directory."""
-    people = [Person(r['id'], r['name'], r['github'], r['source'])
-              for r in read_rows(mappings_dir / paths.PEOPLE.name)]
-    identities = [Identity(r['person'], r['kind'], r['value'], r['source'])
+    """Read the registers in the directory; the citations, sources, excerpts and commit domains on first use.
+
+    The sources, their excerpts and the commit domains are read from the repository the directory is part of.
+    This assumes the layout of the repository: the directory is `curated/mappings`, two levels below the root
+    (`mappings_dir.parent.parent`), as in the checkout and in the temporary repositories of the tests. A
+    directory elsewhere gets the sources and commit domains of whatever lies two levels above it.
+    """
+    mappings_dir = Path(mappings_dir)
+    root = mappings_dir.parent.parent
+    people = [Person(r['id'], r['name']) for r in read_rows(mappings_dir / paths.PEOPLE.name)]
+    identities = [Identity(r['person'], r['kind'], r['value'], r['source'], r['snippet'], r['notes'])
                   for r in read_rows(mappings_dir / paths.IDENTITIES.name)]
-    affiliations = [Affiliation(r['person'], r['organisation'], r['from'], r['to'], r['source'], r['checked'],
-                                r['notes'])
+    affiliations = [Affiliation(r['id'], r['person'], r['organisation'], r['from'], r['to'], r['status'],
+                                r['checked'], r['notes'])
                     for r in read_rows(mappings_dir / paths.AFFILIATIONS.name)]
     organisations = [Organisation(r['id'], r['name'], r['kind'], r['github'], split_set(r['aliases']), r['notes'])
                      for r in read_rows(mappings_dir / paths.ORGANISATIONS.name)]
-    return Registry(people, identities, affiliations, organisations)
+
+    def inputs():
+        return (load_citations(mappings_dir), load_sources(root / paths.SOURCES), _excerpt_reader(root),
+                _commit_domains_reader(root))
+
+    return Registry(people, identities, affiliations, organisations, attribution_inputs=inputs)
 
 
 def _list_rows(path):
@@ -228,67 +316,112 @@ def load_bot_accounts(path=paths.BOT_ACCOUNTS):
 
 
 MAPPINGS_DIR = paths.MAPPINGS_DIR  # where the tools write, so that they need not name curated/
-PEOPLE_FIELDS = ('id', 'name', 'github', 'source')
+PEOPLE_FIELDS = ('id', 'name')
+IDENTITY_FIELDS = ('person', 'kind', 'value', 'source', 'snippet', 'notes')
+AFFILIATION_FIELDS = ('id', 'person', 'organisation', 'from', 'to', 'status', 'checked', 'notes')
+CITATION_FIELDS = ('affiliation', 'source', 'snippet', 'supersedes', 'notes')
 
 
-def append_person(mappings_dir, person):
-    """Add the person to people.csv, which stays sorted by id; ValueError for an existing id or login."""
-    path = mappings_dir / paths.PEOPLE.name
-    rows = [{field: row[field] or '' for field in PEOPLE_FIELDS} for row in read_rows(path)]
-    if any(row['id'] == person.id for row in rows):
-        raise ValueError(f'The id {person.id} exists already')
-    if person.github and any(row['github'].casefold() == person.github.casefold() for row in rows):
-        raise ValueError(f'The login {person.github} exists already')
-    rows.append({'id': person.id, 'name': person.name, 'github': person.github or '', 'source': person.source})
-    rows.sort(key=lambda row: row['id'])
+def _cell(value):
+    if value is None:
+        return ''
+    return value.isoformat() if isinstance(value, date) else str(value)
+
+
+def _write_rows(path, fields, rows):
+    """Write the rows (dicts as read_rows returns them, or of texts) under the header of the fields."""
     with open(path, 'w', newline='', encoding='utf-8') as f:
-        writer = csv.DictWriter(f, fieldnames=PEOPLE_FIELDS, quoting=csv.QUOTE_MINIMAL, lineterminator='\n')
+        writer = csv.DictWriter(f, fieldnames=fields, quoting=csv.QUOTE_MINIMAL, lineterminator='\n')
         writer.writeheader()
-        writer.writerows(rows)
+        writer.writerows({field: _cell(row.get(field)) for field in fields} for row in rows)
 
 
-PROPOSAL_FIELDS = ('person', 'organisation', 'from', 'to', 'evidence')
+def affiliation_id(person, organisation, start, end):
+    """The opaque id of an affiliation: `a` and eight hex digits of a hash over its person, organisation and
+    years at creation; it is never recomputed when the row changes later."""
+    end = '' if end is None else end
+    return 'a' + hashlib.sha1(f'{person}|{organisation}|{start}|{end}'.encode()).hexdigest()[:8]
 
 
-def load_rejection_rows(mappings_dir=MAPPINGS_DIR):
-    """The rows of rejected_proposals.csv as dicts, with their reason and source; [] when the file is missing."""
-    try:
-        return read_rows(mappings_dir / paths.REJECTED_PROPOSALS.name)
-    except FileNotFoundError:
-        return []
+def _same_identity(row, identity):
+    """Whether the identity row records the identity's login or address (ignoring case), or is the same row."""
+    if row['value'].casefold() != identity.value.casefold():
+        return False
+    if identity.kind in LOGIN_KINDS:  # a login is one person's, whether as the github one or a further account
+        return row['kind'] in LOGIN_KINDS
+    if identity.kind in UNIQUE_IDENTITY_KINDS:
+        return row['kind'] == identity.kind
+    return (row['person'], row['kind'], row['value']) == (identity.person, identity.kind, identity.value)
+
+
+def append_person(mappings_dir, person, identity):
+    """Add the person to people.csv and the identity that records the name or login to identities.csv.
+
+    Both files stay sorted. ValueError for an existing id, or for an identity that exists already: a GitHub login
+    or an address (ignoring case) of anyone. A name may be the name of another person too (homonyms).
+    """
+    mappings_dir = Path(mappings_dir)
+    people = read_rows(mappings_dir / paths.PEOPLE.name)
+    identities = read_rows(mappings_dir / paths.IDENTITIES.name)
+    if any(row['id'] == person.id for row in people):
+        raise ValueError(f'The id {person.id} exists already')
+    if any(_same_identity(row, identity) for row in identities):
+        what = 'login' if identity.kind in LOGIN_KINDS else identity.kind
+        raise ValueError(f'The {what} {identity.value} exists already')
+    people.append({'id': person.id, 'name': person.name})
+    identities.append({field: getattr(identity, field) for field in IDENTITY_FIELDS})
+    _write_rows(mappings_dir / paths.PEOPLE.name, PEOPLE_FIELDS, sorted(people, key=lambda row: row['id']))
+    _write_rows(mappings_dir / paths.IDENTITIES.name, IDENTITY_FIELDS,
+                sorted(identities, key=lambda row: (row['person'], row['kind'], row['value'])))
 
 
 def load_rejections(mappings_dir=MAPPINGS_DIR):
-    """{(person, organisation, year)} of rejected_proposals.csv: evidence a reviewer turned down, which the tools
-    don't propose again. An empty set when the file is missing."""
+    """{(person, organisation, year)} of the `denied` affiliations: readings a reviewer turned down, which the
+    tools don't propose again. An open-ended denial runs to the current year."""
     return {(row['person'], row['organisation'], year)
-            for row in load_rejection_rows(mappings_dir) for year in range(row['from'], row['to'] + 1)}
+            for row in read_rows(Path(mappings_dir) / paths.AFFILIATIONS.name) if row['status'] == DENIED
+            for year in range(row['from'], (row['to'] or date.today().year) + 1)}
 
 
 def append_proposals(rows, mappings_dir=MAPPINGS_DIR):
-    """Append rows to affiliation_proposals.csv, leaving out those that are in it already; return those added.
+    """Add rows as `proposed` affiliations with their citations, leaving out those in the register already;
+    return those added.
 
-    A row is a dict with the keys person, organisation, from, to and evidence. It is in the file already when
-    a row has the same person, organisation, first and last year.
+    A row is a dict with the keys person, organisation, from, to and sources, a list of (source id, snippet) or
+    (source id, snippet, notes of the citation), and optionally notes. It is in the register already when an
+    affiliation of any status has the same person, organisation, first and last year. Both files stay sorted.
+    ValueError, and nothing written, when the id of a new row is the id of an affiliation already: ids are not
+    recomputed when a row changes, so a row whose years changed later keeps the id of its first years.
     """
-    path = mappings_dir / paths.AFFILIATION_PROPOSALS.name
+    mappings_dir = Path(mappings_dir)
+    affiliations = read_rows(mappings_dir / paths.AFFILIATIONS.name)
+    citations = read_rows(mappings_dir / paths.CITATIONS.name)
 
     def key(row):
         return (row['person'], row['organisation'], int(row['from']), int(row['to']) if row['to'] else None)
 
-    known = {key(row) for row in read_rows(path)}
+    known = {key(row) for row in affiliations}
+    ids = {row['id'] for row in affiliations}
     added = []
     for row in rows:
-        if key(row) not in known:
-            known.add(key(row))
-            added.append(row)
+        if key(row) in known:
+            continue
+        known.add(key(row))
+        aid = affiliation_id(*key(row))
+        if aid in ids:
+            raise ValueError(f'The id {aid} of the proposal {row["person"]}, {row["organisation"]}, '
+                             f'{row["from"]}-{row["to"] or ""} is the id of an affiliation already')
+        ids.add(aid)
+        added.append(row)
+        affiliations.append({'id': aid, 'person': row['person'], 'organisation': row['organisation'],
+                             'from': int(row['from']), 'to': int(row['to']) if row['to'] else None,
+                             'status': PROPOSED, 'checked': None, 'notes': row.get('notes')})
+        for source, snippet, *notes in row['sources']:
+            citations.append({'affiliation': aid, 'source': source, 'snippet': snippet or None, 'supersedes': None,
+                              'notes': (notes[0] if notes else None) or None})
     if added:
-        with open(path, 'rb') as f:
-            content = f.read()
-        with open(path, 'a', newline='', encoding='utf-8') as f:
-            if content and not content.endswith(b'\n'):
-                f.write('\n')
-            writer = csv.DictWriter(f, fieldnames=PROPOSAL_FIELDS, quoting=csv.QUOTE_MINIMAL, lineterminator='\n')
-            writer.writerows({field: '' if row[field] is None else row[field] for field in PROPOSAL_FIELDS}
-                             for row in added)
+        _write_rows(mappings_dir / paths.AFFILIATIONS.name, AFFILIATION_FIELDS,
+                    sorted(affiliations, key=lambda row: (row['person'], row['from'], row['organisation'])))
+        _write_rows(mappings_dir / paths.CITATIONS.name, CITATION_FIELDS,
+                    sorted(citations, key=lambda row: (row['affiliation'], row['source'], row['snippet'] or '')))
     return added

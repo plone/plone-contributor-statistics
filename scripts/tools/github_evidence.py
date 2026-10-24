@@ -10,10 +10,12 @@ each person and year:
 2. when that finds no organisation: commits of the person in the year in the GitHub organisation of an
    organisation of the person (the `github` column of organisations.csv).
 
-The people are those with a login and an affiliation that is "not verified", or those given with --person. The
+The people are those with a login and an `assumed` affiliation, or those given with --person. The
 years are those of the rows in which the person has commits or pull requests in the collected data. Every
-response is cached, so that an interrupted run resumes. The proposals go to
-curated/mappings/affiliation_proposals.csv (with --write); a reviewer moves them into affiliations.csv.
+response is cached, so that an interrupted run resumes. With --write, the example commit of each proposal is
+captured as a source (curated/sources/), and the proposal goes to curated/mappings/affiliations.csv as a
+`proposed` row citing it, with the author line of the commit as the snippet; a commit found by query 2 is cited
+with the search in the notes of the citation. A reviewer turns the proposal into a stated row.
 
 Needs a GitHub token in the environment variable GITHUB_TOKEN. The search allows 30 requests a minute.
 """
@@ -33,14 +35,15 @@ import requests
 from scripts.lib import paths
 from scripts.lib.github_api import github_get
 from scripts.lib.model import MAPPINGS_DIR, append_proposals, load_registry, load_rejections
-from scripts.tools.address_proposals import _runs, _years, is_company_domain, is_own_domain
+from scripts.lib.model.attribution import ASSUMED, COUNTING
+from scripts.lib.model.schema import CellTypeError
+from scripts.tools.address_proposals import _runs, _years, cite, is_company_domain, is_own_domain, not_captured
 
 SEARCH_URL = 'https://api.github.com/search/commits'
 CACHE_DIR = os.path.join('.cache', 'github-search')
 LAST_YEAR = 2025  # the years before 2026 are the guessed ones
 PACE = 2.5  # seconds between requests: the search allows 30 a minute, and a secondary limit watches bursts
 PER_PAGE = 100
-NOT_VERIFIED = 'not verified'
 CONTRIBUTORS_FILE = re.compile(r'^(\d{4})-plone-contributors\.csv$')
 
 
@@ -60,7 +63,7 @@ class Searcher:
     def __init__(self, cache, session=None, sleep=None, refresh=False):
         # Look up time.sleep at call time, so tests can replace it
         self.cache, self.refresh, self.sleep = cache, refresh, time.sleep if sleep is None else sleep
-        self._session = session
+        self.session = session
         self.requests = 0
 
     def search(self, name, query, **params):
@@ -69,10 +72,10 @@ class Searcher:
         if not self.refresh and os.path.exists(path):
             with open(path, encoding='utf-8') as f:
                 return json.load(f)
-        if self._session is None:
-            self._session = make_session()
+        if self.session is None:
+            self.session = make_session()
         print(f'  search {self.requests + 1}: {query}', file=sys.stderr)
-        response = github_get(self._session, SEARCH_URL, {'q': query, **params}, sleep=self.sleep)
+        response = github_get(self.session, SEARCH_URL, {'q': query, **params}, sleep=self.sleep)
         data = response.json()
         self.requests += 1
         os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -97,20 +100,26 @@ def active_years(contributors_dir=paths.CONTRIBUTORS_DIR):
 
 
 def is_guess(affiliation):
-    """Whether the row is one of the migration's "not verified" guesses."""
-    return NOT_VERIFIED in (affiliation.notes or '').casefold()
+    """Whether the row is a guess: an `assumed` range (the migration's "not verified" rows)."""
+    return affiliation.status == ASSUMED
+
+
+def _counting(registry, person_id):
+    """The stated and assumed affiliations of the person."""
+    return [a for a in registry.affiliations if a.person == person_id and a.status in COUNTING]
 
 
 def targets(registry, people, all_years, activity, last_year=LAST_YEAR):
-    """{person id: [years]} to query: years of the "not verified" rows (of all rows for given people)."""
+    """{person id: [years]} to query: years of the assumed rows (of all rows for given people)."""
     result = {}
     for person in registry.people.values():
-        if not person.github or (people and person.id not in people):
+        login = registry.github_of(person.id)
+        if not login or (people and person.id not in people):
             continue
-        rows = [a for a in registry.affiliations if a.person == person.id and (people or is_guess(a))]
+        rows = [a for a in _counting(registry, person.id) if people or is_guess(a)]
         years = {y for a in rows for y in range(a.from_year, min(a.to_year or last_year, last_year) + 1)}
         if not all_years:
-            years = {y for y in years if person.github.casefold() in activity.get(y, set())}
+            years = {y for y in years if login.casefold() in activity.get(y, set())}
         if years:
             result[person.id] = sorted(years)
     return result
@@ -119,8 +128,8 @@ def targets(registry, people, all_years, activity, last_year=LAST_YEAR):
 def candidates(registry, person, year):
     """The organisations of the person in the year and the neighbouring years: the guess and recorded ones."""
     found = []
-    for affiliation in registry.affiliations:
-        if affiliation.person == person and any(affiliation.covers(y) for y in (year - 1, year, year + 1)):
+    for affiliation in _counting(registry, person):
+        if any(affiliation.covers(y) for y in (year - 1, year, year + 1)):
             organisation = registry.organisations[affiliation.organisation]
             if organisation.kind == 'organisation' and organisation not in found:
                 found.append(organisation)
@@ -128,7 +137,8 @@ def candidates(registry, person, year):
 
 
 def classify(registry, person, data):
-    """({organisation: {domain: [commits, earliest (date, url), how]}}, {domain: commits}) of a search response."""
+    """({organisation: {domain: [commits, earliest (date, url, email), how]}}, {domain: commits}) of a search
+    response."""
     matched = defaultdict(dict)
     unmapped = defaultdict(int)
     for item in data.get('items', []):
@@ -141,15 +151,15 @@ def classify(registry, person, data):
             continue
         match = registry.match_domain(domain)
         if match is None:
-            if not is_own_domain(domain, person):
+            if not is_own_domain(domain, person, registry):
                 unmapped[domain] += 1
             continue
         organisation, how = match
         date = (commit.get('committer') or commit.get('author') or {}).get('date') or ''
         slot = matched[organisation].setdefault(domain, [0, None, how])
         slot[0] += 1
-        if slot[1] is None or (date, item['html_url']) < slot[1]:
-            slot[1] = (date, item['html_url'])
+        if slot[1] is None or (date, item['html_url'], email) < slot[1]:
+            slot[1] = (date, item['html_url'], email)
     return matched, unmapped
 
 
@@ -163,7 +173,8 @@ def gather(registry, searcher, wanted):
     """Run the queries; return (evidence, unmapped, open_guesses).
 
     evidence: {(person, organisation, kind): {year: detail}}; kind is 'address' (detail: {domain: [commits,
-    (date, url), how]}) or 'organisation' (detail: commits). unmapped: {domain: {'commits', 'years', 'people'}}.
+    (date, url, email), how]}) or 'organisation' (detail: (commits, url, email) of the total and the first commit
+    found, or None for both without one). unmapped: {domain: {'commits', 'years', 'people'}}.
     open_guesses: {organisation: person-years} of the organisations without a handle that query 1 left open.
     """
     evidence = defaultdict(dict)
@@ -171,7 +182,7 @@ def gather(registry, searcher, wanted):
     open_guesses = defaultdict(int)
     for person_id, years in sorted(wanted.items()):
         person = registry.people[person_id]
-        login = person.github
+        login = registry.github_of(person_id)
         for year in years:
             span = f'committer-date:{year}-01-01..{year}-12-31'
             data = searcher.search(f'{login}/{year}.json', f'author:{login} {span}',
@@ -194,41 +205,53 @@ def gather(registry, searcher, wanted):
                 data = searcher.search(f'{login}/{year}-org-{handle}.json',
                                        f'author:{login} org:{handle} {span}', per_page=1)
                 if data.get('total_count', 0) > 0:
-                    evidence[(person_id, organisation.id, 'organisation')][year] = data['total_count']
+                    item = (data.get('items') or [{}])[0]
+                    email = ((item.get('commit') or {}).get('author') or {}).get('email')
+                    evidence[(person_id, organisation.id, 'organisation')][year] = (
+                        data['total_count'], item.get('html_url'), email)
     return evidence, unmapped, open_guesses
 
 
 def propose(registry, evidence, rejected=frozenset()):
-    """(proposals, conflicts). A proposal has the keys of the proposals file, plus found, commits and example.
+    """(proposals, conflicts). A proposal is a dict with the keys `append_proposals` takes (person, organisation,
+    from, to, sources, notes), plus evidence, found, commits, example and what `cite` needs: the commit to cite
+    (`commit`, `email`, `names`) and `citation_notes`.
 
-    rejected: {(person, organisation, year)} that a reviewer turned down, see rejected_proposals.csv.
+    rejected: {(person, organisation, year)} that a reviewer turned down, the `denied` affiliations.
     """
     proposals, conflicts = [], []
     for (person, organisation, kind), by_year in sorted(evidence.items()):
-        own = [a for a in registry.affiliations if a.person == person]
+        own = _counting(registry, person)
         # An affiliation of the same organisation covers a year, unless it is a guess: that is what this is for
         same = {y for y in by_year
                 if any(a.organisation == organisation and a.covers(y) and not is_guess(a) for a in own)}
         turned_down = {y for y in by_year if (person, organisation, y) in rejected}
-        login = registry.people[person].github
+        login = registry.github_of(person)
         for first, last in _runs(set(by_year) - same - turned_down):
             years = range(first, last + 1)
             if kind == 'address':
-                domain, (_, (_, url), how) = min(by_year[first].items(), key=lambda item: (item[1][1], item[0]))
+                domain, (_, (_, url, email), how) = min(by_year[first].items(),
+                                                        key=lambda item: (item[1][1], item[0]))
                 commits = sum(v[0] for y in years if y in by_year for v in by_year[y].values())
                 evidence_text = (f'Company address @{domain} in commits {_years(first, last)} '
                                  f'found by the GitHub commit search (example: {url})')
-                found, example = f'address @{domain} ({how})', url
+                found, example, citation_notes = f'address @{domain} ({how})', url, None
             else:
                 handle = registry.organisations[organisation].github
-                commits = sum(by_year.get(y, 0) for y in years)
-                url = search_url(login, handle, first)
+                commits = sum(by_year[y][0] for y in years if y in by_year)
+                count, url, email = by_year[first]
+                search = search_url(login, handle, first)
                 evidence_text = (f'Commits in the GitHub organisation @{handle} in {_years(first, last)} '
-                                 f'({by_year[first]} in {first}; search: {url})')
-                found, example = f'organisation @{handle}', url
+                                 f'({count} in {first}; search: {search})')
+                found, example = f'organisation @{handle}', search
+                citation_notes = (f'one of {count} commits in the GitHub organisation @{handle} in {first} that '
+                                  f'the search {search} found')
             proposals.append({
                 'person': person, 'organisation': organisation, 'from': first, 'to': last,
-                'evidence': evidence_text, 'found': found, 'commits': commits, 'example': example})
+                'sources': [], 'notes': evidence_text,
+                'evidence': evidence_text, 'found': found, 'commits': commits, 'example': example,
+                'commit': url, 'email': email, 'names': [registry.people[person].name],
+                'citation_notes': citation_notes})
             for other in sorted({a.organisation for a in own if a.organisation != organisation}):
                 overlap = [y for y in years if any(a.organisation == other and a.covers(y) for a in own)]
                 for start, end in _runs(overlap):
@@ -249,7 +272,7 @@ def report(proposals, conflicts, unmapped, open_guesses):
     else:
         lines.append('None.')
     lines += ['', '## Conflicts', '',
-              'Proposed years that another organisation covers in affiliations.csv; a guess is a "not verified" row.',
+              'Proposed years that another organisation covers in affiliations.csv; a guess is an assumed row.',
               '']
     if conflicts:
         lines += ['| Person | Years | Proposed | Existing | Existing is a guess |', '|---|---|---|---|---|']
@@ -280,21 +303,27 @@ def report(proposals, conflicts, unmapped, open_guesses):
 
 def run(people=(), all_years=False, write=False, refresh=False, cache=CACHE_DIR, mappings_dir=MAPPINGS_DIR,
         contributors_dir=paths.CONTRIBUTORS_DIR, session=None, sleep=None):
-    """Query, propose, and (with write) append to the proposals file; return (report, proposals added)."""
+    """Query, propose, and (with write) capture the example commits and add the proposed affiliations; return
+    (report, proposals added)."""
     registry = load_registry(mappings_dir)
     unknown = [p for p in people if p not in registry.people]
     if unknown:
         raise SystemExit(f'Not in people.csv: {", ".join(unknown)}')
-    without_login = [p for p in people if not registry.people[p].github]
+    without_login = [p for p in people if not registry.github_of(p)]
     if without_login:
-        raise SystemExit(f'No GitHub login in people.csv: {", ".join(without_login)}')
+        raise SystemExit(f'No GitHub login in identities.csv: {", ".join(without_login)}')
     wanted = targets(registry, set(people), all_years, active_years(contributors_dir))
     searcher = Searcher(cache, session, sleep, refresh)
     evidence, unmapped, open_guesses = gather(registry, searcher, wanted)
     proposals, conflicts = propose(registry, evidence, load_rejections(mappings_dir))
     text = report(proposals, conflicts, unmapped, open_guesses)
-    added = append_proposals(proposals, mappings_dir) if write else []
-    return text, added
+    if not write:
+        return text, []
+    # The session of the searches reads the commits too; without searches, the capture makes its own
+    cited, failed = cite(proposals, **({'session': searcher.session} if searcher.session is not None else {}))
+    if failed:
+        text += not_captured(failed)
+    return text, append_proposals(cited, mappings_dir)
 
 
 def main(argv=None):
@@ -303,14 +332,23 @@ def main(argv=None):
                         help='only this person, with all rows (repeat for several)')
     parser.add_argument('--all-years', action='store_true',
                         help='query every year of the rows, not only those with commits or pull requests')
-    parser.add_argument('--write', action='store_true', help='append the proposals to affiliation_proposals.csv')
+    parser.add_argument('--write', action='store_true',
+                        help='capture the example commits as sources and add the proposals to affiliations.csv as '
+                             'proposed rows citing them')
     parser.add_argument('--refresh', action='store_true', help='ignore the cache and ask GitHub again')
     parser.add_argument('--cache', default=CACHE_DIR, help='directory of the cached responses')
     args = parser.parse_args(argv)
-    text, added = run(args.person, args.all_years, args.write, args.refresh, args.cache)
+    try:
+        text, added = run(args.person, args.all_years, args.write, args.refresh, args.cache)
+    except CellTypeError as error:  # a cell of a curated file has the wrong type: its own message says which
+        print(error, file=sys.stderr)
+        sys.exit(1)
+    except ValueError as error:  # a proposal whose id an affiliation has already: append_proposals wrote nothing
+        print(f'Nothing written: {error}', file=sys.stderr)
+        sys.exit(1)
     sys.stdout.write(text)
     if args.write:
-        print(f'\nWrote {len(added)} new proposals to the proposals file.')
+        print(f'\nWrote {len(added)} new proposals to affiliations.csv.')
 
 
 if __name__ == '__main__':

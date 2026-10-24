@@ -4,11 +4,15 @@
 The attribution rules accept a company address in the commits of a person as evidence for the years of those
 commits, in commits made in Git only. This reads the author of every commit of the cached clones of the plone
 repositories, leaves out the commits imported from Subversion, finds the person in the registers, keeps the
-addresses of companies, and proposes the years as an affiliation. The proposals go to
-curated/mappings/affiliation_proposals.csv (with --write); a reviewer moves them into affiliations.csv. Domains
-that belong to no organisation are listed, so that they can be added to the `aliases` of the organisation.
+addresses of companies, and proposes the years as an affiliation. With --write, the earliest commit of each
+proposal is captured from its clone as a source (curated/sources/), and the proposal goes to
+curated/mappings/affiliations.csv as a `proposed` row citing it, with the author line of the commit as the snippet;
+a reviewer turns it into a stated row. Domains that belong to no organisation are listed, so that they can be added
+to the `aliases` of the organisation.
 
-Needs the clones: `make run-changelogs` fills the cache.
+Needs the clones: `make run-changelogs` fills the cache. The capture of the evidence commits reads the clones of
+the shared cache of the main checkout (PLONE_STATS_CACHE, else `.cache` of the main checkout), not those of
+--cache: with another --cache, the capture may fall back to the GitHub API, which needs GITHUB_TOKEN.
 """
 
 import argparse
@@ -19,37 +23,20 @@ from concurrent.futures import ThreadPoolExecutor
 
 from scripts.collect.plone_changelogs import ORGANISATION, cached_repositories
 from scripts.lib import git_history
-from scripts.lib.commit_authors import Finder, is_company_domain
+from scripts.lib.capture import CaptureError, capture_commit
+from scripts.lib.commit_authors import (Finder, is_company_domain, is_own_domain_for,  # noqa: F401
+                                        registrable_label)
 from scripts.lib.model import MAPPINGS_DIR, append_proposals, load_bot_accounts, load_registry, load_rejections
-from scripts.lib.model.names import fold
+from scripts.lib.model.attribution import COUNTING
+from scripts.lib.model.schema import CellTypeError
 
 DEFAULT_SINCE = 2002
 
-MIN_NAME_PART = 4  # a name part shorter than this inside a domain label is no evidence that the domain is own
-# Second-level labels under a two-letter country domain: foo.com.au, foo.co.uk, foo.ac.at
-_SECOND_LEVEL = {'com', 'co', 'org', 'net', 'ac', 'gov', 'edu', 'or', 'ne', 'go', 'ltd', 'plc'}
 
-
-def registrable_label(domain):
-    """The label that the owner of the domain chose: `foo` in foo.com, foo.com.au and mail.foo.co.uk."""
-    labels = domain.lower().strip().split('.')
-    if len(labels) >= 3 and len(labels[-1]) == 2 and labels[-2] in _SECOND_LEVEL:
-        return labels[-3]
-    return labels[-2] if len(labels) >= 2 else labels[0]
-
-
-def is_own_domain(domain, person):
-    """Whether the domain looks like the person's own, which says nothing about an employer.
-
-    Its registrable label equals the login or a whole part of the folded name, or contains a part of at
-    least four letters (`leeb` in andersonleeb.com). Use it only for a domain that no organisation claims: a
-    registered organisation always wins, so the company of a self-employed person is never lost.
-    """
-    label = fold(registrable_label(domain)).replace(' ', '')
-    parts = fold(person.name).split()
-    login = fold(person.github or '').replace(' ', '')
-    return bool(label) and (label == login or label in parts
-                            or any(len(part) >= MIN_NAME_PART and part in label for part in parts))
+def is_own_domain(domain, person, registry):
+    """Whether the domain looks like the person's own, by the name and every GitHub login the registry has for
+    the person; see `is_own_domain_for`. Only for unclaimed domains."""
+    return is_own_domain_for(domain, person.name, registry.logins_of(person.id))
 
 
 def _runs(years):
@@ -64,7 +51,8 @@ def _runs(years):
 
 
 def gather(clones, finder, since):
-    """({(person, organisation): {year: {domain: [commits, earliest (date, repository, sha), match]}}}, unmapped).
+    """({(person, organisation): {year: {domain: [commits, earliest (date, repository, sha, email), match]}}},
+    unmapped).
 
     The unmapped domains are {domain: {'commits': n, 'years': set, 'people': set}}.
     """
@@ -89,7 +77,7 @@ def gather(clones, finder, since):
                 continue
             match = registry.match_domain(domain)
             if match is None:
-                if is_own_domain(domain, person):
+                if is_own_domain(domain, person, registry):
                     continue
                 entry = unmapped[domain]
                 entry['commits'] += 1
@@ -99,34 +87,37 @@ def gather(clones, finder, since):
             organisation, how = match
             slot = found[(person.id, organisation)][year].setdefault(domain, [0, None, how])
             slot[0] += 1
-            example = (date, repository, sha)
+            example = (date, repository, sha, email)
             if slot[1] is None or example < slot[1]:
                 slot[1] = example
     return found, unmapped
 
 
 def propose(registry, found, rejected=frozenset()):
-    """(proposals, conflicts). A proposal is a dict with the keys of the proposals file, plus commits and example.
+    """(proposals, conflicts). A proposal is a dict with the keys `append_proposals` takes (person, organisation,
+    from, to, sources, notes), plus evidence, domain, match, commits, example and the commit to cite (`commit`:
+    its address, `email`: its author's address); `cite` fills its sources.
 
-    rejected: {(person, organisation, year)} that a reviewer turned down, see rejected_proposals.csv.
+    rejected: {(person, organisation, year)} that a reviewer turned down, the `denied` affiliations.
     """
     proposals, conflicts = [], []
     for (person, organisation), by_year in sorted(found.items()):
-        own = [a for a in registry.affiliations if a.person == person]
+        own = [a for a in registry.affiliations if a.person == person and a.status in COUNTING]
         same = {y for y in by_year if any(a.organisation == organisation and a.covers(y) for a in own)}
         turned_down = {y for y in by_year if (person, organisation, y) in rejected}
         for first, last in _runs(set(by_year) - same - turned_down):
             years = range(first, last + 1)
             first_slots = by_year[first].items()
-            domain, (_, (_, repository, sha), how) = min(first_slots, key=lambda item: (item[1][1], item[0]))
+            domain, (_, (_, repository, sha, email), how) = min(first_slots, key=lambda item: (item[1][1], item[0]))
             repository = repository.removesuffix('.git')
+            url = f'https://github.com/{ORGANISATION}/{repository}/commit/{sha}'
+            evidence = f'Company address @{domain} in commits {_years(first, last)} (example: {url})'
             proposals.append({
                 'person': person, 'organisation': organisation, 'from': first, 'to': last,
-                'evidence': f'Company address @{domain} in commits {_years(first, last)} '
-                            f'(example: https://github.com/{ORGANISATION}/{repository}/commit/{sha})',
+                'sources': [], 'notes': evidence, 'evidence': evidence,
                 'domain': domain, 'match': how,
                 'commits': sum(v[0] for y in years for v in by_year[y].values()),
-                'example': f'{repository}@{sha[:10]}',
+                'example': f'{repository}@{sha[:10]}', 'commit': url, 'email': email,
             })
             for other in sorted({a.organisation for a in own if a.organisation != organisation}):
                 overlap = [y for y in years if any(a.organisation == other and a.covers(y) for a in own)]
@@ -138,6 +129,38 @@ def propose(registry, found, rejected=frozenset()):
 
 def _years(first, last):
     return str(first) if first == last else f'{first}-{last}'
+
+
+def cite(proposals, **options):
+    """(the proposals with their sources, [(proposal, reason)] of those whose commit could not be captured).
+
+    The commit of each proposal is captured as a source (`capture_commit`; from the clone when there is one), and
+    cited with the line of its author's address as the snippet, and the notes of `citation_notes` if any.
+    `options` go to the capture.
+    """
+    cited, failed = [], []
+    for proposal in proposals:
+        if not proposal.get('commit'):
+            failed.append((proposal, 'no commit to cite'))
+            continue
+        try:
+            source, snippet = capture_commit(proposal['commit'], proposal.get('email') or '',
+                                             names=proposal.get('names', ()), **options)
+        except CaptureError as error:
+            failed.append((proposal, str(error)))
+            continue
+        cited.append({**proposal, 'sources': [(source, snippet, proposal.get('citation_notes'))]})
+    return cited, failed
+
+
+def not_captured(failed):
+    """The Markdown section of the proposals that were not written, because their commit was not captured."""
+    lines = ['', '## Not captured', '',
+             'Proposals not written: their commit could not be captured as a source. Run again to retry.', '',
+             '| Person | Organisation | Years | Commit | Reason |', '|---|---|---|---|---|']
+    lines += [f"| {p['person']} | {p['organisation']} | {_years(p['from'], p['to'])} | {p.get('commit') or ''} "
+              f"| {reason} |" for p, reason in failed]
+    return '\n'.join(lines) + '\n'
 
 
 def report(proposals, conflicts, unmapped):
@@ -170,7 +193,8 @@ def report(proposals, conflicts, unmapped):
 
 
 def run(cache=git_history.CACHE_DIR, since=DEFAULT_SINCE, people=(), write=False, mappings_dir=MAPPINGS_DIR):
-    """Gather, propose, and (with write) append to the proposals file; return (report, proposals added)."""
+    """Gather, propose, and (with write) capture the commits and add the proposed affiliations; return (report,
+    proposals added)."""
     if not os.path.isdir(os.path.join(cache, ORGANISATION)):
         raise SystemExit(f'No clones in {cache}/{ORGANISATION}; fill the cache with `make run-changelogs`.')
     registry = load_registry(mappings_dir)
@@ -186,8 +210,12 @@ def run(cache=git_history.CACHE_DIR, since=DEFAULT_SINCE, people=(), write=False
         unmapped = {d: e for d, e in unmapped.items() if e['people'] & set(people)}
     proposals, conflicts = propose(registry, found, load_rejections(mappings_dir))
     text = report(proposals, conflicts, unmapped)
-    added = append_proposals(proposals, mappings_dir) if write else []
-    return text, added
+    if not write:
+        return text, []
+    cited, failed = cite(proposals)
+    if failed:
+        text += not_captured(failed)
+    return text, append_proposals(cited, mappings_dir)
 
 
 def main(argv=None):
@@ -195,13 +223,24 @@ def main(argv=None):
     parser.add_argument('--person', action='append', default=[], metavar='ID',
                         help='only this person (repeat for several)')
     parser.add_argument('--since', type=int, default=DEFAULT_SINCE, help='ignore commits before this year')
-    parser.add_argument('--cache', default=git_history.CACHE_DIR, help='directory of the clones')
-    parser.add_argument('--write', action='store_true', help='append the proposals to affiliation_proposals.csv')
+    parser.add_argument('--cache', default=git_history.CACHE_DIR,
+                        help='directory of the clones whose authors are read; the capture of the evidence commits '
+                             'reads the clones of the shared cache (PLONE_STATS_CACHE) and may use the GitHub API')
+    parser.add_argument('--write', action='store_true',
+                        help='capture the example commits as sources and add the proposals to affiliations.csv as '
+                             'proposed rows citing them')
     args = parser.parse_args(argv)
-    text, added = run(args.cache, args.since, args.person, args.write)
+    try:
+        text, added = run(args.cache, args.since, args.person, args.write)
+    except CellTypeError as error:  # a cell of a curated file has the wrong type: its own message says which
+        print(error, file=sys.stderr)
+        sys.exit(1)
+    except ValueError as error:  # a proposal whose id an affiliation has already: append_proposals wrote nothing
+        print(f'Nothing written: {error}', file=sys.stderr)
+        sys.exit(1)
     sys.stdout.write(text)
     if args.write:
-        print(f'\nWrote {len(added)} new proposals to the proposals file.')
+        print(f'\nWrote {len(added)} new proposals to affiliations.csv.')
 
 
 if __name__ == '__main__':

@@ -30,11 +30,16 @@ def kind_of(path):
     return kind
 
 
+class CellTypeError(ValueError):
+    """A cell of a curated file cannot be read as the type its Table Schema gives it."""
+
+
 def read_rows(path):
     """The rows of a curated file as plain dicts, typed by its Table Schema.
 
     Integers come out as int, dates as datetime.date, empty cells as None. Constraints are not validated here,
-    that is the job of the checks, but a cell of the wrong type raises ValueError instead of turning into None.
+    that is the job of the checks, but a cell of the wrong type raises CellTypeError (a ValueError) instead of
+    turning into None.
     Raises FileNotFoundError when the file is missing.
     """
     path = Path(path)
@@ -49,8 +54,8 @@ def read_rows(path):
         for row in resource.read_rows():
             for error in row.errors:
                 if error.type == 'type-error':
-                    raise ValueError(f'{path}, row {row.row_number}, field {error.field_name}: '
-                                     f'cannot read "{error.cell}" ({error.note})')
+                    raise CellTypeError(f'{path}, row {row.row_number}, field {error.field_name}: '
+                                        f'cannot read "{error.cell}" ({error.note})')
             rows.append(row.to_dict())
         return rows
 

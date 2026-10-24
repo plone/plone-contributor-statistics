@@ -11,7 +11,7 @@ REPO = Path(__file__).resolve().parent.parent
 
 def test_kind_of():
     assert datapackage.kind_of(Path('curated/community-contributions/2023-sprints.csv')) == 'sprints'
-    assert datapackage.kind_of(Path('curated/mappings/affiliation_proposals.csv')) == 'affiliation-proposals'
+    assert datapackage.kind_of(Path('curated/mappings/excluded_repositories.csv')) == 'excluded-repositories'
     assert datapackage.kind_of(Path('curated/plips/plone-plips-before-github.csv')) == 'plips-before-github'
 
 
@@ -22,7 +22,7 @@ def test_kind_of_unknown_raises():
 
 def test_build_package_lists_every_curated_csv(tmp_repo):
     shutil.copytree(REPO / 'curated/schemas', tmp_repo / 'curated/schemas', dirs_exist_ok=True)
-    (tmp_repo / 'curated/mappings/people.csv').write_text('id,name,github,source\n')
+    (tmp_repo / 'curated/mappings/people.csv').write_text('id,name\n')
     (tmp_repo / 'curated/community-contributions/2023-sprints.csv').write_text('sprint\n')
     (tmp_repo / 'curated/mappings/no_schema_yet.csv').write_text('a\n')
     descriptor = datapackage.build_package(tmp_repo)

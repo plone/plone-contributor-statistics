@@ -1,16 +1,22 @@
 """The tool that proposes affiliations from company addresses in commits: offline, with real git repositories."""
 
+import datetime
 import os
 import subprocess
 
 import pytest
 
 from scripts.lib import git_history, paths
-from scripts.lib.model import load_registry, read_rows
+from scripts.lib.capture import CaptureError
+from scripts.lib.model import affiliation_id, load_registry, load_sources, read_excerpt, read_rows, source_id
+from scripts.lib.model.registers import Identity
 from scripts.tools import address_proposals, check, datapackage
+from tests.conftest import record_source, registry_of
 
 SOURCE = 'https://example.org/record'
+CLONES = '.cache/repositories'  # where the collectors keep the clones, and where the capture of a commit reads it
 NOREPLY = '1234+janedoe@users.noreply.github.com'
+SID = '0123456789ab'
 
 
 def git(path, *args, author=('Someone', 'someone@example.org'), date=None):
@@ -36,25 +42,50 @@ def make_clone(cache, repository, commits):
     return work, target
 
 
+def write_people(people, identities=()):
+    """people.csv and identities.csv: people as (id, name, GitHub login), identities as (person, kind, value)."""
+    sid = record_source(SOURCE)
+    paths.PEOPLE.write_text('id,name\n' + ''.join(f'{i},{name}\n' for i, name, _ in sorted(people)), encoding='utf-8')
+    rows = sorted([(i, 'github', github) for i, _, github in people if github] + list(identities))
+    paths.IDENTITIES.write_text('person,kind,value,source,snippet,notes\n' + ''.join(
+        f'{person},{kind},{value},{sid},,\n' for person, kind, value in rows), encoding='utf-8')
+
+
+PEOPLE = [('bob-builder', 'Bob Builder', ''), ('hanno-schlichting', 'Hanno Schlichting', 'hannosch'),
+          ('jane-doe', 'Jane Doe', 'janedoe'), ('mononym', 'Mononym', '')]
+IDENTITIES = [('bob-builder', 'email', 'bob@old.example.org')]
+
+
+def write_affiliations(*rows):
+    """affiliations.csv with stated rows (person, organisation, from, to), each citing the record."""
+    sid = record_source(SOURCE)
+    ids = [affiliation_id(*row) for row in rows]
+    paths.AFFILIATIONS.write_text('id,person,organisation,from,to,status,checked,notes\n' + ''.join(
+        f'{aid},{person},{org},{start},{end},stated,,\n' for aid, (person, org, start, end) in zip(ids, rows)),
+        encoding='utf-8')
+    paths.CITATIONS.write_text('affiliation,source,snippet,supersedes,notes\n' + ''.join(
+        f'{aid},{sid},,,\n' for aid in sorted(ids)), encoding='utf-8')
+
+
+def proposed():
+    return [row for row in read_rows(paths.AFFILIATIONS) if row['status'] == 'proposed']
+
+
 def sha_of(work, number=0):
     return git(work, 'log', '--reverse', '--format=%H').split()[number]
 
 
 @pytest.fixture
-def setup(tmp_repo, write_registers):
+def setup(tmp_repo, write_registers, monkeypatch):
+    # The shared cache is the repository's own, and no commit is read from the network
+    monkeypatch.setenv('PLONE_STATS_CACHE', str(tmp_repo / '.cache'))
+    monkeypatch.delenv('GITHUB_TOKEN', raising=False)
     write_registers(
         people=[('jane-doe', 'janedoe'), ('hanno-schlichting', 'hannosch'), ('mononym', ''), ('bob-builder', '')],
         affiliations=[('jane-doe', 'oldco', 2012, 2012)],
         organisations=[('greenfinity', 'Greenfinity'), ('bubblenet', 'BubbleNet'), ('oldco', 'Old Co'),
                        ('acme', 'Acme Industries')])
-    paths.PEOPLE.write_text(
-        'id,name,github,source\n'
-        f'bob-builder,Bob Builder,,{SOURCE}\n'
-        f'hanno-schlichting,Hanno Schlichting,hannosch,{SOURCE}\n'
-        f'jane-doe,Jane Doe,janedoe,{SOURCE}\n'
-        f'mononym,Mononym,,{SOURCE}\n', encoding='utf-8')
-    paths.IDENTITIES.write_text('person,kind,value,source\n'
-                                f'bob-builder,email,bob@old.example.org,{SOURCE}\n', encoding='utf-8')
+    write_people(PEOPLE, IDENTITIES)
     paths.ORGANISATIONS.write_text(
         'id,name,kind,github,aliases,notes\n'
         'acme,Acme Industries,organisation,,acme-industries.test;widgets.test,\n'
@@ -165,11 +196,6 @@ def test_company_domain(domain, company):
     assert address_proposals.is_company_domain(domain) is company
 
 
-class Person:
-    def __init__(self, name, github=None):
-        self.name, self.github = name, github
-
-
 @pytest.mark.parametrize('domain,name,github,own', [
     ('hannosch.eu', 'Hanno Schlichting', None, True),  # a name part of four letters or more inside the label
     ('janedoe.net', 'Someone Else', 'janedoe', True),  # the login
@@ -181,7 +207,13 @@ class Person:
     ('ab.test', 'Abe Bee', None, False),  # a part shorter than four letters is no evidence in a longer label
 ])
 def test_own_domain(domain, name, github, own):
-    assert address_proposals.is_own_domain(domain, Person(name, github)) is own
+    registry = registry_of([('p', name, github, SID)])
+    assert address_proposals.is_own_domain(domain, registry.people['p'], registry) is own
+
+
+def test_own_domain_of_a_further_account():
+    registry = registry_of([('p', 'Someone Else', 'someone', SID)], [Identity('p', 'github-alias', 'janedoe', SID)])
+    assert address_proposals.is_own_domain('janedoe.net', registry.people['p'], registry)
 
 
 def test_registrable_label():
@@ -194,9 +226,8 @@ def test_registrable_label():
 def test_a_registered_organisation_wins_over_the_own_domain(setup):
     paths.ORGANISATIONS.write_text(paths.ORGANISATIONS.read_text(encoding='utf-8')
                                    + 'glick-software,Glick Software,organisation,,,\n', encoding='utf-8')
-    paths.PEOPLE.write_text(paths.PEOPLE.read_text(encoding='utf-8')
-                            + f'david-glick,David Glick,davisagli,{SOURCE}\n', encoding='utf-8')
-    cache = setup / 'cache'
+    write_people(PEOPLE + [('david-glick', 'David Glick', 'davisagli')], IDENTITIES)
+    cache = setup / CLONES
     make_clone(cache, 'r', [('David Glick', 'david@glicksoftware.com', 2011), ('Tom', 'x@foo.com.au', 2011)])
     text, _ = run(cache)
     assert '| david-glick | glick-software | 2011 | 1 | glicksoftware.com | name |' in text
@@ -207,9 +238,8 @@ def test_a_registered_organisation_wins_over_the_own_domain(setup):
 
 
 def test_the_foo_and_andersonleeb_cases(setup):
-    paths.PEOPLE.write_text(paths.PEOPLE.read_text(encoding='utf-8')
-                            + f'tom-comer,Tom Comer,,{SOURCE}\njane-leeb,Jane Leeb,,{SOURCE}\n', encoding='utf-8')
-    cache = setup / 'cache'
+    write_people(PEOPLE + [('tom-comer', 'Tom Comer', ''), ('jane-leeb', 'Jane Leeb', '')], IDENTITIES)
+    cache = setup / CLONES
     make_clone(cache, 'r', [('Tom Comer', 'tom@foo.com.au', 2011), ('Jane Leeb', 'jane@andersonleeb.com', 2011)])
     text, _ = run(cache)
     assert '| foo.com.au | 1 | 2011 | 1 |' in text  # reported as unmapped, not dropped silently
@@ -217,7 +247,7 @@ def test_the_foo_and_andersonleeb_cases(setup):
 
 
 def test_proposals_runs_evidence_and_unmapped(setup):
-    cache = setup / 'cache'
+    cache = setup / CLONES
     work, _ = make_clone(cache, 'plone.app.x', [
         ('Hanno Schlichting', 'hanno@greenfinity.hu', 2016),
         ('Hanno Schlichting', 'hanno@greenfinity.hu', 2017),
@@ -254,23 +284,19 @@ def test_proposals_runs_evidence_and_unmapped(setup):
 
 
 def test_a_rejected_year_is_not_proposed_again(setup):
-    cache = setup / 'cache'
+    cache = setup / CLONES
     make_clone(cache, 'plone.app.x', [('Hanno Schlichting', 'hanno@greenfinity.hu', 2016),
                                       ('Hanno Schlichting', 'hanno@greenfinity.hu', 2017)])
-    paths.REJECTED_PROPOSALS.write_text(
-        'person,organisation,from,to,reason,source\n'
-        'hanno-schlichting,greenfinity,2016,2016,the year of a change,https://example.org/review\n', encoding='utf-8')
+    with open(paths.AFFILIATIONS, 'a', encoding='utf-8') as f:
+        f.write('a00000001,hanno-schlichting,greenfinity,2016,2016,denied,,the year of a change\n')
     text, _ = run(cache)
     assert '| hanno-schlichting | greenfinity | 2017 | 1 |' in text
     assert '2016' not in text.split('## Conflicts')[0]
 
 
 def test_covered_year_splits_the_run_and_other_organisation_conflicts(setup):
-    paths.AFFILIATIONS.write_text(
-        'person,organisation,from,to,source,checked,notes\n'
-        f'jane-doe,greenfinity,2016,2016,{SOURCE},,\n'
-        f'jane-doe,oldco,2018,2018,{SOURCE},,\n', encoding='utf-8')
-    cache = setup / 'cache'
+    write_affiliations(('jane-doe', 'greenfinity', 2016, 2016), ('jane-doe', 'oldco', 2018, 2018))
+    cache = setup / CLONES
     make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.hu', y) for y in (2015, 2016, 2017, 2018)])
     text, _ = run(cache)
     proposals, conflicts = address_proposals.propose(load_registry(), address_proposals.gather(
@@ -282,30 +308,28 @@ def test_covered_year_splits_the_run_and_other_organisation_conflicts(setup):
 
 
 def test_example_is_the_earliest_commit_and_each_run_has_its_own(setup):
-    cache = setup / 'cache'
+    cache = setup / CLONES
     # repository "a" sorts first, but its commit is later than the one in "b"
     work_a, _ = make_clone(cache, 'a', [('Jane Doe', 'jane@greenfinity.hu', '2015-09-01T00:00:00Z'),
                                         ('Jane Doe', 'jane@greenfinity.hu', '2017-03-01T00:00:00Z')])
     work_b, _ = make_clone(cache, 'b', [('Jane Doe', 'jane@greenfinity.hu', '2015-02-01T00:00:00Z')])
     text, _ = run(cache, write=True)
-    rows = read_rows(paths.AFFILIATION_PROPOSALS)
+    rows = proposed()
     assert [(r['from'], r['to']) for r in rows] == [(2015, 2015), (2017, 2017)]
-    assert rows[0]['evidence'].endswith(f'(example: https://github.com/plone/b/commit/{sha_of(work_b)})')
-    assert rows[1]['evidence'].endswith(f'(example: https://github.com/plone/a/commit/{sha_of(work_a, 1)})')
+    assert rows[0]['notes'].endswith(f'(example: https://github.com/plone/b/commit/{sha_of(work_b)})')
+    assert rows[1]['notes'].endswith(f'(example: https://github.com/plone/a/commit/{sha_of(work_a, 1)})')
 
 
 def test_a_covered_block_of_several_years(setup):
-    paths.AFFILIATIONS.write_text(
-        'person,organisation,from,to,source,checked,notes\n'
-        f'jane-doe,greenfinity,2015,2017,{SOURCE},,\n', encoding='utf-8')
-    cache = setup / 'cache'
+    write_affiliations(('jane-doe', 'greenfinity', 2015, 2017))
+    cache = setup / CLONES
     make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.hu', y) for y in range(2014, 2020)])
     run(cache, write=True)
-    assert [(r['from'], r['to']) for r in read_rows(paths.AFFILIATION_PROPOSALS)] == [(2014, 2014), (2018, 2019)]
+    assert [(r['from'], r['to']) for r in proposed()] == [(2014, 2014), (2018, 2019)]
 
 
 def test_since(setup):
-    cache = setup / 'cache'
+    cache = setup / CLONES
     make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.hu', y) for y in (2005, 2010)])
     text, _ = run(cache, since=2008)
     assert '| jane-doe | greenfinity | 2010 | 1 | greenfinity.hu | name |' in text
@@ -313,7 +337,7 @@ def test_since(setup):
 
 
 def test_person_option(setup):
-    cache = setup / 'cache'
+    cache = setup / CLONES
     make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.hu', 2015),
                             ('Hanno Schlichting', 'hanno@bubblenet.be', 2015),
                             ('Hanno Schlichting', 'hanno@mystery.test', 2015)])
@@ -324,26 +348,59 @@ def test_person_option(setup):
 
 
 def test_write_appends_once_and_stays_valid(setup):
-    cache = setup / 'cache'
+    cache = setup / CLONES
     work, _ = make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.hu', y) for y in (2015, 2016)])
     _, added = run(cache, write=True)
     assert len(added) == 1
-    rows = read_rows(paths.AFFILIATION_PROPOSALS)
-    assert rows == [{'person': 'jane-doe', 'organisation': 'greenfinity', 'from': 2015, 'to': 2016,
-                     'evidence': f'Company address @greenfinity.hu in commits 2015-2016 '
-                                 f'(example: https://github.com/plone/r/commit/{sha_of(work, 0)})'}]
+    url = f'https://github.com/plone/r/commit/{sha_of(work, 0)}'
+    aid = affiliation_id('jane-doe', 'greenfinity', 2015, 2016)
+    assert proposed() == [{'id': aid, 'person': 'jane-doe', 'organisation': 'greenfinity', 'from': 2015, 'to': 2016,
+                           'status': 'proposed', 'checked': None,
+                           'notes': f'Company address @greenfinity.hu in commits 2015-2016 (example: {url})'}]
+    # The example commit is captured from the clone as the source the proposal cites
+    sid = source_id(url)
+    assert [r for r in read_rows(paths.CITATIONS) if r['affiliation'] == aid] == [
+        {'affiliation': aid, 'source': sid, 'snippet': 'Author: Jane Doe <jane@greenfinity.hu>', 'supersedes': None,
+         'notes': None}]
+    source = load_sources()[sid]
+    assert (source.kind, source.url, source.date) == ('commit', url, datetime.date(2015, 6, 1))
+    assert read_excerpt(sid).startswith('Author: Jane Doe <jane@greenfinity.hu>\nDate: 2015-06-01')
     _, again = run(cache, write=True)
     assert again == []
-    assert len(read_rows(paths.AFFILIATION_PROPOSALS)) == 1
+    assert len(proposed()) == 1
     datapackage.main([])
     assert check.validate() == []
 
 
-def test_no_write_leaves_the_file_alone(setup):
-    cache = setup / 'cache'
+def test_a_proposal_whose_commit_is_not_captured_is_listed_not_written(setup, monkeypatch):
+    cache = setup / CLONES
     make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.hu', 2015)])
+
+    def fail(url, email, **options):
+        raise CaptureError(f'{url}: could not be fetched')
+
+    monkeypatch.setattr(address_proposals, 'capture_commit', fail)
+    text, added = run(cache, write=True)
+    assert added == [] and proposed() == []
+    section = text.split('## Not captured')[1]
+    assert '| jane-doe | greenfinity | 2015 |' in section and 'could not be fetched' in section
+
+
+def test_no_write_captures_nothing(setup):
+    cache = setup / CLONES
+    make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.hu', 2015)])
+    before = paths.SOURCES.read_text(encoding='utf-8')
+    text, _ = run(cache)
+    assert paths.SOURCES.read_text(encoding='utf-8') == before
+    assert '## Not captured' not in text
+
+
+def test_no_write_leaves_the_file_alone(setup):
+    cache = setup / CLONES
+    make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.hu', 2015)])
+    before = paths.AFFILIATIONS.read_text(encoding='utf-8')
     run(cache)
-    assert read_rows(paths.AFFILIATION_PROPOSALS) == []
+    assert paths.AFFILIATIONS.read_text(encoding='utf-8') == before
 
 
 def test_missing_cache_names_the_command(setup):
@@ -352,7 +409,34 @@ def test_missing_cache_names_the_command(setup):
 
 
 def test_main_prints_the_report(setup, capsys):
-    cache = setup / 'cache'
+    cache = setup / CLONES
     make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.hu', 2015)])
     address_proposals.main(['--cache', str(cache)])
     assert '## Proposals' in capsys.readouterr().out
+
+
+def test_main_reports_an_id_clash_without_a_traceback(setup, monkeypatch, capsys):
+    def clash(*args, **kwargs):
+        raise ValueError('The id a12345678 of the proposal jane-doe, greenfinity, 2015-2015 is the id of an '
+                         'affiliation already')
+
+    monkeypatch.setattr(address_proposals, 'run', clash)
+    with pytest.raises(SystemExit) as exit_info:
+        address_proposals.main(['--write'])
+    assert exit_info.value.code == 1
+    assert capsys.readouterr().err == ('Nothing written: The id a12345678 of the proposal jane-doe, greenfinity, '
+                                       '2015-2015 is the id of an affiliation already\n')
+
+
+def test_main_reports_a_cell_of_the_wrong_type_as_itself(setup, monkeypatch, capsys):
+    from scripts.lib.model.schema import CellTypeError
+
+    def bad_cell(*args, **kwargs):
+        raise CellTypeError('affiliations.csv, row 2, field from: cannot read "20O5" (type is "integer/default")')
+
+    monkeypatch.setattr(address_proposals, 'run', bad_cell)
+    with pytest.raises(SystemExit) as exit_info:
+        address_proposals.main(['--write'])
+    assert exit_info.value.code == 1
+    assert capsys.readouterr().err == ('affiliations.csv, row 2, field from: cannot read "20O5" '
+                                       '(type is "integer/default")\n')

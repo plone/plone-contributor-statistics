@@ -1,4 +1,5 @@
-"""The model library: the registers of people and organisations, and reading curated files through their schema."""
+"""The model library: the registers of people and organisations, the attribution rules, and reading curated
+files through their schema."""
 
 from scripts.lib.model.community import (  # noqa: F401
     EVENT_KINDS,
@@ -18,19 +19,25 @@ from scripts.lib.model.community import (  # noqa: F401
     talks,
 )
 from scripts.lib.model.registers import (  # noqa: F401
+    GITHUB,
+    GITHUB_ALIAS,
+    LOGIN_KINDS,
     MAPPINGS_DIR,
     UNMAPPED,
     Affiliation,
+    Attribution,
+    Citation,
     Identity,
     Organisation,
     Person,
     Registry,
+    affiliation_id,
     append_person,
     append_proposals,
     load_bot_accounts,
+    load_citations,
     load_excluded_repositories,
     load_registry,
-    load_rejection_rows,
     load_rejections,
 )
 from scripts.lib.model.sources import (  # noqa: F401
@@ -40,10 +47,12 @@ from scripts.lib.model.sources import (  # noqa: F401
     add_passage,
     archive_url_of,
     excerpt_path,
+    is_uncaptured,
     load_sources,
     normalize_url,
     passages,
     read_excerpt,
+    replace_excerpt,
     source_id,
     split_archive_url,
     write_source,

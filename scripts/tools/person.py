@@ -6,10 +6,11 @@ import csv
 import re
 import sys
 
-from scripts.lib.model import MAPPINGS_DIR, Person, append_person, load_registry
+from scripts.lib.model import (LOGIN_KINDS, MAPPINGS_DIR, Identity, Person, append_person, load_registry, source_id,
+                               split_archive_url)
 from scripts.lib.model.names import fold, unique_slug
 
-LINK = re.compile(r'https?://\S+')
+SOURCE_ID = re.compile(r'^[0-9a-f]{12}$')
 
 
 def find(registry, query):
@@ -21,47 +22,67 @@ def find(registry, query):
     folded, login, email = fold(query), query.casefold(), query.lower()
     if folded:
         found |= {p.id for p in registry.people.values() if fold(p.name) == folded}
-    found |= {p.id for p in registry.people.values() if p.github and p.github.casefold() == login}
     for identity in registry.identities:
         if identity.kind == 'name' and folded and fold(identity.value) == folded:
             found.add(identity.person)
-        elif identity.kind == 'login' and identity.value.casefold() == login:
+        elif identity.kind in LOGIN_KINDS and identity.value.casefold() == login:
             found.add(identity.person)
         elif identity.kind == 'email' and identity.value.lower() == email:
             found.add(identity.person)
     return [registry.people[person_id] for person_id in sorted(found) if person_id in registry.people]
 
 
-def add(mappings_dir, name, github, source):
-    """Add a person to people.csv with a generated id and return them.
+CAPTURE_FIRST = 'capture it first with python -m scripts.tools.capture'
 
-    A link anywhere in the source is enough (the record convention of the repository).
+
+def _source_of(registry, source):
+    """The id of the source in the register: given as its id, its address or its archived copy's address."""
+    if SOURCE_ID.match(source):
+        sid = source
+    else:
+        archived = split_archive_url(source)
+        sid = source_id(*archived) if archived else source_id(source)
+    if sid not in registry.sources:
+        raise ValueError(f'The source {source} is not in the source register: {CAPTURE_FIRST}')
+    return sid
+
+
+def add(mappings_dir, name, github, source):
+    """Add a person to people.csv with a generated id, and the `github` identity, or the `name` identity without
+    a login, citing the source; return the person and the identity.
+
+    The source is a source id, or the address of a source in the register.
     """
     name = ' '.join(name.split())
     github = (github or '').strip()
     source = (source or '').strip()
     if not name:
         raise ValueError('The name is empty')
-    if not LINK.search(source):
-        raise ValueError('The source needs a link to a public record (https://...)')
+    if not source:
+        raise ValueError('The source of the public record is empty: give the id or the address of a source in the '
+                         f'source register; if the record is not in the register yet, {CAPTURE_FIRST}')
     registry = load_registry(mappings_dir)
     if github:
         login = github.casefold()
-        owners = {p.id for p in registry.people.values() if p.github and p.github.casefold() == login}
-        owners |= {i.person for i in registry.identities if i.kind == 'login' and i.value.casefold() == login}
+        owners = {i.person for i in registry.identities if i.kind in LOGIN_KINDS and i.value.casefold() == login}
         if owners:
             raise ValueError(f'The login {github} belongs to {", ".join(sorted(owners))} already')
-    person = Person(unique_slug(name, set(registry.people)), name, github or None, source)
-    append_person(mappings_dir, person)
-    return person
+    sid = _source_of(registry, source)
+    person = Person(unique_slug(name, set(registry.people)), name)
+    identity = Identity(person.id, 'github', github, sid) if github else Identity(person.id, 'name', name, sid)
+    append_person(mappings_dir, person, identity)
+    return person, identity
 
 
 def _cells(*values):
     return ['' if value is None else str(value) for value in values]
 
 
-def _row(person):
-    return _cells(person.id, person.name, person.github, person.source)
+IDENTITY_HEADER = ['person', 'kind', 'value', 'source', 'snippet', 'notes']
+
+
+def _identity_row(identity):
+    return _cells(identity.person, identity.kind, identity.value, identity.source, identity.snippet, identity.notes)
 
 
 def _print_group(writer, filename, header, rows):
@@ -73,15 +94,15 @@ def _print_group(writer, filename, header, rows):
 
 def _print_person(writer, registry, person):
     """The rows of the person in the three registers, each group under the name of its file."""
-    _print_group(writer, 'people.csv', ['id', 'name', 'github', 'source'], [_row(person)])
-    identities = [_cells(i.person, i.kind, i.value, i.source) for i in registry.identities if i.person == person.id]
+    _print_group(writer, 'people.csv', ['id', 'name'], [_cells(person.id, person.name)])
+    identities = [_identity_row(i) for i in registry.identities if i.person == person.id]
     if identities:
-        _print_group(writer, 'identities.csv', ['person', 'kind', 'value', 'source'], identities)
-    affiliations = [_cells(a.person, a.organisation, a.from_year, a.to_year, a.source, a.checked, a.notes)
+        _print_group(writer, 'identities.csv', IDENTITY_HEADER, identities)
+    affiliations = [_cells(a.id, a.person, a.organisation, a.from_year, a.to_year, a.status, a.checked, a.notes)
                     for a in registry.affiliations if a.person == person.id]
     if affiliations:
         _print_group(writer, 'affiliations.csv',
-                     ['person', 'organisation', 'from', 'to', 'source', 'checked', 'notes'], affiliations)
+                     ['id', 'person', 'organisation', 'from', 'to', 'status', 'checked', 'notes'], affiliations)
 
 
 def main(argv=None):
@@ -89,17 +110,17 @@ def main(argv=None):
     parser.add_argument('query', nargs='?', metavar='QUERY', help='id, name, GitHub login or email to look for')
     parser.add_argument('--add', metavar='NAME', help='add a person with this name')
     parser.add_argument('--github', help='the GitHub login of the new person')
-    parser.add_argument('--source', help='link to the public record for the new person')
+    parser.add_argument('--source', help='the public record for the new person: the id or the address of a '
+                                         'source in the source register')
     args = parser.parse_args(argv)
     writer = csv.writer(sys.stdout, lineterminator='\n')
     if args.add:
-        if not args.source:
-            parser.error('--add needs --source')
         try:
-            person = add(MAPPINGS_DIR, args.add, args.github, args.source)
+            person, identity = add(MAPPINGS_DIR, args.add, args.github, args.source)
         except ValueError as error:
             parser.error(str(error))
-        writer.writerow(_row(person))
+        writer.writerow(_cells(person.id, person.name))
+        writer.writerow(_identity_row(identity))
         return 0
     if not args.query:
         parser.error('give a QUERY or use --add')

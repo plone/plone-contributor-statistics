@@ -37,7 +37,7 @@ def test_missing_year_raises(tmp_repo):
 def test_organisation_commits_splits_personal_and_unmatched(tmp_repo, write_registers):
     write_registers(organisations=[('acme', 'Acme')])
     counts = Counter({'acme.test': 5, 'mail.acme.test': 2, 'gmail.com': 3, 'nobody.test': 4})
-    per_organisation, personal, unmatched = organisation_commits(counts, load_registry())
+    per_organisation, personal, unmatched = organisation_commits(counts, load_registry().match_domain)
     assert per_organisation == Counter({'acme': 7})
     assert personal == 3
     assert unmatched == 4
@@ -54,3 +54,15 @@ def test_the_collected_files_hold_domains_only():
                 assert '@' not in domain, path.name
                 assert domain_of(f'x@{domain}') == domain, (path.name, domain)  # no machine names
                 assert int(commits) > 0, path.name
+
+
+def test_own_domains_count_as_personal_unless_an_organisation_claims_them():
+    def match_domain(domain):
+        return ('acme', 'alias') if domain.endswith('acme.test') else None
+
+    counts = Counter({'acme.test': 5, 'vanrees.org': 4, 'nobody.test': 1})
+    per_organisation, personal, unmatched = organisation_commits(
+        counts, match_domain, is_own=lambda domain: domain in ('vanrees.org', 'acme.test'))
+    assert per_organisation == Counter({'acme': 5})  # a registered organisation always wins
+    assert personal == 4
+    assert unmatched == 1

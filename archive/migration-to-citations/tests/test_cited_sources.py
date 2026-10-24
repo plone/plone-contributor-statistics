@@ -5,7 +5,6 @@ import json
 import pytest
 
 from scripts.lib import paths
-from scripts.lib.model import load_registry, load_rejection_rows
 from scripts.tools import cited_sources
 from scripts.tools.cited_sources import (Cited, kind_hint, parse_segment, resolve_searches, review, split_segments,
                                          work_list)
@@ -95,9 +94,9 @@ def registers(tmp_repo):
         f'(archived: {ARCHIVED}); GitHub profile, company: Acme: https://github.com/janedoe",,'
         f'"Commits in 2014 (search: {SEARCH})"',
         f'john-roe,beta,2015,2015,"""Roe is at Beta."", speaker page: {SPEAKER}",,'])
-    write(paths.REJECTED_PROPOSALS, 'person,organisation,from,to,reason,source', [
+    write(paths.MAPPINGS_DIR / 'rejected_proposals.csv', 'person,organisation,from,to,reason,source', [
         'john-roe,acme,2010,2010,"a client, see https://a.org/client",https://github.com/plone/x/pull/1'])
-    return load_registry(), load_rejection_rows()
+    return cited_sources.load_old_registers()
 
 
 def by_url(items):
@@ -194,7 +193,7 @@ def cell_registers(source):
     quoted = source.replace('"', '""')
     write(paths.AFFILIATIONS, 'person,organisation,from,to,source,checked,notes',
           [f'jane-doe,acme,2016,2017,"{quoted}",,'])
-    return load_registry(), load_rejection_rows()
+    return cited_sources.load_old_registers()
 
 
 def test_quotes_carry_to_the_continuation_urls_of_the_cell(tmp_repo):
@@ -247,7 +246,7 @@ def test_a_name_with_a_trailing_bracket_is_also_looked_for_without_it(tmp_repo):
           ['leo,Leonardo Caballero (independent),independent,,,'])
     write(paths.AFFILIATIONS, 'person,organisation,from,to,source,checked,notes',
           ['rocky,leo,2007,2007,https://a.org/team,,'])
-    found = by_url(work_list(load_registry(), load_rejection_rows()))
+    found = by_url(work_list(*cited_sources.load_old_registers()))
     assert found['https://a.org/sprint']['names'] == ['Rocky Burt (sprint leaders)', 'Rocky Burt']
     assert found['https://a.org/team']['names'] == ['Rocky Burt (sprint leaders)', 'Rocky Burt',
                                                      'Leonardo Caballero (independent)', 'Leonardo Caballero']

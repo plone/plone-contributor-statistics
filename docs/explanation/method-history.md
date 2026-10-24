@@ -98,6 +98,9 @@ Tooling:
 - The hand-edited data was restructured into registers of people, identities, affiliations and organisations with opaque ids, a Table Schema for every curated file, and checks.
   The community files refer to people by id, and the organisation of a person comes from the affiliations only.
   Affiliations have no default: a year that no row covers is Unmapped ([#139](https://github.com/plone/plone-contributor-statistics/issues/139)).
+- The registers cite a source register instead of holding links and quotes in their cells: each record is captured once, with the passages we cite, and an affiliation cites its sources with verbatim snippets.
+  Affiliations got a status (stated, assumed, denied, proposed), may overlap, and the organisation of a year is computed by the attribution rules, with decisions in public for the years they leave open.
+  An audit showed that no link, quote or note of the old cells was lost, and the numbers didn't change.
 
 ## Which files are comparable
 

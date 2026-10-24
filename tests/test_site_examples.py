@@ -3,7 +3,7 @@
 import re
 from pathlib import Path
 
-from scripts.lib.model import load_registry
+from scripts.lib.model import LOGIN_KINDS, load_registry
 
 ROOT = Path(__file__).resolve().parent.parent
 TEMPLATES = sorted((ROOT / 'scripts/report/site').rglob('*.html'))
@@ -12,9 +12,7 @@ TEMPLATES = sorted((ROOT / 'scripts/report/site').rglob('*.html'))
 def logins():
     """Every GitHub login the register knows: the people's own and their second accounts."""
     registry = load_registry(ROOT / 'curated/mappings')
-    known = {person.github.casefold() for person in registry.people.values() if person.github}
-    known.update(identity.value.casefold() for identity in registry.identities if identity.kind == 'login')
-    return known
+    return {identity.value.casefold() for identity in registry.identities if identity.kind in LOGIN_KINDS}
 
 
 def test_placeholders_name_no_person():

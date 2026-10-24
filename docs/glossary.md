@@ -12,8 +12,9 @@ myst:
 
 ```{glossary}
 affiliation
-    A row of `curated/mappings/affiliations.csv`: a person belonged to an organisation from one year to another, shown by a public record.
-    A year that no affiliation covers is {term}`Unmapped`.
+    A row of `curated/mappings/affiliations.csv`: a person belonged to an organisation from one year to another, as its {term}`citations <citation>` show.
+    Its status is `stated`, `assumed`, `denied` or `proposed`.
+    The organisation of a person in a year is computed from the affiliations that cover it, and a year that no affiliation covers is {term}`Unmapped`.
 
 bot account
     A GitHub account that is not a person, such as a continuous integration bot or a GitHub App.
@@ -21,9 +22,16 @@ bot account
     Bots that GitHub lists as users are named in `curated/mappings/bot_accounts.csv`.
     The statistics leave bot accounts out.
 
+citation
+    A row of `curated/mappings/citations.csv`: an {term}`affiliation` rests on a {term}`source`, with the {term}`snippet` of the source that supports it.
+
 curated data
     Data that people collect and check by hand against a public source, as opposed to data that a script collects from an API.
     Curated data lives in `curated/`.
+
+decision
+    A public comment on an issue or pull request of this repository that says which organisation a year of a person counts for, where the records disagree.
+    It is a {term}`source` of the kind `decision`, and the affiliation it chooses cites it.
 
 default branch
     The main branch of a repository on GitHub, for example `main` or `master`.
@@ -33,8 +41,8 @@ excluded repository
     Each one is listed with a reason in `curated/mappings/excluded_repositories.csv`.
 
 identity
-    A string that denotes a person in a source: a name, a commit email address or a second GitHub login.
-    Identities are listed in `curated/mappings/identities.csv`, each with the id of its person.
+    A string that denotes a person in the data: the GitHub login the person is counted under (kind `github`), a further GitHub account (`github-alias`), a commit email address (`email`) or a spelling of the name (`name`).
+    Identities are listed in `curated/mappings/identities.csv`, each with the id of its person and the {term}`source` that connects them.
 
 independent contributor
     A self-employed person or volunteer whose organisation has the kind `independent` in `curated/mappings/organisations.csv`, for example `Name (independent)`.
@@ -60,14 +68,20 @@ PR interaction
     A comment or review on a pull request by someone other than a bot.
 
 register
-    One of the files `curated/mappings/people.csv`, `curated/mappings/identities.csv`, `curated/mappings/affiliations.csv` and `curated/mappings/organisations.csv`.
-    They hold every person, name, affiliation and organisation once.
+    One of the files `curated/mappings/people.csv`, `curated/mappings/identities.csv`, `curated/mappings/affiliations.csv`, `curated/mappings/citations.csv` and `curated/mappings/organisations.csv`, or the source register `curated/sources/sources.csv`.
+    They hold every person, name, affiliation, citation, organisation and source once.
 
 release branch
     A branch for a release line of a package, named like `2.5`, `3.0` or `4.3.x`.
 
 set column
     A column of a curated file that holds the ids of several rows of a register, separated by semicolons, such as the trainers of a training.
+
+snippet
+    The words of a {term}`source` that support a citation or an identity, verbatim from the excerpt of the source, where `make check` finds them.
+
+source
+    A page, profile, commit, video or decision in the source register `curated/sources/sources.csv`, captured once with the passages we cite in its excerpt file.
 
 Unmapped
     The group of contributors without an {term}`affiliation` for the year.

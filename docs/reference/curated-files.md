@@ -21,7 +21,7 @@ Save the files as UTF-8 with Unix line endings.
 
 ## Registers
 
-People, identities, affiliations and organisations, in `curated/mappings/`.
+People, identities, affiliations, citations and organisations, in `curated/mappings/`.
 
 ### People
 
@@ -33,60 +33,87 @@ One row is one person.
 |---|---|---|---|
 | `id` | string | required; unique; pattern `^[a-z0-9][a-z0-9-]*$` | Opaque, stable identifier of the person: made once from the name when the row is created, and kept when the name changes. It is a key, not a spelling. |
 | `name` | string | required | The name the person is published under. |
-| `github` | string | pattern `^[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?$` | The GitHub login of the person, with the case it has on GitHub. |
-| `source` | string | required; contains a web address | A public record, linked as a web address, that connects the person to the name and login. |
 
 Primary key: `id`.
 
 Checks beyond the schema:
 
 - The rows are sorted by `id`.
-- `github` is unique, ignoring case.
 
 ### Identities
 
 File: `curated/mappings/identities.csv`
 
-One row is one string that denotes a person in a source: a name, a commit address or a second login.
+One row is one string that denotes a person in the data: a GitHub login, a further GitHub account, a commit address or a spelling of the name, with the source that connects it to the person.
 
 | Field | Type | Constraints | Description |
 |---|---|---|---|
 | `person` | string | required; pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `people` | The id of the person in the people register. |
-| `kind` | string | required; one of `name`, `email`, `login` | The kind of identity: a name, an email address or a login. |
-| `value` | string | required | The spelling of the name, the email address or the login as it appears in the data. |
-| `source` | string |  | What the identification rests on; early commit authors may have no public record. |
+| `kind` | string | required; one of `github`, `github-alias`, `email`, `name`, `svn`, `irc`, `discourse` | The kind of identity: `github` the GitHub login the collected files count the person under (at most one per person), `github-alias` a further GitHub account, `email` a commit address, `name` a spelling of the name, `svn` a Subversion or CVS user, `irc` an IRC nick, `discourse` a handle on community.plone.org. |
+| `value` | string | required | The login, address, spelling or handle as it appears in the data; a login with the case it has on GitHub. |
+| `source` | string | pattern `^[0-9a-f]{12}$`; id of a row of `sources` | The id of the source in the source register that connects the person to the value. Required, except for an early commit address whose notes say what it rests on. |
+| `snippet` | string |  | The words of the source that make the connection, verbatim from its excerpt; empty when no quote was verified. |
+| `notes` | string |  | Free-text remarks: what the source shows, in our words, and other records. |
 
-Primary key: `kind`, `value`.
+Primary key: `person`, `kind`, `value`.
 
 Checks beyond the schema:
 
-- The source of an identity contains a web address, unless the identity is an email address.
+- An identity cites a source, unless it is an early commit address whose notes say what it rests on.
+- A snippet appears in the excerpt of its source, compared as the capture compares a quote (`find_quote`).
 - The rows are sorted by `person`, `kind`, `value`.
-- `value` is unique within its `kind`, ignoring case.
-- A `login` identity is not the `github` of another person in the people register, ignoring case.
+- `value` is unique within its `kind`, ignoring case for the kinds `github`, `github-alias`, `email`.
+- A person has at most one `github` identity, and a `github-alias` is nobody's `github`, ignoring case.
 
 ### Affiliations
 
 File: `curated/mappings/affiliations.csv`
 
-One row is one person, one organisation and one period.
+One row is one reading of the sources: one person, one organisation and one period, with its status.
 
 | Field | Type | Constraints | Description |
 |---|---|---|---|
+| `id` | string | required; unique; pattern `^a[0-9a-f]{8}$` | Opaque, stable identifier of the affiliation: `a` and eight hex digits of a hash made once from person, organisation and years when the row is created, and kept when the row changes. The citations refer to it. |
 | `person` | string | required; pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `people` | The id of the person in the people register. |
 | `organisation` | string | required; pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `organisations` | The id of the organisation in the organisations register. |
 | `from` | integer | required; at least 2000 | The first year the person belonged to the organisation. |
 | `to` | integer | at least 2000 | The last year the person belonged to the organisation; empty while it lasts. |
-| `source` | string | required; contains a web address | A public record, linked as a web address, that shows the affiliation. |
+| `status` | string | required; one of `stated`, `assumed`, `denied`, `proposed` | How the row reads its citations: `stated` they say so; `assumed` a range extended beyond its records, counted where no stated row covers the year; `denied` the person did not belong to the organisation in those years, which removes it from the counting; `proposed` a reading a tool produced and nobody has reviewed, never counted. |
 | `checked` | date |  | The date the source was last checked. |
-| `notes` | string |  | Free-text remarks on the row. |
+| `notes` | string |  | Free-text remarks on the row; for a denied row, the reason. |
+
+Primary key: `id`.
 
 Checks beyond the schema:
 
-- The year ranges of one person's affiliations do not overlap.
 - `from` is not after `to`, and an affiliation without `to` says when its record was read.
-- A guessed range (its notes say "not verified") does not lie before a record of another organisation when its
-- The rows are sorted by `person`, `from`.
+- An assumed range stops at a record of another organisation that its own organisation returns after.
+- The rows are sorted by `person`, `from`, `organisation`.
+- No two rows have the same `person`, `organisation`, `from`, `to`.
+- Every affiliation but a proposal has at least one citation.
+- No person-year is left undecided by the attribution rules: record a decision for each conflict.
+- Of two decisions for one person and year, the later names the earlier in `supersedes`.
+
+### Citations
+
+File: `curated/mappings/citations.csv`
+
+One row is one source that an affiliation rests on, with a passage of it; a source with several passages is cited once per passage.
+
+| Field | Type | Constraints | Description |
+|---|---|---|---|
+| `affiliation` | string | required; pattern `^a[0-9a-f]{8}$`; id of a row of `affiliations` | The id of the affiliation in the affiliations register. |
+| `source` | string | required; pattern `^[0-9a-f]{12}$`; id of a row of `sources` | The id of the source in the source register that the affiliation rests on. |
+| `snippet` | string |  | The words of the source that support the affiliation, verbatim from its excerpt; empty when no quote was verified. A source with several such passages is cited once per passage. |
+| `supersedes` | string | ids of rows of `sources` separated by semicolons | For the citation of a decision: the ids of the earlier decisions that this one overrules. Several values are separated by semicolons. |
+| `notes` | string |  | Free-text remarks: what the source shows, in our words, and quotes not verified in its excerpt. A row from the migration to citations keeps the words of the old cell that cited the source, after `cited as: `. |
+
+Checks beyond the schema:
+
+- A snippet appears in the excerpt of its source, compared as the capture compares a quote (`find_quote`).
+- The rows are sorted by `affiliation`, `source`, `snippet`.
+- No two rows have the same `affiliation`, `source`, `snippet`.
+- `supersedes`: every element is the id of a row of the register, and none is repeated.
 
 ### Organisations
 
@@ -110,39 +137,6 @@ Checks beyond the schema:
 - The rows are sorted by `id`, ignoring case.
 - No name or alias folds to the same text as the name or alias of another row.
 - `github` is unique, ignoring case.
-
-### Affiliation proposals
-
-File: `curated/mappings/affiliation_proposals.csv`
-
-One row is one affiliation that a source states and that no accepted record confirms yet. No script reads the file.
-
-| Field | Type | Constraints | Description |
-|---|---|---|---|
-| `person` | string | required; pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `people` | The id of the person in the people register. |
-| `organisation` | string | required; pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `organisations` | The id of the proposed organisation. |
-| `from` | integer | required; at least 2000 | The first year of the proposed affiliation. |
-| `to` | integer | at least 2000 | The last year of the proposed affiliation; empty while it lasts. |
-| `evidence` | string |  | The public record, linked as a web address, that supports the proposal. |
-
-### Rejected proposals
-
-File: `curated/mappings/rejected_proposals.csv`
-
-One row is one proposal that a reviewer turned down, with the reason and a link to the review; the tools that propose affiliations leave those years out.
-
-| Field | Type | Constraints | Description |
-|---|---|---|---|
-| `person` | string | required; pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `people` | The id of the person in the people register. |
-| `organisation` | string | required; pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `organisations` | The id of the organisation that was proposed and rejected. |
-| `from` | integer | required; at least 2000 | The first year the rejection covers. |
-| `to` | integer | required; at least 2000 | The last year the rejection covers. |
-| `reason` | string | required | Why the evidence does not make an affiliation: an own-company address while a record names the employer, the year of a change, the tie-breaker between two records, a public statement against it. |
-| `source` | string | required; contains a web address | Where the rejection was decided in public, linked as a web address: a pull request or a comment. |
-
-Checks beyond the schema:
-
-- The rows are sorted by `person`, `from`.
 
 ## Sources
 

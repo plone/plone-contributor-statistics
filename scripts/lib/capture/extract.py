@@ -18,6 +18,7 @@ import urllib.parse
 import trafilatura
 from trafilatura.utils import load_html
 
+from scripts.lib.capture import fetch  # the module: its clock `now` is the capture's clock
 from scripts.lib.capture.fetch import Fetcher, FetchError, Raw, cache_dir
 from scripts.lib.github_api import GitHubAPIError, github_get
 from scripts.lib.model import split_archive_url
@@ -288,8 +289,7 @@ def extract_github_profile(login: str, session) -> Extracted:
         ('Name', 'name'), ('Company', 'company'), ('Bio', 'bio'), ('Location', 'location'), ('Blog', 'blog'))
         if profile.get(key)]
     text = '\n'.join(lines)
-    return Extracted(text=text, full_text=text, title=profile.get('name') or None,
-                     date=datetime.datetime.now(datetime.timezone.utc).date())
+    return Extracted(text=text, full_text=text, title=profile.get('name') or None, date=fetch.now().date())
 
 
 ISSUE_ENDPOINTS = {'issuecomment': 'issues/comments/{id}', 'discussion_r': 'pulls/comments/{id}',

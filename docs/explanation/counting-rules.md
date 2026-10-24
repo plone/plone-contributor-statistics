@@ -13,12 +13,12 @@ The collector does the same: it reads the commits from local clones and asks the
 
 Many old addresses belong to no account today: Subversion users like `name@localhost`, or company addresses that people no longer use.
 For these, an identity of the kind `email` in `curated/mappings/identities.csv` names the person behind the address, each with a source ([#77](https://github.com/plone/plone-contributor-statistics/pull/77)).
-A person with a GitHub account is counted under their login, a person without one as `person:<id>`.
+A person with a GitHub account is counted under the login of their identity of the kind `github`, a person without one as `person:<id>`.
 Commits whose address is neither linked by GitHub nor an identity are left out, because there is no way to tell who made them.
 {doc}`history-and-coverage` explains why this matters most for the early years.
 
 Some people have a second GitHub account that GitHub links to an old address.
-An identity of the kind `login` counts such an account for the person's main account, for commits and pull requests.
+An identity of the kind `github-alias` counts such an account for the person, for commits and pull requests.
 
 A commit counts for the year of its committer date.
 The committer date is when the commit was added to the history, the author date is when the change was first written.
@@ -80,6 +80,8 @@ A name that nothing maps counts as written, as `unmatched`, and belongs to no or
 
 Names of one word, such as the nicknames of the Subversion years, match as well, if the registers list them as an identity of the kind `name`.
 A display name in `curated/mappings/people.csv` matches only when it has more than one word, since a one-word display name is often a login or a first name that nobody checked against the changelogs.
+So does the identity of the kind `name` that holds the name of a person without a GitHub account, the record of their name.
+A name that the identities give to two people maps to neither, because nothing tells them apart.
 The policy for short names governs them: a short name that several people may have used, such as a first name, is added only when the records show that one person used it in the changelogs.
 Two rules stay in the collector and are not identities: a name that equals a login with commits, and the part before the `@` of a Subversion address.
 

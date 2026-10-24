@@ -6,6 +6,7 @@ Shared by the tools and collectors that read the authors of commits in the cache
 import re
 
 from scripts.lib.changelogs import SVN_DOMAIN
+from scripts.lib.model.names import fold
 
 NOREPLY = re.compile(r'^(?:\d+\+)?(?P<login>[^@]+)@users\.noreply\.github\.com$', re.IGNORECASE)
 
@@ -47,6 +48,33 @@ def is_company_domain(domain):
     """Whether the domain may name an employer: not personal, not a local name, not Subversion-era."""
     domain = domain.lower().strip()
     return not (not domain or is_local_name(domain) or _PERSONAL.match(domain) or SVN_DOMAIN.match(domain))
+
+
+MIN_NAME_PART = 4  # a name part shorter than this inside a domain label is no evidence that the domain is own
+# Second-level labels under a two-letter country domain: foo.com.au, foo.co.uk, foo.ac.at
+_SECOND_LEVEL = {'com', 'co', 'org', 'net', 'ac', 'gov', 'edu', 'or', 'ne', 'go', 'ltd', 'plc'}
+
+
+def registrable_label(domain):
+    """The label that the owner of the domain chose: `foo` in foo.com, foo.com.au and mail.foo.co.uk."""
+    labels = domain.lower().strip().split('.')
+    if len(labels) >= 3 and len(labels[-1]) == 2 and labels[-2] in _SECOND_LEVEL:
+        return labels[-3]
+    return labels[-2] if len(labels) >= 2 else labels[0]
+
+
+def is_own_domain_for(domain, name, logins=()):
+    """Whether the domain looks like the person's own, which says nothing about an employer.
+
+    Its registrable label equals one of the GitHub logins or a whole part of the folded name, or contains a
+    part of at least four letters (`leeb` in andersonleeb.com). Use it only for a domain that no organisation
+    claims: a registered organisation always wins, so the company of a self-employed person is never lost.
+    """
+    label = fold(registrable_label(domain)).replace(' ', '')
+    parts = fold(name or '').split()
+    folded_logins = {fold(login).replace(' ', '') for login in logins if login}
+    return bool(label) and (label in folded_logins or label in parts
+                            or any(len(part) >= MIN_NAME_PART and part in label for part in parts))
 
 
 class Finder:

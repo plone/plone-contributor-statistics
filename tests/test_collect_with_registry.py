@@ -5,6 +5,7 @@ import pytest
 from scripts.collect import plone_contributors
 from scripts.collect.plone_contributors import PloneStatsExtractor, year_periods
 from scripts.lib import paths
+from tests.conftest import record_source
 
 SRC = 'https://example.org/record'
 
@@ -17,18 +18,18 @@ def local_commit(sha, email):
 
 @pytest.fixture
 def extractor(tmp_repo, monkeypatch):
-    paths.PEOPLE.write_text(
-        'id,name,github,source\n'
-        f'whit-morriss,Whit Morriss,whitmo,{SRC}\n'
-        f'benjamin-saller,Benjamin Saller,,{SRC}\n'
-        f'alan-runyan,Alan Runyan,runyaga,{SRC}\n', encoding='utf-8')
+    sid = record_source(SRC)
+    paths.PEOPLE.write_text('id,name\nalan-runyan,Alan Runyan\nbenjamin-saller,Benjamin Saller\n'
+                            'whit-morriss,Whit Morriss\n', encoding='utf-8')
     paths.IDENTITIES.write_text(
-        'person,kind,value,source\n'
-        f'whit-morriss,email,whit@localhost,{SRC}\n'
-        f'benjamin-saller,email,bsaller@localhost,{SRC}\n'
-        f'whit-morriss,email,linked@example.org,{SRC}\n'
-        f'alan-runyan,login,bobdobbs666,{SRC}\n'
-        f'benjamin-saller,login,bsaller-gh,{SRC}\n', encoding='utf-8')
+        'person,kind,value,source,snippet,notes\n'
+        f'alan-runyan,github,runyaga,{sid},,\n'
+        f'alan-runyan,github-alias,bobdobbs666,{sid},,\n'
+        f'benjamin-saller,email,bsaller@localhost,{sid},,\n'
+        f'benjamin-saller,github-alias,bsaller-gh,{sid},,\n'
+        f'whit-morriss,email,linked@example.org,{sid},,\n'
+        f'whit-morriss,email,whit@localhost,{sid},,\n'
+        f'whit-morriss,github,whitmo,{sid},,\n', encoding='utf-8')
 
     linked = {'linked@example.org': 'alice', 'bot@example.org': 'pre-commit-ci[bot]',
               'alan@enfoldsystems.com': 'bobdobbs666', 'ben@example.org': 'bsaller-gh'}
