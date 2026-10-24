@@ -116,3 +116,54 @@ def test_an_added_row_supersedes_nothing(registers):
     decision = Citation(ZOE, captured, None, 'abcdefabcdef', f'"{WORKS}" and "{LEADS}"')
     result = cite_snippets.fill([decision], [], load_sources())
     assert [(c.snippet, c.supersedes) for c in result.citations] == [(WORKS, 'abcdefabcdef'), (LEADS, None)]
+
+
+@pytest.mark.parametrize('notes', [
+    'cited as: his talk "AbFab! Come back to easy frontend development"',
+    'a talk titled "Jane Doe works at Example Company"',
+    'its Title: "Jane Doe works at Example Company"',
+    'a project CALLED "Jane Doe works at Example Company"',
+])
+def test_a_quoted_title_is_no_quote(notes):
+    assert cite_snippets.quotes_in(notes) == []
+
+
+def test_a_title_word_further_before_the_quote_does_not_count():
+    assert cite_snippets.quotes_in('the talk page, cited as: "Jane Doe works at Example Company"') == [WORKS]
+
+
+def test_a_quoted_title_fills_no_snippet(registers):
+    from scripts.lib.model import load_sources
+
+    captured, _ = registers
+    row = Citation(ZOE, captured, None, None, f'his talk "{WORKS}"')
+    assert cite_snippets.fill([row], [], load_sources()).citations == [row]
+
+
+def test_a_quote_overlapping_a_cited_snippet_is_not_cited_again(registers):
+    from scripts.lib.model import load_sources
+
+    captured, _ = registers
+    cited = Citation(ZOE, captured, 'Jane Doe works at  Example Company', None, None)
+    longer = Citation(ZOE, captured, None, None, f'"{WORKS} since 2015"; "{LEADS}"')
+    prefix = Citation(JANE, captured, None, None, f'"{WORKS}"; "Jane Doe works at Example"')
+    result = cite_snippets.fill([cited, longer, prefix], [], load_sources())
+    assert [(c.affiliation, c.snippet) for c in result.citations] == [
+        (ZOE, cited.snippet), (ZOE, LEADS), (JANE, WORKS)]
+
+
+def test_the_dry_run_lists_every_change(registers, capsys):
+    captured, _ = registers
+    extra = [Citation(f'a0000000{n}', captured, None, None, f'cited as: "{WORKS}"') for n in range(7)]
+    write_citations([*load_citations(), *extra])
+    cite_snippets.main([])
+    lines = capsys.readouterr().out.splitlines()
+    filled = [line for line in lines if line.startswith('citation filled: ')]
+    assert len(filled) == 8  # jane's row and the seven rows of unknown affiliations
+    assert f'citation filled: jane, {JANE}, source {captured}: "{WORKS}" (after: cited as:)' in filled
+    assert f'citation filled: ?, a00000006, source {captured}: "{WORKS}" (after: cited as:)' in filled
+    added = [line for line in lines if line.startswith('citation row added: ')]
+    assert len(added) == 1
+    assert added[0].startswith(f'citation row added: jane, {JANE}, source {captured}: "{LEADS}" (after: …')
+    assert added[0].endswith('Example Company", speaker page;)')
+    assert f'identity filled: jane, name Jane Doe, source {captured}: "{LEADS}" (after: cited as:)' in lines

@@ -119,9 +119,10 @@ python -m scripts.tools.cite_snippets --write
 ```
 
 The tool looks for each quote between double quotes in the `notes`, at least eight characters long, in the excerpt of the source, compared as the capture compares a quote.
+A quote right after `talk`, `titled`, `title` or `called` is the title of a talk or project, not evidence, and the tool skips it.
 The first quote it finds fills the empty snippet; for a citation, each further quote it finds adds a citation of the same affiliation and source, with the same notes.
-It skips sources that were never read, and a quote that the affiliation already cites from the source.
-Without `--write` it prints what it would change.
+It skips sources that were never read, and a quote that covers words of the excerpt that the affiliation already cites from the source, such as the same sentence in other typography or a part of it.
+Without `--write` it prints every change it would make, with the person, the source, the snippet and the words of the notes before the quote; read them before you write.
 Running it again changes nothing, so you can run it after any capture.
 
 ## Capture many sources at once
