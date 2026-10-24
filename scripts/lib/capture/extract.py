@@ -165,7 +165,7 @@ LANGUAGES = ('en', 'de', 'es', 'pt', 'it', 'nl', 'fr')  # the order of preferenc
 # Only the automatic captions in the spoken language: yt-dlp names them `<language>-orig`, and a plain language
 # code (`en`) selects YouTube's machine translation into it, which YouTube refuses to serve (HTTP 429).
 # `.*-orig` also matches the captions of the AI-dubbed audio tracks, so it is asked for only when the language
-# of the video is unknown; otherwise `<language>-orig`
+# of the video is unknown; otherwise `<language>-orig`, in any region of the language
 ORIGINAL_TRACKS = '.*-orig'
 UNKNOWN_LANGUAGES = {'', 'na', 'none', 'null'}  # what yt-dlp prints for a video without a language
 LANGUAGE_CODE = re.compile(r'^[A-Za-z]{2,3}(?:-[A-Za-z0-9]+)*$')
@@ -176,7 +176,9 @@ VIDEO_TIMEOUT = 600  # seconds for one call of yt-dlp
 TRACKS_MANIFEST = 'tracks.json'  # in the cache folder of a video: the tracks of its last download, and its title
 YOUTUBE_HOSTS = {'youtube.com', 'm.youtube.com', 'youtube-nocookie.com'}
 YOUTUBE_PATHS = {'embed', 'shorts', 'live', 'v'}  # `/<path>/<video id>`
-VIDEO_ID = re.compile(r'^[A-Za-z0-9_-]+$')
+VIDEO_ID = re.compile(r'^[A-Za-z0-9_-]{11}$')  # a YouTube video id
+REGION = '(-[A-Za-z0-9]+)*'  # what may follow a language in a track name: `de` names `de-DE-orig` too
+NO_PLAYLIST = '--no-playlist'  # an address of a video in a playlist reads that video only
 ISSUE_PATH = re.compile(r'^/([^/]+)/([^/]+)/(?:issues|pull)/(\d+)/?$')
 COMMENT_FRAGMENT = re.compile(r'^(issuecomment|discussion_r|pullrequestreview)-?(\d+)$')
 COMMIT_PATH = re.compile(r'^/([^/]+)/([^/]+)/commit/([0-9a-fA-F]+)/?$')
@@ -401,16 +403,18 @@ def track_language(name: str) -> str:
     return name[:-len('.vtt')].rsplit('.', 1)[-1].removesuffix('-orig')
 
 
-def language_codes(language: str | None) -> tuple[str, ...]:
-    """The track languages of a video language: itself, and without its region (`en-US`: also `en`).
+def base_language(language: str) -> str:
+    """The language without its region: `en` for `en-US`, `de` for `de-DE`.
 
-    yt-dlp takes the language of the video from its audio track, which may carry a region that the name of the
-    original caption track does not.
+    yt-dlp takes the language of the video from its audio track, whose region may differ from the name of the
+    original caption track, either way (`en-US` and `en-orig`, `de` and `de-DE-orig`).
     """
-    if not language:
-        return ()
-    base = language.split('-')[0]
-    return (language,) if base == language else (language, base)
+    return language.split('-')[0].lower()
+
+
+def in_language(name: str, language: str | None) -> bool:
+    """True when the caption file is in the language of the video, in any region of it."""
+    return bool(language) and base_language(track_language(name)) == base_language(language)
 
 
 def track_rank(name: str, language: str | None = None):
@@ -423,12 +427,12 @@ def track_rank(name: str, language: str | None = None):
     own = track_language(name)
     base = own.split('-')[0]
     order = LANGUAGES.index(base) if base in LANGUAGES else len(LANGUAGES)
-    return (0 if own in language_codes(language) else 1, 0 if name.endswith('-orig.vtt') else 1, order, name)
+    return (0 if in_language(name, language) else 1, 0 if name.endswith('-orig.vtt') else 1, order, name)
 
 
 def _in_language(names, language):
     """The tracks in the language of the video; all of them when the language is unknown or none is in it."""
-    chosen = [name for name in names if track_language(name) in language_codes(language)]
+    chosen = [name for name in names if in_language(name, language)]
     return chosen or list(names)
 
 
@@ -491,7 +495,8 @@ def _keep(download, workdir):
     """Move the tracks of a download folder into workdir and remove the folder.
 
     A track that workdir holds already stays when it is the same; a different earlier version is kept beside it as
-    `<name>.<hash>`, which is not a track name, so no downloaded caption file is ever lost.
+    `<name>.<hash>`, which is not a track name, so no downloaded caption file is ever lost. A download folder that
+    holds anything else than tracks and partial downloads (`.part`), such as captions in another format, stays.
     """
     for name in _captions(download):
         source, target = os.path.join(download, name), os.path.join(workdir, name)
@@ -502,7 +507,8 @@ def _keep(download, workdir):
                 continue
             os.replace(target, f'{target}.{hashlib.sha256(old_body).hexdigest()[:12]}')
         os.replace(source, target)
-    shutil.rmtree(download, ignore_errors=True)  # what is left is a duplicate or a partial download
+    if all(name.endswith(('.vtt', '.part')) for name in os.listdir(download)):
+        shutil.rmtree(download, ignore_errors=True)  # what is left is a duplicate or a partial download
 
 
 def _language(value):
@@ -520,7 +526,8 @@ def _info(url, run, runtime):
     A refusal (HTTP 429) raises ExtractError, a timeout TimeoutExpired: no further call is made then.
     """
     try:
-        result = run(['yt-dlp', '--skip-download', '--print', 'title', '--print', 'language', *runtime, url],
+        result = run(['yt-dlp', '--skip-download', NO_PLAYLIST, '--print', 'title', '--print', 'language', *runtime,
+                      url],
                      capture_output=True, check=False, timeout=VIDEO_TIMEOUT)
     except subprocess.CalledProcessError as error:
         result = error
@@ -547,17 +554,17 @@ def _download(url, download, run, fetcher, which):
         with fetcher.paced(VIDEO_PACE_KEY):
             title, language = _info(url, run, runtime)
             if language:  # a code of letters, digits and hyphens: nothing in it is special in a pattern
-                codes = language_codes(language)
-                downloads = (['--write-auto-sub', '--sub-langs', ','.join(f'{code}-orig' for code in codes)],
-                             ['--write-sub', '--sub-langs', ','.join(codes)],
+                base = base_language(language)
+                downloads = (['--write-auto-sub', '--sub-langs', f'{base}{REGION}-orig'],
+                             ['--write-sub', '--sub-langs', f'{base}{REGION}'],
                              ['--write-sub', '--sub-langs', MANUAL_TRACKS])
             else:
                 downloads = (['--write-auto-sub', '--sub-langs', ORIGINAL_TRACKS],
                              ['--write-sub', '--sub-langs', MANUAL_TRACKS])
             for tracks in downloads:
                 try:
-                    run(['yt-dlp', '--skip-download', *tracks, *options, url], capture_output=True, check=True,
-                        timeout=VIDEO_TIMEOUT)
+                    run(['yt-dlp', '--skip-download', NO_PLAYLIST, *tracks, *options, url], capture_output=True,
+                        check=True, timeout=VIDEO_TIMEOUT)
                 except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as error:
                     failure = error
                 if _captions(download):
@@ -588,22 +595,25 @@ def extract_video(url: str, workdir: str, run=subprocess.run, fetcher=None, whic
     earlier version fetched, are ignored, and no caption file is ever removed. Of the listed tracks, those in the
     language of the video are read; all of them when the manifest has no language or none is in it.
 
-    yt-dlp is asked first for the title and the language of the video. With a language, it is asked for the
-    original automatic track in it (`<language>-orig`), else for the manual subtitles in it, else for all manual
-    subtitles; without, for every original automatic track (`.*-orig`, which includes the captions of dubbed audio
-    tracks), else for all manual subtitles. Machine translations are never asked for. yt-dlp writes into a fresh
-    folder in workdir, so the tracks of this read are told from those of earlier reads, and they are moved into
-    workdir. `text` is the preferred track, `full_text` every track read as its own paragraph, so a quote in
-    another language is still found and cut from the lines of its own track.
+    yt-dlp is asked first for the title and the language of the video. With a language, it is asked for the original
+    automatic track in it (`<language>-orig`, in any region of the language), else for the manual subtitles in it,
+    else for all manual subtitles; without, for every original automatic track (`.*-orig`, which includes the
+    captions of dubbed audio tracks), else for all manual subtitles. Machine translations are never asked for.
+    yt-dlp writes into a fresh folder in workdir, so the tracks of this read are told from those of earlier reads,
+    and they are moved into workdir. `text` is the preferred track, `full_text` every track read as its own
+    paragraph, so a quote in another language is still found and cut from the lines of its own track.
 
     A call that fails or times out after it wrote tracks still counts: what was written is read. Without any
     track, an `HTTP Error 429` in the output of yt-dlp is a distinct error (`rate limited: …`), a timeout is
     `timed out`, and no further call is made; any other failure is `yt-dlp failed`, no failure `has no captions`.
-    A read without any track writes no manifest.
+    A read without any track writes no manifest. A YouTube address without a video id, such as a playlist or a
+    channel, is refused before any call; every call reads the one video only (`--no-playlist`).
 
     Polite to YouTube: a pause between the downloads of all processes (the pace of the fetcher), and the pauses
     of yt-dlp between its requests.
     """
+    if host_of(url) in YOUTUBE_HOSTS | {'youtu.be'} and not VIDEO_ID.match(video_folder(url)):
+        raise ExtractError(f'not a single video: {url} names no YouTube video id')
     os.makedirs(workdir, exist_ok=True)
     cached = None if refresh else _manifest_tracks(workdir)
     if cached is not None:

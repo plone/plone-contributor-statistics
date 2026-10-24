@@ -91,7 +91,8 @@ The tool prints `! not found: <quote>` and exits with status 1; it stores nothin
 When none of the quotes for a new source is found, it stores nothing at all, not even the row of the source.
 Open the page, copy the sentence again and check the spelling.
 The text may sit in a part of the page that is not part of the article, in which case the tool also searches the rest of the page.
-For a video, the tool first asks YouTube for the title and the language of the video, and reads only the original caption track: the automatic captions in that language, and when a video has none, its manual subtitles in that language, else all its manual subtitles.
+For a video, the tool first asks YouTube for the title and the language of the video, and reads only the original caption track: the automatic captions in that language, in any of its regions, and when a video has none, its manual subtitles in that language, else all its manual subtitles.
+It reads one video only: it refuses a YouTube address without a video id, such as a playlist or a channel, and reads only the video of an address that also names a playlist.
 When YouTube names no language, it reads every original track, which includes the captions of a dubbed audio track.
 It never fetches the machine translations of the captions, which YouTube refuses to serve.
 It searches the preferred track first, then the other tracks it downloaded.

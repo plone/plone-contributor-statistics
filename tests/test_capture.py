@@ -360,7 +360,7 @@ def test_video_tracks_are_kept_per_video(web, monkeypatch):
     """The tracks are kept in one folder per video, by its YouTube id; another address of the video reads them
     without asking YouTube, and --refresh asks again."""
     fetcher, _ = web(session=NoNetwork())
-    url = 'https://www.youtube.com/watch?v=abc'
+    url = 'https://www.youtube.com/watch?v=abcdefghijk'
     sid = source_id(url)
     workdirs = []
 
@@ -382,14 +382,14 @@ def test_video_tracks_are_kept_per_video(web, monkeypatch):
         raise AssertionError(f'yt-dlp was called: {cmd}')
 
     result = capture(url, ['work for Zest'], fetcher=fetcher, run=run)
-    assert workdirs == [os.path.join(os.environ['PLONE_STATS_CACHE'], 'sources', 'video', 'abc')]
+    assert workdirs == [os.path.join(os.environ['PLONE_STATS_CACHE'], 'sources', 'video', 'abcdefghijk')]
     row = load_sources()[sid]
     assert (row.kind, row.title, row.date) == ('video', 'A talk', NOW.date())
     assert result.added == ('[01:02] I work for Zest Software\n[01:04] and Plone',)
 
     # a read from the kept tracks is as old as their download, as a page read from the cache
     monkeypatch.setattr(fetch_module, 'now', lambda: NOW + datetime.timedelta(days=3))
-    other = capture('https://youtu.be/abc', ['and Plone'], fetcher=fetcher, run=no_run)
+    other = capture('https://youtu.be/abcdefghijk', ['and Plone'], fetcher=fetcher, run=no_run)
     assert other.source_id != sid and other.added == ('[01:02] I work for Zest Software\n[01:04] and Plone',)
     row = load_sources()[other.source_id]
     assert (row.title, row.fetched, row.date) == ('A talk', NOW, NOW.date())
@@ -460,7 +460,7 @@ def test_new_source_without_quotes_is_refused(web):
 
 def test_video_quote_in_another_track_is_cut_from_that_track(web):
     fetcher, _ = web(session=NoNetwork())
-    url = 'https://www.youtube.com/watch?v=abc'
+    url = 'https://www.youtube.com/watch?v=abcdefghijk'
     tracks = {'abc.en-orig.vtt': 'WEBVTT\n\n00:00:01.000 --> 00:00:02.000\nI work for Zest Software\n',
               'abc.de.vtt': 'WEBVTT\n\n00:00:01.000 --> 00:00:02.000\nIch arbeite bei Zest Software\n'}
 
@@ -732,7 +732,7 @@ def test_renewing_takes_a_given_kind(web):
 
 
 def test_renewing_takes_a_specific_kind_of_the_read(web):
-    url = 'https://www.youtube.com/watch?v=abc'
+    url = 'https://www.youtube.com/watch?v=abcdefghijk'
     sid = uncaptured_source(url, 'not captured on 2026-10-22: rate limited (HTTP 429)', kind='speaker-page')
     fetcher, _ = web(session=NoNetwork())
 
