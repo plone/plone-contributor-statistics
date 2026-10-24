@@ -335,10 +335,13 @@ def test_extract_video_command(tmp_path):
             (tmp_path / 'abc.en.vtt').write_text(VTT, encoding='utf-8')
         return subprocess.CompletedProcess(command, 0, stdout=b'T\n', stderr=b'')
     extract_video('https://youtu.be/abc', str(tmp_path), run=run, which=lambda name: '/usr/bin/node')
-    download = next(c for c in calls if '--print' not in c)
+    downloads = [c for c in calls if '--print' not in c]
+    assert len(downloads) == 1  # the original tracks were found: no call for manual subtitles
+    download = downloads[0]
     assert download[0] == 'yt-dlp' and '--skip-download' in download
-    assert download[download.index('--sub-langs') + 1] == (
-        'en-orig,de-orig,es-orig,pt-orig,it-orig,nl-orig,fr-orig,en,de,es,pt,it,nl,fr')
+    # only the original automatic tracks: a plain language code selects a machine translation
+    assert '--write-auto-sub' in download and '--write-sub' not in download
+    assert download[download.index('--sub-langs') + 1] == '.*-orig'
     assert download[download.index('--sleep-subtitles') + 1] == '5'
     assert download[download.index('--sleep-requests') + 1] == '2'
     assert download[download.index('--js-runtimes') + 1] == 'node'
@@ -572,3 +575,96 @@ def test_extract_video_rate_limit_is_named(tmp_path):
             1, command, stderr=b'ERROR: Unable to download: HTTP Error 429: Too Many Requests')
     with pytest.raises(ExtractError, match='^rate limited:'):
         extract_video('https://youtu.be/x', str(tmp_path), run=run)
+
+
+def video_run(workdir, auto=None, manual=None, calls=None, fail=None):
+    """yt-dlp writing the automatic tracks for `--write-auto-sub`, the manual ones for `--write-sub`;
+    `fail` (stderr) makes a download exit non-zero after writing its tracks."""
+    def run(command, **kwargs):
+        if calls is not None:
+            calls.append(command)
+        if '--print' in command:
+            return subprocess.CompletedProcess(command, 0, stdout=b'T\n', stderr=b'')
+        tracks = (auto if '--write-auto-sub' in command else manual) or {}
+        for name, text in tracks.items():
+            (workdir / name).write_text(text, encoding='utf-8')
+        if fail is not None:
+            raise subprocess.CalledProcessError(1, command, stderr=fail)
+        return subprocess.CompletedProcess(command, 0, stdout=b'', stderr=b'')
+    return run
+
+
+def test_extract_video_without_original_tracks_asks_once_for_manual_subtitles(tmp_path):
+    calls = []
+    run = video_run(tmp_path, manual={'x.en.vtt': vtt('I work for Zest')}, calls=calls)
+    result = extract_video('https://youtu.be/x', str(tmp_path), run=run, which=lambda name: '/usr/bin/node')
+    assert result.text == '[00:00] I work for Zest'
+    downloads = [c for c in calls if '--print' not in c]
+    assert len(downloads) == 2
+    manual = downloads[1]
+    assert '--write-sub' in manual and '--write-auto-sub' not in manual
+    assert manual[manual.index('--sub-langs') + 1] == 'all'
+    for flag, value in (('--sleep-subtitles', '5'), ('--sleep-requests', '2'), ('--js-runtimes', 'node'),
+                        ('-o', os.path.join(str(tmp_path), '%(id)s'))):
+        assert manual[manual.index(flag) + 1] == value
+    assert calls[-1][:3] == ['yt-dlp', '--skip-download', '--print']  # the title last
+
+
+def test_extract_video_without_any_track_raises_no_captions(tmp_path):
+    calls = []
+    with pytest.raises(ExtractError, match='has no captions'):
+        extract_video('https://youtu.be/x', str(tmp_path), run=video_run(tmp_path, calls=calls))
+    assert len([c for c in calls if '--print' not in c]) == 2
+
+
+def test_extract_video_reads_only_the_tracks_of_this_read(tmp_path):
+    """A machine translation left in the folder by an earlier read is not a track of the video."""
+    (tmp_path / 'x.de.vtt').write_text(vtt('Ich arbeite bei Zest'), encoding='utf-8')
+    run = video_run(tmp_path, auto={'x.en-orig.vtt': vtt('I work for Zest')})
+    result = extract_video('https://youtu.be/x', str(tmp_path), run=run)
+    assert result.full_text == '[00:00] I work for Zest'
+    assert sorted(os.listdir(tmp_path)) == ['x.en-orig.vtt']
+
+
+def test_extract_video_uses_the_tracks_written_before_a_failure(tmp_path):
+    calls = []
+    run = video_run(tmp_path, auto={'x.en-orig.vtt': vtt('I work for Zest')}, calls=calls,
+                    fail=b'ERROR: Unable to download video subtitles for \'de-orig\': HTTP Error 429')
+    result = extract_video('https://youtu.be/x', str(tmp_path), run=run)
+    assert result.text == '[00:00] I work for Zest'
+    assert len([c for c in calls if '--print' not in c]) == 1
+
+
+def test_extract_video_manual_tracks_written_before_a_failure(tmp_path):
+    def run(command, **kwargs):
+        if '--print' in command:
+            return subprocess.CompletedProcess(command, 0, stdout=b'T\n', stderr=b'')
+        if '--write-sub' in command:
+            (tmp_path / 'x.de.vtt').write_text(vtt('Ich arbeite bei Zest'), encoding='utf-8')
+        raise subprocess.CalledProcessError(1, command, stderr=b'ERROR: something else')
+    result = extract_video('https://youtu.be/x', str(tmp_path), run=run)
+    assert result.text == '[00:00] Ich arbeite bei Zest'
+
+
+def test_extract_video_rate_limit_asks_no_more(tmp_path):
+    """After a 429 without any track, no call for manual subtitles: YouTube asked us to wait."""
+    calls = []
+    with pytest.raises(ExtractError, match='^rate limited:'):
+        extract_video('https://youtu.be/x', str(tmp_path),
+                      run=video_run(tmp_path, calls=calls, fail=b'ERROR: HTTP Error 429: Too Many Requests'))
+    assert len(calls) == 1
+
+
+def test_extract_video_rate_limit_of_the_manual_call_is_named(tmp_path):
+    def run(command, **kwargs):
+        if '--write-sub' in command:
+            raise subprocess.CalledProcessError(1, command, stderr=b'ERROR: HTTP Error 429: Too Many Requests')
+        return subprocess.CompletedProcess(command, 0, stdout=b'', stderr=b'')
+    with pytest.raises(ExtractError, match='^rate limited:'):
+        extract_video('https://youtu.be/x', str(tmp_path), run=run)
+
+
+def test_extract_video_failure_without_tracks_is_named(tmp_path):
+    with pytest.raises(ExtractError, match='^yt-dlp failed'):
+        extract_video('https://youtu.be/x', str(tmp_path),
+                      run=video_run(tmp_path, fail=b'ERROR: Video unavailable'))
