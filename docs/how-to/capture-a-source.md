@@ -103,6 +103,7 @@ A fetch error such as a refusal or a timeout is not a gone page: the tool prints
 Some sources are in the register without their text: their `notes` start with `not captured on` (a URL that the migration to citations could not capture) or `could not be fetched on` (a page that was gone, without a Wayback capture), and their excerpt holds only that note.
 Capture such a source as any other, with `--quote` or `--name`; the tool fetches it even though it is in the register.
 When it reads the page and finds at least one passage, it renews the row from what it read, as for a new source: the kind, the title, the date and the fetch time, and the notes, which lose the old note and keep only what this read notes, such as `served …` or `page shows date …`.
+A kind given in the register, such as `speaker-page`, stays when the tool reads the source as an ordinary web page, of kind `page`, and you give no `--kind`; a kind the tool reads more specifically, such as `video`, `profile`, `commit`, `issue-comment` or `pdf`, replaces it.
 The passages it found replace the note in the excerpt.
 When it finds nothing, or the page is still gone, the row and its note stay as they are.
 

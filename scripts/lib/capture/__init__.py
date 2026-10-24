@@ -53,6 +53,7 @@ from scripts.lib.model.sources import UNCAPTURED_MARKERS
 KIND_BY_ADAPTER = {'github-profile': 'profile', 'github-issue': 'issue-comment', 'commit': 'commit', 'video': 'video',
                    'google-doc': 'page'}
 WHOLE_TEXT_KINDS = ('profile', 'commit')
+GENERIC_KIND = 'page'  # what a read knows of a web page that no adapter reads more specifically
 OWN_REPOSITORY = 'plone/plone-contributor-statistics'  # its issues and comments are our own public record
 # a block of an issue page starts after a blank line with its optional title and its author and date lines
 BLOCK_START = re.compile(r'\n\n(?=(?:Title: [^\n]*\n)?Author: [^\n]*\nDate: )')
@@ -306,9 +307,12 @@ def capture(url: str, quotes: Sequence[str] = (), kind: str | None = None, title
 def _renew(existing, read, kind, title, date, found, missing):
     """Renew a source that was never read from this read, which found passages: its kind, title, date, fetch
     time and notes come from the read as for a new source (the notes of the read, such as `served …`, stay),
-    and the passages replace the note that its excerpt held."""
+    and the passages replace the note that its excerpt held. A curated kind (such as `speaker-page`) stays when
+    no kind is given and the read knows no more than the generic `page`; a specific kind of the read (video,
+    profile, commit, issue-comment, pdf) replaces it."""
     new = _source(None, existing.id, read, kind, title, date, read.notes, False)
-    write_source(dataclasses.replace(existing, kind=new.kind, title=new.title, date=new.date, fetched=new.fetched,
+    new_kind = existing.kind if kind is None and read.kind == GENERIC_KIND else new.kind
+    write_source(dataclasses.replace(existing, kind=new_kind, title=new.title, date=new.date, fetched=new.fetched,
                                      notes=new.notes))
     kept = [passage for passage in passages(existing.id) if not passage.startswith(UNCAPTURED_MARKERS)]
     replace_excerpt(existing.id, PASSAGE_SEPARATOR.join(kept))
