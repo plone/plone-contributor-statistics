@@ -9,6 +9,7 @@ The registers say who people and organisations are:
 - `curated/mappings/identities.csv` has the GitHub logins, further GitHub accounts, commit addresses and spellings of the name that denote a person, each citing a source.
 - `curated/mappings/affiliations.csv` has the organisation a person belonged to in which years, with a status: `stated`, `assumed`, `denied` or `proposed`.
 - `curated/mappings/citations.csv` has the sources each affiliation rests on, one row per source and passage, with the passage as a snippet.
+  A citation whose source was not read yet has an empty snippet; once the source is captured, `python -m scripts.tools.cite_snippets --write` fills it from the quotes in its `notes`, see {ref}`how-to-capture-a-source-not-read`.
 - `curated/mappings/organisations.csv` has one row per organisation.
 
 The sources that identities and citations name by id are in the source register, `curated/sources/sources.csv`, with an excerpt file of the cited passages per source.

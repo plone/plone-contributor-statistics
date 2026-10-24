@@ -11,6 +11,7 @@ Do this when a fact rests on a page, a profile, a commit or a video, and you wan
 2.  Capture the page with the tool.
     A GitHub profile, commit, issue, pull request or comment is read through the GitHub API, so set `GITHUB_TOKEN` in the environment for those; never pass a token on the command line.
     A PDF is read with `pdftotext` from poppler, and a video with `yt-dlp`; install them to capture those.
+    For YouTube, `yt-dlp` may need a PO-token provider before YouTube serves the captions, see the [PO Token Guide](https://github.com/yt-dlp/yt-dlp/wiki/PO-Token-Guide) of yt-dlp.
     A Google Doc is read through its plain-text export, so only a public document can be captured; a private one, which asks to sign in, is refused with `not a public document`.
     Its spellings with `/edit`, `?usp=sharing` or a heading anchor are one source.
     A Wayback address needs the full 14-digit timestamp of the capture, as in the example.
@@ -86,8 +87,11 @@ The tool prints `! not found: <quote>` and exits with status 1; it stores nothin
 When none of the quotes for a new source is found, it stores nothing at all, not even the row of the source.
 Open the page, copy the sentence again and check the spelling.
 The text may sit in a part of the page that is not part of the article, in which case the tool also searches the rest of the page.
-For a video, the tool searches the captions in the spoken language first, then the captions in the other languages it downloaded.
-It asks YouTube only for the original caption tracks, never for translations, and waits at least 30 seconds between two downloads, also across runs; a video that YouTube refuses with `rate limited:` can be captured again later.
+For a video, the tool reads only the original caption tracks: the automatic captions in the spoken language, and when a video has none, its manual subtitles.
+It never fetches the machine translations of the captions, which YouTube refuses to serve.
+It searches the preferred track first, then the other tracks it downloaded.
+It waits at least 30 seconds between two videos, also across runs.
+When YouTube refuses a download but some tracks arrived, the tool reads those; when none arrived, a refusal reads `rate limited:` and the video can be captured again later.
 Do not shorten a quote until it matches something that does not say what you cite.
 
 ## A page is not reachable
@@ -106,6 +110,19 @@ When it reads the page and finds at least one passage, it renews the row from wh
 A kind given in the register, such as `speaker-page`, stays when the tool reads the source as an ordinary web page, of kind `page`, and you give no `--kind`; a kind the tool reads more specifically, such as `video`, `profile`, `commit`, `issue-comment` or `pdf`, replaces it.
 The passages it found replace the note in the excerpt.
 When it finds nothing, or the page is still gone, the row and its note stay as they are.
+
+The citations and identities that cite such a source often have an empty snippet and keep the quote in their `notes`, as `cited as: "…"`.
+After capturing it, fill their snippets from those quotes:
+
+```shell
+python -m scripts.tools.cite_snippets --write
+```
+
+The tool looks for each quote between double quotes in the `notes`, at least eight characters long, in the excerpt of the source, compared as the capture compares a quote.
+The first quote it finds fills the empty snippet; for a citation, each further quote it finds adds a citation of the same affiliation and source, with the same notes.
+It skips sources that were never read, and a quote that the affiliation already cites from the source.
+Without `--write` it prints what it would change.
+Running it again changes nothing, so you can run it after any capture.
 
 ## Capture many sources at once
 
