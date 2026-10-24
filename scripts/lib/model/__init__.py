@@ -37,8 +37,11 @@ from scripts.lib.model.registers import (  # noqa: F401
     load_bot_accounts,
     load_citations,
     load_excluded_repositories,
+    load_identities,
     load_registry,
     load_rejections,
+    write_citations,
+    write_identities,
 )
 from scripts.lib.model.sources import (  # noqa: F401
     PASSAGE_SEPARATOR,

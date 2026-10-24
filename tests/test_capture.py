@@ -690,7 +690,7 @@ def uncaptured_source(url, notes, timestamp=None, kind='video'):
 
 
 def test_capturing_an_uncaptured_source_renews_it(web):
-    sid = uncaptured_source(URL, 'not captured on 2026-10-22: rate limited (HTTP 429)')
+    sid = uncaptured_source(URL, 'not captured on 2026-10-22: rate limited (HTTP 429)', kind='page')
     fetcher, _ = web({URL: FakeResponse(body=ARTICLE)})
     result = capture(URL, ['He works for Zest Software'], fetcher=fetcher, run=no_run)
     assert result == CaptureResult(sid, False, (PARAGRAPH,), (), False)
@@ -698,6 +698,40 @@ def test_capturing_an_uncaptured_source_renews_it(web):
     assert (row.kind, row.title, row.date, row.url, row.fetched, row.notes) == (
         'page', 'Plone sprint report', datetime.date(2015, 3, 12), URL, NOW, None)
     assert read_excerpt(sid) == PARAGRAPH + '\n'
+
+
+def test_renewing_keeps_a_curated_kind_over_a_generic_page(web):
+    sid = uncaptured_source(URL, 'not captured on 2026-10-22: nothing found', kind='speaker-page')
+    fetcher, _ = web({URL: FakeResponse(body=ARTICLE)})
+    capture(URL, ['He works for Zest Software'], fetcher=fetcher, run=no_run)
+    row = load_sources()[sid]
+    assert (row.kind, row.title, row.notes) == ('speaker-page', 'Plone sprint report', None)
+
+
+def test_renewing_takes_a_given_kind(web):
+    sid = uncaptured_source(URL, 'not captured on 2026-10-22: nothing found', kind='speaker-page')
+    fetcher, _ = web({URL: FakeResponse(body=ARTICLE)})
+    capture(URL, ['He works for Zest Software'], kind='register', fetcher=fetcher, run=no_run)
+    assert load_sources()[sid].kind == 'register'
+
+
+def test_renewing_takes_a_specific_kind_of_the_read(web):
+    url = 'https://www.youtube.com/watch?v=abc'
+    sid = uncaptured_source(url, 'not captured on 2026-10-22: rate limited (HTTP 429)', kind='speaker-page')
+    fetcher, _ = web(session=NoNetwork())
+
+    class Done:
+        stdout = b'A talk\n'
+
+    def run(cmd, **kwargs):
+        if '--print' not in cmd:
+            workdir = os.path.dirname(cmd[cmd.index('-o') + 1])
+            with open(os.path.join(workdir, 'abc.en-orig.vtt'), 'w', encoding='utf-8') as handle:
+                handle.write('WEBVTT\n\n00:00:01.000 --> 00:00:02.000\nI work for Zest Software\n')
+        return Done()
+
+    capture(url, ['work for Zest'], fetcher=fetcher, run=run)
+    assert load_sources()[sid].kind == 'video'
 
 
 def test_capturing_an_unfetched_archived_copy_renews_it_with_the_notes_of_the_read(web):

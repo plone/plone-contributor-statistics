@@ -122,7 +122,7 @@ def excerpt_path(source_id):
     return Path(paths.EXCERPTS_DIR) / f'{source_id}.md'
 
 
-def _write_atomic(path, text):
+def write_atomic(path, text):
     """Write to a temporary file next to the path, then rename it: readers see the old file or the whole new one.
 
     The new file keeps the permissions of the old one (a temporary file is private to its owner).
@@ -161,7 +161,7 @@ def write_source(source):
     writer = csv.DictWriter(buffer, fieldnames=SOURCE_FIELDS, quoting=csv.QUOTE_MINIMAL, lineterminator='\n')
     writer.writeheader()
     writer.writerows(rows)
-    _write_atomic(paths.SOURCES, buffer.getvalue())
+    write_atomic(paths.SOURCES, buffer.getvalue())
     _MEMO[str(Path(paths.SOURCES).resolve())] = (_stamp(paths.SOURCES), dict(sorted(existing.items())))
 
 
@@ -185,7 +185,7 @@ def replace_excerpt(source_id, text):
     """Replace the whole excerpt of the source by the text (passages joined by PASSAGE_SEPARATOR), atomically."""
     path = excerpt_path(source_id)
     path.parent.mkdir(parents=True, exist_ok=True)
-    _write_atomic(path, text.strip() + '\n')
+    write_atomic(path, text.strip() + '\n')
 
 
 def add_passage(source_id, passage):
@@ -197,5 +197,5 @@ def add_passage(source_id, passage):
         return False
     path = excerpt_path(source_id)
     path.parent.mkdir(parents=True, exist_ok=True)
-    _write_atomic(path, PASSAGE_SEPARATOR.join([*existing, passage]) + '\n')
+    write_atomic(path, PASSAGE_SEPARATOR.join([*existing, passage]) + '\n')
     return True

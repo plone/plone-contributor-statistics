@@ -58,6 +58,7 @@ You need a GitHub account, and a public record for the affiliation: a link, or a
     The snippet is the quote, as the excerpt of the source holds it; `make check` looks for it there.
     A source with several quotes for the affiliation gets one row per quote.
     Leave the snippet empty only when no passage of the source says it, and say in `notes` what the source shows.
+    When the source could not be captured yet, put the quote in `notes` between double quotes; after a capture, `python -m scripts.tools.cite_snippets --write` turns it into the snippet, see {ref}`how-to-capture-a-source-not-read`.
     An affiliation that rests on several sources cites each of them.
 
 5.  Do not write a row for a year in which the affiliation is unknown.

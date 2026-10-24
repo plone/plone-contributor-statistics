@@ -2,6 +2,7 @@
 
 import csv
 import hashlib
+import io
 from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
@@ -10,7 +11,7 @@ from scripts.lib import paths
 from scripts.lib.model.attribution import DENIED, PROPOSED, Affiliation, Attribution, Citation
 from scripts.lib.model.names import fold
 from scripts.lib.model.schema import read_rows, split_set
-from scripts.lib.model.sources import load_sources
+from scripts.lib.model.sources import load_sources, write_atomic
 
 UNMAPPED = 'Unmapped'
 PERSON_PREFIX = 'person:'
@@ -274,6 +275,12 @@ def load_citations(mappings_dir=paths.MAPPINGS_DIR):
             for r in read_rows(Path(mappings_dir) / paths.CITATIONS.name)]
 
 
+def load_identities(mappings_dir=paths.MAPPINGS_DIR):
+    """The rows of identities.csv."""
+    return [Identity(r['person'], r['kind'], r['value'], r['source'], r['snippet'], r['notes'])
+            for r in read_rows(Path(mappings_dir) / paths.IDENTITIES.name)]
+
+
 def load_registry(mappings_dir=paths.MAPPINGS_DIR):
     """Read the registers in the directory; the citations, sources, excerpts and commit domains on first use.
 
@@ -285,8 +292,7 @@ def load_registry(mappings_dir=paths.MAPPINGS_DIR):
     mappings_dir = Path(mappings_dir)
     root = mappings_dir.parent.parent
     people = [Person(r['id'], r['name']) for r in read_rows(mappings_dir / paths.PEOPLE.name)]
-    identities = [Identity(r['person'], r['kind'], r['value'], r['source'], r['snippet'], r['notes'])
-                  for r in read_rows(mappings_dir / paths.IDENTITIES.name)]
+    identities = load_identities(mappings_dir)
     affiliations = [Affiliation(r['id'], r['person'], r['organisation'], r['from'], r['to'], r['status'],
                                 r['checked'], r['notes'])
                     for r in read_rows(mappings_dir / paths.AFFILIATIONS.name)]
@@ -329,11 +335,35 @@ def _cell(value):
 
 
 def _write_rows(path, fields, rows):
-    """Write the rows (dicts as read_rows returns them, or of texts) under the header of the fields."""
-    with open(path, 'w', newline='', encoding='utf-8') as f:
-        writer = csv.DictWriter(f, fieldnames=fields, quoting=csv.QUOTE_MINIMAL, lineterminator='\n')
-        writer.writeheader()
-        writer.writerows({field: _cell(row.get(field)) for field in fields} for row in rows)
+    """Write the rows (dicts as read_rows returns them, or of texts) under the header of the fields, atomically:
+    readers see the old file or the whole new one."""
+    buffer = io.StringIO()
+    writer = csv.DictWriter(buffer, fieldnames=fields, quoting=csv.QUOTE_MINIMAL, lineterminator='\n')
+    writer.writeheader()
+    writer.writerows({field: _cell(row.get(field)) for field in fields} for row in rows)
+    write_atomic(path, buffer.getvalue())
+
+
+def _citation_key(row):
+    """The order of citations.csv: affiliation, source, snippet (an empty snippet first)."""
+    return (row['affiliation'], row['source'], row['snippet'] or '')
+
+
+def _identity_key(row):
+    """The order of identities.csv: person, kind, value."""
+    return (row['person'], row['kind'], row['value'])
+
+
+def write_citations(citations, mappings_dir=MAPPINGS_DIR):
+    """Replace citations.csv by the citations (Citation rows), sorted as the checks expect, atomically."""
+    rows = [{field: getattr(citation, field) for field in CITATION_FIELDS} for citation in citations]
+    _write_rows(Path(mappings_dir) / paths.CITATIONS.name, CITATION_FIELDS, sorted(rows, key=_citation_key))
+
+
+def write_identities(identities, mappings_dir=MAPPINGS_DIR):
+    """Replace identities.csv by the identities (Identity rows), sorted as the checks expect, atomically."""
+    rows = [{field: getattr(identity, field) for field in IDENTITY_FIELDS} for identity in identities]
+    _write_rows(Path(mappings_dir) / paths.IDENTITIES.name, IDENTITY_FIELDS, sorted(rows, key=_identity_key))
 
 
 def affiliation_id(person, organisation, start, end):
@@ -371,8 +401,7 @@ def append_person(mappings_dir, person, identity):
     people.append({'id': person.id, 'name': person.name})
     identities.append({field: getattr(identity, field) for field in IDENTITY_FIELDS})
     _write_rows(mappings_dir / paths.PEOPLE.name, PEOPLE_FIELDS, sorted(people, key=lambda row: row['id']))
-    _write_rows(mappings_dir / paths.IDENTITIES.name, IDENTITY_FIELDS,
-                sorted(identities, key=lambda row: (row['person'], row['kind'], row['value'])))
+    _write_rows(mappings_dir / paths.IDENTITIES.name, IDENTITY_FIELDS, sorted(identities, key=_identity_key))
 
 
 def load_rejections(mappings_dir=MAPPINGS_DIR):
@@ -422,6 +451,5 @@ def append_proposals(rows, mappings_dir=MAPPINGS_DIR):
     if added:
         _write_rows(mappings_dir / paths.AFFILIATIONS.name, AFFILIATION_FIELDS,
                     sorted(affiliations, key=lambda row: (row['person'], row['from'], row['organisation'])))
-        _write_rows(mappings_dir / paths.CITATIONS.name, CITATION_FIELDS,
-                    sorted(citations, key=lambda row: (row['affiliation'], row['source'], row['snippet'] or '')))
+        _write_rows(mappings_dir / paths.CITATIONS.name, CITATION_FIELDS, sorted(citations, key=_citation_key))
     return added

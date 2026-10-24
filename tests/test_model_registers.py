@@ -298,3 +298,40 @@ def test_append_proposals_refuses_an_existing_id(write_registers):
         append_proposals([{'person': 'jane', 'organisation': 'acme', 'from': 2010, 'to': 2012,
                            'sources': [(sid, None)]}])
     assert paths.AFFILIATIONS.read_text(encoding='utf-8') == before
+
+
+def test_write_citations_sorts_the_rows(tmp_repo):
+    from scripts.lib.model import Citation, load_citations, write_citations
+
+    rows = [Citation('a00000002', SID, 'b snippet', None, 'notes, with a comma'),
+            Citation('a00000001', SID, 'z snippet', None, None),
+            Citation('a00000002', SID, None, None, 'cited as: "a quote"'),
+            Citation('a00000001', SID, 'a snippet', 'abcdefabcdef', None)]
+    write_citations(rows)
+    assert load_citations() == [rows[3], rows[1], rows[2], rows[0]]
+    assert paths.CITATIONS.read_text(encoding='utf-8').splitlines()[0] == 'affiliation,source,snippet,supersedes,notes'
+
+
+def test_write_identities_sorts_the_rows(tmp_repo):
+    from scripts.lib.model import load_identities, write_identities
+
+    rows = [Identity('zoe', 'name', 'Zoe', SID, 'Zoe works', None),
+            Identity('alan', 'github', 'runyaga', SID, None, 'https://github.com/runyaga'),
+            Identity('alan', 'email', 'alan@example.org', None, None, None)]
+    write_identities(rows)
+    assert load_identities() == [rows[2], rows[1], rows[0]]
+
+
+def test_the_writers_replace_the_file_atomically(tmp_repo, monkeypatch):
+    from scripts.lib.model import Citation, load_citations, write_citations
+    from scripts.lib.model import registers
+
+    before = [Citation('a00000001', SID, None, None, None)]
+    write_citations(before)
+
+    def broken(path, text):
+        raise OSError('disk full')
+    monkeypatch.setattr(registers, 'write_atomic', broken)
+    with pytest.raises(OSError):
+        write_citations([Citation('a00000002', SID, None, None, None)])
+    assert load_citations() == before
