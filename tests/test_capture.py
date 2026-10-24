@@ -356,7 +356,9 @@ def test_capture_commit_fails_for_an_unreachable_commit(web):
         capture_commit(url, 'jane@acme.test', fetcher=fetcher, session=session, run=no_run)
 
 
-def test_video_uses_one_workdir_per_source(web):
+def test_video_tracks_are_kept_per_video(web):
+    """The tracks are kept in one folder per video, by its YouTube id; another address of the video reads them
+    without asking YouTube, and --refresh asks again."""
     fetcher, _ = web(session=NoNetwork())
     url = 'https://www.youtube.com/watch?v=abc'
     sid = source_id(url)
@@ -369,17 +371,28 @@ def test_video_uses_one_workdir_per_source(web):
     def run(cmd, **kwargs):
         if '--print' in cmd:
             return Done(b'A talk\n')
-        workdir = os.path.dirname(cmd[cmd.index('-o') + 1])
-        workdirs.append(workdir)
-        with open(os.path.join(workdir, 'abc.en.vtt'), 'w', encoding='utf-8') as handle:
-            handle.write('WEBVTT\n\n00:01:02.000 --> 00:01:04.000\nI work for Zest Software\n')
+        download = os.path.dirname(cmd[cmd.index('-o') + 1])
+        workdirs.append(os.path.dirname(download))
+        with open(os.path.join(download, 'abc.en-orig.vtt'), 'w', encoding='utf-8') as handle:
+            handle.write('WEBVTT\n\n00:01:02.000 --> 00:01:04.000\nI work for Zest Software\n'
+                         '\n00:01:04.000 --> 00:01:06.000\nand Plone\n')
         return Done()
 
+    def no_run(cmd, **kwargs):
+        raise AssertionError(f'yt-dlp was called: {cmd}')
+
     result = capture(url, ['work for Zest'], fetcher=fetcher, run=run)
-    assert workdirs == [os.path.join(os.environ['PLONE_STATS_CACHE'], 'sources', 'video', sid)]
+    assert workdirs == [os.path.join(os.environ['PLONE_STATS_CACHE'], 'sources', 'video', 'abc')]
     row = load_sources()[sid]
     assert (row.kind, row.title, row.date) == ('video', 'A talk', NOW.date())
-    assert result.added == ('[01:02] I work for Zest Software',)
+    assert result.added == ('[01:02] I work for Zest Software\n[01:04] and Plone',)
+
+    other = capture('https://youtu.be/abc', ['and Plone'], fetcher=fetcher, run=no_run)
+    assert other.source_id != sid and other.added == ('[01:02] I work for Zest Software\n[01:04] and Plone',)
+    assert load_sources()[other.source_id].title == 'A talk'
+
+    capture(url, ['work for Zest'], refresh=True, fetcher=fetcher, run=run)
+    assert len(workdirs) == 2
 
 
 def test_refresh_keeps_the_row_but_its_fetch_time(web, monkeypatch):

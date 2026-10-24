@@ -77,6 +77,9 @@ The commit adapter reads commits from the clones of the collectors in `.cache/re
 
 A page that is in the cache is not fetched again, so running the tool twice makes one request.
 This also lets you finish a capture that was interrupted without asking the web again.
+The caption tracks of a video are kept in the cache as well, in one folder per video in `.cache/sources/video/`, named by the YouTube video id, with the list of the tracks in `tracks.json`.
+Another source of the same video and a later run read the kept tracks without asking YouTube again; only the tracks in that list are read.
+`--refresh` downloads the tracks again; the tool never removes a caption file, and keeps an earlier version of a track beside the new one.
 The tool waits between requests: about one second between requests to the same host, and four seconds between two requests to the Internet Archive, whether to `web.archive.org` or to `archive.org`.
 It keeps the time of the last request to each host in the cache, so the pace holds across several runs of the tool.
 When a server answers that there are too many requests and says how many seconds to wait, the tool waits that long before it tries again.

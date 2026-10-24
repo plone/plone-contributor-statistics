@@ -7,12 +7,14 @@ ever written whole to `curated/`.
 
 import dataclasses
 import datetime
+import hashlib
 import html as html_lib
 import json
 import os
 import re
 import shutil
 import subprocess
+import tempfile
 import urllib.parse
 
 import trafilatura
@@ -166,6 +168,10 @@ ORIGINAL_TRACKS = '.*-orig'
 MANUAL_TRACKS = 'all'
 VIDEO_PACE_KEY = 'youtube.com'  # paced with the Fetcher: 30 seconds between two yt-dlp downloads
 VIDEO_TIMEOUT = 600  # seconds for one call of yt-dlp
+TRACKS_MANIFEST = 'tracks.json'  # in the cache folder of a video: the tracks of its last download, and its title
+YOUTUBE_HOSTS = {'youtube.com', 'm.youtube.com', 'youtube-nocookie.com'}
+YOUTUBE_PATHS = {'embed', 'shorts', 'live', 'v'}  # `/<path>/<video id>`
+VIDEO_ID = re.compile(r'^[A-Za-z0-9_-]+$')
 ISSUE_PATH = re.compile(r'^/([^/]+)/([^/]+)/(?:issues|pull)/(\d+)/?$')
 COMMENT_FRAGMENT = re.compile(r'^(issuecomment|discussion_r|pullrequestreview)-?(\d+)$')
 COMMIT_PATH = re.compile(r'^/([^/]+)/([^/]+)/commit/([0-9a-fA-F]+)/?$')
@@ -397,8 +403,8 @@ def track_rank(name: str):
     return (0 if language.endswith('-orig') else 1, order, name)
 
 
-def _captions(workdir):
-    return [name for name in os.listdir(workdir) if name.endswith('.vtt')]
+def _captions(folder):
+    return [name for name in os.listdir(folder) if name.endswith('.vtt')]
 
 
 def _output(error):
@@ -406,30 +412,68 @@ def _output(error):
                     for part in (error.stderr, error.stdout))
 
 
-def extract_video(url: str, workdir: str, run=subprocess.run, fetcher=None, which=shutil.which) -> Extracted:
-    """Captions of a video with timestamps; the caption files of this read stay in workdir.
+def video_folder(url: str) -> str:
+    """The name of the cache folder that keeps the caption tracks of a video.
 
-    yt-dlp is asked for the original automatic tracks (`<language>-orig`) only; when it writes none, once more
-    for the manual subtitles only. Machine translations are never asked for. The caption files of an earlier read
-    are removed first: they may be translations that an earlier version fetched, and whether this read wrote a
-    track is told by the files in workdir.
-    `text` is the preferred track, `full_text` every track as its own paragraph, so a quote in another
-    language is still found and cut from the lines of its own track.
-
-    A call that fails or times out after it wrote tracks still counts: what was written is read. Without any
-    track, an `HTTP Error 429` in the output of yt-dlp is a distinct error (`rate limited: …`), a timeout is
-    `timed out`, and no further call is made; any other failure is `yt-dlp failed`, no failure `has no captions`.
-    The title is asked for only when there are tracks.
-
-    Polite to YouTube: a pause between the downloads of all processes (the pace of the fetcher), and the pauses
-    of yt-dlp between its requests.
+    For YouTube the video id, so every address of one video (`watch?v=`, `youtu.be/`, `embed/`, `shorts/`,
+    `live/`) shares the folder; for any other address its host and path, made safe as a folder name.
     """
-    os.makedirs(workdir, exist_ok=True)
-    for name in _captions(workdir):
-        os.remove(os.path.join(workdir, name))
-    fetcher = fetcher or Fetcher()
+    parts = urllib.parse.urlsplit(url.strip())
+    host = host_of(url)
+    segments = [segment for segment in parts.path.split('/') if segment]
+    video = None
+    if host in YOUTUBE_HOSTS:
+        if segments == ['watch']:
+            video = (urllib.parse.parse_qs(parts.query).get('v') or [None])[0]
+        elif len(segments) >= 2 and segments[0] in YOUTUBE_PATHS:
+            video = segments[1]
+    elif host == 'youtu.be' and segments:
+        video = segments[0]
+    if video and VIDEO_ID.match(video):
+        return video
+    return re.sub(r'[^A-Za-z0-9._-]+', '-', '/'.join([host, *segments])).strip('-.') or '_'
+
+
+def _manifest_tracks(workdir):
+    """The tracks and title of the manifest in workdir, or None without a manifest whose every track is there."""
+    try:
+        with open(os.path.join(workdir, TRACKS_MANIFEST), encoding='utf-8') as handle:
+            manifest = json.load(handle)
+    except (OSError, ValueError):
+        return None
+    tracks = manifest.get('tracks') if isinstance(manifest, dict) else None
+    if not isinstance(tracks, list) or not tracks:
+        return None
+    for name in tracks:
+        if (not isinstance(name, str) or not name.endswith('.vtt') or os.path.basename(name) != name
+                or not os.path.isfile(os.path.join(workdir, name))):
+            return None
+    title = manifest.get('title')
+    return tracks, title if isinstance(title, str) else None
+
+
+def _keep(download, workdir):
+    """Move the tracks of a download folder into workdir and remove the folder.
+
+    A track that workdir holds already stays when it is the same; a different earlier version is kept beside it as
+    `<name>.<hash>`, which is not a track name, so no downloaded caption file is ever lost.
+    """
+    for name in _captions(download):
+        source, target = os.path.join(download, name), os.path.join(workdir, name)
+        if os.path.exists(target):
+            with open(source, 'rb') as new, open(target, 'rb') as old:
+                new_body, old_body = new.read(), old.read()
+            if new_body == old_body:
+                continue
+            os.replace(target, f'{target}.{hashlib.sha256(old_body).hexdigest()[:12]}')
+        os.replace(source, target)
+    shutil.rmtree(download, ignore_errors=True)  # what is left is a duplicate or a partial download
+
+
+def _download(url, download, run, fetcher, which):
+    """Download the original tracks into the download folder, else the manual ones; return the title or None."""
     options = ['--sleep-subtitles', '5', '--sleep-requests', '2', '--sub-format', 'vtt',
-               '-o', os.path.join(workdir, '%(id)s')]
+               '-o', os.path.join(download, '%(id)s')]
     if which('node'):
         options += ['--js-runtimes', 'node']
     downloads = (['--write-auto-sub', '--sub-langs', ORIGINAL_TRACKS], ['--write-sub', '--sub-langs', MANUAL_TRACKS])
@@ -442,13 +486,13 @@ def extract_video(url: str, workdir: str, run=subprocess.run, fetcher=None, whic
                         timeout=VIDEO_TIMEOUT)
                 except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as error:
                     failure = error
-                if _captions(workdir):
+                if _captions(download):
                     break
                 if isinstance(failure, subprocess.TimeoutExpired):
                     raise failure
                 if failure is not None and b'HTTP Error 429' in _output(failure):
                     raise ExtractError(f'rate limited: YouTube answered HTTP 429 for {url}; retry later') from failure
-            if not _captions(workdir):
+            if not _captions(download):
                 if failure is not None:
                     raise ExtractError(f'yt-dlp failed for {url}: {failure.stderr!r}') from failure
                 raise ExtractError(f'{url} has no captions')
@@ -461,14 +505,52 @@ def extract_video(url: str, workdir: str, run=subprocess.run, fetcher=None, whic
         raise ExtractError('yt-dlp is not installed; install it to read video sources') from error
     except subprocess.TimeoutExpired as error:
         raise ExtractError(f'yt-dlp timed out after {error.timeout} seconds for {url}') from error
-    captions = sorted(_captions(workdir), key=track_rank)
+    return (title or b'').decode('utf-8', 'replace').strip() or None
+
+
+def extract_video(url: str, workdir: str, run=subprocess.run, fetcher=None, which=shutil.which,
+                  refresh=False) -> Extracted:
+    """Captions of a video with timestamps, from the tracks kept in workdir, the cache folder of the video.
+
+    The tracks a read downloads are kept, and `tracks.json` in workdir lists them with the title of the video.
+    When that manifest exists and every track it lists is there, the tracks are read from it without asking
+    YouTube, unless `refresh`. Only the tracks of the manifest are read: other caption files in workdir, such as
+    the translations that an earlier version fetched, are ignored, and no caption file is ever removed.
+
+    yt-dlp is asked for the original automatic tracks (`<language>-orig`) only; when it writes none, once more
+    for the manual subtitles only. Machine translations are never asked for. It writes into a fresh folder in
+    workdir, so the tracks of this read are told from those of earlier reads, and they are moved into workdir.
+    `text` is the preferred track, `full_text` every track as its own paragraph, so a quote in another
+    language is still found and cut from the lines of its own track.
+
+    A call that fails or times out after it wrote tracks still counts: what was written is read. Without any
+    track, an `HTTP Error 429` in the output of yt-dlp is a distinct error (`rate limited: …`), a timeout is
+    `timed out`, and no further call is made; any other failure is `yt-dlp failed`, no failure `has no captions`.
+    A read without any track writes no manifest. The title is asked for only when there are tracks.
+
+    Polite to YouTube: a pause between the downloads of all processes (the pace of the fetcher), and the pauses
+    of yt-dlp between its requests.
+    """
+    os.makedirs(workdir, exist_ok=True)
+    cached = None if refresh else _manifest_tracks(workdir)
+    if cached is not None:
+        names, title = cached
+    else:
+        download = tempfile.mkdtemp(dir=workdir, prefix='.download-')
+        try:
+            title = _download(url, download, run, fetcher or Fetcher(), which)
+            names = sorted(_captions(download), key=track_rank)
+        finally:
+            _keep(download, workdir)
+        manifest = {'url': url, 'tracks': names, 'title': title, 'fetched': fetch.now().isoformat()}
+        fetch._write_atomic(os.path.join(workdir, TRACKS_MANIFEST),
+                            (json.dumps(manifest, indent=2, ensure_ascii=False) + '\n').encode('utf-8'))
     tracks = []
-    for name in captions:
+    for name in sorted(names, key=track_rank):
         with open(os.path.join(workdir, name), encoding='utf-8') as handle:
             lines = parse_vtt(handle.read())
         if lines:
             tracks.append('\n'.join(lines))
     if not tracks:
         raise ExtractError(f'{url} has empty captions')
-    return Extracted(text=tracks[0], full_text='\n\n'.join(tracks),
-                     title=(title or b'').decode('utf-8', 'replace').strip() or None, date=None)
+    return Extracted(text=tracks[0], full_text='\n\n'.join(tracks), title=title, date=None)

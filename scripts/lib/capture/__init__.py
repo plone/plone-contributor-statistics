@@ -29,6 +29,7 @@ from scripts.lib.capture.extract import (
     extract_volto,
     google_doc_id,
     is_pdf,
+    video_folder,
 )
 from scripts.lib.capture.fetch import FetchError, Fetcher, nearest_capture, raw_capture_url
 from scripts.lib.capture.passages import cut_passage, find_name, find_quote
@@ -157,8 +158,11 @@ def _read_archive(fetcher, archive_url, kind, run):
                  extracted.full_text, extracted.title, extracted.date, raw.fetched, notes)
 
 
-def _read_live(url, sid, fetcher, session, run):
-    """Read a live address with its adapter; raises _Gone when the page is gone."""
+def _read_live(url, fetcher, session, run, refresh=False):
+    """Read a live address with its adapter; raises _Gone when the page is gone.
+
+    A video is read from the tracks kept in its cache folder, one per video, unless `refresh`.
+    """
     adapter = adapter_for(url)
     kind = KIND_BY_ADAPTER.get(adapter)
     if adapter in ('generic', 'volto'):
@@ -183,7 +187,8 @@ def _read_live(url, sid, fetcher, session, run):
             owner, repo, sha = COMMIT_PATH.match(urllib.parse.urlsplit(url).path).groups()
             extracted = extract_commit(owner, repo, sha, run=run, session=session)
         else:
-            extracted = extract_video(url, fetch.cache_dir(fetch.SOURCES_CACHE, 'video', sid), run=run, fetcher=fetcher)
+            extracted = extract_video(url, fetch.cache_dir(fetch.SOURCES_CACHE, 'video', video_folder(url)), run=run,
+                                      fetcher=fetcher, refresh=refresh)
     except (GitHubAPIError, ExtractError) as error:
         if _is_gone(error):
             raise _Gone(fetched, kind) from error
@@ -257,7 +262,7 @@ def capture(url: str, quotes: Sequence[str] = (), kind: str | None = None, title
             if split:
                 read = _read_archive(fetcher, url, None, run)
             else:
-                read = _read_live(url, sid, fetcher, session, run)
+                read = _read_live(url, fetcher, session, run, refresh)
         except _Gone as gone:
             nearest = None if split else nearest_capture(fetcher, url)
             if nearest is None:

@@ -1,3 +1,4 @@
+import contextlib
 import datetime
 import json
 import os
@@ -314,7 +315,7 @@ def test_extract_video_parses_vtt(tmp_path):
     def run(command, **kwargs):
         if '--print' in command:
             return subprocess.CompletedProcess(command, 0, stdout=b'My talk\n', stderr=b'')
-        (tmp_path / 'abc.en.vtt').write_text(VTT, encoding='utf-8')
+        (out(command) / 'abc.en.vtt').write_text(VTT, encoding='utf-8')
         return subprocess.CompletedProcess(command, 0, stdout=b'', stderr=b'')
     result = extract_video('https://youtu.be/abc', str(tmp_path), run=run)
     assert result.text.splitlines() == [
@@ -332,7 +333,7 @@ def test_extract_video_command(tmp_path):
     def run(command, **kwargs):
         calls.append(command)
         if '--print' not in command:
-            (tmp_path / 'abc.en.vtt').write_text(VTT, encoding='utf-8')
+            (out(command) / 'abc.en.vtt').write_text(VTT, encoding='utf-8')
         return subprocess.CompletedProcess(command, 0, stdout=b'T\n', stderr=b'')
     extract_video('https://youtu.be/abc', str(tmp_path), run=run, which=lambda name: '/usr/bin/node')
     downloads = [c for c in calls if '--print' not in c]
@@ -345,7 +346,9 @@ def test_extract_video_command(tmp_path):
     assert download[download.index('--sleep-subtitles') + 1] == '5'
     assert download[download.index('--sleep-requests') + 1] == '2'
     assert download[download.index('--js-runtimes') + 1] == 'node'
-    assert download[download.index('-o') + 1] == os.path.join(str(tmp_path), '%(id)s')
+    # a fresh folder in the workdir per read, so the files of this read are told from those of earlier reads
+    assert os.path.dirname(os.path.dirname(download[download.index('-o') + 1])) == str(tmp_path)
+    assert os.path.basename(download[download.index('-o') + 1]) == '%(id)s'
 
 
 def test_extract_video_without_captions_raises(tmp_path):
@@ -379,6 +382,11 @@ def test_extract_html_main_text_keeps_the_spelling_of_the_page():
     assert all(p and p == p.strip() for p in paragraphs)
 
 
+def out(command):
+    """The folder that a fake yt-dlp writes its tracks to: that of its `-o` template."""
+    return pathlib.Path(os.path.dirname(command[command.index('-o') + 1]))
+
+
 def vtt(*lines):
     cues = [f'00:00:{second:02d}.000 --> 00:00:{second + 1:02d}.000\n{line}' for second, line in enumerate(lines)]
     return 'WEBVTT\n\n' + '\n\n'.join(cues) + '\n'
@@ -391,7 +399,7 @@ def caption_run(workdir, tracks, calls=None):
         if '--print' in command:
             return subprocess.CompletedProcess(command, 0, stdout=b'T\n', stderr=b'')
         for name, text in tracks.items():
-            (workdir / name).write_text(text, encoding='utf-8')
+            (out(command) / name).write_text(text, encoding='utf-8')
         return subprocess.CompletedProcess(command, 0, stdout=b'', stderr=b'')
     return run
 
@@ -587,7 +595,7 @@ def video_run(workdir, auto=None, manual=None, calls=None, fail=None):
             return subprocess.CompletedProcess(command, 0, stdout=b'T\n', stderr=b'')
         tracks = (auto if '--write-auto-sub' in command else manual) or {}
         for name, text in tracks.items():
-            (workdir / name).write_text(text, encoding='utf-8')
+            (out(command) / name).write_text(text, encoding='utf-8')
         if fail is not None:
             raise subprocess.CalledProcessError(1, command, stderr=fail)
         return subprocess.CompletedProcess(command, 0, stdout=b'', stderr=b'')
@@ -605,7 +613,7 @@ def test_extract_video_without_original_tracks_asks_once_for_manual_subtitles(tm
     assert '--write-sub' in manual and '--write-auto-sub' not in manual
     assert manual[manual.index('--sub-langs') + 1] == 'all'
     for flag, value in (('--sleep-subtitles', '5'), ('--sleep-requests', '2'), ('--js-runtimes', 'node'),
-                        ('-o', os.path.join(str(tmp_path), '%(id)s'))):
+                        ('-o', downloads[0][downloads[0].index('-o') + 1])):
         assert manual[manual.index(flag) + 1] == value
     assert calls[-1][:3] == ['yt-dlp', '--skip-download', '--print']  # the title last
 
@@ -618,12 +626,133 @@ def test_extract_video_without_any_track_raises_no_captions(tmp_path):
 
 
 def test_extract_video_reads_only_the_tracks_of_this_read(tmp_path):
-    """A machine translation left in the folder by an earlier read is not a track of the video."""
+    """A machine translation left in the folder by an earlier read is not a track of the video, and stays."""
     (tmp_path / 'x.de.vtt').write_text(vtt('Ich arbeite bei Zest'), encoding='utf-8')
     run = video_run(tmp_path, auto={'x.en-orig.vtt': vtt('I work for Zest')})
     result = extract_video('https://youtu.be/x', str(tmp_path), run=run)
     assert result.full_text == '[00:00] I work for Zest'
-    assert sorted(os.listdir(tmp_path)) == ['x.en-orig.vtt']
+    assert sorted(os.listdir(tmp_path)) == ['tracks.json', 'x.de.vtt', 'x.en-orig.vtt']
+
+
+def no_run(command, **kwargs):
+    raise AssertionError(f'yt-dlp was called: {command}')
+
+
+class Unpaced:
+    """A fetcher whose pace does not wait, for tests that download one video twice."""
+
+    @contextlib.contextmanager
+    def paced(self, key):
+        yield
+
+
+def test_extract_video_writes_the_manifest(tmp_path, monkeypatch):
+    from scripts.lib.capture import fetch
+    monkeypatch.setattr(fetch, 'now', lambda: NOW)
+    run = video_run(tmp_path, auto={'x.en-orig.vtt': vtt('I work for Zest'), 'x.de-orig.vtt': vtt('Zest')})
+    extract_video('https://youtu.be/x', str(tmp_path), run=run)
+    manifest = json.loads((tmp_path / 'tracks.json').read_text(encoding='utf-8'))
+    assert manifest == {'url': 'https://youtu.be/x', 'tracks': ['x.en-orig.vtt', 'x.de-orig.vtt'], 'title': 'T',
+                        'fetched': '2026-10-22T00:00:00+00:00'}
+    assert sorted(os.listdir(tmp_path)) == ['tracks.json', 'x.de-orig.vtt', 'x.en-orig.vtt']  # no download folder
+
+
+def test_cached_tracks_are_reused_without_a_request(tmp_path):
+    run = video_run(tmp_path, auto={'x.en-orig.vtt': vtt('I work for Zest')})
+    first = extract_video('https://youtu.be/x', str(tmp_path), run=run)
+    again = extract_video('https://www.youtube.com/watch?v=x', str(tmp_path), run=no_run)
+    assert again == first
+    assert (again.text, again.title) == ('[00:00] I work for Zest', 'T')
+
+
+def test_cached_tracks_are_not_paced(tmp_path):
+    class NoPace:
+        def paced(self, key):
+            raise AssertionError('paced although the tracks are cached')
+    extract_video('https://youtu.be/x', str(tmp_path), run=video_run(tmp_path, auto={'x.en-orig.vtt': vtt('a')}))
+    extract_video('https://youtu.be/x', str(tmp_path), run=no_run, fetcher=NoPace())
+
+
+def test_only_tracks_of_the_manifest_are_read(tmp_path):
+    """A stray track beside the listed ones, such as a translation of the first adapter, is never read."""
+    (tmp_path / 'x.it-orig.vtt').write_text(vtt('Lavoro per Zest'), encoding='utf-8')
+    (tmp_path / 'x.en.vtt').write_text(vtt('I work for Zest'), encoding='utf-8')
+    (tmp_path / 'tracks.json').write_text(json.dumps(
+        {'url': 'https://youtu.be/x', 'tracks': ['x.it-orig.vtt'], 'title': 'Un talk', 'fetched': NOW.isoformat()}))
+    result = extract_video('https://youtu.be/x', str(tmp_path), run=no_run)
+    assert (result.text, result.full_text, result.title) == ('[00:00] Lavoro per Zest', '[00:00] Lavoro per Zest',
+                                                             'Un talk')
+
+
+def test_a_manifest_with_a_missing_track_is_downloaded_again(tmp_path):
+    (tmp_path / 'tracks.json').write_text(json.dumps(
+        {'url': 'https://youtu.be/x', 'tracks': ['x.it-orig.vtt'], 'title': 'Un talk', 'fetched': NOW.isoformat()}))
+    calls = []
+    result = extract_video('https://youtu.be/x', str(tmp_path),
+                           run=video_run(tmp_path, auto={'x.en-orig.vtt': vtt('I work for Zest')}, calls=calls))
+    assert result.text == '[00:00] I work for Zest' and calls
+    assert json.loads((tmp_path / 'tracks.json').read_text())['tracks'] == ['x.en-orig.vtt']
+
+
+def test_refresh_downloads_again_and_keeps_old_files(tmp_path):
+    extract_video('https://youtu.be/x', str(tmp_path), fetcher=Unpaced(),
+                  run=video_run(tmp_path, auto={'x.en-orig.vtt': vtt('old line'), 'x.de-orig.vtt': vtt('alt')}))
+    (tmp_path / 'x.en.vtt').write_text(vtt('a stray translation'), encoding='utf-8')
+    calls = []
+    result = extract_video('https://youtu.be/x', str(tmp_path), refresh=True, fetcher=Unpaced(),
+                           run=video_run(tmp_path, auto={'x.en-orig.vtt': vtt('new line')}, calls=calls))
+    assert calls and result.full_text == '[00:00] new line'
+    assert json.loads((tmp_path / 'tracks.json').read_text())['tracks'] == ['x.en-orig.vtt']
+    names = sorted(os.listdir(tmp_path))
+    # the earlier version of a track downloaded again is kept beside it, under a name that is not a track
+    kept = [name for name in names if name.startswith('x.en-orig.vtt.')]
+    assert len(kept) == 1 and not kept[0].endswith('.vtt')
+    assert (tmp_path / kept[0]).read_text(encoding='utf-8') == vtt('old line')
+    assert set(names) == {'tracks.json', 'x.de-orig.vtt', 'x.en.vtt', 'x.en-orig.vtt', kept[0]}
+
+
+def test_a_track_downloaded_again_unchanged_is_kept_once(tmp_path):
+    for refresh in (False, True):
+        extract_video('https://youtu.be/x', str(tmp_path), refresh=refresh, fetcher=Unpaced(),
+                      run=video_run(tmp_path, auto={'x.en-orig.vtt': vtt('same')}))
+    assert sorted(os.listdir(tmp_path)) == ['tracks.json', 'x.en-orig.vtt']
+
+
+def test_a_failed_read_writes_no_manifest(tmp_path):
+    with pytest.raises(ExtractError, match='has no captions'):
+        extract_video('https://youtu.be/x', str(tmp_path), run=video_run(tmp_path))
+    assert os.listdir(tmp_path) == []
+
+
+def test_tracks_written_before_a_failure_are_kept(tmp_path):
+    """Even a read that fails keeps what yt-dlp wrote: an empty track is still a downloaded capture."""
+    with pytest.raises(ExtractError, match='empty captions'):
+        extract_video('https://youtu.be/x', str(tmp_path), run=video_run(tmp_path, auto={'x.en-orig.vtt': 'WEBVTT\n'}))
+    assert sorted(os.listdir(tmp_path)) == ['tracks.json', 'x.en-orig.vtt']
+
+
+@pytest.mark.parametrize('url, folder', [
+    ('https://www.youtube.com/watch?v=dQw4w9WgXcQ', 'dQw4w9WgXcQ'),
+    ('https://youtube.com/watch?feature=share&v=dQw4w9WgXcQ&t=42s', 'dQw4w9WgXcQ'),
+    ('https://m.youtube.com/watch?v=dQw4w9WgXcQ', 'dQw4w9WgXcQ'),
+    ('https://youtu.be/dQw4w9WgXcQ?t=10', 'dQw4w9WgXcQ'),
+    ('https://www.youtube.com/embed/dQw4w9WgXcQ', 'dQw4w9WgXcQ'),
+    ('https://www.youtube.com/shorts/dQw4w9WgXcQ', 'dQw4w9WgXcQ'),
+    ('https://www.youtube.com/live/dQw4w9WgXcQ?si=abc', 'dQw4w9WgXcQ'),
+    ('https://vimeo.com/123456', 'vimeo.com-123456'),
+    ('https://vimeo.com/channels/plone/123456?x=1', 'vimeo.com-channels-plone-123456'),
+    ('https://plone.tv/talks/my_talk', 'plone.tv-talks-my_talk'),
+    ('https://www.youtube.com/playlist?list=PL1', 'youtube.com-playlist'),
+])
+def test_video_folder(url, folder):
+    from scripts.lib.capture.extract import video_folder
+    assert video_folder(url) == folder
+
+
+def test_two_sources_of_one_video_share_the_folder():
+    from scripts.lib.capture.extract import video_folder
+    assert video_folder('https://youtu.be/dQw4w9WgXcQ') == video_folder(
+        'https://www.youtube.com/watch?v=dQw4w9WgXcQ&t=3m')
 
 
 def test_extract_video_uses_the_tracks_written_before_a_failure(tmp_path):
@@ -640,7 +769,7 @@ def test_extract_video_manual_tracks_written_before_a_failure(tmp_path):
         if '--print' in command:
             return subprocess.CompletedProcess(command, 0, stdout=b'T\n', stderr=b'')
         if '--write-sub' in command:
-            (tmp_path / 'x.de.vtt').write_text(vtt('Ich arbeite bei Zest'), encoding='utf-8')
+            (out(command) / 'x.de.vtt').write_text(vtt('Ich arbeite bei Zest'), encoding='utf-8')
         raise subprocess.CalledProcessError(1, command, stderr=b'ERROR: something else')
     result = extract_video('https://youtu.be/x', str(tmp_path), run=run)
     assert result.text == '[00:00] Ich arbeite bei Zest'
@@ -676,7 +805,7 @@ def test_extract_video_uses_the_tracks_written_before_a_timeout(tmp_path):
     def run(command, **kwargs):
         calls.append(command)
         if '--print' not in command:
-            (tmp_path / 'x.en-orig.vtt').write_text(vtt('I work for Zest'), encoding='utf-8')
+            (out(command) / 'x.en-orig.vtt').write_text(vtt('I work for Zest'), encoding='utf-8')
         raise subprocess.TimeoutExpired(command, kwargs.get('timeout'))
     result = extract_video('https://youtu.be/x', str(tmp_path), run=run)
     assert (result.text, result.title) == ('[00:00] I work for Zest', None)
