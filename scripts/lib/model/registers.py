@@ -10,9 +10,8 @@ from pathlib import Path
 from scripts.lib import paths
 from scripts.lib.model.attribution import DENIED, PROPOSED, Affiliation, Attribution, Citation
 from scripts.lib.model.names import fold
-from scripts.lib.model import sources as _sources  # the module: its atomic write
 from scripts.lib.model.schema import read_rows, split_set
-from scripts.lib.model.sources import load_sources
+from scripts.lib.model.sources import load_sources, write_atomic
 
 UNMAPPED = 'Unmapped'
 PERSON_PREFIX = 'person:'
@@ -342,7 +341,7 @@ def _write_rows(path, fields, rows):
     writer = csv.DictWriter(buffer, fieldnames=fields, quoting=csv.QUOTE_MINIMAL, lineterminator='\n')
     writer.writeheader()
     writer.writerows({field: _cell(row.get(field)) for field in fields} for row in rows)
-    _sources._write_atomic(path, buffer.getvalue())
+    write_atomic(path, buffer.getvalue())
 
 
 def _citation_key(row):

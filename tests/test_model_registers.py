@@ -324,14 +324,14 @@ def test_write_identities_sorts_the_rows(tmp_repo):
 
 def test_the_writers_replace_the_file_atomically(tmp_repo, monkeypatch):
     from scripts.lib.model import Citation, load_citations, write_citations
-    from scripts.lib.model import sources
+    from scripts.lib.model import registers
 
     before = [Citation('a00000001', SID, None, None, None)]
     write_citations(before)
 
     def broken(path, text):
         raise OSError('disk full')
-    monkeypatch.setattr(sources, '_write_atomic', broken)
+    monkeypatch.setattr(registers, 'write_atomic', broken)
     with pytest.raises(OSError):
         write_citations([Citation('a00000002', SID, None, None, None)])
     assert load_citations() == before
