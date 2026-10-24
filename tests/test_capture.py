@@ -717,7 +717,7 @@ def test_renewing_takes_a_given_kind(web):
 
 def test_renewing_takes_a_specific_kind_of_the_read(web):
     url = 'https://www.youtube.com/watch?v=abc'
-    sid = uncaptured_source(url, 'not captured on 2026-10-22: rate limited (HTTP 429)', kind='page')
+    sid = uncaptured_source(url, 'not captured on 2026-10-22: rate limited (HTTP 429)', kind='speaker-page')
     fetcher, _ = web(session=NoNetwork())
 
     class Done:

@@ -416,9 +416,10 @@ def extract_video(url: str, workdir: str, run=subprocess.run, fetcher=None, whic
     `text` is the preferred track, `full_text` every track as its own paragraph, so a quote in another
     language is still found and cut from the lines of its own track.
 
-    A call that fails after it wrote tracks still counts: what was written is read. Without any track, an
-    `HTTP Error 429` in the output of yt-dlp is a distinct error (`rate limited: …`), and no further call is
-    made; any other failure is `yt-dlp failed`, no failure `has no captions`.
+    A call that fails or times out after it wrote tracks still counts: what was written is read. Without any
+    track, an `HTTP Error 429` in the output of yt-dlp is a distinct error (`rate limited: …`), a timeout is
+    `timed out`, and no further call is made; any other failure is `yt-dlp failed`, no failure `has no captions`.
+    The title is asked for only when there are tracks.
 
     Polite to YouTube: a pause between the downloads of all processes (the pace of the fetcher), and the pauses
     of yt-dlp between its requests.
@@ -439,23 +440,28 @@ def extract_video(url: str, workdir: str, run=subprocess.run, fetcher=None, whic
                 try:
                     run(['yt-dlp', '--skip-download', *tracks, *options, url], capture_output=True, check=True,
                         timeout=VIDEO_TIMEOUT)
-                except subprocess.CalledProcessError as error:
+                except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as error:
                     failure = error
                 if _captions(workdir):
                     break
+                if isinstance(failure, subprocess.TimeoutExpired):
+                    raise failure
                 if failure is not None and b'HTTP Error 429' in _output(failure):
                     raise ExtractError(f'rate limited: YouTube answered HTTP 429 for {url}; retry later') from failure
-            title = run(['yt-dlp', '--skip-download', '--print', 'title', url], capture_output=True, check=False,
-                        timeout=VIDEO_TIMEOUT)
+            if not _captions(workdir):
+                if failure is not None:
+                    raise ExtractError(f'yt-dlp failed for {url}: {failure.stderr!r}') from failure
+                raise ExtractError(f'{url} has no captions')
+            try:
+                title = run(['yt-dlp', '--skip-download', '--print', 'title', url], capture_output=True,
+                            check=False, timeout=VIDEO_TIMEOUT).stdout
+            except subprocess.TimeoutExpired:  # the tracks are there: the video is read without its title
+                title = None
     except FileNotFoundError as error:
         raise ExtractError('yt-dlp is not installed; install it to read video sources') from error
     except subprocess.TimeoutExpired as error:
         raise ExtractError(f'yt-dlp timed out after {error.timeout} seconds for {url}') from error
     captions = sorted(_captions(workdir), key=track_rank)
-    if not captions:
-        if failure is not None:
-            raise ExtractError(f'yt-dlp failed for {url}: {failure.stderr!r}') from failure
-        raise ExtractError(f'{url} has no captions')
     tracks = []
     for name in captions:
         with open(os.path.join(workdir, name), encoding='utf-8') as handle:
@@ -465,4 +471,4 @@ def extract_video(url: str, workdir: str, run=subprocess.run, fetcher=None, whic
     if not tracks:
         raise ExtractError(f'{url} has empty captions')
     return Extracted(text=tracks[0], full_text='\n\n'.join(tracks),
-                     title=(title.stdout or b'').decode('utf-8', 'replace').strip() or None, date=None)
+                     title=(title or b'').decode('utf-8', 'replace').strip() or None, date=None)

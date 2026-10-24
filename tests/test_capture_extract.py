@@ -668,3 +668,16 @@ def test_extract_video_failure_without_tracks_is_named(tmp_path):
     with pytest.raises(ExtractError, match='^yt-dlp failed'):
         extract_video('https://youtu.be/x', str(tmp_path),
                       run=video_run(tmp_path, fail=b'ERROR: Video unavailable'))
+
+
+def test_extract_video_uses_the_tracks_written_before_a_timeout(tmp_path):
+    calls = []
+
+    def run(command, **kwargs):
+        calls.append(command)
+        if '--print' not in command:
+            (tmp_path / 'x.en-orig.vtt').write_text(vtt('I work for Zest'), encoding='utf-8')
+        raise subprocess.TimeoutExpired(command, kwargs.get('timeout'))
+    result = extract_video('https://youtu.be/x', str(tmp_path), run=run)
+    assert (result.text, result.title) == ('[00:00] I work for Zest', None)
+    assert len([c for c in calls if '--print' not in c]) == 1
