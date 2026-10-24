@@ -135,7 +135,7 @@ id,kind,title,date,url,archive_url,fetched,notes
 0f9f4c245350,page,Wichert Akkerman,2008-11-23,http://plone.org/foundation/members/wichert,https://web.archive.org/web/20081123151152/http://plone.org/foundation/members/wichert,2026-10-22T15:12:33Z,page shows date 2008-09-30
 100ce4ba666b,page,Törggelen Sprint South Tyrol 2006,2015-01-02,http://plone.org/events/sprints/past-sprints/toerggelen/torggelen-sprint-south-tyrol-2006,https://web.archive.org/web/20150102091547/http://plone.org/events/sprints/past-sprints/toerggelen/torggelen-sprint-south-tyrol-2006,2026-10-22T16:23:41Z,page shows date 2006-11-06
 1032a0ef4db8,speaker-page,Johannes Raggam,2023-10-05,https://2023.ploneconf.org/speakers/johannes-raggam,,2026-10-22T15:41:02Z,
-105fc62ceb5c,video,https://www.youtube.com/watch?v=0lbohbO6MR0,2026-10-22,https://www.youtube.com/watch?v=0lbohbO6MR0,,2026-10-22T22:29:48Z,not captured on 2026-10-22: rate limited (HTTP 429)
+105fc62ceb5c,video,Unibo: migrare da Plone 4 a Plone 6 passando per il cloud - World Plone Day 2024 Italia,2026-10-24,https://www.youtube.com/watch?v=0lbohbO6MR0,,2026-10-24T19:57:25Z,
 1088107cc0dd,page,German Plone translation sprint,2013-10-23,http://plone.org/events/community/german-plone-translation-sprint,https://web.archive.org/web/20131023011334/http://plone.org/events/community/german-plone-translation-sprint,2026-10-22T16:23:53Z,page shows date 2007-02-09
 108b7067620a,page,https://web.archive.org/web/20261018131621/https://docs.google.com/document/d/1cATwN2eHi84XdwyvrTR1_Pji_YCO7M_vga3vK_9ju1k/edit,2026-10-22,https://docs.google.com/document/d/1cATwN2eHi84XdwyvrTR1_Pji_YCO7M_vga3vK_9ju1k/edit,https://web.archive.org/web/20261018131621/https://docs.google.com/document/d/1cATwN2eHi84XdwyvrTR1_Pji_YCO7M_vga3vK_9ju1k/edit,2026-10-22T22:29:48Z,not captured on 2026-10-22: nothing found
 10d2c737d31e,page,David Erni - Plone Conference 2019,2000-01-01,https://2019.ploneconf.org/people/david-erni/,,2026-10-22T15:36:50Z,
@@ -185,7 +185,7 @@ id,kind,title,date,url,archive_url,fetched,notes
 1697cc32d644,profile,Fred van Dijk,2026-10-22,https://github.com/fredvd,,2026-10-22T15:47:43Z,
 16d740d462e1,page,Johannes Raggam,2018-09-02,https://programmatic.pro/,https://web.archive.org/web/20180902014812/https://programmatic.pro/,2026-10-22T15:23:22Z,page shows date 2014-01-01
 16e7c35dc7d8,profile,https://github.com/daggelpop,2026-10-22,https://github.com/daggelpop,,2026-10-22T21:07:05Z,
-171a663168d7,video,https://www.youtube.com/watch?v=G857LOhJw1k,2026-10-22,https://www.youtube.com/watch?v=G857LOhJw1k,,2026-10-22T22:29:48Z,not captured on 2026-10-22: rate limited (HTTP 429)
+171a663168d7,video,Abbattere i silos informativi su 40 siti e 250.000 contenuti - Sara Turra - World Plone Day 2021,2026-10-24,https://www.youtube.com/watch?v=G857LOhJw1k,,2026-10-24T20:08:51Z,
 175f86101261,profile,Thomas Desvenain,2026-10-22,https://github.com/tdesvenain,,2026-10-22T16:04:29Z,
 176cb2e80e98,page,Bristol Balloon Sprint,2013-08-20,http://plone.org/events/community/bristol-balloon-sprint,https://web.archive.org/web/20130820162751/http://plone.org/events/community/bristol-balloon-sprint,2026-10-22T16:22:25Z,page shows date 2009-08-07
 1797ce1f913a,profile,Robert Kuzma,2026-10-22,https://github.com/balavec,,2026-10-22T15:46:37Z,
@@ -213,7 +213,7 @@ id,kind,title,date,url,archive_url,fetched,notes
 19a767e4d02f,page,Roel Bruggink,2018-10-25,https://2018.ploneconf.org/people/roel-bruggink.html,,2026-10-22T15:36:36Z,
 19cae6abd89d,page,https://plone.org/news-and-events/events/plone-conferences/vienna-2004/program,2026-10-22,https://plone.org/news-and-events/events/plone-conferences/vienna-2004/program,,2026-10-22T22:29:48Z,not captured on 2026-10-22: nothing found
 19f8c20e7152,commit,https://github.com/plone/Products.TinyMCE/commit/d5b95a42f6ea283dbd6f8423117f375720e1718e,2009-11-14,https://github.com/plone/Products.TinyMCE/commit/d5b95a42f6ea283dbd6f8423117f375720e1718e,,2026-10-22T15:52:16Z,
-1a0d7f5e8125,video,https://www.youtube.com/watch?v=1l8nCFJxlWY,2026-10-22,https://www.youtube.com/watch?v=1l8nCFJxlWY,,2026-10-22T22:29:48Z,not captured on 2026-10-22: rate limited (HTTP 429)
+1a0d7f5e8125,video,Realizzare un sito web di una PA con linee guida di AgID - Stefano Marchetti - World Plone Day 2021,2026-10-24,https://www.youtube.com/watch?v=1l8nCFJxlWY,,2026-10-24T19:59:01Z,
 1a4b103b2719,commit,https://github.com/plone/plone.app.collection/commit/7b81c4d2b2ebb8e8acfe165527bd6f16e8925ad2,2012-05-24,https://github.com/plone/plone.app.collection/commit/7b81c4d2b2ebb8e8acfe165527bd6f16e8925ad2,,2026-10-22T15:58:21Z,
 1a7cc21229be,profile,Jens Vagelpohl,2026-10-22,https://github.com/dataflake,,2026-10-22T15:47:10Z,
 1a854adb1688,page,Ziming Yuan,2024-11-29,https://2024.ploneconf.org/en/schedule/speakers/ziming-yuan,,2026-10-22T15:43:05Z,
@@ -429,7 +429,7 @@ id,kind,title,date,url,archive_url,fetched,notes
 32ec020334f4,speaker-page,Chrissy Wainwright,2016-06-03,https://2016.ploneconf.org/people/chrissy-wainwright.html,,2026-10-22T15:34:44Z,
 330856987bba,commit,https://github.com/plone/ploneorg.theme/commit/1b4fe5261fc287982b079ceedb3c4a9d1c7130c0,2019-11-17,https://github.com/plone/ploneorg.theme/commit/1b4fe5261fc287982b079ceedb3c4a9d1c7130c0,,2026-10-22T16:03:01Z,
 3347351d529a,page,This Month in Plone: January 2010,2010-01-28,https://plone.org/news-and-events/news/2010/month-in-plone-jan-2010,,2026-10-22T16:09:08Z,
-339f1a140081,video,https://www.youtube.com/watch?v=zJQ8LvFxY2c,2026-10-22,https://www.youtube.com/watch?v=zJQ8LvFxY2c,,2026-10-22T22:29:48Z,not captured on 2026-10-22: rate limited (HTTP 429)
+339f1a140081,video,Le aziende sanitarie ferraresi sperimentano il nuovo modello ASL di Designers Italia - WPD 2024,2026-10-24,https://www.youtube.com/watch?v=zJQ8LvFxY2c,,2026-10-24T20:54:08Z,
 33a2dd76b5ba,speaker-page,Python/Zope/Plone[NOW],2016-05-11,http://2013.pythonbrasil.org.br/program/pc/plone_edu/python-zope-plone-now,https://web.archive.org/web/20160511123241/http://2013.pythonbrasil.org.br/program/pc/plone_edu/python-zope-plone-now,2026-10-22T15:22:33Z,page shows date 2013-07-31
 343bfaab026a,page,Four Digits,2012-01-05,http://www.fourdigits.nl:80/mensen,https://web.archive.org/web/20120105023542/http://www.fourdigits.nl:80/mensen,2026-10-22T16:20:18Z,page shows date 2011-12-30
 343eeb39a91f,profile,Takanori Suzuki,2026-10-22,https://github.com/takanory,,2026-10-22T16:04:29Z,
@@ -1090,7 +1090,7 @@ id,kind,title,date,url,archive_url,fetched,notes
 8419415be56c,page,Practical Plone 3: A Beginner's Guide to Building Powerful Websites,2021-04-25,https://m.abook.qq.com/read/1034852789/4,,2026-10-22T16:05:25Z,
 841f85554db2,page,Re: [Plone-developers] Controlling different content type creation at different points within the P,2005-08-15,https://sourceforge.net/p/plone/mailman/message/13961718/,,2026-10-22T16:11:10Z,
 84302bfc52d6,commit,https://github.com/syslabcom/casc.alt/commit/90b28707829c58f36716418a1db2f70350cc19e2,2017-04-10,https://github.com/syslabcom/casc.alt/commit/90b28707829c58f36716418a1db2f70350cc19e2,,2026-10-22T16:04:20Z,
-8431c64a5bc1,video,https://www.youtube.com/watch?v=9XeRtOvdb_U,2026-10-22,https://www.youtube.com/watch?v=9XeRtOvdb_U,,2026-10-22T22:29:48Z,not captured on 2026-10-22: rate limited (HTTP 429)
+8431c64a5bc1,video,Realizzare un portale turistico con l'approccio User Centered Design - VisitModena - WPD 2021,2026-10-24,https://www.youtube.com/watch?v=9XeRtOvdb_U,,2026-10-24T20:02:17Z,
 84496f4bce2c,page,Shriyansh Agrawal,2017-09-16,https://2017.ploneconf.org/people/shriyansh-agrawal.html,,2026-10-22T15:36:08Z,
 8451e4f3ff3a,commit,https://github.com/nuclia/nucliadb/commit/9ea871f1c255498d7f3f78a9b093e456d4bc688d,2022-11-15,https://github.com/nuclia/nucliadb/commit/9ea871f1c255498d7f3f78a9b093e456d4bc688d,,2026-10-22T15:48:53Z,
 8483ebc298f8,page,"Nathan, Ramon and Eric: Status of Guillotina",2019-10-23,https://maurits.vanrees.org/weblog/archive/2019/10/nathan-ramon-and-eric-status-of-guillotina,,2026-10-22T16:05:26Z,
@@ -1153,7 +1153,7 @@ id,kind,title,date,url,archive_url,fetched,notes
 89fad70df310,page,Plone Foundation Board for 2017-2018,2016-04-30,https://plone.org/foundation/board/plone-foundation-board-for-2017-2018,,2026-10-22T16:06:11Z,
 8a3bf7788925,commit,https://github.com/plone/mockup/commit/b67902ebbf30dc99905643570f8579a5c5a50842,2021-05-12,https://github.com/plone/mockup/commit/b67902ebbf30dc99905643570f8579a5c5a50842,,2026-10-22T15:56:24Z,
 8a59f209f65b,speaker-page,Serena Lorenzini - Plone Conference 2019,2013-01-01,https://2019.ploneconf.org/people/serena-lorenzini/,,2026-10-22T15:37:25Z,
-8a5c334e77c8,video,https://www.youtube.com/watch?v=INI2a5FQg_Q,2026-10-22,https://www.youtube.com/watch?v=INI2a5FQg_Q,,2026-10-22T22:29:48Z,not captured on 2026-10-22: rate limited (HTTP 429)
+8a5c334e77c8,video,L'esperienza del cittadino nei servizi pubblici - World Plone Day 2023 Italia,2026-10-24,https://www.youtube.com/watch?v=INI2a5FQg_Q,,2026-10-24T20:12:52Z,
 8a8a72411976,speaker-page,Johanna Lenhard,2019-09-18,https://2018.ploneconf.org/people/johanna-lenhard.html,https://web.archive.org/web/20190918184009/https://2018.ploneconf.org/people/johanna-lenhard.html,2026-10-22T15:25:44Z,page shows date 2018-10-31
 8a9894c5e663,page,Plone Foundation Board - 2004,2016-04-30,https://plone.org/foundation/board/list_board_0,,2026-10-22T16:05:46Z,
 8aa76202aba5,page,Lukas Zdych,2022-10-12,https://2022.ploneconf.org/speakers/lukas-zdych.html,,2026-10-22T15:39:24Z,
@@ -1272,12 +1272,12 @@ id,kind,title,date,url,archive_url,fetched,notes
 9744440c93eb,speaker-page,Chris Adam,2025-10-16,https://2025.ploneconf.org/schedule/speakers/chris-adam,,2026-10-22T15:43:35Z,
 974c6b4fa193,speaker-page,Nilesh Gulia,2020-10-25,https://2020.ploneconf.org/speakers/nilesh-gulia,,2026-10-22T15:38:10Z,
 9755607eaad3,video,https://www.youtube.com/watch?v=hqMgE_D9D1M,2026-10-22,https://www.youtube.com/watch?v=hqMgE_D9D1M,,2026-10-22T22:29:48Z,not captured on 2026-10-22: rate limited (HTTP 429)
-97ceb745aab8,video,https://www.youtube.com/watch?v=79N0CJ1xS7I,2026-10-22,https://www.youtube.com/watch?v=79N0CJ1xS7I,,2026-10-22T22:29:48Z,not captured on 2026-10-22: rate limited (HTTP 429)
+97ceb745aab8,video,Realizzare un portale per bisogni informativi e servizi per le imprese - World Plone Day 2023 Italia,2026-10-24,https://www.youtube.com/watch?v=79N0CJ1xS7I,,2026-10-24T20:01:29Z,
 9801278703ee,speaker-page,Elisabeth Donnay,2022-10-13,https://2022.ploneconf.org/speakers/elisabeth-donnay.html,,2026-10-22T15:38:52Z,
 98151c5c01ea,page,Laurence Rowe,2016-09-27,https://2016.ploneconf.org/people/laurence-rowe.html,,2026-10-22T15:35:03Z,
 9880d9c8c0e0,speaker-page,Jan Mevissen,2025-10-15,https://2025.ploneconf.org/schedule/speakers/jan-mevissen,,2026-10-22T15:43:58Z,
 98a66aa0dbdd,commit,https://github.com/nens/spoc/commit/e421044fb3dc32a9f0af3e1dc214cbaa7ff1fde9,2014-09-17,https://github.com/nens/spoc/commit/e421044fb3dc32a9f0af3e1dc214cbaa7ff1fde9,,2026-10-22T15:48:44Z,
-98b220e4ddc3,video,https://www.youtube.com/watch?v=if-51TOKMX0,2026-10-22,https://www.youtube.com/watch?v=if-51TOKMX0,,2026-10-22T22:29:48Z,not captured on 2026-10-22: rate limited (HTTP 429)
+98b220e4ddc3,video,"Modello AgiD per i Comuni, un anno dopo - World Plone Day 2024 Italia",2026-10-24,https://www.youtube.com/watch?v=if-51TOKMX0,,2026-10-24T20:37:12Z,
 98b329f52610,commit,https://github.com/plone/collective.indexing/commit/a641da5773788ff5657829a02429643ba8642669,2008-02-28,https://github.com/plone/collective.indexing/commit/a641da5773788ff5657829a02429643ba8642669,,2026-10-22T15:55:08Z,
 98c4518fb452,page,Wie zijn Four Digits?,2013-05-30,http://www.fourdigits.nl/mensen,https://web.archive.org/web/20130530094629/http://www.fourdigits.nl/mensen,2026-10-22T16:22:04Z,page shows date 2013-04-24
 98d0a8e18212,commit,https://github.com/greenfinity/rescript-docx/commit/71ccea136506273a24cdf11f82853b51720e3d27,2025-01-04,https://github.com/greenfinity/rescript-docx/commit/71ccea136506273a24cdf11f82853b51720e3d27,,2026-10-22T15:47:51Z,
@@ -1346,7 +1346,7 @@ id,kind,title,date,url,archive_url,fetched,notes
 9fd010aed384,page,Training - Plone Conference 2019,2019-11-18,https://2019.ploneconf.org/training/,https://web.archive.org/web/20191118223700/https://2019.ploneconf.org/training/,2026-10-22T16:27:43Z,page shows date 2000-01-01
 a00ee9db7bf0,page,Veridiano Barroso,2024-11-27,https://2024.ploneconf.org/en/schedule/speakers/veridiano-barroso,,2026-10-22T15:43:01Z,
 a04b37fef693,page,Kleist IT Consulting,2013-06-10,http://kleist-it-consulting.de/,https://web.archive.org/web/20130610221853/http://kleist-it-consulting.de/,2026-10-22T16:22:08Z,
-a06acf566756,video,https://www.youtube.com/watch?v=bcw4dzBUfPU,2026-10-22,https://www.youtube.com/watch?v=bcw4dzBUfPU,,2026-10-22T22:29:48Z,not captured on 2026-10-22: rate limited (HTTP 429)
+a06acf566756,video,Plone per i giovani della Regione Emilia Romagna - World Plone Day 2023 Italia,2026-10-24,https://www.youtube.com/watch?v=bcw4dzBUfPU,,2026-10-24T20:33:13Z,
 a0d8dc2802ef,speaker-page,Sponsors,2005-10-17,http://ploneconf2005.bluedynamics.net:80/speakers/jim-fulton,https://web.archive.org/web/20051017042054/http://ploneconf2005.bluedynamics.net:80/speakers/jim-fulton,2026-10-22T15:06:14Z,page shows date 2005-09-01
 a0db248ff395,page,Thanks for making the Snow Sprint possible!,2007-02-05,https://plone.org/news-and-events/news/2007/snowsprint-thanks,,2026-10-22T16:08:55Z,
 a0e49b416330,page,https://plone.org/foundation/meetings/minutes/2020/plone-foundation-board-minutes-august-27-2020,2026-10-22,https://plone.org/foundation/meetings/minutes/2020/plone-foundation-board-minutes-august-27-2020,,2026-10-22T22:29:48Z,not captured on 2026-10-22: nothing found
@@ -1371,7 +1371,7 @@ a30a3c3cbaae,speaker-page,Kim Paulissen - Plone Conference 2019,2000-01-01,https
 a33b9ecec2ea,profile,datakurre (Asko Soukka),2016-01-28,https://github.com/datakurre,https://web.archive.org/web/20160128053055/https://github.com/datakurre,2026-10-22T15:19:35Z,page shows date 2009-12-01
 a3665c76694e,profile,Karl Johan Kleist,2026-10-22,https://github.com/k-j-kleist,,2026-10-22T15:48:07Z,
 a38367ff65df,commit,https://github.com/RedTurtle/rendertron-volto/commit/69a452df5036a4d8df072c3b2218f4bf1a0b0c80,2021-02-19,https://github.com/RedTurtle/rendertron-volto/commit/69a452df5036a4d8df072c3b2218f4bf1a0b0c80,,2026-10-22T15:46:15Z,
-a3a19885bfba,video,https://www.youtube.com/watch?v=rOui8yCJwjY,2026-10-22,https://www.youtube.com/watch?v=rOui8yCJwjY,,2026-10-22T22:29:48Z,not captured on 2026-10-22: rate limited (HTTP 429)
+a3a19885bfba,video,Il PNRR per i siti dei Comuni dell’UCMAN: dalla teoria alla pratica - World Plone Day 2024 Italia,2026-10-24,https://www.youtube.com/watch?v=rOui8yCJwjY,,2026-10-24T20:46:10Z,
 a3bc6328021e,page,Team,2015-10-31,http://www.niteoweb.com:80/team,https://web.archive.org/web/20151031190907/http://www.niteoweb.com:80/team,2026-10-22T16:27:16Z,page shows date 2005-01-01
 a3cd0007d260,speaker-page,External E-commerce and Plone playing along,2010-10-31,http://www.ploneconf2010.org/the-event/talks/external-e-commerce-and-plone-playing-along/,https://web.archive.org/web/20101031071539/http://www.ploneconf2010.org/the-event/talks/external-e-commerce-and-plone-playing-along/,2026-10-22T16:14:34Z,page shows date 2010-09-08
 a3ebb27ebd7b,page,Florian Schulze,2020-05-08,https://twitter.com/fschulze,https://web.archive.org/web/20200508235014/https://twitter.com/fschulze,2026-10-22T15:26:30Z,page shows date 2008-08-29
@@ -1486,7 +1486,7 @@ b257472044d4,page,Dimitri Favre - Plone Conference 2019,2000-01-01,https://2019.
 b279fc649505,commit,https://github.com/plone/plonetheme.classic-recreate/commit/3b74c5b5b78aa51b4e92126ab34b79f4f9945526,2009-11-03,https://github.com/plone/plonetheme.classic-recreate/commit/3b74c5b5b78aa51b4e92126ab34b79f4f9945526,,2026-10-22T16:03:12Z,
 b2846377ce8d,speaker-page,Vincent Rélin,2022-10-13,https://2022.ploneconf.org/speakers/vincent-relin.html,,2026-10-22T15:40:06Z,
 b29ffc1c4abe,page,[Plone-developers] Re: Java bug,2003-08-30,https://sourceforge.net/p/plone/mailman/message/9560266/,,2026-10-22T16:12:54Z,
-b2c297c71930,video,https://www.youtube.com/watch?v=U-FhRkNYu58,2026-10-22,https://www.youtube.com/watch?v=U-FhRkNYu58,,2026-10-22T22:29:48Z,not captured on 2026-10-22: rate limited (HTTP 429)
+b2c297c71930,video,World Plone Day 2021 - Digital Experience per la PA e le PMI,2026-10-24,https://www.youtube.com/watch?v=U-FhRkNYu58,,2026-10-24T20:29:12Z,
 b308de08cd57,page,https://web.archive.org/web/20261018135015/https://plone.org/news-and-events/events/plone-conferences/vienna-2004/brochure/inside_3.pdf/@@download/file,2026-10-22,https://plone.org/news-and-events/events/plone-conferences/vienna-2004/brochure/inside_3.pdf/@@download/file,https://web.archive.org/web/20261018135015/https://plone.org/news-and-events/events/plone-conferences/vienna-2004/brochure/inside_3.pdf/@@download/file,2026-10-22T22:29:48Z,not captured on 2026-10-22: nothing found
 b31ce77a4794,commit,https://github.com/plone/buildout.coredev/commit/888a0dbe14bdecb23c8c1c35e9637f43c64bbb60,2009-08-13,https://github.com/plone/buildout.coredev/commit/888a0dbe14bdecb23c8c1c35e9637f43c64bbb60,,2026-10-22T15:54:04Z,
 b3584a574ba3,commit,https://github.com/plone/plone.app.discussion/commit/8e344cbf2b672dc3cdfcd103f79c2dcdde9e216a,2017-07-17,https://github.com/plone/plone.app.discussion/commit/8e344cbf2b672dc3cdfcd103f79c2dcdde9e216a,,2026-10-22T15:59:30Z,
@@ -1700,7 +1700,7 @@ cd69c057da72,profile,Magnus Heino,2026-10-22,https://github.com/magnusheino,,202
 cd9d7a032067,commit,https://github.com/plone/plone.app.multilingual/commit/f4f465da4e26468f8a99bc6c3276052c152f5454,2021-03-23,https://github.com/plone/plone.app.multilingual/commit/f4f465da4e26468f8a99bc6c3276052c152f5454,,2026-10-22T16:00:37Z,
 cdb69510f5d4,page,Impressum,2003-01-30,http://www.zopyx.com:80/impressum.html,https://web.archive.org/web/20030130033908/http://www.zopyx.com:80/impressum.html,2026-10-22T15:04:49Z,page shows date 2002-09-02
 ce3b74cbb9cd,page,ACLARK.NET Zope/Plone Consulting & Web Hosting,2007-01-10,http://aclark.net:80/,https://web.archive.org/web/20070110221435/http://aclark.net:80/,2026-10-22T16:13:27Z,page shows date 2006-12-30
-ce4ffbdfa65d,video,https://www.youtube.com/watch?v=tbupJUmO1Ws,2026-10-22,https://www.youtube.com/watch?v=tbupJUmO1Ws,,2026-10-22T22:29:48Z,not captured on 2026-10-22: rate limited (HTTP 429)
+ce4ffbdfa65d,video,Realizzare una digital library per i centri bowling di 5 continenti - QubicaAMF - World Plone Day 21,2026-10-24,https://www.youtube.com/watch?v=tbupJUmO1Ws,,2026-10-24T20:50:09Z,
 ce50aedff14e,page,Re: [Plone-developers] Plone 4: ZEO + blobstorage problem,2010-02-19,https://sourceforge.net/p/plone/mailman/message/24597778/,,2026-10-22T16:12:08Z,
 ce5da1752e88,page,People — Jarn,2010-04-05,http://www.jarn.com:80/people,https://web.archive.org/web/20100405222328/http://www.jarn.com:80/people,2026-10-22T15:13:18Z,
 ce9d6d7d51f6,page,Re: [Plone-developers] Just got kicked from the collective,2015-08-11,https://sourceforge.net/p/plone/mailman/message/34365210/,,2026-10-22T16:12:37Z,
@@ -1781,7 +1781,7 @@ d8392a707efa,speaker-page,Adriana Ramírez Vigueras,2019-09-18,https://2018.plon
 d8593875ba30,page,Building a business solution with Guillotina,2018-11-01,https://2018.ploneconf.org/talks/building-a-business-solution-with-guillotina.html,,2026-10-22T15:36:43Z,
 d87bfcbc5f7c,profile,Andrea Cecchi,2026-10-22,https://github.com/cekk,,2026-10-22T15:46:44Z,
 d891f0232084,page,https://sourceforge.net/p/plone/mailman/message/13586556/,2026-10-22,https://sourceforge.net/p/plone/mailman/message/13586556/,,2026-10-22T22:29:48Z,not captured on 2026-10-22: nothing found
-d8d7d26d4ab3,video,https://www.youtube.com/watch?v=ESaNZLCtph4,2026-10-22,https://www.youtube.com/watch?v=ESaNZLCtph4,,2026-10-22T22:29:48Z,not captured on 2026-10-22: rate limited (HTTP 429)
+d8d7d26d4ab3,video,AbFab! Come back to easy frontend development - Eric Bréhault,2026-10-24,https://www.youtube.com/watch?v=ESaNZLCtph4,,2026-10-24T20:07:15Z,
 d8e0b70e8efd,page,Re: [Plone-developers] Re: running migrate warning,2003-06-23,https://sourceforge.net/p/plone/mailman/message/9559227/,,2026-10-22T16:12:51Z,
 d8fe24176df7,page,Tiny Shiny Alpine City Sprint 2024,2026-10-22,https://docs.google.com/document/d/1_-PzoEsmYqPbRq3yI1l38L19pQgIzF3SoYSgKc4n6Uk,,2026-10-22T15:45:22Z,
 d929407408a1,commit,https://github.com/plone/buildout.coredev/commit/663a7905fe360aa83ef49136c62ad458d55e7a05,2009-04-24,https://github.com/plone/buildout.coredev/commit/663a7905fe360aa83ef49136c62ad458d55e7a05,,2026-10-22T15:53:54Z,
@@ -1886,7 +1886,7 @@ e5f4700a5785,page,Report from the Munich-leg of the Wine-and-Beer-Sprint,2013-01
 e62ff9043376,page,Welcome to Simplon,2012-10-14,http://www.simplon.biz:80/,https://web.archive.org/web/20121014103144/http://www.simplon.biz:80/,2026-10-22T15:15:35Z,page shows date 2012-01-01
 e686dc800693,page,edi.jsonforms - its not only a form library but it could,2025-10-15,https://2025.ploneconf.org/schedule/talks/edi-jsonforms-its-not-only-a-form-library-but-it-could,,2026-10-22T15:45:00Z,
 e6b07702d23e,speaker-page,Chrissy Wainwright,2020-10-25,https://2020.ploneconf.org/speakers/chrissy-wainwright.html,,2026-10-22T15:37:44Z,
-e6ef70d0b878,video,https://www.youtube.com/watch?v=Pd8hUyha2sg,2026-10-22,https://www.youtube.com/watch?v=Pd8hUyha2sg,,2026-10-22T22:29:48Z,not captured on 2026-10-22: rate limited (HTTP 429)
+e6ef70d0b878,video,Second guessing the single-page-app pattern - Eric Brehault,2026-10-24,https://www.youtube.com/watch?v=Pd8hUyha2sg,,2026-10-24T20:25:13Z,
 e6fa858ddb7c,page,[Plone-Users] Register user and send a password,2008-11-26,https://sourceforge.net/p/plone/mailman/message/20905376/,,2026-10-22T16:11:51Z,
 e717992836a7,commit,https://github.com/eaudeweb/edw.userhistory/commit/6a371aac041655085e951db2e5515f07e894d0fc,2015-01-09,https://github.com/eaudeweb/edw.userhistory/commit/6a371aac041655085e951db2e5515f07e894d0fc,,2026-10-22T15:47:28Z,
 e720df831ddf,commit,https://github.com/RedTurtle/rt.purge/commit/4f8bfcdf364269fa1861aa0d0553121aa80ce037,2017-09-15,https://github.com/RedTurtle/rt.purge/commit/4f8bfcdf364269fa1861aa0d0553121aa80ce037,,2026-10-22T15:46:17Z,
