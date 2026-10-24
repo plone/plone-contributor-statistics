@@ -77,8 +77,9 @@ The commit adapter reads commits from the clones of the collectors in `.cache/re
 
 A page that is in the cache is not fetched again, so running the tool twice makes one request.
 This also lets you finish a capture that was interrupted without asking the web again.
-The caption tracks of a video are kept in the cache as well, in one folder per video in `.cache/sources/video/`, named by the YouTube video id, with the list of the tracks in `tracks.json`.
-Another source of the same video and a later run read the kept tracks without asking YouTube again; only the tracks in that list are read.
+The caption tracks of a video are kept in the cache as well, in one folder per video in `.cache/sources/video/`, with the list of the tracks, the title and the language of the video and the time of the download in `tracks.json`.
+The folder of a YouTube video is named by its video id, so all addresses of the video share it; the folder of a video on another host is named by the host and path of its address.
+Another source of the same video and a later run read the kept tracks without asking YouTube again, and record the time of the download as the fetch time; only the tracks in that list are read.
 `--refresh` downloads the tracks again; the tool never removes a caption file, and keeps an earlier version of a track beside the new one.
 The tool waits between requests: about one second between requests to the same host, and four seconds between two requests to the Internet Archive, whether to `web.archive.org` or to `archive.org`.
 It keeps the time of the last request to each host in the cache, so the pace holds across several runs of the tool.
@@ -90,7 +91,8 @@ The tool prints `! not found: <quote>` and exits with status 1; it stores nothin
 When none of the quotes for a new source is found, it stores nothing at all, not even the row of the source.
 Open the page, copy the sentence again and check the spelling.
 The text may sit in a part of the page that is not part of the article, in which case the tool also searches the rest of the page.
-For a video, the tool reads only the original caption tracks: the automatic captions in the spoken language, and when a video has none, its manual subtitles.
+For a video, the tool first asks YouTube for the title and the language of the video, and reads only the original caption track: the automatic captions in that language, and when a video has none, its manual subtitles in that language, else all its manual subtitles.
+When YouTube names no language, it reads every original track, which includes the captions of a dubbed audio track.
 It never fetches the machine translations of the captions, which YouTube refuses to serve.
 It searches the preferred track first, then the other tracks it downloaded.
 It waits at least 30 seconds between two videos, also across runs.

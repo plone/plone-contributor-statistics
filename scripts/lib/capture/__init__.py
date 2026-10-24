@@ -193,7 +193,9 @@ def _read_live(url, fetcher, session, run, refresh=False):
         if _is_gone(error):
             raise _Gone(fetched, kind) from error
         raise
-    return _Read(url, None, kind, extracted.text, extracted.full_text, extracted.title, extracted.date, fetched)
+    # kept caption tracks are as old as their download, as a page read from the cache
+    return _Read(url, None, kind, extracted.text, extracted.full_text, extracted.title, extracted.date,
+                 extracted.fetched or fetched)
 
 
 def _stored(sid, quote):

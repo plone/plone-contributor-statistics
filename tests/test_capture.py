@@ -356,7 +356,7 @@ def test_capture_commit_fails_for_an_unreachable_commit(web):
         capture_commit(url, 'jane@acme.test', fetcher=fetcher, session=session, run=no_run)
 
 
-def test_video_tracks_are_kept_per_video(web):
+def test_video_tracks_are_kept_per_video(web, monkeypatch):
     """The tracks are kept in one folder per video, by its YouTube id; another address of the video reads them
     without asking YouTube, and --refresh asks again."""
     fetcher, _ = web(session=NoNetwork())
@@ -387,9 +387,12 @@ def test_video_tracks_are_kept_per_video(web):
     assert (row.kind, row.title, row.date) == ('video', 'A talk', NOW.date())
     assert result.added == ('[01:02] I work for Zest Software\n[01:04] and Plone',)
 
+    # a read from the kept tracks is as old as their download, as a page read from the cache
+    monkeypatch.setattr(fetch_module, 'now', lambda: NOW + datetime.timedelta(days=3))
     other = capture('https://youtu.be/abc', ['and Plone'], fetcher=fetcher, run=no_run)
     assert other.source_id != sid and other.added == ('[01:02] I work for Zest Software\n[01:04] and Plone',)
-    assert load_sources()[other.source_id].title == 'A talk'
+    row = load_sources()[other.source_id]
+    assert (row.title, row.fetched, row.date) == ('A talk', NOW, NOW.date())
 
     capture(url, ['work for Zest'], refresh=True, fetcher=fetcher, run=run)
     assert len(workdirs) == 2
