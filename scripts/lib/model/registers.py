@@ -19,7 +19,7 @@ MIN_DOMAIN_KEY = 3  # the first word of an organisation name is a key for domain
 GITHUB = 'github'  # the login the collected files count a person under; at most one per person
 GITHUB_ALIAS = 'github-alias'  # a further GitHub account of the person
 LOGIN_KINDS = (GITHUB, GITHUB_ALIAS)
-UNIQUE_IDENTITY_KINDS = (GITHUB, GITHUB_ALIAS, 'email')  # one person's each; a name may be shared by homonyms
+UNIQUE_IDENTITY_KINDS = (GITHUB, GITHUB_ALIAS, 'email', 'svn')  # one person's each; a name may be shared by homonyms
 
 
 @dataclass(frozen=True)
@@ -162,6 +162,10 @@ class Registry:
         """{id: Source} of the source register."""
         return self._attribution_data()[1]
 
+    def excerpt(self, source_id):
+        """The text of the excerpt of a source; empty without one."""
+        return self._attribution_data()[2](source_id) or ''
+
     @property
     def attribution(self):
         """The attribution rules over the registers, built on first use."""
@@ -177,6 +181,23 @@ class Registry:
                                                        *self.organisations[org_id].aliases]
                                                       if org_id in self.organisations else []))
         return self._attribution
+
+    def without_affiliations(self, ids):
+        """The same registers and attribution inputs without the affiliations of the ids: what the rules give
+        without them."""
+        return Registry(self.people.values(), self.identities,
+                        [affiliation for affiliation in self.affiliations if affiliation.id not in ids],
+                        self.organisations.values(), attribution_inputs=self._attribution_data)
+
+    def with_affiliations(self, affiliations, citations=()):
+        """The same registers and attribution inputs with the affiliations and their citations added: what the
+        rules give with them."""
+        def inputs():
+            cited, sources, excerpt, commit_domains = self._attribution_data()
+            return [*cited, *citations], sources, excerpt, commit_domains
+
+        return Registry(self.people.values(), self.identities, [*self.affiliations, *affiliations],
+                        self.organisations.values(), attribution_inputs=inputs)
 
     def organisation_of(self, person_id, year):
         """The name of the organisation the person counts for in the year, else UNMAPPED."""
@@ -281,6 +302,13 @@ def load_identities(mappings_dir=paths.MAPPINGS_DIR):
             for r in read_rows(Path(mappings_dir) / paths.IDENTITIES.name)]
 
 
+def load_affiliations(mappings_dir=paths.MAPPINGS_DIR):
+    """The rows of affiliations.csv."""
+    return [Affiliation(r['id'], r['person'], r['organisation'], r['from'], r['to'], r['status'], r['checked'],
+                        r['notes'])
+            for r in read_rows(Path(mappings_dir) / paths.AFFILIATIONS.name)]
+
+
 def load_registry(mappings_dir=paths.MAPPINGS_DIR):
     """Read the registers in the directory; the citations, sources, excerpts and commit domains on first use.
 
@@ -293,9 +321,7 @@ def load_registry(mappings_dir=paths.MAPPINGS_DIR):
     root = mappings_dir.parent.parent
     people = [Person(r['id'], r['name']) for r in read_rows(mappings_dir / paths.PEOPLE.name)]
     identities = load_identities(mappings_dir)
-    affiliations = [Affiliation(r['id'], r['person'], r['organisation'], r['from'], r['to'], r['status'],
-                                r['checked'], r['notes'])
-                    for r in read_rows(mappings_dir / paths.AFFILIATIONS.name)]
+    affiliations = load_affiliations(mappings_dir)
     organisations = [Organisation(r['id'], r['name'], r['kind'], r['github'], split_set(r['aliases']), r['notes'])
                      for r in read_rows(mappings_dir / paths.ORGANISATIONS.name)]
 
@@ -364,6 +390,20 @@ def write_identities(identities, mappings_dir=MAPPINGS_DIR):
     """Replace identities.csv by the identities (Identity rows), sorted as the checks expect, atomically."""
     rows = [{field: getattr(identity, field) for field in IDENTITY_FIELDS} for identity in identities]
     _write_rows(Path(mappings_dir) / paths.IDENTITIES.name, IDENTITY_FIELDS, sorted(rows, key=_identity_key))
+
+
+def _affiliation_key(row):
+    """The order of affiliations.csv: person, first year, organisation."""
+    return (row['person'], row['from'], row['organisation'])
+
+
+def write_affiliations(affiliations, mappings_dir=MAPPINGS_DIR):
+    """Replace affiliations.csv by the affiliations (Affiliation rows), sorted as the checks expect, atomically."""
+    rows = [{'id': row.id, 'person': row.person, 'organisation': row.organisation, 'from': row.from_year,
+             'to': row.to_year, 'status': row.status, 'checked': row.checked, 'notes': row.notes}
+            for row in affiliations]
+    _write_rows(Path(mappings_dir) / paths.AFFILIATIONS.name, AFFILIATION_FIELDS,
+                sorted(rows, key=_affiliation_key))
 
 
 def affiliation_id(person, organisation, start, end):
@@ -450,6 +490,6 @@ def append_proposals(rows, mappings_dir=MAPPINGS_DIR):
                               'notes': (notes[0] if notes else None) or None})
     if added:
         _write_rows(mappings_dir / paths.AFFILIATIONS.name, AFFILIATION_FIELDS,
-                    sorted(affiliations, key=lambda row: (row['person'], row['from'], row['organisation'])))
+                    sorted(affiliations, key=_affiliation_key))
         _write_rows(mappings_dir / paths.CITATIONS.name, CITATION_FIELDS, sorted(citations, key=_citation_key))
     return added

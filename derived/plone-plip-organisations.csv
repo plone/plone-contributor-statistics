@@ -1,5 +1,5 @@
 organisation,total_plips,open_plips,closed_plips,contributors_count,contributors,repositories_count,repositories,first_plip,last_plip
-kitconcept GmbH,79,29,50,6,"danalvrz, ericof, jnptk, robgietema, sneridagh, tisto",4,"plone/Products.CMFPlone, plone/aurora, plone/plone.restapi, plone/volto",2013-11-07,2026-09-18
+kitconcept GmbH,78,28,50,6,"danalvrz, ericof, jnptk, robgietema, sneridagh, tisto",4,"plone/Products.CMFPlone, plone/aurora, plone/plone.restapi, plone/volto",2013-11-07,2026-09-18
 Timo Stollenwerk (independent),23,0,23,1,tisto,1,plone/Products.CMFPlone,2013-11-07,2015-06-24
 Unmapped,23,4,19,17,"b4oshany, ghost, hvelarde, iham, khink, leandromontenegromachado, mpalomaki, pigeonflight, rber474, robgietema, rodfersou, rohnsha0, Rudd-O, Shriyanshagro, staeff, svx, vangheem",3,"plone/Products.CMFPlone, plone/plone.restapi, plone/volto",2014-02-10,2026-01-23
 Iskra,18,0,18,1,bloodbare,1,plone/Products.CMFPlone,2014-02-10,2015-07-16
@@ -22,10 +22,10 @@ Steve Piercy - Website Builder,5,5,0,1,stevepiercy,1,plone/Products.CMFPlone,202
 Termitnjak d.o.o.,5,0,5,1,jcerjak,1,plone/Products.CMFPlone,2014-12-20,2015-05-03
 Derico,4,2,2,1,MrTango,2,"plone/Products.CMFPlone, plone/plone.restapi",2016-01-27,2026-10-04
 Onna,4,0,4,3,"bloodbare, ebrehault, vangheem",1,plone/Products.CMFPlone,2015-07-15,2016-07-13
+Rob Gietema (independent),4,1,3,1,robgietema,3,"plone/Products.CMFPlone, plone/plone.restapi, plone/volto",2017-04-20,2024-11-30
 Agitator,3,0,3,1,agitator,1,plone/Products.CMFPlone,2018-09-14,2020-03-02
 Codesyntax,3,2,1,1,erral,2,"plone/Products.CMFPlone, plone/volto",2023-12-07,2026-05-02
 Markus Hilbert (independent),3,1,2,1,iham,1,plone/Products.CMFPlone,2017-04-12,2021-08-16
-Rob Gietema (independent),3,0,3,1,robgietema,2,"plone/plone.restapi, plone/volto",2017-04-20,2017-11-08
 University of Jyväskylä,3,0,3,2,"datakurre, rioksane",1,plone/Products.CMFPlone,2016-01-08,2020-04-23
 Zopyx,3,0,3,1,zopyx,2,"plone/Products.CMFPlone, plone/plone.restapi",2016-09-02,2019-03-03
 Academy of FA Vienna,2,0,2,2,"gogobd, iham",1,plone/Products.CMFPlone,2016-10-21,2017-04-12

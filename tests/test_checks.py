@@ -259,12 +259,34 @@ def test_overlapping_affiliations_are_fine_when_a_rule_decides(tmp_package):
                                                    organisations=BETA))) == []
 
 
-def test_an_unresolved_conflict_is_an_error(tmp_package):
+def test_a_person_year_no_rule_decides_is_an_open_case_and_a_warning(tmp_package, capsys):
     # 2012-2013: two stated records, no change year, no record of the year, no commits
-    errors = check.validate(tmp_package(affiliations(('acme', 2010, 2014), ('beta', 2012, 2013), organisations=BETA)))
-    assert errors == [('curated/mappings/affiliations.csv', None, None,
-                       f'General table error: pbauer, {year}: no attribution rule decides between acme, beta; '
-                       f'record a decision') for year in (2012, 2013)]
+    root = tmp_package(affiliations(('acme', 2010, 2014), ('beta', 2012, 2013), organisations=BETA))
+    warnings = []
+    assert check.validate(root, warnings=warnings) == []
+    assert warnings == [('curated/mappings/affiliations.csv', None, None,
+                         f'Open case: pbauer, {year}: no attribution rule decides between acme, beta; it counts as '
+                         f'Unmapped until a decision settles it') for year in (2012, 2013)]
+    assert check.validate(root) == []  # without a list for them, the warnings are left out
+    check.main([])  # exits 0: no SystemExit
+    out = capsys.readouterr().out
+    assert ('curated/mappings/affiliations.csv::: warning: Open case: pbauer, 2012: no attribution rule decides '
+            'between acme, beta; it counts as Unmapped until a decision settles it') in out.splitlines()
+
+
+def test_an_open_case_next_to_a_real_error_still_fails_the_check(tmp_package, capsys):
+    # The open case of 2012-2013 is a warning; the open-ended row without `checked` is an error
+    root = tmp_package(affiliations(('acme', 2010, 2014), ('beta', 2012, 2013), ('beta', 2020, None),
+                                    organisations=BETA))
+    warnings = []
+    errors = check.validate(root, warnings=warnings)
+    assert len(errors) == 1 and 'needs checked' in errors[0][3]
+    assert len(warnings) == 2
+    with pytest.raises(SystemExit) as exit_info:
+        check.main([])
+    assert exit_info.value.code == 1
+    out = capsys.readouterr().out
+    assert 'warning: Open case: pbauer, 2012' in out and 'needs checked' in out
 
 
 def decisions(supersedes):
@@ -340,7 +362,8 @@ def test_identities_are_sorted(tmp_package):
 
 @pytest.mark.parametrize('kind,value,other', [('email', 'pb@example.org', 'PB@Example.org'),
                                               ('github', 'pbauer', 'PBauer'),
-                                              ('github-alias', 'pbauer-old', 'PBAUER-OLD')])
+                                              ('github-alias', 'pbauer-old', 'PBAUER-OLD'),
+                                              ('svn', 'pbauer', 'PBauer')])
 def test_a_login_or_an_address_is_unique_within_its_kind_ignoring_case(tmp_package, kind, value, other):
     errors = check.validate(tmp_package(identities(f'pbauer,{kind},{value},RECORD,,',
                                                    f'tschorr,{kind},{other},RECORD,,')))

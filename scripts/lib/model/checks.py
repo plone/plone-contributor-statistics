@@ -93,11 +93,19 @@ class UncitedAffiliationError(errors.RowError):
     template = 'The row at position {rowNumber} has an error: {note}'
 
 
-class ConflictError(errors.TableError):
-    type = 'unresolved-conflict'
-    title = 'Unresolved Conflict'
-    description = 'No attribution rule decides which organisation a person counts for in a year.'
+class ConflictCheckSkippedError(errors.TableError):
+    type = 'conflict-check-skipped'
+    title = 'Conflict Check Skipped'
+    description = 'The registers cannot be read, so the open cases of the attribution could not be looked for.'
     template = 'General table error: {note}'
+
+
+class OpenCaseWarning(errors.TableError):
+    type = 'open-case'
+    title = 'Open Case'
+    description = ('No attribution rule decides which organisation a person counts for in a year: the year counts '
+                   'as Unmapped until a decision settles it. A warning, not an error.')
+    template = 'Open case: {note}'
 
 
 class DecisionError(errors.TableError):
@@ -403,10 +411,12 @@ class Cited(Check):
 
 @attrs.define(kw_only=True, repr=False)
 class UnresolvedConflict(Check):
-    """No person-year is left undecided by the attribution rules: record a decision for each conflict."""
+    """A person-year that no attribution rule decides is an open case, a warning: Unmapped until a decision settles it.
 
-    type = 'unresolved-conflict'
-    Errors = [ConflictError]
+    That the registers cannot be read is an error."""
+
+    type = 'open-case'
+    Errors = [ConflictCheckSkippedError, OpenCaseWarning]
 
     attribution: object
     """A function that returns the `Attribution` of the registers, or the reason why they cannot be read."""
@@ -415,12 +425,12 @@ class UnresolvedConflict(Check):
     def validate_end(self):
         attribution = self.attribution()
         if isinstance(attribution, str):
-            yield ConflictError(note=f'the conflict check was skipped: {attribution}')
+            yield ConflictCheckSkippedError(note=f'the conflict check was skipped: {attribution}')
             return
         for person, year, organisations in attribution.conflicts(until=self.until):
             note = (f'{person}, {year}: no attribution rule decides between {", ".join(organisations)}; '
-                    f'record a decision')
-            yield ConflictError(note=note)
+                    f'it counts as Unmapped until a decision settles it')
+            yield OpenCaseWarning(note=note)
 
 
 @attrs.define(kw_only=True, repr=False)

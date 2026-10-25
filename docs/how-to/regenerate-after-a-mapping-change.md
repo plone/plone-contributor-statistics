@@ -8,6 +8,7 @@ The organisation of a person in a year is computed from the affiliations, their 
 So a change to `curated/mappings/citations.csv` or to the source register can change the organisation statistics as much as a change to `curated/mappings/affiliations.csv`.
 The collected commit domains in `collected/commit-domains/` feed the tie-break by commits (rule 6b) as well, so a new `make run-commit-domains` can change them too.
 `python -m scripts.tools.affiliation jane-doe` shows the organisations of a person before you regenerate.
+`python -m scripts.tools.attribution_changes` lists every person and year that counts for another organisation than at a base commit (`--base`, by default where your branch left `origin/main`), with the rule and what was credited in the year: run it to see the effect of a mapping change.
 
 1.  Install the dependencies, if you haven't yet:
 

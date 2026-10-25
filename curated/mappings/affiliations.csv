@@ -13,7 +13,8 @@ acf93efba,adrian-schulz,fhnw,2026,,stated,2026-10-18,
 a3eb48018,adriana-ramirez-vigueras,unam,2017,2017,stated,,
 ad6ffa797,adriana-ramirez-vigueras,unam,2018,2018,stated,,
 a002dc3c1,alan-hoey,team-rubber,2011,2011,stated,,
-a823324c3,alan-runyan,clear-noodle,2003,2003,stated,,"not applied, the verified row stands: ""Alan Runyan and Alexander Limi, Runyaga, LLC and Plone Solutions"", Plone Conference 2003 speaker page: http://web.archive.org/web/20031013220520/http://plone.org/events/conferences/1/PloneConferenceSchedule.pdf"
+a823324c3,alan-runyan,clear-noodle,2003,2003,stated,,"earlier review: not applied, the verified row stands: ""Alan Runyan and Alexander Limi, Runyaga, LLC and Plone Solutions"", Plone Conference 2003 speaker page: http://web.archive.org/web/20031013220520/http://plone.org/events/conferences/1/PloneConferenceSchedule.pdf; the record is row ae9fc45dd"
+ae9fc45dd,alan-runyan,runyaga-llc,2003,2003,stated,,"earlier review: not applied, the verified row stands: ""Alan Runyan and Alexander Limi, Runyaga, LLC and Plone Solutions"", Plone Conference 2003 speaker page: http://web.archive.org/web/20031013220520/http://plone.org/events/conferences/1/PloneConferenceSchedule.pdf"
 a29f5902b,alan-runyan,enfold,2004,2009,stated,,
 a2be1a429,alan-runyan,enfold,2010,2010,stated,,
 a06134514,alan-runyan,enfold,2011,2011,stated,,
@@ -24,10 +25,8 @@ a33cb5f81,albert-casado,onna,2021,2021,stated,,
 a2d271bbe,alberto-telletxea,bilbomatica,2023,2023,stated,,
 a3556702c,alec-ghica,eau-de-web,2012,2015,stated,,
 a053a6fdc,alec-ghica,eau-de-web,2016,2016,stated,2026-10-18,
-a4a43ba1a,alec-ghica,eau-de-web,2017,2019,stated,2026-10-18,between records of 2015 and 2020 of the same organisation
-a1483b158,alec-ghica,eau-de-web,2020,2021,stated,,
-ad8b475f2,alec-ghica,eau-de-web,2025,2025,stated,2026-10-18,between records of 2021 and 2026 of the same organisation
-a68a23b53,alec-ghica,eau-de-web,2026,,stated,2026-10-18,
+a1483b158,alec-ghica,eau-de-web,2020,2021,stated,,bridged 2017-2019: between records of 2015 and 2020 of the same organisation (checked 2026-10-18)
+a68a23b53,alec-ghica,eau-de-web,2026,,stated,2026-10-18,bridged 2025-2025: between records of 2021 and 2026 of the same organisation (checked 2026-10-18)
 a287e6f9c,alec-mitchell,alec-mitchell-independent,2005,2005,stated,,
 adb114b61,alec-mitchell,alec-mitchell-independent,2006,2006,stated,,
 a21a91745,alec-mitchell,columbia-university-s-center-for-new-media-teaching-and-learning,2011,2011,stated,,
@@ -38,10 +37,8 @@ ae12edff5,aleix-ruiz-de-villa,aleix-ruiz-de-villa-independent,2020,2020,stated,,
 acd900596,alessandro-pisa,redturtle,2012,2015,stated,,2002-2011 Unmapped: no public record for these years (#86)
 aebb164c5,alessandro-pisa,redturtle,2016,2016,stated,,
 ad9c1cd33,alessandro-pisa,syslab,2017,2017,stated,,
-ad1fd4368,alessandro-pisa,syslab,2018,2018,stated,2026-10-18,between records of 2017 and 2019 of the same organisation
-a18dfa061,alessandro-pisa,syslab,2019,2020,stated,,
-ae36e9f97,alessandro-pisa,syslab,2021,2021,stated,2026-10-18,between records of 2020 and 2022 of the same organisation
-a0ffe1fda,alessandro-pisa,syslab,2022,2022,stated,2026-10-18,
+a18dfa061,alessandro-pisa,syslab,2019,2020,stated,,bridged 2018-2018: between records of 2017 and 2019 of the same organisation (checked 2026-10-18)
+a0ffe1fda,alessandro-pisa,syslab,2022,2022,stated,2026-10-18,bridged 2021-2021: between records of 2020 and 2022 of the same organisation (checked 2026-10-18)
 a3cc22423,alessandro-pisa,syslab,2023,2025,stated,,
 a96e3fc85,alessandro-pisa,syslab,2026,,stated,2026-10-18,
 ad9ddc7c9,alex-catlla,iskra,2014,2015,stated,,
@@ -60,8 +57,7 @@ a5fa704ef,alex-zeeman,juizi,2025,2025,stated,,
 ac3d2bc4a,alexander-buckig,werkbank-gmbh,2019,2021,assumed,2026-10-18,range from the current entry; years before 2026 not verified (#139)
 addbc2df7,alexander-buckig,werkbank-gmbh,2026,,stated,2026-10-18,
 a886337ee,alexander-pilz,syslab,2009,2010,stated,,
-adc1bc996,alexander-pilz,syslab,2011,2013,stated,2026-10-18,between records of 2010 and 2014 of the same organisation
-a2626d41b,alexander-pilz,syslab,2014,2015,stated,,
+a2626d41b,alexander-pilz,syslab,2014,2015,stated,,bridged 2011-2013: between records of 2010 and 2014 of the same organisation (checked 2026-10-18)
 aecc541d9,alexander-pilz,syslab,2018,2018,stated,,
 a41ff8ed1,alexander-pilz,syslab,2022,2022,stated,,
 a463ea7fc,alexander-pilz,syslab,2025,2025,stated,,
@@ -89,8 +85,7 @@ a8b3fdcdd,andre-nogueira,simples-consultoria,2013,2013,stated,,
 a76208ba0,andre-nuyens,imio,2018,2018,stated,,
 a9260a11e,andre-nuyens,imio,2022,2022,stated,,
 a443edc8e,andrea-cecchi,redturtle,2013,2015,stated,,
-ab217e7e9,andrea-cecchi,redturtle,2016,2016,stated,2026-10-18,between records of 2015 and 2017 of the same organisation
-ae8c37c27,andrea-cecchi,redturtle,2017,2025,stated,,
+ae8c37c27,andrea-cecchi,redturtle,2017,2025,stated,,bridged 2016-2016: between records of 2015 and 2017 of the same organisation (checked 2026-10-18)
 a09323f44,andrea-cecchi,redturtle,2026,,stated,2026-10-18,
 a75f63fa2,andreas-jung,zopyx,2003,2007,stated,2026-10-18,
 ae8b324bc,andreas-jung,zopyx,2008,2008,stated,,
@@ -98,8 +93,7 @@ ad9f75235,andreas-jung,zopyx,2009,2009,stated,2026-10-18,
 a35c4f0f2,andreas-jung,zopyx,2010,2013,stated,,
 ac9e2e5b8,andreas-jung,zopyx,2014,2014,stated,2026-10-18,
 a35afe57d,andreas-jung,zopyx,2015,2015,stated,,
-a413e3b2d,andreas-jung,zopyx,2016,2016,stated,2026-10-18,between records of 2015 and 2017 of the same organisation
-a5e7530d3,andreas-jung,zopyx,2017,2023,stated,,
+a5e7530d3,andreas-jung,zopyx,2017,2023,stated,,bridged 2016-2016: between records of 2015 and 2017 of the same organisation (checked 2026-10-18)
 a6c514613,andreas-jung,zopyx,2025,2025,stated,,
 ad0aa7496,andreas-jung,zopyx,2026,,stated,2026-10-18,
 ac219f5b4,andreas-zeidler,zitc,2006,2010,stated,,2002-2005 Unmapped: no public record for these years (#86)
@@ -116,7 +110,8 @@ a70c2e371,andrew-mleczko,redturtle,2009,2009,stated,,
 a66468f67,andrew-mleczko,redturtle,2011,2011,stated,,
 a8435b2be,andrew-parker,sixfeetup,2008,2008,stated,,
 a4e71b0ba,andy-leeb,onna,2020,2022,stated,,
-a0143c639,andy-mckay,agm-web-consulting,2003,2003,stated,,"not applied, the verified row stands: ""Andy McKay, ClearWind"", Plone Conference 2003 speaker page: http://web.archive.org/web/20031013220520/http://plone.org/events/conferences/1/PloneConferenceSchedule.pdf"
+a0143c639,andy-mckay,agm-web-consulting,2003,2003,stated,,"earlier review: not applied, the verified row stands: ""Andy McKay, ClearWind"", Plone Conference 2003 speaker page: http://web.archive.org/web/20031013220520/http://plone.org/events/conferences/1/PloneConferenceSchedule.pdf; the record is row adfd24e10"
+adfd24e10,andy-mckay,clearwind-consulting,2003,2003,stated,,"earlier review: not applied, the verified row stands: ""Andy McKay, ClearWind"", Plone Conference 2003 speaker page: http://web.archive.org/web/20031013220520/http://plone.org/events/conferences/1/PloneConferenceSchedule.pdf"
 a67307e17,andy-mckay,enfold,2004,2005,stated,,
 a10a17838,andy-mckay,clearwind-consulting,2006,2006,stated,,
 a26f65fcd,andy-mckay,blue-fountain,2007,2007,stated,,
@@ -132,39 +127,29 @@ a29d31cc6,antoine-duchene,imio,2021,2022,stated,,
 abe512493,antoine-duchene,imio,2023,2023,stated,,
 a8c1a6251,antoine-duchene,imio,2026,,stated,2026-10-18,
 a54a79ed5,armin-stross-radschinski,acsr-industrialdesign,2013,2017,stated,,
-a4902a7fb,armin-stross-radschinski,acsr-industrialdesign,2018,2018,stated,2026-10-18,between records of 2017 and 2019 of the same organisation
-ad6689cb5,armin-stross-radschinski,acsr-industrialdesign,2019,2019,stated,,
-a0f0d97ab,armin-stross-radschinski,acsr-industrialdesign,2020,2024,stated,2026-10-18,between records of 2019 and 2025 of the same organisation
-a7f2181e1,armin-stross-radschinski,acsr-industrialdesign,2025,2025,stated,,
+ad6689cb5,armin-stross-radschinski,acsr-industrialdesign,2019,2019,stated,,bridged 2018-2018: between records of 2017 and 2019 of the same organisation (checked 2026-10-18)
+a7f2181e1,armin-stross-radschinski,acsr-industrialdesign,2025,2025,stated,,bridged 2020-2024: between records of 2019 and 2025 of the same organisation (checked 2026-10-18)
 a5149b53a,armin-stross-radschinski,acsr-industrialdesign,2026,,stated,2026-10-18,
 a57db2073,asier-espilla-bidaurrazaga,ela-sindikatua,2023,2023,stated,,
 ab314df34,asko-soukka,university-of-jyvaskyla,2011,2011,assumed,2026-10-18,range from the current entry; years before 2026 not verified (#139)
 ac9812862,asko-soukka,university-of-jyvaskyla,2012,2012,stated,2026-10-18,
-ae6b531dd,asko-soukka,university-of-jyvaskyla,2013,2013,stated,2026-10-18,between records of 2012 and 2014 of the same organisation
-a777c74a9,asko-soukka,university-of-jyvaskyla,2014,2014,stated,2026-10-18,
-a8d77c45f,asko-soukka,university-of-jyvaskyla,2015,2015,stated,2026-10-18,between records of 2014 and 2016 of the same organisation
-a367c60f6,asko-soukka,university-of-jyvaskyla,2016,2016,stated,2026-10-18,
+a777c74a9,asko-soukka,university-of-jyvaskyla,2014,2014,stated,2026-10-18,bridged 2013-2013: between records of 2012 and 2014 of the same organisation (checked 2026-10-18)
+a367c60f6,asko-soukka,university-of-jyvaskyla,2016,2016,stated,2026-10-18,bridged 2015-2015: between records of 2014 and 2016 of the same organisation (checked 2026-10-18)
 aa32cd6c2,asko-soukka,university-of-jyvaskyla,2017,2017,stated,2026-10-18,
 ac34b5407,asko-soukka,university-of-jyvaskyla,2018,2018,stated,,
 aec4a3a12,asko-soukka,university-of-jyvaskyla,2019,2019,stated,2026-10-18,
 acb933a46,asko-soukka,university-of-jyvaskyla,2020,2020,stated,2026-10-18,
-a49bc91df,asko-soukka,university-of-jyvaskyla,2021,2021,stated,2026-10-18,between records of 2020 and 2022 of the same organisation
-ae4989016,asko-soukka,university-of-jyvaskyla,2022,2022,stated,2026-10-18,
-a74239665,asko-soukka,university-of-jyvaskyla,2023,2023,stated,2026-10-18,between records of 2022 and 2026 of the same organisation
-a74345a64,asko-soukka,university-of-jyvaskyla,2025,2025,stated,2026-10-18,between records of 2023 and 2026 of the same organisation
-a9813b990,asko-soukka,university-of-jyvaskyla,2026,,stated,2026-10-18,
+ae4989016,asko-soukka,university-of-jyvaskyla,2022,2022,stated,2026-10-18,bridged 2021-2021: between records of 2020 and 2022 of the same organisation (checked 2026-10-18); bridged 2023-2023: between records of 2022 and 2026 of the same organisation (checked 2026-10-18)
+a9813b990,asko-soukka,university-of-jyvaskyla,2026,,stated,2026-10-18,bridged 2025-2025: between records of 2023 and 2026 of the same organisation (checked 2026-10-18)
 a40890f70,astrid-beyers,juizi,2024,2024,stated,2026-10-18,
 adfc6faff,astrid-beyers,juizi,2025,2025,stated,2026-10-18,
 af20f6c17,astrid-beyers,juizi,2026,,assumed,2026-10-18,current entry without a record of 2026; not verified (#139)
 a2e201cab,avi-mishra,highradius,2022,2022,stated,,
 a3c02da7c,balazs-ree,greenfinity-llc,2006,2008,stated,,2002-2005 Unmapped: no public record for these years (#86)
-a6f862c0d,balazs-ree,greenfinity-llc,2009,2009,stated,2026-10-18,between records of 2008 and 2012 of the same organisation
-a177fad7c,balazs-ree,greenfinity-llc,2010,2010,stated,2026-10-18,
-afb5cf30b,balazs-ree,greenfinity-llc,2011,2011,stated,2026-10-18,between records of 2008 and 2012 of the same organisation
-a33e43af0,balazs-ree,greenfinity-llc,2012,2012,stated,,
+a177fad7c,balazs-ree,greenfinity-llc,2010,2010,stated,2026-10-18,bridged 2009-2009: between records of 2008 and 2012 of the same organisation (checked 2026-10-18)
+a33e43af0,balazs-ree,greenfinity-llc,2012,2012,stated,,bridged 2011-2011: between records of 2008 and 2012 of the same organisation (checked 2026-10-18)
 aab03cd71,balazs-ree,greenfinity-llc,2021,2023,stated,,
-a7116dd80,balazs-ree,greenfinity-llc,2024,2024,stated,2026-10-18,between records of 2023 and 2025 of the same organisation
-a77a5e078,balazs-ree,greenfinity-llc,2025,2025,stated,,
+a77a5e078,balazs-ree,greenfinity-llc,2025,2025,stated,,bridged 2024-2024: between records of 2023 and 2025 of the same organisation (checked 2026-10-18)
 aebf1205a,balazs-ree,greenfinity-llc,2026,,assumed,2026-10-18,current entry without a record of 2026; not verified (#139)
 a42cd7c92,beatrice-maroni,universita-di-bologna,2021,2021,stated,,
 a4f8afe83,ben-mason,sharkbyte-studios-ltd,2007,2007,stated,,
@@ -175,12 +160,9 @@ a5a2267c5,ben-saller,objectrealms,2006,2006,stated,,
 a655b3bcd,benoit-leybaert,imio,2025,2025,stated,,
 ae27fc22b,benoit-suttor,imio,2013,2013,assumed,2026-10-18,range from the current entry; years before 2026 not verified (#139)
 abfb161ac,benoit-suttor,imio,2014,2018,stated,,
-aa8b63a71,benoit-suttor,imio,2019,2019,stated,2026-10-18,between records of 2018 and 2020 of the same organisation
-a13e64ba3,benoit-suttor,imio,2020,2020,stated,,
-a86064fa4,benoit-suttor,imio,2021,2021,stated,2026-10-18,between records of 2020 and 2022 of the same organisation
-a944839b2,benoit-suttor,imio,2022,2022,stated,,
-ad6cf90bb,benoit-suttor,imio,2023,2023,stated,2026-10-18,between records of 2022 and 2024 of the same organisation
-ad4d60ae9,benoit-suttor,imio,2024,2024,stated,,
+a13e64ba3,benoit-suttor,imio,2020,2020,stated,,bridged 2019-2019: between records of 2018 and 2020 of the same organisation (checked 2026-10-18)
+a944839b2,benoit-suttor,imio,2022,2022,stated,,bridged 2021-2021: between records of 2020 and 2022 of the same organisation (checked 2026-10-18)
+ad4d60ae9,benoit-suttor,imio,2024,2024,stated,,bridged 2023-2023: between records of 2022 and 2024 of the same organisation (checked 2026-10-18)
 a034302ed,benoit-suttor,imio,2025,2025,stated,2026-10-18,
 a12c56738,benoit-suttor,imio,2026,,stated,2026-10-18,
 a79432cd7,bernard-buhlmann,4teamwork,2004,2004,stated,,
@@ -230,8 +212,7 @@ a42fdcbfb,chris-mcdonough,agendaless-consulting,2011,2011,stated,,
 ae11a10c7,chris-shenton,v-studios,2017,2017,stated,,
 a039a053f,chris-withers,simplistix,2005,2005,stated,,
 a866ae4f8,chrissy-wainwright,sixfeetup,2010,2011,stated,,
-a0f91e547,chrissy-wainwright,sixfeetup,2012,2014,stated,2026-10-18,between records of 2011 and 2015 of the same organisation
-ae2595bc7,chrissy-wainwright,sixfeetup,2015,2021,stated,,
+ae2595bc7,chrissy-wainwright,sixfeetup,2015,2021,stated,,bridged 2012-2014: between records of 2011 and 2015 of the same organisation (checked 2026-10-18)
 a86a1a909,chrissy-wainwright,sixfeetup,2026,,stated,2026-10-18,
 a0fb086ae,christian-heimes,christian-heimes-independent,2004,2004,stated,,
 acca4aca9,christian-heimes,com-lounge,2005,2005,stated,,
@@ -241,10 +222,8 @@ a20905beb,christian-theune,gocept,2010,2010,stated,,
 a27ab69d0,christian-theune,gocept,2012,2012,stated,,
 a57b70b05,christian-vinten-johansen,penn-state-university,2008,2008,stated,,
 a109bb46f,christine-baumgartner,klein-partner-kg,2015,2018,assumed,2026-10-19,range from the current entry; years before 2026 not verified (#139)
-ab5e29ba8,christine-baumgartner,klein-partner-kg,2019,2019,stated,2026-10-19,
-a85a61225,christine-baumgartner,klein-partner-kg,2020,2021,stated,2026-10-19,between records of 2019 and 2026 of the same organisation
-aa218b5ad,christine-baumgartner,klein-partner-kg,2023,2025,stated,2026-10-19,between records of 2021 and 2026 of the same organisation
-a5c126f66,christine-baumgartner,klein-partner-kg,2026,,stated,2026-10-19,
+ab5e29ba8,christine-baumgartner,klein-partner-kg,2019,2019,stated,2026-10-19,bridged 2020-2021: between records of 2019 and 2026 of the same organisation (checked 2026-10-19)
+a5c126f66,christine-baumgartner,klein-partner-kg,2026,,stated,2026-10-19,bridged 2023-2025: between records of 2021 and 2026 of the same organisation (checked 2026-10-19)
 a24a059f5,christophe-boulanger,imio,2015,2015,stated,,
 a6f3751ef,christophe-boulanger,imio,2023,2023,stated,,
 aa0496260,christopher-johnson,ifpeople,2008,2008,stated,,
@@ -294,17 +273,13 @@ ab1efd01f,david-bain,alteroo,2019,2019,stated,,
 a2fceaabf,david-bain,alteroo,2020,2020,stated,,
 adfa3615c,david-bain,alteroo,2021,2021,stated,,
 a5fbba8ad,david-batranu,eau-de-web,2013,2015,stated,,
-a5fc0b86f,david-batranu,eau-de-web,2016,2017,stated,2026-10-18,between records of 2015 and 2018 of the same organisation
-aa31f8342,david-batranu,eau-de-web,2018,2018,stated,,
-a266fecc4,david-batranu,eau-de-web,2019,2021,stated,2026-10-18,between records of 2018 and 2022 of the same organisation
-a50d31d43,david-batranu,eau-de-web,2022,2022,stated,,
+aa31f8342,david-batranu,eau-de-web,2018,2018,stated,,bridged 2016-2017: between records of 2015 and 2018 of the same organisation (checked 2026-10-18)
+a50d31d43,david-batranu,eau-de-web,2022,2022,stated,,bridged 2019-2021: between records of 2018 and 2022 of the same organisation (checked 2026-10-18)
 a8b867a32,david-batranu,eau-de-web,2026,,stated,2026-10-18,
 a1630f1fd,david-blewett,sixfeetup,2012,2013,stated,,
 ae9934650,david-erni,4teamwork,2013,2014,stated,,
-ae3aebcbf,david-erni,4teamwork,2015,2018,stated,2026-10-18,between records of 2014 and 2019 of the same organisation
-a99ba4a68,david-erni,4teamwork,2019,2019,stated,,
-a863292c1,david-erni,4teamwork,2020,2020,stated,2026-10-18,between records of 2019 and 2021 of the same organisation
-adb4c9acc,david-erni,4teamwork,2021,2021,stated,,
+a99ba4a68,david-erni,4teamwork,2019,2019,stated,,bridged 2015-2018: between records of 2014 and 2019 of the same organisation (checked 2026-10-18)
+adb4c9acc,david-erni,4teamwork,2021,2021,stated,,bridged 2020-2020: between records of 2019 and 2021 of the same organisation (checked 2026-10-18)
 ab9469ef2,david-erni,4teamwork,2026,,assumed,2026-10-18,current entry without a record of 2026; not verified (#139)
 a5fe1cc8c,david-glick,glick-software,2008,2008,denied,,his own company's address while a record names the employer (ONE/Northwest)
 a31a78766,david-glick,one-northwest,2008,2009,stated,,2002-2007 Unmapped: no public record for these years (#86)
@@ -322,11 +297,8 @@ ae5c592ff,david-glick,kitconcept-gmbh,2025,2025,stated,2026-10-18,
 a909bbe1f,david-glick,kitconcept-gmbh,2026,,stated,2026-10-18,
 a974d593e,david-ichim,eau-de-web,2012,2012,assumed,2026-10-18,range from the current entry; years before 2026 not verified (#139)
 ae917b898,david-ichim,eau-de-web,2013,2013,stated,,
-a95592657,david-ichim,eau-de-web,2014,2014,stated,2026-10-18,between records of 2013 and 2015 of the same organisation
-aa66226b1,david-ichim,eau-de-web,2015,2015,stated,,
-a7aa2f01a,david-ichim,eau-de-web,2016,2016,stated,2026-10-18,between records of 2015 and 2023 of the same organisation
-ab01b570e,david-ichim,eau-de-web,2020,2022,stated,2026-10-18,between records of 2016 and 2023 of the same organisation
-ab4a1d903,david-ichim,eau-de-web,2023,2025,stated,2026-10-18,
+aa66226b1,david-ichim,eau-de-web,2015,2015,stated,,bridged 2014-2014: between records of 2013 and 2015 of the same organisation (checked 2026-10-18); bridged 2016-2016: between records of 2015 and 2023 of the same organisation (checked 2026-10-18)
+ab4a1d903,david-ichim,eau-de-web,2023,2025,stated,2026-10-18,bridged 2020-2022: between records of 2016 and 2023 of the same organisation (checked 2026-10-18)
 a9425f2a3,david-ichim,eau-de-web,2026,,assumed,2026-10-18,current entry without a record of 2026; not verified (#139)
 a4cba565c,david-jonas,intk-software,2010,2010,stated,,
 a6c9278c4,denys-mishunov,jarn,2007,2011,stated,,
@@ -340,16 +312,13 @@ a7d450e67,duncan-booth,oxfam-gb,2009,2009,stated,,
 aa2ec2d62,dylan-jay,pretaweb,2009,2009,stated,,
 a31609b9c,dylan-jay,pretaweb,2010,2010,stated,2026-10-18,
 a307b6617,dylan-jay,pretaweb,2011,2019,stated,,
-a76e95d9e,dylan-jay,pretaweb,2020,2020,stated,2026-10-18,between records of 2019 and 2021 of the same organisation
-a029547fb,dylan-jay,pretaweb,2021,2021,stated,,
-ac5f3c020,dylan-jay,pretaweb,2022,2022,stated,2026-10-18,between records of 2021 and 2023 of the same organisation
-ad5614060,dylan-jay,pretaweb,2023,2025,stated,,
+a029547fb,dylan-jay,pretaweb,2021,2021,stated,,bridged 2020-2020: between records of 2019 and 2021 of the same organisation (checked 2026-10-18)
+ad5614060,dylan-jay,pretaweb,2023,2025,stated,,bridged 2022-2022: between records of 2021 and 2023 of the same organisation (checked 2026-10-18)
 a19e3a301,dylan-jay,pretaweb,2026,,assumed,2026-10-18,current entry without a record of 2026; not verified (#139)
 afb01fca6,eben-moglen,software-freedom-law-center,2006,2006,stated,,
 a0cf5a41d,eliane-silva,serpro,2004,2004,stated,,
 a91bce344,elio-schmutz,4teamwork,2015,2016,stated,,
-aa9869ace,elio-schmutz,4teamwork,2017,2018,stated,2026-10-18,between records of 2016 and 2019 of the same organisation
-aa363c018,elio-schmutz,4teamwork,2019,2019,stated,,
+aa363c018,elio-schmutz,4teamwork,2019,2019,stated,,bridged 2017-2018: between records of 2016 and 2019 of the same organisation (checked 2026-10-18)
 a01401dac,elio-schmutz,4teamwork,2026,,assumed,2026-10-18,current entry without a record of 2026; not verified (#139)
 ac4738392,elisabeth-donnay,imio,2022,2022,stated,,
 a6c4740e7,elisabeth-donnay,imio,2023,2023,stated,,
@@ -379,14 +348,11 @@ aab07c9c7,eric-steele,salesforce,2017,2017,stated,2026-10-18,
 a5446d56f,eric-steele,salesforce,2018,2018,stated,2026-10-18,
 ae6e2433e,eric-steele,salesforce,2019,2019,stated,,
 ac2036add,eric-steele,salesforce,2020,2020,stated,2026-10-18,
-aacca741e,eric-steele,salesforce,2021,2021,stated,2026-10-18,between records of 2020 and 2022 of the same organisation
-a01e49fb9,eric-steele,salesforce,2022,2022,stated,2026-10-18,
+a01e49fb9,eric-steele,salesforce,2022,2022,stated,2026-10-18,bridged 2021-2021: between records of 2020 and 2022 of the same organisation (checked 2026-10-18)
 a176ca0f4,eric-steele,salesforce,2023,2023,stated,2026-10-18,
-ac216173d,eric-steele,salesforce,2025,2025,stated,2026-10-18,between records of 2023 and 2026 of the same organisation
-a4665a44b,eric-steele,salesforce,2026,,stated,2026-10-18,
+a4665a44b,eric-steele,salesforce,2026,,stated,2026-10-18,bridged 2025-2025: between records of 2023 and 2026 of the same organisation (checked 2026-10-18)
 adff0225a,eric-wohnlich,ims-inc,2020,2020,stated,,
-a8a9cc831,eric-wohnlich,ims-inc,2021,2022,stated,2026-10-18,between records of 2020 and 2023 of the same organisation
-a9712338f,eric-wohnlich,ims-inc,2023,2025,stated,,
+a9712338f,eric-wohnlich,ims-inc,2023,2025,stated,,bridged 2021-2022: between records of 2020 and 2023 of the same organisation (checked 2026-10-18)
 addeff9cf,eric-wohnlich,ims-inc,2026,,stated,2026-10-18,
 a1f918923,erico-andrei,simples-consultoria,2010,2010,stated,,
 aae3d391d,erico-andrei,simples-consultoria,2011,2014,stated,,2002-2010 Unmapped: no public record for these years (#86)
@@ -419,11 +385,8 @@ ac0a8385a,florian-schulze,florian-schulze-independent,2005,2005,stated,,2002-200
 abf01ded1,florian-schulze,jarn,2007,2007,stated,,2006-2006 Unmapped: no public record for these years (#86)
 a3b72e116,florian-schulze,jarn,2008,2008,stated,,
 ad8c236d5,florian-schulze,florian-schulze-independent,2009,2009,stated,2026-10-18,
-af9923f6c,florian-schulze,florian-schulze-independent,2010,2010,stated,2026-10-18,between records of 2009 and 2011 of the same organisation
-af2975dcf,florian-schulze,florian-schulze-independent,2011,2011,stated,2026-10-18,
-a2a113f61,florian-schulze,florian-schulze-independent,2012,2012,stated,2026-10-18,between records of 2011 and 2020 of the same organisation
-ad88cae0c,florian-schulze,florian-schulze-independent,2017,2017,stated,2026-10-18,between records of 2012 and 2020 of the same organisation
-a540d7ad8,florian-schulze,florian-schulze-independent,2020,2020,stated,2026-10-18,
+af2975dcf,florian-schulze,florian-schulze-independent,2011,2011,stated,2026-10-18,bridged 2010-2010: between records of 2009 and 2011 of the same organisation (checked 2026-10-18); bridged 2012-2012: between records of 2011 and 2020 of the same organisation (checked 2026-10-18)
+a540d7ad8,florian-schulze,florian-schulze-independent,2020,2020,stated,2026-10-18,bridged 2017-2017: between records of 2012 and 2020 of the same organisation (checked 2026-10-18)
 a6bc00a88,florian-schulze,florian-schulze-independent,2026,,assumed,2026-10-18,current entry without a record of 2026; not verified (#139)
 aa74cc32b,francesca-soffici,comune-di-modena,2021,2021,stated,,
 a4e0fb6d6,francesco-ciriaci,reflab,2004,2004,stated,,
@@ -433,8 +396,7 @@ abed469d7,francesco-merlo,reflab,2019,2019,stated,,
 a53134df0,franco-pellegrini,ravvit,2012,2012,stated,,2002-2011 Unmapped: no public record for these years (#86)
 a28ba0d9b,franco-pellegrini,enfold,2015,2015,stated,,
 aaf4dee49,franco-pellegrini,franco-pellegrini-independent,2016,2017,stated,2026-10-18,2013-2015 Unmapped: no public record for these years (#86)
-a763d73ce,franco-pellegrini,franco-pellegrini-independent,2018,2020,stated,2026-10-18,between records of 2017 and 2021 of the same organisation
-a7485ad22,franco-pellegrini,franco-pellegrini-independent,2021,2021,stated,2026-10-18,
+a7485ad22,franco-pellegrini,franco-pellegrini-independent,2021,2021,stated,2026-10-18,bridged 2018-2020: between records of 2017 and 2021 of the same organisation (checked 2026-10-18)
 a9f59a8c3,franco-pellegrini,enfold,2022,2025,denied,,"contract work for a client, as with Andreas Zeidler and Wichert Akkerman: his bios say independent consultant and his 2021 row is verified as such; decided by the reviewer in #169"
 a41a4e8b1,franco-pellegrini,franco-pellegrini-independent,2022,2025,assumed,2026-10-18,range from the current entry; years before 2026 not verified (#139)
 a23e14ee9,franco-pellegrini,franco-pellegrini-independent,2026,,assumed,2026-10-18,current entry without a record of 2026; not verified (#139)
@@ -452,14 +414,11 @@ aac44e099,fulvio-casali,soliton-consulting,2025,2025,assumed,2026-10-18,range fr
 afc9aef62,fulvio-casali,soliton-consulting,2026,,assumed,2026-10-18,current entry without a record of 2026; not verified (#139)
 ae47d606f,gael-le-mignot,pilot-systems,2007,2007,stated,,
 a8f99aaa2,gagaro,makina-corpus,2013,2018,stated,,
-a6f61bd45,gagaro,makina-corpus,2019,2019,stated,2026-10-18,between records of 2018 and 2020 of the same organisation
-a1a4e5863,gagaro,makina-corpus,2020,2020,stated,,
-a6ffd112f,gagaro,makina-corpus,2021,2021,stated,2026-10-18,between records of 2020 and 2022 of the same organisation
-a2d6642ac,gagaro,makina-corpus,2022,2022,stated,,
+a1a4e5863,gagaro,makina-corpus,2020,2020,stated,,bridged 2019-2019: between records of 2018 and 2020 of the same organisation (checked 2026-10-18)
+a2d6642ac,gagaro,makina-corpus,2022,2022,stated,,bridged 2021-2021: between records of 2020 and 2022 of the same organisation (checked 2026-10-18)
 a849c34e5,gagaro,makina-corpus,2026,,stated,2026-10-18,
 a26e508a0,gauthier-bastien,imio,2012,2016,stated,,
-a9b060f5a,gauthier-bastien,imio,2017,2017,stated,2026-10-18,between records of 2016 and 2018 of the same organisation
-a422a3a36,gauthier-bastien,imio,2018,2022,stated,,
+a422a3a36,gauthier-bastien,imio,2018,2022,stated,,bridged 2017-2017: between records of 2016 and 2018 of the same organisation (checked 2026-10-18)
 ab43f8661,gauthier-bastien,imio,2023,2023,stated,2026-10-18,
 a7f8cdb76,gauthier-bastien,imio,2026,,stated,2026-10-18,
 aa66e7744,gavin-carothers,topquadrant,2011,2011,stated,,
@@ -467,12 +426,9 @@ ab47e3eb4,geir-baekholt,jarn,2004,2004,stated,,
 a827223d3,geir-baekholt,jarn,2011,2011,stated,,
 a2c577a58,geir-bkholt,jarn,2003,2003,stated,2026-10-18,
 a4413eda9,geir-bkholt,jarn,2004,2004,stated,2026-10-18,
-a47807d3d,geir-bkholt,jarn,2005,2005,stated,2026-10-18,between records of 2004 and 2009 of the same organisation
-aa125646f,geir-bkholt,jarn,2006,2006,stated,2026-10-18,
-af1475ed5,geir-bkholt,jarn,2007,2007,stated,2026-10-18,between records of 2004 and 2009 of the same organisation
-a2bde2ec5,geir-bkholt,jarn,2008,2008,stated,2026-10-18,
-aecbdbdda,geir-bkholt,jarn,2009,2011,stated,,
-acb2be1d4,geir-bkholt,jarn,2012,2012,stated,2026-10-18,between records of 2011 and 2026 of the same organisation
+aa125646f,geir-bkholt,jarn,2006,2006,stated,2026-10-18,bridged 2005-2005: between records of 2004 and 2009 of the same organisation (checked 2026-10-18)
+a2bde2ec5,geir-bkholt,jarn,2008,2008,stated,2026-10-18,bridged 2007-2007: between records of 2004 and 2009 of the same organisation (checked 2026-10-18)
+aecbdbdda,geir-bkholt,jarn,2009,2011,stated,,bridged 2012-2012: between records of 2011 and 2026 of the same organisation (checked 2026-10-18)
 a556fbfa2,geir-bkholt,jarn,2026,,stated,2026-10-18,
 a1b8dabcc,geoff-davis,geoff-davis-independent,2004,2004,stated,,
 a18d4d90d,geoff-davis,geoff-davis-independent,2005,2005,stated,,
@@ -483,10 +439,8 @@ a345b32d3,georg-bernhard,academy-of-fa-vienna,2007,2008,assumed,2026-10-18,range
 ac68f3c12,georg-bernhard,academy-of-fa-vienna,2010,2013,assumed,2026-10-18,range from the current entry; years before 2026 not verified (#139)
 ae57c0080,georg-bernhard,academy-of-fa-vienna,2016,2016,assumed,2026-10-18,range from the current entry; years before 2026 not verified (#139)
 aa3489de3,georg-bernhard,academy-of-fa-vienna,2017,2017,stated,,
-a79f30bac,georg-bernhard,academy-of-fa-vienna,2018,2018,stated,2026-10-18,between records of 2017 and 2019 of the same organisation
-ae6c30d12,georg-bernhard,academy-of-fa-vienna,2019,2021,stated,,
-a162b6c1d,georg-bernhard,academy-of-fa-vienna,2022,2022,stated,2026-10-18,between records of 2021 and 2023 of the same organisation
-a07fa492c,georg-bernhard,academy-of-fa-vienna,2023,2025,stated,,
+ae6c30d12,georg-bernhard,academy-of-fa-vienna,2019,2021,stated,,bridged 2018-2018: between records of 2017 and 2019 of the same organisation (checked 2026-10-18)
+a07fa492c,georg-bernhard,academy-of-fa-vienna,2023,2025,stated,,bridged 2022-2022: between records of 2021 and 2023 of the same organisation (checked 2026-10-18)
 a565ab2d8,georg-bernhard,academy-of-fa-vienna,2026,,stated,2026-10-18,
 a91955750,george-donnelly,zettai,2003,2003,stated,,
 a28c8eb92,gerard-cunningham,united-nations-environment-programme,2006,2006,stated,,
@@ -501,8 +455,7 @@ a846919e2,gildardo-bautista,unam,2015,2015,assumed,2026-10-18,range from the cur
 ae00432c7,gildardo-bautista,unam,2017,2017,stated,,
 a7269a461,gildardo-bautista,unam,2018,2018,stated,2026-10-18,
 a23707ee9,gildardo-bautista,unam,2023,2023,stated,,
-a02ce5291,gildardo-bautista,unam,2024,2025,stated,2026-10-18,between records of 2023 and 2026 of the same organisation
-a8b2e561f,gildardo-bautista,unam,2026,,stated,2026-10-18,
+a8b2e561f,gildardo-bautista,unam,2026,,stated,2026-10-18,bridged 2024-2025: between records of 2023 and 2026 of the same organisation (checked 2026-10-18)
 a95822d2d,giovanni-bertugli,comune-di-modena,2021,2021,stated,,
 a82da1c99,giovanni-monteiro-calanzani,serpro,2013,2013,stated,,
 a960be282,giulia-ghisini,redturtle,2019,2025,stated,,
@@ -513,17 +466,13 @@ a7b75a57e,gleison-carneiro-gomes,interlegis-program-senado-federal,2024,2024,sta
 a7a9d4d14,godefroid-chapelle,bubblenet,2003,2025,stated,,
 a9b36e599,godefroid-chapelle,bubblenet,2026,,stated,2026-10-18,
 ad3ac3c39,goibhniu,syslab,2013,2015,stated,,
-a47c2e96b,goibhniu,syslab,2016,2016,stated,2026-10-18,between records of 2015 and 2017 of the same organisation
-a48030641,goibhniu,syslab,2017,2020,stated,,
-ade8bb12b,goibhniu,syslab,2021,2021,stated,2026-10-18,between records of 2020 and 2022 of the same organisation
-a76f67f6f,goibhniu,syslab,2022,2023,stated,,
+a48030641,goibhniu,syslab,2017,2020,stated,,bridged 2016-2016: between records of 2015 and 2017 of the same organisation (checked 2026-10-18)
+a76f67f6f,goibhniu,syslab,2022,2023,stated,,bridged 2021-2021: between records of 2020 and 2022 of the same organisation (checked 2026-10-18)
 a4fcfbadf,goibhniu,syslab,2026,,assumed,2026-10-18,current entry without a record of 2026; not verified (#139)
 aff10b473,guido-stevens,cosent,2012,2012,stated,,
 a0124c902,guido-stevens,cosent,2013,2016,stated,,
-af36e446d,guido-stevens,cosent,2017,2017,stated,2026-10-18,between records of 2016 and 2018 of the same organisation
-a518de782,guido-stevens,cosent,2018,2019,stated,,
-a1b990743,guido-stevens,cosent,2020,2023,stated,2026-10-18,between records of 2019 and 2024 of the same organisation
-ad4abbd40,guido-stevens,cosent,2024,2025,stated,,
+a518de782,guido-stevens,cosent,2018,2019,stated,,bridged 2017-2017: between records of 2016 and 2018 of the same organisation (checked 2026-10-18)
+ad4abbd40,guido-stevens,cosent,2024,2025,stated,,bridged 2020-2023: between records of 2019 and 2024 of the same organisation (checked 2026-10-18)
 a65d60e24,guido-stevens,cosent,2026,,stated,2026-10-18,
 a5532b4de,hanno-schlichting,bethesda-allgemeines-krankenhaus-bergedorf-ggmbh,2005,2005,stated,,2002-2004 Unmapped: no public record for these years (#86)
 a1e4c7cf1,hanno-schlichting,jarn,2008,2008,stated,2026-10-18,
@@ -548,8 +497,7 @@ ab7eae1ad,ilaria-grandinetti,rai-way,2023,2023,stated,,
 a43a445b5,ilaria-picchioni,giallocobalto,2024,2024,stated,,
 a3baa85e9,inakip,onna,2019,2019,stated,,
 a1d242836,ion-lizarazu,codesyntax,2020,2023,stated,,
-a4792ba55,ion-lizarazu,codesyntax,2024,2024,stated,2026-10-18,between records of 2023 and 2025 of the same organisation
-a5575abff,ion-lizarazu,codesyntax,2025,2025,stated,,
+a5575abff,ion-lizarazu,codesyntax,2025,2025,stated,,bridged 2024-2024: between records of 2023 and 2025 of the same organisation (checked 2026-10-18)
 a6052282c,ion-lizarazu,codesyntax,2026,,stated,2026-10-18,
 a2337f600,ionut-dobricean,eau-de-web,2022,2025,stated,,
 aec5e0129,ionut-dobricean,eau-de-web,2026,,assumed,2026-10-18,current entry without a record of 2026; not verified (#139)
@@ -558,7 +506,8 @@ af92c34db,irina-botez,eau-de-web,2017,2017,stated,,
 a4541489d,isaac-sterckx,ku-leuven,2024,2024,stated,,
 a901839ca,ismael,onna,2017,2018,stated,,
 a8b012ffd,ismael,onna,2022,2022,stated,,
-ae78d0d5a,j-cameron-cooper,j-cameron-cooper-independent,2003,2003,stated,,"the Enfold guess of 2003 went; the Enfold About pages of 2004 and 2005 do not name him (#139); not applied, the verified row stands: ""Brent Hendricks and Cameron Cooper, Rice University"", Plone Conference 2003 speaker page: http://web.archive.org/web/20031013220520/http://plone.org/events/conferences/1/PloneConferenceSchedule.pdf"
+ae78d0d5a,j-cameron-cooper,j-cameron-cooper-independent,2003,2003,stated,,"the Enfold guess of 2003 went; the Enfold About pages of 2004 and 2005 do not name him (#139); earlier review: not applied, the verified row stands: ""Brent Hendricks and Cameron Cooper, Rice University"", Plone Conference 2003 speaker page: http://web.archive.org/web/20031013220520/http://plone.org/events/conferences/1/PloneConferenceSchedule.pdf; the record is row ae9841678"
+ae9841678,j-cameron-cooper,rice-university,2003,2003,stated,,"earlier review: not applied, the verified row stands: ""Brent Hendricks and Cameron Cooper, Rice University"", Plone Conference 2003 speaker page: http://web.archive.org/web/20031013220520/http://plone.org/events/conferences/1/PloneConferenceSchedule.pdf"
 acd98ea73,j-cameron-cooper,enfold,2005,2005,stated,2026-10-18,
 aa117a550,j-cameron-cooper,enfold,2006,2006,stated,2026-10-18,
 aea0f3186,j-cameron-cooper,rice-university,2007,2007,stated,,"Connexions was Rice University's open education project; the Enfold guess of 2007 went, the Enfold About pages of 2007 do not name him (#139)"
@@ -570,14 +519,11 @@ ad9d6e18f,jakob-kahl,kitconcept-gmbh,2025,2025,stated,2026-10-18,
 a61772d5a,jakob-kahl,kitconcept-gmbh,2026,,stated,2026-10-18,
 a05f26f13,jamie-lentin,shuttle-thread,2010,2015,stated,,
 aeadaa1e9,jan-jaap-driessen,minddistrict,2012,2012,stated,,
-a158f062a,jan-jaap-driessen,minddistrict,2018,2018,stated,2026-10-18,between records of 2012 and 2020 of the same organisation
-a72c4eb08,jan-jaap-driessen,minddistrict,2020,2020,stated,,
-a7a48d54d,jan-jaap-driessen,minddistrict,2021,2021,stated,2026-10-18,between records of 2020 and 2022 of the same organisation
-aafc19a11,jan-jaap-driessen,minddistrict,2022,2022,stated,,
+a72c4eb08,jan-jaap-driessen,minddistrict,2020,2020,stated,,bridged 2018-2018: between records of 2012 and 2020 of the same organisation (checked 2026-10-18)
+aafc19a11,jan-jaap-driessen,minddistrict,2022,2022,stated,,bridged 2021-2021: between records of 2020 and 2022 of the same organisation (checked 2026-10-18)
 a1247fce2,jan-jaap-driessen,minddistrict,2026,,stated,2026-10-18,
 a6af2f306,jan-mevissen,interaktiv,2018,2019,stated,,
-aba247eeb,jan-mevissen,interaktiv,2020,2020,stated,2026-10-18,between records of 2019 and 2021 of the same organisation
-a19e85ffc,jan-mevissen,interaktiv,2021,2022,stated,,
+a19e85ffc,jan-mevissen,interaktiv,2021,2022,stated,,bridged 2020-2020: between records of 2019 and 2021 of the same organisation (checked 2026-10-18)
 a585cfd4b,jan-mevissen,interaktiv,2023,2023,stated,,
 a50ddd79f,jan-mevissen,interaktiv,2024,2024,stated,,
 a03683193,jan-mevissen,interaktiv,2025,2025,stated,,
@@ -594,8 +540,7 @@ a34ea9426,jean-jordaan,upfront-systems,2006,2006,stated,,
 a185530bb,jean-jordaan,iw-learn,2014,2014,stated,,
 a533efe73,jean-jordaan,salween-solutions,2017,2018,stated,,
 a680c49c0,jean-paul-ladage,zest-software,2004,2008,stated,,
-af949654b,jean-paul-ladage,zest-software,2009,2009,stated,2026-10-18,
-a4624f31d,jean-paul-ladage,zest-software,2010,2010,stated,2026-10-18,between records of 2008 and 2015 of the same organisation
+af949654b,jean-paul-ladage,zest-software,2009,2009,stated,2026-10-18,bridged 2010-2010: between records of 2008 and 2015 of the same organisation (checked 2026-10-18)
 af66848c0,jean-paul-ladage,zest-software,2015,2017,stated,,
 a6026ed18,jean-paul-ladage,zest-software,2024,2024,stated,,
 a1481fe41,jean-paul-ladage,zest-software,2026,,stated,2026-10-18,
@@ -622,14 +567,13 @@ ab6822543,joan-antoni-re,nuclia,2021,2021,assumed,2026-10-18,range from the curr
 a975a020b,joan-antoni-re,nuclia,2022,2022,stated,,
 a6f91c9f0,joan-antoni-re,nuclia,2026,,stated,2026-10-18,
 ae131d1d5,joao-henrique-gouveia,interlegis-program-senado-federal,2013,2013,stated,,
-aadc4b504,joao-henrique-gouveia,interlegis-program-senado-federal,2023,2023,stated,2026-10-18,between records of 2013 and 2024 of the same organisation
-a7fd711b4,joao-henrique-gouveia,interlegis-program-senado-federal,2024,2024,stated,,
-ac9aa33cf,joao-henrique-gouveia,interlegis-program-senado-federal,2025,2025,stated,2026-10-18,between records of 2024 and 2026 of the same organisation
-a392263a0,joao-henrique-gouveia,interlegis-program-senado-federal,2026,,stated,2026-10-18,
+a7fd711b4,joao-henrique-gouveia,interlegis-program-senado-federal,2024,2024,stated,,bridged 2023-2023: between records of 2013 and 2024 of the same organisation (checked 2026-10-18)
+a392263a0,joao-henrique-gouveia,interlegis-program-senado-federal,2026,,stated,2026-10-18,bridged 2025-2025: between records of 2024 and 2026 of the same organisation (checked 2026-10-18)
 ac0b9e24a,joao-luis-tavares,hadicom,2014,2014,stated,,
 a66645827,joao-sebastiao-de-oliveira-bueno,simples-consultoria,2013,2013,stated,,
 ac7b739fd,jodok-batlogg,solution2u-net-gmbh,2003,2003,stated,,
-a11fef6b9,jodok-batlogg,telesis,2004,2005,stated,,"not applied, the verified row stands: ""... is CEO of solution2u.net gmbh and jumped into Plone right at the first Plone Sprint 2003 in Berne."", Plone Conference 2005 speaker page: http://web.archive.org/web/20051017042251/http://ploneconf2005.bluedynamics.net:80/speakers/jodok-batlogg"
+a11fef6b9,jodok-batlogg,telesis,2004,2005,stated,,"earlier review: not applied, the verified row stands: ""... is CEO of solution2u.net gmbh and jumped into Plone right at the first Plone Sprint 2003 in Berne."", Plone Conference 2005 speaker page: http://web.archive.org/web/20051017042251/http://ploneconf2005.bluedynamics.net:80/speakers/jodok-batlogg; the record is row a2e7d2009"
+a2e7d2009,jodok-batlogg,solution2u-net-gmbh,2005,2005,stated,,"earlier review: not applied, the verified row stands: ""... is CEO of solution2u.net gmbh and jumped into Plone right at the first Plone Sprint 2003 in Berne."", Plone Conference 2005 speaker page: http://web.archive.org/web/20051017042251/http://ploneconf2005.bluedynamics.net:80/speakers/jodok-batlogg"
 a41fb5db4,jodok-batlogg,lovely-systems,2006,2006,stated,,
 a02f2d753,joel-burton,joel-burton-independent,2004,2004,stated,,
 ac8f10e99,joel-burton,joel-burton-independent,2005,2005,stated,,
@@ -650,17 +594,14 @@ a34df72c8,johannes-raggam,syslab,2019,,stated,2026-10-18,
 ad7c6e30c,jon-baldivieso,one-northwest,2008,2008,stated,,
 ad1fe80ed,jon-pentland,pretaweb,2014,2014,assumed,2026-10-18,range from the current entry; years before 2026 not verified (#139)
 ac1aab887,jon-pentland,pretaweb,2015,2015,stated,,
-a61011d5f,jon-pentland,pretaweb,2016,2016,stated,2026-10-18,between records of 2015 and 2017 of the same organisation
-a431be73d,jon-pentland,pretaweb,2017,2017,stated,2026-10-18,
-a2d1ccaa2,jon-pentland,pretaweb,2018,2020,stated,2026-10-18,between records of 2017 and 2021 of the same organisation
-a1fb8c0b2,jon-pentland,pretaweb,2021,2024,stated,,
+a431be73d,jon-pentland,pretaweb,2017,2017,stated,2026-10-18,bridged 2016-2016: between records of 2015 and 2017 of the same organisation (checked 2026-10-18)
+a1fb8c0b2,jon-pentland,pretaweb,2021,2024,stated,,bridged 2018-2020: between records of 2017 and 2021 of the same organisation (checked 2026-10-18)
 a9cb31af8,jon-pentland,pretaweb,2026,,assumed,2026-10-18,current entry without a record of 2026; not verified (#139)
 ab548e009,jon-stahl,one-northwest,2008,2009,stated,,
 a558b746f,jon-stahl,groundwire,2011,2011,stated,,
 a294b62c7,jonah-bossewitch,ccnmtl-columbia-university,2005,2005,stated,,
 adfaed7f3,jonas-baumann,4teamwork,2009,2017,stated,,
-a5bfae996,jonas-baumann,4teamwork,2018,2018,stated,2026-10-18,between records of 2017 and 2019 of the same organisation
-ad7b4b84b,jonas-baumann,4teamwork,2019,2019,stated,,
+ad7b4b84b,jonas-baumann,4teamwork,2019,2019,stated,,bridged 2018-2018: between records of 2017 and 2019 of the same organisation (checked 2026-10-18)
 a48bc5763,jonas-baumann,4teamwork,2026,,assumed,2026-10-18,current entry without a record of 2026; not verified (#139)
 aa71da39d,joni-orponen,4teamwork,2017,2017,stated,,
 a2c4d3ad9,joni-orponen,4teamwork,2019,2019,stated,,
@@ -671,8 +612,7 @@ a5b6383de,jordi-masip,doofinder,2026,,stated,2026-10-18,2021-2025 Unmapped: no p
 a0c64699d,jordi-soucheiron,skyscanner,2017,2017,stated,,
 aec0bc6dd,jorg-zell,interaktiv,2018,2018,stated,,
 afa2d48b4,jorg-zell,interaktiv,2019,2019,stated,,
-ad2e3b6fe,jorg-zell,interaktiv,2023,2023,stated,2026-10-19,between records of 2019 and 2025 of the same organisation
-ab62881d1,jorg-zell,interaktiv,2025,2025,stated,,
+ab62881d1,jorg-zell,interaktiv,2025,2025,stated,,bridged 2023-2023: between records of 2019 and 2025 of the same organisation (checked 2026-10-19)
 ac0a1ddf1,jorg-zell,interaktiv,2026,,stated,2026-10-19,
 af8096644,joseba-alberdi,ulma-packaging,2023,2023,stated,,
 a7a7cd706,juan-pablo-gimenez,rcom,2012,2013,stated,,
@@ -713,16 +653,13 @@ a82c61176,kim-nguyen,jazkarta,2015,2015,stated,,
 aa540bb94,kim-nguyen,wildcard-corp,2016,2019,stated,,
 a21411e20,kim-nguyen,sixfeetup,2019,2019,denied,,"the year of the change counts for Wildcard, which she left"
 a638e4953,kim-nguyen,sixfeetup,2020,,stated,2026-10-18,
-a78760d1f,kim-paulissen,ku-leuven,2011,2011,stated,,
-a236e6e1e,kim-paulissen,ku-leuven,2012,2014,stated,2026-10-18,between records of 2011 and 2018 of the same organisation
+a78760d1f,kim-paulissen,ku-leuven,2011,2011,stated,,bridged 2012-2014: between records of 2011 and 2018 of the same organisation (checked 2026-10-18)
 af2898fb0,kim-paulissen,ku-leuven,2018,2022,stated,,
-a76d80f05,kim-paulissen,ku-leuven,2023,2025,stated,2026-10-18,between records of 2022 and 2026 of the same organisation
-ae86e64cc,kim-paulissen,ku-leuven,2026,,stated,2026-10-18,
+ae86e64cc,kim-paulissen,ku-leuven,2026,,stated,2026-10-18,bridged 2023-2025: between records of 2022 and 2026 of the same organisation (checked 2026-10-18)
 a01d94094,kit-blake,infrae,2004,2004,stated,,
 a470a20b7,kit-blake,infrae,2005,2005,stated,,
 ae80fad6c,krisztina-elekes,eau-de-web,2021,2023,stated,2026-10-18,
-ae5beb636,krisztina-elekes,eau-de-web,2025,2025,stated,2026-10-18,between records of 2023 and 2026 of the same organisation
-a046d70ab,krisztina-elekes,eau-de-web,2026,,stated,2026-10-18,
+a046d70ab,krisztina-elekes,eau-de-web,2026,,stated,2026-10-18,bridged 2025-2025: between records of 2023 and 2026 of the same organisation (checked 2026-10-18)
 adbaf45df,kyle-homstead,jazkarta,2011,2011,stated,,
 ab001648b,lars-walther,novareto-gmbh,2019,2019,stated,,
 a3dba9e18,lars-walther,educorvi,2025,2025,stated,,
@@ -738,10 +675,8 @@ a24e9aa82,laurence-rowe,shuttle-thread,2026,,assumed,2026-10-18,2017-2025 Unmapp
 ae48dda7e,laurent-lasudry,affinitic,2007,2007,assumed,2026-10-18,range from the current entry; years before 2026 not verified (#139)
 a5c3b86ee,laurent-lasudry,affinitic,2008,2008,stated,,
 a56d9e05e,laurent-lasudry,affinitic,2009,2009,stated,2026-10-18,
-a70ea2134,laurent-lasudry,affinitic,2010,2011,stated,2026-10-18,between records of 2008 and 2012 of the same organisation
-acc6c786c,laurent-lasudry,affinitic,2012,2024,stated,,
-a91b721ba,laurent-lasudry,affinitic,2025,2025,stated,2026-10-18,between records of 2024 and 2026 of the same organisation
-ad5a46947,laurent-lasudry,affinitic,2026,,stated,2026-10-18,
+acc6c786c,laurent-lasudry,affinitic,2012,2024,stated,,bridged 2010-2011: between records of 2008 and 2012 of the same organisation (checked 2026-10-18)
+ad5a46947,laurent-lasudry,affinitic,2026,,stated,2026-10-18,bridged 2025-2025: between records of 2024 and 2026 of the same organisation (checked 2026-10-18)
 ae05d193e,lena-daxenbichler,r2-solutions-gmbh,2023,2023,denied,,"R2 Solutions GmbH did no Plone projects; the address was hers, the work squarewave's"
 aab8c8921,lena-daxenbichler,squarewave-engineering,2023,2023,stated,2026-10-18,
 a4b57ddb9,lena-daxenbichler,squarewave-engineering,2026,,assumed,2026-10-18,current entry without a record of 2026; not verified (#139)
@@ -758,10 +693,8 @@ a9c65751f,liliane-lewis,ufrgs,2013,2013,stated,,
 a3c671c0f,lincoln-araujo,ebc,2024,2024,stated,,
 ab82ecc40,line-mertens,imio,2022,2022,stated,,
 a255e0a21,loechel,ludwig-maximilian-university-munich,2013,2019,stated,,
-a043c8609,loechel,ludwig-maximilian-university-munich,2020,2020,stated,2026-10-18,between records of 2019 and 2021 of the same organisation
-a0dfe2dee,loechel,ludwig-maximilian-university-munich,2021,2023,stated,,
-a27ef2949,loechel,ludwig-maximilian-university-munich,2024,2024,stated,2026-10-18,between records of 2023 and 2026 of the same organisation
-a59d4b724,loechel,ludwig-maximilian-university-munich,2025,2025,stated,2026-10-18,
+a0dfe2dee,loechel,ludwig-maximilian-university-munich,2021,2023,stated,,bridged 2020-2020: between records of 2019 and 2021 of the same organisation (checked 2026-10-18)
+a59d4b724,loechel,ludwig-maximilian-university-munich,2025,2025,stated,2026-10-18,bridged 2024-2024: between records of 2023 and 2026 of the same organisation (checked 2026-10-18)
 a7002f8a1,loechel,ludwig-maximilian-university-munich,2026,,stated,2026-10-18,
 a781f6c61,lon-boonen,q42,2003,2003,stated,,
 a453a0120,lorenzo-marin,mamami-digital,2019,2019,stated,,
@@ -778,8 +711,7 @@ ab8fea84c,luis-flavio-loreto-rocha,empresa-brasil-de-comunicacao,2024,2024,state
 a8023e3b0,luistxo-fernandez,codesyntax,2021,2021,assumed,2026-10-19,range from the current entry; years before 2026 not verified (#139)
 af9015b8b,luistxo-fernandez,codesyntax,2026,,stated,2026-10-19,
 a07e091d8,lukas-graf,4teamwork,2012,2012,stated,,
-afbae79f6,lukas-graf,4teamwork,2013,2013,stated,2026-10-18,between records of 2012 and 2014 of the same organisation
-a39a42d39,lukas-graf,4teamwork,2014,2020,stated,,
+a39a42d39,lukas-graf,4teamwork,2014,2020,stated,,bridged 2013-2013: between records of 2012 and 2014 of the same organisation (checked 2026-10-18)
 a0c153371,lukas-graf,4teamwork,2026,,assumed,2026-10-18,current entry without a record of 2026; not verified (#139)
 a0e30c5c3,lukas-guziel,interaktiv,2016,2016,stated,,
 a863053c1,lur-ibargutxi,codesyntax,2023,2024,stated,,
@@ -793,28 +725,21 @@ a23041ca5,maik-derstappen,derico,2009,2009,assumed,2026-10-18,range from the cur
 a78149a47,maik-derstappen,derico,2014,2025,stated,,
 aa4a20543,maik-derstappen,derico,2026,,stated,2026-10-18,
 a3377403e,malthe-borch,malthe-borch-independent,2007,2011,stated,2026-10-18,
-af20020e4,malthe-borch,malthe-borch-independent,2012,2012,stated,2026-10-18,between records of 2011 and 2013 of the same organisation
-a5362debc,malthe-borch,malthe-borch-independent,2013,2013,stated,2026-10-18,
-a694dcc81,malthe-borch,malthe-borch-independent,2014,2014,stated,2026-10-18,between records of 2013 and 2021 of the same organisation
-afba0733e,malthe-borch,malthe-borch-independent,2016,2017,stated,2026-10-18,between records of 2014 and 2021 of the same organisation
+a5362debc,malthe-borch,malthe-borch-independent,2013,2013,stated,2026-10-18,bridged 2012-2012: between records of 2011 and 2013 of the same organisation (checked 2026-10-18); bridged 2014-2014: between records of 2013 and 2021 of the same organisation (checked 2026-10-18); bridged 2016-2017: between records of 2014 and 2021 of the same organisation (checked 2026-10-18)
 ac4c74471,malthe-borch,malthe-borch-independent,2021,2021,stated,2026-10-18,
 ace8d885b,malthe-borch,malthe-borch-independent,2023,2023,stated,2026-10-18,
 a57fe2af3,malthe-borch,malthe-borch-independent,2026,,stated,2026-10-18,
 a0f2cb77e,manabu-terada,cms-communications-inc,2009,2010,stated,,
-a7577a6a6,manabu-terada,cms-communications-inc,2011,2011,stated,2026-10-18,between records of 2010 and 2012 of the same organisation
-a2492560f,manabu-terada,cms-communications-inc,2012,2016,stated,,
+a2492560f,manabu-terada,cms-communications-inc,2012,2016,stated,,bridged 2011-2011: between records of 2010 and 2012 of the same organisation (checked 2026-10-18)
 a3ebe32a2,manabu-terada,cms-communications-inc,2017,2017,stated,2026-10-18,
 a32b7be82,manabu-terada,cms-communications-inc,2018,2022,stated,,
-a7c045a36,manabu-terada,cms-communications-inc,2023,2024,stated,2026-10-18,between records of 2022 and 2025 of the same organisation
-a533e437f,manabu-terada,cms-communications-inc,2025,2025,stated,,
+a533e437f,manabu-terada,cms-communications-inc,2025,2025,stated,,bridged 2023-2024: between records of 2022 and 2025 of the same organisation (checked 2026-10-18)
 ac6e3c864,manabu-terada,cms-communications-inc,2026,,stated,2026-10-18,
 ab1254f04,manfred-schwendinger,solution2u-net-gmbh,2005,2005,stated,,
 a4f54b310,manuel-reinhardt,syslab,2012,2015,stated,,
-af15dc91c,manuel-reinhardt,syslab,2016,2016,stated,2026-10-18,between records of 2015 and 2017 of the same organisation
-a7a83ddff,manuel-reinhardt,syslab,2017,2017,stated,2026-10-18,
+a7a83ddff,manuel-reinhardt,syslab,2017,2017,stated,2026-10-18,bridged 2016-2016: between records of 2015 and 2017 of the same organisation (checked 2026-10-18)
 ae71503a2,manuel-reinhardt,syslab,2018,2022,stated,,
-a995e3e5f,manuel-reinhardt,syslab,2023,2023,stated,2026-10-18,between records of 2022 and 2024 of the same organisation
-ae51cb9c2,manuel-reinhardt,syslab,2024,2024,stated,,
+ae51cb9c2,manuel-reinhardt,syslab,2024,2024,stated,,bridged 2023-2023: between records of 2022 and 2024 of the same organisation (checked 2026-10-18)
 af8bd97ee,manuel-reinhardt,syslab,2026,,assumed,2026-10-18,current entry without a record of 2026; not verified (#139)
 a716103f6,marc-vicente,ecityclic,2023,2023,stated,,
 a181d71be,marc-vicente,ecityclic,2024,2024,stated,,
@@ -840,27 +765,18 @@ a9e04d606,martijn-faassen,infrae,2004,2004,stated,,
 a94c85e6b,martijn-faassen,infrae,2005,2005,stated,,
 a3c000a9c,martijn-pieters,jarn,2007,2011,stated,,
 ab0db2b0f,martin-aspeli,deloitte-digital,2006,2008,stated,2026-10-18,"2002-2005 Unmapped: MSc student at the London School of Economics in 2004/05, Martin Aspeli, ""Plone: A model of a mature open source project"", MSc dissertation, London School of Economics, 2005: https://web.archive.org/web/20111215133425/http://www.martinaspeli.net/publications/Plone%20-%20A%20Model%20of%20a%20Mature%20Open%20Source%20Project.pdf; no public record for an employer in these years (#86)"
-acb89898f,martin-aspeli,deloitte-digital,2009,2011,stated,2026-10-18,between records of 2008 and 2012 of the same organisation
-aca6084b9,martin-aspeli,deloitte-digital,2012,2012,stated,2026-10-18,
-a61c7a7a5,martin-aspeli,deloitte-digital,2013,2013,stated,2026-10-18,between records of 2012 and 2014 of the same organisation
-a908ec0e4,martin-aspeli,deloitte-digital,2014,2014,stated,2026-10-18,
-aeb31c181,martin-aspeli,deloitte-digital,2015,2015,stated,2026-10-18,between records of 2014 and 2026 of the same organisation
+aca6084b9,martin-aspeli,deloitte-digital,2012,2012,stated,2026-10-18,bridged 2009-2011: between records of 2008 and 2012 of the same organisation (checked 2026-10-18)
+a908ec0e4,martin-aspeli,deloitte-digital,2014,2014,stated,2026-10-18,bridged 2013-2013: between records of 2012 and 2014 of the same organisation (checked 2026-10-18); bridged 2015-2015: between records of 2014 and 2026 of the same organisation (checked 2026-10-18)
 a96c57a9c,martin-aspeli,deloitte-digital,2026,,stated,2026-10-18,
 a81b16319,martin-opstad-reistadbakk,jarn,2010,2011,stated,,
 aa11e1dd2,martin-opstad-reistadbakk,jarn,2012,2012,stated,,
 a7afcf0bd,martin-peeters,affinitic,2011,2011,stated,,
-a92805a4a,martin-peeters,affinitic,2012,2012,stated,2026-10-18,between records of 2011 and 2013 of the same organisation
-aa0ca079b,martin-peeters,affinitic,2013,2014,stated,,
-ab991f59e,martin-peeters,affinitic,2015,2015,stated,2026-10-18,between records of 2014 and 2016 of the same organisation
-a9aa3f3da,martin-peeters,affinitic,2016,2016,stated,,
-a36e20417,martin-peeters,affinitic,2017,2017,stated,2026-10-18,between records of 2016 and 2018 of the same organisation
-a7e29c8b7,martin-peeters,affinitic,2018,2018,stated,,
-abcf4bcde,martin-peeters,affinitic,2019,2019,stated,2026-10-18,between records of 2018 and 2020 of the same organisation
-ae1672a6a,martin-peeters,affinitic,2020,2020,stated,,
-abe6a485a,martin-peeters,affinitic,2021,2021,stated,2026-10-18,between records of 2020 and 2022 of the same organisation
-ac7489d9b,martin-peeters,affinitic,2022,2022,stated,,
-a466ddb21,martin-peeters,affinitic,2023,2024,stated,2026-10-18,between records of 2022 and 2026 of the same organisation
-aed2e09d1,martin-peeters,affinitic,2025,2025,stated,2026-10-18,
+aa0ca079b,martin-peeters,affinitic,2013,2014,stated,,bridged 2012-2012: between records of 2011 and 2013 of the same organisation (checked 2026-10-18)
+a9aa3f3da,martin-peeters,affinitic,2016,2016,stated,,bridged 2015-2015: between records of 2014 and 2016 of the same organisation (checked 2026-10-18)
+a7e29c8b7,martin-peeters,affinitic,2018,2018,stated,,bridged 2017-2017: between records of 2016 and 2018 of the same organisation (checked 2026-10-18)
+ae1672a6a,martin-peeters,affinitic,2020,2020,stated,,bridged 2019-2019: between records of 2018 and 2020 of the same organisation (checked 2026-10-18)
+ac7489d9b,martin-peeters,affinitic,2022,2022,stated,,bridged 2021-2021: between records of 2020 and 2022 of the same organisation (checked 2026-10-18)
+aed2e09d1,martin-peeters,affinitic,2025,2025,stated,2026-10-18,bridged 2023-2024: between records of 2022 and 2026 of the same organisation (checked 2026-10-18)
 a9a8fc82f,martin-peeters,affinitic,2026,,stated,2026-10-18,
 a9f394e69,martin-raspe,bibliotheca-hertziana,2005,2005,stated,,
 ad56221b6,martin-samek,imc-krems,2004,2004,stated,,
@@ -876,8 +792,7 @@ a1b245177,mat-pellerin,nuclia,2026,,assumed,2026-10-18,current entry without a r
 a308a9f40,mathias-leimgruber,4teamwork,2013,2021,stated,,
 ab48c4bd7,mathias-leimgruber,4teamwork,2022,2022,stated,,
 aebed0ca3,mathias-leimgruber,webcloud7-ag,2023,2023,stated,,
-ab0e9a92c,mathias-leimgruber,webcloud7-ag,2024,2024,stated,2026-10-18,between records of 2023 and 2025 of the same organisation
-a846f98f0,mathias-leimgruber,webcloud7-ag,2025,2025,stated,,
+a846f98f0,mathias-leimgruber,webcloud7-ag,2025,2025,stated,,bridged 2024-2024: between records of 2023 and 2025 of the same organisation (checked 2026-10-18)
 aade3cb0b,mathias-leimgruber,webcloud7-ag,2026,,stated,2026-10-18,
 acf849c0f,matt-hamilton,netsight,2004,2004,stated,,
 a39282227,matt-hamilton,netsight,2009,2013,stated,,
@@ -936,20 +851,17 @@ aa4ad792e,michele-finelli,biodec,2019,2019,stated,,
 ae47f04ee,mihaela-cretu,eau-de-web,2023,2023,stated,,
 a89dc91a7,mike-grafham,deloitte-digital,2010,2010,stated,,
 a400b6748,mike-metcalfe,webtide,2013,2013,stated,,
-a42895528,mike-metcalfe,webtide,2014,2014,stated,2026-10-18,between records of 2013 and 2015 of the same organisation
-a65ba01ff,mike-metcalfe,webtide,2015,2015,stated,,
-ac0e2547b,mike-metcalfe,webtide,2016,2017,stated,2026-10-18,between records of 2015 and 2018 of the same organisation
-af6e6e2fc,mike-metcalfe,webtide,2018,2018,stated,,
-a0463e93f,mike-metcalfe,webtide,2019,2019,stated,2026-10-18,between records of 2018 and 2020 of the same organisation
-a91b75b1e,mike-metcalfe,webtide,2020,2021,stated,,
-a82e917bf,mike-metcalfe,webtide,2022,2022,stated,2026-10-18,between records of 2021 and 2023 of the same organisation
-a004e64e7,mike-metcalfe,webtide,2023,2023,stated,,
+a65ba01ff,mike-metcalfe,webtide,2015,2015,stated,,bridged 2014-2014: between records of 2013 and 2015 of the same organisation (checked 2026-10-18)
+af6e6e2fc,mike-metcalfe,webtide,2018,2018,stated,,bridged 2016-2017: between records of 2015 and 2018 of the same organisation (checked 2026-10-18)
+a91b75b1e,mike-metcalfe,webtide,2020,2021,stated,,bridged 2019-2019: between records of 2018 and 2020 of the same organisation (checked 2026-10-18)
+a004e64e7,mike-metcalfe,webtide,2023,2023,stated,,bridged 2022-2022: between records of 2021 and 2023 of the same organisation (checked 2026-10-18)
 aa3bc489b,mike-metcalfe,webtide,2026,,stated,2026-10-18,
 ae8df044c,mike-robinson,deloitte-digital,2008,2008,stated,,
 afe747d60,mikel-larreategi,codesyntax,2009,2025,stated,,
 a63520962,mikel-larreategi,codesyntax,2026,,stated,2026-10-18,
 ae03397a9,mikko-ohtamaa,mfabrik,2010,2010,stated,,
-ad5e268bf,mikko-ohtamaa,red-innovation-oy,2011,2013,stated,,"not applied, the verified row stands: ""Company MFabrik"", Plone Conference 2011 speaker page: https://web.archive.org/web/20120105050017/http://2011ploneconference.sched.org/event/9892fb40822a74985fde61dafd1d1350"
+a93ad0d73,mikko-ohtamaa,mfabrik,2011,2011,stated,,"earlier review: not applied, the verified row stands: ""Company MFabrik"", Plone Conference 2011 speaker page: https://web.archive.org/web/20120105050017/http://2011ploneconference.sched.org/event/9892fb40822a74985fde61dafd1d1350"
+ad5e268bf,mikko-ohtamaa,red-innovation-oy,2011,2013,stated,,"earlier review: not applied, the verified row stands: ""Company MFabrik"", Plone Conference 2011 speaker page: https://web.archive.org/web/20120105050017/http://2011ploneconference.sched.org/event/9892fb40822a74985fde61dafd1d1350; the record is row a93ad0d73"
 ad9dc363b,mikko-ohtamaa,red-innovation-oy,2015,2015,stated,,
 a9f6b8bb5,mikko-ohtamaa,tokenmarket,2016,2016,stated,,
 ad13ee4a6,mtoepfl,e-ventis-gmbh,2020,2020,stated,,
@@ -974,23 +886,18 @@ a351a6a6e,nereadm,onna,2019,2019,stated,,
 a789871f3,nicola-marighelli,redturtle,2023,2024,stated,,
 a099251f9,nicola-marighelli,redturtle,2025,2025,stated,,
 a98562136,nil-bacardit,iskra,2019,2019,stated,,
-a64252595,nil-bacardit,iskra,2020,2020,stated,2026-10-18,between records of 2019 and 2021 of the same organisation
-a5526385d,nil-bacardit,iskra,2021,2025,stated,,
+a5526385d,nil-bacardit,iskra,2021,2025,stated,,bridged 2020-2020: between records of 2019 and 2021 of the same organisation (checked 2026-10-18)
 a0edfd053,nil-bacardit,iskra,2026,,stated,2026-10-18,
 a4e2555eb,nilesh-gulia,eau-de-web,2019,2019,assumed,2026-10-18,range from the current entry; years before 2026 not verified (#139)
 a3b224fb1,nilesh-gulia,eau-de-web,2020,2020,stated,2026-10-18,"in 2018 a student and Google Summer of Code intern under the Plone Foundation per his conference bio of 2018 (https://2018.ploneconf.org/people/nilesh-gulia.html), so the Eau de Web guess of 2018 went; 2019 has no record (#139)"
 a1c16a977,nilesh-gulia,eau-de-web,2021,2023,stated,2026-10-18,
-ad3108222,nilesh-gulia,eau-de-web,2024,2024,stated,2026-10-18,between records of 2023 and 2025 of the same organisation
-a76f6c885,nilesh-gulia,eau-de-web,2025,2025,stated,2026-10-18,
+a76f6c885,nilesh-gulia,eau-de-web,2025,2025,stated,2026-10-18,bridged 2024-2024: between records of 2023 and 2025 of the same organisation (checked 2026-10-18)
 a9eb4356f,nilesh-gulia,eau-de-web,2026,,stated,2026-10-18,
 a9c8f8f2e,nina,der-freitag,2025,2025,stated,,
 ab91393ba,norbert-infocatch,infocatch,2017,2017,stated,,
-a51e3a795,norbert-infocatch,infocatch,2018,2018,stated,2026-10-18,between records of 2017 and 2019 of the same organisation
-a2fc7f29c,norbert-infocatch,infocatch,2019,2019,stated,,
-a41af7641,norbert-infocatch,infocatch,2020,2020,stated,2026-10-18,between records of 2019 and 2021 of the same organisation
-a6f6f1876,norbert-infocatch,infocatch,2021,2022,stated,,
-aa61f240c,norbert-infocatch,infocatch,2025,2025,stated,2026-10-18,between records of 2022 and 2026 of the same organisation
-a4bfda89f,norbert-infocatch,infocatch,2026,,stated,2026-10-18,
+a2fc7f29c,norbert-infocatch,infocatch,2019,2019,stated,,bridged 2018-2018: between records of 2017 and 2019 of the same organisation (checked 2026-10-18)
+a6f6f1876,norbert-infocatch,infocatch,2021,2022,stated,,bridged 2020-2020: between records of 2019 and 2021 of the same organisation (checked 2026-10-18)
+a4bfda89f,norbert-infocatch,infocatch,2026,,stated,2026-10-18,bridged 2025-2025: between records of 2022 and 2026 of the same organisation (checked 2026-10-18)
 a64b93483,norm-patriquin,computer-associates,2005,2005,stated,,
 a74f2a3fd,nzambello,redturtle,2018,2020,stated,,2002-2017 Unmapped: no public record for these years (#86)
 a42fd97b9,nzambello,redturtle,2021,2021,stated,,
@@ -1003,7 +910,8 @@ ae07c47e6,omar-aleotti,redturtle,2025,2025,stated,,
 ac957868a,oshane-bailey,alteroo,2017,2017,stated,,
 a71dd2446,oshane-bailey,alteroo,2018,2018,stated,,
 a5903b1fd,oz-tiram,mobility-house,2016,2017,stated,,
-a13058ec9,p-j-onori,adaptive-path,2011,2011,stated,,"not applied, the verified row stands: ""P.J. Onori is the lead product designer at Seabright, a product design and development company.."", Plone Conference 2011 speaker page: https://web.archive.org/web/20111107013515/http://2011ploneconference.sched.org/attendees/speakers"
+a13058ec9,p-j-onori,adaptive-path,2011,2011,stated,,"earlier review: not applied, the verified row stands: ""P.J. Onori is the lead product designer at Seabright, a product design and development company.."", Plone Conference 2011 speaker page: https://web.archive.org/web/20111107013515/http://2011ploneconference.sched.org/attendees/speakers; the record is row aec9f9185"
+aec9f9185,p-j-onori,seabright,2011,2011,stated,,"earlier review: not applied, the verified row stands: ""P.J. Onori is the lead product designer at Seabright, a product design and development company.."", Plone Conference 2011 speaker page: https://web.archive.org/web/20111107013515/http://2011ploneconference.sched.org/attendees/speakers"
 a9ab7beb6,paola-bonetti,comune-di-modena,2021,2021,stated,,
 acf98de7b,paolo-roganti,universita-di-macerata,2025,2025,stated,,
 af3b41d8d,pascal-habegger,4teamwork,2005,2005,stated,,
@@ -1019,17 +927,14 @@ a417e27f4,paul-everitt,agendaless-consulting,2011,2011,stated,,
 aa2fea313,paul-everitt,agendaless-consulting,2013,2013,stated,,
 ac11b999e,paul-everitt,jetbrains,2016,2016,stated,,
 a81922640,paul-grunewald,tu-dresden,2014,2014,stated,,
-a3fde103a,paul-grunewald,tu-dresden,2015,2015,stated,2026-10-18,between records of 2014 and 2016 of the same organisation
-a49ca417b,paul-grunewald,tu-dresden,2016,2019,stated,,
-a7688bb90,paul-grunewald,tu-dresden,2020,2021,stated,2026-10-18,between records of 2019 and 2022 of the same organisation
-ad3577d7b,paul-grunewald,tu-dresden,2022,2025,stated,,
+a49ca417b,paul-grunewald,tu-dresden,2016,2019,stated,,bridged 2015-2015: between records of 2014 and 2016 of the same organisation (checked 2026-10-18)
+ad3577d7b,paul-grunewald,tu-dresden,2022,2025,stated,,bridged 2020-2021: between records of 2019 and 2022 of the same organisation (checked 2026-10-18)
 afea1f885,paul-grunewald,tu-dresden,2026,,stated,2026-10-18,
 a56b525ac,paul-roeland,ccc,2011,2011,stated,2026-10-18,
 ac7388376,paul-roeland,ccc,2012,2025,stated,,
 a0f99831a,paul-roeland,ccc,2026,,assumed,2026-10-18,current entry without a record of 2026; not verified (#139)
 aba26d84e,pawel-lewicki,goldmund-wyldebeast-wunderliebe,2014,2014,stated,,
-a1adf7163,petchesi-iulian,eau-de-web,2021,2022,stated,2026-10-18,
-afec34ab4,petchesi-iulian,eau-de-web,2023,2023,stated,2026-10-18,between records of 2022 and 2026 of the same organisation
+a1adf7163,petchesi-iulian,eau-de-web,2021,2022,stated,2026-10-18,bridged 2023-2023: between records of 2022 and 2026 of the same organisation (checked 2026-10-18)
 a0877e20b,petchesi-iulian,eau-de-web,2026,,stated,2026-10-18,
 a3ee182a9,peter-breithaupt,n-v-nederlandse-gasunie,2009,2009,stated,,
 a3abe6b1c,peter-hollands,dale-strategies-ltd,2005,2005,stated,,
@@ -1038,12 +943,10 @@ a7112de32,peter-holzer,agitator,2009,2023,stated,,
 a535f0262,peter-holzer,agitator,2026,,assumed,2026-10-18,current entry without a record of 2026; not verified (#139)
 a71d949e3,peter-jacobs,ku-leuven,2014,2014,stated,,
 a84d35906,peter-mathis,kombinat,2010,2010,stated,,
-a7b715e51,peter-mathis,kombinat,2011,2011,stated,2026-10-18,between records of 2010 and 2012 of the same organisation
-ac37db945,peter-mathis,kombinat,2012,2025,stated,,
+ac37db945,peter-mathis,kombinat,2012,2025,stated,,bridged 2011-2011: between records of 2010 and 2012 of the same organisation (checked 2026-10-18)
 a55c00614,peter-mathis,kombinat,2026,,stated,2026-10-18,
 a14fa36ac,peter-seifert,tu-dresden,2018,2018,stated,,
-a87a99ac1,peter-seifert,tu-dresden,2019,2020,stated,2026-10-18,between records of 2018 and 2021 of the same organisation
-ab4b1e9a1,peter-seifert,tu-dresden,2021,2021,stated,,
+ab4b1e9a1,peter-seifert,tu-dresden,2021,2021,stated,,bridged 2019-2020: between records of 2018 and 2021 of the same organisation (checked 2026-10-18)
 a4bd10e1d,peter-seifert,tu-dresden,2026,,stated,2026-10-18,
 af4359e3b,peter-uittenbroek,goldmund-wyldebeast-wunderliebe,2013,2015,stated,,
 a01a57892,phil-lombardi,datawire,2016,2016,stated,,
@@ -1052,8 +955,7 @@ a080c805d,philip-bauer,starzel,2010,2025,stated,,
 aa0c0b786,philip-bauer,starzel,2026,,stated,2026-10-18,
 ac5a45a39,philipp-auersperg,bluedynamics-kg,2002,,stated,2026-10-21,
 a240f0e11,philipp-von-weitershausen,mozilla,2011,2011,stated,,
-a31f0e70e,philippe-gross,4teamwork,2012,2012,stated,,
-ae15fd952,philippe-gross,4teamwork,2013,2013,stated,2026-10-18,between records of 2012 and 2019 of the same organisation
+a31f0e70e,philippe-gross,4teamwork,2012,2012,stated,,bridged 2013-2013: between records of 2012 and 2019 of the same organisation (checked 2026-10-18)
 aad83d706,philippe-gross,4teamwork,2019,2019,stated,,
 a6e78e814,philippe-gross,4teamwork,2026,,stated,2026-10-18,
 a57365928,piero-nicolli,redturtle,2018,2025,stated,,
@@ -1071,8 +973,11 @@ a6cfb5e54,ramon-navarro-bosch,iskra,2013,2015,stated,,2002-2012 Unmapped: Nuclia
 a5489bedc,ramon-navarro-bosch,intranetum,2016,2016,stated,,"2016: most of his commits carry a personal address, the conference bio and the training page name Intranetum; 2017: most of his commits carry the Atlasense or Onna address, see the attribution rules on two records for one year"
 ae0aee4ee,ramon-navarro-bosch,onna,2016,2016,denied,,"the tie-breaker: most commits of the year carry a personal address, the conference bio names Intranetum"
 aa9376547,ramon-navarro-bosch,onna,2017,2018,stated,,"2016: most of his commits carry a personal address, the conference bio and the training page name Intranetum; 2017: most of his commits carry the Atlasense or Onna address, see the attribution rules on two records for one year"
-abcbc433a,ramon-navarro-bosch,iskra,2019,2019,stated,,"2019: two organisations, the rule on two records for one year decides: 260 of his 261 commits of 2019 in the Plone repositories carry a personal address (gmail.com, one a laptop name), so the year follows his own statement of 2019, the speaker page, which names Iskra. Kept, not deciding: Commits in the GitHub organisation @onna in 2019 (28 in 2019; search: https://github.com/search?q=author%3Abloodbare+org%3Aonna+committer-date%3A2019-01-01..2019-12-31&type=commits); Nuclia was founded in 2019 with him as CTO: https://elreferente.es/inversiones/nuclia-cierra-ronda-pre-seed-400000-liderada-elaia/ (Jens, #171)"
-aab2afa09,ramon-navarro-bosch,nuclia,2020,2020,stated,2026-10-18,"2020: two organisations, the rule on two records for one year decides: all 311 of his commits of 2020 in the Plone repositories carry a personal address (gmail.com); his own statement of 2020, the speaker page, names the companies he founded, not an employer, so the organisation more records name wins: Nuclia (the GitHub profile and El Referente) over Iskra (the speaker page). Kept, not deciding: ""Plone Foundation Member - Guillotina co-Author and Founder of knowledge based companies: getflaps.com and iskra.cat"", Plone Conference 2020 speaker page: https://2020.ploneconf.org/speakers/ramon-navarro-bosch.html (Jens, #171)"
+abcbc433a,ramon-navarro-bosch,iskra,2019,2019,stated,,"2019: two organisations, the rule on two records for one year decides: 260 of his 261 commits of 2019 in the Plone repositories carry a personal address (gmail.com, one a laptop name), so the year follows his own statement of 2019, the speaker page, which names Iskra. earlier review: Kept, not deciding: Commits in the GitHub organisation @onna in 2019 (28 in 2019; search: https://github.com/search?q=author%3Abloodbare+org%3Aonna+committer-date%3A2019-01-01..2019-12-31&type=commits); Nuclia was founded in 2019 with him as CTO: https://elreferente.es/inversiones/nuclia-cierra-ronda-pre-seed-400000-liderada-elaia/ (Jens, #171); the records are rows a0b3bfe62 and a81516991"
+a81516991,ramon-navarro-bosch,nuclia,2019,2019,stated,,"earlier review: Kept, not deciding: Nuclia was founded in 2019 with him as CTO: https://elreferente.es/inversiones/nuclia-cierra-ronda-pre-seed-400000-liderada-elaia/ (Jens, #171)"
+a0b3bfe62,ramon-navarro-bosch,onna,2019,2019,stated,,"earlier review: Kept, not deciding: Commits in the GitHub organisation @onna in 2019 (28 in 2019; search: https://github.com/search?q=author%3Abloodbare+org%3Aonna+committer-date%3A2019-01-01..2019-12-31&type=commits) (Jens, #171)"
+aeea1525a,ramon-navarro-bosch,iskra,2020,2020,stated,,"earlier review: Kept, not deciding: ""Plone Foundation Member - Guillotina co-Author and Founder of knowledge based companies: getflaps.com and iskra.cat"", Plone Conference 2020 speaker page: https://2020.ploneconf.org/speakers/ramon-navarro-bosch.html (Jens, #171)"
+aab2afa09,ramon-navarro-bosch,nuclia,2020,2020,stated,2026-10-18,"earlier review: 2020: two organisations, the rule on two records for one year decides: all 311 of his commits of 2020 in the Plone repositories carry a personal address (gmail.com); his own statement of 2020, the speaker page, names the companies he founded, not an employer, so the organisation more records name wins: Nuclia (the GitHub profile and El Referente) over Iskra (the speaker page). Kept, not deciding: ""Plone Foundation Member - Guillotina co-Author and Founder of knowledge based companies: getflaps.com and iskra.cat"", Plone Conference 2020 speaker page: https://2020.ploneconf.org/speakers/ramon-navarro-bosch.html (Jens, #171); the record is row aeea1525a"
 a2eeef3eb,ramon-navarro-bosch,nuclia,2021,2025,stated,,
 ac385fbd9,ramon-navarro-bosch,nuclia,2026,,stated,2026-10-18,
 ab5e01cc3,raphael-ritz,humboldt-university-berlin,2004,2004,stated,,
@@ -1102,15 +1007,14 @@ a5a3436e9,rikupekka-oksanen,university-of-jyvaskyla,2017,2017,stated,2026-10-18,
 af22ed4ab,rikupekka-oksanen,university-of-jyvaskyla,2018,2018,stated,,
 af5e4ef97,rikupekka-oksanen,university-of-jyvaskyla,2019,2019,stated,,
 afa5b849d,rikupekka-oksanen,university-of-jyvaskyla,2020,2020,stated,2026-10-18,
-ad635bb6b,rikupekka-oksanen,university-of-jyvaskyla,2021,2021,stated,2026-10-18,between records of 2017 and 2022 of the same organisation
-adbd2be0e,rikupekka-oksanen,university-of-jyvaskyla,2022,2022,stated,,
+adbd2be0e,rikupekka-oksanen,university-of-jyvaskyla,2022,2022,stated,,bridged 2021-2021: between records of 2017 and 2022 of the same organisation (checked 2026-10-18)
 ae8913f94,rikupekka-oksanen,university-of-jyvaskyla,2023,2023,stated,2026-10-18,
 aae0b5135,rikupekka-oksanen,university-of-jyvaskyla,2024,2024,stated,2026-10-18,
-aa4b6443c,rikupekka-oksanen,university-of-jyvaskyla,2025,2025,stated,2026-10-18,between records of 2022 and 2026 of the same organisation
-ad21ec987,rikupekka-oksanen,university-of-jyvaskyla,2026,,stated,2026-10-18,
+ad21ec987,rikupekka-oksanen,university-of-jyvaskyla,2026,,stated,2026-10-18,bridged 2025-2025: between records of 2022 and 2026 of the same organisation (checked 2026-10-18)
 ab4de34ee,rob-gietema,four-digits,2009,2015,stated,,2002-2008 Unmapped: no public record for these years (#86)
 af2667a46,rob-gietema,rob-gietema-independent,2018,2022,stated,,2016-2017 Unmapped: no public record for these years (#86)
-a5c62b7a5,rob-gietema,kitconcept-gmbh,2023,2025,stated,,"not applied, the verified row stands: ""Rob is a developer for 25 years, worked at and founded several companies and is now working as a freelancer."", Plone Conference 2024 speaker page: https://2024.ploneconf.org/en/schedule/speakers/robgietema"
+a5c62b7a5,rob-gietema,kitconcept-gmbh,2023,2025,stated,,"earlier review: not applied, the verified row stands: ""Rob is a developer for 25 years, worked at and founded several companies and is now working as a freelancer."", Plone Conference 2024 speaker page: https://2024.ploneconf.org/en/schedule/speakers/robgietema; the record is row a43b418c6"
+a43b418c6,rob-gietema,rob-gietema-independent,2024,2024,stated,,"earlier review: not applied, the verified row stands: ""Rob is a developer for 25 years, worked at and founded several companies and is now working as a freelancer."", Plone Conference 2024 speaker page: https://2024.ploneconf.org/en/schedule/speakers/robgietema"
 a5e869fc3,rob-gietema,kitconcept-gmbh,2026,,assumed,2026-10-18,current entry without a record of 2026; not verified (#139)
 a7a09d070,rob-miller,burning-man-project,2004,2004,stated,,
 ae7caa924,rob-miller,the-open-planning-project,2006,2006,stated,,
@@ -1150,8 +1054,7 @@ a356f714d,roel-bruggink,roel-bruggink-independent,2018,2019,stated,2026-10-18,20
 a4d7e8a32,roel-bruggink,roel-bruggink-independent,2020,2024,assumed,2026-10-18,range from the current entry; years before 2026 not verified (#139)
 a63309c6c,roel-bruggink,roel-bruggink-independent,2026,,assumed,2026-10-18,current entry without a record of 2026; not verified (#139)
 ac2a2723d,roger-boixader-guell,iskra,2021,2021,stated,2026-10-18,
-a1f9bc9e9,roger-boixader-guell,iskra,2022,2024,stated,2026-10-18,between records of 2021 and 2025 of the same organisation
-a44c6ddba,roger-boixader-guell,iskra,2025,2025,stated,2026-10-18,
+a44c6ddba,roger-boixader-guell,iskra,2025,2025,stated,2026-10-18,bridged 2022-2024: between records of 2021 and 2025 of the same organisation (checked 2026-10-18)
 a4d28aa83,roger-boixader-guell,iskra,2026,,assumed,2026-10-18,current entry without a record of 2026; not verified (#139)
 a8a9c3275,rohit-kumar,kitconcept-gmbh,2021,2025,stated,,
 a5ade55f4,rohit-kumar,kitconcept-gmbh,2026,,stated,2026-10-18,
@@ -1170,19 +1073,15 @@ a0ef2f15f,ryan-foster,ryan-foster-independent,2013,2013,stated,,2002-2012 Unmapp
 adf10be30,ryan-foster,salesforce,2026,,stated,2026-10-18,
 a5d5644ec,sally-kleinfeldt,jazkarta,2008,2008,stated,,
 a061b8dcd,sally-kleinfeldt,jazkarta,2011,2011,stated,,
-afdea5bc6,sally-kleinfeldt,jazkarta,2012,2012,stated,2026-10-19,between records of 2011 and 2013 of the same organisation
-a01dfbf15,sally-kleinfeldt,jazkarta,2013,2013,stated,,
+a01dfbf15,sally-kleinfeldt,jazkarta,2013,2013,stated,,bridged 2012-2012: between records of 2011 and 2013 of the same organisation (checked 2026-10-19)
 aa04d0105,sally-kleinfeldt,jazkarta,2014,2014,stated,,
 aa530b8a4,sally-kleinfeldt,jazkarta,2015,2015,stated,,
 ae5101fc2,sally-kleinfeldt,jazkarta,2016,2016,stated,,
 a53055166,sally-kleinfeldt,jazkarta,2017,2017,stated,2026-10-19,
-adcccb160,sally-kleinfeldt,jazkarta,2018,2018,stated,2026-10-19,between records of 2016 and 2019 of the same organisation
-addfeb89d,sally-kleinfeldt,jazkarta,2019,2019,stated,,
+addfeb89d,sally-kleinfeldt,jazkarta,2019,2019,stated,,bridged 2018-2018: between records of 2016 and 2019 of the same organisation (checked 2026-10-19)
 a55454e1c,sally-kleinfeldt,jazkarta,2020,2020,stated,,
-a448188b6,sally-kleinfeldt,jazkarta,2021,2022,stated,2026-10-19,between records of 2019 and 2026 of the same organisation
-aabdf3883,sally-kleinfeldt,jazkarta,2023,2023,stated,2026-10-19,
-a9094d42b,sally-kleinfeldt,jazkarta,2024,2024,stated,2026-10-19,between records of 2019 and 2026 of the same organisation
-aab6b5ef2,sally-kleinfeldt,jazkarta,2025,2025,stated,,
+aabdf3883,sally-kleinfeldt,jazkarta,2023,2023,stated,2026-10-19,bridged 2021-2022: between records of 2019 and 2026 of the same organisation (checked 2026-10-19)
+aab6b5ef2,sally-kleinfeldt,jazkarta,2025,2025,stated,,bridged 2024-2024: between records of 2019 and 2026 of the same organisation (checked 2026-10-19)
 a5edebf46,sally-kleinfeldt,jazkarta,2026,,stated,2026-10-19,
 a37fc71ed,sam-greenblatt,computer-associates,2004,2004,stated,,
 a5c8ec0d1,sam-schwartz,wildcard-corp,2015,2017,stated,,
@@ -1234,8 +1133,7 @@ a7b18beb9,stefan-antonelli,operun,2026,,stated,2026-10-18,
 a39e14ac9,stefan-eletzhofer,inquant-gmbh,2007,2007,stated,,
 a862b4bd7,stefan-holek,jarn,2004,2005,stated,2026-10-18,"2002-2003 Unmapped: no public record for these years (#86); ""recently joined Plone Solutions AS"" in the speaker bios in the Plone Conference 2004 brochure: https://plone.org/news-and-events/events/plone-conferences/vienna-2004/brochure/inside_3.pdf/@@download/file (archived: https://web.archive.org/web/20261018135015/https://plone.org/news-and-events/events/plone-conferences/vienna-2004/brochure/inside_3.pdf/@@download/file)"
 a956769f8,stefan-holek,jarn,2006,2006,stated,2026-10-18,
-a2ebacdc0,stefan-holek,jarn,2007,2010,stated,2026-10-18,between records of 2005 and 2011 of the same organisation
-afdeb0721,stefan-holek,jarn,2011,2011,stated,,
+afdeb0721,stefan-holek,jarn,2011,2011,stated,,bridged 2007-2010: between records of 2005 and 2011 of the same organisation (checked 2026-10-18)
 a36fc0b94,stefan-holek,jarn,2026,,assumed,2026-10-18,current entry without a record of 2026; not verified (#139)
 ae1a7df53,stefaner-benjamin,klein-partner-kg,2013,2015,stated,,
 a22aff995,stefano-marchetti,redturtle,2013,2013,stated,,
@@ -1245,24 +1143,17 @@ a2e3b875d,stefano-pagani,qubicaamf,2021,2021,stated,,
 a1a5f5b99,steffen-allner,gocept,2018,2021,stated,,
 a1f359a28,steffen-allner,minddistrict,2026,,stated,2026-10-18,
 a742def47,steffen-lindner,starzel,2013,2014,stated,,
-a552f95c0,steffen-lindner,starzel,2015,2015,stated,2026-10-18,between records of 2014 and 2016 of the same organisation
-a47e768af,steffen-lindner,starzel,2016,2017,stated,,
-a177fb097,steffen-lindner,starzel,2018,2018,stated,2026-10-18,between records of 2017 and 2019 of the same organisation
-ac4313287,steffen-lindner,starzel,2019,2021,stated,,
-a4fb72e54,steffen-lindner,starzel,2022,2023,stated,2026-10-18,between records of 2021 and 2024 of the same organisation
-abe873cb2,steffen-lindner,starzel,2024,2024,stated,,
+a47e768af,steffen-lindner,starzel,2016,2017,stated,,bridged 2015-2015: between records of 2014 and 2016 of the same organisation (checked 2026-10-18)
+ac4313287,steffen-lindner,starzel,2019,2021,stated,,bridged 2018-2018: between records of 2017 and 2019 of the same organisation (checked 2026-10-18)
+abe873cb2,steffen-lindner,starzel,2024,2024,stated,,bridged 2022-2023: between records of 2021 and 2024 of the same organisation (checked 2026-10-18)
 a13420a6c,steffen-lindner,starzel,2026,,assumed,2026-10-18,current entry without a record of 2026; not verified (#139)
 a1038c921,steffen-ring,kitconcept-gmbh,2019,2020,stated,,
-a81ae418b,steffen-ring,kitconcept-gmbh,2021,2021,stated,2026-10-18,between records of 2020 and 2022 of the same organisation
-a09e36c1e,steffen-ring,kitconcept-gmbh,2022,2022,stated,,
-a6f1a6155,steffen-ring,kitconcept-gmbh,2023,2023,stated,2026-10-18,between records of 2022 and 2024 of the same organisation
-a883c27ae,steffen-ring,kitconcept-gmbh,2024,2024,stated,,
+a09e36c1e,steffen-ring,kitconcept-gmbh,2022,2022,stated,,bridged 2021-2021: between records of 2020 and 2022 of the same organisation (checked 2026-10-18)
+a883c27ae,steffen-ring,kitconcept-gmbh,2024,2024,stated,,bridged 2023-2023: between records of 2022 and 2024 of the same organisation (checked 2026-10-18)
 a35d050f2,steffen-ring,kitconcept-gmbh,2026,,stated,2026-10-18,
 a6060a7e3,stephan-geulette,imio,2012,2012,stated,,
-aca164401,stephan-geulette,imio,2013,2014,stated,2026-10-18,between records of 2012 and 2015 of the same organisation
-a9f78f0a0,stephan-geulette,imio,2015,2018,stated,,
-a84acaae4,stephan-geulette,imio,2019,2020,stated,2026-10-18,between records of 2018 and 2021 of the same organisation
-a0db5f1f7,stephan-geulette,imio,2021,2021,stated,,
+a9f78f0a0,stephan-geulette,imio,2015,2018,stated,,bridged 2013-2014: between records of 2012 and 2015 of the same organisation (checked 2026-10-18)
+a0db5f1f7,stephan-geulette,imio,2021,2021,stated,,bridged 2019-2020: between records of 2018 and 2021 of the same organisation (checked 2026-10-18)
 ab96851f9,stephan-geulette,imio,2026,,stated,2026-10-18,
 a272cbcf4,stephan-klinger,der-freitag,2015,2019,stated,,
 adf10c1bc,stephan-richter,keas-inc,2008,2008,stated,,
@@ -1294,38 +1185,31 @@ a2fc1a43a,teodor-voicu,eau-de-web,2026,,stated,2026-10-18,
 ad9010f48,thales-salvador,interagi-tecnologia,2024,2024,stated,,
 a1b9a2f07,thijs-feryn,varnish-software,2024,2024,stated,,
 a31a3a0fa,thomas-buchberger,4teamwork,2010,2011,stated,,
-a35439df8,thomas-buchberger,4teamwork,2012,2012,stated,2026-10-18,between records of 2011 and 2013 of the same organisation
-a25be9b73,thomas-buchberger,4teamwork,2013,2013,stated,,
-a230529e1,thomas-buchberger,4teamwork,2014,2014,stated,2026-10-18,between records of 2013 and 2015 of the same organisation
-afc91ddbc,thomas-buchberger,4teamwork,2015,2020,stated,,
+a25be9b73,thomas-buchberger,4teamwork,2013,2013,stated,,bridged 2012-2012: between records of 2011 and 2013 of the same organisation (checked 2026-10-18)
+afc91ddbc,thomas-buchberger,4teamwork,2015,2020,stated,,bridged 2014-2014: between records of 2013 and 2015 of the same organisation (checked 2026-10-18)
 a8a851a01,thomas-buchberger,4teamwork,2026,,assumed,2026-10-18,current entry without a record of 2026; not verified (#139)
 a35fdd934,thomas-desvenain,ecreall,2013,2013,stated,,
 a2bdd62c4,thomas-desvenain,ecreall,2014,2014,stated,,the Makina Corpus guess of 2014 went (#139)
 a4b928432,thomas-desvenain,makina-corpus,2017,2017,stated,2026-10-18,
-a89860753,thomas-desvenain,makina-corpus,2018,2018,stated,,
-a49925f30,thomas-desvenain,makina-corpus,2019,2020,stated,2026-10-18,between records of 2018 and 2026 of the same organisation
+a89860753,thomas-desvenain,makina-corpus,2018,2018,stated,,bridged 2019-2020: between records of 2018 and 2026 of the same organisation (checked 2026-10-18)
 abac9bf09,thomas-desvenain,makina-corpus,2026,,stated,2026-10-18,
 ab7c28a57,thomas-forster,institute-for-theoretical-biology,2005,2005,stated,,
 aae05d446,thomas-goetsch,it-services-city-of-bern,2005,2005,stated,,
 aab8d8db0,thomas-kastenholz,interaktiv,2021,2022,stated,,
 a0e5e6e06,thomas-kastenholz,interaktiv,2026,,stated,2026-10-18,
 a1a249ea0,thomas-kindermann,kitconcept-gmbh,2021,2022,stated,,
-a5644e377,thomas-kindermann,kitconcept-gmbh,2024,2024,stated,2026-10-18,between records of 2022 and 2026 of the same organisation
-a6b820b8e,thomas-kindermann,kitconcept-gmbh,2026,,stated,2026-10-18,
+a6b820b8e,thomas-kindermann,kitconcept-gmbh,2026,,stated,2026-10-18,bridged 2024-2024: between records of 2022 and 2026 of the same organisation (checked 2026-10-18)
 a7f2c7b72,thomas-lambert,imio,2023,2023,stated,,
 a5596249d,thomas-lotze,gocept,2006,2015,stated,,2002-2005 Unmapped: no public record for these years (#86)
 aca76cee2,thomas-lotze,gocept,2016,2016,stated,,
 a34741e4d,thomas-lotze,starzel,2017,2017,stated,,
 ab91d86df,thomas-lotze,starzel,2018,2019,stated,2026-10-18,
-ae649ec0d,thomas-lotze,starzel,2020,2024,stated,2026-10-18,between records of 2019 and 2025 of the same organisation
-ae54e3433,thomas-lotze,starzel,2025,2025,stated,,
+ae54e3433,thomas-lotze,starzel,2025,2025,stated,,bridged 2020-2024: between records of 2019 and 2025 of the same organisation (checked 2026-10-18)
 a9b9cde18,thomas-lotze,starzel,2026,,stated,2026-10-18,
 a17f5e995,thomas-massmann,inqbus,2012,2012,stated,,
 abedb8cee,thomas-massmann,it-spirit,2015,2015,stated,,
-ae80aa0ce,thomas-massmann,it-spirit,2016,2016,stated,2026-10-18,between records of 2015 and 2017 of the same organisation
-ab82f72f3,thomas-massmann,it-spirit,2017,2020,stated,,
-ae0fff6dd,thomas-massmann,it-spirit,2021,2021,stated,2026-10-18,between records of 2020 and 2022 of the same organisation
-a6a67a212,thomas-massmann,it-spirit,2022,2022,stated,,
+ab82f72f3,thomas-massmann,it-spirit,2017,2020,stated,,bridged 2016-2016: between records of 2015 and 2017 of the same organisation (checked 2026-10-18)
+a6a67a212,thomas-massmann,it-spirit,2022,2022,stated,,bridged 2021-2021: between records of 2020 and 2022 of the same organisation (checked 2026-10-18)
 a77803daa,thomas-massmann,it-spirit,2026,,stated,2026-10-18,
 a5aa5240f,thomas-mersch,kitconcept-gmbh,2025,2025,stated,,
 a67d35a48,thomas-mersch,kitconcept-gmbh,2026,,stated,2026-10-18,
@@ -1335,12 +1219,9 @@ aa48eda67,thomas-schorr,thomas-schorr-independent,2016,2019,stated,,
 a7720c2bb,thomas-schorr,thomas-schorr-independent,2020,2020,stated,,
 ab5e35ebb,tiago-antonio-resende-de-oliveira,serpro,2024,2024,stated,,
 a2c7d46c4,tiberiu-ichim,eau-de-web,2013,2013,stated,,
-a5896f50f,tiberiu-ichim,eau-de-web,2014,2018,stated,2026-10-18,between records of 2013 and 2019 of the same organisation
-a5a060329,tiberiu-ichim,eau-de-web,2019,2019,stated,,
-abff6145e,tiberiu-ichim,eau-de-web,2020,2023,stated,2026-10-18,between records of 2019 and 2024 of the same organisation
-ae9c9c880,tiberiu-ichim,eau-de-web,2024,2024,stated,,
-ad6fefd7f,tiberiu-ichim,eau-de-web,2025,2025,stated,2026-10-18,between records of 2024 and 2026 of the same organisation
-a5975b0df,tiberiu-ichim,eau-de-web,2026,,stated,2026-10-18,
+a5a060329,tiberiu-ichim,eau-de-web,2019,2019,stated,,bridged 2014-2018: between records of 2013 and 2019 of the same organisation (checked 2026-10-18)
+ae9c9c880,tiberiu-ichim,eau-de-web,2024,2024,stated,,bridged 2020-2023: between records of 2019 and 2024 of the same organisation (checked 2026-10-18)
+a5975b0df,tiberiu-ichim,eau-de-web,2026,,stated,2026-10-18,bridged 2025-2025: between records of 2024 and 2026 of the same organisation (checked 2026-10-18)
 a697c7ed1,tim-chang-miller,university-of-washington,2011,2011,stated,,
 a9b530b11,tim-jones,fry,2022,2022,stated,,
 a47b38359,tim-knapp,emergetec,2008,2008,stated,,
@@ -1373,8 +1254,7 @@ ab0bb6e1a,tres-seaver,agendaless-consulting,2006,2006,stated,,
 ad8d498a9,tres-seaver,agendaless-consulting,2011,2011,stated,,
 a6a72d7a7,tudor-barbu,schibsted,2017,2017,stated,,
 a914107e2,valentin-dumitru,eau-de-web,2021,2023,stated,,
-a1afc17ea,valentin-dumitru,eau-de-web,2024,2024,stated,2026-10-18,between records of 2023 and 2025 of the same organisation
-a6efefe22,valentin-dumitru,eau-de-web,2025,2025,stated,,
+a6efefe22,valentin-dumitru,eau-de-web,2025,2025,stated,,bridged 2024-2024: between records of 2023 and 2025 of the same organisation (checked 2026-10-18)
 a6bb2c15e,valentin-dumitru,eau-de-web,2026,,stated,2026-10-18,
 a582c0bd8,valentina-balan,eau-de-web,2022,2022,stated,,
 a3dc5fa7b,valentina-balan,eau-de-web,2025,2025,stated,,
@@ -1410,15 +1290,13 @@ afa119abd,wagner-trezub,redturtle,2023,2025,stated,,
 a0dfdb419,wagner-trezub,redturtle,2026,,stated,2026-10-18,
 a6a06aa8f,wesley-barroso-lopes,serpro,2020,2020,assumed,2026-10-18,range from the current entry; years before 2026 not verified (#139)
 a80547305,wesley-barroso-lopes,serpro,2021,2022,stated,2026-10-18,
-aa5133bc6,wesley-barroso-lopes,serpro,2023,2023,stated,2026-10-18,between records of 2022 and 2024 of the same organisation
-aa7cb1dc8,wesley-barroso-lopes,serpro,2024,2025,stated,2026-10-18,
+aa7cb1dc8,wesley-barroso-lopes,serpro,2024,2025,stated,2026-10-18,bridged 2023-2023: between records of 2022 and 2024 of the same organisation (checked 2026-10-18)
 a427c093d,wesley-barroso-lopes,serpro,2026,,stated,2026-10-18,
 ae9e88dad,whit-morriss,the-open-planning-project,2006,2006,stated,,
 a30c9de00,wichert-akkerman,simplon,2005,2005,assumed,2026-10-18,range from the current entry; years before 2026 not verified (#139)
 a5abf4322,wichert-akkerman,simplon,2006,2011,stated,2026-10-18,"the Jarn team pages of 2007 and 2008 list him too; as for Andreas Zeidler, freelance work for a company counts for the person's own consultancy (rejected_proposals.csv)"
 ab178c56c,wichert-akkerman,jarn,2007,2008,denied,,"his own consultancy Simplon, for which Jarn was a client; his Foundation member pages of 2006 and 2008 and his PyPI release of 2007 say Simplon"
-aa6649073,wichert-akkerman,simplon,2012,2013,stated,2026-10-18,
-a582a9e60,wichert-akkerman,simplon,2016,2016,stated,2026-10-18,between records of 2013 and 2026 of the same organisation
+aa6649073,wichert-akkerman,simplon,2012,2013,stated,2026-10-18,bridged 2016-2016: between records of 2013 and 2026 of the same organisation (checked 2026-10-18)
 aa5ed68a9,wichert-akkerman,simplon,2026,,stated,2026-10-18,
 a227b9926,wolfgang-thomas,syslab,2013,2019,stated,,
 a42e50ab6,wolfgang-thomas,syslab,2020,2020,stated,,

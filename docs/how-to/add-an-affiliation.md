@@ -64,7 +64,8 @@ You need a GitHub account, and a public record for the affiliation: a link, or a
 5.  Do not write a row for a year in which the affiliation is unknown.
     A year that no row covers is Unmapped, and `Unmapped` is never written.
     If the person moved, give the earlier organisation its own row.
-    Two records of the same organisation cover the years between them, so a row that bridges them covers those years and cites both records.
+    Do not write a row for the years between two records of the same organisation: they are bridged by the rules, as long as no record of another organisation lies between them.
+    A note never stops a bridge, whatever it says, such as "Unmapped" or "not at X". To record that the person was not at X in the years between, write a `denied` row of X for them, with its public record in the citation.
     Rows of one person may overlap, when records name two organisations for the same year; the rules in {ref}`explanation-attribution-rules` decide which one counts.
     A finding that no record supports some years, with what was checked, goes into the `notes` of the neighbouring row, so that a later reviewer knows what was looked at.
     A row never loses a source: new evidence is a new citation, and a year changes its organisation only for stronger evidence, see {doc}`/explanation/attribution`.
@@ -81,7 +82,7 @@ You need a GitHub account, and a public record for the affiliation: a link, or a
     ```
 
     The checks name the file, the row and the column of every error.
-    They also compute the organisation of every year, and fail for a year that no rule decides; see {ref}`how-to-add-an-affiliation-check`.
+    They also compute the organisation of every year, and warn about a year that no rule decides; see {ref}`how-to-add-an-affiliation-check`.
 
 8.  Open a pull request on [GitHub](https://github.com/plone/plone-contributor-statistics).
     Name the source in the description.
@@ -99,11 +100,13 @@ python -m scripts.tools.affiliation jane-doe 2016 2017
 ```
 
 The tool takes the id of the person, a GitHub login, or a username as the collected files write it, such as `person:jane-doe`.
-It prints the organisation of each year, then every affiliation of the person with its status, and under it the sources it cites, with their snippets and notes.
+It prints the organisation of each year with the rule that gave it, such as `2018: Zest Software (bridged)`, then every affiliation of the person with its status, and under it the sources it cites, with their snippets and notes.
 Without years, it shows the years of the person's affiliations.
-A year that no rule decides shows as Unmapped with the organisations in conflict, and `make check` fails for it.
+A year that no rule decides is an open case: it shows as Unmapped with the organisations in conflict, and `make check` prints a warning for it.
+`python -m scripts.tools.decisions_review` lists the open cases, and the decisions with their status, needed or outdated, and the sources dated after each decision.
 
-To settle such a conflict, decide in public: write a comment on the pull request or on an issue of this repository that says which organisation the year counts for, and why.
+To settle such a case, decide in public: a public comment says which organisation the year counts for, and why; it may come from a maintainer, from someone else, or from the person or the organisation in question.
+The comment sits on a pull request or an issue of this repository.
 Capture the comment as a source of the kind `decision`, and cite it from the row of the organisation you chose:
 
 ```shell
@@ -114,6 +117,7 @@ python -m scripts.tools.capture "https://github.com/plone/plone-contributor-stat
 The latest decision for a person and year counts.
 A decision covers every year of the row that cites it: when it is meant for only some of those years, split the row first, so that the decision is cited only by the row of those years.
 A decision that overrules an earlier one names the id of the earlier source in the `supersedes` column of its citation, separated by semicolons if there are several; `make check` fails until it does.
+A decision settles only what the rules leave open: when the rules decide the year, the decision is outdated and not applied.
 
 (find-affiliations-in-commit-addresses)=
 

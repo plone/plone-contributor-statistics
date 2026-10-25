@@ -63,7 +63,7 @@ Checks beyond the schema:
 - An identity cites a source, unless it is an early commit address whose notes say what it rests on.
 - A snippet appears in the excerpt of its source, compared as the capture compares a quote (`find_quote`).
 - The rows are sorted by `person`, `kind`, `value`.
-- `value` is unique within its `kind`, ignoring case for the kinds `github`, `github-alias`, `email`.
+- `value` is unique within its `kind`, ignoring case for the kinds `github`, `github-alias`, `email`, `svn`.
 - A person has at most one `github` identity, and a `github-alias` is nobody's `github`, ignoring case.
 
 ### Affiliations
@@ -92,7 +92,7 @@ Checks beyond the schema:
 - The rows are sorted by `person`, `from`, `organisation`.
 - No two rows have the same `person`, `organisation`, `from`, `to`.
 - Every affiliation but a proposal has at least one citation.
-- No person-year is left undecided by the attribution rules: record a decision for each conflict.
+- A person-year that no attribution rule decides is an open case, a warning: Unmapped until a decision settles it.
 - Of two decisions for one person and year, the later names the earlier in `supersedes`.
 
 ### Citations
@@ -154,7 +154,7 @@ One row is one source: a page, profile, commit, video or decision that we read o
 | `id` | string | required; unique; pattern `^[0-9a-f]{12}$` | Opaque, stable identifier of the source: the first twelve hex digits of a hash of its normalised address and the archive timestamp. The normalised address keeps the fragment of a GitHub comment or review, which is a source of its own, and reduces a Google Doc to its document id. |
 | `kind` | string | required; one of `page`, `speaker-page`, `profile`, `commit`, `video`, `pdf`, `register`, `issue-comment`, `decision` | What kind of source it is. |
 | `title` | string | required | The title of the source as a reader sees it. |
-| `date` | date | required | The date the source speaks for: its publication date if it shows one, else the capture date of the archived copy, else the day it was fetched. |
+| `date` | date | required | The date the source speaks for: its publication date if it shows one (not a placeholder date), the date of the conference for a conference page, else the capture date of the archived copy, else the day it was fetched. |
 | `url` | string | required; pattern `^https?://.*$` | The address of the source on the web. |
 | `archive_url` | string | pattern `^https://web\.archive\.org/web/\d{14}/https?://.*$` | The address of the Wayback Machine copy that was read, if one was. |
 | `fetched` | datetime | required | When the source was read, in UTC. |

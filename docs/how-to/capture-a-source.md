@@ -32,7 +32,8 @@ Do this when a fact rests on a page, a profile, a commit or a video, and you wan
     A source that was never read is the exception, see {ref}`how-to-capture-a-source-not-read`.
     `--kind`, `--title` and `--date` override what the tool finds on the page.
     Give `--kind speaker-page` for the page of a speaker at a conference, because it is the person's own statement.
-    A live page is dated by `--date`, else by the date the page shows, else by the day of the capture.
+    A live page is dated by `--date`, else by the date the page shows (a placeholder date such as 2000-01-01 doesn't count), else by the day of the capture.
+    The page of a conference is dated by the conference: pass the date of the conference as `--date` and cite the page that gives it in the `notes` of the source.
     A video is dated by `--date`, else by the day YouTube says it was uploaded, else by the day its caption tracks were downloaded.
     A Wayback copy is dated by `--date`, else by the day of its capture; a date the page shows is not trusted for it, and a different one is kept in the `notes` of the new row as `page shows date YYYY-MM-DD`.
     The capture is the one the Archive actually served: when it redirects to a capture of another day, the source is recorded under that capture, with its own address and date.

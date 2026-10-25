@@ -22,12 +22,14 @@ def registry(write_registers):
 
 def test_the_organisation_of_each_year(registry):
     assert affiliation.organisations(registry, 'jane-doe', [2009, 2014, 2015, 2024]) == [
-        '2009: Unmapped', '2014: Old Co', '2015: Example Company', '2024: New Co']
+        '2009: Unmapped', '2014: Old Co (one organisation)', '2015: Example Company (one organisation)',
+        '2024: New Co (one organisation)']
 
 
 def test_the_years_default_to_those_of_the_rows(registry):
     lines = affiliation.organisations(registry, 'jane-doe', affiliation.years_of(registry, 'jane-doe', until=2021))
-    assert lines[0] == '2010: Old Co' and lines[-1] == '2021: New Co' and len(lines) == 12
+    assert lines[0] == '2010: Old Co (one organisation)' and lines[-1] == '2021: New Co (one organisation)'
+    assert len(lines) == 12
     assert affiliation.years_of(registry, 'other', until=2021) == []
 
 
@@ -36,7 +38,17 @@ def test_a_conflict_names_the_organisations(write_registers):
                     affiliations=[('jane-doe', 'old-co', 2010, 2014), ('jane-doe', 'new-co', 2012, 2013)],
                     organisations=[('old-co', 'Old Co'), ('new-co', 'New Co')])
     assert affiliation.organisations(load_registry(), 'jane-doe', [2011, 2012]) == [
-        '2011: Old Co', '2012: Unmapped (no rule decides between New Co, Old Co)']
+        '2011: Old Co (one organisation)', '2012: Unmapped (no rule decides between New Co, Old Co)']
+
+
+def test_affiliation_tool_prints_the_rule(write_registers):
+    write_registers(people=[('jane-doe', 'janedoe')],
+                    affiliations=[('jane-doe', 'zest', 2016, 2017), ('jane-doe', 'zest', 2019, 2020),
+                                  ('jane-doe', 'kitconcept', 2020, None)],
+                    organisations=[('zest', 'Zest Software'), ('kitconcept', 'kitconcept')])
+    assert affiliation.organisations(load_registry(), 'jane-doe', [2017, 2018, 2020, 2021]) == [
+        '2017: Zest Software (one organisation)', '2018: Zest Software (bridged)',
+        '2020: Zest Software (change year)', '2021: kitconcept (one organisation)']
 
 
 def test_each_affiliation_with_its_citations(registry):
@@ -77,7 +89,7 @@ def test_the_person_by_login_or_username(registry):
 def test_main_prints_years_and_citations(registry, capsys):
     assert affiliation.main(['janedoe', '2017']) == 0
     out = capsys.readouterr().out
-    assert out.startswith('jane-doe (jane-doe)\n\n2017: Example Company\n\n')
+    assert out.startswith('jane-doe (jane-doe)\n\n2017: Example Company (one organisation)\n\n')
     assert f'{EXAMPLE}: Example Company, 2015–2019, stated' in out
     assert affiliation.main(['other', '2017']) == 0
     assert capsys.readouterr().out == 'other (other)\n\n2017: Unmapped\n\nNo affiliations.\n'

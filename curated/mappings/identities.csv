@@ -33,6 +33,7 @@ alex-catlla,github,acatlla,1dd34f1dcb8f,,https://github.com/acatlla
 alex-clark,email,aclark@3b4cdb85-528f-c531-b63d-5919d5b1aa08,52f967f7c48c,aclark@3b4cdb85-528f-c531-b63d-5919d5b1aa08,Review in #69; SVN user aclark; example commit: https://github.com/plone/ploneorg.admin/commit/d6d320e958c72db552288b7c2bf85c29c8fd1ecf
 alex-clark,email,aclark@db7f04ef-aaf3-0310-a811-c281ed44c4ad,751faaceb89f,aclark@db7f04ef-aaf3-0310-a811-c281ed44c4ad,Review in #69; SVN user aclark; example commit: https://github.com/plone/plone.recipe.haproxy/commit/6e474e23ef11e8b1dd42052e08b1828780cddca1
 alex-clark,github,aclark4life,8fc04c033a14,,https://github.com/aclark4life
+alex-clark,svn,aclark,52f967f7c48c,Author: aclark <aclark@3b4cdb85-528f-c531-b63d-5919d5b1aa08>,SVN user aclark
 alex-juizi,name,Alex (Juizi),bcf7f1f43848,,https://www.youtube.com/watch?v=UzBwfVuoCDE
 alex-limi,email,limi@3b4cdb85-528f-c531-b63d-5919d5b1aa08,441267b0fe42,limi@3b4cdb85-528f-c531-b63d-5919d5b1aa08,Review in #69; example commit: https://github.com/plone/plonetheme.classic-recreate/commit/5a9fbce937fb30c819f8b17b5757c85c62732465
 alex-limi,email,limi@db7f04ef-aaf3-0310-a811-c281ed44c4ad,3c115b80965d,limi@db7f04ef-aaf3-0310-a811-c281ed44c4ad,Review in #69; example commit: https://github.com/plone/Products.TinyMCE/commit/5cba27b92c5433a54c0d2d510a22b61988cfee2b
@@ -63,6 +64,7 @@ andrea-cecchi,github,cekk,d87bfcbc5f7c,,https://github.com/cekk
 andreas-jung,email,ajung@3b4cdb85-528f-c531-b63d-5919d5b1aa08,78d4ec8650a4,ajung@3b4cdb85-528f-c531-b63d-5919d5b1aa08,Review in #69; SVN user ajung (the GitHub account ajung is someone else); example commit: https://github.com/plone/plone.app.event/commit/02faa1941cb2449bf78409c5b49e608ba144d1a0
 andreas-jung,email,zopyxfilter@gmail.com,f5b53b6390a7,zopyxfilter@gmail.com,Same name in commits linked to this account; example commit: https://github.com/plone/Products.Archetypes/commit/69b3e4ba7500a2fb80734664f3b8db3d5d558b42
 andreas-jung,github,zopyx,cecbd92c08d9,,https://github.com/zopyx
+andreas-jung,svn,ajung,78d4ec8650a4,Author: ajung <ajung@3b4cdb85-528f-c531-b63d-5919d5b1aa08>,SVN user ajung (the GitHub account ajung is someone else)
 andreas-schmid-contact,name,Andreas Schmid (contact),75a359fffd97,,https://web.archive.org/web/20131023003710/http://plone.org/events/community/bolzano-plone-sprint
 andreas-zeidler,email,zeidler@jarn.com,98b329f52610,zeidler@jarn.com,Same name in commits linked to this account; example commit: https://github.com/plone/collective.indexing/commit/a641da5773788ff5657829a02429643ba8642669
 andreas-zeidler,github,witsch,bd52fe6f46ac,,https://github.com/witsch
@@ -204,6 +206,7 @@ danny-bloemendaal,email,danny.bloemendaal@companion.nl,630496e6e4e5,danny.bloeme
 danny-bloemendaal,email,danny.bloemendaal@informaat.nl,603bee8eeca0,danny.bloemendaal@informaat.nl,Review in #69; account of Danny Bloemendaal; example commit: https://github.com/plone/Products.ATContentTypes/commit/ed80eaa51b73c8bfa976fcc05cd79aa20a8d5763
 danny-bloemendaal,email,dannyb@localhost,a126ecf4ee35,,"Review in #69; account of Danny Bloemendaal; SVN user DannyB, same repositories and time as his other commits (the GitHub account dannyb is someone else); example commit: https://github.com/plone/Products.ATContentTypes/commit/46da2f9cfe355feed274f272207e04b9c1d27eea"
 danny-bloemendaal,github,dannybloe,052b1b9d709c,,https://github.com/dannybloe
+danny-bloemendaal,svn,DannyB,a126ecf4ee35,Author: DannyB <DannyB@localhost>,"SVN user DannyB, same repositories and time as his other commits (the GitHub account dannyb is someone else)"
 dante-alvarez,github,danalvrz,8605fed1b8c7,,GitHub profile name: https://github.com/danalvrz
 dante-alvarez,name,Dante Alvarez,a9a5592f9583,,https://2024.ploneconf.org/en/schedule/training/training-customizing-the-volto-light-theme
 darci-hanning,name,Darci Hanning,cec11b5e94ea,,https://web.archive.org/web/20071005004814/http://plone.org/events/conferences/2007-naples/training/training
@@ -234,6 +237,7 @@ domen-kozar,name,Domen Kožar,be49b0c43b58,,https://web.archive.org/web/20101104
 donna-snow,name,Donna Snow,36f39dab758f,,https://web.archive.org/web/20131022215717/http://plone.org/events/sprints/past-sprints/doc-ecommerce
 dorneles-tremea,email,dtremea@localhost,16228912e487,,SVN user dtremea; later commits of Dorneles Tremea are linked to this account; https://plone.org/news-and-events/news/2011/community-mourns-dorneles-tremea
 dorneles-tremea,github,dorneles,99e94d734f88,,https://github.com/dorneles
+dorneles-tremea,svn,dtremea,16228912e487,,SVN user dtremea
 doug-pfeffer,name,Doug Pfeffer,b38a394c8647,,https://2016.ploneconf.org/people/doug-pfeffer.html
 douwe-van-der-meij,name,Douwe van der Meij,cc609f8333e7,,http://web.archive.org/web/20160320083931/http://2012.ploneconf.org/schedule
 dr-alexander-samarin,name,Dr Alexander Samarin,18e4fc5156c2,,http://web.archive.org/web/20051017043652/http://ploneconf2005.bluedynamics.net:80/speakers/dr-alexander-samarin
@@ -382,6 +386,7 @@ jan-mevissen,github,jmevissen,70368ad77c4b,,https://github.com/jmevissen
 jan-murre,email,jjmurre@localhost,c483f0d6bd60,jjmurre@localhost,Review in #69; SVN user is this login; example commit: https://github.com/plone/Products.CMFPlone/commit/a141fca09d03036c0081a5acb1be03c8a7ac69f0
 jan-murre,github,jjmurre,70a477f0b686,,https://github.com/jjmurre
 jan-murre,name,jjmurre,c483f0d6bd60,,Review in #69; SVN user is this login; example commit: https://github.com/plone/Products.CMFPlone/commit/a141fca09d03036c0081a5acb1be03c8a7ac69f0
+jan-murre,svn,jjmurre,c483f0d6bd60,Author: jjmurre <jjmurre@localhost>,SVN user is this login
 jan-ulrich-hasecke,name,Jan Ulrich Hasecke,4aaaacd50561,,https://plone.org/news-and-events/news/2010/this-month-in-plone-may-2010
 jan-ulrich-hasecke-contact,name,Jan Ulrich Hasecke (contact),1088107cc0dd,,https://web.archive.org/web/20131023011334/http://plone.org/events/community/german-plone-translation-sprint
 janina-hard,email,hard@werkbank.de,81c85524c7fc,hard@werkbank.de,"Review in #69; account of Janina Hard, with PRs in the plone organisation; example commit: https://github.com/plone/aurora/commit/3db2fdcd185378768538c8c5a68b0cd77ee9ffc3"
@@ -414,6 +419,7 @@ jim-fulton,github,jimfulton,587ac1c8e31c,,https://github.com/jimfulton
 jim-penny,name,Jim Penny,880bae7089de,,https://web.archive.org/web/20111107013515/http://2011ploneconference.sched.org/attendees/speakers
 jim-roepcke,email,jimroepcke@localhost,0a0deec5874b,jimroepcke@localhost,Review in #69; SVN user jimroepcke; example commit: https://github.com/plone/Products.CMFPlone/commit/bb2a893c423ee8b9efa2961dfb74c2b8e8111d04
 jim-roepcke,github,JimRoepcke,08577ba48f5b,,https://github.com/JimRoepcke
+jim-roepcke,svn,jimroepcke,0a0deec5874b,Author: jimroepcke <jimroepcke@localhost>,SVN user jimroepcke
 jim-roepcke-contact,name,Jim Roepcke (contact),2a3d081c873d,,https://sourceforge.net/p/plone/mailman/message/9558476/
 jnptk,github,jnptk,f8bd7060481d,,https://github.com/jnptk
 joan-antoni-re,github,jotare,30e0a8b42afe,,https://github.com/jotare
@@ -509,6 +515,7 @@ lorenzo-speranzoni,github,inserpio,458ece0a0040,,https://2019.ploneconf.org/peop
 luca-dall-acqua,name,Luca Dall'Acqua,339f1a140081,,https://www.youtube.com/watch?v=zJQ8LvFxY2c
 luca-fabbri,email,keul@db7f04ef-aaf3-0310-a811-c281ed44c4ad,4e73ae384806,keul@db7f04ef-aaf3-0310-a811-c281ed44c4ad,SVN user is this login; his luca@keul.it commits are linked to this account; example commit: https://github.com/plone/Products.TinyMCE/commit/95f72b0809ab997dad88b3cd8c00921f73581b8f
 luca-fabbri,github,keul,5b71fdb5c071,,https://github.com/keul
+luca-fabbri,svn,keul,4e73ae384806,Author: keul <keul@db7f04ef-aaf3-0310-a811-c281ed44c4ad>,SVN user is this login
 luca-pisani,github,ekulos,6f1d45144111,,https://2019.ploneconf.org/people/luca-pisani/
 lucas-aquino,github,luxcas,787b9e64a0fa,,GitHub profile name: https://github.com/luxcas
 lucas-lima,name,Lucas Lima,1ebf5fe2a777,,https://2024.ploneconf.org/en/schedule/speakers/lucas-lima
@@ -531,6 +538,7 @@ maik-derstappen,github,MrTango,683b5946f276,,https://github.com/MrTango
 maik-derstappen,name,Maik Derstappen (contact),4731c2af370c,,https://web.archive.org/web/20130820202122/http://plone.org/events/community/easyshop-sprint-in-essen-germany
 maik-roder,email,roeder@localhost,17ef78ae08be,roeder@localhost,Review in #69; SVN user roeder; example commit: https://github.com/plone/Products.Archetypes/commit/b7deb48b3b5d8a2ed84c1a5190be458a79665315
 maik-roder,github,maikroeder,f85247cd6b5f,,https://github.com/maikroeder
+maik-roder,svn,roeder,17ef78ae08be,Author: roeder <roeder@localhost>,SVN user roeder
 maikroeder-page-editor,name,maikroeder (page editor),25478b37e081,,https://web.archive.org/web/2012/http://www.openplans.org:80/projects/plone-sprint-multilingual/project-home
 maisa-fonseca,email,devgirl@localhost,b501442b94ab,,Nickname devgirl in https://github.com/plone/Products.CMFPlone/blob/2.0/CREDITS.txt; the GitHub account DevGirl has no name
 maisa-fonseca,name,Maisa Fonseca,b501442b94ab,,https://github.com/plone/Products.CMFPlone/blob/2.0/CREDITS.txt
@@ -563,6 +571,7 @@ martijn-pieters,github,mjpieters,0562f07e40f9,,https://github.com/mjpieters
 martin-aspeli,email,optilude@3b4cdb85-528f-c531-b63d-5919d5b1aa08,2ba17bcb2d9a,,Nickname optilude in https://github.com/plone/Products.CMFPlone/blob/3.0/CREDITS.txt
 martin-aspeli,email,optilude@db7f04ef-aaf3-0310-a811-c281ed44c4ad,8e405941ac22,optilude@db7f04ef-aaf3-0310-a811-c281ed44c4ad,Review in #69; SVN user is this login; example commit: https://github.com/plone/Products.TinyMCE/commit/d50963cf20e5ed53c06c049dbfd6fcf71beafe0e
 martin-aspeli,github,optilude,ea39bdaa070d,,https://github.com/optilude
+martin-aspeli,svn,optilude,8e405941ac22,Author: optilude <optilude@db7f04ef-aaf3-0310-a811-c281ed44c4ad>,SVN user is this login
 martin-kaiser-kaplaner,name,Martin Kaiser-Kaplaner,f2160b590627,,https://plone.org/news-and-events/events/plone-conferences/vienna-2005/talks/schedule
 martin-opstad-reistadbakk,github,martior,927e7e994875,,GitHub profile name: https://github.com/martior
 martin-peeters,github,mpeeters,c3220373bba1,,GitHub profile name: https://github.com/mpeeters
@@ -592,6 +601,7 @@ mattia-manzati,github,mattiamanzati,76c28d32dd52,,https://2019.ploneconf.org/peo
 maurits-van-rees,email,maurits@3b4cdb85-528f-c531-b63d-5919d5b1aa08,b279fc649505,maurits@3b4cdb85-528f-c531-b63d-5919d5b1aa08,Review in #69; SVN user maurits; example commit: https://github.com/plone/plonetheme.classic-recreate/commit/3b74c5b5b78aa51b4e92126ab34b79f4f9945526
 maurits-van-rees,email,maurits@db7f04ef-aaf3-0310-a811-c281ed44c4ad,c0c1eb8579f5,maurits@db7f04ef-aaf3-0310-a811-c281ed44c4ad,Review in #69; SVN user maurits; example commit: https://github.com/plone/Products.TinyMCE/commit/4e29c05b522379e411a6b4b97e6b1f2b56975f1e
 maurits-van-rees,github,mauritsvanrees,5729a77627b2,,https://github.com/mauritsvanrees
+maurits-van-rees,svn,maurits,b279fc649505,Author: maurits <maurits@3b4cdb85-528f-c531-b63d-5919d5b1aa08>,SVN user maurits
 maurizio-delmonte,github,miziodel,fdbf9c9cab72,,GitHub profile name: https://github.com/miziodel
 maurizio-delmonte-page,name,Maurizio Delmonte (page),6cffb58a6214,,https://sourceforge.net/p/plone/mailman/message/25413045/
 mauro-amico,email,mauro.amico@unibo.it,6151ed84b8b6,mauro.amico@unibo.it,Review in #69; example commit: https://github.com/plone/plone.formwidget.hcaptcha/commit/b99e0b1540c84b68cc20d7c8c4958c083ad59d5d
@@ -665,6 +675,7 @@ oz-tiram,github,oz123,d6eb24139c8c,,https://github.com/oz123
 p-j-onori,name,P.J. Onori,880bae7089de,,https://web.archive.org/web/20111107013515/http://2011ploneconference.sched.org/attendees/speakers
 pan-junyong,email,panjunyong@localhost,536c56dd7d58,panjunyong@localhost,"SVN user panjunyong; the GitHub account panjunyong is 潘俊勇 (Pan Junyong), easydo.cn; full-name match, not confirmed from memory (#69); example commit: https://github.com/plone/Products.CMFPlone/commit/4602aef2c6f9742509a806876594d70e482a8759"
 pan-junyong,github,panjunyong,e5aa21ff4d60,,https://github.com/panjunyong
+pan-junyong,svn,panjunyong,536c56dd7d58,Author: panjunyong <panjunyong@localhost>,SVN user panjunyong
 paola-bonetti,name,Paola Bonetti,b2c297c71930,,https://www.youtube.com/watch?v=U-FhRkNYu58
 paolo-perrotta,github,nusco,639c51233617,,https://2019.ploneconf.org/people/paolo-perrotta/
 paolo-roganti,name,Paolo Roganti,c96be61c5c69,,https://www.youtube.com/watch?v=_I7exPV9ERM
@@ -679,6 +690,8 @@ paul-bugni,name,Paul Bugni,cb5251e1906a,,http://web.archive.org/web/200809261528
 paul-everitt,email,paul@localhost,022767273b1e,paul@localhost,"SVN user paul: in diazo the same commits exist as zopepaul (Paul Everitt), same time and message; example commit: https://github.com/plone/diazo/commit/dbb675386d2033e5ddfcbfe17ff1116c4bb4cfc2"
 paul-everitt,email,zopepaul@localhost,3d3bf479d1ab,zopepaul@localhost,"Review in #69; SVN user zopepaul, founder of Zope Corporation; example commit: https://github.com/plone/Products.Marshall/commit/bd93c403341221e9fe72cc9ab0ed6775f9fc9c6a"
 paul-everitt,github,pauleveritt,7f26c829ffc9,,https://github.com/pauleveritt
+paul-everitt,svn,paul,022767273b1e,Author: paul <paul@localhost>,"SVN user paul: in diazo the same commits exist as zopepaul (Paul Everitt), same time and message"
+paul-everitt,svn,zopepaul,3d3bf479d1ab,Author: zopepaul <zopepaul@localhost>,"SVN user zopepaul, founder of Zope Corporation"
 paul-grunewald,github,pgrunewald,4896dc97da72,,https://github.com/pgrunewald
 paul-henning-krogh,name,Paul Henning Krogh,849c1dfaf75c,,http://web.archive.org/web/20071013040653/http://plone.org:80/events/conferences/2007-naples/speakers-1/speakers
 paul-roeland,email,paula@polyester.org,1a4b103b2719,paula@polyester.org,Same name in commits linked to this account; example commit: https://github.com/plone/plone.app.collection/commit/7b81c4d2b2ebb8e8acfe165527bd6f16e8925ad2
@@ -704,6 +717,7 @@ philipp-auersperg,email,zworkb@localhost,83d2127063ea,zworkb@localhost,Review in
 philipp-auersperg,github,zworkb,27f63dcd871c,,https://github.com/zworkb
 philipp-auersperg,name,zwork,b4f5a1a5f5f8,,"Changelog entry: https://github.com/plone/Products.Archetypes/blob/7b89dd0e72ff03a8e163393671097b09530a1d00/CHANGES.rst#L476; from the Subversion years, no record by the person himself: confirmed by Jens W. Klein, who worked with him at BlueDynamics then: https://github.com/plone/plone-contributor-statistics/issues/150"
 philipp-auersperg,name,zworkb,83d2127063ea,,Review in #69; SVN user is this login; example commit: https://github.com/plone/Products.CMFPlone/commit/09bdf1e34f4b41741f76081f934ac51520974a58
+philipp-auersperg,svn,zworkb,83d2127063ea,Author: zworkb <zworkb@localhost>,SVN user is this login
 philipp-von-weitershausen,github,philikon,aad825fbbe9b,,https://github.com/philikon
 philippe-gross,github,phgross,1fc9e5312ffc,,https://github.com/phgross
 piero-nicolli,github,pnicolli,9b9ce5b70906,,https://github.com/pnicolli
@@ -717,6 +731,7 @@ rafahela,name,Rafahela Bazzanella,eea83f7545a4,Rafahela,"GitHub profile name ""R
 rafahela,name,Rafahela Garcia Bazzanella,eea83f7545a4,Rafahela,"GitHub profile name ""Rafahela"", company Interlegis/ILB/Senado Federal, as in her 2025 Board, team lead and World Plone Day rows: https://github.com/rafahela"
 ralph-jacobs,email,ralphjacobs@db7f04ef-aaf3-0310-a811-c281ed44c4ad,cc58d527ac6f,ralphjacobs@db7f04ef-aaf3-0310-a811-c281ed44c4ad,SVN user is this login; his ralph@fourdigits.nl commits are linked to this account; example commit: https://github.com/plone/Products.TinyMCE/commit/a2a0c36ab27d5462c6e5d56fee1213b905f12c6e
 ralph-jacobs,github,ralphjacobs,e4254229de2c,,https://github.com/ralphjacobs
+ralph-jacobs,svn,ralphjacobs,cc58d527ac6f,Author: ralphjacobs <ralphjacobs@db7f04ef-aaf3-0310-a811-c281ed44c4ad>,SVN user is this login
 ramiro-luz,github,ramiroluz,00f1814efcdf,,https://www.youtube.com/watch?v=310F1xeKeFQ; GitHub login on the conference speaker page: https://2018.ploneconf.org/people/ramiro-batista-da-luz.html
 ramon-bartl,github,ramonski,e9f1f96e8b05,,https://2017.ploneconf.org/people/ramon-bartl.html
 ramon-navarro,name,Ramon Navarro,9d7ab4132697,,https://community.plone.org/t/plone-mosaic-open-space/320
@@ -749,6 +764,7 @@ rob-knapp,name,Rob Knapp,c7fe9ef60a22,,http://web.archive.org/web/20061208043057
 rob-miller,email,ra@burningman.com,fa3611ba52f5,ra@burningman.com,Commits signed Rob Miller; account of Rob Miller; example commit: https://github.com/plone/Products.Archetypes/commit/946a6411c122ae18085929be2214ba87cc9196ed
 rob-miller,email,rob@localhost,90d430cd3906,rob@localhost,"Review in #69; SVN user rob, worked on wicked with Whit Morriss; his ra@burningman.com commits are also in wicked (the GitHub account rob is someone else); example commit: https://github.com/plone/txtfilter/commit/1bb78302d6351fa14904da9d3ca53c25815bc9a2"
 rob-miller,github,rafrombrc,0a3ab32ad55a,,https://github.com/rafrombrc
+rob-miller,svn,rob,90d430cd3906,Author: rob <rob@localhost>,"SVN user rob, worked on wicked with Whit Morriss"
 rob-porter,github,RobZoneNet,159042e32354,,GitHub profile name: https://github.com/RobZoneNet
 robert-boulanger,name,Robert Boulanger,39a63fcd2235,,https://sourceforge.net/p/plone/mailman/message/9560465/
 robert-burgoyne,name,Robert Burgoyne,d26ecb6bf31d,,http://web.archive.org/web/20060930034750/http://plone.org/events/conferences/seattle-2006/agenda
@@ -786,6 +802,7 @@ ruda-porto-filgueiras,github,rudaporto,8ee63f53869e,,https://2017.ploneconf.org/
 rui,name,Rui,3e6fd0841227,,https://web.archive.org/web/20101104094414/http://www.ploneconf2010.org/the-event/talks/fine-tuning-plone-for-cultural-organizations
 russ-ferriday,email,russf@localhost,6a7ef608f757,russf@localhost,"Review in #69; SVN user russf; account of Russ Ferriday, Topia Systems (the GitHub account russf has no name); example commit: https://github.com/plone/Products.ATContentTypes/commit/b5807311e8ae789fdb5e6ffe133a9d7e854a0204"
 russ-ferriday,github,topiaruss,9b7a12efc4ba,,https://github.com/topiaruss
+russ-ferriday,svn,russf,6a7ef608f757,Author: russf <russf@localhost>,SVN user russf
 ryan-foster,github,dextermilo,e5664ebfa13b,,https://github.com/dextermilo
 sally-kleinfeldt,github,skleinfeldt,e5b94a0f6fb2,,GitHub profile name: https://github.com/skleinfeldt
 sam-greenblatt,name,Sam Greenblatt,8a9894c5e663,,https://plone.org/foundation/board/list_board_0
@@ -813,6 +830,7 @@ silvio-tomatis,github,silviot,dffb56bebe8c,,GitHub profile name: https://github.
 silviu-bogan,github,silviubogan,86fb246e1beb,,https://github.com/silviubogan
 simon-eisenmann,email,longsleep@localhost,319ecca311d0,longsleep@localhost,Review in #69; SVN user longsleep; example commit: https://github.com/plone/Products.Archetypes/commit/f807bf9d44cd95bb34100883baead0aa98931500
 simon-eisenmann,github,longsleep,c469058b92f7,,https://github.com/longsleep
+simon-eisenmann,svn,longsleep,319ecca311d0,Author: longsleep <longsleep@localhost>,SVN user longsleep
 simona-cotin,github,simonaco,aeb64ec96766,,https://2017.ploneconf.org/talks/keynotes/simona-cotin.html
 simone-carletti,name,Simone Carletti,c96be61c5c69,,https://www.youtube.com/watch?v=_I7exPV9ERM
 simone-deponti,email,shywolf9982@gmail.com,88cd3206441d,shywolf9982@gmail.com,Same name in commits linked to this account; example commit: https://github.com/plone/archetypes.kss/commit/21e7d50f4413d9414dcc75c691dc4a0537be3699
@@ -849,6 +867,7 @@ sven-strack,github,svx,445f6b6c9ab4,,GitHub profile name: https://github.com/svx
 sven-strack,name,sven,3750827aeb71,,Same name in commits linked to this account; example commit: https://github.com/plone/Installers-UnifiedInstaller/commit/20599bc6eb16414b268ce1101c8d507319880221
 sylvain-thenault,email,syt@localhost,5a4154fcaa38,syt@localhost,"Review in #69; SVN user syt, Logilab; his commits are mostly the Debian packaging of Archetypes; example commit: https://github.com/plone/Products.Archetypes/commit/39f340c06e0bcb72163c3f83ef4e614df4075fe2"
 sylvain-thenault,github,sthenault,4b6c84cd8397,,https://github.com/sthenault
+sylvain-thenault,svn,syt,5a4154fcaa38,Author: syt <syt@localhost>,"SVN user syt, Logilab"
 taito-horiuchi,email,taito.horiuchi@hexagonit.fi,67eba452350a,taito.horiuchi@hexagonit.fi,Same name in commits linked to this account; example commit: https://github.com/plone/plone.event/commit/0e6a1a6cebd6a85fe2d3d49b5b24ef6573b17f3a
 taito-horiuchi,github,taito,098cd507e094,,https://github.com/taito
 takanori-suzuki,github,takanory,343eeb39a91f,,GitHub profile name: https://github.com/takanory
@@ -909,6 +928,7 @@ tom-spanky-kapanka,email,spankyfrombrc@localhost,d56ff160aee8,spankyfrombrc@loca
 tom-spanky-kapanka,github,spanktar,3d1675666a4b,Tom Kapanka,"GitHub profile name ""Tom Kapanka"", login spanktar: https://github.com/spanktar"
 tom-spanky-kapanka,name,Tom 'Spanky' Kapanka,3d1675666a4b,Tom Kapanka,"GitHub profile name ""Tom Kapanka"", login spanktar: https://github.com/spanktar"
 tom-spanky-kapanka,name,Tom Kapanka,d56ff160aee8,,Review in #69; SVN user spankyfrombrc; his spanky@kapanka.com commits are linked to this account; example commit: https://github.com/plone/Products.Archetypes/commit/9966db11b0c1f4e5841bda32cb8048ae612d4e8b
+tom-spanky-kapanka,svn,spankyfrombrc,d56ff160aee8,Author: spankyfrombrc <spankyfrombrc@localhost>,SVN user spankyfrombrc
 tomislav-juric,name,Tomislav Juric,1c8bd128cfc9,,https://www.youtube.com/watch?v=NTNL01_ZuI0
 torajiro-aida,name,Torajiro Aida,7e5ebee84912,,https://2018.ploneconf.org/talks/keynotes/torajiro-aida.html
 torben-baumgartner,github,toalba,245dad67a601,,https://github.com/toalba

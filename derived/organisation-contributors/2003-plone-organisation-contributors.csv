@@ -1,15 +1,16 @@
 organisation,total_commits,total_pull_requests,changelog_entries,contributors_count,contributors,repositories_count,repositories,first_contribution,last_contribution
 Unmapped,889,0,4,23,"bbuehlmann, bitranch, dannybloe, dnouri, geoff-davis, joelburton, lalomartins, magnusheino, maikroeder, mcdonc, mrtopf, openprojects, panjunyong, person:maisa-fonseca, person:michael-zeltner, phabegger, philikon, stefanholek, sthenault, tiran, ulricheck, vinsci, xiru",7,"Products.Archetypes, Products.CMFFormController, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.CMFTestCase, Products.PlacelessTranslationService, Products.PloneLanguageTool",2003-01-02,2003-12-30
-AGM Web consulting,536,0,0,2,"andymckay, sidnei",5,"Products.Archetypes, Products.CMFFormController, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.PlacelessTranslationService",2003-01-03,2003-12-30
 Jarn,435,0,4,3,"baekholt, limi, tesdal",6,"Products.Archetypes, Products.CMFFormController, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.PlacelessTranslationService, Products.PloneLanguageTool",2003-02-12,2003-12-29
-Clear Noodle,319,0,1,1,runyaga,4,"Products.Archetypes, Products.CMFFormController, Products.CMFPlone, Products.CMFQuickInstallerTool",2003-01-13,2003-12-21
+AGM Web consulting,384,0,0,1,sidnei,5,"Products.Archetypes, Products.CMFFormController, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.PlacelessTranslationService",2003-01-03,2003-12-30
+"Runyaga, LLC",319,0,1,1,runyaga,4,"Products.Archetypes, Products.CMFFormController, Products.CMFPlone, Products.CMFQuickInstallerTool",2003-01-13,2003-12-21
+Clearwind Consulting,152,0,0,1,andymckay,2,"Products.CMFPlone, Products.CMFQuickInstallerTool",2003-03-02,2003-12-23
 BlueDynamics KG,135,0,0,1,zworkb,4,"Products.Archetypes, Products.CMFPlone, Products.CMFQuickInstallerTool, Products.PloneLanguageTool",2003-02-16,2003-12-21
 Abstract Edge,118,0,0,1,bcsaller,2,"Products.Archetypes, Products.CMFPlone",2003-03-06,2003-12-15
 struktur AG,103,0,0,1,longsleep,4,"Products.Archetypes, Products.CMFPlone, Products.PlacelessTranslationService, Products.PloneLanguageTool",2003-05-20,2003-12-31
 redCOR,40,0,0,1,robertrottermann,1,Products.CMFPlone,2003-09-14,2003-12-21
 jens quadrat GbR,23,0,0,1,jensens,2,"Products.Archetypes, Products.CMFPlone",2003-09-14,2003-12-19
 Zopyx,22,0,0,1,zopyx,2,"Products.Archetypes, Products.CMFPlone",2003-11-27,2003-12-23
-J Cameron Cooper (independent),20,0,0,1,jcameroncooper,2,"Products.CMFPlone, Products.PasswordResetTool",2003-06-26,2003-10-08
+Rice University,20,0,0,1,jcameroncooper,2,"Products.CMFPlone, Products.PasswordResetTool",2003-06-26,2003-10-08
 BubbleNet,15,0,0,1,gotcha,2,"Products.Archetypes, Products.CMFPlone",2003-03-19,2003-12-22
 Trust Commerce,11,0,0,1,kapilt,2,"Products.CMFPlone, Products.CMFQuickInstallerTool",2003-01-03,2003-10-27
 Tyrell,5,0,0,1,JimRoepcke,1,Products.CMFPlone,2003-08-22,2003-11-14

@@ -43,7 +43,7 @@ A row never loses a source: new evidence is a new citation, and an old one stays
 An affiliation is a reading of its sources, and its status says what kind of reading it is:
 
 - `stated`: the sources say that the person belonged to the organisation in those years.
-- `assumed`: the row extends a range beyond its records, such as today's organisation for the years before the first record. It counts only in years that no stated row covers, unless a decision chooses it, and its notes say what it rests on. When the registers were introduced, today's organisation was kept for every year of a person's activity; those rows are assumed until a record dates them.
+- `assumed`: the row extends a range beyond its records, such as today's organisation for the years before the first record. It counts only in years that no stated row covers and no bridge fills, unless a decision chooses it in a year that the rules leave open, and its notes say what it rests on. When the registers were introduced, today's organisation was kept for every year of a person's activity; those rows are assumed until a record dates them.
 - `denied`: the person did not belong to the organisation in those years. A denied row removes its organisation from its years, whatever other rows say, and its notes give the reason. A reviewer writes it when a proposal turns out wrong, citing where it was decided, so that the tools don't propose those years again.
 - `proposed`: a tool or a contributor read the sources this way, and nobody has reviewed it yet. A proposed row never counts. A reviewer turns it into a stated or an assumed row, or into a denied one.
 
@@ -64,7 +64,7 @@ The records that do not decide the year stay cited, so that nobody has to resear
 
 Two records of the same organisation also cover the years between them, when no record names another organisation in between: a person named on a company's team page in two years was not elsewhere in the years between, however many they are.
 This is a convention: the statistics are built by year, and a year has one organisation per person.
-It is applied when the rows are written, not computed: a row that bridges two records covers the years between them and cites both.
+It is computed, by rule 5 below, and needs no row of its own: a stated row of another organisation or a denied row of the same one in between breaks the bridge, while an assumed row or a note doesn't.
 A period that begins and ends within one year doesn't appear at all.
 
 A biography that names an employer for a conference year is an affiliation row for that year, with the biography as its record.
@@ -77,26 +77,25 @@ For the early years especially, many affiliations are unknown, and {doc}`history
 ## How the year is decided
 
 For each person and year, the rules below are applied in this order, and the first one that leaves a single organisation decides.
+Recorded facts and the rules come first: proposals are ignored and denials remove their organisation, then the rules decide where they can, and a decision settles only what they leave open.
 The statistics, the community page and `python -m scripts.tools.affiliation` all compute the organisation this way, see {ref}`how-to-add-an-affiliation-check`.
 
 1.  **Proposals and denials.**
     Proposed rows are ignored.
     A denied row removes its organisation from its years.
     A denied row without an organisation, which would record a reviewed "stays Unmapped", is not used here.
-2.  **Decision.**
-    When the records of a year disagree, a reviewer can decide in public, in a comment on an issue or pull request of this repository.
-    The comment is captured as a source of the kind `decision`, and the row it chooses cites it.
-    The latest decision for a person and year counts, by the date of its source, and it overrides every rule below.
-    A decision that overrules an earlier one for the same person and year names it in the `supersedes` column of its citation; `make check` fails when it doesn't, so that no decision is overruled by accident.
-    A decision that a denied row cites takes no part in this rule, because the denial already removes its organisation.
+2.  **Stated over assumed.**
+    Where stated rows cover the year, or a bridge fills it (rule 5), the assumed rows drop out of the rules below.
 3.  **One organisation.**
     If one organisation is left, it counts.
-    Stated rows win over assumed ones: where stated rows cover the year, the assumed rows drop out of the rules below.
 4.  **Change year.**
     When a person changes organisation during a year, the whole year counts for the organisation the person leaves, and the new affiliation starts with the following year.
     Of two organisations, the one that also covers the year before and not the year after counts, when the other covers the year after and not the year before.
     A record dated in the year of the change may therefore name the new organisation without changing how the year is counted.
-5.  **Bridging** is part of the rows, as described above, and is not computed.
+5.  **Bridging.**
+    Two years covered by stated rows of an organisation cover the years between them for it, when no stated row of another organisation covers any of them and no denied row of the organisation does, however many years they are.
+    The bridged years count as stated years of the organisation, for rules 2 to 4 and 6 as well.
+    Assumed rows neither start, end nor break a bridge, and notes never stop one.
 6.  **Tie-breaks**, among the organisations that are left, in this order:
 
     6a. Named first
@@ -110,15 +109,29 @@ The statistics, the community page and `python -m scripts.tools.affiliation` all
       A domain of the person's own, such as one with their name, is personal, unless an organisation of the register claims it.
 
     6c. Own statement
-    : When most of those commits carry a personal address, the year follows the person's own public statement of that year, a speaker page or profile dated in the year, if the statements name exactly one of the organisations.
+    : When the commits of the organisations in question do not outnumber the personal ones, the year follows the person's own public statement of that year, a speaker page or profile dated in the year, if the statements name exactly one of the organisations.
+      This holds also when there are no commits of the person to weigh.
+      A speaker listing says whom the person worked on Plone for, more than a mail signature or an old address does.
 
     6d. Records
     : Otherwise the organisation that more distinct sources dated in the year name counts.
 
     Rules 6b and 6c read the commits that the collected files count under the person's username: the `github` login, or `person:<id>` for a person without one, whose commits the collected files count by the commit addresses.
     A source that could not be captured has no passage, and only the day of the attempt as its date, so rules 6c and 6d leave it out.
-7.  **Conflict.**
-    Otherwise the year is a conflict: it is Unmapped, and `make check` fails and names the person, the year and the organisations until a decision settles it.
+    A source is dated as {doc}`/how-to/capture-a-source` says: a placeholder date on a page doesn't count, and a conference page is dated by the conference.
+7.  **Decision.**
+    When the rules leave the year open, a reviewer can decide in public: the decision is a public comment, by a maintainer, by someone else, or by the person or the organisation in question.
+    Older decisions sit in comments on pull requests and issues of this repository.
+    The comment is captured as a source of the kind `decision`, and the row it chooses cites it.
+    The latest decision for a person and year counts, by the date of its source.
+    A decision settles only what the rules leave open: for a year that the rules decide, it is not applied, it is outdated, because facts recorded since then decide the year.
+    `python -m scripts.tools.decisions_review` lists the decisions with this status and the sources dated after each of them.
+    A decision that overrules an earlier one for the same person and year names it in the `supersedes` column of its citation; `make check` fails when it doesn't, so that no decision is overruled by accident.
+    A decision that a denied row cites takes no part in this rule, because the denial already removes its organisation.
+8.  **Conflict.**
+    Otherwise the year is an open case: it counts as Unmapped until a decision settles it.
+    `make check` prints a warning that names the person, the year and the organisations, and `python -m scripts.tools.decisions_review` lists the open cases next to the decisions.
+    An open case is a warning, not an error, because the year is known to be undecided.
 
 ## Unmapped is not an organisation
 
@@ -160,7 +173,7 @@ A register is easy to get wrong.
 A single typo in a login used to send a contributor's whole activity to Unmapped, and with it part of an organisation's numbers ([#38](https://github.com/plone/plone-contributor-statistics/issues/38)).
 Now every file has a schema, and `make check` validates it.
 The checks say the file, the row and the column of an error: an id that no register has, a name that differs from another only in case or accents, an affiliation without a citation, or a snippet that the excerpt of its source doesn't hold.
-They also compute the organisation of every person and year, and name each year that no rule decides and each decision that overrules an earlier one without naming it.
+They also compute the organisation of every person and year, and warn about each year that no rule decides, and name each decision that overrules an earlier one without naming it.
 Every change still goes through review.
 
 ```{seealso}
