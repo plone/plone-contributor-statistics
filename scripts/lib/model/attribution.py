@@ -24,9 +24,11 @@ organisation; 2 the rules — one organisation left (stated over assumed), chang
       under personal domains, the candidate with the most commits counts. Commits under other organisations and
       under company domains that no organisation claims are left out; a domain that no organisation claims but
       that is the person's own (`is_own_domain_for`, vanrees.org) is personal;
-   c. own statement: when the personal commits outnumber the candidates' commits, the candidate that the
-      person's own statements of the year name counts (citations of sources of kind `speaker-page` or
-      `profile` dated in the year), if they name exactly one;
+   c. own statement: when the candidates' commits do not outnumber the personal ones (also when there are
+      none of either, or no commit data at all), the candidate that the person's own statements of the year
+      name counts (citations of sources of kind `speaker-page` or `profile` dated in the year), if they name
+      exactly one: a conference speaker listing says whom the person worked on Plone for, more than a mail
+      signature or an old address;
    d. records: the candidate that more distinct cited sources dated in the year name counts.
    Sources that were never captured (notes `not captured on …` or `could not be fetched on …`, `is_uncaptured`)
    carry no text and only the capture day as their date: rules c and d leave them out.
@@ -428,14 +430,13 @@ class Attribution:
         return _unique_best(candidates) if sum(candidates.values()) > personal else None
 
     def _own_statement(self, person_id, year, rows, organisations):
-        """Rule 6c: when the personal commits of the year outnumber the candidates', the candidate that the
-        person's own statements of the year name."""
+        """Rule 6c: when the candidates' commits of the year do not outnumber the personal ones (no commits at
+        all count as none of either), the candidate that the person's own statements of the year name."""
         commits = self._commits_of(person_id, year)
-        if commits is None:
-            return None
-        per_organisation, personal = commits
-        if personal <= sum(per_organisation[org] for org in organisations):
-            return None
+        if commits is not None:
+            per_organisation, personal = commits
+            if sum(per_organisation[org] for org in organisations) > personal:
+                return None
         named = {row.organisation for row in rows for citation in self._citations[row.id]
                  if self._kind(citation.source) in OWN_STATEMENT_KINDS and self._captured_in(citation.source, year)}
         return named.pop() if len(named) == 1 else None

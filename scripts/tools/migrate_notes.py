@@ -544,9 +544,12 @@ def _rule_facts(registry, attribution, person, year):
               if c.snippet} for org in organisations]
     common = set.intersection(*cited)
     commits = attribution._commits_of(person, year)
+    own = {row.organisation for row in candidates for c in attribution._citations[row.id]
+           if attribution._kind(c.source) in OWN_STATEMENT_KINDS and attribution._captured_in(c.source, year)}
+    statements = f'the person\'s speaker pages and profiles dated {year} name {_names(registry, own)}'
     if commits is None:
         commit_text = 'no commits of the year under a known domain; it does not apply'
-        own_text = 'it applies only when the personal commits are the most; there are none'
+        own_text = f'no commits outnumber the personal ones (there are none); {statements}'
     else:
         per_organisation, personal = commits
         theirs = sum(per_organisation[org] for org in organisations)
@@ -554,13 +557,8 @@ def _rule_facts(registry, attribution, person, year):
             f'{per_organisation[org]} under {_name(registry, org)}' for org in organisations)
         commit_text += ('; the candidates\' commits are the most' if theirs > personal else
                         '; the candidates\' commits are not the most, it does not apply')
-        if personal > theirs:
-            own = {row.organisation for row in candidates for c in attribution._citations[row.id]
-                   if attribution._kind(c.source) in OWN_STATEMENT_KINDS and attribution._captured_in(c.source, year)}
-            own_text = f'the personal commits are the most; the person\'s speaker pages and profiles dated {year} ' \
-                       f'name {_names(registry, own)}'
-        else:
-            own_text = 'it applies only when the personal commits are the most; they are not'
+        own_text = (f'the candidates\' commits do not outnumber the personal ones; {statements}' if theirs <= personal
+                    else 'it applies only when the candidates\' commits do not outnumber the personal ones; they do')
     records = {org: len({c.source for row in candidates if row.organisation == org
                          for c in attribution._citations[row.id] if attribution._captured_in(c.source, year)})
                for org in organisations}

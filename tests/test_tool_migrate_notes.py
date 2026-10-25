@@ -385,14 +385,14 @@ def test_the_dry_run_lists_before_and_after_and_drafts_the_changes():
 
 
 def test_the_dry_run_marks_a_conflict():
-    talk, team = source(LIVE, '2019-10-21'), source('https://acme.example.org/team', '2019-05-01', kind='page')
+    talk, team = source(LIVE, '2019-10-21'), source('https://acme.example.org/talk', '2019-05-01')
     affiliations = [row('a01', 2019, 2019, f'Kept, not deciding: "CTO at Zeta Labs", Plone Conference 2019 '
                                            f'speaker page: {LIVE}')]
     registry = world(affiliations, [cite('a01', team.id)], sources=[talk, team],
                      excerpts={talk.id: 'CTO at Zeta Labs\n', team.id: 'Jane Doe\n'})
     plan = migrate_notes.plan_conflicts(registry)
     (result,) = [r for r in migrate_notes.dry_run(registry, plan, credited={}, until=2019) if r.year == 2019]
-    # one record of the year each, no commits: no rule decides
+    # one own statement of the year each, no commits: no rule decides
     assert (result.before, result.after, result.rule, result.conflict) == ('acme', None, 'conflict',
                                                                            ('acme', 'zeta'))
     assert result.changed

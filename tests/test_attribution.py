@@ -194,6 +194,44 @@ def test_own_statement_decides_when_most_commits_are_personal():
     assert attribution.organisation(PERSON, 2019) == 'beta'
 
 
+def test_own_statement_decides_when_no_commits_decide():
+    # A conference speaker listing says whom the person worked on Plone for: it outweighs a mail signature
+    acme, beta = aff('acme', 2003, 2003), aff('beta', 2003, 2003)
+    citations = [cite(acme, 'signature'), cite(beta, 'talk')]
+    sources = [src('signature', 'page', '2003-02-28'), src('talk', 'speaker-page', '2003-10-13')]
+    # No commit data at all: as no commits under known domains, 0 and 0
+    assert engine([acme, beta], citations, sources).explain(PERSON, 2003) == ('beta', 'own statement')
+    # Commits of the year, none of them under a candidate's domain or a personal one: 0 and 0
+    commits = {2003: Counter({'nobody.test': 7})}
+    assert engine([acme, beta], citations, sources, domains=commits).explain(PERSON, 2003) == (
+        'beta', 'own statement')
+    # As many commits under the candidates as personal ones: they don't outnumber them
+    commits = {2003: Counter({'acme.test': 2, 'gmail.com': 2})}
+    attribution = engine([acme, beta], citations, sources, domains=commits, organisations={'acme.test': 'acme'})
+    assert attribution.explain(PERSON, 2003) == ('beta', 'own statement')
+
+
+def test_own_statements_that_name_two_candidates_decide_nothing():
+    # P.J. Onori 2011: the talk page names one company, the speakers list another
+    acme, beta = aff('acme', 2011, 2011), aff('beta', 2011, 2011)
+    citations = [cite(acme, 'talk'), cite(beta, 'speakers')]
+    sources = [src('talk', 'speaker-page', '2011-11-04'), src('speakers', 'speaker-page', '2011-11-07')]
+    attribution = engine([acme, beta], citations, sources)
+    assert attribution.organisation(PERSON, 2011) is None
+    assert attribution.conflict(PERSON, 2011) == ['acme', 'beta']
+
+
+def test_own_statement_does_not_apply_when_the_candidates_commits_are_the_most():
+    acme, beta = aff('acme', 2020, 2020), aff('beta', 2020, 2020)
+    citations = [cite(beta, 'talk')]
+    sources = [src('talk', 'speaker-page', '2020-10-01')]
+    # acme and beta tie on commits (rule 6b decides nothing), and together they outnumber the personal ones
+    commits = {2020: Counter({'acme.test': 3, 'beta.test': 3, 'gmail.com': 1})}
+    attribution = engine([acme, beta], citations, sources, domains=commits,
+                         organisations={'acme.test': 'acme', 'beta.test': 'beta'})
+    assert attribution.explain(PERSON, 2020) == ('beta', 'records')  # not by own statement
+
+
 def test_own_domain_counts_as_personal():
     acme, beta = aff('acme', 2020, 2020), aff('beta', 2020, 2020)
     citations = [cite(beta, 'profile')]
