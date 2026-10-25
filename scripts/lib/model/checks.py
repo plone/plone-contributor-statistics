@@ -415,7 +415,7 @@ class UnresolvedConflict(Check):
 
     That the registers cannot be read is an error."""
 
-    type = 'unresolved-conflict'
+    type = 'open-case'
     Errors = [ConflictCheckSkippedError, OpenCaseWarning]
 
     attribution: object

@@ -65,6 +65,7 @@ You need a GitHub account, and a public record for the affiliation: a link, or a
     A year that no row covers is Unmapped, and `Unmapped` is never written.
     If the person moved, give the earlier organisation its own row.
     Do not write a row for the years between two records of the same organisation: they are bridged by the rules, as long as no record of another organisation lies between them.
+    A note never stops a bridge, whatever it says, such as "Unmapped" or "not at X". To record that the person was not at X in the years between, write a `denied` row of X for them, with its public record in the citation.
     Rows of one person may overlap, when records name two organisations for the same year; the rules in {ref}`explanation-attribution-rules` decide which one counts.
     A finding that no record supports some years, with what was checked, goes into the `notes` of the neighbouring row, so that a later reviewer knows what was looked at.
     A row never loses a source: new evidence is a new citation, and a year changes its organisation only for stronger evidence, see {doc}`/explanation/attribution`.

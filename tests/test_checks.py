@@ -259,7 +259,7 @@ def test_overlapping_affiliations_are_fine_when_a_rule_decides(tmp_package):
                                                    organisations=BETA))) == []
 
 
-def test_an_unresolved_conflict_is_an_open_case_and_a_warning(tmp_package, capsys):
+def test_a_person_year_no_rule_decides_is_an_open_case_and_a_warning(tmp_package, capsys):
     # 2012-2013: two stated records, no change year, no record of the year, no commits
     root = tmp_package(affiliations(('acme', 2010, 2014), ('beta', 2012, 2013), organisations=BETA))
     warnings = []
