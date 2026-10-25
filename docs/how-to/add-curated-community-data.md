@@ -39,7 +39,8 @@ In a set column, such as the speakers of a talk or the trainers of a training, s
 Do not write the organisation of a person in the row: the statistics take it from `curated/mappings/affiliations.csv`.
 If the source names it and no affiliation row exists for the year, add one, see {doc}`add-an-affiliation`.
 
-Add a new row after the rows of its year, a talk, a training or an organiser after the rows of the events of its year, and don't reorder the rows of a year: the order decides which sprint and which talks count, see {doc}`/explanation/curated-community-data`.
+Add a new row after the last row of its year: an event or a role after the rows with the same `year`, a talk, a training or an organiser after the rows that point to events of the same year.
+Don't reorder the rows of a year: the order decides which sprint and which talks count, see {doc}`/explanation/curated-community-data`.
 
 ## Add an event
 
@@ -67,6 +68,7 @@ Two sprints of a year can't have the same name.
 
 Add a row to `curated/community/talks.csv` with the `event` it was given at, its `type`, `title` and `speakers`, and the `video` where a recording exists.
 A talk of the Plone Conference or a symposium has the `type` `Keynote`, `Talk` or `Panel`.
+A World Plone Day video has one of the World Plone Day types, such as `Talk`, `Teaser` or `Recap`, see {ref}`reference-curated-files`.
 A World Plone Day video points to the event of its place, or to `wpd-<year>-online` when it was given online, and gives the place in `location`.
 A talk that the source attributes to a team instead of people has the team in `organisations`.
 
@@ -75,6 +77,8 @@ The id is `t` and eight hex digits of the SHA-1 of the event, the title and the 
 ```shell
 python -c "import hashlib; print('t' + hashlib.sha1('plone-conference-2026|My talk|Talk'.encode()).hexdigest()[:8])"
 ```
+
+If the id is taken, by a talk with the same event, title and type, add `-2`, `-3`.
 
 ## Add a training
 
@@ -112,7 +116,7 @@ The roles have one row per person and year:
     ```
 
     The checks name the file, the row and the column of every error, and suggest the nearest ids for one that does not exist.
-    They find an event, a person, an organisation or a source that does not exist, an organiser row with both or neither of person and organisation, a talk or a training at an event of the wrong kind, and an id that is taken.
+    They find an event, a person, an organisation or a source that does not exist, an organiser row with both or neither of person and organisation, a talk or a training at an event of the wrong kind, a talk whose `type` doesn't fit the kind of its event, a `cited_as` without a web address, an id that is taken, and a CSV file that has no schema, which nothing reads.
 
 2.  Open a pull request and name the source in its description.
 
