@@ -26,6 +26,8 @@ ALLOWED = {
     # Migration code of plan 3b, archived after its one use: reads the old yearly community files with plain csv,
     # since their schemas go away with the switch, and writes the new folder next to them
     'scripts/tools/migrate_community.py': {'paths.COMMUNITY'},
+    # Migration code of plan 3b too: reads the old files from git and the written new folder with plain csv
+    'scripts/tools/audit_community.py': {"'curated/"},
     # Names the two files that the model's loaders read, so that the tests can write them
     'scripts/collect/plone_contributors.py': {'paths.BOT_ACCOUNTS', 'paths.EXCLUDED_REPOSITORIES'},
 }
