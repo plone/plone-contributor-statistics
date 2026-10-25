@@ -2,6 +2,7 @@ import datetime
 import json
 import os
 import pathlib
+import subprocess
 
 import pytest
 
@@ -356,9 +357,11 @@ def test_capture_commit_fails_for_an_unreachable_commit(web):
         capture_commit(url, 'jane@acme.test', fetcher=fetcher, session=session, run=no_run)
 
 
-def test_video_uses_one_workdir_per_source(web):
+def test_video_tracks_are_kept_per_video(web, monkeypatch):
+    """The tracks are kept in one folder per video, by its YouTube id; another address of the video reads them
+    without asking YouTube, and --refresh asks again."""
     fetcher, _ = web(session=NoNetwork())
-    url = 'https://www.youtube.com/watch?v=abc'
+    url = 'https://www.youtube.com/watch?v=abcdefghijk'
     sid = source_id(url)
     workdirs = []
 
@@ -369,17 +372,31 @@ def test_video_uses_one_workdir_per_source(web):
     def run(cmd, **kwargs):
         if '--print' in cmd:
             return Done(b'A talk\n')
-        workdir = os.path.dirname(cmd[cmd.index('-o') + 1])
-        workdirs.append(workdir)
-        with open(os.path.join(workdir, 'abc.en.vtt'), 'w', encoding='utf-8') as handle:
-            handle.write('WEBVTT\n\n00:01:02.000 --> 00:01:04.000\nI work for Zest Software\n')
+        download = os.path.dirname(cmd[cmd.index('-o') + 1])
+        workdirs.append(os.path.dirname(download))
+        with open(os.path.join(download, 'abc.en-orig.vtt'), 'w', encoding='utf-8') as handle:
+            handle.write('WEBVTT\n\n00:01:02.000 --> 00:01:04.000\nI work for Zest Software\n'
+                         '\n00:01:04.000 --> 00:01:06.000\nand Plone\n')
         return Done()
 
+    def no_run(cmd, **kwargs):
+        raise AssertionError(f'yt-dlp was called: {cmd}')
+
     result = capture(url, ['work for Zest'], fetcher=fetcher, run=run)
-    assert workdirs == [os.path.join(os.environ['PLONE_STATS_CACHE'], 'sources', 'video', sid)]
+    assert workdirs == [os.path.join(os.environ['PLONE_STATS_CACHE'], 'sources', 'video', 'abcdefghijk')]
     row = load_sources()[sid]
     assert (row.kind, row.title, row.date) == ('video', 'A talk', NOW.date())
-    assert result.added == ('[01:02] I work for Zest Software',)
+    assert result.added == ('[01:02] I work for Zest Software\n[01:04] and Plone',)
+
+    # a read from the kept tracks is as old as their download, as a page read from the cache
+    monkeypatch.setattr(fetch_module, 'now', lambda: NOW + datetime.timedelta(days=3))
+    other = capture('https://youtu.be/abcdefghijk', ['and Plone'], fetcher=fetcher, run=no_run)
+    assert other.source_id != sid and other.added == ('[01:02] I work for Zest Software\n[01:04] and Plone',)
+    row = load_sources()[other.source_id]
+    assert (row.title, row.fetched, row.date) == ('A talk', NOW, NOW.date())
+
+    capture(url, ['work for Zest'], refresh=True, fetcher=fetcher, run=run)
+    assert len(workdirs) == 2
 
 
 def test_refresh_keeps_the_row_but_its_fetch_time(web, monkeypatch):
@@ -444,7 +461,7 @@ def test_new_source_without_quotes_is_refused(web):
 
 def test_video_quote_in_another_track_is_cut_from_that_track(web):
     fetcher, _ = web(session=NoNetwork())
-    url = 'https://www.youtube.com/watch?v=abc'
+    url = 'https://www.youtube.com/watch?v=abcdefghijk'
     tracks = {'abc.en-orig.vtt': 'WEBVTT\n\n00:00:01.000 --> 00:00:02.000\nI work for Zest Software\n',
               'abc.de.vtt': 'WEBVTT\n\n00:00:01.000 --> 00:00:02.000\nIch arbeite bei Zest Software\n'}
 
@@ -716,7 +733,7 @@ def test_renewing_takes_a_given_kind(web):
 
 
 def test_renewing_takes_a_specific_kind_of_the_read(web):
-    url = 'https://www.youtube.com/watch?v=abc'
+    url = 'https://www.youtube.com/watch?v=abcdefghijk'
     sid = uncaptured_source(url, 'not captured on 2026-10-22: rate limited (HTTP 429)', kind='speaker-page')
     fetcher, _ = web(session=NoNetwork())
 
@@ -764,3 +781,19 @@ def test_an_uncaptured_source_without_a_found_quote_stays_uncaptured(web):
     assert result == CaptureResult(sid, False, (), ('not on the page',), False)
     assert load_sources()[sid] == before
     assert read_excerpt(sid) == 'not captured on 2026-10-22: nothing found\n'
+
+
+def test_a_video_is_dated_by_its_upload_date(web):
+    fetcher, _ = web(session=NoNetwork())
+    url = 'https://www.youtube.com/watch?v=abcdefghijk'
+
+    def run(cmd, **kwargs):
+        if '--print' in cmd:
+            return subprocess.CompletedProcess(cmd, 0, stdout=b'A talk\nen\n20191023\n', stderr=b'')
+        with open(os.path.join(os.path.dirname(cmd[cmd.index('-o') + 1]), 'abc.en-orig.vtt'), 'w',
+                  encoding='utf-8') as handle:
+            handle.write('WEBVTT\n\n00:01:02.000 --> 00:01:04.000\nI work for Zest Software\n')
+        return subprocess.CompletedProcess(cmd, 0, stdout=b'', stderr=b'')
+    capture(url, ['work for Zest'], fetcher=fetcher, run=run)
+    row = load_sources()[source_id(url)]
+    assert (row.date, row.fetched) == (datetime.date(2019, 10, 23), NOW)

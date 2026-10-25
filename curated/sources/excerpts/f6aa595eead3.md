@@ -1,0 +1,1 @@
+In May 2023, 35 Plone community members gathered in Bonn, Germany at the kitconcept offices for the 5th Beethoven Sprint.  The main focus was the upcoming Plone 6.1 release, planned for release this autumn/winter, but also to look ahead further in the future and start development on Plone 7.

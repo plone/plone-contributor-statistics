@@ -1,0 +1,1 @@
+A red double-decker bus transported us from Namur to the iMio offices in the nearby town of Gembloux. Thank you iMio for the use of your offices for the sprint. We had all you need for a Plone sprint: plenty of space, speedy wifi, and lots (and lots) of coffee.

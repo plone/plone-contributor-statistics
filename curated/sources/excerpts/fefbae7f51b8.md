@@ -1,0 +1,1 @@
+Abstract Open Solutions, organizers of Plone Open Garden 2011, thanked attendees today for their participation, capping off the 5th edition of this growing European Plone community event. (Thanks to Valeria Russo for providing us with this story.)

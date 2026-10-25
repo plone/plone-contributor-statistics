@@ -1,0 +1,9 @@
+Coordination of the documentation efforts. (Team leaders: Martin Aspeli, Paul Everitt, Joel Burton)
+
+---
+
+Responsible for the Windows, Mac, Linux and BSD installers and packages, and the release process. (team leaders: Alec Mitchell, Stefan Holek)
+
+---
+
+Responsible for the translation process of Plone and add-on products. (Team leaders: Hanno Schlichting, Dorneles Treméa, Godefroid Chapelle, Jodok Batlogg)

@@ -15,3 +15,15 @@
 ---
 
 …the customization of Plone to make it a better fit for government in general and local governments in particular, the features planned for future releases, our technical infrastructure and support models, and projected adoption models.  Though we're glad to be able to give back to the community in terms of this website product, we also see additional benefits for the group with the possible expansion into the public sector where outsourcing support is the rule rather than the exception. | Stephanie Suttle Jaime Mountjoy | Talk (45 min.) |
+
+---
+
+…and geographic ways of grouping languages and easily organize data in new categories.     The talk will make the case that RDF can change developers and integrators' Plone experience. With the ability to now use Zope 3 components inside of Plone via Five we can start using RDFLib as a repository of resource information.  I'll go over how to install and use basic dublin core information with the rdf tool alongside the catalog tool and how to store content relationships and structure. | Calvin Hendryx-Parker | Talk (45 min.) |
+
+---
+
+…of Plone to make it a better fit for government in general and local governments in particular, the features planned for future releases, our technical infrastructure and support models, and projected adoption models.  Though we're glad to be able to give back to the community in terms of this website product, we also see additional benefits for the group with the possible expansion into the public sector where outsourcing support is the rule rather than the exception. | Stephanie Suttle Jaime Mountjoy | Talk (45 min.) |
+
+---
+
+| Plone at the UN | This session will be a case study of an application for DEWA/UNEP, implemented between 2005-12 and 2006-03.     The application presents profiles of enviromental policy and legislation of 230 countries. Information is both harvested from online sources, as well as supplied by country contributors.     The application was developed iteratively from informal specifications. Plone allowed a quick turnaround time, enabled DEWA staff to assist in the site design, and enabled them to involve contributors via a simple web interface. | Jean Jordaan | Talk (45 min.) |
