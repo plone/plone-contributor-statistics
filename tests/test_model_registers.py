@@ -229,6 +229,29 @@ def test_without_affiliations_shows_what_the_rules_give_without_them(tmp_repo):
     assert without.citations is registry.citations  # the inputs are read once
 
 
+def test_with_affiliations_shows_what_the_rules_give_with_them(tmp_repo):
+    from scripts.lib.model import Affiliation, Citation
+
+    sid = record_source()
+    paths.PEOPLE.write_text('id,name\np1,P One\n', encoding='utf-8')
+    paths.ORGANISATIONS.write_text('id,name,kind,github,aliases,notes\nacme,Acme,organisation,,,\n'
+                                   'zeta,Zeta,organisation,,,\n', encoding='utf-8')
+    paths.AFFILIATIONS.write_text('id,person,organisation,from,to,status,checked,notes\n'
+                                  'a00000001,p1,acme,2010,2015,stated,,\n', encoding='utf-8')
+    paths.CITATIONS.write_text(f'affiliation,source,snippet,supersedes,notes\na00000001,{sid},,,\n', encoding='utf-8')
+    registry = load_registry()
+    extra = Affiliation('a00000002', 'p1', 'zeta', 2016, 2016, 'stated', None, 'a record')
+    with_zeta = registry.with_affiliations([extra], [Citation('a00000002', sid, None, None, None)])
+    assert registry.organisation_of('p1', 2016) == UNMAPPED
+    assert with_zeta.organisation_of('p1', 2016) == 'Zeta'
+    assert [row.id for row in registry.affiliations] == ['a00000001']  # the registry is unchanged
+    assert [c.affiliation for c in registry.citations] == ['a00000001']
+    assert [c.affiliation for c in with_zeta.citations] == ['a00000001', 'a00000002']
+    assert with_zeta.sources is registry.sources  # the inputs are read once
+    assert with_zeta.excerpt(sid) == registry.excerpt(sid) == 'A record.\n'
+    assert registry.excerpt('000000000000') == ''
+
+
 def test_citations_and_sources_are_read_on_the_first_organisation(tmp_repo):
     paths.PEOPLE.write_text('id,name\np1,P One\n', encoding='utf-8')
     paths.CITATIONS.unlink()  # a collector that asks for no organisation never needs it

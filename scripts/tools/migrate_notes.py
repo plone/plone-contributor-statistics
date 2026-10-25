@@ -19,20 +19,37 @@ notes that names it as its notes. Its snippet is the `Author:` line of the excer
 names the user, else empty. An SVN user is one person's: a user that two people's notes name is an error, and
 nothing is written.
 
+`conflicts`: an affiliation whose notes say `not applied, the verified row stands: <record>` or `Kept, not
+deciding: <record>; <record>` names records of another organisation that a review kept out; a record is a quote
+(optional), a label and an address. Each becomes a proposed `stated` row of the organisation it names (by name or
+alias in the quote, else the label; by the first word of a name or, for a freelancer, the person's independent
+organisation only as a candidate to check), for the years its label names (else the year of its source), with the
+record as its notes, citing the source of the address with the quote as snippet when the excerpt holds it. The
+step is a dry run only: it lists, per person and year, the organisation and rule today and with the proposed rows,
+and the conflicts; with --drafts it writes a decision draft for each year that changes or becomes a conflict, for
+the issue "Attribution decisions". The rows are written once the decisions are recorded.
+
 Without --write, it prints every change it would make. A second run changes nothing.
 
     python -m scripts.tools.migrate_notes fills [--write]
     python -m scripts.tools.migrate_notes svn [--write]
+    python -m scripts.tools.migrate_notes conflicts [--drafts FILE]
 """
 
 import argparse
 import dataclasses
 import re
 import sys
+from datetime import date
+from pathlib import Path
 
-from scripts.lib.model import (Identity, load_affiliations, load_citations, load_identities, read_excerpt,
-                               write_affiliations, write_citations, write_identities)
-from scripts.lib.model.attribution import DENIED, STATED
+from scripts.lib.model import (UNMAPPED, Affiliation, Citation, Identity, affiliation_id, is_uncaptured,
+                               load_affiliations, load_citations, load_identities, load_registry, normalize_url,
+                               read_excerpt, source_id, split_archive_url, write_affiliations, write_citations,
+                               write_identities)
+from scripts.lib.model.attribution import COUNTING, DENIED, OWN_STATEMENT_KINDS, STATED
+from scripts.lib.model.names import fold
+from scripts.lib.model.registers import MIN_DOMAIN_KEY
 
 # Not after `bridged <from>-<to>: `: that is the notes of a fill row kept on its record
 FILL = re.compile(r'(?<!bridged \d{4}-\d{4}: )between records of (\d{4}) and (\d{4}) of the same organisation')
@@ -242,11 +259,389 @@ def svn_report(plan):
     return lines
 
 
+CONFLICT_MARKERS = ('not applied, the verified row stands: ', 'Kept, not deciding: ')
+URL = re.compile(r'https?://[^\s)]+')
+YEAR = re.compile(r'(?<!\d)(?:19[89]\d|20\d\d)(?!\d)')
+QUOTED = re.compile(r'"(.*)",\s*([^"]*)$', re.S)
+TRAILING_GROUP = re.compile(r'\s*(\([^()]*\))\s*$')
+FREELANCER = re.compile(r'\b(?:freelanc\w*|self-employed)\b', re.I)
+INDEPENDENT, FOUNDATION = 'independent', 'foundation'
+NO_SOURCE = 'no source of the address in the register: capture it first'
+
+
+@dataclasses.dataclass(frozen=True)
+class Record:
+    affiliation: object  # the row whose notes name the record (the verified row)
+    clause: str  # the marker, the record and the attribution of the notes: the notes of the new row
+    text: str  # the record as the notes cite it: quote, label and address
+    quote: str | None
+    label: str
+    url: str
+
+
+@dataclasses.dataclass(frozen=True)
+class Proposal:
+    record: Record
+    organisation: str | None  # the organisation the record names, None when unclear
+    how: str  # 'named', 'first word', 'freelancer', or why the organisation is unclear
+    years: tuple | None  # (from, to)
+    source: str | None
+    row: object = None  # the stated row (Affiliation), None without an organisation or years
+    citation: object = None  # its citation (Citation), None without a source
+    check: tuple = ()  # what Jens checks before the row is written
+
+
+def _split_records(text):
+    """The parts of the text between `; ` outside parentheses and quotes."""
+    parts, depth, quoted, start = [], 0, False, 0
+    for at, char in enumerate(text):
+        if char == '"':
+            quoted = not quoted
+        elif not quoted and char == '(':
+            depth += 1
+        elif not quoted and char == ')':
+            depth = max(0, depth - 1)
+        elif not quoted and depth == 0 and text.startswith('; ', at):
+            parts.append(text[start:at])
+            start = at + 2
+    parts.append(text[start:])
+    return parts
+
+
+def records_of(affiliation):
+    """The records of another organisation that the notes of the row name after `not applied, the verified row
+    stands: ` or `Kept, not deciding: `: each a quote (optional), a label and an address, separated by `; `. A
+    closing group without an address, such as `(Jens, #171)`, is the attribution of all of them."""
+    notes, found = affiliation.notes or '', []
+    for marker in CONFLICT_MARKERS:
+        at = notes.find(marker)
+        if at < 0:
+            continue
+        texts = []
+        for part in _split_records(notes[at + len(marker):]):
+            if not URL.search(part):
+                break
+            texts.append(part.strip())
+        if not texts:
+            continue
+        attribution = ''
+        group = TRAILING_GROUP.search(texts[-1])
+        if group and not URL.search(group.group(1)):
+            attribution = f' {group.group(1)}'
+            texts[-1] = texts[-1][:group.start()]
+        for text in texts:
+            quoted = QUOTED.match(text)
+            quote, rest = (quoted.group(1), quoted.group(2)) if quoted else (None, text)
+            url = URL.findall(text)[-1].rstrip('.,;')
+            label = re.sub(r'\s+', ' ', URL.sub('', rest)).replace(': )', ')').strip(' :;,')
+            found.append(Record(affiliation, f'{marker}{text}{attribution}', text, quote, label, url))
+    return found
+
+
+def _source_of(url, sources):
+    """The id of the source of the address in the register, else None."""
+    original, stamp = split_archive_url(url) or (url, None)
+    sid = source_id(original, stamp)
+    if sid in sources:
+        return sid
+    key = normalize_url(url)
+    return next((s.id for s in sources.values() if normalize_url(s.archive_url or s.url) == key), None)
+
+
+def _named_organisations(registry, text):
+    """The ids of the organisations whose name or alias the text names, or whose GitHub login it names as
+    `@login`."""
+    # Imported here: scripts.lib.capture imports the model
+    from scripts.lib.capture.passages import find_name
+
+    found = set()
+    for organisation in registry.organisations.values():
+        names = [name for name in (organisation.name, *organisation.aliases) if name]
+        if any(find_name(text, name) is not None for name in names) or (
+                organisation.github and re.search(rf'@{re.escape(organisation.github)}\b', text, re.I)):
+            found.add(organisation.id)
+    return sorted(found)
+
+
+def _organisation_of(registry, record):
+    """(organisation id or None, how, [what to check]) of the organisation the record names: by its name or an
+    alias in the quote (else the label); else, to check, by the first word of its name, or, for a freelancer, the
+    independent organisation of the person; else None and why."""
+    text, person = record.quote or record.label, record.affiliation.person
+    named, check = _named_organisations(registry, text), []
+    if len(named) > 1:
+        foundation = [org for org in named if registry.organisations[org].kind == FOUNDATION]
+        if len(foundation) < len(named):
+            check += [f'the record also names {registry.organisation_name(org)}' for org in foundation]
+            named = [org for org in named if org not in foundation]
+    if len(named) == 1:
+        return named[0], 'named', check
+    if named:
+        return None, f'several organisations are named: {", ".join(named)}', check
+    own = set(fold(registry.people[person].name).split()) if person in registry.people else set()
+    words = {fold(word) for word in re.findall(r'\b[A-Z]\w+', text)} - own
+    by_first_word = sorted(org.id for org in registry.organisations.values()
+                           if org.kind == 'organisation' and (first := fold(org.name).split()[:1])
+                           and len(first[0]) >= MIN_DOMAIN_KEY and first[0] in words)
+    if len(by_first_word) == 1:
+        return by_first_word[0], 'first word', check + ['check the organisation: found by the first word of its name']
+    if FREELANCER.search(text):
+        independent = sorted({row.organisation for row in registry.affiliations if row.person == person
+                              and row.organisation in registry.organisations
+                              and registry.organisations[row.organisation].kind == INDEPENDENT})
+        if len(independent) == 1:
+            return independent[0], 'freelancer', check + [
+                'check the organisation: a freelancer, the independent organisation of the person']
+    return None, 'no organisation of the register is named', check
+
+
+def plan_conflicts(registry):
+    """A proposal for each record of another organisation that the notes of a row name (`records_of`): a stated
+    row of that organisation for the years the record speaks for (those its label names, else the year of the
+    source's date), citing the source with the quote as snippet when the excerpt holds it."""
+    from scripts.lib.capture.passages import find_quote
+
+    sources, proposals = registry.sources, []
+    for affiliation in registry.affiliations:
+        for record in records_of(affiliation):
+            organisation, how, check = _organisation_of(registry, record)
+            sid = _source_of(record.url, sources)
+            years = sorted({int(year) for year in YEAR.findall(record.label)})
+            if not years and sid is not None:
+                years = [sources[sid].date.year]
+            years = (years[0], years[-1]) if years else None
+            if sid is None:
+                check.append(NO_SOURCE)
+            elif is_uncaptured(sources[sid]):
+                check.append('the source was never captured: no text to verify')
+            snippet = None
+            if record.quote and sid is not None:
+                if find_quote(registry.excerpt(sid), record.quote) is not None:
+                    snippet = record.quote
+                elif not is_uncaptured(sources[sid]):
+                    check.append('the quote is not in the excerpt of the source')
+            if years is None:
+                check.append('no year: neither the label nor a source names one')
+            row = citation = None
+            if organisation is not None and years is not None:
+                row = Affiliation(affiliation_id(affiliation.person, organisation, *years), affiliation.person,
+                                  organisation, years[0], years[1], STATED, None, record.clause)
+                if sid is not None:
+                    citation = Citation(row.id, sid, snippet, None, f'cited as: {record.text}')
+            proposals.append(Proposal(record, organisation, how, years, sid, row, citation, tuple(check)))
+    return proposals
+
+
+@dataclasses.dataclass(frozen=True)
+class YearResult:
+    person: str
+    year: int
+    before: str | None  # the organisation id today
+    before_rule: str
+    after: str | None  # the organisation id with the proposed rows
+    rule: str
+    conflict: tuple  # the organisations no rule decides between, with the proposed rows
+    activity: str  # what the person is credited with in the year, empty when inactive
+
+    @property
+    def changed(self):
+        """Whether the year counts differently with the proposed rows, or is a conflict."""
+        return self.before != self.after or bool(self.conflict)
+
+
+def with_proposals(registry, proposals):
+    """The registry with the proposed rows and their citations."""
+    return registry.with_affiliations([p.row for p in proposals if p.row],
+                                      [p.citation for p in proposals if p.citation])
+
+
+def dry_run(registry, proposals, credited, until):
+    """[YearResult] of every year of the people of the proposed rows, before and with them; credited is
+    {(person, year): {what: count}} (attribution_changes.activity)."""
+    from scripts.tools.attribution_changes import describe, person_years
+
+    after = with_proposals(registry, proposals)
+    people = {p.row.person for p in proposals if p.row}
+    pairs = {pair for pair in person_years(registry, until) | person_years(after, until) if pair[0] in people}
+    results = []
+    for person, year in sorted(pairs):
+        before, before_rule = registry.attribution.explain(person, year)
+        now, rule = after.attribution.explain(person, year)
+        results.append(YearResult(person, year, before, before_rule, now, rule,
+                                  tuple(after.attribution.conflict(person, year)),
+                                  describe(credited.get((person, year), {}))))
+    return results
+
+
+def _name(registry, org_id):
+    return registry.organisation_name(org_id) if org_id is not None else UNMAPPED
+
+
+def _result_line(registry, result):
+    conflict = f', conflict: {", ".join(_name(registry, o) for o in result.conflict)}' if result.conflict else ''
+    return (f'{result.person} {result.year}: {_name(registry, result.before)} ({result.before_rule}) -> '
+            f'{_name(registry, result.after)} ({result.rule}){conflict}; {result.activity or "inactive"}'
+            f'{"; CHANGED" if result.changed else ""}')
+
+
+def conflict_report(registry, proposals, results):
+    """The lines that say what `conflicts` would add and what the rules then give."""
+    lines = []
+    for p in proposals:
+        verified = p.record.affiliation
+        lines.append(f'record on {verified.id} {verified.person} {verified.organisation} {_years(verified)}: '
+                     f'{p.record.text}')
+        if p.row:
+            snippet = f', snippet "{p.citation.snippet}"' if p.citation and p.citation.snippet else ''
+            lines.append(f'  -> stated {p.row.id} {p.organisation} {_years(p.row)} ({p.how}), source '
+                         f'{p.source or "none"}{snippet}')
+        else:
+            lines.append(f'  -> no row: {p.how}' + ('' if p.years else ', no year'))
+        lines.extend(f'  check: {item}' for item in p.check)
+    years = {(p.row.person, year) for p in proposals if p.row
+             for year in range(p.row.from_year, p.row.to_year + 1)}
+    lines.extend(_result_line(registry, r) for r in results if r.changed or (r.person, r.year) in years)
+    changed = [r for r in results if r.changed]
+    lines.append(f'records: {len(proposals)}, rows proposed: {sum(1 for p in proposals if p.row)}, without a row: '
+                 f'{sum(1 for p in proposals if not p.row)}, to check: {sum(1 for p in proposals if p.check)}; '
+                 f'person-years changed or in conflict: {len(changed)} (active '
+                 f'{sum(1 for r in changed if r.activity)}), conflicts: {sum(1 for r in changed if r.conflict)}')
+    return lines
+
+
+def _source_line(registry, source_id, snippet):
+    source = registry.sources.get(source_id)
+    if source is None:
+        return f'source {source_id} (not in the register)'
+    what = f'"{snippet}", ' if snippet else ''
+    if is_uncaptured(source):
+        when = f'{source.kind}, never captured'
+    else:
+        when = f'{source.kind} dated {source.date}' + (f' ({source.notes})' if source.notes else '')
+    return f'{what}{when}: {source.archive_url or source.url}'
+
+
+def _names(registry, org_ids):
+    """`**A** and **B**`, or `none of them`."""
+    names = [f'**{_name(registry, org)}**' for org in sorted(org_ids)]
+    if not names:
+        return 'none of them'
+    return names[0] if len(names) == 1 else f'{", ".join(names[:-1])} and {names[-1]}'
+
+
+def _rule_facts(registry, attribution, person, year):
+    """What each rule finds among the candidates of the year (the rules of attribution.md, numbered there).
+
+    Reads the engine's inner state: this script is archived once the migration has run.
+    """
+    candidates = attribution._candidates(person, year)
+    organisations = sorted({row.organisation for row in candidates})
+    if len(organisations) < 2:
+        return []
+    around = [{row.organisation for row in attribution._candidates(person, other)} & set(organisations)
+              for other in (year - 1, year + 1)]
+    cited = [{c.source for row in candidates if row.organisation == org for c in attribution._citations[row.id]
+              if c.snippet} for org in organisations]
+    common = set.intersection(*cited)
+    commits = attribution._commits_of(person, year)
+    if commits is None:
+        commit_text = 'no commits of the year under a known domain; it does not apply'
+        own_text = 'it applies only when the personal commits are the most; there are none'
+    else:
+        per_organisation, personal = commits
+        theirs = sum(per_organisation[org] for org in organisations)
+        commit_text = f'{personal} under personal domains, ' + ', '.join(
+            f'{per_organisation[org]} under {_name(registry, org)}' for org in organisations)
+        commit_text += ('; the candidates\' commits are the most' if theirs > personal else
+                        '; the candidates\' commits are not the most, it does not apply')
+        if personal > theirs:
+            own = {row.organisation for row in candidates for c in attribution._citations[row.id]
+                   if attribution._kind(c.source) in OWN_STATEMENT_KINDS and attribution._captured_in(c.source, year)}
+            own_text = f'the personal commits are the most; the person\'s speaker pages and profiles dated {year} ' \
+                       f'name {_names(registry, own)}'
+        else:
+            own_text = 'it applies only when the personal commits are the most; they are not'
+    records = {org: len({c.source for row in candidates if row.organisation == org
+                         for c in attribution._citations[row.id] if attribution._captured_in(c.source, year)})
+               for org in organisations}
+    return [f'Change year (rule 4): in {year - 1} {_names(registry, around[0])}, in {year + 1} '
+            f'{_names(registry, around[1])}.',
+            'Named first (rule 6a): ' + (f'the rows of all of them cite {", ".join(sorted(common))} with a snippet.'
+                                         if common else 'no source is cited with a snippet by the rows of all of '
+                                                        'them.'),
+            f'Commits (rule 6b): {commit_text}.',
+            f'Own statement (rule 6c): {own_text}.',
+            f'Records (rule 6d): captured sources dated {year}: '
+            + ', '.join(f'{_name(registry, org)} {count}' for org, count in records.items()) + '.']
+
+
+def _draft(registry, after, proposals, result):
+    person = registry.people[result.person].name if result.person in registry.people else result.person
+    today, year = _name(registry, result.before), result.year
+    lines = [f'## {person} {year}: {today}', '', f'**Evidence.** The records of {year}:', '']
+    for row in registry.affiliations:
+        if row.person == result.person and row.status in COUNTING and row.covers(year):
+            cited = [c for c in registry.citations if c.affiliation == row.id]
+            lines.append(f'- **{_name(registry, row.organisation)}**, {row.status} row `{row.id}` ({_years(row)}): '
+                         + ('; '.join(_source_line(registry, c.source, c.snippet) for c in cited)
+                            or 'no citation'))
+    for p in proposals:
+        if p.row and p.row.person == result.person and p.row.covers(year):
+            cited = (_source_line(registry, p.source, p.citation.snippet) if p.citation else
+                     f'{p.record.text} (the source is not in the register yet)')
+            lines.append(f'- **{_name(registry, p.organisation)}**, the record reviewed on `{p.record.affiliation.id}` '
+                         f'and kept out, proposed as stated row `{p.row.id}` ({_years(p.row)}): {cited}')
+    lines += ['', f'**The rules.** Today {person} counts for **{today}** in {year} ({result.before_rule}). With the '
+                  f'reviewed records as stated rows, ']
+    if result.conflict:
+        lines[-1] += f'no rule decides: a conflict between {_names(registry, result.conflict)}.'
+    else:
+        lines[-1] += (f'the rules give **{_name(registry, result.after)}** ({result.rule}). A decision settles only '
+                      f'what the rules leave open, so a decision cannot keep {today}: either the change is accepted, '
+                      f'or the record stays a note and is not written as a stated row.')
+    facts = _rule_facts(registry, after.attribution, result.person, year)
+    lines += [''] + [f'- {fact}' for fact in facts] + ([''] if facts else [])
+    lines += [f'**Proposed decision.** {person} counts for **{today}** in {year}, the organisation the review kept.',
+              '', f'Credited in {year}: {result.activity or "nothing"}.', '']
+    return lines
+
+
+def drafts(registry, proposals, results):
+    """The decision drafts, one section per year that counts differently with the proposed rows or is a
+    conflict, for the issue "Attribution decisions"."""
+    after = with_proposals(registry, proposals)
+    lines = ['# Attribution decisions: drafts', '',
+             'One section per person and year whose counting changes, or becomes a conflict, once the reviewed '
+             'records of `not applied` and `Kept, not deciding` notes are stated rows.', '']
+    for result in results:
+        if result.changed:
+            lines += _draft(registry, after, proposals, result)
+    return '\n'.join(lines)
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument('step', choices=['fills', 'svn'], help='the step of the migration')
+    parser.add_argument('step', choices=['fills', 'svn', 'conflicts'], help='the step of the migration')
     parser.add_argument('--write', action='store_true', help='write the registers (default: a dry run)')
+    parser.add_argument('--drafts', type=Path, metavar='FILE',
+                        help='conflicts: write the decision drafts to the file')
     args = parser.parse_args(argv)
+    if args.step == 'conflicts':
+        if args.write:
+            parser.error('conflicts is a dry run: its rows are written once the decisions are recorded')
+        # Imported here: it reads the collected data
+        from scripts.tools.attribution_changes import activity
+
+        registry = load_registry()
+        proposals = plan_conflicts(registry)
+        results = dry_run(registry, proposals, activity(registry), date.today().year)
+        for line in conflict_report(registry, proposals, results):
+            print(line)
+        if args.drafts:
+            args.drafts.write_text(drafts(registry, proposals, results), encoding='utf-8')
+            print(f'drafts: {sum(1 for r in results if r.changed)}, written to {args.drafts}')
+        print('dry run: nothing written to the registers')
+        return 0
     if args.step == 'svn':
         identities = load_identities()
         plan = plan_svn(identities, read_excerpt)

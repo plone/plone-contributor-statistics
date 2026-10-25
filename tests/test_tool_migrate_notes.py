@@ -1,8 +1,12 @@
 """The migration of notes to data (plan 5): the fill rows go, their evidence moves to the records around them."""
 
-from scripts.lib.model import (Affiliation, Citation, Identity, Organisation, Person, Registry, load_affiliations,
-                               load_citations, load_identities, write_affiliations, write_citations,
-                               write_identities)
+import datetime
+
+import pytest
+
+from scripts.lib.model import (Affiliation, Citation, Identity, Organisation, Person, Registry, affiliation_id,
+                               load_affiliations, load_citations, load_identities, write_affiliations,
+                               write_citations, write_identities)
 from scripts.tools import migrate_notes
 
 S1, S2, S3 = '111111111111', '222222222222', '333333333333'
@@ -222,3 +226,196 @@ def test_main_svn_writes_the_identities(write_registers, capsys):
     capsys.readouterr()
     assert migrate_notes.main(['svn']) == 0
     assert 'svn identities: 0 to add' in capsys.readouterr().out
+
+
+# The conflicting records of `not applied` and `Kept, not deciding` notes
+
+ARCHIVED = 'https://web.archive.org/web/20120105050017/http://conf.example.org/event/1'
+LIVE = 'https://conf.example.org/speakers/jane'
+SEARCH = 'https://github.com/search?q=author%3Ajane+org%3Aother+committer-date%3A2019-01-01..2019-12-31&type=commits'
+NOT_APPLIED = f'not applied, the verified row stands: "Company Other", Plone Conference 2011 speaker page: {ARCHIVED}'
+KEPT = (f'2019: two organisations, the rule decides. Kept, not deciding: Commits in the GitHub organisation @other in '
+        f'2019 (28 in 2019; search: {SEARCH}); "CTO at Zeta Labs", Plone Conference 2019 speaker page: {LIVE} '
+        f'(Jens, #171)')
+
+
+def organisations():
+    return [Organisation('acme', 'Acme', 'organisation', None, (), None),
+            Organisation('other', 'Other', 'organisation', 'other', (), None),
+            Organisation('zeta', 'Zeta Labs', 'organisation', None, ('zeta',), None),
+            Organisation('clearwind-consulting', 'Clearwind Consulting', 'organisation', None, (), None),
+            Organisation('plone-foundation', 'Plone Foundation', 'foundation', None, (), None),
+            Organisation('jane-independent', 'Jane (independent)', 'independent', None, (), None)]
+
+
+def world(affiliations, citations=(), sources=(), excerpts=None, domains=None):
+    """A registry of jane over the rows; sources are Source rows, excerpts {source id: text}."""
+    excerpts = excerpts or {}
+    register = {source.id: source for source in sources}
+    return Registry([Person('jane', 'Jane Doe')], [], affiliations, organisations(),
+                    attribution_inputs=lambda: (list(citations), register, lambda sid: excerpts.get(sid, ''),
+                                                lambda year: (domains or {}).get(year, {})))
+
+
+def source(url, on, kind='speaker-page', notes=None):
+    from scripts.lib.model import Source, source_id, split_archive_url
+
+    original, stamp = split_archive_url(url) or (url, None)
+    return Source(source_id(original, stamp), kind, 'A page', datetime.date.fromisoformat(on), original,
+                  url if stamp else None, datetime.datetime(2026, 10, 22, tzinfo=datetime.UTC), notes)
+
+
+def test_a_not_applied_note_names_one_record():
+    (record,) = migrate_notes.records_of(row('a01', 2011, 2013, NOT_APPLIED))
+    assert record.quote == 'Company Other'
+    assert record.url == ARCHIVED
+    assert record.label == 'Plone Conference 2011 speaker page'
+    assert record.text == f'"Company Other", Plone Conference 2011 speaker page: {ARCHIVED}'
+    assert record.clause == NOT_APPLIED
+
+
+def test_a_kept_note_names_each_record_after_the_marker_with_the_attribution():
+    first, second = migrate_notes.records_of(row('a01', 2019, 2019, KEPT))
+    assert first.quote is None
+    assert first.url == SEARCH
+    assert first.text == f'Commits in the GitHub organisation @other in 2019 (28 in 2019; search: {SEARCH})'
+    assert first.clause == f'Kept, not deciding: {first.text} (Jens, #171)'
+    assert second.quote == 'CTO at Zeta Labs'
+    assert second.url == LIVE
+    assert second.clause == f'Kept, not deciding: "CTO at Zeta Labs", Plone Conference 2019 speaker page: {LIVE} ' \
+                            f'(Jens, #171)'
+
+
+def test_notes_without_a_record_name_none():
+    assert migrate_notes.records_of(row('a01', 2011, 2011, 'between records of 2010 and 2012 of the same '
+                                                           'organisation')) == []
+    assert migrate_notes.records_of(row('a01', 2011, 2011, None)) == []
+
+
+def test_a_record_becomes_a_stated_row_of_the_organisation_it_names_for_the_year_of_its_label():
+    page = source(ARCHIVED, '2012-01-05')  # archived after the conference: the label gives the year
+    verified = row('a01', 2011, 2013, NOT_APPLIED)
+    registry = world([verified], sources=[page], excerpts={page.id: 'Jane Doe\nCompany Other\n'})
+    (proposal,) = migrate_notes.plan_conflicts(registry)
+    assert (proposal.organisation, proposal.how, proposal.years) == ('other', 'named', (2011, 2011))
+    assert proposal.check == ()
+    assert proposal.row == Affiliation(affiliation_id('jane', 'other', 2011, 2011), 'jane', 'other', 2011, 2011,
+                                       'stated', None, NOT_APPLIED)
+    assert proposal.citation == Citation(proposal.row.id, page.id, 'Company Other', None,
+                                         f'cited as: "Company Other", Plone Conference 2011 speaker page: {ARCHIVED}')
+
+
+def test_a_quote_the_excerpt_does_not_hold_is_no_snippet():
+    page = source(ARCHIVED, '2012-01-05')
+    registry = world([row('a01', 2011, 2013, NOT_APPLIED)], sources=[page], excerpts={page.id: 'Another text\n'})
+    (proposal,) = migrate_notes.plan_conflicts(registry)
+    assert proposal.citation.snippet is None
+    assert proposal.check == ('the quote is not in the excerpt of the source',)
+
+
+def test_a_source_not_in_the_register_is_listed_and_the_row_has_no_citation():
+    page = source(LIVE, '2019-10-21')
+    registry = world([row('a01', 2019, 2019, KEPT, organisation='acme')], sources=[page],
+                     excerpts={page.id: 'CTO at Zeta Labs\n'})
+    commits, talk = migrate_notes.plan_conflicts(registry)
+    assert (commits.organisation, commits.how, commits.years, commits.source) == ('other', 'named', (2019, 2019),
+                                                                                  None)
+    assert commits.citation is None
+    assert commits.check == ('no source of the address in the register: capture it first',)
+    assert (talk.organisation, talk.years, talk.citation.snippet) == ('zeta', (2019, 2019), 'CTO at Zeta Labs')
+
+
+def test_without_a_year_in_the_label_the_date_of_the_source_gives_it():
+    note = f'not applied, the verified row stands: "Jane Doe, Other", the team page: {LIVE}'
+    page = source(LIVE, '2016-03-01', kind='page')
+    (proposal,) = migrate_notes.plan_conflicts(world([row('a01', 2016, 2016, note)], sources=[page]))
+    assert proposal.years == (2016, 2016)
+
+
+def test_an_organisation_named_by_its_first_word_or_a_freelancer_is_a_candidate_to_check():
+    first = f'not applied, the verified row stands: "Jane Doe, ClearWind", Plone Conference 2003 speaker page: {LIVE}'
+    free = (f'not applied, the verified row stands: "Jane worked at several companies and is now working as a '
+            f'freelancer.", Plone Conference 2024 speaker page: {ARCHIVED}')
+    registry = world([row('a01', 2003, 2003, first), row('a02', 2024, 2024, free),
+                      row('a03', 2018, 2020, organisation='jane-independent')])
+    clearwind, freelancer = migrate_notes.plan_conflicts(registry)
+    assert (clearwind.organisation, clearwind.how) == ('clearwind-consulting', 'first word')
+    assert 'check the organisation: found by the first word of its name' in clearwind.check
+    assert (freelancer.organisation, freelancer.how) == ('jane-independent', 'freelancer')
+    assert 'check the organisation: a freelancer, the independent organisation of the person' in freelancer.check
+
+
+def test_an_unclear_organisation_is_listed_without_a_row():
+    note = f'not applied, the verified row stands: "Jane Doe, Somewhere Unknown", Plone Conference 2011: {LIVE}'
+    both = f'not applied, the verified row stands: "Jane Doe, Acme and Zeta Labs", Plone Conference 2012: {LIVE}'
+    unknown, two = migrate_notes.plan_conflicts(world([row('a01', 2011, 2011, note, organisation='other'),
+                                                       row('a02', 2012, 2012, both, organisation='other')]))
+    assert unknown.organisation is None and unknown.row is None
+    assert unknown.how == 'no organisation of the register is named'
+    assert two.organisation is None and two.how == 'several organisations are named: acme, zeta'
+
+
+def test_the_foundation_named_beside_an_organisation_is_left_out():
+    note = (f'Kept, not deciding: "Plone Foundation Member - Founder of iskra.cat and zeta.example", Plone '
+            f'Conference 2020 speaker page: {LIVE}')
+    (proposal,) = migrate_notes.plan_conflicts(world([row('a01', 2020, 2020, note)]))
+    assert proposal.organisation == 'zeta'
+    assert 'the record also names Plone Foundation' in proposal.check
+
+
+def test_the_dry_run_lists_before_and_after_and_drafts_the_changes():
+    page = source(ARCHIVED, '2012-01-05')
+    affiliations = [row('a00', 2010, 2010, organisation='other'), row('a01', 2011, 2013, NOT_APPLIED)]
+    registry = world(affiliations, sources=[page], excerpts={page.id: 'Company Other\n'})
+    plan = migrate_notes.plan_conflicts(registry)
+    results = migrate_notes.dry_run(registry, plan, credited={('jane', 2011): {'commits': 3}}, until=2014)
+    by_year = {result.year: result for result in results}
+    # Other covers 2010 and 2011, Acme 2011 to 2013: the person leaves Other during 2011 (change year)
+    assert (by_year[2011].before, by_year[2011].after, by_year[2011].rule) == ('acme', 'other', 'change year')
+    assert by_year[2011].changed and not by_year[2011].conflict
+    assert by_year[2011].activity == '3 commits'
+    assert not by_year[2012].changed
+    text = migrate_notes.drafts(registry, plan, results)
+    assert text.count('\n## ') == 1
+    assert '## Jane Doe 2011: Acme' in text
+    assert 'Company Other' in text and ARCHIVED in text
+    assert 'the rules give **Other** (change year)' in text
+    assert 'a decision cannot keep Acme' in text
+    assert 'Change year (rule 4): in 2010 **Other**, in 2012 **Acme**.' in text
+
+
+def test_the_dry_run_marks_a_conflict():
+    talk, team = source(LIVE, '2019-10-21'), source('https://acme.example.org/team', '2019-05-01', kind='page')
+    affiliations = [row('a01', 2019, 2019, f'Kept, not deciding: "CTO at Zeta Labs", Plone Conference 2019 '
+                                           f'speaker page: {LIVE}')]
+    registry = world(affiliations, [cite('a01', team.id)], sources=[talk, team],
+                     excerpts={talk.id: 'CTO at Zeta Labs\n', team.id: 'Jane Doe\n'})
+    plan = migrate_notes.plan_conflicts(registry)
+    (result,) = [r for r in migrate_notes.dry_run(registry, plan, credited={}, until=2019) if r.year == 2019]
+    # one record of the year each, no commits: no rule decides
+    assert (result.before, result.after, result.rule, result.conflict) == ('acme', None, 'conflict',
+                                                                           ('acme', 'zeta'))
+    assert result.changed
+    text = migrate_notes.drafts(registry, plan, [result])
+    assert '## Jane Doe 2019: Acme' in text
+    assert 'no rule decides: a conflict between **Acme** and **Zeta Labs**' in text
+    assert 'Records (rule 6d): captured sources dated 2019: Acme 1, Zeta Labs 1.' in text
+    assert '**Proposed decision.** Jane Doe counts for **Acme** in 2019' in text
+
+
+def test_main_conflicts_is_a_dry_run_and_writes_the_drafts(write_registers, tmp_path, capsys):
+    write_registers(people=[('jane', None)], organisations=[('acme', 'Acme'), ('other', 'Other')])
+    write_affiliations([row('a00', 2010, 2010, organisation='other'), row('a01', 2011, 2013, NOT_APPLIED)])
+    out_file = tmp_path / 'drafts.md'
+    assert migrate_notes.main(['conflicts', '--drafts', str(out_file)]) == 0
+    out = capsys.readouterr().out
+    assert 'jane 2011: Acme (one organisation) -> Other (change year)' in out
+    assert 'no source of the address in the register' in out
+    assert '## jane 2011: Acme' in out_file.read_text(encoding='utf-8')
+    assert [a.id for a in load_affiliations()] == ['a00', 'a01']  # nothing written
+
+
+def test_main_conflicts_refuses_to_write(write_registers):
+    write_registers(people=[('jane', None)], organisations=[('acme', 'Acme')])
+    with pytest.raises(SystemExit):
+        migrate_notes.main(['conflicts', '--write'])

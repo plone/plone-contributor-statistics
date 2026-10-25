@@ -162,6 +162,10 @@ class Registry:
         """{id: Source} of the source register."""
         return self._attribution_data()[1]
 
+    def excerpt(self, source_id):
+        """The text of the excerpt of a source; empty without one."""
+        return self._attribution_data()[2](source_id) or ''
+
     @property
     def attribution(self):
         """The attribution rules over the registers, built on first use."""
@@ -184,6 +188,16 @@ class Registry:
         return Registry(self.people.values(), self.identities,
                         [affiliation for affiliation in self.affiliations if affiliation.id not in ids],
                         self.organisations.values(), attribution_inputs=self._attribution_data)
+
+    def with_affiliations(self, affiliations, citations=()):
+        """The same registers and attribution inputs with the affiliations and their citations added: what the
+        rules give with them."""
+        def inputs():
+            cited, sources, excerpt, commit_domains = self._attribution_data()
+            return [*cited, *citations], sources, excerpt, commit_domains
+
+        return Registry(self.people.values(), self.identities, [*self.affiliations, *affiliations],
+                        self.organisations.values(), attribution_inputs=inputs)
 
     def organisation_of(self, person_id, year):
         """The name of the organisation the person counts for in the year, else UNMAPPED."""
