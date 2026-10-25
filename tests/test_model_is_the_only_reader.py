@@ -23,6 +23,9 @@ ALLOWED = {
     'scripts/tools/check.py': {'paths.SCHEMAS_DIR', 'paths.DATAPACKAGE', "'curated/", '"curated/'},
     'scripts/tools/datapackage.py': {'paths.SCHEMAS_DIR', 'paths.DATAPACKAGE', "'curated/", '"curated/'},
     'scripts/tools/schema_docs.py': {'paths.SCHEMAS_DIR', 'paths.DATAPACKAGE', "'curated/", '"curated/'},
+    # Migration code of plan 3b, archived after its one use: reads the old yearly community files with plain csv,
+    # since their schemas go away with the switch, and writes the new folder next to them
+    'scripts/tools/migrate_community.py': {'paths.COMMUNITY'},
     # Names the two files that the model's loaders read, so that the tests can write them
     'scripts/collect/plone_contributors.py': {'paths.BOT_ACCOUNTS', 'paths.EXCLUDED_REPOSITORIES'},
 }
