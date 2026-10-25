@@ -19,7 +19,7 @@ MIN_DOMAIN_KEY = 3  # the first word of an organisation name is a key for domain
 GITHUB = 'github'  # the login the collected files count a person under; at most one per person
 GITHUB_ALIAS = 'github-alias'  # a further GitHub account of the person
 LOGIN_KINDS = (GITHUB, GITHUB_ALIAS)
-UNIQUE_IDENTITY_KINDS = (GITHUB, GITHUB_ALIAS, 'email')  # one person's each; a name may be shared by homonyms
+UNIQUE_IDENTITY_KINDS = (GITHUB, GITHUB_ALIAS, 'email', 'svn')  # one person's each; a name may be shared by homonyms
 
 
 @dataclass(frozen=True)

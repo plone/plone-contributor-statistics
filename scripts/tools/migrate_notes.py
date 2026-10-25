@@ -12,9 +12,17 @@ citation has none) and notes that contain the citation's notes; every other one 
 to the nearer record (the later one when both are as near). The row's notes are appended to that record's notes
 as `bridged <from>-<to>: <notes>`.
 
+`svn`: an identity whose notes say `SVN user <name>` (or `SVN user is this login`: the login of the address, or
+the name itself) records that the person committed to Subversion as that user. Each distinct (person, SVN user)
+becomes an identity of kind `svn`, citing the source of the first identity it was found on, with the clause of the
+notes that names it as its notes. Its snippet is the `Author:` line of the excerpt of that source when the line
+names the user, else empty. An SVN user is one person's: a user that two people's notes name is an error, and
+nothing is written.
+
 Without --write, it prints every change it would make. A second run changes nothing.
 
     python -m scripts.tools.migrate_notes fills [--write]
+    python -m scripts.tools.migrate_notes svn [--write]
 """
 
 import argparse
@@ -22,7 +30,8 @@ import dataclasses
 import re
 import sys
 
-from scripts.lib.model import load_affiliations, load_citations, write_affiliations, write_citations
+from scripts.lib.model import (Identity, load_affiliations, load_citations, load_identities, read_excerpt,
+                               write_affiliations, write_citations, write_identities)
 from scripts.lib.model.attribution import DENIED, STATED
 
 # Not after `bridged <from>-<to>: `: that is the notes of a fill row kept on its record
@@ -159,11 +168,97 @@ def fill_report(plan):
     return lines
 
 
+SVN_USER = re.compile(r'SVN user (is this login|[^\s,;:()]+)')
+THIS_LOGIN = 'is this login'
+SVN = 'svn'
+
+
+@dataclasses.dataclass(frozen=True)
+class SvnPlan:
+    added: list  # the new `svn` identities
+    found: dict  # {(person, SVN user): [the identities whose notes name it]}
+    errors: list
+
+
+def _svn_user(identity):
+    """(SVN user, the clause of the notes that names it) of the identity, or None."""
+    for clause in (identity.notes or '').split(';'):
+        match = SVN_USER.search(clause)
+        if match:
+            user = match.group(1)
+            if user == THIS_LOGIN:
+                user = identity.value.partition('@')[0]
+            return user, clause.strip()
+    return None
+
+
+def _author_line(text, user):
+    """The `Author:` line of a commit excerpt when it names the user, else None."""
+    match = re.search(rf'^Author: {re.escape(user)} <[^>\n]*>$', text or '', re.M)
+    return match.group(0) if match else None
+
+
+def plan_svn(identities, excerpt):
+    """The `svn` identities that the notes of the identities name; excerpt(source id) is the text of a source."""
+    found, clauses = {}, {}
+    for identity in identities:
+        if identity.kind == SVN:
+            continue
+        named = _svn_user(identity)
+        if named is None:
+            continue
+        key = (identity.person, named[0])
+        found.setdefault(key, []).append(identity)
+        clauses.setdefault(key, [])
+        if named[1] not in clauses[key]:
+            clauses[key].append(named[1])
+    recorded = {identity.value.casefold(): identity for identity in identities if identity.kind == SVN}
+    added, errors, owner = [], [], {}
+    for (person, user), rows in found.items():
+        first = owner.setdefault(user.casefold(), (person, user))
+        other = recorded.get(user.casefold())
+        if first[0] != person or (other is not None and other.person != person):
+            them = first if first[0] != person else (other.person, other.value)
+            errors.append(f'the SVN user {user} of {person} is the SVN user {them[1]} of {them[0]}')
+            continue
+        if other is not None:
+            continue
+        source = rows[0].source
+        added.append(Identity(person, SVN, user, source, _author_line(excerpt(source), user) if source else None,
+                              '; '.join(clauses[person, user])))
+    return SvnPlan(added, found, errors)
+
+
+def svn_report(plan):
+    """The lines that say what `svn` changes."""
+    lines = []
+    for identity in plan.added:
+        snippet = f'snippet "{identity.snippet}"' if identity.snippet else 'no snippet'
+        on = ', '.join(f'{row.kind} {row.value}' for row in plan.found[identity.person, identity.value])
+        lines.append(f'add {identity.person} svn {identity.value} (source {identity.source}, {snippet}); '
+                     f'found on {on}; notes: {identity.notes}')
+    lines.extend(f'error: {error}' for error in plan.errors)
+    lines.append(f'svn identities: {len(plan.added)} to add, {len(plan.errors)} errors')
+    return lines
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument('step', choices=['fills'], help='the step of the migration')
+    parser.add_argument('step', choices=['fills', 'svn'], help='the step of the migration')
     parser.add_argument('--write', action='store_true', help='write the registers (default: a dry run)')
     args = parser.parse_args(argv)
+    if args.step == 'svn':
+        identities = load_identities()
+        plan = plan_svn(identities, read_excerpt)
+        for line in svn_report(plan):
+            print(line)
+        if plan.errors:
+            return 1
+        if not args.write:
+            print('dry run: nothing written; use --write to write')
+        elif plan.added:
+            write_identities(identities + plan.added)
+        return 0
     affiliations, citations = load_affiliations(), load_citations()
     plan = plan_fills(affiliations, citations)
     for line in fill_report(plan):

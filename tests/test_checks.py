@@ -340,7 +340,8 @@ def test_identities_are_sorted(tmp_package):
 
 @pytest.mark.parametrize('kind,value,other', [('email', 'pb@example.org', 'PB@Example.org'),
                                               ('github', 'pbauer', 'PBauer'),
-                                              ('github-alias', 'pbauer-old', 'PBAUER-OLD')])
+                                              ('github-alias', 'pbauer-old', 'PBAUER-OLD'),
+                                              ('svn', 'pbauer', 'PBauer')])
 def test_a_login_or_an_address_is_unique_within_its_kind_ignoring_case(tmp_package, kind, value, other):
     errors = check.validate(tmp_package(identities(f'pbauer,{kind},{value},RECORD,,',
                                                    f'tschorr,{kind},{other},RECORD,,')))

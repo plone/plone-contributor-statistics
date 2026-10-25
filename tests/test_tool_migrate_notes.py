@@ -1,7 +1,8 @@
 """The migration of notes to data (plan 5): the fill rows go, their evidence moves to the records around them."""
 
-from scripts.lib.model import (Affiliation, Citation, Organisation, Person, Registry, load_affiliations,
-                               load_citations, write_affiliations, write_citations)
+from scripts.lib.model import (Affiliation, Citation, Identity, Organisation, Person, Registry, load_affiliations,
+                               load_citations, load_identities, write_affiliations, write_citations,
+                               write_identities)
 from scripts.tools import migrate_notes
 
 S1, S2, S3 = '111111111111', '222222222222', '333333333333'
@@ -151,3 +152,73 @@ def test_main_lists_the_rows_and_writes_only_with_write(write_registers, capsys)
     capsys.readouterr()
     assert migrate_notes.main(['fills']) == 0  # a second run finds nothing
     assert 'fill rows: 0, removed 0, kept 0' in capsys.readouterr().out
+
+
+# The SVN users in the notes of identities
+
+PAUL = 'paul-everitt'
+
+
+def address(person, value, source, notes, kind='email'):
+    return Identity(person, kind, value, source, value if kind == 'email' else None, notes)
+
+
+def commit(author):
+    return lambda source: f'Author: {author} <{author}@localhost>\nDate: 2008-07-28T21:01:55+00:00\n\nA change\n'
+
+
+def test_two_svn_users_of_one_person_become_two_identities():
+    identities = [address(PAUL, 'paul@localhost', S1, 'SVN user paul: in diazo the same commits exist as zopepaul'),
+                  address(PAUL, 'zopepaul@localhost', S2, 'Review in #69; SVN user zopepaul, founder of Zope')]
+    excerpts = {S1: commit('paul')(S1), S2: 'a page without the user'}
+    plan = migrate_notes.plan_svn(identities, excerpts.get)
+    assert plan.added == [
+        Identity(PAUL, 'svn', 'paul', S1, 'Author: paul <paul@localhost>',
+                 'SVN user paul: in diazo the same commits exist as zopepaul'),
+        Identity(PAUL, 'svn', 'zopepaul', S2, None, 'SVN user zopepaul, founder of Zope')]
+    assert plan.errors == []
+
+
+def test_one_svn_user_on_two_addresses_becomes_one_identity():
+    identities = [address('alex', 'aclark@3b4cdb85-528f-c531-b63d-5919d5b1aa08', S1, 'Review in #69; SVN user aclark'),
+                  address('alex', 'aclark@db7f04ef-aaf3-0310-a811-c281ed44c4ad', S2, 'Review in #69; SVN user aclark')]
+    plan = migrate_notes.plan_svn(identities, lambda source: '')
+    assert plan.added == [Identity('alex', 'svn', 'aclark', S1, None, 'SVN user aclark')]
+    assert [identity.value for identity in plan.found['alex', 'aclark']] == [identities[0].value, identities[1].value]
+
+
+def test_svn_user_is_this_login_takes_the_login():
+    identities = [address('jan', 'jjmurre@localhost', S1, 'Review in #69; SVN user is this login; example commit'),
+                  address('jan', 'jjmurre', S1, 'Review in #69; SVN user is this login; example commit', kind='name')]
+    plan = migrate_notes.plan_svn(identities, commit('jjmurre'))
+    assert plan.added == [Identity('jan', 'svn', 'jjmurre', S1, 'Author: jjmurre <jjmurre@localhost>',
+                                   'SVN user is this login')]
+
+
+def test_an_svn_user_recorded_already_is_not_added_again():
+    identities = [address('alex', 'aclark@localhost', S1, 'SVN user aclark'),
+                  Identity('alex', 'svn', 'aclark', S1, None, 'SVN user aclark')]
+    assert migrate_notes.plan_svn(identities, lambda source: '').added == []
+
+
+def test_an_svn_user_of_two_people_is_an_error():
+    identities = [address('alex', 'aclark@localhost', S1, 'SVN user aclark'),
+                  address('other', 'aclark@example.org', S2, 'SVN user AClark')]
+    plan = migrate_notes.plan_svn(identities, lambda source: '')
+    assert plan.errors == ['the SVN user AClark of other is the SVN user aclark of alex']
+
+
+def test_main_svn_writes_the_identities(write_registers, capsys):
+    write_registers(people=[(PAUL, None)])
+    identities = [address(PAUL, 'paul@localhost', S1, 'SVN user paul'),
+                  address(PAUL, 'zopepaul@localhost', S2, 'SVN user zopepaul')]
+    write_identities(identities)
+    assert migrate_notes.main(['svn']) == 0
+    assert f'add {PAUL} svn paul (source {S1}, no snippet)' in capsys.readouterr().out
+    assert load_identities() == identities
+    assert migrate_notes.main(['svn', '--write']) == 0
+    assert [(i.kind, i.value) for i in load_identities()] == [
+        ('email', 'paul@localhost'), ('email', 'zopepaul@localhost'), ('svn', 'paul'), ('svn', 'zopepaul')]
+    capsys.readouterr()
+    assert migrate_notes.main(['svn']) == 0
+    assert 'svn identities: 0 to add' in capsys.readouterr().out
