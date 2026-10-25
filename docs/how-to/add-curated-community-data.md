@@ -29,8 +29,9 @@ The files are in `curated/community/`, and {ref}`reference-curated-files` lists 
 Every row cites its sources the same way:
 
 -   `sources` holds the ids of the sources, separated by semicolons.
--   `cited_as` holds the source as text: its address, and a label or quote where it helps, such as `https://plone.org/…/beethoven-sprint-report-2026; Board: https://plone.org/…/minutes-january-8-2026`.
-    The community page shows it as the record of the row.
+-   `cited_as` holds the sources in words: the address of each source in `sources`, and a label or quote where it helps, such as `https://plone.org/…/beethoven-sprint-report-2026; Board: https://plone.org/…/minutes-january-8-2026`.
+    The community page shows it as the record of the row and links its addresses.
+    No check compares the addresses with `sources` yet, so make sure yourself that they are the same sources.
 -   `notes` holds remarks.
 
 Use ids instead of names.
@@ -38,7 +39,7 @@ In a set column, such as the speakers of a talk or the trainers of a training, s
 Do not write the organisation of a person in the row: the statistics take it from `curated/mappings/affiliations.csv`.
 If the source names it and no affiliation row exists for the year, add one, see {doc}`add-an-affiliation`.
 
-Add a new row after the rows of its year, and don't reorder the rows of a year: the order decides which sprint and which talks count, see {doc}`/explanation/curated-community-data`.
+Add a new row after the rows of its year, a talk, a training or an organiser after the rows of the events of its year, and don't reorder the rows of a year: the order decides which sprint and which talks count, see {doc}`/explanation/curated-community-data`.
 
 ## Add an event
 
@@ -96,7 +97,7 @@ Add the rows of an event next to each other.
 
 The roles have one row per person and year:
 
--   `curated/community/board-of-directors.csv`: the `person` and the `role`, `voting` or `non-voting`;
+-   `curated/community/board-of-directors.csv`: the `person` and the `role`, `voting` or `non-voting`, with the year in which the term ends as `year`;
 -   `curated/community/team-leaders.csv`: the `person` and the `team`;
 -   `curated/community/release-managers.csv`: the `person`;
 -   `curated/community/podcasts.csv`: the `series`, the `person` who hosted it and the number of `episodes` in the year.

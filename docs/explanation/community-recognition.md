@@ -35,7 +35,8 @@ It looks at one recognition year: community work counts in that year, code in th
 
 Most rules are a direct reading of the points file.
 Where an event has several organisers, its points are split among them: a strategic sprint, a World Plone Day event, a conference, a training.
-The points of an organised event go to the organisations among its organisers in `curated/community/organisers.csv`; a person among the organisers counts as a role on the community page, not for points.
+The points of an organised event go to the organisations among its organisers in `curated/community/organisers.csv`.
+A person among the organisers of a sprint or of the Plone Conference counts as a role on the community page, Sprint organiser or Conference organiser, and not for points; a person who organised a World Plone Day event is recorded, and counts for neither.
 An organisation gets points for one strategic sprint per year at most, and for four World Plone Day talks per year at most.
 Only World Plone Day events held in person or hybrid count, and only the trainings of the Plone Conference.
 Pull requests count as an average per year over the five years, from the yearly organisation files, so a person counts for the organisation of each year.

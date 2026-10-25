@@ -219,7 +219,7 @@ One row is one event: the Plone Conference of a year, a regional conference (sym
 | `format` | string | one of `in person`, `hybrid`, `online` | For a World Plone Day event: whether it was held in person, as a hybrid or online. |
 | `level` | string | one of `strategic`, `community` | For a sprint: whether it was a strategic or a community sprint. |
 | `sources` | string | ids of rows of `sources` separated by semicolons | The ids of the sources in the source register that support the row; empty only for the events the migration made to hold the rows pointing to them, `plone-conference-<year>` and `wpd-<year>-online`. Several values are separated by semicolons. |
-| `cited_as` | string |  | The words the row cited its sources with before the source register, verbatim: web addresses with their labels and quotes; empty when the row has no sources. |
+| `cited_as` | string |  | The sources of the row in words, as the community page shows and links them: the web addresses of the sources in `sources`, with their labels and quotes, such as `https://…; Board: https://…`. A row from before the source register keeps its old source cell here verbatim. Empty when the row has no sources. |
 | `notes` | string |  | Free-text remarks on the row. |
 
 Primary key: `id`.
@@ -248,7 +248,7 @@ One row is one keynote, talk or panel at a Plone conference, or one video of a W
 | `location` | string |  | For a World Plone Day video: where the talk was given, as the old record named it. |
 | `video` | string | pattern `^https?://.*$` | The web address of the recording, when one exists; one link, a second part goes to the notes. |
 | `sources` | string | required; ids of rows of `sources` separated by semicolons | The ids of the sources in the source register that support the row. Several values are separated by semicolons. |
-| `cited_as` | string | required | The words the row cited its sources with before the source register, verbatim: web addresses with their labels and quotes. |
+| `cited_as` | string | required | The sources of the row in words, as the community page shows and links them: the web addresses of the sources in `sources`, with their labels and quotes, such as `https://…; Board: https://…`. A row from before the source register keeps its old source cell here verbatim. |
 | `notes` | string |  | Free-text remarks on the row. |
 
 Primary key: `id`.
@@ -273,7 +273,7 @@ One row is one training at the Plone Conference.
 | `title` | string | required | The title of the training. |
 | `trainers` | string | ids of rows of `people` separated by semicolons | The ids of the trainers in the people register. Several values are separated by semicolons. |
 | `sources` | string | required; ids of rows of `sources` separated by semicolons | The ids of the sources in the source register that support the row. Several values are separated by semicolons. |
-| `cited_as` | string | required | The words the row cited its sources with before the source register, verbatim: web addresses with their labels and quotes. |
+| `cited_as` | string | required | The sources of the row in words, as the community page shows and links them: the web addresses of the sources in `sources`, with their labels and quotes, such as `https://…; Board: https://…`. A row from before the source register keeps its old source cell here verbatim. |
 | `notes` | string |  | Free-text remarks on the row. |
 
 Primary key: `id`.
@@ -297,7 +297,7 @@ One row is one organiser of an event: a person or an organisation.
 | `person` | string | pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `people` | The id of an organising person in the people register; empty for an organisation. |
 | `organisation` | string | pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `organisations` | The id of an organising organisation in the organisations register; empty for a person. |
 | `sources` | string | required; ids of rows of `sources` separated by semicolons | The ids of the sources in the source register that support the row. Several values are separated by semicolons. |
-| `cited_as` | string | required | The words the row cited its sources with before the source register, verbatim: web addresses with their labels and quotes. |
+| `cited_as` | string | required | The sources of the row in words, as the community page shows and links them: the web addresses of the sources in `sources`, with their labels and quotes, such as `https://…; Board: https://…`. A row from before the source register keeps its old source cell here verbatim. |
 | `notes` | string |  | Free-text remarks on the row. |
 
 Checks beyond the schema:
@@ -318,7 +318,7 @@ One row is one member of the Board of Directors whose term ends in the year.
 | `person` | string | required; pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `people` | The id of the person in the people register. |
 | `role` | string | required; one of `voting`, `non-voting` | Whether the person is a voting or a non-voting member. |
 | `sources` | string | required; ids of rows of `sources` separated by semicolons | The ids of the sources in the source register that support the row. Several values are separated by semicolons. |
-| `cited_as` | string | required | The words the row cited its sources with before the source register, verbatim: web addresses with their labels and quotes. |
+| `cited_as` | string | required | The sources of the row in words, as the community page shows and links them: the web addresses of the sources in `sources`, with their labels and quotes, such as `https://…; Board: https://…`. A row from before the source register keeps its old source cell here verbatim. |
 | `notes` | string |  | Free-text remarks on the row. |
 
 Primary key: `year`, `person`.
@@ -339,7 +339,7 @@ One row is one team leader and team in the year.
 | `person` | string | required; pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `people` | The id of the person in the people register. |
 | `team` | string | required | The team the person leads. |
 | `sources` | string | required; ids of rows of `sources` separated by semicolons | The ids of the sources in the source register that support the row. Several values are separated by semicolons. |
-| `cited_as` | string | required | The words the row cited its sources with before the source register, verbatim: web addresses with their labels and quotes. |
+| `cited_as` | string | required | The sources of the row in words, as the community page shows and links them: the web addresses of the sources in `sources`, with their labels and quotes, such as `https://…; Board: https://…`. A row from before the source register keeps its old source cell here verbatim. |
 | `notes` | string |  | Free-text remarks on the row. |
 
 Primary key: `year`, `person`, `team`.
@@ -359,7 +359,7 @@ One row is one release manager in the year.
 | `year` | integer | required; at least 2000 | The year of the row. |
 | `person` | string | required; pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `people` | The id of the person in the people register. |
 | `sources` | string | required; ids of rows of `sources` separated by semicolons | The ids of the sources in the source register that support the row. Several values are separated by semicolons. |
-| `cited_as` | string | required | The words the row cited its sources with before the source register, verbatim: web addresses with their labels and quotes. |
+| `cited_as` | string | required | The sources of the row in words, as the community page shows and links them: the web addresses of the sources in `sources`, with their labels and quotes, such as `https://…; Board: https://…`. A row from before the source register keeps its old source cell here verbatim. |
 | `notes` | string |  | Free-text remarks on the row. |
 
 Primary key: `year`, `person`.
@@ -381,7 +381,7 @@ One row is one host of a Plone podcast or live series in the year.
 | `person` | string | pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `people` | The id of the host in the people register; empty when the source names no host. |
 | `episodes` | integer | required; at least 1 | The number of episodes the person took part in, in the year. |
 | `sources` | string | required; ids of rows of `sources` separated by semicolons | The ids of the sources in the source register that support the row. Several values are separated by semicolons. |
-| `cited_as` | string | required | The words the row cited its sources with before the source register, verbatim: web addresses with their labels and quotes. |
+| `cited_as` | string | required | The sources of the row in words, as the community page shows and links them: the web addresses of the sources in `sources`, with their labels and quotes, such as `https://…; Board: https://…`. A row from before the source register keeps its old source cell here verbatim. |
 | `notes` | string |  | Free-text remarks on the row. |
 
 Checks beyond the schema:

@@ -87,7 +87,7 @@ The community data is one file per kind in `curated/community/`, with the rows o
 The roles files, `curated/community/board-of-directors.csv`, `curated/community/team-leaders.csv`, `curated/community/release-managers.csv` and `curated/community/podcasts.csv`, have a `year` column instead.
 The rows of a year are in the order in which the recognition reads them, see {doc}`/explanation/community-recognition`.
 
-The community page counts the Plone Conference of a year with recorded organisers, the sprints, and the World Plone Day events held in person or as a hybrid as events; the online editions and the symposia are recorded, but not counted as events.
+The community page counts the Plone Conference of a year with recorded organisers, the sprints, and the World Plone Day events held in person or as a hybrid as events; the World Plone Day events held online and the symposia are recorded, but not counted as events.
 The roles are Board member, team lead, release manager, trainer, speaker, podcast host, sprint organiser and conference organiser.
 Of the World Plone Day videos, only those of the type `Talk` are talks.
 A podcast counts for recognition from five episodes a year.

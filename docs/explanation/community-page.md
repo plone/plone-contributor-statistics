@@ -51,7 +51,7 @@ The page counts:
 -   sprints, one per recorded sprint, strategic or community, and before 2011 without a level;
 -   World Plone Day, one per local event held in person or hybrid, with its organising organisations ([#118](https://github.com/plone/plone-contributor-statistics/issues/118)).
 
-The online editions of World Plone Day are recorded, but are not counted as events; their talks are.
+World Plone Day events held online, and the online edition of a year, are recorded, but are not counted as events; their talks are.
 Symposia, the regional conferences, are recorded with their talks, and not counted as events.
 Trainings are sessions at the conference, not events of their own.
 Meetups join the count once they are recorded: they need a kind in the schema of `curated/community/events.csv` and a rule in `EVENT_RULES` in `scripts/lib/model/community.py`.

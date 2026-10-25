@@ -42,7 +42,7 @@ event
     Talks, trainings and {term}`organisers <organiser>` point to it by its id.
 
 event kind
-    The `kind` of an {term}`event`: `conference` for the Plone Conference of a year, `symposium` for a regional conference, `wpd` for a World Plone Day event of one place or the online edition of a year, and `sprint` for a sprint.
+    The `kind` of an {term}`event`: `conference` for the Plone Conference of a year, `symposium` for a regional conference, `wpd` for a World Plone Day event of one place, held in person, hybrid or online, or the online edition of a year, and `sprint` for a sprint.
 
 excluded repository
     A repository of the `plone` GitHub organisation that the statistics skip.

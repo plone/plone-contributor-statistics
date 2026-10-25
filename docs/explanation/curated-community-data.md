@@ -22,7 +22,7 @@ Its `kind` says what it is:
 
 - `conference`: the Plone Conference of a year;
 - `symposium`: a regional conference, such as the Plone Tagung, the symposia or PloneConf Brasil;
-- `wpd`: a World Plone Day event of one place, or the online edition of a year;
+- `wpd`: a World Plone Day event of one place, held in person, hybrid or online, or the online edition of a year;
 - `sprint`: a sprint, with its `level` where the Board gave it one.
 
 Every event has an id that is chosen once and never renamed, such as `plone-conference-2025`, `wpd-2025-04-10-bologna-italy` or `beethoven-sprint-2026`.
@@ -42,17 +42,19 @@ The files record more than the community page and the recognition count.
 What counts, and for how many points, is decided by the Board and the Marketing Team; this project prepares the data and shows it, see {doc}`community-recognition`.
 Today:
 
-- The online editions of World Plone Day are recorded, so that their talks have an event, but count nowhere as an event: the community page doesn't list them, and they earn no points as events.
+- World Plone Day events held online, and the online edition of a year, are recorded, so that their talks have an event, but count nowhere as events: the community page doesn't list them, and they earn no points.
   The talks given there are World Plone Day talks like any other.
+- A person who organised a World Plone Day event is recorded, but counts neither as a role on the community page nor for points; the organisations of the event count.
 - Trainings at a symposium are recorded, but only the trainings of the Plone Conference count.
-- Conference talks are shown, and not counted.
+- Conference talks count on the community page: their speakers are active people, and a team that gave one is an active organisation.
+  They earn no recognition points.
 
 ## The order of a year's rows
 
 The rows of a year keep their order in the files, and so do the organisers of an event.
 The order decides which records count where the points have a limit: of the strategic sprints of a year, the first one that names an organisation counts for it, with that sprint's split, and only the first four World Plone Day talks of an organisation in a year count.
 This is how the recognition has always read the rows, not a new rule, see {doc}`community-recognition`.
-So add a new row after the rows of its year, and don't sort or reorder the rows of a year.
+So add a new row after the rows of its year, a talk, a training or an organiser after the rows of the events of its year, and don't sort or reorder the rows of a year.
 
 ## People by id, organisations only for entities
 
@@ -83,7 +85,7 @@ The sources of a row are the record for the row only.
 The record for the organisation of a person belongs to an affiliation row; a biography that names it for the year is a source there, see {doc}`attribution`.
 A memory counts as a source when people who took part confirm it in public, for example in a comment on the pull request.
 
-Two kinds of events may have no source: the Plone Conference of a year, `plone-conference-<year>`, and the online edition of World Plone Day, `wpd-<year>-online`.
+Two events of a year may have no source: the Plone Conference of a year, `plone-conference-<year>`, and the online edition of World Plone Day, `wpd-<year>-online`.
 They hold the talks, trainings and organisers that point to them, and those rows cite their sources.
 
 Rows that no source supports are removed, even if they were probably right.
@@ -120,7 +122,7 @@ Several kinds of curated data depend on a definition, and the definitions follow
   The Interlegis Program of the Federal Senate is an employer and one of PloneGov-BR's founding members; its staff count for Interlegis in their personal roles, such as Board seats and talks, while public bodies that host an event are its venue, not its organiser ([ILB annual report 2023](https://www12.senado.leg.br/interlegis/relatorios-ilb/relatorio-ilb-2023.pdf), p. 22).
   When the Foundation organised the online conferences of 2020 and 2021, the organisers are the people who did the organising work, found in the Board minutes and announcements.
 - World Plone Day events count when they were held in person, or hybrid with an in-person meeting.
-  Each local event is one event, with its own source; the online edition of a year is one event of the format `online`, recorded, but not counted.
+  Each local event is one event, with its own source; events held online, and the online edition of a year, an event of the format `online`, are recorded, but count nowhere as events.
   The organisers are the organisations that held the event, not the venue that hosted it.
   An event that was announced, but that no report confirms, is recorded with the note "announced, no report found"; reports after the event were not usual in the early years.
 - A training is a session that the conference programme calls a training or a tutorial, including the tutorials in the talk programme of the early conferences, which had no separate training days.

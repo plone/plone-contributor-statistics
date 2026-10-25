@@ -38,7 +38,7 @@
     {
       "name": "cited_as",
       "type": "string",
-      "description": "The words the row cited its sources with before the source register, verbatim: web addresses with their labels and quotes.",
+      "description": "The sources of the row in words, as the community page shows and links them: the web addresses of the sources in `sources`, with their labels and quotes, such as `https://…; Board: https://…`. A row from before the source register keeps its old source cell here verbatim.",
       "constraints": {
         "required": true
       }
