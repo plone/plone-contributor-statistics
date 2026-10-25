@@ -40,7 +40,7 @@
     {
       "name": "date",
       "type": "date",
-      "description": "The date the source speaks for: its publication date if it shows one, else the capture date of the archived copy, else the day it was fetched.",
+      "description": "The date the source speaks for: its publication date if it shows one (not a placeholder date), the date of the conference for a conference page, else the capture date of the archived copy, else the day it was fetched.",
       "constraints": {
         "required": true
       }
