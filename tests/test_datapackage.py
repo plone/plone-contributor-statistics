@@ -32,6 +32,8 @@ def test_build_package_lists_every_curated_csv(tmp_repo):
     assert names['events']['path'] == 'community/events.csv'
     assert names['events']['schema'] == 'schemas/events.json'
     assert 'no-schema-yet' not in names
+    # Nothing reads it: the check reports it
+    assert datapackage.without_schema(tmp_repo) == [Path('curated/mappings/no_schema_yet.csv')]
     assert [r['path'] for r in descriptor['resources']] == sorted(r['path'] for r in descriptor['resources'])
 
 

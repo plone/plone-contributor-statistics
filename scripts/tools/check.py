@@ -3,7 +3,8 @@
 Run from the repository root: python -m scripts.tools.check
 Prints one line per error as file:row:field: message, and exits 1 when there are errors.
 The package is built from the files on disk, so a new curated file is validated before
-curated/datapackage.json lists it; a committed descriptor that lists other files is an error of its own.
+curated/datapackage.json lists it; a committed descriptor that lists other files is an error of its own, and so is
+a curated CSV file that has no schema, since nothing reads it.
 """
 
 import argparse
@@ -17,10 +18,11 @@ from frictionless import Checklist, Package
 
 from scripts.lib import paths
 from scripts.lib.model.checks import checks_for
-from scripts.tools.datapackage import build_package
+from scripts.tools.datapackage import build_package, without_schema
 
 NEAREST = 3
 STALE = 'stale — run python -m scripts.tools.datapackage'
+NO_SCHEMA = 'no schema: this file is not read'
 
 
 def _committed(root):
@@ -36,7 +38,8 @@ def validate(root=Path('.')):
 
     The package is the one datapackage.build_package makes of every curated file on disk. Each resource is
     validated as part of it, so Frictionless resolves its foreign keys, together with the custom checks of
-    that resource. A committed curated/datapackage.json that differs from it is reported as stale.
+    that resource. A committed curated/datapackage.json that differs from it is reported as stale, and a curated
+    CSV file without a schema, which the package leaves out and nothing reads, as an error of its own.
     """
     root = Path(root)
     descriptor = build_package(root)
@@ -44,6 +47,7 @@ def validate(root=Path('.')):
     found = []
     if _committed(root) != descriptor:
         found.append((paths.DATAPACKAGE.as_posix(), None, None, STALE))
+    found.extend((path.as_posix(), None, None, NO_SCHEMA) for path in without_schema(root))
     for resource in package.resources:
         report = resource.validate(checklist=Checklist(checks=checks_for(resource.name, package)))
         file = (paths.DATAPACKAGE.parent / resource.path).as_posix()

@@ -12,7 +12,7 @@ from pathlib import Path
 from frictionless import Package
 
 from scripts.lib import paths
-from scripts.lib.model.checks import SetKeys, checks_for
+from scripts.lib.model.checks import TALK_TYPES_OF, SetKeys, checks_for, or_list
 
 PAGE = Path('docs/reference/curated-files.md')
 
@@ -92,6 +92,7 @@ The format of a file is its Table Schema, in `curated/schemas/<kind>.json`.
 This page is generated from them with `python -m scripts.tools.schema_docs`, so edit the schema, not the page.
 Run `python -m scripts.tools.check` or `make check` to validate the files.
 It reports the file, the row and the column of every error.
+A CSV file under `curated/` that has no schema is an error too: nothing reads it.
 
 A column that holds the ids of several rows of a register has several ids separated by semicolons.
 Quote a value that contains a comma.
@@ -182,6 +183,13 @@ def _check_lines(kind, package):
         elif check.type == 'event-kind':
             kinds = ', '.join(f'`{kind}`' for kind in check.allowed)
             lines.append(f'- `event` is an event of one of the kinds {kinds}.')
+        elif check.type == 'talk-type':
+            by_types = {}
+            for event_kind, types in TALK_TYPES_OF.items():
+                by_types.setdefault(types, []).append(f'`{event_kind}`')
+            parts = [f'{or_list([f"`{t}`" for t in types])} at a {" or ".join(event_kinds)} event'
+                     for types, event_kinds in by_types.items()]
+            lines.append(f'- `type` fits the kind of its event: {"; ".join(parts)}.')
         elif check.type == 'unique-casefold':
             within = f' within its `{check.scope}`' if check.scope else ''
             only = (f' for the {check.scope}s ' + ', '.join(f'`{value}`' for value in check.only)

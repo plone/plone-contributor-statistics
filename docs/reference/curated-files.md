@@ -13,6 +13,7 @@ The format of a file is its Table Schema, in `curated/schemas/<kind>.json`.
 This page is generated from them with `python -m scripts.tools.schema_docs`, so edit the schema, not the page.
 Run `python -m scripts.tools.check` or `make check` to validate the files.
 It reports the file, the row and the column of every error.
+A CSV file under `curated/` that has no schema is an error too: nothing reads it.
 
 A column that holds the ids of several rows of a register has several ids separated by semicolons.
 Quote a value that contains a comma.
@@ -229,6 +230,7 @@ Checks beyond the schema:
 - An event cites a source, unless it is a `plone-conference-<year>` or `wpd-<year>-online` the migration made.
 - A World Plone Day event starts on a full day, `YYYY-MM-DD`, unless it is a `wpd-<year>-online` edition.
 - No two rows have the same `year`, `name` among the rows whose `kind` is `sprint`.
+- `cited_as` contains a web address, unless the row leaves both `sources` and `cited_as` empty.
 - `sources`: every element is the id of a row of the register, and none is repeated.
 
 ### Talks
@@ -256,6 +258,8 @@ Primary key: `id`.
 Checks beyond the schema:
 
 - `event` is an event of one of the kinds `conference`, `symposium`, `wpd`.
+- `type` fits the kind of its event: `Keynote`, `Talk` or `Panel` at a `conference` or `symposium` event; `Talk`, `Teaser`, `Announcement`, `Welcome`, `Recap`, `Duplicate`, `Opening`, `Full stream` or `Newsroom` at a `wpd` event.
+- `cited_as` contains a web address, unless the row leaves both `sources` and `cited_as` empty.
 - `speakers`: every element is the id of a row of the register, and none is repeated.
 - `organisations`: every element is the id of a row of the register, and none is repeated.
 - `sources`: every element is the id of a row of the register, and none is repeated.
@@ -282,6 +286,7 @@ Checks beyond the schema:
 
 - `event` is an event of one of the kinds `conference`, `symposium`.
 - No two rows have the same `event`, `title`.
+- `cited_as` contains a web address, unless the row leaves both `sources` and `cited_as` empty.
 - `trainers`: every element is the id of a row of the register, and none is repeated.
 - `sources`: every element is the id of a row of the register, and none is repeated.
 
@@ -304,6 +309,7 @@ Checks beyond the schema:
 
 - An organiser row names exactly one of `person` and `organisation`.
 - No two rows have the same `event`, `person`, `organisation`.
+- `cited_as` contains a web address, unless the row leaves both `sources` and `cited_as` empty.
 - `sources`: every element is the id of a row of the register, and none is repeated.
 
 ### Board of Directors
@@ -325,6 +331,7 @@ Primary key: `year`, `person`.
 
 Checks beyond the schema:
 
+- `cited_as` contains a web address, unless the row leaves both `sources` and `cited_as` empty.
 - `sources`: every element is the id of a row of the register, and none is repeated.
 
 ### Team leaders
@@ -346,6 +353,7 @@ Primary key: `year`, `person`, `team`.
 
 Checks beyond the schema:
 
+- `cited_as` contains a web address, unless the row leaves both `sources` and `cited_as` empty.
 - `sources`: every element is the id of a row of the register, and none is repeated.
 
 ### Release managers
@@ -366,6 +374,7 @@ Primary key: `year`, `person`.
 
 Checks beyond the schema:
 
+- `cited_as` contains a web address, unless the row leaves both `sources` and `cited_as` empty.
 - `sources`: every element is the id of a row of the register, and none is repeated.
 
 ### Podcasts
@@ -386,6 +395,7 @@ One row is one host of a Plone podcast or live series in the year.
 
 Checks beyond the schema:
 
+- `cited_as` contains a web address, unless the row leaves both `sources` and `cited_as` empty.
 - `sources`: every element is the id of a row of the register, and none is repeated.
 
 ## Recognition files and PLIPs

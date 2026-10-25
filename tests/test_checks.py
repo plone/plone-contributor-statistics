@@ -1,9 +1,11 @@
+import json
 import shutil
 from pathlib import Path
 
 import pytest
 
 from scripts.lib.model import affiliation_id
+from scripts.lib.model.checks import TALK_TYPES_OF
 from scripts.lib.model.names import fold, slugify
 from scripts.lib.model.sources import source_id
 from scripts.tools import check, datapackage
@@ -684,3 +686,59 @@ def test_a_training_title_is_unique_per_event_and_a_sprint_name_per_year(tmp_pac
         (4, True)]
     assert [(row, 'row 2 has the same event, title' in message) for row, _, message in errors_of(root, 'trainings')
             ] == [(3, True)]
+
+
+def test_a_talk_has_a_type_of_the_kind_of_its_event(tmp_package):
+    # A conference or symposium talk is a Keynote, Talk or Panel; a World Plone Day video is what it is
+    events = (f'plone-tagung-2023,symposium,Plone Tagung 2023,2023,,,,,,{RECORD_ID},{RECORD},\n'
+              f'wpd-2023-04-26-bonn,wpd,"World Plone Day 2023, Bonn",2023,2023-04-26,,Bonn,in person,,{RECORD_ID},'
+              f'{RECORD},\n')
+    talks = ''.join(f't0000000{n},{event},{kind},A talk {n},pbauer,,,,{RECORD_ID},{RECORD},\n' for n, event, kind in (
+        (1, 'plone-conference-2023', 'Keynote'), (2, 'plone-tagung-2023', 'Panel'),
+        (3, 'wpd-2023-04-26-bonn', 'Teaser'), (4, 'wpd-2023-04-26-bonn', 'Talk'),
+        (5, 'plone-conference-2023', 'Teaser'), (6, 'plone-tagung-2023', 'Full stream'),
+        (7, 'wpd-2023-04-26-bonn', 'Keynote')))
+    root = tmp_package(community(events=events, talks=talks))
+    assert [(row, field, message.split(': ', 1)[1]) for row, field, message in errors_of(root, 'talks')] == [
+        (6, 'type', 'a talk at the conference event plone-conference-2023 is a Keynote, Talk or Panel, not a Teaser'),
+        (7, 'type', 'a talk at the symposium event plone-tagung-2023 is a Keynote, Talk or Panel, not a Full stream'),
+        (8, 'type', 'a talk at the wpd event wpd-2023-04-26-bonn is a Talk, Teaser, Announcement, Welcome, Recap, '
+                    'Duplicate, Opening, Full stream or Newsroom, not a Keynote')]
+
+
+def test_every_talk_type_is_allowed_at_some_event_kind():
+    schema = json.loads((REPO / 'curated/schemas/talks.json').read_text(encoding='utf-8'))
+    enum = next(f for f in schema['fields'] if f['name'] == 'type')['constraints']['enum']
+    assert sorted({kind for kinds in TALK_TYPES_OF.values() for kind in kinds}) == sorted(enum)
+    assert set(TALK_TYPES_OF) == {'conference', 'symposium', 'wpd'}
+
+
+def test_a_csv_file_without_a_schema_is_an_error(tmp_package, capsys):
+    root = tmp_package(trainings('pbauer;tschorr'))
+    # A yearly file of the format before the events, and a file of a kind that has no schema
+    (root / 'curated/community/2026-sprints.csv').write_text('sprint,start\nA sprint,2026-01-01\n', encoding='utf-8')
+    (root / 'curated/notes').mkdir()
+    (root / 'curated/notes/todo.csv').write_text('a\n', encoding='utf-8')
+    assert check.validate(root) == [
+        ('curated/community/2026-sprints.csv', None, None, check.NO_SCHEMA),
+        ('curated/notes/todo.csv', None, None, check.NO_SCHEMA)]
+    with pytest.raises(SystemExit):
+        check.main([])
+    assert capsys.readouterr().out == (
+        'curated/community/2026-sprints.csv::: no schema: this file is not read\n'
+        'curated/notes/todo.csv::: no schema: this file is not read\n')
+
+
+def test_a_row_that_cites_sources_gives_a_web_address_in_cited_as(tmp_package):
+    # As the old source cell had to; only an event the migration made to hold rows may cite nothing at all
+    root = tmp_package(community(
+        events=f'a-sprint,sprint,A sprint,2023,,,,,,{RECORD_ID},the sprint report,\n'
+               f'b-sprint,sprint,B sprint,2023,,,,,,{RECORD_ID},,\n'
+               'plone-conference-2024,conference,Plone Conference 2024,2024,,,,,,,see the talks,\n',
+        organisers=f'plone-conference-2023,pbauer,,{RECORD_ID},{RECORD},\n'
+                   f'plone-conference-2023,tschorr,,{RECORD_ID},the programme,\n'))
+    expected = 'cited_as needs the web address of a source'
+    assert [(row, field, note) for row, field, note in event_errors(root) if field == 'cited_as'] == [
+        (3, 'cited_as', expected), (4, 'cited_as', expected), (5, 'cited_as', expected)]
+    assert [(row, field, message.split(': ', 1)[1]) for row, field, message in errors_of(root, 'organisers')] == [
+        (3, 'cited_as', expected)]

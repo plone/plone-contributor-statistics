@@ -13,19 +13,33 @@ from scripts.lib.model.schema import kind_of, schema_path
 PACKAGE_NAME = 'plone-contributor-statistics-curated'
 
 
-def build_package(root=Path('.')):
-    """The descriptor of the package: one resource per curated CSV file that has a schema."""
+def _curated_files(root):
+    """(path relative to curated/, kind or None when no schema exists for it) of every curated CSV file, sorted."""
     curated = Path(root) / paths.DATAPACKAGE.parent
-    resources = []
+    found = []
     for csv_file in sorted(curated.rglob('*.csv')):
         relative = csv_file.relative_to(curated)
         try:
-            kind = kind_of(paths.DATAPACKAGE.parent / relative)
+            found.append((relative, kind_of(paths.DATAPACKAGE.parent / relative)))
         except ValueError:
-            continue  # no schema yet
+            found.append((relative, None))
+    return found
+
+
+def without_schema(root=Path('.')):
+    """The curated CSV files that have no schema: the package leaves them out, and nothing reads them."""
+    return [paths.DATAPACKAGE.parent / relative for relative, kind in _curated_files(root) if kind is None]
+
+
+def build_package(root=Path('.')):
+    """The descriptor of the package: one resource per curated CSV file that has a schema (see without_schema)."""
+    resources = []
+    for relative, kind in _curated_files(root):
+        if kind is None:
+            continue
         resources.append(
             {
-                'name': csv_file.stem.replace('_', '-'),
+                'name': relative.stem.replace('_', '-'),
                 'path': relative.as_posix(),
                 'schema': schema_path(kind).relative_to(paths.DATAPACKAGE.parent).as_posix(),
                 'format': 'csv',

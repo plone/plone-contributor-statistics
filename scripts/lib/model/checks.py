@@ -592,6 +592,70 @@ class PointsToEventKind(Check):
             yield EventKindError.from_row(row, note=note, field_name='event')
 
 
+class TalkTypeError(errors.CellError):
+    type = 'talk-type'
+    title = 'Talk Type'
+    description = 'A talk has a type that talks at events of its kind do not have.'
+    template = 'The cell {cell} in row at position {rowNumber} and field {fieldName} has an error: {note}'
+
+
+# The types of the talks at the events of a kind: the programme of a conference or symposium calls a talk a Keynote,
+# Talk or Panel; a World Plone Day video is what it is, and only its type Talk is a talk that counts
+TALK_TYPES_OF = {
+    'conference': ('Keynote', 'Talk', 'Panel'),
+    'symposium': ('Keynote', 'Talk', 'Panel'),
+    'wpd': ('Talk', 'Teaser', 'Announcement', 'Welcome', 'Recap', 'Duplicate', 'Opening', 'Full stream', 'Newsroom'),
+}
+
+
+def or_list(values):
+    """The values as text, the last one joined with `or`: `a, b or c`."""
+    return ', '.join(values[:-1]) + f' or {values[-1]}' if len(values) > 1 else values[0]
+
+
+@attrs.define(kw_only=True, repr=False)
+class TalkTypeOfEventKind(Check):
+    """A talk has a type of the talks at events of its kind, see TALK_TYPES_OF."""
+
+    type = 'talk-type'
+    Errors = [TalkTypeError]
+
+    kinds: dict = attrs.field(factory=dict)
+    """{event id: kind} of the events file; an unknown event is the foreign key's error."""
+
+    def validate_row(self, row):
+        kind = self.kinds.get(row['event'])
+        allowed = TALK_TYPES_OF.get(kind)
+        if allowed is not None and row['type'] and row['type'] not in allowed:
+            note = f'a talk at the {kind} event {row["event"]} is a {or_list(allowed)}, not a {row["type"]}'
+            yield TalkTypeError.from_row(row, note=note, field_name='type')
+
+
+class CitedAsError(errors.CellError):
+    type = 'cited-as'
+    title = 'Cited As'
+    description = 'A row that cites sources, or says how it cites them, gives no web address in `cited_as`.'
+    template = 'The cell {cell} in row at position {rowNumber} and field {fieldName} has an error: {note}'
+
+
+WEB_ADDRESS = re.compile(r'https?://')
+
+
+@attrs.define(kw_only=True, repr=False)
+class CitedAsWebAddress(Check):
+    """`cited_as` contains a web address, unless the row leaves both `sources` and `cited_as` empty.
+
+    Only an event the migration made to hold the rows pointing to it cites nothing, see EventSources.
+    """
+
+    type = 'cited-as'
+    Errors = [CitedAsError]
+
+    def validate_row(self, row):
+        if (row['sources'] or row['cited_as']) and not WEB_ADDRESS.search(row['cited_as'] or ''):
+            yield CitedAsError.from_row(row, note='cited_as needs the web address of a source', field_name='cited_as')
+
+
 def _event_kinds(package):
     """{event id: kind} of the events of the package; empty without the events file."""
     if not package.has_resource('events'):
@@ -667,12 +731,16 @@ def checks_for(resource_name, package, until=None):
                             SourceExcerptFiles(folder=excerpts, stems=_excerpt_stems(package))],
         'events': lambda: [EventSources(), WorldPloneDayDate(),
                            UniqueRow(fields=['year', 'name'], only={'kind': 'sprint'})],
-        'talks': lambda: [PointsToEventKind(allowed=EVENT_KINDS_OF['talks'], kinds=_event_kinds(package))],
+        'talks': lambda: [PointsToEventKind(allowed=EVENT_KINDS_OF['talks'], kinds=_event_kinds(package)),
+                          TalkTypeOfEventKind(kinds=_event_kinds(package))],
         'trainings': lambda: [PointsToEventKind(allowed=EVENT_KINDS_OF['trainings'], kinds=_event_kinds(package)),
                               UniqueRow(fields=['event', 'title'])],
         'organisers': lambda: [PersonOrOrganisation(), UniqueRow(fields=['event', 'person', 'organisation'])],
     }
     result = checks.get(resource_name, lambda: [])()
+    names = package.get_resource(resource_name).schema.field_names
+    if 'sources' in names and 'cited_as' in names:
+        result.append(CitedAsWebAddress())
     for field in package.get_resource(resource_name).schema.fields:
         referenced = field.to_descriptor().get('x-set')
         if referenced:
