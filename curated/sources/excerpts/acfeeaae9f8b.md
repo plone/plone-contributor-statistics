@@ -1,0 +1,2 @@
+Present: Alexander Loechel, Paul Roeland, Chrissy Wainwright, Víctor Fernández de Alba, Kim Nguyen, Carol Ganz, Philip Bauer
+Absent: none!

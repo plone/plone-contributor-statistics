@@ -1,0 +1,1 @@
+Four Digits has extensive know how about sprints. Since the beginning, our company has incorporated the sprint as a useful way to get results. Furthermore, every year we organise a sprint in Arnhem called ' Living Statues Sprint'. We consider it a challenge to organise a sprint that involve lots of people together.
