@@ -46,7 +46,7 @@ Find the id first, then search the community data for it:
 
 ```shell
 grep -i "jane doe" curated/mappings/people.csv curated/mappings/identities.csv
-grep -r "jane-doe" curated/community-contributions/
+grep -r "jane-doe" curated/community/
 ```
 
 `curated/mappings/people.csv` links the id to the name, and `curated/mappings/identities.csv` to the GitHub login and to other spellings of the name.

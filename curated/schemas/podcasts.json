@@ -1,6 +1,15 @@
 {
   "fields": [
     {
+      "name": "year",
+      "type": "integer",
+      "description": "The year of the row.",
+      "constraints": {
+        "required": true,
+        "minimum": 2000
+      }
+    },
+    {
       "name": "series",
       "type": "string",
       "description": "The podcast series.",
@@ -19,19 +28,27 @@
     {
       "name": "episodes",
       "type": "integer",
-      "description": "The number of episodes the person took part in.",
+      "description": "The number of episodes the person took part in, in the year.",
       "constraints": {
         "required": true,
         "minimum": 1
       }
     },
     {
-      "name": "source",
+      "name": "sources",
       "type": "string",
-      "description": "A public record, linked as a web address, that supports the row.",
+      "description": "The ids of the sources in the source register that support the row. Several values are separated by semicolons.",
       "constraints": {
-        "required": true,
-        "pattern": ".*https?://.*"
+        "required": true
+      },
+      "x-set": "sources"
+    },
+    {
+      "name": "cited_as",
+      "type": "string",
+      "description": "The sources of the row in words, as the community page shows and links them: the web addresses of the sources in `sources`, with their labels and quotes, such as `https://…; Board: https://…`. A row from before the source register keeps its old source cell here verbatim.",
+      "constraints": {
+        "required": true
       }
     },
     {

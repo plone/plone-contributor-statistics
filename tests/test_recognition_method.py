@@ -5,15 +5,11 @@ import pytest
 from scripts.lib import paths
 from scripts.report import generate_community_recognition_report as recognition
 from scripts.derive import plip_organisation_stats as plips
+from tests.conftest import community_event, community_rows
 
 PLIP_HEADER = 'number,title,author,state,created_at,updated_at,closed_at,repository,html_url\n'
-SPRINTS = 'sprint,start,end,location,organisers,organisations,level,source,notes\n'
-WPD_EVENTS = 'date,location,format,organisations,organisers,source,notes\n'
-TALKS = 'title,speakers,organisations,type,location,source,notes\n'
-TRAININGS = 'title,trainers,source,notes\n'
-PODCASTS = 'series,person,episodes,source,notes\n'
-CONFERENCE = 'organisation,organisers,source,notes\n'
-TEAM_LEADERS = 'person,team,source,notes\n'
+CONFERENCE = 'plone-conference-2025'
+WPD_ONLINE = 'wpd-2025-online'
 
 # timo is kitconcept from 2022 (Unmapped before), the others belong to one organisation; nobody to none
 PEOPLE = [('timo', 'tisto'), ('mauro', 'mamico'), ('philip', ''), ('fred', ''), ('kim', ''), ('astrid', ''),
@@ -40,7 +36,10 @@ def data(write_registers, tmp_repo):
     for year in range(2020, 2026):
         write(tmp_repo / 'data' / f'{year}-plone-organisation-contributors.csv',
               'organisation,total_commits,total_pull_requests\n')
-    write(paths.COMMUNITY / '2025-plone-conference.csv', CONFERENCE)
+    # The conference of the recognition year, without organisers yet
+    community_event(CONFERENCE, 'conference', 2025, cited_as='', name='Plone Conference 2025')
+    community_event(WPD_ONLINE, 'wpd', 2025, cited_as='', name='World Plone Day 2025, Online', location='Online',
+                    format='online')
     return tmp_repo
 
 
@@ -50,8 +49,32 @@ def points(data, year=2025):
     return {org: dict(categories) for org, categories in org_points.items()}
 
 
-def community(data, name, text):
-    write(paths.COMMUNITY / f'2025-{name}.csv', text)
+def sprint(name, organisers=(), organisations=(), level='', cited_as='https://plone.org'):
+    community_event(name.lower().replace(' ', '-'), 'sprint', 2025, organisers, organisations, cited_as=cited_as,
+                    name=name, level=level)
+
+
+def wpd_event(location, fmt, organisations=(), cited_as='https://plone.org'):
+    community_event(f'wpd-2025-04-10-{location.lower()}', 'wpd', 2025, organisations=organisations,
+                    cited_as=cited_as, start='2025-04-10', location=location, format=fmt)
+
+
+def wpd_talk(title, speakers='', organisations='', kind='Talk', cited_as='https://a', event=WPD_ONLINE):
+    community_rows('talks', {'event': event, 'type': kind, 'title': title, 'speakers': speakers,
+                             'organisations': organisations, 'cited_as': cited_as})
+
+
+def training(title, trainers):
+    community_rows('trainings', {'event': CONFERENCE, 'title': title, 'trainers': trainers, 'cited_as': 'https://t'})
+
+
+def organiser(person='', organisation='', cited_as='https://c'):
+    community_rows('organisers', {'event': CONFERENCE, 'person': person, 'organisation': organisation,
+                                  'cited_as': cited_as})
+
+
+def role(kind, cited_as, **cells):
+    community_rows(kind, {'year': 2025, 'cited_as': cited_as, **cells})
 
 
 def test_five_years_end_with_the_recognition_year():
@@ -59,33 +82,31 @@ def test_five_years_end_with_the_recognition_year():
 
 
 def test_strategic_sprint_points_are_split_and_given_once_per_year(data):
-    community(data, 'sprints', SPRINTS
-              + 'Beethoven Sprint,,,Bonn,jakob,kitconcept;redturtle,strategic,https://plone.org,\n'
-              + 'Second Sprint,,,Bonn,timo,kitconcept,strategic,https://plone.org,\n'
-              + 'Community Sprint,,,Ferrara,mauro,redturtle,community,https://plone.org,\n')
+    sprint('Beethoven Sprint', ('jakob',), ('kitconcept', 'redturtle'), 'strategic')
+    sprint('Second Sprint', ('timo',), ('kitconcept',), 'strategic')
+    sprint('Community Sprint', ('mauro',), ('redturtle',), 'community')
     result = points(data)
     assert result['kitconcept GmbH']['Strategic Sprint'] == 6
     assert result['RedTurtle']['Strategic Sprint'] == 6
 
 
 def test_world_plone_day_event_points_are_split(data):
-    community(data, 'world-plone-day-event', WPD_EVENTS
-              + '2025-04-10,Bologna,in person,redturtle;kitconcept,,https://plone.org,\n')
+    wpd_event('Bologna', 'in person', ('redturtle', 'kitconcept'))
     assert points(data)['RedTurtle']['WPD Event'] == 1.5
 
 
 def test_only_world_plone_day_events_held_in_person_count(data):
     # Online editions are recorded, but only events held in person or hybrid get points (#118)
-    community(data, 'world-plone-day-event', WPD_EVENTS
-              + '2025-04-10,Online,online,redturtle,,https://plone.org,\n'
-              + '2025-04-10,Tokyo,hybrid,kitconcept,,https://plone.org,\n')
+    wpd_event('Online', 'online', ('redturtle',))
+    wpd_event('Tokyo', 'hybrid', ('kitconcept',))
     result = points(data)
     assert 'RedTurtle' not in result
     assert result['kitconcept GmbH']['WPD Event'] == 3
 
 
 def test_a_training_gives_four_points_split_among_trainers(data):
-    community(data, 'plone-conference-trainings', TRAININGS + 'Solo,timo,,\nDuo,timo;mauro,,\n')
+    training('Solo', 'timo')
+    training('Duo', 'timo;mauro')
     result = points(data)
     assert result['kitconcept GmbH']['Training Session'] == 6
     assert result['RedTurtle']['Training Session'] == 2
@@ -93,7 +114,7 @@ def test_a_training_gives_four_points_split_among_trainers(data):
 
 def test_a_trainer_without_an_organisation_keeps_the_share_out_of_the_points(data):
     # nobody has no affiliation in 2025: the share is Unmapped and dropped, the other share stays at 4 / 2
-    community(data, 'plone-conference-trainings', TRAININGS + 'Duo,timo;nobody,,\n')
+    training('Duo', 'timo;nobody')
     assert points(data) == {'kitconcept GmbH': {'Training Session': 2}}
     assert recognition.UNMAPPED not in contributions(data)
 
@@ -133,10 +154,9 @@ def test_plip_summary_maps_open_plips_by_the_year_they_were_created(data):
 
 
 def test_recognition_raises_without_community_year(data):
-    # The community folder exists, but has no curated files for the year: a wrong path, not a quiet year
-    (paths.COMMUNITY / '2025-plone-conference.csv').unlink()
-    with pytest.raises(FileNotFoundError, match='2025'):
-        points(data)
+    # The community folder exists, but has no rows for the year: a wrong year, not a quiet one
+    with pytest.raises(FileNotFoundError, match='2026'):
+        points(data, year=2026)
 
 
 def test_recognition_raises_without_community_folder(data):
@@ -163,9 +183,10 @@ def test_recognition_raises_on_missing_levels_file(tmp_path):
 
 def test_recognition_warns_on_one_missing_kind(data, capsys):
     # Some kinds of community data didn't exist in every year: one missing kind is a warning
-    community(data, 'plone-conference', CONFERENCE + 'redturtle,,https://c,\n')
+    organiser(organisation='redturtle')
     points(data)
-    assert '2025-podcasts.csv not found' in capsys.readouterr().out
+    out = capsys.readouterr().out
+    assert 'no podcasts rows for 2025' in out and 'plone-conference rows' not in out
 
 
 LEVELS = [
@@ -199,21 +220,20 @@ def contributions(data, year=2025):
 
 def test_contributions_carry_file_line_and_source(data):
     # The community page links every point to its row and public record
-    community(data, 'sprints',
-              SPRINTS + 'Beethoven Sprint,,,Bonn,jakob,redturtle,strategic,https://example.org/sprint,\n')
-    [sprint] = contributions(data)['RedTurtle']['Strategic Sprint']
-    assert sprint.points == 12
-    assert sprint.file.endswith('2025-sprints.csv')
-    assert sprint.line == 2
-    assert sprint.source == 'https://example.org/sprint'
-    assert sprint.text == 'Beethoven Sprint'
+    sprint('Beethoven Sprint', ('jakob',), ('redturtle',), 'strategic', cited_as='report: https://example.org/sprint')
+    [found] = contributions(data)['RedTurtle']['Strategic Sprint']
+    assert found.points == 12
+    assert found.file == 'curated/community/events.csv'
+    assert found.line == 4  # after the conference and the online World Plone Day
+    assert found.source == 'report: https://example.org/sprint'
+    assert found.text == 'Beethoven Sprint'
 
 
 def test_people_are_shown_by_their_name_in_the_register(data):
     paths.PEOPLE.write_text('id,name,github,source\ntimo,Timo Stollenwerk,tisto,https://r\n', encoding='utf-8')
-    community(data, 'release-managers', 'person,source,notes\ntimo,https://rm,\n')
-    community(data, 'board-of-directors', 'person,role,source,notes\ntimo,voting,https://b,\n')
-    community(data, 'team-leaders', TEAM_LEADERS + 'timo,Volto Team,https://t,\n')
+    role('release-managers', 'https://rm', person='timo')
+    role('board-of-directors', 'https://b', person='timo', role='voting')
+    role('team-leaders', 'https://t', person='timo', team='Volto Team')
     found = contributions(data)['kitconcept GmbH']
     assert [(c.text, c.points, c.source) for c in found['Release Manager']] == [('Timo Stollenwerk', 12, 'https://rm')]
     assert [(c.text, c.points) for c in found['Board Member']] == [('Timo Stollenwerk', 6)]
@@ -233,7 +253,7 @@ def test_pull_request_points_link_the_row_of_each_year(data):
 
 
 def test_wpd_talk_source_is_the_video(data):
-    community(data, 'world-plone-day-talks', TALKS + 'A talk,mauro,,Talk,Online,https://www.youtube.com/watch?v=abc,\n')
+    wpd_talk('A talk', 'mauro', cited_as='https://www.youtube.com/watch?v=abc')
     [talk] = contributions(data)['RedTurtle']['WPD Talk']
     assert talk.source == 'https://www.youtube.com/watch?v=abc'
     assert talk.text == 'A talk'
@@ -241,28 +261,30 @@ def test_wpd_talk_source_is_the_video(data):
 
 def test_a_talk_counts_once_per_organisation(data):
     # Two speakers can share one organisation, and the organisations set can name it again
-    community(data, 'world-plone-day-talks', TALKS
-              + 'A talk,astrid;karel,juizi,Talk,Online,https://a,\n'
-              + 'Another,astrid;mauro,,Talk,Online,https://b,\n')
+    wpd_talk('A talk', 'astrid;karel', 'juizi')
+    wpd_talk('Another', 'astrid;mauro', cited_as='https://b')
     result = points(data)
     assert result['Juizi']['WPD Talk'] == 2
     assert result['RedTurtle']['WPD Talk'] == 1
 
 
 def test_a_talk_by_a_company_team_counts_for_the_company(data):
-    community(data, 'world-plone-day-talks', TALKS + 'Team talk,,juizi,Talk,Online,https://a,\n')
+    wpd_talk('Team talk', organisations='juizi')
     assert points(data) == {'Juizi': {'WPD Talk': 1}}
 
 
 def test_talks_count_at_most_four_per_organisation(data):
-    community(data, 'world-plone-day-talks', TALKS + ''.join(
-        f'Talk {n},mauro;nobody,,Talk,Online,https://{n},\n' for n in range(6)))
+    for n in range(6):
+        wpd_talk(f'Talk {n}', 'mauro;nobody', cited_as=f'https://{n}')
     assert points(data) == {'RedTurtle': {'WPD Talk': 4}}
+    # The first four talks in the order of the file count
+    assert [c.text for c in contributions(data)['RedTurtle']['WPD Talk']] == ['Talk 0', 'Talk 1', 'Talk 2', 'Talk 3']
 
 
 def test_contributions_match_points(data):
-    community(data, 'sprints', SPRINTS + 'Beethoven Sprint,,,Bonn,jakob,kitconcept;redturtle,strategic,https://s,\n')
-    community(data, 'team-leaders', TEAM_LEADERS + 'timo,Volto Team,https://a,\nmauro,Volto Team,https://b,\n')
+    sprint('Beethoven Sprint', ('jakob',), ('kitconcept', 'redturtle'), 'strategic', cited_as='https://s')
+    role('team-leaders', 'https://a', person='timo', team='Volto Team')
+    role('team-leaders', 'https://b', person='mauro', team='Volto Team')
     for year, prs in [(2021, 150), (2022, 150), (2023, 150), (2024, 150), (2025, 150)]:
         write(data / 'data' / f'{year}-plone-organisation-contributors.csv',
               f'organisation,total_commits,total_pull_requests\nRedTurtle,1,{prs}\n')
@@ -276,21 +298,19 @@ def test_contributions_match_points(data):
 
 def test_only_world_plone_day_talks_count_as_talks(data):
     # Streams, openings and podcast episodes are not talks (#119)
-    community(data, 'world-plone-day-talks', TALKS
-              + 'A talk,mauro,,Talk,Online,https://a,\n'
-              + 'Newsroom,philip,,Newsroom,Online,https://b,\n'
-              + 'Stream,,redturtle,Full stream,Bologna,https://c,\n')
+    wpd_talk('A talk', 'mauro')
+    wpd_talk('Newsroom', 'philip', kind='Newsroom', cited_as='https://b')
+    wpd_talk('Stream', organisations='redturtle', kind='Full stream', cited_as='https://c')
     result = points(data)
     assert result['RedTurtle']['WPD Talk'] == 1
     assert 'Starzel' not in result
 
 
 def test_a_podcast_counts_with_five_episodes_split_among_its_hosts(data):
-    community(data, 'podcasts', PODCASTS
-              + 'The Plone Newsroom,philip,5,https://n,\n'
-              + 'The Plone Newsroom,fred,5,https://n,\n'
-              + 'The Plone Podcast,kim,4,https://p,\n'
-              + 'Plone Ask Me Anything,astrid,8,https://a,\n')
+    role('podcasts', 'https://n', series='The Plone Newsroom', person='philip', episodes=5)
+    role('podcasts', 'https://n', series='The Plone Newsroom', person='fred', episodes=5)
+    role('podcasts', 'https://p', series='The Plone Podcast', person='kim', episodes=4)
+    role('podcasts', 'https://a', series='Plone Ask Me Anything', person='astrid', episodes=8)
     result = points(data)
     assert result['Starzel']['Podcast Host'] == 3
     assert result['Juizi']['Podcast Host'] == 6
@@ -298,14 +318,17 @@ def test_a_podcast_counts_with_five_episodes_split_among_its_hosts(data):
 
 
 def test_a_podcast_row_without_a_host_is_no_host(data):
-    community(data, 'podcasts', PODCASTS + 'The Plone Newsroom,philip,5,https://n,\nThe Plone Newsroom,,5,https://n,\n')
+    role('podcasts', 'https://n', series='The Plone Newsroom', person='philip', episodes=5)
+    role('podcasts', 'https://n', series='The Plone Newsroom', episodes=5)
     [host] = contributions(data)['Starzel']['Podcast Host']
     assert (host.text, host.points) == ('philip (The Plone Newsroom)', 6)
 
 
 def test_conference_points_are_split_among_the_rows_with_an_organisation(data):
-    community(data, 'plone-conference', CONFERENCE + 'redturtle,,https://c,\n,mauro,https://c,\n'
-                                                     'kitconcept,timo,https://c,\n')
+    organiser(organisation='redturtle')
+    organiser(person='mauro')
+    organiser(person='timo')
+    organiser(organisation='kitconcept')
     result = points(data)
     assert result['RedTurtle']['Conference Organization'] == 12
     assert result['kitconcept GmbH']['Conference Organization'] == 12
@@ -313,8 +336,8 @@ def test_conference_points_are_split_among_the_rows_with_an_organisation(data):
 
 def test_conference_organisers_are_no_point_source(data):
     # An organiser role counts on the community page, not for the points
-    community(data, 'plone-conference', CONFERENCE + ',mauro,https://c,\n')
-    community(data, 'sprints', SPRINTS + 'Sprint,,,Bonn,mauro,,strategic,https://s,\n')
+    organiser(person='mauro')
+    sprint('Sprint', ('mauro',), level='strategic', cited_as='https://s')
     assert points(data) == {}
 
 
@@ -323,8 +346,8 @@ def test_a_role_names_the_person_by_the_display_name(data):
     from scripts.lib.model import load_registry
 
     registry = load_registry()
-    row = SimpleNamespace(file='curated/community-contributions/2025-team-leaders.csv', line=2)
+    row = SimpleNamespace(file='curated/community/team-leaders.csv', line=2)
     assert recognition._name(registry, 'timo', row) == 'timo'
     # The checks refuse an unknown id; if one gets through, the report does not invent a name for it
-    with pytest.raises(KeyError, match='2025-team-leaders.csv:2.*ghost'):
+    with pytest.raises(KeyError, match='team-leaders.csv:2.*ghost'):
         recognition._name(registry, 'ghost', row)

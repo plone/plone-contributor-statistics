@@ -1,0 +1,115 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "Opaque, stable identifier of the talk: `t` and eight hex digits of a hash of its event, title and type, with `-2`, `-3` for a repeated one.",
+      "constraints": {
+        "required": true,
+        "unique": true,
+        "pattern": "^t[0-9a-f]{8}(-\\d+)?$"
+      }
+    },
+    {
+      "name": "event",
+      "type": "string",
+      "description": "The id of the event in the events file.",
+      "constraints": {
+        "required": true,
+        "pattern": "^[a-z0-9][a-z0-9-]*$"
+      }
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "description": "The type of the talk or recording: Keynote, Talk or Panel, as the programme calls it, or for a World Plone Day video what it is; lightning-talk sessions are not recorded.",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "Keynote",
+          "Talk",
+          "Panel",
+          "Teaser",
+          "Announcement",
+          "Welcome",
+          "Recap",
+          "Duplicate",
+          "Opening",
+          "Full stream",
+          "Newsroom"
+        ]
+      }
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": "The title of the talk, as the programme or the recording gives it.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "speakers",
+      "type": "string",
+      "description": "The ids of the speakers in the people register. Several values are separated by semicolons.",
+      "x-set": "people"
+    },
+    {
+      "name": "organisations",
+      "type": "string",
+      "description": "The ids of the organisations in the organisations register, for a talk that the source attributes to a team instead of people. Several values are separated by semicolons.",
+      "x-set": "organisations"
+    },
+    {
+      "name": "location",
+      "type": "string",
+      "description": "For a World Plone Day video: where the talk was given, as the old record named it."
+    },
+    {
+      "name": "video",
+      "type": "string",
+      "description": "The web address of the recording, when one exists; one link, a second part goes to the notes.",
+      "constraints": {
+        "pattern": "^https?://.*$"
+      }
+    },
+    {
+      "name": "sources",
+      "type": "string",
+      "description": "The ids of the sources in the source register that support the row. Several values are separated by semicolons.",
+      "constraints": {
+        "required": true
+      },
+      "x-set": "sources"
+    },
+    {
+      "name": "cited_as",
+      "type": "string",
+      "description": "The sources of the row in words, as the community page shows and links them: the web addresses of the sources in `sources`, with their labels and quotes, such as `https://…; Board: https://…`. A row from before the source register keeps its old source cell here verbatim.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "notes",
+      "type": "string",
+      "description": "Free-text remarks on the row."
+    }
+  ],
+  "primaryKey": [
+    "id"
+  ],
+  "foreignKeys": [
+    {
+      "fields": [
+        "event"
+      ],
+      "reference": {
+        "resource": "events",
+        "fields": [
+          "id"
+        ]
+      }
+    }
+  ]
+}

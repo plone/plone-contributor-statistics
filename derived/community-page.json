@@ -8529,8 +8529,8 @@
     "Board Member": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-board-of-directors.csv",
-       "line": 2,
+       "file": "curated/community/board-of-directors.csv",
+       "line": 176,
        "points": 6,
        "source": "https://plone.org/foundation/board/plone-foundation-board-for-2024-2025",
        "text": "Martin Peeters"
@@ -8880,8 +8880,8 @@
     "WPD Talk": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 44,
+       "file": "curated/community/talks.csv",
+       "line": 1345,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=LDuhLrAsozQ",
        "text": "Il nuovo portale dell'Azienda USL della Romagna - WPD 2025 Italia"
@@ -9041,8 +9041,8 @@
     "WPD Talk": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 53,
+       "file": "curated/community/talks.csv",
+       "line": 1354,
        "points": 1,
        "source": "https://plone.org.br/novidades/eventos/2025/wpd-2025-brasilia",
        "text": "BOSS - Big Open Source Sibling"
@@ -9202,8 +9202,8 @@
     "Board Member": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-board-of-directors.csv",
-       "line": 4,
+       "file": "curated/community/board-of-directors.csv",
+       "line": 178,
        "points": 6,
        "source": "https://plone.org/foundation/board/plone-foundation-board-for-2024-2025",
        "text": "Brian Davis"
@@ -9214,15 +9214,15 @@
     "WPD Talk": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 19,
+       "file": "curated/community/talks.csv",
+       "line": 1320,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=h8kBq0VCuCc",
        "text": "Baseball; Farming; and Smarthomes: When Volto Meets 3rd-Party APIs"
       },
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 26,
+       "file": "curated/community/talks.csv",
+       "line": 1327,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=qbPWHPbV8Po",
        "text": "Plone Community Teams and How to Be Part of It"
@@ -9382,8 +9382,8 @@
     "Training Session": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-plone-conference-trainings.csv",
-       "line": 6,
+       "file": "curated/community/trainings.csv",
+       "line": 177,
        "points": 2.0,
        "source": "https://2025.ploneconf.org/schedule/training/content-management-for-larger-plone-sites",
        "text": "Content Management for Larger Plone Sites"
@@ -9543,8 +9543,8 @@
     "WPD Talk": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 32,
+       "file": "curated/community/talks.csv",
+       "line": 1333,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=oZYtTu1Ckdo",
        "text": "Exploring the Power of Plone: How Out-of-the-Box Features Simplify Content Management"
@@ -9704,8 +9704,8 @@
     "Board Member": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-board-of-directors.csv",
-       "line": 8,
+       "file": "curated/community/board-of-directors.csv",
+       "line": 182,
        "points": 6,
        "source": "https://plone.org/foundation/board/plone-foundation-board-for-2024-2025",
        "text": "Mikel Larreategi"
@@ -9755,8 +9755,8 @@
     "Team Leader": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-team-leaders.csv",
-       "line": 7,
+       "file": "curated/community/team-leaders.csv",
+       "line": 248,
        "points": 6.0,
        "source": "https://web.archive.org/web/20250614022646/https://plone.org/community/teams/internationalization",
        "text": "Mikel Larreategi (Internationalization Team)"
@@ -9767,15 +9767,15 @@
     "WPD Talk": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 13,
+       "file": "curated/community/talks.csv",
+       "line": 1314,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=7d1KQSXpodY",
        "text": "Deploy Cookieplone Based Projects With GitLab CI/CD"
       },
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 14,
+       "file": "curated/community/talks.csv",
+       "line": 1315,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=IlcJgU5p0jo",
        "text": "Volto Bootstrap Theme"
@@ -9935,8 +9935,8 @@
     "Board Member": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-board-of-directors.csv",
-       "line": 3,
+       "file": "curated/community/board-of-directors.csv",
+       "line": 177,
        "points": 6,
        "source": "https://plone.org/foundation/board/plone-foundation-board-for-2024-2025",
        "text": "Guido Stevens"
@@ -9947,8 +9947,8 @@
     "WPD Talk": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 6,
+       "file": "curated/community/talks.csv",
+       "line": 1307,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=6A7MyogkGcE",
        "text": "Collabora Online integration into Plone and Quaive"
@@ -10347,8 +10347,8 @@
     "Team Leader": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-team-leaders.csv",
-       "line": 4,
+       "file": "curated/community/team-leaders.csv",
+       "line": 245,
        "points": 2.0,
        "source": "https://community.plone.org/t/minutes-classic-ui-team-meeting-2025-02-12/21027",
        "text": "Maik Derstappen (Classic UI Team)"
@@ -10559,8 +10559,8 @@
     "Strategic Sprint": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-sprints.csv",
-       "line": 3,
+       "file": "curated/community/events.csv",
+       "line": 549,
        "points": 12.0,
        "source": "https://plone.org/news-and-events/news/news-for-2025/bucharest-sprint-2025-report; Board: https://plone.org/foundation/meetings/minutes/2025/plone-foundation-board-minutes-april-17-2025",
        "text": "Bucharest Plone Sprint 2025"
@@ -10571,29 +10571,29 @@
     "WPD Talk": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 3,
+       "file": "curated/community/talks.csv",
+       "line": 1304,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=in6Qz3oWbao",
        "text": "Plone Hands On: Customize your site theme through the web with Volto!"
       },
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 15,
+       "file": "curated/community/talks.csv",
+       "line": 1316,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=jAlwtcNyzH0",
        "text": "Select user widget feature in Volto"
       },
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 16,
+       "file": "curated/community/talks.csv",
+       "line": 1317,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=RSohX6Q2ioY",
        "text": "Volto block style: Start customizing your site through the web"
       },
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 17,
+       "file": "curated/community/talks.csv",
+       "line": 1318,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=jzVXgPKlsFI",
        "text": "Dynamic Vocabulary Based on Context in Plone"
@@ -10753,8 +10753,8 @@
     "WPD Talk": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 18,
+       "file": "curated/community/talks.csv",
+       "line": 1319,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=a7I6SKHeXvI",
        "text": "Construyendo una Intranet en Plone 6 / Building an Intranet with Plone 6"
@@ -10914,8 +10914,8 @@
     "WPD Talk": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 43,
+       "file": "curated/community/talks.csv",
+       "line": 1344,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=KrrJdLBsuVI",
        "text": "ER.GO e la digital communication: Plone per il rinnovo dell'immagine aziendale - WPD 2025 Italia"
@@ -11075,8 +11075,8 @@
     "WPD Talk": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 45,
+       "file": "curated/community/talks.csv",
+       "line": 1346,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=GcgxH9stLmM",
        "text": "Governare il sito; migliorare l'organizzazione: il caso del Comune di Trento - WPD 2025 Italia"
@@ -11236,8 +11236,8 @@
     "WPD Talk": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 10,
+       "file": "curated/community/talks.csv",
+       "line": 1311,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=qwI2UL8zuZc",
        "text": "Love Story: When Designers Meet GitHub Actions"
@@ -11397,15 +11397,15 @@
     "Board Member": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-board-of-directors.csv",
-       "line": 5,
+       "file": "curated/community/board-of-directors.csv",
+       "line": 179,
        "points": 6,
        "source": "https://plone.org/foundation/board/plone-foundation-board-for-2024-2025",
        "text": "Rafahela"
       },
       {
-       "file": "curated/community-contributions/2025-board-of-directors.csv",
-       "line": 7,
+       "file": "curated/community/board-of-directors.csv",
+       "line": 181,
        "points": 6,
        "source": "https://plone.org/foundation/board/plone-foundation-board-for-2024-2025",
        "text": "João Henrique Gouveia"
@@ -11416,8 +11416,8 @@
     "Team Leader": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-team-leaders.csv",
-       "line": 9,
+       "file": "curated/community/team-leaders.csv",
+       "line": 250,
        "points": 6.0,
        "source": "https://plone.org/foundation/meetings/minutes/2025/plone-foundation-board-minutes-october-30-2025",
        "text": "Rafahela (Membership Committee)"
@@ -11428,8 +11428,8 @@
     "WPD Talk": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 51,
+       "file": "curated/community/talks.csv",
+       "line": 1352,
        "points": 1,
        "source": "https://plone.org.br/novidades/eventos/2025/wpd-2025-brasilia",
        "text": "PloneGov-BR Community"
@@ -11589,8 +11589,8 @@
     "WPD Talk": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 12,
+       "file": "curated/community/talks.csv",
+       "line": 1313,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=NlNFCyGwEMc",
        "text": "An external to internal Plone support love story"
@@ -11938,8 +11938,8 @@
     "Podcast Host": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-podcasts.csv",
-       "line": 3,
+       "file": "curated/community/podcasts.csv",
+       "line": 26,
        "points": 6.0,
        "source": "episodes: https://plone.org/news-and-events/news/news-for-2025/ask-me-anything-with-gouveia-on-march-21-2025 https://www.youtube.com/watch?v=_688wq-TwJ4 https://www.youtube.com/watch?v=XUfBKarc-8s https://www.youtube.com/watch?v=fwhkR7Ik8PA https://www.youtube.com/watch?v=WZonNu3SPX8 https://www.youtube.com/watch?v=r5OVkC3iAY8 https://www.youtube.com/watch?v=3-DBN4MeHWg https://www.youtube.com/watch?v=nAjmwiHBKHc",
        "text": "Astrid Beyers (Plone Ask Me Anything)"
@@ -11950,8 +11950,8 @@
     "Team Leader": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-team-leaders.csv",
-       "line": 8,
+       "file": "curated/community/team-leaders.csv",
+       "line": 249,
        "points": 6.0,
        "source": "https://plone.org/foundation/meetings/minutes/2025/plone-foundation-board-minutes-january-23-2025",
        "text": "Astrid Beyers (Marketing Team)"
@@ -11962,15 +11962,15 @@
     "Training Session": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-plone-conference-trainings.csv",
-       "line": 3,
+       "file": "curated/community/trainings.csv",
+       "line": 174,
        "points": 2.0,
        "source": "https://2025.ploneconf.org/schedule/training/training-for-content-editing",
        "text": "Training for Content Editing"
       },
       {
-       "file": "curated/community-contributions/2025-plone-conference-trainings.csv",
-       "line": 10,
+       "file": "curated/community/trainings.csv",
+       "line": 181,
        "points": 4.0,
        "source": "https://2025.ploneconf.org/schedule/training/create-your-customer-avatar",
        "text": "Create your Customer Avatar: Do you know who you're coding for?"
@@ -11981,29 +11981,29 @@
     "WPD Talk": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 5,
+       "file": "curated/community/talks.csv",
+       "line": 1306,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=wDmj38OOG1Y",
        "text": "I've tried more than 200 CMS's and Plone is still the best!"
       },
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 8,
+       "file": "curated/community/talks.csv",
+       "line": 1309,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=WUCz7fXbpdQ",
        "text": "Click less; do more - save time with Plone content rules"
       },
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 12,
+       "file": "curated/community/talks.csv",
+       "line": 1313,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=NlNFCyGwEMc",
        "text": "An external to internal Plone support love story"
       },
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 26,
+       "file": "curated/community/talks.csv",
+       "line": 1327,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=qbPWHPbV8Po",
        "text": "Plone Community Teams and How to Be Part of It"
@@ -12214,15 +12214,15 @@
     "Release Manager": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-release-managers.csv",
-       "line": 3,
+       "file": "curated/community/release-managers.csv",
+       "line": 39,
        "points": 12,
        "source": "https://web.archive.org/web/20251213154320/https://plone.org/community/teams/release-team",
        "text": "Víctor Fernández de Alba"
       },
       {
-       "file": "curated/community-contributions/2025-release-managers.csv",
-       "line": 4,
+       "file": "curated/community/release-managers.csv",
+       "line": 40,
        "points": 12,
        "source": "https://web.archive.org/web/20251213154320/https://plone.org/community/teams/release-team",
        "text": "Timo Stollenwerk"
@@ -12233,8 +12233,8 @@
     "Strategic Sprint": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-sprints.csv",
-       "line": 4,
+       "file": "curated/community/events.csv",
+       "line": 550,
        "points": 12.0,
        "source": "https://plone.org/news-and-events/news/news-for-2025/beethoven-sprint-2025-report; Board: https://plone.org/foundation/meetings/minutes/2025/plone-foundation-board-minutes-may-1-2025",
        "text": "Beethoven Sprint 2025"
@@ -12245,8 +12245,8 @@
     "Team Leader": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-team-leaders.csv",
-       "line": 2,
+       "file": "curated/community/team-leaders.csv",
+       "line": 243,
        "points": 6.0,
        "source": "https://web.archive.org/web/20250517064410/https://plone.org/community/teams/admin-and-infrastructure",
        "text": "Fred van Dijk (Admin & Infrastructure Team)"
@@ -12257,29 +12257,29 @@
     "Training Session": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-plone-conference-trainings.csv",
-       "line": 5,
+       "file": "curated/community/trainings.csv",
+       "line": 176,
        "points": 4.0,
        "source": "https://2025.ploneconf.org/schedule/training/plone-6-volto-customization-for-javascript-beginners",
        "text": "Plone 6 Volto Customization for JavaScript Beginners"
       },
       {
-       "file": "curated/community-contributions/2025-plone-conference-trainings.csv",
-       "line": 7,
+       "file": "curated/community/trainings.csv",
+       "line": 178,
        "points": 2.0,
        "source": "https://2025.ploneconf.org/schedule/training/plone-seven-fundamentals",
        "text": "Plone Seven: Fundamentals"
       },
       {
-       "file": "curated/community-contributions/2025-plone-conference-trainings.csv",
-       "line": 8,
+       "file": "curated/community/trainings.csv",
+       "line": 179,
        "points": 4.0,
        "source": "https://2025.ploneconf.org/schedule/training/installing-and-deploying-plone",
        "text": "Installing and Deploying Plone"
       },
       {
-       "file": "curated/community-contributions/2025-plone-conference-trainings.csv",
-       "line": 9,
+       "file": "curated/community/trainings.csv",
+       "line": 180,
        "points": 4.0,
        "source": "https://2025.ploneconf.org/schedule/training/customizing-the-volto-light-theme",
        "text": "Customizing the Volto Light Theme"
@@ -12290,29 +12290,29 @@
     "WPD Talk": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 3,
+       "file": "curated/community/talks.csv",
+       "line": 1304,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=in6Qz3oWbao",
        "text": "Plone Hands On: Customize your site theme through the web with Volto!"
       },
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 4,
+       "file": "curated/community/talks.csv",
+       "line": 1305,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=x7QX9tQxEBc",
        "text": "Mão na Massa: Começando um projeto com Plone 6.1"
       },
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 28,
+       "file": "curated/community/talks.csv",
+       "line": 1329,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=sqPtMBCgbOY",
        "text": "Tailwind CSS and Plone"
       },
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 29,
+       "file": "curated/community/talks.csv",
+       "line": 1330,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=vc6li2NtNj8",
        "text": "Codename Seven - Sneak Peek to the Successor of Volto"
@@ -12523,8 +12523,8 @@
     "Strategic Sprint": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-sprints.csv",
-       "line": 2,
+       "file": "curated/community/events.csv",
+       "line": 548,
        "points": 12.0,
        "source": "https://plone.org/news-and-events/news/news-for-2025/alpine-city-sprint-2025-report; Board: https://plone.org/foundation/meetings/minutes/2025/plone-foundation-board-minutes-january-23-2025",
        "text": "Alpine City Sprint 2025"
@@ -12535,8 +12535,8 @@
     "WPD Talk": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 31,
+       "file": "curated/community/talks.csv",
+       "line": 1332,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=ocSZI4iF8cc",
        "text": "Mxmake - an opinionated way to use make for development and deployment on Python projects"
@@ -12735,8 +12735,8 @@
     "Team Leader": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-team-leaders.csv",
-       "line": 5,
+       "file": "curated/community/team-leaders.csv",
+       "line": 246,
        "points": 2.0,
        "source": "https://community.plone.org/t/classic-ui-team-meeting-minutes-2025-12-10/22718",
        "text": "Peter Mathis (Classic UI Team)"
@@ -12896,15 +12896,15 @@
     "Training Session": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-plone-conference-trainings.csv",
-       "line": 3,
+       "file": "curated/community/trainings.csv",
+       "line": 174,
        "points": 2.0,
        "source": "https://2025.ploneconf.org/schedule/training/training-for-content-editing",
        "text": "Training for Content Editing"
       },
       {
-       "file": "curated/community-contributions/2025-plone-conference-trainings.csv",
-       "line": 6,
+       "file": "curated/community/trainings.csv",
+       "line": 177,
        "points": 2.0,
        "source": "https://2025.ploneconf.org/schedule/training/content-management-for-larger-plone-sites",
        "text": "Content Management for Larger Plone Sites"
@@ -13076,8 +13076,8 @@
     "Team Leader": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-team-leaders.csv",
-       "line": 10,
+       "file": "curated/community/team-leaders.csv",
+       "line": 251,
        "points": 6.0,
        "source": "https://web.archive.org/web/20251108033458/https://plone.org/community/teams/security",
        "text": "Loechel (Security Team)"
@@ -13088,8 +13088,8 @@
     "WPD Talk": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 5,
+       "file": "curated/community/talks.csv",
+       "line": 1306,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=wDmj38OOG1Y",
        "text": "I've tried more than 200 CMS's and Plone is still the best!"
@@ -13410,8 +13410,8 @@
     "Board Member": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-board-of-directors.csv",
-       "line": 6,
+       "file": "curated/community/board-of-directors.csv",
+       "line": 180,
        "points": 6,
        "source": "https://plone.org/foundation/board/plone-foundation-board-for-2024-2025",
        "text": "Eric Bréhault"
@@ -13461,8 +13461,8 @@
     "WPD Talk": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 9,
+       "file": "curated/community/talks.csv",
+       "line": 1310,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=w4AYKTwiAok",
        "text": "Plone and Google Summer of Code 2025"
@@ -13963,8 +13963,8 @@
     "WPD Talk": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 32,
+       "file": "curated/community/talks.csv",
+       "line": 1333,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=oZYtTu1Ckdo",
        "text": "Exploring the Power of Plone: How Out-of-the-Box Features Simplify Content Management"
@@ -14124,8 +14124,8 @@
     "WPD Event": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-world-plone-day-event.csv",
-       "line": 3,
+       "file": "curated/community/events.csv",
+       "line": 547,
        "points": 3.0,
        "source": "https://plone.org.br/novidades/eventos/2025/wpd-2025-brasilia",
        "text": "Organized WPD Event in Brasília, Brazil"
@@ -14482,8 +14482,8 @@
     "Release Manager": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-release-managers.csv",
-       "line": 2,
+       "file": "curated/community/release-managers.csv",
+       "line": 38,
        "points": 12,
        "source": "https://web.archive.org/web/20251213154320/https://plone.org/community/teams/release-team",
        "text": "Maurits van Rees"
@@ -14682,8 +14682,8 @@
     "Strategic Sprint": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-sprints.csv",
-       "line": 7,
+       "file": "curated/community/events.csv",
+       "line": 553,
        "points": 12.0,
        "source": "https://plone.org/news-and-events/news/news-for-2025/salamina-sprint-2025-report; Board: https://plone.org/foundation/meetings/minutes/2025/plone-foundation-board-minutes-november-27-2025",
        "text": "Salamina Sprint 2025"
@@ -14694,8 +14694,8 @@
     "Team Leader": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-team-leaders.csv",
-       "line": 12,
+       "file": "curated/community/team-leaders.csv",
+       "line": 253,
        "points": 6.0,
        "source": "https://web.archive.org/web/20260314101402/https://plone.org/community/teams/volto-team",
        "text": "Piero Nicolli (Volto Team)"
@@ -14706,8 +14706,8 @@
     "Training Session": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-plone-conference-trainings.csv",
-       "line": 7,
+       "file": "curated/community/trainings.csv",
+       "line": 178,
        "points": 2.0,
        "source": "https://2025.ploneconf.org/schedule/training/plone-seven-fundamentals",
        "text": "Plone Seven: Fundamentals"
@@ -14718,8 +14718,8 @@
     "WPD Event": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-world-plone-day-event.csv",
-       "line": 2,
+       "file": "curated/community/events.csv",
+       "line": 546,
        "points": 3.0,
        "source": "https://www.plonegov.it/notizie-ed-eventi/world-plone-day-2025",
        "text": "Organized WPD Event in Bologna, Italy"
@@ -14730,15 +14730,15 @@
     "WPD Talk": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 42,
+       "file": "curated/community/talks.csv",
+       "line": 1343,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=KW5YDe801TQ",
        "text": "Plone & PWA: il caso Lignano Sabbiadoro - WPD2025 Italia"
       },
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 46,
+       "file": "curated/community/talks.csv",
+       "line": 1347,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=rQdFpqs8MN4",
        "text": "AUSL Ferrara - uno dei primi siti conformi al modello ASL di Designers Italia - WPD 2025 Italia"
@@ -14898,8 +14898,8 @@
     "WPD Talk": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 48,
+       "file": "curated/community/talks.csv",
+       "line": 1349,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=sEHL32dJ9io",
        "text": "Volto e straVolto - World Plone Day 2025 Italia"
@@ -15059,8 +15059,8 @@
     "WPD Talk": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 41,
+       "file": "curated/community/talks.csv",
+       "line": 1342,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=HKlRhSpgT4Q",
        "text": "I valori dell'Open Source - il punto di vista della Rete Italiana Open Source - WPD 2025 Italia"
@@ -15969,8 +15969,8 @@
     "Team Leader": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-team-leaders.csv",
-       "line": 11,
+       "file": "curated/community/team-leaders.csv",
+       "line": 252,
        "points": 6.0,
        "source": "https://web.archive.org/web/20250913004308/https://plone.org/community/teams/training",
        "text": "Philip Bauer (Training Team)"
@@ -15981,8 +15981,8 @@
     "Training Session": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-plone-conference-trainings.csv",
-       "line": 4,
+       "file": "curated/community/trainings.csv",
+       "line": 175,
        "points": 4.0,
        "source": "https://2025.ploneconf.org/schedule/training/plone-migrations-theory-and-practice",
        "text": "Plone Migrations: Theory and Practice"
@@ -16142,8 +16142,8 @@
     "Board Member": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-board-of-directors.csv",
-       "line": 10,
+       "file": "curated/community/board-of-directors.csv",
+       "line": 184,
        "points": 6,
        "source": "https://plone.org/foundation/board/plone-foundation-board-for-2024-2025",
        "text": "Steve Piercy"
@@ -16193,8 +16193,8 @@
     "Team Leader": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-team-leaders.csv",
-       "line": 6,
+       "file": "curated/community/team-leaders.csv",
+       "line": 247,
        "points": 6.0,
        "source": "https://web.archive.org/web/20251014220445/https://plone.org/community/teams/documentation",
        "text": "Steve Piercy (Documentation Team)"
@@ -16205,8 +16205,8 @@
     "WPD Talk": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 39,
+       "file": "curated/community/talks.csv",
+       "line": 1340,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=eu7ypPPKZCg",
        "text": "Triple D: Documentation Driven Development - A Panel Discussion"
@@ -16417,8 +16417,8 @@
     "Team Leader": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-team-leaders.csv",
-       "line": 3,
+       "file": "curated/community/team-leaders.csv",
+       "line": 244,
        "points": 2.0,
        "source": "https://community.plone.org/t/classic-ui-team-meeting-minutes-2025-12-10/22718",
        "text": "Johannes Raggam (Classic UI Team)"
@@ -16578,8 +16578,8 @@
     "Strategic Sprint": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-sprints.csv",
-       "line": 6,
+       "file": "curated/community/events.csv",
+       "line": 552,
        "points": 12.0,
        "source": "https://plone.org/news-and-events/news/news-for-2025/axolote-sprint-2025-report; Board: https://plone.org/foundation/meetings/minutes/2025/plone-foundation-board-minutes-april-17-2025; reimbursed: https://plone.org/foundation/meetings/minutes/2025/plone-foundation-board-minutes-september-4-2025",
        "text": "Axolote Sprint 2025"
@@ -16927,8 +16927,8 @@
     "WPD Talk": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 47,
+       "file": "curated/community/talks.csv",
+       "line": 1348,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=_I7exPV9ERM",
        "text": "Nuovi siti; nuova esperienza: la trasformazione digitale dei corsi UniMC - WPD 2025 Italia"
@@ -17088,8 +17088,8 @@
     "Conference Organization": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-plone-conference.csv",
-       "line": 2,
+       "file": "curated/community/organisers.csv",
+       "line": 784,
        "points": 24.0,
        "source": "https://plone.org/news-and-events/events/plone-conferences/plone-conference-2025; https://2025.ploneconf.org/",
        "text": "Organized Plone Conference 2025"
@@ -17112,8 +17112,8 @@
     "Training Session": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-plone-conference-trainings.csv",
-       "line": 2,
+       "file": "curated/community/trainings.csv",
+       "line": 173,
        "points": 4.0,
        "source": "https://2025.ploneconf.org/schedule/training/introduction-to-advanced-workflows-with-bpmn-2.0",
        "text": "Introduction to Advanced Workflows with BPMN 2.0"
@@ -17124,22 +17124,22 @@
     "WPD Talk": {
      "contributions": [
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 7,
+       "file": "curated/community/talks.csv",
+       "line": 1308,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=4_zVe5w_fnU",
        "text": "Plone 6 -sivuston muokkaaminen - demo"
       },
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 26,
+       "file": "curated/community/talks.csv",
+       "line": 1327,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=qbPWHPbV8Po",
        "text": "Plone Community Teams and How to Be Part of It"
       },
       {
-       "file": "curated/community-contributions/2025-world-plone-day-talks.csv",
-       "line": 33,
+       "file": "curated/community/talks.csv",
+       "line": 1334,
        "points": 1,
        "source": "https://www.youtube.com/watch?v=HR4w6Ecjcsk",
        "text": "Vibe Coding Plone Live at GitHub Codespaces"

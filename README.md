@@ -44,7 +44,7 @@ Each folder has a README; the [data files reference](https://plone.github.io/plo
 
 ```text
 scripts/     the code, by stage: collect/, derive/, report/, tools/, and shared code in lib/
-curated/     input edited by hand: registers and lists in mappings/, community-contributions/, schemas/; every entry needs a public record
+curated/     input edited by hand: registers and lists in mappings/, community data in community/, sources/, schemas/; every entry needs a public record
 collected/   data fetched from GitHub by the collectors; never edit by hand
 derived/     data computed from curated and collected data, committed for transparency; never edit by hand
 reports/     reports, text summaries and graphs; never edit by hand

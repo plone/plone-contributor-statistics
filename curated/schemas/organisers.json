@@ -1,0 +1,86 @@
+{
+  "fields": [
+    {
+      "name": "event",
+      "type": "string",
+      "description": "The id of the event in the events file.",
+      "constraints": {
+        "required": true,
+        "pattern": "^[a-z0-9][a-z0-9-]*$"
+      }
+    },
+    {
+      "name": "person",
+      "type": "string",
+      "description": "The id of an organising person in the people register; empty for an organisation.",
+      "constraints": {
+        "pattern": "^[a-z0-9][a-z0-9-]*$"
+      }
+    },
+    {
+      "name": "organisation",
+      "type": "string",
+      "description": "The id of an organising organisation in the organisations register; empty for a person.",
+      "constraints": {
+        "pattern": "^[a-z0-9][a-z0-9-]*$"
+      }
+    },
+    {
+      "name": "sources",
+      "type": "string",
+      "description": "The ids of the sources in the source register that support the row. Several values are separated by semicolons.",
+      "constraints": {
+        "required": true
+      },
+      "x-set": "sources"
+    },
+    {
+      "name": "cited_as",
+      "type": "string",
+      "description": "The sources of the row in words, as the community page shows and links them: the web addresses of the sources in `sources`, with their labels and quotes, such as `https://…; Board: https://…`. A row from before the source register keeps its old source cell here verbatim.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "notes",
+      "type": "string",
+      "description": "Free-text remarks on the row."
+    }
+  ],
+  "foreignKeys": [
+    {
+      "fields": [
+        "event"
+      ],
+      "reference": {
+        "resource": "events",
+        "fields": [
+          "id"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "person"
+      ],
+      "reference": {
+        "resource": "people",
+        "fields": [
+          "id"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "organisation"
+      ],
+      "reference": {
+        "resource": "organisations",
+        "fields": [
+          "id"
+        ]
+      }
+    }
+  ]
+}

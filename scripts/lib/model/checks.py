@@ -1,5 +1,6 @@
 """Checks that a Table Schema cannot express, as Frictionless custom checks."""
 
+import re
 from collections import defaultdict
 from datetime import date
 from pathlib import Path
@@ -328,9 +329,13 @@ class UniqueRow(Check):
     Errors = [UniqueRowError]
 
     fields: list
+    only: dict = attrs.field(factory=dict)
+    """{field: value}: only the rows with these values are compared, for example the sprints of the events."""
     _seen: dict = attrs.field(factory=dict, init=False)
 
     def validate_row(self, row):
+        if any(row[name] != value for name, value in self.only.items()):
+            return
         key = tuple(row[name] for name in self.fields)
         first = self._seen.setdefault(key, row.row_number)
         if first != row.row_number:
@@ -478,6 +483,186 @@ class SourceExcerptFiles(Check):
             yield SourceExcerptOrphanError(note=f'the excerpt file {stem}.md has no row in sources.csv')
 
 
+class OrganiserError(errors.RowError):
+    type = 'organiser'
+    title = 'Organiser'
+    description = 'An organiser row names both a person and an organisation, or neither.'
+    template = 'The row at position {rowNumber} has an error: {note}'
+
+
+class EventSourceError(errors.CellError):
+    type = 'event-source'
+    title = 'Event Source'
+    description = 'An event that is not only the holder of the rows pointing to it cites no source.'
+    template = 'The cell {cell} in row at position {rowNumber} and field {fieldName} has an error: {note}'
+
+
+@attrs.define(kw_only=True, repr=False)
+class PersonOrOrganisation(Check):
+    """An organiser row names exactly one of `person` and `organisation`."""
+
+    type = 'organiser'
+    Errors = [OrganiserError]
+
+    def validate_row(self, row):
+        if row['person'] and row['organisation']:
+            yield OrganiserError.from_row(row, note='a row names one organiser: a person or an organisation, not both')
+        elif not row['person'] and not row['organisation']:
+            yield OrganiserError.from_row(row, note='the row names no organiser: give a person or an organisation')
+
+
+class EventDateError(errors.CellError):
+    type = 'event-date'
+    title = 'Event Date'
+    description = 'A World Plone Day event has no full day as its start.'
+    template = 'The cell {cell} in row at position {rowNumber} and field {fieldName} has an error: {note}'
+
+
+class EventKindError(errors.CellError):
+    type = 'event-kind'
+    title = 'Event Kind'
+    description = 'A row points to an event of a kind that rows of its file may not point to.'
+    template = 'The cell {cell} in row at position {rowNumber} and field {fieldName} has an error: {note}'
+
+
+# The events the migration made to hold the rows pointing to them, which cite their sources: the Plone Conference of
+# a year and the online World Plone Day edition of a year. They have no source and no date of their own.
+HOLDER_EVENT_IDS = ('plone-conference-{year}', 'wpd-{year}-online')
+
+
+def is_holder_event(row):
+    """Whether an events row is one the migration made to hold the rows pointing to it, by its id."""
+    return row['id'] in {pattern.format(year=row['year']) for pattern in HOLDER_EVENT_IDS}
+
+
+@attrs.define(kw_only=True, repr=False)
+class EventSources(Check):
+    """An event cites a source, unless it is a `plone-conference-<year>` or `wpd-<year>-online` the migration made.
+
+    These hold the talks, trainings and organisers that point to them, and those cite their sources.
+    """
+
+    type = 'event-source'
+    Errors = [EventSourceError]
+
+    def validate_row(self, row):
+        if row['sources'] or is_holder_event(row):
+            return
+        yield EventSourceError.from_row(row, note=f'the {row["kind"]} event needs a source', field_name='sources')
+
+
+@attrs.define(kw_only=True, repr=False)
+class WorldPloneDayDate(Check):
+    """A World Plone Day event starts on a full day, `YYYY-MM-DD`, unless it is a `wpd-<year>-online` edition."""
+
+    type = 'event-date'
+    Errors = [EventDateError]
+
+    def validate_row(self, row):
+        if row['kind'] != 'wpd' or is_holder_event(row):
+            return
+        start = row['start'] or ''
+        if not re.fullmatch(r'\d{4}-\d{2}-\d{2}', start):
+            yield EventDateError.from_row(row, note=f'the World Plone Day event {row["id"]} needs its day as start',
+                                          field_name='start')
+
+
+# The kinds of events that the rows of a file may point to
+EVENT_KINDS_OF = {
+    'talks': ('conference', 'symposium', 'wpd'),
+    'trainings': ('conference', 'symposium'),
+}
+
+
+@attrs.define(kw_only=True, repr=False)
+class PointsToEventKind(Check):
+    """A row points to an event of a kind that its file allows, see EVENT_KINDS_OF."""
+
+    type = 'event-kind'
+    Errors = [EventKindError]
+
+    allowed: tuple
+    kinds: dict = attrs.field(factory=dict)
+    """{event id: kind} of the events file; an unknown event is the foreign key's error."""
+
+    def validate_row(self, row):
+        kind = self.kinds.get(row['event'])
+        if kind is not None and kind not in self.allowed:
+            note = f'the event {row["event"]} is a {kind}; this file points to {", ".join(self.allowed)} events'
+            yield EventKindError.from_row(row, note=note, field_name='event')
+
+
+class TalkTypeError(errors.CellError):
+    type = 'talk-type'
+    title = 'Talk Type'
+    description = 'A talk has a type that talks at events of its kind do not have.'
+    template = 'The cell {cell} in row at position {rowNumber} and field {fieldName} has an error: {note}'
+
+
+# The types of the talks at the events of a kind: the programme of a conference or symposium calls a talk a Keynote,
+# Talk or Panel; a World Plone Day video is what it is, and only its type Talk is a talk that counts
+TALK_TYPES_OF = {
+    'conference': ('Keynote', 'Talk', 'Panel'),
+    'symposium': ('Keynote', 'Talk', 'Panel'),
+    'wpd': ('Talk', 'Teaser', 'Announcement', 'Welcome', 'Recap', 'Duplicate', 'Opening', 'Full stream', 'Newsroom'),
+}
+
+
+def or_list(values):
+    """The values as text, the last one joined with `or`: `a, b or c`."""
+    return ', '.join(values[:-1]) + f' or {values[-1]}' if len(values) > 1 else values[0]
+
+
+@attrs.define(kw_only=True, repr=False)
+class TalkTypeOfEventKind(Check):
+    """A talk has a type of the talks at events of its kind, see TALK_TYPES_OF."""
+
+    type = 'talk-type'
+    Errors = [TalkTypeError]
+
+    kinds: dict = attrs.field(factory=dict)
+    """{event id: kind} of the events file; an unknown event is the foreign key's error."""
+
+    def validate_row(self, row):
+        kind = self.kinds.get(row['event'])
+        allowed = TALK_TYPES_OF.get(kind)
+        if allowed is not None and row['type'] and row['type'] not in allowed:
+            note = f'a talk at the {kind} event {row["event"]} is a {or_list(allowed)}, not a {row["type"]}'
+            yield TalkTypeError.from_row(row, note=note, field_name='type')
+
+
+class CitedAsError(errors.CellError):
+    type = 'cited-as'
+    title = 'Cited As'
+    description = 'A row that cites sources, or says how it cites them, gives no web address in `cited_as`.'
+    template = 'The cell {cell} in row at position {rowNumber} and field {fieldName} has an error: {note}'
+
+
+WEB_ADDRESS = re.compile(r'https?://')
+
+
+@attrs.define(kw_only=True, repr=False)
+class CitedAsWebAddress(Check):
+    """`cited_as` contains a web address, unless the row leaves both `sources` and `cited_as` empty.
+
+    Only an event the migration made to hold the rows pointing to it cites nothing, see EventSources.
+    """
+
+    type = 'cited-as'
+    Errors = [CitedAsError]
+
+    def validate_row(self, row):
+        if (row['sources'] or row['cited_as']) and not WEB_ADDRESS.search(row['cited_as'] or ''):
+            yield CitedAsError.from_row(row, note='cited_as needs the web address of a source', field_name='cited_as')
+
+
+def _event_kinds(package):
+    """{event id: kind} of the events of the package; empty without the events file."""
+    if not package.has_resource('events'):
+        return {}
+    return {row['id']: row['kind'] for row in package.get_resource('events').read_rows() if row['id']}
+
+
 def _excerpt_stems(package):
     """The file names without `.md` in the excerpt folder next to the curated files of the package."""
     folder = Path(package.basepath) / 'sources' / 'excerpts'
@@ -544,8 +729,18 @@ def checks_for(resource_name, package, until=None):
                                GithubLogins()],
         'sources': lambda: [SourceIdMatchesUrl(), Sorted(fields=['id'], casefold=False),
                             SourceExcerptFiles(folder=excerpts, stems=_excerpt_stems(package))],
+        'events': lambda: [EventSources(), WorldPloneDayDate(),
+                           UniqueRow(fields=['year', 'name'], only={'kind': 'sprint'})],
+        'talks': lambda: [PointsToEventKind(allowed=EVENT_KINDS_OF['talks'], kinds=_event_kinds(package)),
+                          TalkTypeOfEventKind(kinds=_event_kinds(package))],
+        'trainings': lambda: [PointsToEventKind(allowed=EVENT_KINDS_OF['trainings'], kinds=_event_kinds(package)),
+                              UniqueRow(fields=['event', 'title'])],
+        'organisers': lambda: [PersonOrOrganisation(), UniqueRow(fields=['event', 'person', 'organisation'])],
     }
     result = checks.get(resource_name, lambda: [])()
+    names = package.get_resource(resource_name).schema.field_names
+    if 'sources' in names and 'cited_as' in names:
+        result.append(CitedAsWebAddress())
     for field in package.get_resource(resource_name).schema.fields:
         referenced = field.to_descriptor().get('x-set')
         if referenced:

@@ -142,8 +142,10 @@ def test_read_rows_types(tmp_repo):
 
 def test_read_rows_does_not_guess_the_delimiter(tmp_repo):
     # A quotation between semicolons once made Frictionless read a comma separated file as semicolon separated
-    path = paths.COMMUNITY / '2007-plone-conference-trainings.csv'
-    path.write_text(f'title,trainers,source,notes\nPlone 3,joel-burton,{SRC},"paid; ""offered by vendors.""; guest"\n',
+    path = paths.TRAININGS
+    path.write_text('id,event,title,trainers,sources,cited_as,notes\n'
+                    f'r00000001,plone-conference-2007,Plone 3,joel-burton,,{SRC},'
+                    '"paid; ""offered by vendors.""; guest"\n',
                     encoding='utf-8')
     assert [row['trainers'] for row in read_rows(path)] == ['joel-burton']
 

@@ -20,21 +20,25 @@ See {doc}`/explanation/scope` for why these sources were chosen, and {doc}`/expl
 
 ## Curated by hand
 
-The curated community data is in `curated/community-contributions/`, one file per year; the PLIPs before GitHub are in one file in `curated/plips/`.
+The curated community data is in `curated/community/`, one file per kind with the rows of every year; the PLIPs before GitHub are in one file in `curated/plips/`.
 
-| Data | Years covered | File | Source column |
-|---|---|---|---|
-| Board of Directors | 2004–2025 | `curated/community-contributions/YYYY-board-of-directors.csv` | 2004–2025 |
-| Plone Conference organisers | 2003–2025 | `curated/community-contributions/YYYY-plone-conference.csv` | 2003–2025 |
-| Plone Conference trainings | 2003–2025 | `curated/community-contributions/YYYY-plone-conference-trainings.csv` | 2003–2024 |
-| Conference talks | 2021 | `curated/community-contributions/YYYY-conference-talks.csv` | 2021 |
-| Release managers | 2004–2025 | `curated/community-contributions/YYYY-release-managers.csv` | 2004–2025 |
-| Team leaders | 2004–2025 | `curated/community-contributions/YYYY-team-leaders.csv` | 2004–2025 |
-| Sprints | 2003–2025 | `curated/community-contributions/YYYY-sprints.csv` | 2003–2025 |
-| Podcast hosts | 2020–2025 | `curated/community-contributions/YYYY-podcasts.csv` | 2020–2025 |
-| World Plone Day events | 2008–2019, 2021–2025 | `curated/community-contributions/YYYY-world-plone-day-event.csv` | 2008–2019, 2021–2025 |
-| World Plone Day talks | 2021–2025 | `curated/community-contributions/YYYY-world-plone-day-talks.csv` | 2021–2025 |
-| PLIPs before GitHub | 2004–2013 | `curated/plips/plone-plips-before-github.csv` | all rows |
+Every community row cites its sources by their ids in the source register, in `sources`, and gives them in words in `cited_as`.
+Two events of a year may have none: the Plone Conference of a year and the online edition of World Plone Day, which hold the rows that point to them, see {doc}`/explanation/curated-community-data`.
+The PLIPs before GitHub give the record of every row in their `Source` column.
+
+| Data | Years covered | File |
+|---|---|---|
+| Board of Directors | 2004–2026 | `curated/community/board-of-directors.csv` |
+| Plone Conference organisers | 2003–2025 | `curated/community/organisers.csv` |
+| Plone Conference trainings | 2003–2025 | `curated/community/trainings.csv` |
+| Conference talks | 2003–2025 | `curated/community/talks.csv` |
+| Release managers | 2004–2025 | `curated/community/release-managers.csv` |
+| Team leaders | 2004–2025 | `curated/community/team-leaders.csv` |
+| Sprints | 2003–2026 | `curated/community/events.csv` |
+| Podcast hosts | 2020–2025 | `curated/community/podcasts.csv` |
+| World Plone Day events | 2008–2019, 2021–2025 | `curated/community/events.csv` |
+| World Plone Day talks | 2021–2025 | `curated/community/talks.csv` |
+| PLIPs before GitHub | 2004–2013 | `curated/plips/plone-plips-before-github.csv` |
 
 ## Derived from other files
 

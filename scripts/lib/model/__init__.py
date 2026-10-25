@@ -12,6 +12,7 @@ from scripts.lib.model.community import (  # noqa: F401
     Role,
     Talk,
     community_folder,
+    community_years,
     events,
     items,
     recognition_levels,

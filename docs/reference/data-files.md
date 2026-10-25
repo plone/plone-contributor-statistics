@@ -82,12 +82,16 @@ See {doc}`/explanation/counting-rules` for why the files count the way they do.
 {ref}`reference-curated-files` describes the files under `curated/`: their fields, constraints and checks.
 This section adds what the schema cannot say.
 
-The community kinds that are events are `plone-conference`, `sprints` and `world-plone-day-event`.
-A World Plone Day event counts when it was held in person or as a hybrid.
-The other community kinds are roles: Board member, team lead, release manager, trainer, speaker, podcast host, sprint organiser and conference organiser.
+The community data is one file per kind in `curated/community/`, with the rows of every year.
+`curated/community/events.csv` holds the events, of the kinds `conference`, `symposium`, `wpd` and `sprint`; `curated/community/talks.csv`, `curated/community/trainings.csv` and `curated/community/organisers.csv` point to an event by its id.
+The roles files, `curated/community/board-of-directors.csv`, `curated/community/team-leaders.csv`, `curated/community/release-managers.csv` and `curated/community/podcasts.csv`, have a `year` column instead.
+The rows of a year are in the order in which the recognition reads them, see {doc}`/explanation/community-recognition`.
+
+The community page counts the Plone Conference of a year with recorded organisers, the sprints, and the World Plone Day events held in person or as a hybrid as events; the World Plone Day events held online and the symposia are recorded, but not counted as events.
+The roles are Board member, team lead, release manager, trainer, speaker, podcast host, sprint organiser and conference organiser.
 Of the World Plone Day videos, only those of the type `Talk` are talks.
 A podcast counts for recognition from five episodes a year.
-`Source` links the record for the row only; the records for the organisations of people are in `curated/mappings/affiliations.csv`.
+`sources` cites the record for the row only, by the ids of the source register, and `cited_as` gives it in words; the records for the organisations of people are in `curated/mappings/affiliations.csv`.
 
 `curated/plips/plone-plips-before-github.csv` is read by no script yet.
 `Numbering` is `roadmap` for the PLIP numbers of the plone.org roadmap and of the wiki pages before it, or `trac` for the ticket numbers of dev.plone.org.

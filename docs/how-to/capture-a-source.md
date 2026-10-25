@@ -49,8 +49,7 @@ Do this when a fact rests on a page, a profile, a commit or a video, and you wan
     make check
     ```
 
-4.  Cite the source by its id from the rows that rest on it: an affiliation in `curated/mappings/citations.csv`, with the quote as its snippet, see {doc}`add-an-affiliation`, or an identity in its `source` and `snippet` columns, see {doc}`add-a-person`.
-    The curated community data still links its records by address in its source column.
+4.  Cite the source by its id from the rows that rest on it: an affiliation in `curated/mappings/citations.csv`, with the quote as its snippet, see {doc}`add-an-affiliation`, an identity in its `source` and `snippet` columns, see {doc}`add-a-person`, or a row of community data in its `sources` column, see {doc}`add-curated-community-data`.
     Then open a pull request with the new source and the rows that cite it.
 
 (how-to-capture-a-source-github-issues)=

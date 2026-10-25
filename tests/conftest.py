@@ -1,3 +1,4 @@
+import csv
 import shutil
 import sys
 from pathlib import Path
@@ -59,6 +60,57 @@ def record_source(url=RECORD):
         paths.SOURCES.write_text(lines[0] + ''.join(sorted(lines[1:])), encoding='utf-8')
         (paths.EXCERPTS_DIR / f'{sid}.md').write_text('A record.\n', encoding='utf-8')
     return sid
+
+
+# The columns of the community files, as the schemas give them
+COMMUNITY_COLUMNS = {
+    'events': 'id,kind,name,year,start,end,location,format,level,sources,cited_as,notes',
+    'talks': 'id,event,type,title,speakers,organisations,location,video,sources,cited_as,notes',
+    'trainings': 'id,event,title,trainers,sources,cited_as,notes',
+    'organisers': 'event,person,organisation,sources,cited_as,notes',
+    'board-of-directors': 'year,person,role,sources,cited_as,notes',
+    'team-leaders': 'year,person,team,sources,cited_as,notes',
+    'release-managers': 'year,person,sources,cited_as,notes',
+    'podcasts': 'year,series,person,episodes,sources,cited_as,notes',
+}
+# The id prefixes of the rows that have opaque ids
+ID_PREFIXES = {'talks': 't', 'trainings': 'r'}
+
+
+def community_rows(name, *rows, folder=None):
+    """Add rows to a community file of the current directory (or of the folder); the file gets its header first.
+
+    name: events, talks, trainings, organisers or a roles file (board-of-directors, team-leaders, release-managers,
+    podcasts). A row is a dict of cells; a missing cell is empty, and a talk or training without an id gets one.
+    """
+    path = Path(folder or paths.COMMUNITY) / f'{name}.csv'
+    columns = COMMUNITY_COLUMNS[name].split(',')
+    new = not path.exists()
+    count = 0 if new else len(path.read_text(encoding='utf-8').splitlines()) - 1
+    with open(path, 'a', newline='', encoding='utf-8') as f:
+        writer = csv.DictWriter(f, fieldnames=columns, lineterminator='\n')
+        if new:
+            writer.writeheader()
+        for n, row in enumerate(rows, start=count + 1):
+            unknown = set(row) - set(columns)
+            assert not unknown, f'{name} has no column {sorted(unknown)}'
+            if name in ID_PREFIXES and 'id' not in row:
+                row = {**row, 'id': f'{ID_PREFIXES[name]}{n:08x}'}
+            writer.writerow({column: row.get(column, '') for column in columns})
+    return path
+
+
+def community_event(id, kind, year, organisers=(), organisations=(), cited_as=RECORD, folder=None, **cells):
+    """Add an event to the events file, and its organisers, people first, with the event's citation.
+
+    kind: conference, symposium, wpd or sprint; the name is the id unless given.
+    """
+    community_rows('events', {'id': id, 'kind': kind, 'name': cells.pop('name', id), 'year': year,
+                              'cited_as': cited_as, **cells}, folder=folder)
+    named = [{'person': person} for person in organisers] + [{'organisation': o} for o in organisations]
+    if named:
+        community_rows('organisers', *({'event': id, 'cited_as': cited_as, **n} for n in named), folder=folder)
+    return id
 
 
 @pytest.fixture
