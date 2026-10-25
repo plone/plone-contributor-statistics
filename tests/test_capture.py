@@ -2,6 +2,7 @@ import datetime
 import json
 import os
 import pathlib
+import subprocess
 
 import pytest
 
@@ -780,3 +781,19 @@ def test_an_uncaptured_source_without_a_found_quote_stays_uncaptured(web):
     assert result == CaptureResult(sid, False, (), ('not on the page',), False)
     assert load_sources()[sid] == before
     assert read_excerpt(sid) == 'not captured on 2026-10-22: nothing found\n'
+
+
+def test_a_video_is_dated_by_its_upload_date(web):
+    fetcher, _ = web(session=NoNetwork())
+    url = 'https://www.youtube.com/watch?v=abcdefghijk'
+
+    def run(cmd, **kwargs):
+        if '--print' in cmd:
+            return subprocess.CompletedProcess(cmd, 0, stdout=b'A talk\nen\n20191023\n', stderr=b'')
+        with open(os.path.join(os.path.dirname(cmd[cmd.index('-o') + 1]), 'abc.en-orig.vtt'), 'w',
+                  encoding='utf-8') as handle:
+            handle.write('WEBVTT\n\n00:01:02.000 --> 00:01:04.000\nI work for Zest Software\n')
+        return subprocess.CompletedProcess(cmd, 0, stdout=b'', stderr=b'')
+    capture(url, ['work for Zest'], fetcher=fetcher, run=run)
+    row = load_sources()[source_id(url)]
+    assert (row.date, row.fetched) == (datetime.date(2019, 10, 23), NOW)

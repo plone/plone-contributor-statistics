@@ -33,6 +33,7 @@ Do this when a fact rests on a page, a profile, a commit or a video, and you wan
     `--kind`, `--title` and `--date` override what the tool finds on the page.
     Give `--kind speaker-page` for the page of a speaker at a conference, because it is the person's own statement.
     A live page is dated by `--date`, else by the date the page shows, else by the day of the capture.
+    A video is dated by `--date`, else by the day YouTube says it was uploaded, else by the day its caption tracks were downloaded.
     A Wayback copy is dated by `--date`, else by the day of its capture; a date the page shows is not trusted for it, and a different one is kept in the `notes` of the new row as `page shows date YYYY-MM-DD`.
     The capture is the one the Archive actually served: when it redirects to a capture of another day, the source is recorded under that capture, with its own address and date.
     When it serves a capture of another page, the row keeps the address you gave and says in its `notes` which capture was read, as `served <Wayback address>`.
@@ -78,7 +79,7 @@ The commit adapter reads commits from the clones of the collectors in `.cache/re
 
 A page that is in the cache is not fetched again, so running the tool twice makes one request.
 This also lets you finish a capture that was interrupted without asking the web again.
-The caption tracks of a video are kept in the cache as well, in one folder per video in `.cache/sources/video/`, with the list of the tracks, the title and the language of the video and the time of the download in `tracks.json`.
+The caption tracks of a video are kept in the cache as well, in one folder per video in `.cache/sources/video/`, with the list of the tracks, the title, the language and the upload date of the video and the time of the download in `tracks.json`; a list written before the upload date was asked for has none, and its video is dated by the day of the download.
 The folder of a YouTube video is named by its video id, so all addresses of the video share it; the folder of a video on another host is named by the host and path of its address.
 Another source of the same video and a later run read the kept tracks without asking YouTube again, and record the time of the download as the fetch time; only the tracks in that list are read.
 `--refresh` downloads the tracks again; the tool never removes a caption file, and keeps an earlier version of a track beside the new one.
@@ -92,7 +93,7 @@ The tool prints `! not found: <quote>` and exits with status 1; it stores nothin
 When none of the quotes for a new source is found, it stores nothing at all, not even the row of the source.
 Open the page, copy the sentence again and check the spelling.
 The text may sit in a part of the page that is not part of the article, in which case the tool also searches the rest of the page.
-For a video, the tool first asks YouTube for the title and the language of the video, and reads only the original caption track: the automatic captions in that language, in any of its regions, and when a video has none, its manual subtitles in that language, else all its manual subtitles.
+For a video, the tool first asks YouTube for the title, the language and the upload date of the video, and reads only the original caption track: the automatic captions in that language, in any of its regions, and when a video has none, its manual subtitles in that language, else all its manual subtitles.
 It reads one video only: it refuses a YouTube address without a video id, such as a playlist or a channel, and reads only the video of an address that also names a playlist.
 When YouTube names no language, it reads every original track, which includes the captions of a dubbed audio track.
 It never fetches the machine translations of the captions, which YouTube refuses to serve, nor the chat replay of a live stream, which yt-dlp lists as a subtitle named `live_chat`.

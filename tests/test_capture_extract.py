@@ -690,7 +690,7 @@ def test_extract_video_writes_the_manifest(tmp_path, monkeypatch):
     extract_video(VIDEO, str(tmp_path), run=run)
     manifest = json.loads((tmp_path / 'tracks.json').read_text(encoding='utf-8'))
     assert manifest == {'url': VIDEO, 'tracks': ['x.en-orig.vtt', 'x.de-orig.vtt'], 'title': 'T',
-                        'language': None, 'fetched': '2026-10-22T00:00:00+00:00'}
+                        'language': None, 'upload_date': None, 'fetched': '2026-10-22T00:00:00+00:00'}
     assert sorted(os.listdir(tmp_path)) == ['tracks.json', 'x.de-orig.vtt', 'x.en-orig.vtt']  # no download folder
 
 
@@ -880,7 +880,7 @@ def test_known_language_asks_for_its_original_track_only(tmp_path):
     run = video_run(tmp_path, auto={'x.it-orig.vtt': vtt('Lavoro per Zest')}, calls=calls, info=b'Un talk\nit\n')
     result = extract_video(VIDEO, str(tmp_path), run=run, which=lambda name: '/usr/bin/node')
     assert calls[0] == ['yt-dlp', '--skip-download', '--no-playlist', '--print', 'title', '--print', 'language',
-                        '--js-runtimes', 'node', VIDEO]
+                        '--print', 'upload_date', '--js-runtimes', 'node', VIDEO]
     assert [sub_langs(command) for command in downloads_of(calls)] == ['it(-[A-Za-z0-9]+)*-orig']
     assert (result.text, result.title) == ('[00:00] Lavoro per Zest', 'Un talk')
     manifest = json.loads((tmp_path / 'tracks.json').read_text())
@@ -898,7 +898,8 @@ def test_unknown_language_asks_for_every_original_track(tmp_path, info):
 
 def test_known_language_falls_back_to_its_manual_subtitles(tmp_path):
     calls = []
-    run = video_run(tmp_path, manual={'it(-[A-Za-z0-9]+)*,-live_chat': {'x.it.vtt': vtt('Lavoro per Zest')}}, calls=calls,
+    run = video_run(tmp_path, manual={'it(-[A-Za-z0-9]+)*,-live_chat': {'x.it.vtt': vtt('Lavoro per Zest')}},
+                    calls=calls,
                     info=b'T\nit\n')
     result = extract_video(VIDEO, str(tmp_path), run=run)
     downloads = downloads_of(calls)
@@ -1001,7 +1002,8 @@ def test_the_track_in_the_language_of_the_video_ranks_first():
 
 def test_a_language_with_a_region_asks_for_every_region_of_it(tmp_path):
     calls = []
-    run = video_run(tmp_path, manual={'pt(-[A-Za-z0-9]+)*,-live_chat': {'x.pt.vtt': vtt('Trabalho na Zest')}}, calls=calls,
+    run = video_run(tmp_path, manual={'pt(-[A-Za-z0-9]+)*,-live_chat': {'x.pt.vtt': vtt('Trabalho na Zest')}},
+                    calls=calls,
                     info=b'T\npt-BR\n')
     result = extract_video(VIDEO, str(tmp_path), run=run)
     assert [sub_langs(command) for command in downloads_of(calls)] == ['pt(-[A-Za-z0-9]+)*-orig',
@@ -1090,3 +1092,29 @@ def test_the_live_chat_is_never_asked_for(tmp_path, info):
     manual = [command for command in downloads_of(calls) if '--write-sub' in command]
     assert manual and all(sub_langs(command).endswith(',-live_chat') for command in manual)
     assert all('live_chat' not in sub_langs(command) for command in downloads_of(calls) if command not in manual)
+
+
+def test_a_download_is_dated_by_the_upload_date(tmp_path):
+    run = video_run(tmp_path, auto={'x.it-orig.vtt': vtt('a')}, info=b'T\nit\n20231005\n')
+    result = extract_video(VIDEO, str(tmp_path), run=run)
+    assert result.date == datetime.date(2023, 10, 5)
+    assert json.loads((tmp_path / 'tracks.json').read_text())['upload_date'] == '2023-10-05'
+
+
+@pytest.mark.parametrize('info', [b'T\nit\nNA\n', b'T\nit\n', b'T\nit\n2023-13-45\n', b'T\nit\n20231399\n'])
+def test_a_download_without_an_upload_date_has_no_date(tmp_path, info):
+    result = extract_video(VIDEO, str(tmp_path), run=video_run(tmp_path, auto={'x.it-orig.vtt': vtt('a')}, info=info))
+    assert result.date is None
+    assert json.loads((tmp_path / 'tracks.json').read_text())['upload_date'] is None
+
+
+def test_a_cache_hit_is_dated_by_the_upload_date_of_the_manifest(tmp_path):
+    write_manifest(tmp_path, ['x.it-orig.vtt'], language='it', upload_date='2023-10-05')
+    assert extract_video(VIDEO, str(tmp_path), run=no_run).date == datetime.date(2023, 10, 5)
+
+
+@pytest.mark.parametrize('fields', [{}, {'upload_date': None}, {'upload_date': 'soon'}, {'upload_date': 20231005}])
+def test_a_cache_hit_without_an_upload_date_has_no_date(tmp_path, fields):
+    """A manifest written before the upload date was asked for, or migrated from the first adapter."""
+    write_manifest(tmp_path, ['x.it-orig.vtt'], language='it', **fields)
+    assert extract_video(VIDEO, str(tmp_path), run=no_run).date is None
