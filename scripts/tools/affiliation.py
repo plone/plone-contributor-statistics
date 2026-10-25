@@ -2,7 +2,8 @@
 """Show the organisation a person counts for in each year, and the affiliations with the sources they cite.
 
 The organisation of a year is computed by the attribution rules (docs/explanation/attribution.md) from every
-affiliation of the person, not by one row; the citations below it are the evidence those rules weigh.
+affiliation of the person, not by one row, and each year names the rule that gave it, such as `bridged`; the
+citations below it are the evidence those rules weigh.
 """
 
 import argparse
@@ -33,15 +34,20 @@ def years_of(registry, person, until=None):
 
 
 def organisations(registry, person, years):
-    """`YEAR: organisation` for each year; an undecided year names the organisations in conflict."""
+    """`YEAR: organisation (rule)` for each year, with the rule that gave it, such as `2018: Zest Software
+    (bridged)`; an undecided year names the organisations in conflict."""
     lines = []
     for year in years:
-        organisation = registry.organisation_of(person, year)
-        conflict = registry.attribution.conflict(person, year) if organisation == UNMAPPED else []
+        org_id, rule = registry.attribution.explain(person, year)
+        if org_id is not None:
+            lines.append(f'{year}: {registry.organisation_name(org_id)} ({rule})')
+            continue
+        conflict = registry.attribution.conflict(person, year)
         if conflict:
             names = ', '.join(sorted(registry.organisation_name(org) for org in conflict))
-            organisation = f'{UNMAPPED} (no rule decides between {names})'
-        lines.append(f'{year}: {organisation}')
+            lines.append(f'{year}: {UNMAPPED} (no rule decides between {names})')
+        else:
+            lines.append(f'{year}: {UNMAPPED}')
     return lines
 
 

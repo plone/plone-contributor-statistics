@@ -1,17 +1,21 @@
 """The organisation a person counts for in a year, computed from the affiliations and the sources they cite.
 
-The rules are those of docs/explanation/attribution.md, in this order:
+The rules are those of docs/explanation/attribution.md, in this order: 1 proposed ignored, denied removes its
+organisation; 2 the rules — one organisation left (stated over assumed), change year, bridging, tie-breaks 6a–6d;
+3 decisions settle only what the rules leave open; 4 conflict. In detail, with the numbers of attribution.md:
 
 1. A `proposed` row is ignored. A `denied` row removes its organisation from its years; a denied row without an
    organisation (a reviewed "stays Unmapped") is ignored here.
-2. Decision: of the rows that cite a source of kind `decision`, the one with the latest decision (by the date
-   of the source) counts; of two decisions of the same date, the one whose citation `supersedes` the other.
-   A decision overrides every rule below.
-3. One organisation: if one organisation is left, it counts. Stated rows win over assumed ones: when stated
-   rows cover the year, the assumed ones drop out of the rules below (also for the years around it in rule 4).
+2. Stated over assumed: when stated rows (or bridged years, rule 5) cover the year, the assumed ones drop out of
+   the rules below, also for the years around it in rule 4.
+3. One organisation: if one organisation is left, it counts.
 4. Change year: of two organisations, if one also covers the year before and not the year after, and the other
    covers the year after and not the year before, the person leaves the first one during the year, and it counts.
-5. Bridging is not computed: the rows already cover the years between two records of the same organisation.
+5. Bridging: for each organisation X, the years between two years covered by `stated` rows of X that no stated
+   row of X covers are bridged years of X, unless a stated row of another organisation or a denied row of X
+   covers any year of that gap. There is no distance limit; assumed rows neither start, end nor break a bridge,
+   and notes are never read. Bridged years act as stated years of X for rules 2, 3, 4 and 6, so they are
+   computed before rule 2.
 6. Tie-breaks, among the organisations left (the candidates):
    a. named first: the rows of every candidate cite the same source with a snippet; the candidate whose snippet
       comes first in the excerpt of that source counts. When the snippets start at the same place (one sentence
@@ -26,7 +30,13 @@ The rules are those of docs/explanation/attribution.md, in this order:
    d. records: the candidate that more distinct cited sources dated in the year name counts.
    Sources that were never captured (notes `not captured on …` or `could not be fetched on …`, `is_uncaptured`)
    carry no text and only the capture day as their date: rules c and d leave them out.
-7. Otherwise the year is a conflict: Unmapped, and listed by `conflicts`, until a decision settles it.
+7. Decision, only for what rules 2 to 6 leave open: of the rows that cite a source of kind `decision`, the one
+   with the latest decision (by the date of the source) counts; of two decisions of the same date, the one whose
+   citation `supersedes` the other. A decision for a year that the rules decide is not applied, and
+   `outdated_decisions` lists it.
+8. Otherwise the year is a conflict: Unmapped, and listed by `conflicts`, until a decision settles it.
+
+`explain` gives the organisation of a year with the name of the rule that gave it.
 """
 
 from collections import defaultdict
@@ -39,6 +49,13 @@ STATED, ASSUMED, DENIED, PROPOSED = 'stated', 'assumed', 'denied', 'proposed'
 COUNTING = (STATED, ASSUMED)
 DECISION = 'decision'
 OWN_STATEMENT_KINDS = ('speaker-page', 'profile')
+BRIDGED_ID = 'bridged:'  # the id prefix of the rows that rule 5 computes
+
+# The names of the rules, as `explain` gives them
+ONE_ORGANISATION, STATED_OVER_ASSUMED, CHANGE_YEAR, BRIDGED = ('one organisation', 'stated over assumed',
+                                                               'change year', 'bridged')
+NAMED_FIRST, COMMITS, OWN_STATEMENT, RECORDS = 'named first', 'commits', 'own statement', 'records'
+DECIDED, CONFLICT, UNMAPPED = 'decision', 'conflict', 'unmapped'
 
 
 @dataclass(frozen=True)
@@ -64,6 +81,28 @@ class Citation:
     snippet: str | None
     supersedes: str | None
     notes: str | None
+
+
+def _overlaps(row, first, last):
+    """Whether the affiliation covers any year from `first` to `last`."""
+    return row.from_year <= last and (row.to_year is None or first <= row.to_year)
+
+
+def _gaps(rows):
+    """[(first, last)] of the runs of years between the rows that none of them covers."""
+    gaps, end = [], None
+    for row in sorted(rows, key=lambda row: row.from_year):
+        if end is not None and row.from_year > end + 1:
+            gaps.append((end + 1, row.from_year - 1))
+        if row.to_year is None:
+            break
+        end = row.to_year if end is None else max(end, row.to_year)
+    return gaps
+
+
+def _stated_first(rows):
+    """The stated rows, or all rows when none is stated (rule 2)."""
+    return [row for row in rows if row.status == STATED] or rows
 
 
 def _year_runs(years):
@@ -125,10 +164,16 @@ class Attribution:
         self._names_of_organisation = names_of_organisation
         self._domains_by_year = {}
         self._excerpts = {}
+        self._bridges = {}
 
     def organisation(self, person_id, year):
         """The id of the organisation the person counts for in the year, or None for Unmapped."""
-        return self._decide(person_id, year)[0]
+        return self.explain(person_id, year)[0]
+
+    def explain(self, person_id, year):
+        """(organisation id or None, the name of the rule that gave it), such as ('zest', 'bridged')."""
+        organisation, _, rule = self._decide(person_id, year)
+        return organisation, rule
 
     def conflict(self, person_id, year):
         """The ids of the organisations between which no rule decides in the year; empty when one counts or none."""
@@ -144,15 +189,30 @@ class Attribution:
         found = []
         for person_id in sorted(self._rows):
             for year in self._years(person_id, until):
-                organisation, conflict = self._decide(person_id, year)
+                organisation, conflict, _ = self._decide(person_id, year)
                 if organisation is None and conflict:
                     found.append((person_id, year, conflict))
+        return found
+
+    def outdated_decisions(self, until=None):
+        """[(person id, year, decision source id, organisation id)] of the decisions cited for a year that the
+        rules decide without them, with the organisation the rules give. `until` as for `conflicts`."""
+        found = []
+        for person_id in sorted(self._rows):
+            for year in self._years(person_id, until):
+                rows = self._counting(person_id, year)
+                decisions, _ = self._decisions(rows)
+                if not decisions:
+                    continue
+                decided = self._by_rules(person_id, year, rows)
+                if decided is not None:
+                    found.extend((person_id, year, source, decided[0]) for source in sorted(decisions))
         return found
 
     def decision_errors(self, until=None):
         """Two decisions for one person and year where the later one does not name the earlier in `supersedes`.
 
-        The decisions are those that rule 2 weighs, compared in the order of their dates; each must name the one
+        The decisions are those that rule 7 weighs, compared in the order of their dates; each must name the one
         before it. `until` as for `conflicts`.
         """
         missing = defaultdict(set)  # (person, earlier, later) -> years
@@ -175,34 +235,70 @@ class Attribution:
         last = max([until or date.today().year] + [row.to_year for row in rows if row.to_year is not None])
         return range(min(row.from_year for row in rows), last + 1)
 
+    def _bridged(self, person_id):
+        """Rule 5: {year: [a stated row of each organisation bridged in the year]} of the person."""
+        if person_id not in self._bridges:
+            rows = self._rows[person_id]
+            stated = defaultdict(list)
+            for row in rows:
+                if row.status == STATED:
+                    stated[row.organisation].append(row)
+            bridged = defaultdict(list)
+            for organisation, records in sorted(stated.items()):
+                breaking = [row for row in rows if (row.status == STATED and row.organisation != organisation)
+                            or (row.status == DENIED and row.organisation == organisation)]
+                for first, last in _gaps(records):
+                    if any(_overlaps(row, first, last) for row in breaking):
+                        continue
+                    for year in range(first, last + 1):
+                        bridged[year].append(Affiliation(f'{BRIDGED_ID}{person_id}:{organisation}:{year}',
+                                                         person_id, organisation, year, year, STATED, None, None))
+            self._bridges[person_id] = bridged
+        return self._bridges[person_id]
+
     def _counting(self, person_id, year):
-        """The stated and assumed rows of the person that cover the year, without the denied organisations."""
+        """The stated and assumed rows of the person that cover the year, without the denied organisations, and
+        a stated row for each organisation bridged in the year."""
         rows = [row for row in self._rows[person_id] if row.covers(year)]
         denied = {row.organisation for row in rows if row.status == DENIED and row.organisation}
-        return [row for row in rows if row.status in COUNTING and row.organisation not in denied]
+        rows = [row for row in rows if row.status in COUNTING] + self._bridged(person_id).get(year, [])
+        return [row for row in rows if row.organisation not in denied]
 
     def _candidates(self, person_id, year):
         """The counting rows, and of them only the stated ones when there are any."""
-        rows = self._counting(person_id, year)
-        return [row for row in rows if row.status == STATED] or rows
+        return _stated_first(self._counting(person_id, year))
 
     def _decide(self, person_id, year):
-        """(organisation id or None, the organisations in conflict when no rule decides)."""
+        """(organisation id or None, the organisations in conflict when no rule decides, the rule)."""
         rows = self._counting(person_id, year)
         if not rows:
-            return None, []
-        decided = self._by_decision(rows)
+            return None, [], UNMAPPED
+        decided = self._by_rules(person_id, year, rows)
         if decided is not None:
-            return decided
-        rows = self._candidates(person_id, year)
-        organisations = sorted({row.organisation for row in rows})
+            return decided[0], [], decided[1]
+        by_decision = self._by_decision(rows)
+        if by_decision is not None:
+            organisation, conflict = by_decision
+            return organisation, conflict, DECIDED if organisation is not None else CONFLICT
+        return None, sorted({row.organisation for row in _stated_first(rows)}), CONFLICT
+
+    def _by_rules(self, person_id, year, rows):
+        """Rules 2 to 6 over the counting rows: (organisation id, the rule), or None when they leave it open."""
+        candidates = _stated_first(rows)
+        organisations = sorted({row.organisation for row in candidates})
         if len(organisations) == 1:
-            return organisations[0], []
-        for rule in (self._change_year, self._named_first, self._commits_and_statements, self._records):
-            organisation = rule(person_id, year, rows, organisations)
+            if all(row.id.startswith(BRIDGED_ID) for row in candidates):
+                return organisations[0], BRIDGED
+            if len({row.organisation for row in rows}) > 1:
+                return organisations[0], STATED_OVER_ASSUMED
+            return organisations[0], ONE_ORGANISATION
+        for name, rule in ((CHANGE_YEAR, self._change_year), (NAMED_FIRST, self._named_first),
+                           (COMMITS, self._commits), (OWN_STATEMENT, self._own_statement),
+                           (RECORDS, self._records)):
+            organisation = rule(person_id, year, candidates, organisations)
             if organisation is not None:
-                return organisation, []
-        return None, organisations
+                return organisation, name
+        return None
 
     def _source(self, source_id):
         return self._sources.get(source_id)
@@ -236,7 +332,7 @@ class Attribution:
         return sorted(decisions, key=key)
 
     def _by_decision(self, rows):
-        """Rule 2: (organisation, []) of the latest decision, (None, organisations) for a tie, else None."""
+        """Rule 7: (organisation, []) of the latest decision, (None, organisations) for a tie, else None."""
         decisions, supersedes = self._decisions(rows)
         if not decisions:
             return None
@@ -322,21 +418,27 @@ class Attribution:
             counts, self._match_domain, lambda domain: is_own_domain_for(domain, name, logins))
         return per_organisation, personal
 
-    def _commits_and_statements(self, person_id, year, rows, organisations):
-        """Rules 6b and 6c: the commits of the year, else the person's own statement of the year."""
+    def _commits(self, person_id, year, rows, organisations):
+        """Rule 6b: the candidate with the most commits of the year, when they outnumber the personal ones."""
         commits = self._commits_of(person_id, year)
         if commits is None:
             return None
         per_organisation, personal = commits
         candidates = {org: per_organisation[org] for org in organisations}
-        if sum(candidates.values()) > personal:
-            return _unique_best(candidates)
-        if personal > sum(candidates.values()):
-            named = {row.organisation for row in rows for citation in self._citations[row.id]
-                     if self._kind(citation.source) in OWN_STATEMENT_KINDS
-                     and self._captured_in(citation.source, year)}
-            return named.pop() if len(named) == 1 else None
-        return None
+        return _unique_best(candidates) if sum(candidates.values()) > personal else None
+
+    def _own_statement(self, person_id, year, rows, organisations):
+        """Rule 6c: when the personal commits of the year outnumber the candidates', the candidate that the
+        person's own statements of the year name."""
+        commits = self._commits_of(person_id, year)
+        if commits is None:
+            return None
+        per_organisation, personal = commits
+        if personal <= sum(per_organisation[org] for org in organisations):
+            return None
+        named = {row.organisation for row in rows for citation in self._citations[row.id]
+                 if self._kind(citation.source) in OWN_STATEMENT_KINDS and self._captured_in(citation.source, year)}
+        return named.pop() if len(named) == 1 else None
 
     def _records(self, person_id, year, rows, organisations):
         """Rule 6d: the organisation that more distinct cited sources dated in the year name."""

@@ -99,7 +99,7 @@ python -m scripts.tools.affiliation jane-doe 2016 2017
 ```
 
 The tool takes the id of the person, a GitHub login, or a username as the collected files write it, such as `person:jane-doe`.
-It prints the organisation of each year, then every affiliation of the person with its status, and under it the sources it cites, with their snippets and notes.
+It prints the organisation of each year with the rule that gave it, such as `2018: Zest Software (bridged)`, then every affiliation of the person with its status, and under it the sources it cites, with their snippets and notes.
 Without years, it shows the years of the person's affiliations.
 A year that no rule decides shows as Unmapped with the organisations in conflict, and `make check` fails for it.
 

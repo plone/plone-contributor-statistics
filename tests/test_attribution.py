@@ -80,12 +80,29 @@ def test_denied_without_organisation_is_ignored():
     assert attribution.organisation(PERSON, 2011) == 'acme'
 
 
-def test_decision_counts_before_every_other_rule():
+def test_decisions_settle_only_what_the_rules_leave_open():
     acme, beta = aff('acme', 2010, 2012), aff('beta', 2010, 2012)
-    citations = [cite(acme, 'decided'), cite(beta, 'one'), cite(beta, 'two')]  # beta has more records
+    citations = [cite(acme, 'decided'), cite(beta, 'one'), cite(beta, 'two')]  # records not dated 2010-2012
     attribution = engine([acme, beta], citations, [src('decided', 'decision'), src('one'), src('two')])
-    assert attribution.organisation(PERSON, 2011) == 'acme'
+    assert attribution.explain(PERSON, 2011) == ('acme', 'decision')  # no rule decides: the decision does
+    assert attribution.outdated_decisions(until=2012) == []
     assert attribution.decision_errors() == []
+    # Stated over assumed decides, so a decision for the assumed row is not applied
+    assumed = aff('beta', 2010, 2012, status='assumed')
+    attribution = engine([acme, assumed], [cite(assumed, 'decided')], [src('decided', 'decision')])
+    assert attribution.explain(PERSON, 2011) == ('acme', 'stated over assumed')
+
+
+def test_a_decision_the_rules_decide_is_outdated():
+    acme, beta = aff('acme', 2010, 2012), aff('beta', 2010, 2012)
+    # Two records of 2011 name beta: rule 6d decides 2011, the decision for acme is outdated there
+    citations = [cite(acme, 'decided'), cite(beta, 'one'), cite(beta, 'two')]
+    sources = [src('decided', 'decision', '2026-10-20'), src('one', on='2011-03-01'), src('two', on='2011-05-01')]
+    attribution = engine([acme, beta], citations, sources)
+    assert attribution.explain(PERSON, 2011) == ('beta', 'records')
+    assert attribution.explain(PERSON, 2010) == ('acme', 'decision')  # no records of 2010: still needed
+    assert attribution.outdated_decisions(until=2012) == [(PERSON, 2011, 'decided', 'beta')]
+    assert attribution.conflicts(until=2012) == []
 
 
 def test_latest_decision_wins():
@@ -263,6 +280,90 @@ def test_conflicts_list_the_undecided_years():
     assert attribution.conflicts(until=2031) == [(PERSON, 2021, ['acme', 'beta'])]
 
 
+def test_bridging_fills_the_years_between_two_records():
+    rows = [aff('acme', 2010, 2011), aff('acme', 2015, 2016), aff('beta', 2012, 2013, status='assumed')]
+    attribution = engine(rows)
+    for year in (2012, 2013, 2014):  # no distance limit, and an assumed row of another organisation loses
+        assert attribution.explain(PERSON, year) == ('acme', 'bridged'), year
+    assert attribution.explain(PERSON, 2011) == ('acme', 'one organisation')
+    assert attribution.organisation(PERSON, 2009) is None
+    assert attribution.organisation(PERSON, 2017) is None
+    # An open row after the gap ends the bridge as well
+    assert engine([aff('acme', 2001, 2001), aff('acme', 2020)]).explain(PERSON, 2010) == ('acme', 'bridged')
+
+
+def test_a_record_of_another_organisation_breaks_a_bridge():
+    rows = [aff('acme', 2010, 2010), aff('beta', 2013, 2013), aff('acme', 2015, 2015)]
+    attribution = engine(rows)
+    for year in (2011, 2012, 2014):  # the whole gap, not only the year of the other record
+        assert attribution.explain(PERSON, year) == (None, 'unmapped'), year
+    assert attribution.organisation(PERSON, 2013) == 'beta'
+
+
+def test_a_denied_row_breaks_a_bridge():
+    rows = [aff('acme', 2010, 2010), aff('acme', 2012, 2012, status='denied'), aff('acme', 2015, 2015)]
+    attribution = engine(rows)
+    for year in (2011, 2012, 2013, 2014):
+        assert attribution.organisation(PERSON, year) is None, year
+    # A denied row of another organisation doesn't
+    rows[1] = aff('beta', 2012, 2012, status='denied')
+    assert engine(rows).explain(PERSON, 2012) == ('acme', 'bridged')
+
+
+def test_old_notes_never_stop_a_bridge():
+    # Kim Nguyen: UW Oshkosh in 2011 and in 2014, the later row says the years before have no public record
+    notes = '2002-2013 Unmapped: no public record for these years (#86)'
+    rows = [aff('uwo', 2011, 2011),
+            Affiliation('p1-uwo-2014', PERSON, 'uwo', 2014, 2014, 'stated', None, notes)]
+    attribution = engine(rows)
+    assert attribution.explain(PERSON, 2012) == ('uwo', 'bridged')
+    assert attribution.explain(PERSON, 2013) == ('uwo', 'bridged')
+
+
+def test_assumed_rows_are_not_records_for_bridging():
+    # A bridge needs a stated row on both sides: an assumed row neither ends one ...
+    attribution = engine([aff('acme', 2010, 2010), aff('acme', 2014, status='assumed')])
+    assert [attribution.organisation(PERSON, year) for year in range(2011, 2014)] == [None, None, None]
+    assert attribution.explain(PERSON, 2014) == ('acme', 'one organisation')
+    attribution = engine([aff('acme', 2008, 2008, status='assumed'), aff('acme', 2012, 2012)])
+    assert attribution.organisation(PERSON, 2010) is None
+    # ... nor breaks one
+    rows = [aff('acme', 2010, 2010), aff('beta', 2011, 2011, status='assumed'), aff('acme', 2012, 2012)]
+    assert engine(rows).explain(PERSON, 2011) == ('acme', 'bridged')
+
+
+def test_bridged_years_count_as_stated_for_the_change_year():
+    # acme bridged 2013-2014, beta from 2015 on: 2015 is the change year and counts for acme
+    rows = [aff('acme', 2010, 2012), aff('acme', 2015, 2015), aff('beta', 2015)]
+    attribution = engine(rows)
+    assert attribution.explain(PERSON, 2014) == ('acme', 'bridged')
+    assert attribution.explain(PERSON, 2015) == ('acme', 'change year')
+    assert attribution.organisation(PERSON, 2016) == 'beta'
+
+
+def test_explain_names_the_rule():
+    assert engine([]).explain(PERSON, 2020) == (None, 'unmapped')
+    assert engine([aff('acme', 2020, 2020)]).explain(PERSON, 2020) == ('acme', 'one organisation')
+    rows = [aff('acme', 2020, 2020), aff('beta', 2020, 2020, status='assumed')]
+    assert engine(rows).explain(PERSON, 2020) == ('acme', 'stated over assumed')
+    rows = [aff('acme', 2010, 2015), aff('beta', 2015)]
+    assert engine(rows).explain(PERSON, 2015) == ('acme', 'change year')
+    acme, beta = aff('acme', 2023, 2023), aff('beta', 2023, 2023)
+    citations = [cite(acme, 'page', 'Acme Ltd'), cite(beta, 'page', 'Beta GmbH')]
+    attribution = engine([acme, beta], citations, [src('page')], {'page': 'Beta GmbH and Acme Ltd'})
+    assert attribution.explain(PERSON, 2023) == ('beta', 'named first')
+    commits = {2023: Counter({'acme.test': 6, 'gmail.com': 1})}
+    attribution = engine([acme, beta], domains=commits, organisations={'acme.test': 'acme'})
+    assert attribution.explain(PERSON, 2023) == ('acme', 'commits')
+    attribution = engine([acme, beta], [cite(beta, 'talk')], [src('talk', 'speaker-page', '2023-05-01')],
+                         domains={2023: Counter({'gmail.com': 5})})
+    assert attribution.explain(PERSON, 2023) == ('beta', 'own statement')
+    attribution = engine([acme, beta], [cite(beta, 'team')], [src('team', on='2023-05-01')])
+    assert attribution.explain(PERSON, 2023) == ('beta', 'records')
+    assert engine([acme, beta]).explain(PERSON, 2023) == (None, 'conflict')
+    assert engine([acme, beta]).conflict(PERSON, 2023) == ['acme', 'beta']
+
+
 def _first_match(rows, person, year):
     """The lookup of the registers before the engine: the first row of the person that covers the year."""
     for row in rows:
@@ -277,10 +378,14 @@ def test_non_overlapping_rows_equal_first_match(seed):
     rows = []
     for person in ('p1', 'p2', 'p3'):
         year = rng.randint(2000, 2010)
+        used, org = set(), None
         while year < 2026 and rng.random() < 0.8:
             end = year + rng.randint(0, 6)
             open_end = rng.random() < 0.15
-            org = rng.choice(['acme', 'beta', 'gamma'])
+            # The rows of one organisation follow each other: a stated organisation that comes back after another
+            # one's assumed row would bridge it
+            org = rng.choice([other for other in ('acme', 'beta', 'gamma') if other not in used or other == org])
+            used.add(org)
             row = Affiliation(f'{person}-{year}', person, org, year, None if open_end else end,
                               rng.choice(['stated', 'assumed']), None, None)
             rows.append(row)
@@ -294,7 +399,7 @@ def test_non_overlapping_rows_equal_first_match(seed):
                                         end, 'proposed', None, None))
             if open_end:
                 break
-            year = end + 1 + rng.randint(0, 3)
+            year = end + 1  # no gaps: a gap between two rows of one organisation would be bridged
     base = [row for row in rows if row.id.count('-') == 1]
     rng.shuffle(rows)
     citations = [Citation(row.id, f's{rng.randint(0, 5)}', '', '', None) for row in rows]
