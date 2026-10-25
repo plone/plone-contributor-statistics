@@ -1,4 +1,8 @@
-# Capture of the sources of the community data, 2026-10-25
+# Migration of the community data to events, 2026-10-25
+
+The folder holds the work of two plans: the capture of the sources (plan 3a) and the migration itself (plan 3b, below).
+
+## Plan 3a: capture of the sources
 
 One bulk run that fetched the web pages and videos which the curated community data in `curated/community-contributions/` cites, and stored the passages around the names and quotes in the source register (`curated/sources/`).
 It ran on 2026-10-25, as plan 3a of the data structure work; plan 3b reads these files to attach the sources to the events.
@@ -45,3 +49,22 @@ The counts are those after the final fixes: the pages of the Volto sites that ca
   Errors: 96 (87 without a quote or name, 8 short Wayback timestamps, 1 gzip body that could not be decoded, not retried).
 - Top hosts of the pages: web.archive.org 980, plone.org 324, then the ploneconf.org yearly sites with about 50 each, community.plone.org 49, sourceforge.net 26.
 - Videos: 235 items. Stored: 46 (25 miss some names). Nothing found: 146. Errors: 43 (35 without a usable name, 7 without captions, 1 playlist). 0 rate limited. 265 caption manifests in the cache.
+
+## Plan 3b: the migration to events
+
+The migration turned the yearly files of `curated/community-contributions/` into `curated/community/` (events, talks, trainings, organisers, roles).
+It ran once, on 2026-10-25, in commit `10e1cd8`, with the code and the data together.
+
+Files moved here when the migration was done:
+
+- `migrate_community.py`: reads the old yearly files from git and writes the new folder.
+- `audit_community.py`: the lossless audit, which compares every cell of the old files with the new rows (verbatim `cited_as`, people, organisations, titles, notes, source addresses), per old file and row.
+- `community_sources.py`: builds the work list of plan 3a (see Commands above).
+- `tests/`: the tests of these three tools, and `test_outputs_identical_except_provenance.py`, which compared the outputs in `derived/` and `reports/` column by column against commit `122a213`, the state before the switch. It was retired with the migration, because it breaks with the next data change.
+  The archived tests are not run: pytest collects only `tests/`.
+
+Audit result: **0 losses**.
+Counts, old and new: sprints 263/263, World Plone Day events 268/268, Plone Conference organiser elements 62/62, conference talks 1105/1105, World Plone Day talks 249/249, trainings 180/180, board of directors 191, team leaders 252, release managers 39, podcasts 31, organisers 814/814, source addresses 3875/3875.
+The new files hold 559 events, 1354 talks, 180 trainings and 814 organisers.
+
+The order rule was kept: the migration keeps the old order of a year's rows and of the organisers in a cell (people first), because the points depend on it (the first strategic sprint per organisation and year, the first four World Plone Day talks per organisation).
