@@ -266,8 +266,30 @@ def volto_paragraphs(page: dict) -> list[str]:
     return paragraphs
 
 
+# relation fields of the conference sites that name people, such as the presenters of a talk, and their label
+VOLTO_RELATIONS = (('presenters', 'Presenters'), ('speakers', 'Speakers'))
+
+
+def relation_paragraphs(page: dict) -> list[str]:
+    """One paragraph `<Label>: <title>, <title>` per relation field that names people.
+
+    The page shows these names from the related items, so they are neither in its blocks nor in its HTML.
+    """
+    paragraphs = []
+    for key, label in VOLTO_RELATIONS:
+        related = page.get(key)
+        titles = [item['title'].strip() for item in related if isinstance(item, dict)
+                  and isinstance(item.get('title'), str) and item['title'].strip()] if isinstance(related, list) else []
+        if titles:
+            paragraphs.append(f'{label}: {", ".join(titles)}')
+    return paragraphs
+
+
 def extract_volto(fetcher, url: str) -> Extracted:
-    """Text of a Volto page from its ++api++ JSON; the page's own HTML when the JSON has none."""
+    """Text of a Volto page from its ++api++ JSON; the page's own HTML when the JSON has none.
+
+    Either way, the people its relation fields name (VOLTO_RELATIONS) end the text, one paragraph per field.
+    """
     parts = urllib.parse.urlsplit(url)
     api_url = f'{parts.scheme}://{parts.netloc}/++api++{parts.path}'
     try:
@@ -275,14 +297,19 @@ def extract_volto(fetcher, url: str) -> Extracted:
         page = json.loads(raw.body) if raw.status == 200 else None
     except (FetchError, ValueError):
         page = None
+    related = relation_paragraphs(page) if isinstance(page, dict) else []
     if isinstance(page, dict):
         paragraphs = volto_paragraphs(page)
         # a page with only a title is a static export's stub, not a text
         if len(paragraphs) > (1 if page.get('title') else 0) + (1 if page.get('description') else 0):
-            text = '\n\n'.join(paragraphs)
+            text = '\n\n'.join(paragraphs + related)
             return Extracted(text=text, full_text=text, title=page.get('title') or None,
                              date=parse_date(page.get('effective') or page.get('modified')))
-    return extract_html(fetcher.get(url))
+    extracted = extract_html(fetcher.get(url))
+    if not related:
+        return extracted
+    return dataclasses.replace(extracted, text='\n\n'.join([extracted.text, *related]).strip(),
+                               full_text='\n\n'.join([extracted.full_text, *related]).strip())
 
 
 def google_doc_id(url: str) -> str:

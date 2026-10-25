@@ -1,0 +1,98 @@
+{
+  "@id": "https://2023.ploneconf.org/schedule/six-and-the-city",
+  "@type": "Talk",
+  "UID": "000f3927016546ee931e57a7630ebf78",
+  "title": "Six and the city",
+  "type_title": "Talk",
+  "review_state": "published",
+  "created": "2023-09-21T10:35:43+00:00",
+  "modified": "2023-09-29T06:29:13+00:00",
+  "start": "2023-10-04T10:20:00.280000+02:00",
+  "end": "2023-10-04T11:00:00.748000+02:00",
+  "track": [
+    {
+      "title": "Track 2",
+      "token": "track-2"
+    }
+  ],
+  "session_audience": [
+    {
+      "title": "User",
+      "token": "user"
+    }
+  ],
+  "session_level": [
+    {
+      "title": "Beginner",
+      "token": "beginner"
+    }
+  ],
+  "text": {
+    "content-type": "text/html",
+    "data": "<p>\"How do we implement SmartWeb Plone 6 sites for several hundred of local authorities in Wallonia (french part of Belgium) ? Six is the key ...\"</p>",
+    "encoding": "utf8"
+  },
+  "presenters": [
+    {
+      "@id": "https://2023.ploneconf.org/speakers/elisabeth-donnay",
+      "@type": "Person",
+      "description": "Elisabeth is a product manager at iMio. She coordinates the team, ensures the good evolution of the products and manages the implementations with the customers. Before that, she was a Plone webmaster and TTW integrator at the University of Namur. There, she trained dozens of editors and created about a hundred Plone sites.",
+      "labels": [
+        "speaker"
+      ],
+      "title": "Elisabeth Donnay"
+    },
+    {
+      "@id": "https://2023.ploneconf.org/speakers/emmanuel-brotelle",
+      "@type": "Person",
+      "description": "This is the story of a former behind-the-scenes actor in the world of culture, who took a surprising detour to land in the realm of public administration. Today, he leverages his rich cultural background to guide and educate, using the energy of the stage to make the web as captivating as his past adventures.",
+      "labels": [
+        "speaker"
+      ],
+      "title": "Emmanuel Brotelle"
+    },
+    {
+      "@id": "https://2023.ploneconf.org/speakers/christophe-boulanger",
+      "@type": "Person",
+      "description": "After various experiences in data processing, Christophe joined iMio in 2014. First as an integrator in a Django solution, then, since 2019, as a Plone developer for the Smartweb solution.",
+      "labels": [
+        "speaker"
+      ],
+      "title": "Christophe Boulanger"
+    },
+    {
+      "@id": "https://2023.ploneconf.org/speakers/laurent-lasudry",
+      "@type": "Person",
+      "description": "Laurent has been working with Zope/Plone since 2006 at Affinitic, Belgium.\nHe is an Open Source enthousiast and contributed to many Plone packages over the years.",
+      "labels": [
+        "speaker"
+      ],
+      "title": "Laurent Lasudry"
+    },
+    {
+      "@id": "https://2023.ploneconf.org/speakers/thomas-lambert",
+      "@type": "Person",
+      "description": "I am a web enthusiast with a background in web design. My journey in the world of web development began when I discovered my passion for front-end development. In 2019, I embarked on a professional adventure by joining Imio, where I started as a web integrator. As time progressed, I had the opportunity to dive deeper into front-end development, particularly with React, as I worked on new websites using Plone 6. ",
+      "labels": [
+        "speaker"
+      ],
+      "title": "Thomas Lambert"
+    },
+    {
+      "@id": "https://2023.ploneconf.org/speakers/remi-dubois",
+      "@type": "Person",
+      "description": "Having worked for 16 years as head of IT on a municipality, Rémi has a strong knowledge of Belgium’s local administrations. In 2022, he decided to take a new challenge and joined the SmartWeb team at iMio. \nAs an open-source enthusiast, he’s always eager to learn.",
+      "labels": [
+        "speaker"
+      ],
+      "title": "Rémi Dubois"
+    }
+  ],
+  "video_url": null,
+  "slides_url": null,
+  "parent": {
+    "@id": "https://2023.ploneconf.org/schedule",
+    "@type": "Document",
+    "title": "Schedule"
+  }
+}

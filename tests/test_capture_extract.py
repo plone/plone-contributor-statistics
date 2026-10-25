@@ -206,6 +206,36 @@ def test_extract_volto_falls_back_to_html(first):
     assert 'Zest Software' in result.text
 
 
+PRESENTERS = ('Presenters: Elisabeth Donnay, Emmanuel Brotelle, Christophe Boulanger, Laurent Lasudry, Thomas Lambert, '
+              'Rémi Dubois')
+
+
+def test_extract_volto_talk_names_its_presenters():
+    """A talk of the conference sites has no blocks; its presenters are a relation, not text of the page."""
+    talk = (FIXTURES / 'volto-talk.json').read_bytes()
+    html = (FIXTURES / 'volto-talk.html').read_bytes()
+    fetcher = FakeFetcher(raw(talk, 'application/json'), raw(html))
+    result = extract_volto(fetcher, 'https://2023.ploneconf.org/schedule/six-and-the-city')
+    assert fetcher.urls == ['https://2023.ploneconf.org/++api++/schedule/six-and-the-city',
+                            'https://2023.ploneconf.org/schedule/six-and-the-city']  # the text of the page stays
+    assert 'SmartWeb Plone 6 sites' in result.text
+    assert result.text.split('\n\n')[-1] == PRESENTERS
+    assert result.full_text.split('\n\n')[-1] == PRESENTERS
+    assert 'Track 1' not in PRESENTERS  # the vocabularies (track, audience, level) are not relations
+
+
+def test_extract_volto_page_with_blocks_names_its_speakers():
+    page = {'title': 'A talk', 'blocks': {'a': {'@type': 'slate', 'value': [{'type': 'p', 'children': [
+                {'text': 'About the talk'}]}]}},
+            'speakers': [{'@id': 'https://x.org/jane', 'title': 'Jane Doe'}, {'@id': 'https://x.org/n'},
+                         {'@id': 'https://x.org/john', 'title': ' John Roe '}],
+            'presenters': [], 'track': [{'title': 'Track 1', 'token': 'track-1'}]}
+    result = extract_volto(FakeFetcher(raw(json.dumps(page).encode(), 'application/json')),
+                           'https://2024.ploneconf.org/schedule/a-talk')
+    assert result.text.split('\n\n') == ['A talk', 'About the talk', 'Speakers: Jane Doe, John Roe']
+    assert result.full_text == result.text
+
+
 class FakeGitHubResponse:
     def __init__(self, data, status_code=200):
         self.data = data
