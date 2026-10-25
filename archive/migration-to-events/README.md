@@ -35,13 +35,13 @@ Output: `curated/sources/sources.csv` and the passages in `curated/sources/excer
 
 ## Counts
 
-<!-- COUNTS: the numbers of this section are those of the run before the final fixes; replace them after the re-run. -->
+The counts are those after the final fixes: the pages of the Volto sites that came back with nothing found were captured again from the cache once their presenters were read (147 items, 47 of them now hold passages).
 
 - Pages: 1,782 items.
-  Stored: 1,361 sources.
-  Of these, 1,058 got new passages and 303 were already in the register and got none.
-  305 of the 1,361 miss some of their quotes or names, mostly names: 282 of those with new passages and 23 of those already in the register.
-  Nothing found (no source id, no error): 325.
+  Stored: 1,408 sources.
+  Of these, 1,105 got new passages and 303 were already in the register and got none.
+  311 of the 1,408 miss some of their quotes or names, mostly names: 288 of those with new passages and 23 of those already in the register.
+  Nothing found (no source id, no error): 278.
   Errors: 96 (87 without a quote or name, 8 short Wayback timestamps, 1 gzip body that could not be decoded, not retried).
 - Top hosts of the pages: web.archive.org 980, plone.org 324, then the ploneconf.org yearly sites with about 50 each, community.plone.org 49, sourceforge.net 26.
 - Videos: 235 items. Stored: 46 (25 miss some names). Nothing found: 146. Errors: 43 (35 without a usable name, 7 without captions, 1 playlist). 0 rate limited. 265 caption manifests in the cache.
