@@ -21,8 +21,8 @@ import sys
 
 from scripts.lib.cells import add_new, parse_segment, quotes_of, split_segments
 from scripts.lib.model import (ROLE_KINDS, community_folder, items, load_registry, load_sources, normalize_url)
+from scripts.lib.model.community import VIDEO_HOSTS
 
-VIDEO_HOSTS = ('youtube.com', 'youtu.be', 'vimeo.com', 'plone.tv')
 FILE_NAME = re.compile(r'^(\d{4})-(.+)\.csv$')
 NO_SOURCE_CELL_KINDS = ('community-recognition-levels', 'community-recognition-points')
 

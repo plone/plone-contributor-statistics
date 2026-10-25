@@ -85,3 +85,20 @@ def test_registered_urls_are_counted(repo, tmp_path, capsys):
     record_source(SPRINT)
     assert community_sources.main(['--worklist', str(tmp_path / 'l.jsonl')]) == 0
     assert '1 already registered' in capsys.readouterr().out
+
+
+def test_names_of_world_plone_day_organisers_and_the_conference_organisation(repo):
+    community = paths.COMMUNITY
+    write(community / '2025-world-plone-day-event.csv', 'date,location,format,organisations,organisers,source,notes', [
+        '2025-04-10,"Bologna, Italy",in person,acme,john-roe,https://wpd.example.org/bologna,'])
+    write(community / '2025-plone-conference.csv', 'organisation,organisers,source,notes', [
+        'beta,ann-lee,https://conf.example.org/2025,'])
+    found = by_url(work_list())
+    assert found['https://wpd.example.org/bologna']['names'] == ['John Roe', 'Acme', 'Acme GmbH', 'ACME Inc.']
+    assert found['https://conf.example.org/2025']['names'] == ['Ann Lee', 'Beta']
+
+
+def test_the_video_hosts_are_those_of_the_model():
+    from scripts.lib.model import community
+    assert community_sources.VIDEO_HOSTS is community.VIDEO_HOSTS
+    assert community_sources.is_video('https://www.plone.tv/a-talk') and not community_sources.is_video(SPRINT)
