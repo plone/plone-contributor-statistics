@@ -213,6 +213,22 @@ def test_organisation_of_follows_the_attribution_rules(tmp_repo):
         'Acme', 'Acme', 'Zeta', 'Zeta', 'Acme', UNMAPPED, UNMAPPED]
 
 
+def test_without_affiliations_shows_what_the_rules_give_without_them(tmp_repo):
+    sid = record_source()
+    paths.PEOPLE.write_text('id,name\np1,P One\n', encoding='utf-8')
+    paths.ORGANISATIONS.write_text('id,name,kind,github,aliases,notes\nacme,Acme,organisation,,,\n', encoding='utf-8')
+    paths.AFFILIATIONS.write_text('id,person,organisation,from,to,status,checked,notes\n'
+                                  'a00000001,p1,acme,2010,2015,stated,,\n'
+                                  'a00000002,p1,acme,2012,2012,denied,,an old mailbox\n', encoding='utf-8')
+    paths.CITATIONS.write_text(f'affiliation,source,snippet,supersedes,notes\na00000001,{sid},,,\n', encoding='utf-8')
+    registry = load_registry()
+    without = registry.without_affiliations({'a00000002'})
+    assert registry.organisation_of('p1', 2012) == UNMAPPED
+    assert without.organisation_of('p1', 2012) == 'Acme'
+    assert [row.id for row in registry.affiliations] == ['a00000001', 'a00000002']  # the registry is unchanged
+    assert without.citations is registry.citations  # the inputs are read once
+
+
 def test_citations_and_sources_are_read_on_the_first_organisation(tmp_repo):
     paths.PEOPLE.write_text('id,name\np1,P One\n', encoding='utf-8')
     paths.CITATIONS.unlink()  # a collector that asks for no organisation never needs it

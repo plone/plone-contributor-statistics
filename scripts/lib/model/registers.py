@@ -178,6 +178,13 @@ class Registry:
                                                       if org_id in self.organisations else []))
         return self._attribution
 
+    def without_affiliations(self, ids):
+        """The same registers and attribution inputs without the affiliations of the ids: what the rules give
+        without them."""
+        return Registry(self.people.values(), self.identities,
+                        [affiliation for affiliation in self.affiliations if affiliation.id not in ids],
+                        self.organisations.values(), attribution_inputs=self._attribution_data)
+
     def organisation_of(self, person_id, year):
         """The name of the organisation the person counts for in the year, else UNMAPPED."""
         org_id = self.attribution.organisation(person_id, year)
