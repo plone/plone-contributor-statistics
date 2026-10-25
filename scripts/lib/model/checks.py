@@ -93,10 +93,10 @@ class UncitedAffiliationError(errors.RowError):
     template = 'The row at position {rowNumber} has an error: {note}'
 
 
-class ConflictError(errors.TableError):
-    type = 'unresolved-conflict'
-    title = 'Unresolved Conflict'
-    description = 'No attribution rule decides which organisation a person counts for in a year.'
+class ConflictCheckSkippedError(errors.TableError):
+    type = 'conflict-check-skipped'
+    title = 'Conflict Check Skipped'
+    description = 'The registers cannot be read, so the open cases of the attribution could not be looked for.'
     template = 'General table error: {note}'
 
 
@@ -416,7 +416,7 @@ class UnresolvedConflict(Check):
     That the registers cannot be read is an error."""
 
     type = 'unresolved-conflict'
-    Errors = [ConflictError, OpenCaseWarning]
+    Errors = [ConflictCheckSkippedError, OpenCaseWarning]
 
     attribution: object
     """A function that returns the `Attribution` of the registers, or the reason why they cannot be read."""
@@ -425,7 +425,7 @@ class UnresolvedConflict(Check):
     def validate_end(self):
         attribution = self.attribution()
         if isinstance(attribution, str):
-            yield ConflictError(note=f'the conflict check was skipped: {attribution}')
+            yield ConflictCheckSkippedError(note=f'the conflict check was skipped: {attribution}')
             return
         for person, year, organisations in attribution.conflicts(until=self.until):
             note = (f'{person}, {year}: no attribution rule decides between {", ".join(organisations)}; '

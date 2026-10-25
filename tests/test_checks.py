@@ -274,6 +274,21 @@ def test_an_unresolved_conflict_is_an_open_case_and_a_warning(tmp_package, capsy
             'between acme, beta; it counts as Unmapped until a decision settles it') in out.splitlines()
 
 
+def test_an_open_case_next_to_a_real_error_still_fails_the_check(tmp_package, capsys):
+    # The open case of 2012-2013 is a warning; the open-ended row without `checked` is an error
+    root = tmp_package(affiliations(('acme', 2010, 2014), ('beta', 2012, 2013), ('beta', 2020, None),
+                                    organisations=BETA))
+    warnings = []
+    errors = check.validate(root, warnings=warnings)
+    assert len(errors) == 1 and 'needs checked' in errors[0][3]
+    assert len(warnings) == 2
+    with pytest.raises(SystemExit) as exit_info:
+        check.main([])
+    assert exit_info.value.code == 1
+    out = capsys.readouterr().out
+    assert 'warning: Open case: pbauer, 2012' in out and 'needs checked' in out
+
+
 def decisions(supersedes):
     """Two decisions for pbauer in 2012: acme, then beta, whose citation names the earlier one, or not."""
     first, later = affiliation_id('pbauer', 'acme', 2012, 2012), affiliation_id('pbauer', 'beta', 2012, 2012)
