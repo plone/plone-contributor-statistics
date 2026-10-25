@@ -25,32 +25,20 @@ from pathlib import Path
 from scripts.lib import paths
 from scripts.lib.model.schema import read_rows, split_set
 
-# File kind -> (label, person column or set column, detail column)
+# File kind -> (label, detail column): the people of a row are those of its item
 ROLE_KINDS = {
-    'board-of-directors': ('Board', 'person', None),
-    'team-leaders': ('Team lead', 'person', 'team'),
-    'release-managers': ('Release manager', 'person', None),
-    'plone-conference-trainings': ('Trainer', 'trainers', 'title'),
-    'world-plone-day-talks': ('Speaker', 'speakers', 'title'),
-    'conference-talks': ('Speaker', 'speakers', 'title'),
-    'sprints': ('Sprint organiser', 'organisers', 'sprint'),
-    'podcasts': ('Podcast', 'person', 'series'),
-    'plone-conference': ('Conference organiser', 'organisers', None),
+    'board-of-directors': ('Board', None),
+    'team-leaders': ('Team lead', 'team'),
+    'release-managers': ('Release manager', None),
+    'plone-conference-trainings': ('Trainer', 'title'),
+    'world-plone-day-talks': ('Speaker', 'title'),
+    'conference-talks': ('Speaker', 'title'),
+    'sprints': ('Sprint organiser', 'sprint'),
+    'podcasts': ('Podcast', 'series'),
+    'plone-conference': ('Conference organiser', None),
 }
-# Columns that hold a set of ids; the others hold a single id
-SET_COLUMNS = ('trainers', 'speakers', 'organisers')
-# The column that names the people of a kind that is no role kind
-EXTRA_PEOPLE_COLUMNS = {'world-plone-day-event': 'organisers'}
-# The column that names a row of a kind; the per-person kinds are named by `person`
-KEY_COLUMNS = {
-    'plone-conference-trainings': 'title',
-    'world-plone-day-talks': 'title',
-    'conference-talks': 'title',
-    'sprints': 'sprint',
-    'podcasts': 'series',
-    'plone-conference': 'organisation',
-    'world-plone-day-event': 'location',
-}
+# The column that names a row of a roles file other than `person`
+KEY_COLUMNS = {'podcasts': 'series'}
 # Only these World Plone Day videos are talks (#119)
 TALK_TYPES = ('Talk',)
 # World Plone Day events count when they were held in person (#118)
@@ -348,7 +336,7 @@ def community_years(community_dir=paths.COMMUNITY):
 def roles(year, community_dir=paths.COMMUNITY):
     """One Role per person and role in the curated files of the year."""
     found = []
-    for kind, (label, _, detail_column) in ROLE_KINDS.items():
+    for kind, (label, detail_column) in ROLE_KINDS.items():
         for item in items(year, kind, community_dir):
             if kind == 'world-plone-day-talks' and item.fields['type'] not in TALK_TYPES:
                 continue
@@ -356,10 +344,6 @@ def roles(year, community_dir=paths.COMMUNITY):
             found.extend(Role(kind=kind, year=year, person=person, label=label, detail=detail, file=item.file,
                               line=item.line, source=item.source, notes=item.notes) for person in item.people)
     return found
-
-
-# Where recordings are published; a source that links only an event page is not a recording
-VIDEO_HOSTS = ('youtube.com', 'youtu.be', 'vimeo.com', 'plone.tv')
 
 
 def talks(year, community_dir=paths.COMMUNITY):
