@@ -31,10 +31,17 @@ Output: `curated/sources/sources.csv` and the passages in `curated/sources/excer
 - The caption tracks are kept in the cache of the main checkout, `.cache/sources/video/`, one folder per video with a `tracks.json` manifest, and are reused: a video with cached tracks causes no further request to YouTube unless the capture is refreshed. The tracks are not committed.
 - The video run went first and the page run after it, because two batches would race on `sources.csv`.
 - The playlist address in the community data is refused: only single videos are captured.
-- Items that ended in an error are permanent for this plan: addresses that name neither a quote nor a name, so nothing could be located, Wayback addresses with a short timestamp, one gzip error on an archived page, and videos without captions.
+- Items that ended in an error are permanent for this plan: addresses that name neither a quote nor a name, so nothing could be located, Wayback addresses with a short timestamp, one archived page whose gzip body could not be decoded (`ContentDecodingError`), which was not retried, and videos without captions.
 
-## Summary
+## Counts
 
-- Pages: 1,782 items. Stored: 1,361, of which 1,058 added passages and 305 miss some quotes; the rest were already known. Nothing found (no source id, no error): 325. Errors: 96 (87 without a quote or name, 8 short Wayback timestamps, 1 gzip error).
+<!-- COUNTS: the numbers of this section are those of the run before the final fixes; replace them after the re-run. -->
+
+- Pages: 1,782 items.
+  Stored: 1,361 sources.
+  Of these, 1,058 got new passages and 303 were already in the register and got none.
+  305 of the 1,361 miss some of their quotes or names, mostly names: 282 of those with new passages and 23 of those already in the register.
+  Nothing found (no source id, no error): 325.
+  Errors: 96 (87 without a quote or name, 8 short Wayback timestamps, 1 gzip body that could not be decoded, not retried).
 - Top hosts of the pages: web.archive.org 980, plone.org 324, then the ploneconf.org yearly sites with about 50 each, community.plone.org 49, sourceforge.net 26.
 - Videos: 235 items. Stored: 46 (25 miss some names). Nothing found: 146. Errors: 43 (35 without a usable name, 7 without captions, 1 playlist). 0 rate limited. 265 caption manifests in the cache.
