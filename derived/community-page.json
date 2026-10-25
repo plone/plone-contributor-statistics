@@ -548,7 +548,7 @@
    "team_leads": [
     {
      "name": "Kapil Thangavelu",
-     "organisation": "Unmapped",
+     "organisation": "ObjectRealms",
      "source": "https://web.archive.org/web/20051224100050/http://plone.org/development/teams/infrastructure",
      "team": "Admin & Infrastructure Team"
     },
@@ -1188,7 +1188,7 @@
     },
     {
      "name": "Joel Burton",
-     "organisation": "Unmapped",
+     "organisation": "Joel Burton (independent)",
      "source": "https://web.archive.org/web/20070115043228/http://plone.org/development/teams/",
      "team": "Documentation Team"
     },
@@ -1248,7 +1248,7 @@
     },
     {
      "name": "Darci Hanning",
-     "organisation": "Unmapped",
+     "organisation": "Oregon State Library",
      "source": "https://plone.org/foundation/meetings/minutes/2007/minutes-november-29-2007",
      "team": "Membership Committee"
     },
@@ -10724,10 +10724,10 @@
      "roles": 10
     },
     "2023": {
-     "commits": 150,
+     "commits": 153,
      "events": 0,
      "pull_requests": 53,
-     "roles": 9
+     "roles": 10
     },
     "2024": {
      "commits": 105,
@@ -11365,7 +11365,7 @@
      "commits": 19,
      "events": 2,
      "pull_requests": 8,
-     "roles": 7
+     "roles": 8
     },
     "2023": {
      "commits": 7,
@@ -13175,7 +13175,7 @@
      "commits": 22,
      "events": 0,
      "pull_requests": 1,
-     "roles": 2
+     "roles": 3
     },
     "2016": {
      "commits": 34,
@@ -13750,7 +13750,7 @@
     "2020": {
      "commits": 216,
      "events": 0,
-     "pull_requests": 216,
+     "pull_requests": 217,
      "roles": 2
     },
     "2021": {
@@ -14791,10 +14791,10 @@
      "roles": 3
     },
     "2010": {
-     "commits": 4,
+     "commits": 11,
      "events": 2,
      "pull_requests": 0,
-     "roles": 1
+     "roles": 2
     },
     "2011": {
      "commits": 0,
@@ -15796,7 +15796,7 @@
      "commits": 0,
      "events": 0,
      "pull_requests": 0,
-     "roles": 0
+     "roles": 2
     },
     "2008": {
      "commits": 44,
@@ -15805,7 +15805,7 @@
      "roles": 3
     },
     "2009": {
-     "commits": 24,
+     "commits": 28,
      "events": 0,
      "pull_requests": 0,
      "roles": 1
@@ -16516,7 +16516,7 @@
      "commits": 26,
      "events": 0,
      "pull_requests": 19,
-     "roles": 2
+     "roles": 3
     },
     "2018": {
      "commits": 235,
@@ -19534,7 +19534,7 @@
     "commits": 0,
     "id": "francesco-ciriaci",
     "name": "Francesco Ciriaci",
-    "organisation": "Unmapped",
+    "organisation": "Reflab",
     "pull_requests": 0,
     "roles": [
      "Trainer"
@@ -19855,7 +19855,7 @@
     "commits": 35,
     "id": "kapil-thangavelu",
     "name": "Kapil Thangavelu",
-    "organisation": "Unmapped",
+    "organisation": "ObjectRealms",
     "pull_requests": 0,
     "roles": [
      "Team lead",
@@ -20746,7 +20746,7 @@
     "commits": 0,
     "id": "chris-mcdonough",
     "name": "Chris McDonough",
-    "organisation": "Unmapped",
+    "organisation": "Agendaless Consulting",
     "pull_requests": 0,
     "roles": [
      "Speaker"
@@ -20924,7 +20924,7 @@
     "commits": 0,
     "id": "geir-baekholt",
     "name": "Geir Baekholt",
-    "organisation": "Unmapped",
+    "organisation": "Jarn",
     "pull_requests": 0,
     "roles": [
      "Sprint organiser"
@@ -21032,7 +21032,7 @@
     "commits": 3,
     "id": "helge-tesdal",
     "name": "Helge Tesdal",
-    "organisation": "Unmapped",
+    "organisation": "Jarn",
     "pull_requests": 0,
     "roles": [],
     "talks": []
@@ -21397,7 +21397,7 @@
     "commits": 2,
     "id": "nate-aune",
     "name": "Nate Aune",
-    "organisation": "Unmapped",
+    "organisation": "Jazkarta",
     "pull_requests": 0,
     "roles": [
      "Speaker"
@@ -22106,7 +22106,7 @@
     "commits": 0,
     "id": "calvin-hendryx-parker",
     "name": "Calvin Hendryx-Parker",
-    "organisation": "Unmapped",
+    "organisation": "Sixfeetup",
     "pull_requests": 0,
     "roles": [
      "Speaker"
@@ -22224,7 +22224,7 @@
     "commits": 0,
     "id": "darci-hanning",
     "name": "Darci Hanning",
-    "organisation": "Unmapped",
+    "organisation": "Oregon State Library",
     "pull_requests": 0,
     "roles": [
      "Speaker",
@@ -22447,7 +22447,7 @@
     "commits": 0,
     "id": "geir-baekholt",
     "name": "Geir Baekholt",
-    "organisation": "Unmapped",
+    "organisation": "Jarn",
     "pull_requests": 0,
     "roles": [
      "Sprint organiser"
@@ -22529,7 +22529,7 @@
     "commits": 8,
     "id": "helge-tesdal",
     "name": "Helge Tesdal",
-    "organisation": "Unmapped",
+    "organisation": "Jarn",
     "pull_requests": 0,
     "roles": [],
     "talks": []
@@ -22686,7 +22686,7 @@
     "commits": 0,
     "id": "joel-burton",
     "name": "Joel Burton",
-    "organisation": "Unmapped",
+    "organisation": "Joel Burton (independent)",
     "pull_requests": 0,
     "roles": [
      "Speaker",
@@ -22921,7 +22921,7 @@
     "commits": 0,
     "id": "matt-hamilton",
     "name": "Matt Hamilton",
-    "organisation": "Unmapped",
+    "organisation": "Netsight",
     "pull_requests": 0,
     "roles": [
      "Speaker"
@@ -24376,7 +24376,7 @@
     "commits": 0,
     "id": "ken-wasetis",
     "name": "Ken Wasetis",
-    "organisation": "Unmapped",
+    "organisation": "Contextual Corp",
     "pull_requests": 0,
     "roles": [
      "Speaker"
@@ -25363,7 +25363,7 @@
     "commits": 4,
     "id": "clayton-parker",
     "name": "Clayton Parker",
-    "organisation": "Unmapped",
+    "organisation": "Sixfeetup",
     "pull_requests": 0,
     "roles": [],
     "talks": []
@@ -26351,7 +26351,7 @@
     "commits": 0,
     "id": "sally-kleinfeldt",
     "name": "Sally Kleinfeldt",
-    "organisation": "Unmapped",
+    "organisation": "Jazkarta",
     "pull_requests": 0,
     "roles": [
      "Speaker"
@@ -26721,7 +26721,7 @@
     "commits": 7,
     "id": "andrew-mleczko",
     "name": "Andrew Mleczko",
-    "organisation": "Unmapped",
+    "organisation": "RedTurtle",
     "pull_requests": 0,
     "roles": [
      "Speaker"
@@ -27408,7 +27408,7 @@
     "commits": 39,
     "id": "kees-hink",
     "name": "Kees Hink",
-    "organisation": "Unmapped",
+    "organisation": "Goldmund, Wyldebeast & Wunderliebe",
     "pull_requests": 0,
     "roles": [],
     "talks": []
@@ -27417,7 +27417,7 @@
     "commits": 36,
     "id": "kim-chee-leong",
     "name": "Kim Chee Leong",
-    "organisation": "Unmapped",
+    "organisation": "Goldmund, Wyldebeast & Wunderliebe",
     "pull_requests": 0,
     "roles": [],
     "talks": []
@@ -28212,7 +28212,7 @@
     "commits": 27,
     "id": "toutpt",
     "name": "toutpt",
-    "organisation": "Unmapped",
+    "organisation": "Makina Corpus",
     "pull_requests": 0,
     "roles": [],
     "talks": []
@@ -28892,7 +28892,7 @@
     "commits": 31,
     "id": "elizabeth-leddy",
     "name": "Elizabeth Leddy",
-    "organisation": "Unmapped",
+    "organisation": "East of Eaton",
     "pull_requests": 0,
     "roles": [
      "Conference organiser"
@@ -29349,7 +29349,7 @@
     "commits": 20,
     "id": "kim-chee-leong",
     "name": "Kim Chee Leong",
-    "organisation": "Unmapped",
+    "organisation": "Goldmund, Wyldebeast & Wunderliebe",
     "pull_requests": 5,
     "roles": [],
     "talks": []
@@ -30435,7 +30435,7 @@
     "commits": 42,
     "id": "toutpt",
     "name": "toutpt",
-    "organisation": "Unmapped",
+    "organisation": "Makina Corpus",
     "pull_requests": 0,
     "roles": [],
     "talks": []
@@ -30570,7 +30570,7 @@
     "commits": 8,
     "id": "alan-runyan",
     "name": "Alan Runyan",
-    "organisation": "Unmapped",
+    "organisation": "Enfold",
     "pull_requests": 2,
     "roles": [],
     "talks": []
@@ -30823,7 +30823,7 @@
     "commits": 1,
     "id": "carlos-de-la-guardia",
     "name": "Carlos de la Guardia",
-    "organisation": "Unmapped",
+    "organisation": "Jazkarta",
     "pull_requests": 1,
     "roles": [],
     "talks": []
@@ -31976,7 +31976,7 @@
     "commits": 52,
     "id": "kim-chee-leong",
     "name": "Kim Chee Leong",
-    "organisation": "Unmapped",
+    "organisation": "Goldmund, Wyldebeast & Wunderliebe",
     "pull_requests": 1,
     "roles": [
      "Speaker"
@@ -31993,7 +31993,7 @@
     "commits": 0,
     "id": "kim-nguyen",
     "name": "Kim Nguyen",
-    "organisation": "Unmapped",
+    "organisation": "University of Wisconsin Oshkosh",
     "pull_requests": 9,
     "roles": [],
     "talks": []
@@ -32293,7 +32293,7 @@
     "commits": 0,
     "id": "matthew-sital-singh",
     "name": "Matthew Sital-Singh",
-    "organisation": "Unmapped",
+    "organisation": "Netsight",
     "pull_requests": 0,
     "roles": [
      "Speaker"
@@ -33072,7 +33072,7 @@
     "commits": 50,
     "id": "toutpt",
     "name": "toutpt",
-    "organisation": "Unmapped",
+    "organisation": "Makina Corpus",
     "pull_requests": 1,
     "roles": [],
     "talks": []
@@ -33596,7 +33596,7 @@
     "commits": 0,
     "id": "carlos-de-la-guardia",
     "name": "Carlos de la Guardia",
-    "organisation": "Unmapped",
+    "organisation": "Jazkarta",
     "pull_requests": 0,
     "roles": [
      "Speaker"
@@ -34758,7 +34758,7 @@
     "commits": 1,
     "id": "kim-nguyen",
     "name": "Kim Nguyen",
-    "organisation": "Unmapped",
+    "organisation": "University of Wisconsin Oshkosh",
     "pull_requests": 0,
     "roles": [],
     "talks": []
@@ -37274,7 +37274,7 @@
     "commits": 44,
     "id": "hector-velarde",
     "name": "Héctor Velarde",
-    "organisation": "Unmapped",
+    "organisation": "Simples Consultoria",
     "pull_requests": 2,
     "roles": [],
     "talks": []
@@ -38038,7 +38038,7 @@
     "commits": 1,
     "id": "mikko-ohtamaa",
     "name": "Mikko Ohtamaa",
-    "organisation": "Unmapped",
+    "organisation": "Red Innovation Oy",
     "pull_requests": 1,
     "roles": [],
     "talks": []
@@ -39185,7 +39185,7 @@
     "commits": 2,
     "id": "carlos-de-la-guardia",
     "name": "Carlos de la Guardia",
-    "organisation": "Unmapped",
+    "organisation": "Jazkarta",
     "pull_requests": 1,
     "roles": [],
     "talks": []
@@ -39712,7 +39712,7 @@
     "commits": 65,
     "id": "hector-velarde",
     "name": "Héctor Velarde",
-    "organisation": "Unmapped",
+    "organisation": "Simples Consultoria",
     "pull_requests": 24,
     "roles": [],
     "talks": []
@@ -40380,7 +40380,7 @@
     "commits": 0,
     "id": "max-jakob",
     "name": "Max Jakob",
-    "organisation": "Unmapped",
+    "organisation": "Ludwig Maximilian University Munich",
     "pull_requests": 0,
     "roles": [
      "Sprint organiser"
@@ -43689,7 +43689,7 @@
     "commits": 0,
     "id": "alexander-pilz",
     "name": "Alexander Pilz",
-    "organisation": "Unmapped",
+    "organisation": "Syslab",
     "pull_requests": 0,
     "roles": [
      "Speaker"
@@ -43877,7 +43877,7 @@
     "commits": 6,
     "id": "carlos-de-la-guardia",
     "name": "Carlos de la Guardia",
-    "organisation": "Unmapped",
+    "organisation": "Jazkarta",
     "pull_requests": 2,
     "roles": [],
     "talks": []
@@ -46140,7 +46140,7 @@
     "commits": 4,
     "id": "david-bain",
     "name": "David Bain",
-    "organisation": "Unmapped",
+    "organisation": "Alteroo",
     "pull_requests": 2,
     "roles": [],
     "talks": []
@@ -46611,7 +46611,7 @@
     "commits": 12,
     "id": "joni-orponen",
     "name": "Joni Orponen",
-    "organisation": "Unmapped",
+    "organisation": "4Teamwork",
     "pull_requests": 17,
     "roles": [],
     "talks": []
@@ -47497,7 +47497,7 @@
     "commits": 0,
     "id": "stefan-antonelli",
     "name": "Stefan Antonelli",
-    "organisation": "Unmapped",
+    "organisation": "operun",
     "pull_requests": 0,
     "roles": [
      "Speaker"
@@ -49687,7 +49687,7 @@
     "commits": 0,
     "id": "stefan-antonelli",
     "name": "Stefan Antonelli",
-    "organisation": "Unmapped",
+    "organisation": "operun",
     "pull_requests": 0,
     "roles": [
      "Speaker"
@@ -50720,7 +50720,7 @@
     "commits": 0,
     "id": "ismael",
     "name": "Ismael",
-    "organisation": "Unmapped",
+    "organisation": "Onna",
     "pull_requests": 1,
     "roles": [],
     "talks": []
@@ -51191,7 +51191,7 @@
     "commits": 1,
     "id": "matteo-parrucci",
     "name": "Matteo Parrucci",
-    "organisation": "Unmapped",
+    "organisation": "Università di Bologna",
     "pull_requests": 1,
     "roles": [],
     "talks": []
@@ -53128,7 +53128,7 @@
     "commits": 0,
     "id": "jorg-zell",
     "name": "Jörg Zell",
-    "organisation": "Unmapped",
+    "organisation": "Interaktiv",
     "pull_requests": 0,
     "roles": [
      "Speaker"
@@ -56700,7 +56700,7 @@
     "commits": 0,
     "id": "stephan-geulette",
     "name": "Stéphan Geulette",
-    "organisation": "Unmapped",
+    "organisation": "iMio",
     "pull_requests": 0,
     "roles": [
      "Speaker"
@@ -57153,7 +57153,7 @@
     "commits": 0,
     "id": "alec-ghica",
     "name": "Alec Ghica",
-    "organisation": "Unmapped",
+    "organisation": "Eau de Web",
     "pull_requests": 0,
     "roles": [
      "Speaker"
@@ -59812,7 +59812,7 @@
     "commits": 3,
     "id": "valentina-balan",
     "name": "Valentina Bălan",
-    "organisation": "Unmapped",
+    "organisation": "Eau de Web",
     "pull_requests": 0,
     "roles": [],
     "talks": []

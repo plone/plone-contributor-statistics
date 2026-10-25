@@ -2,7 +2,7 @@
 
 - 113 total organisations tracked across the decade
 - 83,175 total commits and 18,357 pull requests
-- 616 unique contributors across all organisations
+- 615 unique contributors across all organisations
 - File generated: derived/summaries/summary-past-ten-years-2016-2025.csv
 
 ## Top 10 contributors by pull requests (2016-2025)
@@ -36,7 +36,7 @@
 1. kitconcept GmbH: 3,329 PRs
 2. Zest Software: 1,279 PRs
 3. der Freitag: 1,201 PRs
-4. Onna: 914 PRs
+4. Onna: 915 PRs
 5. Steve Piercy - Website Builder: 909 PRs
 6. Kombinat: 754 PRs
 7. Klein & Partner KG: 725 PRs
@@ -44,7 +44,7 @@
 9. Eau de Web: 556 PRs
 10. Starzel: 542 PRs
 
-Not mapped to an organisation: 1,837 PRs
+Not mapped to an organisation: 1,814 PRs
 
 ## Top 10 organisations by commits (2016-2025)
 
@@ -59,4 +59,4 @@ Not mapped to an organisation: 1,837 PRs
 9. Salesforce: 2,357 commits
 10. Starzel: 2,297 commits
 
-Not mapped to an organisation: 5,030 commits
+Not mapped to an organisation: 5,004 commits

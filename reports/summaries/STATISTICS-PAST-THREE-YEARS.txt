@@ -59,4 +59,4 @@ Not mapped to an organisation: 361 PRs
 9. Klein & Partner KG: 400 commits
 10. Syslab: 384 commits
 
-Not mapped to an organisation: 760 commits
+Not mapped to an organisation: 757 commits

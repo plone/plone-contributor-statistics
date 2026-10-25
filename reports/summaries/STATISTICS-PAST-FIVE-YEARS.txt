@@ -59,4 +59,4 @@ Not mapped to an organisation: 627 PRs
 9. Derico: 1,110 commits
 10. Rohberg: 1,010 commits
 
-Not mapped to an organisation: 1,758 commits
+Not mapped to an organisation: 1,755 commits
