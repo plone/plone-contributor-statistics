@@ -1,7 +1,8 @@
 """Validate the curated data package: the Table Schemas and the custom checks.
 
 Run from the repository root: python -m scripts.tools.check
-Prints one line per error as file:row:field: message, and exits 1 when there are errors.
+Prints one line per error as file:row:field: message, and exits 1 when there are errors. Warnings (an open case:
+a year that no attribution rule decides) are printed as file:row:field: warning: message and don't fail.
 The package is built from the files on disk, so a new curated file is validated before
 curated/datapackage.json lists it; a committed descriptor that lists other files is an error of its own, and so is
 a curated CSV file that has no schema, since nothing reads it.
@@ -23,6 +24,7 @@ from scripts.tools.datapackage import build_package, without_schema
 NEAREST = 3
 STALE = 'stale — run python -m scripts.tools.datapackage'
 NO_SCHEMA = 'no schema: this file is not read'
+WARNING_TYPES = ('open-case',)  # reported, but no error
 
 
 def _committed(root):
@@ -33,8 +35,10 @@ def _committed(root):
         return None
 
 
-def validate(root=Path('.')):
+def validate(root=Path('.'), warnings=None):
     """Every error of the package as (file relative to root, row number, field name, message).
+
+    Warnings (WARNING_TYPES) are no errors: they are appended to the list `warnings`, when given, in the same form.
 
     The package is the one datapackage.build_package makes of every curated file on disk. Each resource is
     validated as part of it, so Frictionless resolves its foreign keys, together with the custom checks of
@@ -56,6 +60,10 @@ def validate(root=Path('.')):
                 row = getattr(error, 'row_number', None)
                 field = getattr(error, 'field_name', None) or next(iter(getattr(error, 'field_names', [])), None)
                 message = error.message + _hint(error, resource, package)
+                if error.type in WARNING_TYPES:
+                    if warnings is not None:
+                        warnings.append((file, row, field, message))
+                    continue
                 found.append((file, row, field, message))
     return found
 
@@ -82,7 +90,10 @@ def _hint(error, resource, package):
 
 def main(argv=None):
     argparse.ArgumentParser(description=__doc__.splitlines()[0]).parse_args(argv)
-    errors = validate()
+    warnings = []
+    errors = validate(warnings=warnings)
+    for file, row, field, message in warnings:
+        print(f'{file}:{row or ""}:{field or ""}: warning: {message}')
     for file, row, field, message in errors:
         print(f'{file}:{row or ""}:{field or ""}: {message}')
     if errors:

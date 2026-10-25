@@ -36,7 +36,8 @@ organisation; 2 the rules — one organisation left (stated over assumed), chang
    with the latest decision (by the date of the source) counts; of two decisions of the same date, the one whose
    citation `supersedes` the other. A decision for a year that the rules decide is not applied, and
    `outdated_decisions` lists it.
-8. Otherwise the year is a conflict: Unmapped, and listed by `conflicts`, until a decision settles it.
+8. Otherwise the year is a conflict, an open case: Unmapped, and listed by `conflicts` (the check reports it as a
+   warning, `decisions_review` as an open case), until a decision settles it.
 
 `explain` gives the organisation of a year with the name of the rule that gave it.
 """

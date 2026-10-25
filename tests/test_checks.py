@@ -259,12 +259,19 @@ def test_overlapping_affiliations_are_fine_when_a_rule_decides(tmp_package):
                                                    organisations=BETA))) == []
 
 
-def test_an_unresolved_conflict_is_an_error(tmp_package):
+def test_an_unresolved_conflict_is_an_open_case_and_a_warning(tmp_package, capsys):
     # 2012-2013: two stated records, no change year, no record of the year, no commits
-    errors = check.validate(tmp_package(affiliations(('acme', 2010, 2014), ('beta', 2012, 2013), organisations=BETA)))
-    assert errors == [('curated/mappings/affiliations.csv', None, None,
-                       f'General table error: pbauer, {year}: no attribution rule decides between acme, beta; '
-                       f'record a decision') for year in (2012, 2013)]
+    root = tmp_package(affiliations(('acme', 2010, 2014), ('beta', 2012, 2013), organisations=BETA))
+    warnings = []
+    assert check.validate(root, warnings=warnings) == []
+    assert warnings == [('curated/mappings/affiliations.csv', None, None,
+                         f'Open case: pbauer, {year}: no attribution rule decides between acme, beta; it counts as '
+                         f'Unmapped until a decision settles it') for year in (2012, 2013)]
+    assert check.validate(root) == []  # without a list for them, the warnings are left out
+    check.main([])  # exits 0: no SystemExit
+    out = capsys.readouterr().out
+    assert ('curated/mappings/affiliations.csv::: warning: Open case: pbauer, 2012: no attribution rule decides '
+            'between acme, beta; it counts as Unmapped until a decision settles it') in out.splitlines()
 
 
 def decisions(supersedes):

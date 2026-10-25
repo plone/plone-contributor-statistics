@@ -13,6 +13,9 @@ cites a source of kind `decision`, and each year of it, this prints a Markdown t
 - the sources cited for that person and year whose date is after the date of the decision.
 
 Years with the same cells are joined, such as 2011-2013.
+
+Next to the decisions it lists the open cases: the years that no rule decides and no decision settles (rule 8);
+they count as Unmapped until a decision settles them.
 """
 
 import argparse
@@ -100,11 +103,33 @@ def review(registry, until=None):
     return found
 
 
-def markdown(registry, entries):
-    """The review as a Markdown table, with a heading."""
+def open_cases(registry, until=None):
+    """[(person, first year, last year, [organisation ids])] of the years that no rule decides and no decision
+    settles, consecutive years with the same organisations joined."""
+    by_case = defaultdict(list)
+    for person, year, organisations in registry.attribution.conflicts(until=until or date.today().year):
+        by_case[(person, tuple(organisations))].append(year)
+    return sorted((person, first, last, list(organisations)) for (person, organisations), years in by_case.items()
+                  for first, last in _runs(years))
+
+
+def _open_lines(registry, cases):
+    lines = ['', '## Open cases', '']
+    if not cases:
+        return lines + ['None: the rules or a decision decide every year.']
+    for person, first, last, organisations in cases:
+        years = str(first) if first == last else f'{first}-{last}'
+        names = [registry.organisation_name(org) for org in organisations]
+        between = names[0] if len(names) == 1 else f'{", ".join(names[:-1])} and {names[-1]}'
+        lines.append(f'- {person}, {years}: open: no rule decides between {between}')
+    return lines
+
+
+def markdown(registry, entries, cases=()):
+    """The review as a Markdown table, with a heading, and the open cases."""
     lines = ['# Decisions to review', '']
     if not entries:
-        return '\n'.join(lines + ['No affiliation cites a decision.']) + '\n'
+        return '\n'.join(lines + ['No affiliation cites a decision.'] + _open_lines(registry, cases)) + '\n'
     lines += ['| ' + ' | '.join(COLUMNS) + ' |', '|' + '---|' * len(COLUMNS)]
     sources = registry.sources
     for entry in entries:
@@ -118,14 +143,14 @@ def markdown(registry, entries):
         lines.append('| ' + ' | '.join(cell.replace('|', '\\|') for cell in cells) + ' |')
     if any(entry['row'].status == DENIED for entry in entries):
         lines += ['', DENIAL_NOTE]
-    return '\n'.join(lines) + '\n'
+    return '\n'.join(lines + _open_lines(registry, cases)) + '\n'
 
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.parse_args(argv)
     registry = load_registry()
-    sys.stdout.write(markdown(registry, review(registry)))
+    sys.stdout.write(markdown(registry, review(registry), open_cases(registry)))
     return 0
 
 

@@ -100,6 +100,14 @@ class ConflictError(errors.TableError):
     template = 'General table error: {note}'
 
 
+class OpenCaseWarning(errors.TableError):
+    type = 'open-case'
+    title = 'Open Case'
+    description = ('No attribution rule decides which organisation a person counts for in a year: the year counts '
+                   'as Unmapped until a decision settles it. A warning, not an error.')
+    template = 'Open case: {note}'
+
+
 class DecisionError(errors.TableError):
     type = 'decision-supersedes'
     title = 'Decision Supersedes'
@@ -403,10 +411,12 @@ class Cited(Check):
 
 @attrs.define(kw_only=True, repr=False)
 class UnresolvedConflict(Check):
-    """No person-year is left undecided by the attribution rules: record a decision for each conflict."""
+    """A person-year that no attribution rule decides is an open case, a warning: Unmapped until a decision settles it.
+
+    That the registers cannot be read is an error."""
 
     type = 'unresolved-conflict'
-    Errors = [ConflictError]
+    Errors = [ConflictError, OpenCaseWarning]
 
     attribution: object
     """A function that returns the `Attribution` of the registers, or the reason why they cannot be read."""
@@ -419,8 +429,8 @@ class UnresolvedConflict(Check):
             return
         for person, year, organisations in attribution.conflicts(until=self.until):
             note = (f'{person}, {year}: no attribution rule decides between {", ".join(organisations)}; '
-                    f'record a decision')
-            yield ConflictError(note=note)
+                    f'it counts as Unmapped until a decision settles it')
+            yield OpenCaseWarning(note=note)
 
 
 @attrs.define(kw_only=True, repr=False)

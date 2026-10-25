@@ -82,3 +82,15 @@ def test_the_markdown_table(tmp_repo, capsys):
                         '| Sources after the decision |')
     assert (f'| [d00000000001]({DECISION}) (2026-10-20) | p1 | 2010-2011 | a00000001 stated Acme | needed '
             '| Acme (decision) | open | p00000000004 (2026-10-22, profile) |') in lines
+
+
+def test_open_cases_are_listed_next_to_the_decisions(tmp_repo, capsys):
+    rows = ROWS + [('a00000009', 'p2', 'acme', 2012, 2014, 'stated', []),
+                   ('a00000010', 'p2', 'zeta', 2012, 2013, 'stated', [])]
+    registry = write(tmp_repo, rows)
+    # p2 2012-2013: acme and zeta, no rule decides; p1 2010-2011 is decided by a decision, no open case
+    assert decisions_review.open_cases(registry, until=2026) == [('p2', 2012, 2013, ['acme', 'zeta'])]
+    decisions_review.main([])
+    out = capsys.readouterr().out
+    assert '## Open cases' in out
+    assert '- p2, 2012-2013: open: no rule decides between Acme and Zeta' in out.splitlines()

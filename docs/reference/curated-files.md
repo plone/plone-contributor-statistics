@@ -92,7 +92,7 @@ Checks beyond the schema:
 - The rows are sorted by `person`, `from`, `organisation`.
 - No two rows have the same `person`, `organisation`, `from`, `to`.
 - Every affiliation but a proposal has at least one citation.
-- No person-year is left undecided by the attribution rules: record a decision for each conflict.
+- A person-year that no attribution rule decides is an open case, a warning: Unmapped until a decision settles it.
 - Of two decisions for one person and year, the later names the earlier in `supersedes`.
 
 ### Citations
