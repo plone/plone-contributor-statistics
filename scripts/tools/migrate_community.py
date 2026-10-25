@@ -12,8 +12,8 @@ The rules (the decisions of plan 3b):
   sources. An address is resolved through its capture result; an address the capture did not record becomes an
   uncaptured source: kind by the work list's hint, else by the capture adapter of the address (else `pdf` for a
   PDF address, else `page`), its address as title, the capture day as date, and `not captured on <day>: ` and
-  the reason in its notes and its excerpt (`nothing found` when the capture found nothing, else the error,
-  shortened by `short_reason`).
+  the reason in its notes and its excerpt (`nothing found` when the capture found nothing, else the error
+  without the addresses it starts with, shortened by `short_reason`).
 - Events (`events.csv`) have a kind: `conference` for the Plone Conference of a year, which exists for every
   year with a `plone-conference` file, conference talks of `global` scope or trainings, named `Plone Conference
   <year>`, without dates or location; `symposium` for every other conference (`regional` talks), one per year and
@@ -23,9 +23,10 @@ The rules (the decisions of plan 3b):
   slugified name of a symposium or sprint; a slug that is taken gets `-2`, `-3`, in the order of the years and
   files.
 - Talks (`talks.csv`) are the conference talks (the `scope` goes: the event's kind says it) and the World Plone
-  Day talks. A World Plone Day talk belongs to the event of its year whose city and country it names
-  (`Italy (Bologna)` is `Bologna, Italy`, accents and case aside), or to the only event of its country when it
-  names no city; else, as for `Online`, to the online edition of its year. Its `video` is the first address of
+  Day talks. A World Plone Day talk keeps its `location` verbatim (a conference talk has none) and belongs to
+  the event of its year whose city and country it names (`Italy (Bologna)` is `Bologna, Italy`, accents and
+  case aside), or to the only event of its country when it names no city; else, as for `Online`, to the online
+  edition of its year. Its `video` is the first address of
   its source on a video host, as the model reads it today. Id `t` and eight hex digits of SHA-1 over
   `event|title|type`, with `-2` for a second talk of the same event, title and type.
 - Trainings (`trainings.csv`) belong to the Plone Conference of their year. Id `r` and eight hex digits over
@@ -79,7 +80,7 @@ OLD_FILE = re.compile(r'^(\d{4})-(.+)\.csv$')
 
 CITED = ('sources', 'cited_as')
 EVENT_FIELDS = ('id', 'kind', 'name', 'year', 'start', 'end', 'location', 'format', 'level', *CITED, 'notes')
-TALK_FIELDS = ('id', 'event', 'type', 'title', 'speakers', 'organisations', 'video', *CITED, 'notes')
+TALK_FIELDS = ('id', 'event', 'type', 'title', 'speakers', 'organisations', 'location', 'video', *CITED, 'notes')
 TRAINING_FIELDS = ('id', 'event', 'title', 'trainers', *CITED, 'notes')
 ORGANISER_FIELDS = ('event', 'person', 'organisation', *CITED, 'notes')
 # Old kind -> the columns of its new file, after `year`
@@ -91,7 +92,8 @@ ROLE_FIELDS = {
 }
 GLOBAL, REGIONAL = 'global', 'regional'
 ONLINE = 'Online'
-LEADING_ADDRESS = re.compile(r'^https?://\S+:\s+')  # the address an error names first: the cited one or its id_ form
+# The addresses an error starts with: the cited one, and the id_ form the capture fetched
+LEADING_ADDRESSES = re.compile(r'^(?:https?://\S+\s+)+')
 ADDRESS = re.compile(r'https?://\S+')
 TALK_PLACE = re.compile(r'^(?P<country>[^()]+?)\s*(?:\((?P<city>[^()]+)\))?$')
 
@@ -184,7 +186,7 @@ class _Sources:
                 raise ValueError(f'the capture result of {url} names {found}, which is not in the register')
             return found
         error = result.get('error')
-        return self._uncaptured(url, short_reason(LEADING_ADDRESS.sub('', error)) if error else NOTHING_FOUND)
+        return self._uncaptured(url, short_reason(LEADING_ADDRESSES.sub('', error)) if error else NOTHING_FOUND)
 
     def _uncaptured(self, url, reason):
         original, timestamp = split_archive_url(url) or (url, None)
@@ -226,7 +228,11 @@ def _hashed(prefix, text, taken):
 
 
 def _video_link(text):
-    """The first address of the text on a video host, else '' (the model's rule for World Plone Day talks)."""
+    """The first address of the text on a video host, else ''.
+
+    The rule by which the model reads the video of a World Plone Day talk today, copied from
+    scripts.lib.model.community._video_link: that helper is private, and the switch (Task 3) may change it.
+    """
     for link in ADDRESS.findall(text or ''):
         host = link.split('/')[2].lower()
         if any(host == h or host.endswith('.' + h) for h in VIDEO_HOSTS):
@@ -332,12 +338,13 @@ def migrate(old, results, sources, worklist=(), now=None):
     # Talks
     talk_ids = set()
 
-    def add_talk(eid, r, video):
+    def add_talk(eid, r, video, location=''):
         title, kind = _text(r['title']), _text(r['type'])
         tid = _hashed('t', f'{eid}|{title}|{kind}', talk_ids)
         migrated.talks.append({'id': tid, 'event': eid, 'type': kind, 'title': title,
                                'speakers': _text(r['speakers']), 'organisations': _text(r['organisations']),
-                               'video': video, **found.cite(r['source']), 'notes': r['notes'] or ''})
+                               'location': location, 'video': video, **found.cite(r['source']),
+                               'notes': r['notes'] or ''})
 
     for year, rows in of('conference-talks').items():
         for r in rows:
@@ -368,7 +375,7 @@ def migrate(old, results, sources, worklist=(), now=None):
                 if online not in events:
                     events[online] = _event(online, 'wpd', f'World Plone Day {year}, {ONLINE}', year,
                                             location=ONLINE, fmt='online')
-            add_talk(eid, r, _video_link(r['source']))
+            add_talk(eid, r, _video_link(r['source']), r['location'] or '')
 
     # Trainings
     training_ids = set()

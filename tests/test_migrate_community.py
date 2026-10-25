@@ -91,7 +91,7 @@ def test_an_uncaptured_address_gets_a_deterministic_source_with_the_reason():
     results += [{'url': GONE, 'source_id': None, 'error': f'{GONE}: a new source needs at least one quote or name'},
                 {'url': EMPTY, 'source_id': None, 'error': None},
                 {'url': ARCHIVED, 'source_id': None,
-                 'error': f'{ARCHIVED.replace("000/", "000id_/")}: ContentDecodingError: bad\nmore'},
+                 'error': f'{ARCHIVED}: {ARCHIVED.replace("000/", "000id_/")} ContentDecodingError: bad\nmore'},
                 {'url': VIDEO, 'source_id': None, 'error': None}]
     cell = f'{PAGE}; {GONE}; {EMPTY}; {ARCHIVED}; {VIDEO}'
     migrated = run({'release-managers': {2020: [row('person,source,notes', 'jane-doe', cell, '')]}}, results, sources,
@@ -109,6 +109,12 @@ def test_an_uncaptured_address_gets_a_deterministic_source_with_the_reason():
         'notes': 'not captured on 2026-10-25: ContentDecodingError: bad'}
     assert new[video]['kind'] == 'video'
     assert migrated.new_excerpts[gone] == new[gone]['notes']
+
+
+def test_the_reason_of_an_uncaptured_address_holds_no_address():
+    results = [{'url': VIDEO, 'source_id': None, 'error': f'{VIDEO}: {VIDEO} has no captions'}]
+    migrated = run({'release-managers': {2020: [row('person,source,notes', 'jane-doe', VIDEO, '')]}}, results, {})
+    assert migrated.new_sources[0]['notes'] == 'not captured on 2026-10-25: has no captions'
 
 
 def test_an_uncaptured_address_that_the_register_holds_keeps_its_source():
@@ -246,7 +252,8 @@ def test_conference_talks_keep_their_columns_and_lose_the_scope():
     [result] = run(old).talks
     assert result == {
         'id': 't' + hex8('plone-conference-2014|Keynote|Keynote'), 'event': 'plone-conference-2014',
-        'type': 'Keynote', 'title': 'Keynote', 'speakers': 'ann-lee;jane-doe', 'organisations': '', 'video': VIDEO,
+        'type': 'Keynote', 'title': 'Keynote', 'speakers': 'ann-lee;jane-doe', 'organisations': '', 'location': '',
+        'video': VIDEO,
         'sources': source_id(PAGE), 'cited_as': f'"quote" {PAGE}', 'notes': 'a note'}
 
 
@@ -273,6 +280,7 @@ def test_wpd_talk_without_event_row_goes_online():
     migrated = run(old)
     talks = by(migrated.talks, 'title')
     assert talks['A']['event'] == talks['B']['event'] == 'wpd-2025-online'
+    assert (talks['A']['location'], talks['B']['location']) == ('Online', 'Italy (Bologna)')
     assert by(migrated.events, 'id')['wpd-2025-online'] == {
         'id': 'wpd-2025-online', 'kind': 'wpd', 'name': 'World Plone Day 2025, Online', 'year': '2025', 'start': '',
         'end': '', 'location': 'Online', 'format': 'online', 'level': '', 'sources': '', 'cited_as': '', 'notes': ''}
@@ -292,10 +300,22 @@ def test_wpd_talks_find_the_event_of_their_city_and_country():
     assert talks['A']['event'] == 'wpd-2025-04-10-bologna-italy'
     assert talks['B']['event'] == 'wpd-2025-04-10-brasilia-brazil'
     assert talks['C']['event'] == 'wpd-2025-04-10-bologna-italy'  # the only event of the country
+    assert [talks[t]['location'] for t in 'ABC'] == ['Italy (Bologna)', 'Brazil (Brasilia)', 'Italy']
     assert migrated.by_country_only == [
         {'year': 2025, 'line': 4, 'title': 'C', 'location': 'Italy', 'event': 'wpd-2025-04-10-bologna-italy'}]
     assert migrated.unmatched_talks == []
     assert 'wpd-2025-online' not in by(migrated.events, 'id')
+
+
+def test_a_wpd_talk_of_a_country_without_an_event_goes_online():
+    old = {'world-plone-day-event': {2025: [wpd('2025-04-10', 'Bologna, Italy')]},
+           'world-plone-day-talks': {2025: [wpd_talk('A', location='France')]}}
+    migrated = run(old)
+    [result] = migrated.talks
+    assert (result['event'], result['location']) == ('wpd-2025-online', 'France')
+    assert migrated.unmatched_talks == [
+        {'year': 2025, 'line': 2, 'title': 'A', 'location': 'France', 'event': 'wpd-2025-online'}]
+    assert migrated.by_country_only == []
 
 
 def test_a_wpd_talk_that_matches_two_events_is_an_error():
