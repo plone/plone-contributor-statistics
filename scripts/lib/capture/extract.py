@@ -169,8 +169,11 @@ LANGUAGES = ('en', 'de', 'es', 'pt', 'it', 'nl', 'fr')  # the order of preferenc
 ORIGINAL_TRACKS = '.*-orig'
 UNKNOWN_LANGUAGES = {'', 'na', 'none', 'null'}  # what yt-dlp prints for a video without a language
 LANGUAGE_CODE = re.compile(r'^[A-Za-z]{2,3}(?:-[A-Za-z0-9]+)*$')
+# yt-dlp lists the chat replay of a live stream as a subtitle `live_chat`, which it fetches in many unpaced requests
+# and which is no caption: every call for manual subtitles excludes it
+NO_LIVE_CHAT = '-live_chat'
 # Without an original track, the manual subtitles, all of them: without --write-auto-sub no translation is fetched
-MANUAL_TRACKS = 'all'
+MANUAL_TRACKS = f'all,{NO_LIVE_CHAT}'
 VIDEO_PACE_KEY = 'youtube.com'  # paced with the Fetcher: 30 seconds between two yt-dlp downloads
 VIDEO_TIMEOUT = 600  # seconds for one call of yt-dlp
 TRACKS_MANIFEST = 'tracks.json'  # in the cache folder of a video: the tracks of its last download, and its title
@@ -556,7 +559,7 @@ def _download(url, download, run, fetcher, which):
             if language:  # a code of letters, digits and hyphens: nothing in it is special in a pattern
                 base = base_language(language)
                 downloads = (['--write-auto-sub', '--sub-langs', f'{base}{REGION}-orig'],
-                             ['--write-sub', '--sub-langs', f'{base}{REGION}'],
+                             ['--write-sub', '--sub-langs', f'{base}{REGION},{NO_LIVE_CHAT}'],
                              ['--write-sub', '--sub-langs', MANUAL_TRACKS])
             else:
                 downloads = (['--write-auto-sub', '--sub-langs', ORIGINAL_TRACKS],
@@ -598,7 +601,8 @@ def extract_video(url: str, workdir: str, run=subprocess.run, fetcher=None, whic
     yt-dlp is asked first for the title and the language of the video. With a language, it is asked for the original
     automatic track in it (`<language>-orig`, in any region of the language), else for the manual subtitles in it,
     else for all manual subtitles; without, for every original automatic track (`.*-orig`, which includes the
-    captions of dubbed audio tracks), else for all manual subtitles. Machine translations are never asked for.
+    captions of dubbed audio tracks), else for all manual subtitles. Machine translations are never asked for, nor
+    the chat replay of a live stream (`live_chat`).
     yt-dlp writes into a fresh folder in workdir, so the tracks of this read are told from those of earlier reads,
     and they are moved into workdir. `text` is the preferred track, `full_text` every track read as its own
     paragraph, so a quote in another language is still found and cut from the lines of its own track.

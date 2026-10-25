@@ -618,7 +618,7 @@ def test_extract_video_without_original_tracks_asks_once_for_manual_subtitles(tm
     assert len(downloads) == 2
     manual = downloads[1]
     assert '--write-sub' in manual and '--write-auto-sub' not in manual
-    assert manual[manual.index('--sub-langs') + 1] == 'all'
+    assert manual[manual.index('--sub-langs') + 1] == 'all,-live_chat'
     for flag, value in (('--sleep-subtitles', '5'), ('--sleep-requests', '2'), ('--js-runtimes', 'node'),
                         ('-o', downloads[0][downloads[0].index('-o') + 1])):
         assert manual[manual.index(flag) + 1] == value
@@ -868,22 +868,24 @@ def test_unknown_language_asks_for_every_original_track(tmp_path, info):
 
 def test_known_language_falls_back_to_its_manual_subtitles(tmp_path):
     calls = []
-    run = video_run(tmp_path, manual={'it(-[A-Za-z0-9]+)*': {'x.it.vtt': vtt('Lavoro per Zest')}}, calls=calls,
+    run = video_run(tmp_path, manual={'it(-[A-Za-z0-9]+)*,-live_chat': {'x.it.vtt': vtt('Lavoro per Zest')}}, calls=calls,
                     info=b'T\nit\n')
     result = extract_video(VIDEO, str(tmp_path), run=run)
     downloads = downloads_of(calls)
-    assert [sub_langs(command) for command in downloads] == ['it(-[A-Za-z0-9]+)*-orig', 'it(-[A-Za-z0-9]+)*']
+    assert [sub_langs(command) for command in downloads] == ['it(-[A-Za-z0-9]+)*-orig',
+                                                             'it(-[A-Za-z0-9]+)*,-live_chat']
     assert '--write-sub' in downloads[1] and '--write-auto-sub' not in downloads[1]
     assert result.text == '[00:00] Lavoro per Zest'
 
 
 def test_known_language_falls_back_to_all_manual_subtitles(tmp_path):
     calls = []
-    run = video_run(tmp_path, manual={'all': {'x.en.vtt': vtt('I work for Zest')}}, calls=calls,
+    run = video_run(tmp_path, manual={'all,-live_chat': {'x.en.vtt': vtt('I work for Zest')}}, calls=calls,
                     info=b'T\nit\n')
     result = extract_video(VIDEO, str(tmp_path), run=run)
     downloads = downloads_of(calls)
-    assert [sub_langs(command) for command in downloads] == ['it(-[A-Za-z0-9]+)*-orig', 'it(-[A-Za-z0-9]+)*', 'all']
+    assert [sub_langs(command) for command in downloads] == ['it(-[A-Za-z0-9]+)*-orig', 'it(-[A-Za-z0-9]+)*,-live_chat',
+                                                             'all,-live_chat']
     assert '--write-auto-sub' not in downloads[2]
     assert result.text == '[00:00] I work for Zest'  # no track in the language: every track that came
 
@@ -969,10 +971,11 @@ def test_the_track_in_the_language_of_the_video_ranks_first():
 
 def test_a_language_with_a_region_asks_for_every_region_of_it(tmp_path):
     calls = []
-    run = video_run(tmp_path, manual={'pt(-[A-Za-z0-9]+)*': {'x.pt.vtt': vtt('Trabalho na Zest')}}, calls=calls,
+    run = video_run(tmp_path, manual={'pt(-[A-Za-z0-9]+)*,-live_chat': {'x.pt.vtt': vtt('Trabalho na Zest')}}, calls=calls,
                     info=b'T\npt-BR\n')
     result = extract_video(VIDEO, str(tmp_path), run=run)
-    assert [sub_langs(command) for command in downloads_of(calls)] == ['pt(-[A-Za-z0-9]+)*-orig', 'pt(-[A-Za-z0-9]+)*']
+    assert [sub_langs(command) for command in downloads_of(calls)] == ['pt(-[A-Za-z0-9]+)*-orig',
+                                                                      'pt(-[A-Za-z0-9]+)*,-live_chat']
     assert result.text == '[00:00] Trabalho na Zest'
 
 
@@ -1014,7 +1017,7 @@ def test_another_video_host_is_not_refused(tmp_path):
 
 def test_every_call_reads_the_one_video_only(tmp_path):
     calls = []
-    run = video_run(tmp_path, manual={'all': {'x.en.vtt': vtt('a')}}, calls=calls, info=b'T\nit\n')
+    run = video_run(tmp_path, manual={'all,-live_chat': {'x.en.vtt': vtt('a')}}, calls=calls, info=b'T\nit\n')
     extract_video('https://www.youtube.com/watch?v=xxxxxxxxxxx&list=PLt4L3V8wVnF6YaLFggRM0sGif22avkfc6',
                   str(tmp_path), run=run)
     assert len(calls) == 4 and all('--no-playlist' in command for command in calls)
@@ -1046,3 +1049,14 @@ def test_a_language_that_is_not_a_code_is_unknown(tmp_path, printed):
     extract_video(VIDEO, str(tmp_path),
                   run=video_run(tmp_path, auto={'x.en-orig.vtt': vtt('a')}, calls=calls, info=printed))
     assert [sub_langs(command) for command in downloads_of(calls)] == ['.*-orig']
+
+
+@pytest.mark.parametrize('info', [b'T\nit\n', b'T\nNA\n'])
+def test_the_live_chat_is_never_asked_for(tmp_path, info):
+    """yt-dlp lists the chat replay of a live stream as a subtitle `live_chat`: every manual call excludes it."""
+    calls = []
+    with pytest.raises(ExtractError, match='has no captions'):
+        extract_video(VIDEO, str(tmp_path), run=video_run(tmp_path, calls=calls, info=info))
+    manual = [command for command in downloads_of(calls) if '--write-sub' in command]
+    assert manual and all(sub_langs(command).endswith(',-live_chat') for command in manual)
+    assert all('live_chat' not in sub_langs(command) for command in downloads_of(calls) if command not in manual)
