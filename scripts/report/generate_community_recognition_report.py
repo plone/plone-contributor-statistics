@@ -125,7 +125,11 @@ def _organisations(registry, item):
 
 
 def strategic_sprint_points(rows, year, registry, add):
-    """12 points per strategic sprint, split among its organisations; one sprint per organisation and year."""
+    """12 points per strategic sprint, split among its organisations; one sprint per organisation and year.
+
+    The sprints come in the order of the events file: the first strategic sprint of the year that names an
+    organisation is the one that counts for it, with that sprint's split.
+    """
     rewarded = set()
     for item in rows:
         if item.fields['level'] != 'strategic':
@@ -198,7 +202,8 @@ def world_plone_day_talk_points(rows, year, registry, add):
     """1 point per talk for each organisation behind it, at most 4 per organisation and year.
 
     The organisations of a talk are those of its speakers in the year and those the row names, for a talk
-    by a team. Only talks count, not teasers, streams, openings or podcast episodes (#119).
+    by a team. Only talks count, not teasers, streams, openings or podcast episodes (#119). The talks come in the
+    order of the talks file: the first four of an organisation in the year are the ones that count.
     """
     talks = defaultdict(int)
     for item in rows:

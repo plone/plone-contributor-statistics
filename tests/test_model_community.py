@@ -258,3 +258,10 @@ def test_a_rewritten_file_is_read_again(community):
     (paths.COMMUNITY / 'release-managers.csv').write_text(f'year,person,sources,cited_as,notes\n2023,ann,,{SRC},\n',
                                                           encoding='utf-8')
     assert [r.person for r in roles(2023)] == ['ann']
+
+
+def test_a_world_plone_day_event_without_its_day_names_the_event(community):
+    # The check refuses it; if one gets through, the reader says which event
+    community_event('wpd-2023-bonn', 'wpd', 2023, start='2023-04', location='Bonn', format='in person')
+    with pytest.raises(ValueError, match='events.csv:2: the World Plone Day event wpd-2023-bonn starts on "2023-04"'):
+        events(2023)

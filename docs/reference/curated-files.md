@@ -213,12 +213,12 @@ One row is one event: the Plone Conference of a year, a regional conference (sym
 | `kind` | string | required; one of `conference`, `symposium`, `wpd`, `sprint` | `conference` for the Plone Conference of a year, `symposium` for a regional conference, `wpd` for a World Plone Day event of one place or online, `sprint` for a sprint. |
 | `name` | string | required | The name of the event; a World Plone Day event is named after its year and place. |
 | `year` | integer | required; at least 2000 | The year of the event; an event without a start date has one too. |
-| `start` | string | pattern `^\d{4}(-\d{2}(-\d{2})?)?$` | The first day of the event; the sources sometimes give only a year or a month. |
+| `start` | string | pattern `^\d{4}(-\d{2}(-\d{2})?)?$` | The first day of the event; the sources of a sprint sometimes give only a year or a month, a World Plone Day event has its day. |
 | `end` | string | pattern `^\d{4}(-\d{2}(-\d{2})?)?$` | The last day of the event, in the same form as the start; empty for a single day. |
 | `location` | string |  | Where the event took place. |
 | `format` | string | one of `in person`, `hybrid`, `online` | For a World Plone Day event: whether it was held in person, as a hybrid or online. |
 | `level` | string | one of `strategic`, `community` | For a sprint: whether it was a strategic or a community sprint. |
-| `sources` | string | ids of rows of `sources` separated by semicolons | The ids of the sources in the source register that support the row; empty for an event that only holds the rows pointing to it: a Plone Conference, a symposium or an online World Plone Day edition. Several values are separated by semicolons. |
+| `sources` | string | ids of rows of `sources` separated by semicolons | The ids of the sources in the source register that support the row; empty only for the events the migration made to hold the rows pointing to them, `plone-conference-<year>` and `wpd-<year>-online`. Several values are separated by semicolons. |
 | `cited_as` | string |  | The words the row cited its sources with before the source register, verbatim: web addresses with their labels and quotes; empty when the row has no sources. |
 | `notes` | string |  | Free-text remarks on the row. |
 
@@ -226,7 +226,9 @@ Primary key: `id`.
 
 Checks beyond the schema:
 
-- An event cites a source, unless it only holds the rows pointing to it: a conference, symposium or online edition.
+- An event cites a source, unless it is a `plone-conference-<year>` or `wpd-<year>-online` the migration made.
+- A World Plone Day event starts on a full day, `YYYY-MM-DD`, unless it is a `wpd-<year>-online` edition.
+- No two rows have the same `year`, `name` among the rows whose `kind` is `sprint`.
 - `sources`: every element is the id of a row of the register, and none is repeated.
 
 ### Talks
@@ -253,6 +255,7 @@ Primary key: `id`.
 
 Checks beyond the schema:
 
+- `event` is an event of one of the kinds `conference`, `symposium`, `wpd`.
 - `speakers`: every element is the id of a row of the register, and none is repeated.
 - `organisations`: every element is the id of a row of the register, and none is repeated.
 - `sources`: every element is the id of a row of the register, and none is repeated.
@@ -277,6 +280,8 @@ Primary key: `id`.
 
 Checks beyond the schema:
 
+- `event` is an event of one of the kinds `conference`, `symposium`.
+- No two rows have the same `event`, `title`.
 - `trainers`: every element is the id of a row of the register, and none is repeated.
 - `sources`: every element is the id of a row of the register, and none is repeated.
 

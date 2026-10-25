@@ -177,7 +177,11 @@ def _check_lines(kind, package):
             lines.append(f'- The rows are sorted by {order}' + (', ignoring case.' if check.casefold else '.'))
         elif check.type == 'unique-row':
             fields = ', '.join(f'`{name}`' for name in check.fields)
-            lines.append(f'- No two rows have the same {fields}.')
+            among = ''.join(f' among the rows whose `{name}` is `{value}`' for name, value in check.only.items())
+            lines.append(f'- No two rows have the same {fields}{among}.')
+        elif check.type == 'event-kind':
+            kinds = ', '.join(f'`{kind}`' for kind in check.allowed)
+            lines.append(f'- `event` is an event of one of the kinds {kinds}.')
         elif check.type == 'unique-casefold':
             within = f' within its `{check.scope}`' if check.scope else ''
             only = (f' for the {check.scope}s ' + ', '.join(f'`{value}`' for value in check.only)

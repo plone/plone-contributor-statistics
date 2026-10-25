@@ -8,10 +8,16 @@ see EVENT_KINDS for what counts as one. An item is a row as such, for code that 
 readers present the rows of a year by the kinds of the yearly files the data had before the events (#139):
 `items(2025, 'sprints')` gives the sprints of 2025 with the columns of a sprints file, its organisers from the
 organisers file. People and organisations are ids from the registers.
+
+The rows of a year come in the order of the files, and the organisers of an event in the order of the organisers
+file. The order decides credit: of the strategic sprints of a year, the first one that names an organisation counts
+for it, with that sprint's split, and only the first four World Plone Day talks of an organisation count (see
+scripts/report/generate_community_recognition_report.py). Reordering the rows of a year can change the points.
 """
 
 import csv
 import io
+import re
 from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
@@ -271,6 +277,20 @@ def _sprint_items(folder, year):
     return found
 
 
+def _day(row):
+    """The start of a World Plone Day event as a date; ValueError naming the event when it is no full day."""
+    start = row.cells['start']
+    if not start:
+        return None
+    try:
+        if not re.fullmatch(r'\d{4}-\d{2}-\d{2}', start):
+            raise ValueError(start)
+        return date.fromisoformat(start)
+    except ValueError:
+        raise ValueError(f'{row.file}:{row.line}: the World Plone Day event {row.cells["id"]} starts on "{start}", '
+                         f'not on a day (YYYY-MM-DD)') from None
+
+
 def _world_plone_day_event_items(folder, year):
     found = []
     for row in _events(folder, year, 'wpd'):
@@ -278,7 +298,7 @@ def _world_plone_day_event_items(folder, year):
         if c['id'] == ONLINE_EDITION.format(year=year):
             continue  # it holds the online talks of the year; the yearly files had no row for it
         people, organisations = _event_organisers(folder, c['id'])
-        fields = {'date': date.fromisoformat(c['start']) if c['start'] else None, 'location': c['location'],
+        fields = {'date': _day(row), 'location': c['location'],
                   'format': c['format'], 'organisations': _joined(organisations), 'organisers': _joined(people)}
         found.append(_item('world-plone-day-event', year, row, c['location'], people, organisations, fields))
     return found

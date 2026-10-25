@@ -620,12 +620,67 @@ def test_ids_of_events_and_talks_are_unique(tmp_package):
     assert {row for row, _, _ in errors_of(root, 'talks')} == {3}
 
 
-def test_an_event_cites_a_source_unless_it_only_holds_the_rows_pointing_to_it(tmp_package):
-    # The conference and the online World Plone Day edition hold talks and organisers, which cite their sources
+def event_errors(root):
+    return [(row, field, message.split(': ', 1)[1]) for row, field, message in errors_of(root, 'events')]
+
+
+def test_an_event_cites_a_source_unless_the_migration_made_it_to_hold_rows(tmp_package):
+    # The conference and the online World Plone Day edition of a year hold talks and organisers, which cite their
+    # sources; they are known by their ids, not by their kind or format
     root = tmp_package(community(events='wpd-2023-online,wpd,"World Plone Day 2023, Online",2023,,,Online,online,'
                                         ',,,\n'
                                         'a-sprint,sprint,A sprint,2023,,,,,,,,\n'
                                         'wpd-2023-04-26-bonn,wpd,"World Plone Day 2023, Bonn",2023,2023-04-26,,Bonn,'
-                                        'in person,,,,\n'))
-    assert [(row, field, message.split(': ', 1)[1]) for row, field, message in errors_of(root, 'events')] == [
-        (4, 'sources', 'the sprint event needs a source'), (5, 'sources', 'the wpd event needs a source')]
+                                        'in person,,,,\n'
+                                        'wpd-2023-04-26-online-italy,wpd,"World Plone Day 2023, Online, Italy",2023,'
+                                        '2023-04-26,,"Online, Italy",online,,,,\n'
+                                        'plone-tagung-2023,symposium,Plone Tagung 2023,2023,,,,,,,,\n'
+                                        'plone-conference-2022,conference,Plone Conference 2022,2023,,,,,,,,\n'))
+    assert [(row, field, note) for row, field, note in event_errors(root) if field == 'sources'] == [
+        (4, 'sources', 'the sprint event needs a source'), (5, 'sources', 'the wpd event needs a source'),
+        (6, 'sources', 'the wpd event needs a source'), (7, 'sources', 'the symposium event needs a source'),
+        (8, 'sources', 'the conference event needs a source')]
+
+
+def test_a_world_plone_day_event_starts_on_a_day(tmp_package):
+    # As the old files required; the online edition of a year has no day of its own
+    rows = ''.join(f'wpd-{n},wpd,"World Plone Day 2023, {n}",2023,{start},,Bonn,in person,,{RECORD_ID},{RECORD},\n'
+                   for n, start in (('day', '2023-04-26'), ('month', '2023-04'), ('none', '')))
+    root = tmp_package(community(events=rows + 'wpd-2023-online,wpd,"World Plone Day 2023, Online",2023,,,Online,'
+                                               'online,,,,\n'))
+    assert event_errors(root) == [(4, 'start', 'the World Plone Day event wpd-month needs its day as start'),
+                                  (5, 'start', 'the World Plone Day event wpd-none needs its day as start')]
+
+
+def test_rows_point_to_events_of_the_kinds_their_file_allows(tmp_package):
+    sprint = f'a-sprint,sprint,A sprint,2023,,,,,,{RECORD_ID},{RECORD},\n'
+    wpd = (f'wpd-2023-04-26-bonn,wpd,"World Plone Day 2023, Bonn",2023,2023-04-26,,Bonn,in person,,{RECORD_ID},'
+           f'{RECORD},\n')
+    root = tmp_package({**community(
+        events=sprint + wpd,
+        talks=f't00000001,a-sprint,Talk,A sprint talk,pbauer,,,,{RECORD_ID},{RECORD},\n'
+              f't00000002,wpd-2023-04-26-bonn,Talk,A WPD talk,pbauer,,,,{RECORD_ID},{RECORD},\n',
+        organisers=f'a-sprint,pbauer,,{RECORD_ID},{RECORD},\nwpd-2023-04-26-bonn,pbauer,,{RECORD_ID},{RECORD},\n'),
+        TRAININGS: 'id,event,title,trainers,sources,cited_as,notes\n'
+                   f'r00000001,plone-conference-2023,Plone 6,pbauer,{RECORD_ID},{RECORD},\n'
+                   f'r00000002,wpd-2023-04-26-bonn,Plone 7,pbauer,{RECORD_ID},{RECORD},\n'})
+    assert [(row, field, message.split(': ', 1)[1]) for row, field, message in errors_of(root, 'talks')] == [
+        (2, 'event', 'the event a-sprint is a sprint; this file points to conference, symposium, wpd events')]
+    assert [(row, field) for row, field, _ in errors_of(root, 'trainings')] == [(3, 'event')]
+    assert errors_of(root, 'organisers') == []
+
+
+def test_a_training_title_is_unique_per_event_and_a_sprint_name_per_year(tmp_package):
+    training = f'plone-conference-2023,Plone 6,pbauer,{RECORD_ID},{RECORD},\n'
+    sprint = f'sprint,Castle Sprint,{{year}},,,,,,{RECORD_ID},{RECORD},\n'
+    wpd = f'wpd,"World Plone Day 2023, Berlin",2023,2023-04-26,,Berlin,in person,,{RECORD_ID},{RECORD},\n'
+    root = tmp_package({**community(events='castle-sprint,' + sprint.format(year=2023)
+                                           + 'castle-sprint-2,' + sprint.format(year=2023)
+                                           + 'castle-sprint-3,' + sprint.format(year=2024)
+                                           + 'wpd-berlin,' + wpd + 'wpd-berlin-2,' + wpd),
+                        TRAININGS: 'id,event,title,trainers,sources,cited_as,notes\n'
+                                   f'r00000001,{training}r00000002,{training}'})
+    assert [(row, 'row 3 has the same year, name' in message) for row, _, message in errors_of(root, 'events')] == [
+        (4, True)]
+    assert [(row, 'row 2 has the same event, title' in message) for row, _, message in errors_of(root, 'trainings')
+            ] == [(3, True)]

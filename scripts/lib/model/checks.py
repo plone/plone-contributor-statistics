@@ -1,5 +1,6 @@
 """Checks that a Table Schema cannot express, as Frictionless custom checks."""
 
+import re
 from collections import defaultdict
 from datetime import date
 from pathlib import Path
@@ -328,9 +329,13 @@ class UniqueRow(Check):
     Errors = [UniqueRowError]
 
     fields: list
+    only: dict = attrs.field(factory=dict)
+    """{field: value}: only the rows with these values are compared, for example the sprints of the events."""
     _seen: dict = attrs.field(factory=dict, init=False)
 
     def validate_row(self, row):
+        if any(row[name] != value for name, value in self.only.items()):
+            return
         key = tuple(row[name] for name in self.fields)
         first = self._seen.setdefault(key, row.row_number)
         if first != row.row_number:
@@ -506,25 +511,92 @@ class PersonOrOrganisation(Check):
             yield OrganiserError.from_row(row, note='the row names no organiser: give a person or an organisation')
 
 
-# Events that may cite no source of their own: they hold the rows that point to them, which cite theirs
-HOLDER_EVENT_KINDS = ('conference', 'symposium')
+class EventDateError(errors.CellError):
+    type = 'event-date'
+    title = 'Event Date'
+    description = 'A World Plone Day event has no full day as its start.'
+    template = 'The cell {cell} in row at position {rowNumber} and field {fieldName} has an error: {note}'
+
+
+class EventKindError(errors.CellError):
+    type = 'event-kind'
+    title = 'Event Kind'
+    description = 'A row points to an event of a kind that rows of its file may not point to.'
+    template = 'The cell {cell} in row at position {rowNumber} and field {fieldName} has an error: {note}'
+
+
+# The events the migration made to hold the rows pointing to them, which cite their sources: the Plone Conference of
+# a year and the online World Plone Day edition of a year. They have no source and no date of their own.
+HOLDER_EVENT_IDS = ('plone-conference-{year}', 'wpd-{year}-online')
+
+
+def is_holder_event(row):
+    """Whether an events row is one the migration made to hold the rows pointing to it, by its id."""
+    return row['id'] in {pattern.format(year=row['year']) for pattern in HOLDER_EVENT_IDS}
 
 
 @attrs.define(kw_only=True, repr=False)
 class EventSources(Check):
-    """An event cites a source, unless it only holds the rows pointing to it: a conference, symposium or online edition.
+    """An event cites a source, unless it is a `plone-conference-<year>` or `wpd-<year>-online` the migration made.
 
-    The Plone Conference of a year, a symposium and the online World Plone Day edition of a year hold the talks,
-    trainings and organisers that point to them, and these cite their sources.
+    These hold the talks, trainings and organisers that point to them, and those cite their sources.
     """
 
     type = 'event-source'
     Errors = [EventSourceError]
 
     def validate_row(self, row):
-        if row['sources'] or row['kind'] in HOLDER_EVENT_KINDS or (row['kind'] == 'wpd' and row['format'] == 'online'):
+        if row['sources'] or is_holder_event(row):
             return
         yield EventSourceError.from_row(row, note=f'the {row["kind"]} event needs a source', field_name='sources')
+
+
+@attrs.define(kw_only=True, repr=False)
+class WorldPloneDayDate(Check):
+    """A World Plone Day event starts on a full day, `YYYY-MM-DD`, unless it is a `wpd-<year>-online` edition."""
+
+    type = 'event-date'
+    Errors = [EventDateError]
+
+    def validate_row(self, row):
+        if row['kind'] != 'wpd' or is_holder_event(row):
+            return
+        start = row['start'] or ''
+        if not re.fullmatch(r'\d{4}-\d{2}-\d{2}', start):
+            yield EventDateError.from_row(row, note=f'the World Plone Day event {row["id"]} needs its day as start',
+                                          field_name='start')
+
+
+# The kinds of events that the rows of a file may point to
+EVENT_KINDS_OF = {
+    'talks': ('conference', 'symposium', 'wpd'),
+    'trainings': ('conference', 'symposium'),
+}
+
+
+@attrs.define(kw_only=True, repr=False)
+class PointsToEventKind(Check):
+    """A row points to an event of a kind that its file allows, see EVENT_KINDS_OF."""
+
+    type = 'event-kind'
+    Errors = [EventKindError]
+
+    allowed: tuple
+    kinds: dict = attrs.field(factory=dict)
+    """{event id: kind} of the events file; an unknown event is the foreign key's error."""
+
+    def validate_row(self, row):
+        kind = self.kinds.get(row['event'])
+        if kind is not None and kind not in self.allowed:
+            note = f'the event {row["event"]} is a {kind}; this file points to {", ".join(self.allowed)} events'
+            yield EventKindError.from_row(row, note=note, field_name='event')
+
+
+def _event_kinds(package):
+    """{event id: kind} of the events of the package; empty without the events file."""
+    if not package.has_resource('events'):
+        return {}
+    return {row['id']: row['kind'] for row in package.get_resource('events').read_rows() if row['id']}
 
 
 def _excerpt_stems(package):
@@ -593,7 +665,11 @@ def checks_for(resource_name, package, until=None):
                                GithubLogins()],
         'sources': lambda: [SourceIdMatchesUrl(), Sorted(fields=['id'], casefold=False),
                             SourceExcerptFiles(folder=excerpts, stems=_excerpt_stems(package))],
-        'events': lambda: [EventSources()],
+        'events': lambda: [EventSources(), WorldPloneDayDate(),
+                           UniqueRow(fields=['year', 'name'], only={'kind': 'sprint'})],
+        'talks': lambda: [PointsToEventKind(allowed=EVENT_KINDS_OF['talks'], kinds=_event_kinds(package))],
+        'trainings': lambda: [PointsToEventKind(allowed=EVENT_KINDS_OF['trainings'], kinds=_event_kinds(package)),
+                              UniqueRow(fields=['event', 'title'])],
         'organisers': lambda: [PersonOrOrganisation(), UniqueRow(fields=['event', 'person', 'organisation'])],
     }
     result = checks.get(resource_name, lambda: [])()

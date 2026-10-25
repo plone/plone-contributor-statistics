@@ -44,7 +44,7 @@
     {
       "name": "start",
       "type": "string",
-      "description": "The first day of the event; the sources sometimes give only a year or a month.",
+      "description": "The first day of the event; the sources of a sprint sometimes give only a year or a month, a World Plone Day event has its day.",
       "constraints": {
         "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?$"
       }
@@ -88,7 +88,7 @@
     {
       "name": "sources",
       "type": "string",
-      "description": "The ids of the sources in the source register that support the row; empty for an event that only holds the rows pointing to it: a Plone Conference, a symposium or an online World Plone Day edition. Several values are separated by semicolons.",
+      "description": "The ids of the sources in the source register that support the row; empty only for the events the migration made to hold the rows pointing to them, `plone-conference-<year>` and `wpd-<year>-online`. Several values are separated by semicolons.",
       "x-set": "sources"
     },
     {
