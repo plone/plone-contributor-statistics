@@ -385,7 +385,7 @@
     },
     {
      "name": "Jodok Batlogg",
-     "organisation": "Telesis",
+     "organisation": "solution2u.net GmbH",
      "source": "https://web.archive.org/web/20050404020626/http://plone.org/foundation/about/board/list"
     },
     {
@@ -608,7 +608,7 @@
     },
     {
      "name": "Jodok Batlogg",
-     "organisation": "Telesis",
+     "organisation": "solution2u.net GmbH",
      "source": "https://web.archive.org/web/20050122020045/http://plone.org/development/teams/",
      "team": "Internationalization Team"
     },
@@ -9738,7 +9738,7 @@
         [
          "2024",
          "derived/organisation-contributors/2024-plone-organisation-contributors.csv",
-         12
+         13
         ],
         [
          "2025",
@@ -10330,7 +10330,7 @@
         [
          "2024",
          "derived/organisation-contributors/2024-plone-organisation-contributors.csv",
-         14
+         15
         ],
         [
          "2025",
@@ -11772,7 +11772,7 @@
         [
          "2024",
          "derived/organisation-contributors/2024-plone-organisation-contributors.csv",
-         18
+         19
         ],
         [
          "2025",
@@ -11891,10 +11891,10 @@
      "roles": 3
     },
     "2020": {
-     "commits": 3,
+     "commits": 217,
      "events": 0,
-     "pull_requests": 1,
-     "roles": 0
+     "pull_requests": 34,
+     "roles": 2
     },
     "2021": {
      "commits": 26,
@@ -12206,7 +12206,7 @@
         ]
        ],
        "source": null,
-       "text": "Lead (515.6 PRs/year)"
+       "text": "Lead (512.8 PRs/year)"
       }
      ],
      "points": 20.0
@@ -12449,10 +12449,10 @@
      "roles": 33
     },
     "2024": {
-     "commits": 1866,
+     "commits": 1763,
      "events": 2,
-     "pull_requests": 522,
-     "roles": 39
+     "pull_requests": 508,
+     "roles": 38
     },
     "2025": {
      "commits": 1799,
@@ -13444,7 +13444,7 @@
         [
          "2024",
          "derived/organisation-contributors/2024-plone-organisation-contributors.csv",
-         19
+         20
         ],
         [
          "2025",
@@ -13575,10 +13575,10 @@
      "roles": 0
     },
     "2020": {
-     "commits": 214,
+     "commits": 0,
      "events": 0,
-     "pull_requests": 33,
-     "roles": 2
+     "pull_requests": 0,
+     "roles": 0
     },
     "2021": {
      "commits": 194,
@@ -15358,10 +15358,10 @@
      "roles": 0
     },
     "2024": {
-     "commits": 0,
+     "commits": 103,
      "events": 0,
-     "pull_requests": 0,
-     "roles": 0
+     "pull_requests": 14,
+     "roles": 1
     },
     "2025": {
      "commits": 0,
@@ -15403,7 +15403,7 @@
         [
          "2024",
          "derived/organisation-contributors/2024-plone-organisation-contributors.csv",
-         16
+         17
         ],
         [
          "2025",
@@ -15591,7 +15591,7 @@
         [
          "2024",
          "derived/organisation-contributors/2024-plone-organisation-contributors.csv",
-         13
+         14
         ],
         [
          "2025",
@@ -15952,7 +15952,7 @@
         [
          "2024",
          "derived/organisation-contributors/2024-plone-organisation-contributors.csv",
-         15
+         16
         ],
         [
          "2025",
@@ -16400,7 +16400,7 @@
         [
          "2024",
          "derived/organisation-contributors/2024-plone-organisation-contributors.csv",
-         17
+         18
         ],
         [
          "2025",
@@ -17333,7 +17333,7 @@
         [
          "2024",
          "derived/organisation-contributors/2024-plone-organisation-contributors.csv",
-         21
+         22
         ]
        ],
        "source": null,
@@ -17496,7 +17496,7 @@
     "commits": 319,
     "id": "alan-runyan",
     "name": "Alan Runyan",
-    "organisation": "Clear Noodle",
+    "organisation": "Runyaga, LLC",
     "pull_requests": 0,
     "roles": [
      "Conference organiser",
@@ -17552,7 +17552,7 @@
     "commits": 152,
     "id": "andy-mckay",
     "name": "Andy McKay",
-    "organisation": "AGM Web consulting",
+    "organisation": "Clearwind Consulting",
     "pull_requests": 0,
     "roles": [
      "Conference organiser",
@@ -17792,7 +17792,7 @@
     "commits": 20,
     "id": "j-cameron-cooper",
     "name": "J Cameron Cooper",
-    "organisation": "J Cameron Cooper (independent)",
+    "organisation": "Rice University",
     "pull_requests": 0,
     "roles": [
      "Speaker"
@@ -19786,7 +19786,7 @@
     "commits": 10,
     "id": "jodok-batlogg",
     "name": "Jodok Batlogg",
-    "organisation": "Telesis",
+    "organisation": "solution2u.net GmbH",
     "pull_requests": 0,
     "roles": [
      "Board",
@@ -29784,7 +29784,7 @@
     "commits": 2,
     "id": "mikko-ohtamaa",
     "name": "Mikko Ohtamaa",
-    "organisation": "Red Innovation Oy",
+    "organisation": "mFabrik",
     "pull_requests": 0,
     "roles": [
      "Speaker"
@@ -29882,7 +29882,7 @@
     "commits": 0,
     "id": "p-j-onori",
     "name": "P.J. Onori",
-    "organisation": "Adaptive Path",
+    "organisation": "Unmapped",
     "pull_requests": 0,
     "roles": [
      "Speaker"
@@ -51527,7 +51527,7 @@
     "commits": 214,
     "id": "ramon-navarro-bosch",
     "name": "Ramon Navarro Bosch",
-    "organisation": "Nuclia",
+    "organisation": "Iskra",
     "pull_requests": 33,
     "roles": [
      "Speaker"
@@ -61596,7 +61596,7 @@
     "commits": 103,
     "id": "rob-gietema",
     "name": "Rob Gietema",
-    "organisation": "kitconcept GmbH",
+    "organisation": "Rob Gietema (independent)",
     "pull_requests": 14,
     "roles": [
      "Speaker"

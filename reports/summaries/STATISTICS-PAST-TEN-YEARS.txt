@@ -33,7 +33,7 @@
 
 ## Top 10 organisations by pull requests (2016-2025)
 
-1. kitconcept GmbH: 3,329 PRs
+1. kitconcept GmbH: 3,315 PRs
 2. Zest Software: 1,279 PRs
 3. der Freitag: 1,201 PRs
 4. Onna: 915 PRs
@@ -48,7 +48,7 @@ Not mapped to an organisation: 1,814 PRs
 
 ## Top 10 organisations by commits (2016-2025)
 
-1. kitconcept GmbH: 16,068 commits
+1. kitconcept GmbH: 15,965 commits
 2. Zest Software: 11,882 commits
 3. der Freitag: 5,882 commits
 4. Steve Piercy - Website Builder: 3,242 commits

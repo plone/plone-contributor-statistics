@@ -1,6 +1,6 @@
 # Plone Core Contributor Statistics Report
 
-Generated on: 2026-10-25 17:07:46
+Generated on: 2026-10-25 23:58:46
 
 This report shows the top contributors and organizations in the Plone ecosystem across different time periods.
 
@@ -106,7 +106,7 @@ Not mapped to an organisation: 122 PRs, 263 commits by 38 contributors.
 
 | Rank | Organization | PRs | Commits | Contributors | Repositories |
 |------|-------------|-----|---------|---------------|-------------|
-| 1 | kitconcept GmbH | 1,740 | 5,560 | 14 | 132 |
+| 1 | kitconcept GmbH | 1,726 | 5,457 | 14 | 132 |
 | 2 | der Freitag | 683 | 3,430 | 2 | 229 |
 | 3 | Steve Piercy - Website Builder | 658 | 2,100 | 1 | 31 |
 | 4 | Kombinat | 444 | 1,728 | 1 | 54 |
@@ -124,7 +124,7 @@ Not mapped to an organisation: 361 PRs, 757 commits by 122 contributors.
 
 | Rank | Organization | PRs | Commits | Contributors | Repositories |
 |------|-------------|-----|---------|---------------|-------------|
-| 1 | kitconcept GmbH | 2,578 | 10,389 | 15 | 153 |
+| 1 | kitconcept GmbH | 2,564 | 10,286 | 15 | 153 |
 | 2 | Steve Piercy - Website Builder | 846 | 3,081 | 1 | 35 |
 | 3 | der Freitag | 706 | 3,621 | 2 | 230 |
 | 4 | Kombinat | 653 | 2,544 | 1 | 74 |
@@ -142,7 +142,7 @@ Not mapped to an organisation: 627 PRs, 1,755 commits by 182 contributors.
 
 | Rank | Organization | PRs | Commits | Contributors | Repositories |
 |------|-------------|-----|---------|---------------|-------------|
-| 1 | kitconcept GmbH | 3,329 | 16,068 | 17 | 171 |
+| 1 | kitconcept GmbH | 3,315 | 15,965 | 17 | 171 |
 | 2 | Zest Software | 1,279 | 11,882 | 5 | 191 |
 | 3 | der Freitag | 1,201 | 5,882 | 3 | 274 |
 | 4 | Onna | 915 | 2,751 | 16 | 27 |
