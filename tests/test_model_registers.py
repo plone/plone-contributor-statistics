@@ -340,6 +340,18 @@ def test_write_identities_sorts_the_rows(tmp_repo):
     assert load_identities() == [rows[2], rows[1], rows[0]]
 
 
+def test_write_affiliations_sorts_the_rows(tmp_repo):
+    from scripts.lib.model import Affiliation, load_affiliations, write_affiliations
+
+    rows = [Affiliation('a00000003', 'zoe', 'acme', 2010, None, 'assumed', None, 'notes, with a comma'),
+            Affiliation('a00000002', 'alan', 'zope', 2001, 2003, 'stated', datetime.date(2026, 10, 18), None),
+            Affiliation('a00000001', 'alan', 'acme', 2001, 2001, 'denied', None, 'cited as: "a quote"')]
+    write_affiliations(rows)
+    assert load_affiliations() == [rows[2], rows[1], rows[0]]
+    assert paths.AFFILIATIONS.read_text(encoding='utf-8').splitlines()[2] == (
+        'a00000002,alan,zope,2001,2003,stated,2026-10-18,')
+
+
 def test_the_writers_replace_the_file_atomically(tmp_repo, monkeypatch):
     from scripts.lib.model import Citation, load_citations, write_citations
     from scripts.lib.model import registers
