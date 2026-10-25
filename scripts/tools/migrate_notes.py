@@ -26,15 +26,15 @@ alias in the quote, else the label; by the first word of a name or, for a freela
 organisation only as a candidate to check), for the years its label names (else the year of its source), with the
 record as its notes, citing the source of the address with the quote as snippet when the excerpt holds it. A
 name found by its first word is noted as an abbreviation on the citation. The dry run lists, per person and year,
-the organisation and rule today and with the proposed rows, and the conflicts; with --drafts it writes a draft for
-each year that changes or becomes a conflict. --write adds the rows and their citations, and appends `the record is
-row <id>` to the notes of the row that named the record; a record without a source in the register stops it.
+the organisation and rule today and with the proposed rows, and the conflicts.
+--write adds the rows and their citations, and appends `the record is row <id>` to the notes of the
+row that named the record; a record without a source in the register stops it.
 
 Without --write, it prints every change it would make. A second run changes nothing.
 
     python -m scripts.tools.migrate_notes fills [--write]
     python -m scripts.tools.migrate_notes svn [--write]
-    python -m scripts.tools.migrate_notes conflicts [--drafts FILE] [--write]
+    python -m scripts.tools.migrate_notes conflicts [--write]
 """
 
 import argparse
@@ -42,13 +42,12 @@ import dataclasses
 import re
 import sys
 from datetime import date
-from pathlib import Path
 
 from scripts.lib.model import (UNMAPPED, Affiliation, Citation, Identity, affiliation_id, is_uncaptured,
                                load_affiliations, load_citations, load_identities, load_registry, normalize_url,
                                read_excerpt, source_id, split_archive_url, write_affiliations, write_citations,
                                write_identities)
-from scripts.lib.model.attribution import COUNTING, DENIED, OWN_STATEMENT_KINDS, STATED
+from scripts.lib.model.attribution import DENIED, STATED
 from scripts.lib.model.names import fold
 from scripts.lib.model.registers import MIN_DOMAIN_KEY
 
@@ -453,8 +452,8 @@ def apply_conflicts(affiliations, citations, proposals):
     is an error, and then nothing is added. A row recorded already is left as it is."""
     known = {affiliation.id for affiliation in affiliations}
     new = [p for p in proposals if not (p.row and p.row.id in known)]
-    errors = [f'{p.record.affiliation.id}: ' + (p.how if p.row is None else
-                                                 f'no source of {p.record.url} in the register: capture it first')
+    errors = [f'{p.record.affiliation.id}: '
+              + (p.how if p.row is None else f'no source of {p.record.url} in the register: capture it first')
               for p in new if p.row is None or p.citation is None]
     if errors or not new:
         return affiliations, citations, errors
@@ -549,120 +548,10 @@ def conflict_report(registry, proposals, results):
     return lines
 
 
-def _source_line(registry, source_id, snippet):
-    source = registry.sources.get(source_id)
-    if source is None:
-        return f'source {source_id} (not in the register)'
-    what = f'"{snippet}", ' if snippet else ''
-    if is_uncaptured(source):
-        when = f'{source.kind}, never captured'
-    else:
-        when = f'{source.kind} dated {source.date}' + (f' ({source.notes})' if source.notes else '')
-    return f'{what}{when}: {source.archive_url or source.url}'
-
-
-def _names(registry, org_ids):
-    """`**A** and **B**`, or `none of them`."""
-    names = [f'**{_name(registry, org)}**' for org in sorted(org_ids)]
-    if not names:
-        return 'none of them'
-    return names[0] if len(names) == 1 else f'{", ".join(names[:-1])} and {names[-1]}'
-
-
-def _rule_facts(registry, attribution, person, year):
-    """What each rule finds among the candidates of the year (the rules of attribution.md, numbered there).
-
-    Reads the engine's inner state: this script is archived once the migration has run.
-    """
-    candidates = attribution._candidates(person, year)
-    organisations = sorted({row.organisation for row in candidates})
-    if len(organisations) < 2:
-        return []
-    around = [{row.organisation for row in attribution._candidates(person, other)} & set(organisations)
-              for other in (year - 1, year + 1)]
-    cited = [{c.source for row in candidates if row.organisation == org for c in attribution._citations[row.id]
-              if c.snippet} for org in organisations]
-    common = set.intersection(*cited)
-    commits = attribution._commits_of(person, year)
-    own = {row.organisation for row in candidates for c in attribution._citations[row.id]
-           if attribution._kind(c.source) in OWN_STATEMENT_KINDS and attribution._captured_in(c.source, year)}
-    statements = f'the person\'s speaker pages and profiles dated {year} name {_names(registry, own)}'
-    if commits is None:
-        commit_text = 'no commits of the year under a known domain; it does not apply'
-        own_text = f'no commits outnumber the personal ones (there are none); {statements}'
-    else:
-        per_organisation, personal = commits
-        theirs = sum(per_organisation[org] for org in organisations)
-        commit_text = f'{personal} under personal domains, ' + ', '.join(
-            f'{per_organisation[org]} under {_name(registry, org)}' for org in organisations)
-        commit_text += ('; the candidates\' commits are the most' if theirs > personal else
-                        '; the candidates\' commits are not the most, it does not apply')
-        own_text = (f'the candidates\' commits do not outnumber the personal ones; {statements}' if theirs <= personal
-                    else 'it applies only when the candidates\' commits do not outnumber the personal ones; they do')
-    records = {org: len({c.source for row in candidates if row.organisation == org
-                         for c in attribution._citations[row.id] if attribution._captured_in(c.source, year)})
-               for org in organisations}
-    return [f'Change year (rule 4): in {year - 1} {_names(registry, around[0])}, in {year + 1} '
-            f'{_names(registry, around[1])}.',
-            'Named first (rule 6a): ' + (f'the rows of all of them cite {", ".join(sorted(common))} with a snippet.'
-                                         if common else 'no source is cited with a snippet by the rows of all of '
-                                                        'them.'),
-            f'Commits (rule 6b): {commit_text}.',
-            f'Own statement (rule 6c): {own_text}.',
-            f'Records (rule 6d): captured sources dated {year}: '
-            + ', '.join(f'{_name(registry, org)} {count}' for org, count in records.items()) + '.']
-
-
-def _draft(registry, after, proposals, result):
-    person = registry.people[result.person].name if result.person in registry.people else result.person
-    today, year = _name(registry, result.before), result.year
-    lines = [f'## {person} {year}: {today}', '', f'**Evidence.** The records of {year}:', '']
-    for row in registry.affiliations:
-        if row.person == result.person and row.status in COUNTING and row.covers(year):
-            cited = [c for c in registry.citations if c.affiliation == row.id]
-            lines.append(f'- **{_name(registry, row.organisation)}**, {row.status} row `{row.id}` ({_years(row)}): '
-                         + ('; '.join(_source_line(registry, c.source, c.snippet) for c in cited)
-                            or 'no citation'))
-    for p in proposals:
-        if p.row and p.row.person == result.person and p.row.covers(year):
-            cited = (_source_line(registry, p.source, p.citation.snippet) if p.citation else
-                     f'{p.record.text} (the source is not in the register yet)')
-            lines.append(f'- **{_name(registry, p.organisation)}**, the record reviewed on `{p.record.affiliation.id}` '
-                         f'and kept out, proposed as stated row `{p.row.id}` ({_years(p.row)}): {cited}')
-    lines += ['', f'**The rules.** Today {person} counts for **{today}** in {year} ({result.before_rule}). With the '
-                  f'reviewed records as stated rows, ']
-    if result.conflict:
-        lines[-1] += f'no rule decides: a conflict between {_names(registry, result.conflict)}.'
-    else:
-        lines[-1] += (f'the rules give **{_name(registry, result.after)}** ({result.rule}). A decision settles only '
-                      f'what the rules leave open, so a decision cannot keep {today}: either the change is accepted, '
-                      f'or the record stays a note and is not written as a stated row.')
-    facts = _rule_facts(registry, after.attribution, result.person, year)
-    lines += [''] + [f'- {fact}' for fact in facts] + ([''] if facts else [])
-    lines += [f'**Proposed decision.** {person} counts for **{today}** in {year}, the organisation the review kept.',
-              '', f'Credited in {year}: {result.activity or "nothing"}.', '']
-    return lines
-
-
-def drafts(registry, proposals, results):
-    """The decision drafts, one section per year that counts differently with the proposed rows or is a
-    conflict, for the issue "Attribution decisions"."""
-    after = with_proposals(registry, proposals)
-    lines = ['# Attribution decisions: drafts', '',
-             'One section per person and year whose counting changes, or becomes a conflict, once the reviewed '
-             'records of `not applied` and `Kept, not deciding` notes are stated rows.', '']
-    for result in results:
-        if result.changed:
-            lines += _draft(registry, after, proposals, result)
-    return '\n'.join(lines)
-
-
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('step', choices=['fills', 'svn', 'conflicts'], help='the step of the migration')
     parser.add_argument('--write', action='store_true', help='write the registers (default: a dry run)')
-    parser.add_argument('--drafts', type=Path, metavar='FILE',
-                        help='conflicts: write the decision drafts to the file')
     args = parser.parse_args(argv)
     if args.step == 'conflicts':
         # Imported here: it reads the collected data
@@ -673,9 +562,6 @@ def main(argv=None):
         results = dry_run(registry, proposals, activity(registry), date.today().year)
         for line in conflict_report(registry, proposals, results):
             print(line)
-        if args.drafts:
-            args.drafts.write_text(drafts(registry, proposals, results), encoding='utf-8')
-            print(f'drafts: {sum(1 for r in results if r.changed)}, written to {args.drafts}')
         if not args.write:
             print('dry run: nothing written to the registers; use --write to write')
             return 0

@@ -2,8 +2,6 @@
 
 import datetime
 
-import pytest
-
 from scripts.lib.model import (Affiliation, Citation, Identity, Organisation, Person, Registry, affiliation_id,
                                load_affiliations, load_citations, load_identities, write_affiliations,
                                write_citations, write_identities)
@@ -373,7 +371,7 @@ def test_the_foundation_named_beside_an_organisation_is_left_out():
     assert 'the record also names Plone Foundation' in proposal.check
 
 
-def test_the_dry_run_lists_before_and_after_and_drafts_the_changes():
+def test_the_dry_run_lists_before_and_after_the_changes():
     page = source(ARCHIVED, '2012-01-05')
     affiliations = [row('a00', 2010, 2010, organisation='other'), row('a01', 2011, 2013, NOT_APPLIED)]
     registry = world(affiliations, sources=[page], excerpts={page.id: 'Company Other\n'})
@@ -385,13 +383,6 @@ def test_the_dry_run_lists_before_and_after_and_drafts_the_changes():
     assert by_year[2011].changed and not by_year[2011].conflict
     assert by_year[2011].activity == '3 commits'
     assert not by_year[2012].changed
-    text = migrate_notes.drafts(registry, plan, results)
-    assert text.count('\n## ') == 1
-    assert '## Jane Doe 2011: Acme' in text
-    assert 'Company Other' in text and ARCHIVED in text
-    assert 'the rules give **Other** (change year)' in text
-    assert 'a decision cannot keep Acme' in text
-    assert 'Change year (rule 4): in 2010 **Other**, in 2012 **Acme**.' in text
 
 
 def test_the_dry_run_marks_a_conflict():
@@ -406,22 +397,15 @@ def test_the_dry_run_marks_a_conflict():
     assert (result.before, result.after, result.rule, result.conflict) == ('acme', None, 'conflict',
                                                                            ('acme', 'zeta'))
     assert result.changed
-    text = migrate_notes.drafts(registry, plan, [result])
-    assert '## Jane Doe 2019: Acme' in text
-    assert 'no rule decides: a conflict between **Acme** and **Zeta Labs**' in text
-    assert 'Records (rule 6d): captured sources dated 2019: Acme 1, Zeta Labs 1.' in text
-    assert '**Proposed decision.** Jane Doe counts for **Acme** in 2019' in text
 
 
-def test_main_conflicts_is_a_dry_run_and_writes_the_drafts(write_registers, tmp_path, capsys):
+def test_main_conflicts_is_a_dry_run(write_registers, capsys):
     write_registers(people=[('jane', None)], organisations=[('acme', 'Acme'), ('other', 'Other')])
     write_affiliations([row('a00', 2010, 2010, organisation='other'), row('a01', 2011, 2013, NOT_APPLIED)])
-    out_file = tmp_path / 'drafts.md'
-    assert migrate_notes.main(['conflicts', '--drafts', str(out_file)]) == 0
+    assert migrate_notes.main(['conflicts']) == 0
     out = capsys.readouterr().out
     assert 'jane 2011: Acme (one organisation) -> Other (change year)' in out
     assert 'no source of the address in the register' in out
-    assert '## jane 2011: Acme' in out_file.read_text(encoding='utf-8')
     assert [a.id for a in load_affiliations()] == ['a00', 'a01']  # nothing written
 
 
@@ -432,16 +416,16 @@ def test_apply_conflicts_adds_the_rows_and_says_on_the_verified_row_where_the_re
                      excerpts={page.id: 'Company Other\n', talk.id: 'CTO at Zeta Labs\n'})
     proposals = migrate_notes.plan_conflicts(registry)
     # The commits search of the KEPT note has no source in the register: nothing is written
-    new_affiliations, new_citations, errors = migrate_notes.apply_conflicts(affiliations, [cite('a01', S1)],
-                                                                           proposals)
+    new_affiliations, new_citations, errors = migrate_notes.apply_conflicts(
+        affiliations, [cite('a01', S1)], proposals)
     assert errors == [f'a02: no source of {SEARCH} in the register: capture it first']
     assert (new_affiliations, new_citations) == (affiliations, [cite('a01', S1)])
     search = source(SEARCH, '2026-10-25', kind='page', notes='not captured on 2026-10-25: a login wall')
     registry = world(affiliations, [cite('a01', S1)], sources=[page, talk, search],
                      excerpts={page.id: 'Company Other\n', talk.id: 'CTO at Zeta Labs\n'})
     proposals = migrate_notes.plan_conflicts(registry)
-    new_affiliations, new_citations, errors = migrate_notes.apply_conflicts(affiliations, [cite('a01', S1)],
-                                                                           proposals)
+    new_affiliations, new_citations, errors = migrate_notes.apply_conflicts(
+        affiliations, [cite('a01', S1)], proposals)
     assert errors == []
     rows = [p.row for p in proposals]
     assert [a.id for a in new_affiliations] == ['a01', 'a02'] + [r.id for r in rows]
