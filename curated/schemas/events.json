@@ -1,0 +1,108 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "Opaque, stable identifier of the event, never renamed: `plone-conference-<year>`, `wpd-<date>-<location>`, `wpd-<year>-online`, or the slug of the name of a sprint or symposium.",
+      "constraints": {
+        "required": true,
+        "unique": true,
+        "pattern": "^[a-z0-9][a-z0-9-]*$"
+      }
+    },
+    {
+      "name": "kind",
+      "type": "string",
+      "description": "`conference` for the Plone Conference of a year, `symposium` for a regional conference, `wpd` for a World Plone Day event of one place or online, `sprint` for a sprint.",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "conference",
+          "symposium",
+          "wpd",
+          "sprint"
+        ]
+      }
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "The name of the event; a World Plone Day event is named after its year and place.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "year",
+      "type": "integer",
+      "description": "The year of the event; an event without a start date has one too.",
+      "constraints": {
+        "required": true,
+        "minimum": 2000
+      }
+    },
+    {
+      "name": "start",
+      "type": "string",
+      "description": "The first day of the event; the sources sometimes give only a year or a month.",
+      "constraints": {
+        "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?$"
+      }
+    },
+    {
+      "name": "end",
+      "type": "string",
+      "description": "The last day of the event, in the same form as the start; empty for a single day.",
+      "constraints": {
+        "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?$"
+      }
+    },
+    {
+      "name": "location",
+      "type": "string",
+      "description": "Where the event took place."
+    },
+    {
+      "name": "format",
+      "type": "string",
+      "description": "For a World Plone Day event: whether it was held in person, as a hybrid or online.",
+      "constraints": {
+        "enum": [
+          "in person",
+          "hybrid",
+          "online"
+        ]
+      }
+    },
+    {
+      "name": "level",
+      "type": "string",
+      "description": "For a sprint: whether it was a strategic or a community sprint.",
+      "constraints": {
+        "enum": [
+          "strategic",
+          "community"
+        ]
+      }
+    },
+    {
+      "name": "sources",
+      "type": "string",
+      "description": "The ids of the sources in the source register that support the row; empty for an event that only holds the rows pointing to it: a Plone Conference, a symposium or an online World Plone Day edition. Several values are separated by semicolons.",
+      "x-set": "sources"
+    },
+    {
+      "name": "cited_as",
+      "type": "string",
+      "description": "The words the row cited its sources with before the source register, verbatim: web addresses with their labels and quotes; empty when the row has no sources."
+    },
+    {
+      "name": "notes",
+      "type": "string",
+      "description": "Free-text remarks on the row."
+    }
+  ],
+  "primaryKey": [
+    "id"
+  ]
+}

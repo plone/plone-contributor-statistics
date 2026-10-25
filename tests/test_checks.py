@@ -9,7 +9,10 @@ from scripts.lib.model.sources import source_id
 from scripts.tools import check, datapackage
 
 REPO = Path(__file__).resolve().parent.parent
-TRAININGS = 'community-contributions/2023-plone-conference-trainings.csv'
+TRAININGS = 'community/trainings.csv'
+EVENTS = 'community/events.csv'
+EVENTS_HEADER = 'id,kind,name,year,start,end,location,format,level,sources,cited_as,notes\n'
+CONFERENCE = 'plone-conference-2023,conference,Plone Conference 2023,2023,,,,,,,,\n'
 PEOPLE = 'id,name\npbauer,Philip Bauer\ntschorr,Timo Stollenwerk\n'
 
 
@@ -32,7 +35,12 @@ def tmp_package(tmp_repo):
 def trainings(trainers):
     return {
         'mappings/people.csv': PEOPLE,
-        TRAININGS: f'title,trainers,source,notes\nPlone 6,{trainers},https://example.org/t,\n',
+        EVENTS: EVENTS_HEADER + CONFERENCE,
+        TRAININGS: 'id,event,title,trainers,sources,cited_as,notes\n'
+                   f'r00000001,plone-conference-2023,Plone 6,{trainers},{RECORD_ID},https://example.org/t,\n',
+        'sources/sources.csv': SOURCES_HEADER + f'{RECORD_ID},page,A record,2026-01-01,{RECORD},,'
+                                                '2026-10-22T10:00:00Z,\n',
+        f'sources/excerpts/{RECORD_ID}.md': 'A record.\n',
     }
 
 
@@ -76,7 +84,7 @@ def test_check_main_prints_file_row_field(tmp_package, capsys):
         check.main([])
     assert exit_info.value.code == 1
     out = capsys.readouterr().out
-    assert out.startswith('curated/community-contributions/2023-plone-conference-trainings.csv:2:trainers:')
+    assert out.startswith('curated/community/trainings.csv:2:trainers:')
 
 
 def test_check_hints_nearest_ids(tmp_package, capsys):
@@ -96,13 +104,13 @@ def test_check_clean_prints_nothing(tmp_package, capsys):
 def test_a_file_the_descriptor_does_not_list_yet_is_validated(tmp_package):
     root = tmp_package(trainings('pbauer;tschorr'))
     # Added after the descriptor was written, as an editor adds the file of a new year
-    (root / 'curated/community-contributions/2027-sprints.csv').write_text(
-        'sprint,start,end,location,organisers,organisations,level,source,notes\n'
-        'Sprint,2027-01-10,2027-01-12,Bonn,pbauer,,nonsense,https://example.org/s,\n', encoding='utf-8')
+    (root / 'curated/community/podcasts.csv').write_text(
+        'year,series,person,episodes,sources,cited_as,notes\n'
+        f'2027,Plone Podcast,pbauer,0,{RECORD_ID},https://example.org/s,\n', encoding='utf-8')
     errors = check.validate(root)
     assert ('curated/datapackage.json', None, None, check.STALE) in errors
-    sprints = [error for error in errors if error[0] == 'curated/community-contributions/2027-sprints.csv']
-    assert [(row, field) for _, row, field, _ in sprints] == [(2, 'level')]
+    podcasts = [error for error in errors if error[0] == 'curated/community/podcasts.csv']
+    assert [(row, field) for _, row, field, _ in podcasts] == [(2, 'episodes')]
 
 
 def test_a_stale_descriptor_is_its_own_error_line(tmp_package, capsys):
@@ -120,6 +128,7 @@ AFFILIATIONS = 'id,person,organisation,from,to,status,checked,notes\n'
 CITATIONS = 'affiliation,source,snippet,supersedes,notes\n'
 SOURCES_HEADER = 'id,kind,title,date,url,archive_url,fetched,notes\n'
 RECORD = 'https://example.org/record'
+RECORD_ID = source_id(RECORD)
 RECORD_PAGE = (RECORD, 'page', '2026-01-01', 'Philip Bauer works at Acme.')
 DECISION_A = 'https://github.com/plone/plone-contributor-statistics/pull/1#issuecomment-1'
 DECISION_B = 'https://github.com/plone/plone-contributor-statistics/pull/2#issuecomment-2'
@@ -548,3 +557,75 @@ def test_an_affiliation_is_unique_per_person_organisation_and_years(tmp_package)
     errors = check.validate(tmp_package(files))
     assert [(file, row) for file, row, _, _ in errors] == [('curated/mappings/affiliations.csv', 3)]
     assert 'row 2' in errors[0][3]
+
+
+# The community files: events, and the talks, trainings and organisers that point to them (#139)
+
+ORGANISATIONS = 'id,name,kind,github,aliases,notes\nstarzel,Starzel,organisation,,,\n'
+ORGANISERS_HEADER = 'event,person,organisation,sources,cited_as,notes\n'
+TALKS_HEADER = 'id,event,type,title,speakers,organisations,location,video,sources,cited_as,notes\n'
+
+
+def community(**files):
+    """The registers, a source, the conference of 2023 and the community files given as {name: rows}."""
+    found = {**trainings('pbauer'), 'mappings/organisations.csv': ORGANISATIONS}
+    found[EVENTS] = EVENTS_HEADER + CONFERENCE + files.pop('events', '')
+    headers = {'organisers': ORGANISERS_HEADER, 'talks': TALKS_HEADER}
+    found.update({f'community/{name}.csv': headers[name] + rows for name, rows in files.items()})
+    return found
+
+
+def errors_of(root, name):
+    return [(row, field, message) for file, row, field, message in check.validate(root)
+            if file == f'curated/community/{name}.csv']
+
+
+def test_community_files_with_valid_rows_have_no_errors(tmp_package):
+    root = tmp_package(community(
+        organisers=f'plone-conference-2023,pbauer,,{RECORD_ID},{RECORD},\n'
+                   f'plone-conference-2023,,starzel,{RECORD_ID},{RECORD},host\n',
+        talks=f't00000001,plone-conference-2023,Talk,A talk,pbauer;tschorr,starzel,,,{RECORD_ID},{RECORD},\n'))
+    assert check.validate(root) == []
+
+
+def test_an_organiser_row_names_a_person_or_an_organisation(tmp_package):
+    root = tmp_package(community(organisers=f'plone-conference-2023,pbauer,starzel,{RECORD_ID},{RECORD},\n'
+                                            f'plone-conference-2023,,,{RECORD_ID},{RECORD},\n'))
+    assert [(row, message.split(': ', 1)[1]) for row, _, message in errors_of(root, 'organisers')] == [
+        (2, 'a row names one organiser: a person or an organisation, not both'),
+        (3, 'the row names no organiser: give a person or an organisation')]
+
+
+def test_an_organiser_is_named_once_per_event(tmp_package):
+    root = tmp_package(community(organisers=f'plone-conference-2023,pbauer,,{RECORD_ID},{RECORD},\n'
+                                            f'plone-conference-2023,pbauer,,{RECORD_ID},{RECORD},again\n'))
+    assert [(row, 'row 2 has the same event' in message) for row, _, message in errors_of(root, 'organisers')] == [
+        (3, True)]
+
+
+def test_community_rows_point_to_events_people_organisations_and_sources(tmp_package):
+    root = tmp_package(community(
+        organisers=f'no-such-event,nobody,,{RECORD_ID},{RECORD},\nplone-conference-2023,,acme,{RECORD_ID},{RECORD},\n',
+        talks=f't00000001,no-such-event,Talk,A talk,pbauer;nobody,acme,,,{RECORD_ID};000000000000,{RECORD},\n'))
+    assert [(row, field) for row, field, _ in errors_of(root, 'organisers')] == [
+        (2, 'event'), (2, 'person'), (3, 'organisation')]
+    assert sorted((row, field) for row, field, _ in errors_of(root, 'talks')) == [
+        (2, 'event'), (2, 'organisations'), (2, 'sources'), (2, 'speakers')]
+
+
+def test_ids_of_events_and_talks_are_unique(tmp_package):
+    talk = f't00000001,plone-conference-2023,Talk,A talk,pbauer,,,,{RECORD_ID},{RECORD},\n'
+    root = tmp_package(community(events=CONFERENCE, talks=talk + talk))
+    assert {row for row, _, _ in errors_of(root, 'events')} == {3}
+    assert {row for row, _, _ in errors_of(root, 'talks')} == {3}
+
+
+def test_an_event_cites_a_source_unless_it_only_holds_the_rows_pointing_to_it(tmp_package):
+    # The conference and the online World Plone Day edition hold talks and organisers, which cite their sources
+    root = tmp_package(community(events='wpd-2023-online,wpd,"World Plone Day 2023, Online",2023,,,Online,online,'
+                                        ',,,\n'
+                                        'a-sprint,sprint,A sprint,2023,,,,,,,,\n'
+                                        'wpd-2023-04-26-bonn,wpd,"World Plone Day 2023, Bonn",2023,2023-04-26,,Bonn,'
+                                        'in person,,,,\n'))
+    assert [(row, field, message.split(': ', 1)[1]) for row, field, message in errors_of(root, 'events')] == [
+        (4, 'sources', 'the sprint event needs a source'), (5, 'sources', 'the wpd event needs a source')]

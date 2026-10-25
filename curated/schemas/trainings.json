@@ -1,0 +1,75 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "Opaque, stable identifier of the training: `r` and eight hex digits of a hash of its event and title.",
+      "constraints": {
+        "required": true,
+        "unique": true,
+        "pattern": "^r[0-9a-f]{8}(-\\d+)?$"
+      }
+    },
+    {
+      "name": "event",
+      "type": "string",
+      "description": "The id of the event in the events file.",
+      "constraints": {
+        "required": true,
+        "pattern": "^[a-z0-9][a-z0-9-]*$"
+      }
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": "The title of the training.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "trainers",
+      "type": "string",
+      "description": "The ids of the trainers in the people register. Several values are separated by semicolons.",
+      "x-set": "people"
+    },
+    {
+      "name": "sources",
+      "type": "string",
+      "description": "The ids of the sources in the source register that support the row. Several values are separated by semicolons.",
+      "constraints": {
+        "required": true
+      },
+      "x-set": "sources"
+    },
+    {
+      "name": "cited_as",
+      "type": "string",
+      "description": "The words the row cited its sources with before the source register, verbatim: web addresses with their labels and quotes.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "notes",
+      "type": "string",
+      "description": "Free-text remarks on the row."
+    }
+  ],
+  "primaryKey": [
+    "id"
+  ],
+  "foreignKeys": [
+    {
+      "fields": [
+        "event"
+      ],
+      "reference": {
+        "resource": "events",
+        "fields": [
+          "id"
+        ]
+      }
+    }
+  ]
+}

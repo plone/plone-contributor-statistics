@@ -27,7 +27,7 @@ DATA = {
             'categories': {
                 'Conference Organization': {'points': 12.0, 'contributions': [
                     {'text': 'Organized Plone Conference 2025', 'points': 12.0,
-                     'file': 'curated/community-contributions/2025-plone-conference.csv', 'line': 2, 'source': None}]},
+                     'file': 'curated/community/organisers.csv', 'line': 2, 'source': None}]},
                 'PR Contributions': {'points': 2.0, 'contributions': [
                     {'text': 'Team Member (15.0 PRs/year)', 'points': 2.0,
                      'file': 'derived/organisation-contributors', 'line': None, 'source': None,
@@ -43,7 +43,7 @@ DATA = {
             'categories': {
                 'Team Leader': {'points': 3.0, 'contributions': [
                     {'text': 'Jane Doe (Docs Team)', 'points': 3.0,
-                     'file': 'curated/community-contributions/2025-team-leaders.csv', 'line': 3,
+                     'file': 'curated/community/team-leaders.csv', 'line': 3,
                      'source': 'https://example.org/teams; organisation: https://github.com/janedoe; '
                                'Board: https://example.org/minutes'}]},
             },
@@ -109,7 +109,7 @@ def test_contribution_without_source_links_its_row(page):
     # Review focus: no public record yet -> marked, and linked to the row on GitHub
     assert 'public record pending' in page
     assert ('https://github.com/plone/plone-contributor-statistics/blob/main/'
-            'curated/community-contributions/2025-plone-conference.csv#L2') in page
+            'curated/community/organisers.csv#L2') in page
 
 
 def test_pull_request_points_link_the_row_of_each_year(page):

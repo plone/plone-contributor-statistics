@@ -16,6 +16,8 @@ from scripts.lib.model.checks import SetKeys, checks_for
 
 PAGE = Path('docs/reference/curated-files.md')
 
+COMMUNITY_DATA = ('Community work, one file per kind with the rows of every year, in `curated/community/`: the events,'
+                  ' the talks, trainings and organisers that point to them, and the roles.')
 # Group -> (what it holds, [(kind, title)]), in the order of the page
 GROUPS = [
     ('Registers', 'People, identities, affiliations, citations and organisations, in `curated/mappings/`.', [
@@ -32,17 +34,15 @@ GROUPS = [
         ('bot-accounts', 'Bot accounts'),
         ('excluded-repositories', 'Excluded repositories'),
     ]),
-    ('Community data', 'Community work per year and kind, in `curated/community-contributions/`.', [
+    ('Community data', COMMUNITY_DATA, [
+        ('events', 'Events'),
+        ('talks', 'Talks'),
+        ('trainings', 'Trainings'),
+        ('organisers', 'Organisers'),
         ('board-of-directors', 'Board of Directors'),
         ('team-leaders', 'Team leaders'),
         ('release-managers', 'Release managers'),
         ('podcasts', 'Podcasts'),
-        ('plone-conference-trainings', 'Plone Conference trainings'),
-        ('world-plone-day-talks', 'World Plone Day talks'),
-        ('conference-talks', 'Conference talks'),
-        ('sprints', 'Sprints'),
-        ('plone-conference', 'Plone Conference'),
-        ('world-plone-day-event', 'World Plone Day events'),
     ]),
     ('Recognition files and PLIPs',
      'The recognition tables, see {doc}`recognition-files`, and the PLIPs from before GitHub.', [
@@ -63,16 +63,15 @@ ONE_ROW_IS = {
     'sources': 'one source: a page, profile, commit, video or decision that we read once; its excerpt file holds the passages we cite.',
     'bot-accounts': 'one GitHub account that is a bot.',
     'excluded-repositories': 'one repository of the `plone` organisation that the statistics skip.',
+    'events': 'one event: the Plone Conference of a year, a regional conference (symposium), a World Plone Day'
+              ' event of one place or online, or a sprint.',
+    'talks': 'one keynote, talk or panel at a Plone conference, or one video of a World Plone Day.',
+    'trainings': 'one training at the Plone Conference.',
+    'organisers': 'one organiser of an event: a person or an organisation.',
     'board-of-directors': 'one member of the Board of Directors whose term ends in the year.',
-    'team-leaders': 'one team leader and team.',
-    'release-managers': 'one release manager.',
-    'podcasts': 'one host of a Plone podcast or live series.',
-    'plone-conference-trainings': 'one training at the Plone Conference.',
-    'world-plone-day-talks': 'one video of a World Plone Day.',
-    'conference-talks': 'one keynote, talk or panel at a Plone conference, global or regional.',
-    'sprints': 'one Plone sprint of the year.',
-    'plone-conference': 'one organising organisation of the Plone Conference.',
-    'world-plone-day-event': 'one local World Plone Day event.',
+    'team-leaders': 'one team leader and team in the year.',
+    'release-managers': 'one release manager in the year.',
+    'podcasts': 'one host of a Plone podcast or live series in the year.',
     'community-recognition-levels': 'one recognition level.',
     'community-recognition-points': 'one kind of contribution and its points.',
     'plips-before-github': 'one PLIP from before the PLIPs moved to GitHub issues,'
@@ -86,7 +85,7 @@ INTRO = """\
 
 This page describes every file that people edit by hand under `curated/`.
 The registers and lists are in `curated/mappings/`.
-The community data is in `curated/community-contributions/`, and the PLIPs from before GitHub are in `curated/plips/`.
+The community data is in `curated/community/`, and the PLIPs from before GitHub are in `curated/plips/`.
 
 The format of a file is its Table Schema, in `curated/schemas/<kind>.json`.
 `curated/datapackage.json` lists every file with its schema; `python -m scripts.tools.datapackage` writes it.

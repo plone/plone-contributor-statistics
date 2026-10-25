@@ -1,6 +1,15 @@
 {
   "fields": [
     {
+      "name": "year",
+      "type": "integer",
+      "description": "The year in which the term of the member ends.",
+      "constraints": {
+        "required": true,
+        "minimum": 2000
+      }
+    },
+    {
       "name": "person",
       "type": "string",
       "description": "The id of the person in the people register.",
@@ -22,12 +31,20 @@
       }
     },
     {
-      "name": "source",
+      "name": "sources",
       "type": "string",
-      "description": "A public record, linked as a web address, that supports the row.",
+      "description": "The ids of the sources in the source register that support the row. Several values are separated by semicolons.",
       "constraints": {
-        "required": true,
-        "pattern": ".*https?://.*"
+        "required": true
+      },
+      "x-set": "sources"
+    },
+    {
+      "name": "cited_as",
+      "type": "string",
+      "description": "The words the row cited its sources with before the source register, verbatim: web addresses with their labels and quotes.",
+      "constraints": {
+        "required": true
       }
     },
     {
@@ -37,6 +54,7 @@
     }
   ],
   "primaryKey": [
+    "year",
     "person"
   ],
   "foreignKeys": [

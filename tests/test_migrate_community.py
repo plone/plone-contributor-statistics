@@ -234,13 +234,16 @@ def test_the_ids_do_not_depend_on_the_order_of_the_input():
     assert by(run(old).events, 'id')['castle-sprint']['year'] == '2009'
 
 
-def test_events_are_ordered_by_year_start_and_id():
+def test_events_are_ordered_by_year_and_keep_the_order_of_the_old_files():
+    # The model presents the rows of a year in this order, and the page and the points follow it
     old = {'sprints': {2014: [sprint('Z sprint', start='2014-03-01'), sprint('A sprint', start='2014-05-01'),
-                              sprint('B sprint', start='')]},
+                              sprint('B sprint', start='')],
+                       2013: [sprint('Old sprint', start='2013-01-01')]},
            'plone-conference': {2014: []},
-           'world-plone-day-event': {2014: [wpd('2014-04-30', 'Bonn, Germany')]}}
+           'world-plone-day-event': {2014: [wpd('2014-04-30', 'Bonn, Germany'), wpd('2014-04-30', 'Aachen, Germany')]}}
     assert [e['id'] for e in run(old).events] == [
-        'b-sprint', 'plone-conference-2014', 'z-sprint', 'wpd-2014-04-30-bonn-germany', 'a-sprint']
+        'old-sprint', 'plone-conference-2014', 'wpd-2014-04-30-bonn-germany', 'wpd-2014-04-30-aachen-germany',
+        'z-sprint', 'a-sprint', 'b-sprint']
 
 
 # Decision 4: talks
@@ -263,7 +266,20 @@ def test_talks_with_the_same_event_title_and_type_get_distinct_ids():
     talks = run(old).talks
     base = 't' + hex8('wpd-2022-online|Plone 6|Talk')
     assert [(t['id'], t['speakers']) for t in talks] == [
-        ('t' + hex8('wpd-2022-online|Plone 6|Duplicate'), ''), (base, 'a'), (base + '-2', 'b')]
+        (base, 'a'), (base + '-2', 'b'), ('t' + hex8('wpd-2022-online|Plone 6|Duplicate'), '')]
+
+
+def test_talks_and_trainings_are_ordered_by_year_and_keep_the_order_of_the_old_files():
+    old = {'conference-talks': {2015: [talk('Z', event='Plone Conference 2015'),
+                                       talk('A', event='Plone Conference 2015')],
+                                2014: [talk('Y')]},
+           'world-plone-day-talks': {2014: [wpd_talk('W')]},
+           'plone-conference-trainings': {2015: [row('title,trainers,source,notes', 'Z', '', PAGE, ''),
+                                                 row('title,trainers,source,notes', 'A', '', PAGE, '')],
+                                          2014: [row('title,trainers,source,notes', 'B', '', PAGE, '')]}}
+    migrated = run(old)
+    assert [t['title'] for t in migrated.talks] == ['Y', 'W', 'Z', 'A']
+    assert [t['title'] for t in migrated.trainings] == ['B', 'Z', 'A']
 
 
 def test_world_plone_day_talks_get_their_video_from_the_source():
@@ -353,11 +369,12 @@ def test_one_organiser_row_per_person_and_organisation():
                row('organisation,organisers,source,notes', 'netsight', 'matt-hamilton', MINUTES, 'conf note'),
                row('organisation,organisers,source,notes', '', 'alan-runyan;andy-mckay', PAGE, '')]}}
     migrated = run(old)
+    # In the order of the events, and of the old rows and cells: people, then organisations
     assert [(o['event'], o['person'], o['organisation']) for o in migrated.organisers] == [
-        ('plone-conference-2014', '', 'netsight'), ('plone-conference-2014', 'alan-runyan', ''),
-        ('plone-conference-2014', 'andy-mckay', ''), ('plone-conference-2014', 'matt-hamilton', ''),
-        ('sprint', '', 'acme'), ('sprint', '', 'beta'), ('sprint', 'ann-lee', ''), ('sprint', 'jane-doe', ''),
-        ('wpd-2014-04-30-bonn-germany', '', 'acme'), ('wpd-2014-04-30-bonn-germany', 'john-roe', '')]
+        ('plone-conference-2014', 'matt-hamilton', ''), ('plone-conference-2014', '', 'netsight'),
+        ('plone-conference-2014', 'alan-runyan', ''), ('plone-conference-2014', 'andy-mckay', ''),
+        ('wpd-2014-04-30-bonn-germany', 'john-roe', ''), ('wpd-2014-04-30-bonn-germany', '', 'acme'),
+        ('sprint', 'jane-doe', ''), ('sprint', 'ann-lee', ''), ('sprint', '', 'acme'), ('sprint', '', 'beta')]
     rows = {(o['event'], o['person'] or o['organisation']): o for o in migrated.organisers}
     # A conference row's notes stay on its organisers; a sprint's notes stay on the sprint
     assert rows['plone-conference-2014', 'netsight'] == {
@@ -423,7 +440,8 @@ def write_csv(path, fields, rows):
 
 @pytest.fixture
 def repo(tmp_repo):
-    community = paths.COMMUNITY
+    community = migrate_community.OLD_FOLDER
+    community.mkdir(parents=True)
     write_csv(community / '2014-sprints.csv', SPRINT_FIELDS, [sprint('Sprint', organisers='ann-lee')])
     write_csv(community / '2025-world-plone-day-talks.csv', WPD_TALK_FIELDS,
               [wpd_talk('A', location='Italy (Bologna)', source=GONE)])
@@ -462,7 +480,7 @@ def test_write_replaces_the_old_folder(repo):
         'board-of-directors.csv', 'community-recognition-levels.csv', 'community-recognition-points.csv',
         'events.csv', 'organisers.csv', 'podcasts.csv', 'release-managers.csv', 'talks.csv', 'team-leaders.csv',
         'trainings.csv']
-    assert not paths.COMMUNITY.exists()
+    assert not migrate_community.OLD_FOLDER.exists()
     assert (new / 'community-recognition-levels.csv').read_text(encoding='utf-8') == 'levels\n'
     with open(new / 'organisers.csv', newline='', encoding='utf-8') as f:
         assert list(csv.DictReader(f)) == [{'event': 'sprint', 'person': 'ann-lee', 'organisation': '',

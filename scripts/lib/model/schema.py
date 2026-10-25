@@ -1,6 +1,5 @@
 """Which Table Schema describes a curated file."""
 
-import re
 from pathlib import Path
 
 from frictionless import Dialect, Resource, Schema, formats
@@ -16,15 +15,11 @@ def schema_path(kind):
 def kind_of(path):
     """The kind of a curated file, which is also the name of its schema.
 
-    Community files lose the year (2023-sprints.csv is a sprints file); other files turn `_` into `-`
-    and lose a leading `plone-`. Raises ValueError when no schema exists for the kind.
+    A file turns `_` into `-` and loses a leading `plone-` (plone-plips-before-github.csv is a plips-before-github
+    file). Raises ValueError when no schema exists for the kind.
     """
     path = Path(path)
-    if paths.COMMUNITY.name in path.parts:
-        kind = re.sub(r'^\d{4}-', '', path.stem)
-    else:
-        kind = path.stem.replace('_', '-')
-        kind = kind.removeprefix('plone-')
+    kind = path.stem.replace('_', '-').removeprefix('plone-')
     if not schema_path(kind).exists():
         raise ValueError(f'No schema for {path}: {schema_path(kind)} does not exist')
     return kind

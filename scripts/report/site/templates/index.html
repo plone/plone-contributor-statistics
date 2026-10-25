@@ -71,7 +71,7 @@
   <div class="wrap">
     <h2>Organisations</h2>
     <p class="intro">Why an organisation has its level: its points per category, and the contributions behind them, each linked to its row in the data and its public record.
-      The rules are in the <a href="{{ data_link('curated/community-contributions/community-recognition-points.csv') }}">points file</a>.</p>
+      The rules are in the <a href="{{ data_link('curated/community/community-recognition-points.csv') }}">points file</a>.</p>
     {% for group in data.wall %}
     {% set level_index = loop.index %}
     {% for entry in group.organisations %}

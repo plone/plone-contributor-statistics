@@ -20,11 +20,12 @@ import re
 import sys
 
 from scripts.lib.cells import add_new, parse_segment, quotes_of, split_segments
-from scripts.lib.model import (ROLE_KINDS, community_folder, items, load_registry, load_sources, normalize_url)
+from scripts.lib.model import (ROLE_KINDS, community_folder, community_years, items, load_registry, load_sources,
+                               normalize_url)
 from scripts.lib.model.community import VIDEO_HOSTS
 
-FILE_NAME = re.compile(r'^(\d{4})-(.+)\.csv$')
-NO_SOURCE_CELL_KINDS = ('community-recognition-levels', 'community-recognition-points')
+# The kinds of rows with a source cell, in the order of the yearly files they came from
+KINDS = tuple(sorted((*ROLE_KINDS, 'world-plone-day-event')))
 
 
 def is_video(url):
@@ -39,16 +40,6 @@ def kind_hint(url, label):
     if is_video(url):
         return 'video'
     return 'speaker-page' if 'speaker page' in label.casefold() else None
-
-
-def _file_kinds(folder):
-    """[(year, kind)] of the files of the folder that the model reads as rows with a source cell."""
-    found = []
-    for path in sorted(folder.iterdir()):
-        match = FILE_NAME.match(path.name)
-        if match and match.group(2) not in NO_SOURCE_CELL_KINDS:
-            found.append((int(match.group(1)), match.group(2)))
-    return found
 
 
 def _names(registry, item):
@@ -70,9 +61,7 @@ def work_list(registry=None, community_dir=None):
     registry = registry or load_registry()
     folder = community_folder(community_dir)
     found = {}
-    for year, kind in _file_kinds(folder):
-        if kind not in ROLE_KINDS and kind != 'world-plone-day-event':
-            continue
+    for year, kind in ((year, kind) for year in community_years(folder) for kind in KINDS):
         for item in items(year, kind, folder):
             names = _names(registry, item)
             pool = quotes_of(item.source)

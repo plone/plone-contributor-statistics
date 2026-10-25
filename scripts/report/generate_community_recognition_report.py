@@ -16,8 +16,8 @@ from pathlib import Path
 import argparse
 
 from scripts.lib import paths
-from scripts.lib.model import (IN_PERSON, MIN_EPISODES, TALK_TYPES, UNMAPPED, community_folder, items, load_registry,
-                               recognition_levels)
+from scripts.lib.model import (IN_PERSON, MIN_EPISODES, TALK_TYPES, UNMAPPED, community_folder, community_years, items,
+                               load_registry, recognition_levels)
 from scripts.lib.model.registers import PERSON_PREFIX
 from scripts.lib.years import RECOGNITION_YEAR
 from scripts.derive.plip_organisation_stats import organisation_lookup, plips_by_organisation, read_plips
@@ -83,8 +83,7 @@ def require_community_year(community, year):
     folder = Path(community)
     if not folder.is_dir():
         raise FileNotFoundError(f'community data folder {folder} not found')
-    curated = [p for p in folder.glob(f'{year}-*.csv') if not p.name.endswith('-community-recognition-report.csv')]
-    if not curated:
+    if year not in community_years(folder):
         raise FileNotFoundError(f'no curated community data for {year} in {folder}')
 
 
@@ -103,14 +102,14 @@ class Contribution:
 
 
 def _items(year, kind, community_dir):
-    """The rows of a kind of the year; a warning and no rows when the file is missing.
+    """The rows of a kind of the year; a warning when there are none.
 
-    Some kinds of community data didn't exist in every year, so a single missing file is not an error.
+    Some kinds of community data didn't exist in every year, so a kind without rows is not an error.
     """
-    if not (Path(community_dir) / f'{year}-{kind}.csv').is_file():
-        print(f"Warning: {year}-{kind}.csv not found")
-        return []
-    return items(year, kind, community_dir)
+    found = items(year, kind, community_dir)
+    if not found:
+        print(f"Warning: no {kind} rows for {year}")
+    return found
 
 
 def _name(registry, person_id, item):

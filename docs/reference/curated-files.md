@@ -6,7 +6,7 @@
 
 This page describes every file that people edit by hand under `curated/`.
 The registers and lists are in `curated/mappings/`.
-The community data is in `curated/community-contributions/`, and the PLIPs from before GitHub are in `curated/plips/`.
+The community data is in `curated/community/`, and the PLIPs from before GitHub are in `curated/plips/`.
 
 The format of a file is its Table Schema, in `curated/schemas/<kind>.json`.
 `curated/datapackage.json` lists every file with its schema; `python -m scripts.tools.datapackage` writes it.
@@ -199,191 +199,189 @@ Primary key: `repository`.
 
 ## Community data
 
-Community work per year and kind, in `curated/community-contributions/`.
+Community work, one file per kind with the rows of every year, in `curated/community/`: the events, the talks, trainings and organisers that point to them, and the roles.
 
-### Board of Directors
+### Events
 
-File: `curated/community-contributions/YYYY-board-of-directors.csv`
+File: `curated/community/events.csv`
 
-One row is one member of the Board of Directors whose term ends in the year.
-
-| Field | Type | Constraints | Description |
-|---|---|---|---|
-| `person` | string | required; unique; pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `people` | The id of the person in the people register. |
-| `role` | string | required; one of `voting`, `non-voting` | Whether the person is a voting or a non-voting member. |
-| `source` | string | required; contains a web address | A public record, linked as a web address, that supports the row. |
-| `notes` | string |  | Free-text remarks on the row. |
-
-Primary key: `person`.
-
-### Team leaders
-
-File: `curated/community-contributions/YYYY-team-leaders.csv`
-
-One row is one team leader and team.
+One row is one event: the Plone Conference of a year, a regional conference (symposium), a World Plone Day event of one place or online, or a sprint.
 
 | Field | Type | Constraints | Description |
 |---|---|---|---|
-| `person` | string | required; pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `people` | The id of the person in the people register. |
-| `team` | string | required | The team the person leads. |
-| `source` | string | required; contains a web address | A public record, linked as a web address, that supports the row. |
+| `id` | string | required; unique; pattern `^[a-z0-9][a-z0-9-]*$` | Opaque, stable identifier of the event, never renamed: `plone-conference-<year>`, `wpd-<date>-<location>`, `wpd-<year>-online`, or the slug of the name of a sprint or symposium. |
+| `kind` | string | required; one of `conference`, `symposium`, `wpd`, `sprint` | `conference` for the Plone Conference of a year, `symposium` for a regional conference, `wpd` for a World Plone Day event of one place or online, `sprint` for a sprint. |
+| `name` | string | required | The name of the event; a World Plone Day event is named after its year and place. |
+| `year` | integer | required; at least 2000 | The year of the event; an event without a start date has one too. |
+| `start` | string | pattern `^\d{4}(-\d{2}(-\d{2})?)?$` | The first day of the event; the sources sometimes give only a year or a month. |
+| `end` | string | pattern `^\d{4}(-\d{2}(-\d{2})?)?$` | The last day of the event, in the same form as the start; empty for a single day. |
+| `location` | string |  | Where the event took place. |
+| `format` | string | one of `in person`, `hybrid`, `online` | For a World Plone Day event: whether it was held in person, as a hybrid or online. |
+| `level` | string | one of `strategic`, `community` | For a sprint: whether it was a strategic or a community sprint. |
+| `sources` | string | ids of rows of `sources` separated by semicolons | The ids of the sources in the source register that support the row; empty for an event that only holds the rows pointing to it: a Plone Conference, a symposium or an online World Plone Day edition. Several values are separated by semicolons. |
+| `cited_as` | string |  | The words the row cited its sources with before the source register, verbatim: web addresses with their labels and quotes; empty when the row has no sources. |
 | `notes` | string |  | Free-text remarks on the row. |
 
-Primary key: `person`, `team`.
+Primary key: `id`.
 
-### Release managers
+Checks beyond the schema:
 
-File: `curated/community-contributions/YYYY-release-managers.csv`
+- An event cites a source, unless it only holds the rows pointing to it: a conference, symposium or online edition.
+- `sources`: every element is the id of a row of the register, and none is repeated.
 
-One row is one release manager.
+### Talks
+
+File: `curated/community/talks.csv`
+
+One row is one keynote, talk or panel at a Plone conference, or one video of a World Plone Day.
 
 | Field | Type | Constraints | Description |
 |---|---|---|---|
-| `person` | string | required; unique; pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `people` | The id of the person in the people register. |
-| `source` | string | required; contains a web address | A public record, linked as a web address, that supports the row. |
+| `id` | string | required; unique; pattern `^t[0-9a-f]{8}(-\d+)?$` | Opaque, stable identifier of the talk: `t` and eight hex digits of a hash of its event, title and type, with `-2`, `-3` for a repeated one. |
+| `event` | string | required; pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `events` | The id of the event in the events file. |
+| `type` | string | required; one of `Keynote`, `Talk`, `Panel`, `Teaser`, `Announcement`, `Welcome`, `Recap`, `Duplicate`, `Opening`, `Full stream`, `Newsroom` | The type of the talk or recording: Keynote, Talk or Panel, as the programme calls it, or for a World Plone Day video what it is; lightning-talk sessions are not recorded. |
+| `title` | string | required | The title of the talk, as the programme or the recording gives it. |
+| `speakers` | string | ids of rows of `people` separated by semicolons | The ids of the speakers in the people register. Several values are separated by semicolons. |
+| `organisations` | string | ids of rows of `organisations` separated by semicolons | The ids of the organisations in the organisations register, for a talk that the source attributes to a team instead of people. Several values are separated by semicolons. |
+| `location` | string |  | For a World Plone Day video: where the talk was given, as the old record named it. |
+| `video` | string | pattern `^https?://.*$` | The web address of the recording, when one exists; one link, a second part goes to the notes. |
+| `sources` | string | required; ids of rows of `sources` separated by semicolons | The ids of the sources in the source register that support the row. Several values are separated by semicolons. |
+| `cited_as` | string | required | The words the row cited its sources with before the source register, verbatim: web addresses with their labels and quotes. |
 | `notes` | string |  | Free-text remarks on the row. |
 
-Primary key: `person`.
+Primary key: `id`.
 
-### Podcasts
+Checks beyond the schema:
 
-File: `curated/community-contributions/YYYY-podcasts.csv`
+- `speakers`: every element is the id of a row of the register, and none is repeated.
+- `organisations`: every element is the id of a row of the register, and none is repeated.
+- `sources`: every element is the id of a row of the register, and none is repeated.
 
-One row is one host of a Plone podcast or live series.
+### Trainings
 
-| Field | Type | Constraints | Description |
-|---|---|---|---|
-| `series` | string | required | The podcast series. |
-| `person` | string | pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `people` | The id of the host in the people register; empty when the source names no host. |
-| `episodes` | integer | required; at least 1 | The number of episodes the person took part in. |
-| `source` | string | required; contains a web address | A public record, linked as a web address, that supports the row. |
-| `notes` | string |  | Free-text remarks on the row. |
-
-### Plone Conference trainings
-
-File: `curated/community-contributions/YYYY-plone-conference-trainings.csv`
+File: `curated/community/trainings.csv`
 
 One row is one training at the Plone Conference.
 
 | Field | Type | Constraints | Description |
 |---|---|---|---|
-| `title` | string | required; unique | The title of the training. |
+| `id` | string | required; unique; pattern `^r[0-9a-f]{8}(-\d+)?$` | Opaque, stable identifier of the training: `r` and eight hex digits of a hash of its event and title. |
+| `event` | string | required; pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `events` | The id of the event in the events file. |
+| `title` | string | required | The title of the training. |
 | `trainers` | string | ids of rows of `people` separated by semicolons | The ids of the trainers in the people register. Several values are separated by semicolons. |
-| `source` | string | required; contains a web address | A public record, linked as a web address, that supports the row. |
+| `sources` | string | required; ids of rows of `sources` separated by semicolons | The ids of the sources in the source register that support the row. Several values are separated by semicolons. |
+| `cited_as` | string | required | The words the row cited its sources with before the source register, verbatim: web addresses with their labels and quotes. |
 | `notes` | string |  | Free-text remarks on the row. |
 
-Primary key: `title`.
+Primary key: `id`.
 
 Checks beyond the schema:
 
 - `trainers`: every element is the id of a row of the register, and none is repeated.
+- `sources`: every element is the id of a row of the register, and none is repeated.
 
-### World Plone Day talks
+### Organisers
 
-File: `curated/community-contributions/YYYY-world-plone-day-talks.csv`
+File: `curated/community/organisers.csv`
 
-One row is one video of a World Plone Day.
+One row is one organiser of an event: a person or an organisation.
 
 | Field | Type | Constraints | Description |
 |---|---|---|---|
-| `title` | string | required | The title of the talk. |
-| `speakers` | string | ids of rows of `people` separated by semicolons | The ids of the speakers in the people register. Several values are separated by semicolons. |
-| `organisations` | string | ids of rows of `organisations` separated by semicolons | The ids of the organisations behind the talk in the organisations register. Several values are separated by semicolons. |
-| `type` | string | required; one of `Talk`, `Teaser`, `Announcement`, `Welcome`, `Recap`, `Duplicate`, `Opening`, `Full stream`, `Newsroom` | The type of the recording. |
-| `location` | string |  | Where the talk was given. |
-| `source` | string | required; contains a web address | A public record, linked as a web address, that supports the row. |
+| `event` | string | required; pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `events` | The id of the event in the events file. |
+| `person` | string | pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `people` | The id of an organising person in the people register; empty for an organisation. |
+| `organisation` | string | pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `organisations` | The id of an organising organisation in the organisations register; empty for a person. |
+| `sources` | string | required; ids of rows of `sources` separated by semicolons | The ids of the sources in the source register that support the row. Several values are separated by semicolons. |
+| `cited_as` | string | required | The words the row cited its sources with before the source register, verbatim: web addresses with their labels and quotes. |
 | `notes` | string |  | Free-text remarks on the row. |
 
 Checks beyond the schema:
 
-- `speakers`: every element is the id of a row of the register, and none is repeated.
-- `organisations`: every element is the id of a row of the register, and none is repeated.
+- An organiser row names exactly one of `person` and `organisation`.
+- No two rows have the same `event`, `person`, `organisation`.
+- `sources`: every element is the id of a row of the register, and none is repeated.
 
-### Conference talks
+### Board of Directors
 
-File: `curated/community-contributions/YYYY-conference-talks.csv`
+File: `curated/community/board-of-directors.csv`
 
-One row is one keynote, talk or panel at a Plone conference, global or regional.
+One row is one member of the Board of Directors whose term ends in the year.
 
 | Field | Type | Constraints | Description |
 |---|---|---|---|
-| `event` | string | required | The conference, as it named itself, for example Plone Conference 2021 or Plone Tagung 2023. |
-| `scope` | string | required; one of `global`, `regional` | `global` for the annual Plone Conference, `regional` for every other conference. |
-| `type` | string | required; one of `Keynote`, `Talk`, `Panel` | Keynote, Talk or Panel, as the programme calls it; lightning-talk sessions are not recorded. |
-| `title` | string | required | The title of the talk, as the programme gives it. |
-| `speakers` | string | ids of rows of `people` separated by semicolons | The ids of the speakers in the people register. Several values are separated by semicolons. |
-| `organisations` | string | ids of rows of `organisations` separated by semicolons | The ids of the organisations in the organisations register, for a talk that the programme attributes to a team instead of people. Several values are separated by semicolons. |
-| `video` | string | pattern `^https?://.*$` | The web address of the recording, when one exists; one link, a second part goes to the notes. |
-| `source` | string | required; contains a web address | A public record, linked as a web address, that supports the row: the programme or schedule page, the speaker page or the recording. |
+| `year` | integer | required; at least 2000 | The year in which the term of the member ends. |
+| `person` | string | required; pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `people` | The id of the person in the people register. |
+| `role` | string | required; one of `voting`, `non-voting` | Whether the person is a voting or a non-voting member. |
+| `sources` | string | required; ids of rows of `sources` separated by semicolons | The ids of the sources in the source register that support the row. Several values are separated by semicolons. |
+| `cited_as` | string | required | The words the row cited its sources with before the source register, verbatim: web addresses with their labels and quotes. |
+| `notes` | string |  | Free-text remarks on the row. |
+
+Primary key: `year`, `person`.
+
+Checks beyond the schema:
+
+- `sources`: every element is the id of a row of the register, and none is repeated.
+
+### Team leaders
+
+File: `curated/community/team-leaders.csv`
+
+One row is one team leader and team in the year.
+
+| Field | Type | Constraints | Description |
+|---|---|---|---|
+| `year` | integer | required; at least 2000 | The year of the row. |
+| `person` | string | required; pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `people` | The id of the person in the people register. |
+| `team` | string | required | The team the person leads. |
+| `sources` | string | required; ids of rows of `sources` separated by semicolons | The ids of the sources in the source register that support the row. Several values are separated by semicolons. |
+| `cited_as` | string | required | The words the row cited its sources with before the source register, verbatim: web addresses with their labels and quotes. |
+| `notes` | string |  | Free-text remarks on the row. |
+
+Primary key: `year`, `person`, `team`.
+
+Checks beyond the schema:
+
+- `sources`: every element is the id of a row of the register, and none is repeated.
+
+### Release managers
+
+File: `curated/community/release-managers.csv`
+
+One row is one release manager in the year.
+
+| Field | Type | Constraints | Description |
+|---|---|---|---|
+| `year` | integer | required; at least 2000 | The year of the row. |
+| `person` | string | required; pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `people` | The id of the person in the people register. |
+| `sources` | string | required; ids of rows of `sources` separated by semicolons | The ids of the sources in the source register that support the row. Several values are separated by semicolons. |
+| `cited_as` | string | required | The words the row cited its sources with before the source register, verbatim: web addresses with their labels and quotes. |
+| `notes` | string |  | Free-text remarks on the row. |
+
+Primary key: `year`, `person`.
+
+Checks beyond the schema:
+
+- `sources`: every element is the id of a row of the register, and none is repeated.
+
+### Podcasts
+
+File: `curated/community/podcasts.csv`
+
+One row is one host of a Plone podcast or live series in the year.
+
+| Field | Type | Constraints | Description |
+|---|---|---|---|
+| `year` | integer | required; at least 2000 | The year of the row. |
+| `series` | string | required | The podcast series. |
+| `person` | string | pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `people` | The id of the host in the people register; empty when the source names no host. |
+| `episodes` | integer | required; at least 1 | The number of episodes the person took part in, in the year. |
+| `sources` | string | required; ids of rows of `sources` separated by semicolons | The ids of the sources in the source register that support the row. Several values are separated by semicolons. |
+| `cited_as` | string | required | The words the row cited its sources with before the source register, verbatim: web addresses with their labels and quotes. |
 | `notes` | string |  | Free-text remarks on the row. |
 
 Checks beyond the schema:
 
-- `speakers`: every element is the id of a row of the register, and none is repeated.
-- `organisations`: every element is the id of a row of the register, and none is repeated.
-
-### Sprints
-
-File: `curated/community-contributions/YYYY-sprints.csv`
-
-One row is one Plone sprint of the year.
-
-| Field | Type | Constraints | Description |
-|---|---|---|---|
-| `sprint` | string | required; unique | The name of the sprint. |
-| `start` | string | pattern `^\d{4}(-\d{2}(-\d{2})?)?$` | The first day of the sprint; the sources sometimes give only a year or a month. |
-| `end` | string | pattern `^\d{4}(-\d{2}(-\d{2})?)?$` | The last day of the sprint, in the same form as the start. |
-| `location` | string |  | Where the sprint took place. |
-| `organisers` | string | ids of rows of `people` separated by semicolons | The ids of the organising persons in the people register. Several values are separated by semicolons. |
-| `organisations` | string | ids of rows of `organisations` separated by semicolons | The ids of the organising organisations in the organisations register. Several values are separated by semicolons. |
-| `level` | string | one of `strategic`, `community` | Whether the sprint was a strategic or a community sprint. |
-| `source` | string | required; contains a web address | A public record, linked as a web address, that supports the row. |
-| `notes` | string |  | Free-text remarks on the row. |
-
-Primary key: `sprint`.
-
-Checks beyond the schema:
-
-- `organisers`: every element is the id of a row of the register, and none is repeated.
-- `organisations`: every element is the id of a row of the register, and none is repeated.
-
-### Plone Conference
-
-File: `curated/community-contributions/YYYY-plone-conference.csv`
-
-One row is one organising organisation of the Plone Conference.
-
-| Field | Type | Constraints | Description |
-|---|---|---|---|
-| `organisation` | string | pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `organisations` | The id of the organisation that hosted the conference; empty when the source names none. |
-| `organisers` | string | ids of rows of `people` separated by semicolons | The ids of the organising persons in the people register. Several values are separated by semicolons. |
-| `source` | string | required; contains a web address | A public record, linked as a web address, that supports the row. |
-| `notes` | string |  | Free-text remarks on the row. |
-
-Checks beyond the schema:
-
-- `organisers`: every element is the id of a row of the register, and none is repeated.
-
-### World Plone Day events
-
-File: `curated/community-contributions/YYYY-world-plone-day-event.csv`
-
-One row is one local World Plone Day event.
-
-| Field | Type | Constraints | Description |
-|---|---|---|---|
-| `date` | date | required | The day of the event. |
-| `location` | string |  | Where the event took place. |
-| `format` | string | one of `in person`, `hybrid`, `online` | Whether the event was held in person, as a hybrid or online. |
-| `organisations` | string | ids of rows of `organisations` separated by semicolons | The ids of the organising organisations in the organisations register. Several values are separated by semicolons. |
-| `organisers` | string | ids of rows of `people` separated by semicolons | The ids of the organising persons in the people register. Several values are separated by semicolons. |
-| `source` | string | required; contains a web address | A public record, linked as a web address, that supports the row. |
-| `notes` | string |  | Free-text remarks on the row. |
-
-Checks beyond the schema:
-
-- `organisations`: every element is the id of a row of the register, and none is repeated.
-- `organisers`: every element is the id of a row of the register, and none is repeated.
+- `sources`: every element is the id of a row of the register, and none is repeated.
 
 ## Recognition files and PLIPs
 
@@ -391,7 +389,7 @@ The recognition tables, see {doc}`recognition-files`, and the PLIPs from before 
 
 ### Community recognition levels
 
-File: `curated/community-contributions/community-recognition-levels.csv`
+File: `curated/community/community-recognition-levels.csv`
 
 One row is one recognition level.
 
@@ -404,7 +402,7 @@ One row is one recognition level.
 
 ### Community recognition points
 
-File: `curated/community-contributions/community-recognition-points.csv`
+File: `curated/community/community-recognition-points.csv`
 
 One row is one kind of contribution and its points.
 

@@ -7,22 +7,15 @@ import pytest
 from scripts.derive import community_page
 from scripts.lib import paths
 from scripts.lib.model import events, load_registry, roles
-from tests.conftest import record_source
+from tests.conftest import community_event, community_rows, record_source
 
 CONTRIBUTORS = 'username,total_commits,total_pull_requests\n'
-CONF_TALKS = 'event,scope,type,title,speakers,organisations,video,source,notes\n'
 ORGANISATIONS = 'organisation,total_commits,total_pull_requests,contributors_count\n'
 PLIPS = 'number,title,author,state,created_at,updated_at,closed_at,repository,html_url\n'
 LEVELS = ('Level,Min Points,Max Points,Description\nBronze Contributor,1,9,\nSilver Contributor,10,24,\n'
           'Gold Contributor,25,,\n')
-SPRINTS = 'sprint,start,end,location,organisers,organisations,level,source,notes\n'
-WPD_EVENTS = 'date,location,format,organisations,organisers,source,notes\n'
-TALKS = 'title,speakers,organisations,type,location,source,notes\n'
-TRAININGS = 'title,trainers,source,notes\n'
-CONFERENCE = 'organisation,organisers,source,notes\n'
-TEAM_LEADERS = 'person,team,source,notes\n'
-RELEASE_MANAGERS = 'person,source,notes\n'
-BOARD = 'person,role,source,notes\n'
+CONFERENCE = 'plone-conference-2025'
+WPD_ONLINE = 'wpd-2025-online'
 
 # timo (login tisto) is kitconcept, mauro (mamico) RedTurtle, jane an independent; anna has no organisation
 PEOPLE = [('timo', 'tisto'), ('mauro', 'mamico'), ('robert', 'robgietema'), ('anna', ''), ('jane', '')]
@@ -62,22 +55,41 @@ def repo(write_registers, tmp_repo):
     for year in range(2021, 2026):
         write(paths.contributors_file(year), CONTRIBUTORS)
         write(paths.organisation_contributors_file(year), ORGANISATIONS)
-    write(paths.COMMUNITY / '2025-plone-conference.csv', CONFERENCE + 'redturtle,,https://a,\n')
+    # The conference of 2025, organised by RedTurtle, and the online World Plone Day
+    community_event(CONFERENCE, 'conference', 2025, organisations=('redturtle',), cited_as='https://a',
+                    name='Plone Conference 2025')
+    community_event('plone-tagung-2025', 'symposium', 2025, cited_as='', name='Plone Tagung 2025')
+    community_event(WPD_ONLINE, 'wpd', 2025, cited_as='', name='World Plone Day 2025, Online', location='Online',
+                    format='online')
     return tmp_repo
+
+
+def role(kind, person, cited_as, **cells):
+    community_rows(kind, {'year': 2025, 'person': person, 'cited_as': cited_as, **cells})
+
+
+def talk(title, speakers='', organisations='', event=WPD_ONLINE, kind='Talk', video='', cited_as='https://t'):
+    community_rows('talks', {'event': event, 'type': kind, 'title': title, 'speakers': speakers,
+                             'organisations': organisations, 'video': video, 'cited_as': cited_as})
+
+
+def wpd_event(location, fmt, organisations=()):
+    community_event(f'wpd-2025-04-10-{location.lower()}', 'wpd', 2025, organisations=organisations,
+                    cited_as='https://w', start='2025-04-10', location=location, format=fmt)
 
 
 def test_people_active_counts_code_and_community_once(repo):
     # Review focus: a person counts once, from code work and from a role
     write(paths.contributors_file(2025), CONTRIBUTORS + 'tisto,10,5\nmamico,3,1\n')
-    write(paths.COMMUNITY / '2025-release-managers.csv', RELEASE_MANAGERS + 'timo,https://a,\n')
-    write(paths.COMMUNITY / '2025-board-of-directors.csv', BOARD + 'anna,voting,https://b,\n')
+    role('release-managers', 'timo', 'https://a')
+    role('board-of-directors', 'anna', 'https://b', role='voting')
     data = community_page.build_page_data(2025)
     assert data['headline']['year']['people'] == 3  # timo, mauro, anna
 
 
 def test_people_active_counts_a_person_once_across_code_and_roles(repo):
     write(paths.contributors_file(2025), CONTRIBUTORS + 'Tisto,10,5\n')
-    write(paths.COMMUNITY / '2025-release-managers.csv', RELEASE_MANAGERS + 'timo,https://a,\n')
+    role('release-managers', 'timo', 'https://a')
     [entry] = community_page.build_page_data(2025)['people']['2025']
     assert entry == {'id': 'timo', 'name': 'timo', 'commits': 10, 'pull_requests': 5, 'roles': ['Release manager'],
                      'talks': [], 'organisation': 'kitconcept GmbH'}
@@ -98,16 +110,16 @@ def test_organisations_active_leave_out_unmapped_and_independents(repo):
 
 
 def test_events_count_each_local_world_plone_day(repo):
-    write(paths.COMMUNITY / '2025-world-plone-day-event.csv', WPD_EVENTS
-          + '2025-04-10,Bologna,in person,redturtle,,https://w,\n2025-04-10,Brasilia,in person,,,https://w,\n'
-          + '2025-04-10,Online,online,kitconcept,,https://w,\n')
+    wpd_event('Bologna', 'in person', ('redturtle',))
+    wpd_event('Brasilia', 'in person')
+    wpd_event('Online', 'online', ('kitconcept',))
     data = community_page.build_page_data(2025)
     assert data['headline']['year']['events'] == 3  # the conference and two local World Plone Days held in person
 
 
 def test_wall_lists_every_organisation_with_a_level(repo):
     # Review focus: independents earn levels too and are shown
-    write(paths.COMMUNITY / '2025-team-leaders.csv', TEAM_LEADERS + 'jane,Docs Team,https://c,\n')
+    role('team-leaders', 'jane', 'https://c', team='Docs Team')
     data = community_page.build_page_data(2025)
     on_wall = {o['name'] for group in data['wall'] for o in group['organisations']}
     assert on_wall == {'RedTurtle', 'Jane (independent)'}
@@ -116,12 +128,11 @@ def test_wall_lists_every_organisation_with_a_level(repo):
 
 def test_points_to_next_level_with_fractions(repo):
     # Review focus: 9.5 points are Bronze, with 0.5 to Silver
-    write(paths.COMMUNITY / '2025-world-plone-day-talks.csv', TALKS
-          + ''.join(f'Talk {n},mauro,,Talk,Online,https://t{n},\n' for n in range(4)))
-    write(paths.COMMUNITY / '2025-world-plone-day-event.csv', WPD_EVENTS
-          + '2025-04-10,Bologna,in person,redturtle;kitconcept,,https://w,\n')
-    write(paths.COMMUNITY / '2025-plone-conference.csv', CONFERENCE)  # no conference points
-    write(paths.COMMUNITY / '2025-team-leaders.csv', TEAM_LEADERS + 'mauro,Volto Team,https://t,\n')
+    for n in range(4):
+        talk(f'Talk {n}', 'mauro', cited_as=f'https://t{n}')
+    paths.ORGANISERS.unlink()  # no conference points
+    wpd_event('Bologna', 'in person', ('redturtle', 'kitconcept'))
+    role('team-leaders', 'mauro', 'https://t', team='Volto Team')
     organisation = community_page.build_page_data(2025)['organisations']['redturtle']
     assert organisation['points'] == 11.5  # 4 talks + 1.5 WPD event + 6 team lead
     assert organisation['level'] == 'Silver Contributor'
@@ -132,7 +143,7 @@ def test_points_to_next_level_with_fractions(repo):
 def test_contributions_link_their_rows(repo):
     redturtle = community_page.build_page_data(2025)['organisations']['redturtle']
     [contribution] = redturtle['categories']['Conference Organization']['contributions']
-    assert contribution['file'] == 'curated/community-contributions/2025-plone-conference.csv'
+    assert contribution['file'] == 'curated/community/organisers.csv'
     assert contribution['line'] == 2
     assert contribution['source'] == 'https://a'
 
@@ -161,7 +172,7 @@ def test_data_is_deterministic(repo):
 
 def test_organisation_of_a_speaker_counts_as_active(repo):
     # A speaker makes the organisation they belonged to that year active, whatever the organisations column says
-    write(paths.COMMUNITY / '2025-world-plone-day-talks.csv', TALKS + 'A talk,timo,,Talk,Online,https://t,\n')
+    talk('A talk', 'timo')
     data = community_page.build_page_data(2025)
     assert data['headline']['year']['organisations'] == 2  # RedTurtle (conference) and kitconcept (the speaker)
     assert data['history']['2025']['people_active'] == 1
@@ -169,7 +180,7 @@ def test_organisation_of_a_speaker_counts_as_active(repo):
 
 def test_organisation_only_talk_counts_the_organisation(repo):
     # A company team gave the talk: no speakers, but the organisation is active and gets a role credit
-    write(paths.COMMUNITY / '2025-world-plone-day-talks.csv', TALKS + 'A talk,,kitconcept,Talk,Online,https://t,\n')
+    talk('A talk', organisations='kitconcept')
     data = community_page.build_page_data(2025)
     assert data['headline']['year']['organisations'] == 2  # RedTurtle (conference) and kitconcept (the talk)
     assert data['organisations']['kitconcept-gmbh']['history']['2025']['roles'] == 1
@@ -183,10 +194,9 @@ def test_a_second_login_is_keyed_to_the_same_person(repo):
 
 
 def test_a_speaker_is_active_and_lists_the_talks_sorted(repo):
-    write(paths.COMMUNITY / '2025-conference-talks.csv', CONF_TALKS +
-          'Plone Tagung 2025,regional,Talk,Zope news,timo,,,https://s/1,\n'
-          'Plone Conference 2025,global,Keynote,A keynote,timo;mauro,,https://v/1,https://s/2,\n')
-    write(paths.COMMUNITY / '2025-world-plone-day-talks.csv', TALKS + 'WPD talk,timo,,Talk,Online,https://youtu.be/v3,\n')
+    talk('Zope news', 'timo', event='plone-tagung-2025', cited_as='https://s/1')
+    talk('A keynote', 'timo;mauro', event=CONFERENCE, kind='Keynote', video='https://v/1', cited_as='https://s/2')
+    talk('WPD talk', 'timo', video='https://youtu.be/v3', cited_as='https://youtu.be/v3')
     data = community_page.build_page_data(2025)
     timo = next(p for p in data['people']['2025'] if p['id'] == 'timo')
     assert timo['roles'] == ['Speaker']
@@ -207,8 +217,7 @@ def test_people_without_talks_have_an_empty_list(repo):
 
 def test_a_team_conference_talk_counts_the_organisation(repo):
     # No points, so kitconcept has no entry under data['organisations']; the history function shows the role count
-    write(paths.COMMUNITY / '2025-conference-talks.csv', CONF_TALKS +
-          'Plone Conference 2025,global,Talk,Team talk,,kitconcept,,https://s/1,\n')
+    talk('Team talk', organisations='kitconcept', event=CONFERENCE, cited_as='https://s/1')
     data = community_page.build_page_data(2025)
     assert data['headline']['year']['organisations'] == 2
     assert data['history']['2025']['people_active'] == 0
@@ -218,8 +227,7 @@ def test_a_team_conference_talk_counts_the_organisation(repo):
 
 
 def test_conference_talks_earn_no_points(repo):
-    write(paths.COMMUNITY / '2025-conference-talks.csv', CONF_TALKS +
-          'Plone Conference 2025,global,Keynote,A keynote,timo,,https://v/1,https://s/2,\n')
+    talk('A keynote', 'timo', event=CONFERENCE, kind='Keynote', video='https://v/1', cited_as='https://s/2')
     data = community_page.build_page_data(2025)
     assert 'kitconcept-gmbh' not in data['organisations']
 
@@ -238,7 +246,8 @@ def test_people_names_drop_an_ambiguous_name(repo):
 
 def test_organiser_role_counts_for_the_persons_organisation(repo):
     # The entity that organised a sprint gets the event, the organising person's organisation gets the role
-    write(paths.COMMUNITY / '2025-sprints.csv', SPRINTS + 'Sprint A,,,X,mauro,kitconcept,strategic,https://a,\n')
+    community_event('sprint-a', 'sprint', 2025, ('mauro',), ('kitconcept',), cited_as='https://a', name='Sprint A',
+                    location='X', level='strategic')
     organisations = community_page.build_page_data(2025)['organisations']
     # RedTurtle earns a level from the conference, kitconcept from the sprint
     assert organisations['redturtle']['history']['2025'] == {'commits': 0, 'pull_requests': 0, 'roles': 1,
@@ -248,16 +257,16 @@ def test_organiser_role_counts_for_the_persons_organisation(repo):
 
 
 def test_unmapped_is_not_listed_as_an_event_organiser(repo):
-    write(paths.COMMUNITY / '2025-plone-conference.csv', CONFERENCE + 'redturtle,,https://a,\n')
-    write(paths.COMMUNITY / '2025-sprints.csv', SPRINTS + 'Sprint A,,,X,,kitconcept,strategic,https://a,\n')
+    community_event('sprint-a', 'sprint', 2025, organisations=('kitconcept',), cited_as='https://a', name='Sprint A',
+                    location='X', level='strategic')
     events = community_page.build_page_data(2025)['history']['2025']['events']
     assert [e['organisations'] for e in events] == [['RedTurtle'], ['kitconcept GmbH']]
 
 
 def test_board_and_team_leads_carry_the_display_name_and_organisation(repo):
     register([('timo', 'Timo Stollenwerk', 'tisto'), ('anna', 'Anna Board', '')])
-    write(paths.COMMUNITY / '2025-board-of-directors.csv', BOARD + 'anna,voting,https://b,\n')
-    write(paths.COMMUNITY / '2025-team-leaders.csv', TEAM_LEADERS + 'timo,Volto Team,https://c,\n')
+    role('board-of-directors', 'anna', 'https://b', role='voting')
+    role('team-leaders', 'timo', 'https://c', team='Volto Team')
     history = community_page.build_page_data(2025)['history']['2025']
     assert history['board'] == [{'name': 'Anna Board', 'organisation': 'Unmapped', 'source': 'https://b'}]
     assert history['team_leads'] == [{'name': 'Timo Stollenwerk', 'team': 'Volto Team',
@@ -274,7 +283,8 @@ def test_pull_request_contributions_link_the_row_of_each_year(repo):
 
 
 def test_equal_contributions_are_merged(repo):
-    write(paths.COMMUNITY / '2025-plone-conference-trainings.csv', TRAININGS + 'Volto,timo;robert,https://t,\n')
+    community_rows('trainings', {'event': CONFERENCE, 'title': 'Volto', 'trainers': 'timo;robert',
+                                 'cited_as': 'https://t'})
     [training] = community_page.build_page_data(2025)['organisations']['kitconcept-gmbh']['categories'][
         'Training Session']['contributions']
     assert training['points'] == 4
@@ -300,7 +310,7 @@ def test_people_names_are_keyed_by_fold(repo):
 def test_people_carry_the_organisation_of_the_year(repo):
     # The person card names the organisation the affiliations give the person for the year
     write(paths.contributors_file(2025), CONTRIBUTORS + 'tisto,10,5\nzed,1,1\n')
-    write(paths.COMMUNITY / '2025-board-of-directors.csv', BOARD + 'anna,voting,https://b,\n')
+    role('board-of-directors', 'anna', 'https://b', role='voting')
     people = {p['id']: p['organisation'] for p in community_page.build_page_data(2025)['people']['2025']}
     # anna has no affiliation, zed is a login outside the register
     assert people == {'timo': 'kitconcept GmbH', 'anna': 'Unmapped', 'zed': 'Unmapped'}

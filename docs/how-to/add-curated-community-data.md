@@ -13,7 +13,7 @@ You need a public source for the row.
 
     If the person is not in the register, add them first, see {doc}`add-a-person`.
 
-2.  Open the file for the year and kind of contribution in `curated/community-contributions/`, for example `curated/community-contributions/YYYY-sprints.csv`.
+2.  Open the file of the kind of contribution in `curated/community/`, for example `curated/community/events.csv` for a sprint.
     {ref}`reference-curated-files` lists the columns of each kind.
 
 3.  Add or correct the row, with ids instead of names.

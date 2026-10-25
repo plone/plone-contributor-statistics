@@ -7,6 +7,7 @@ import pytest
 from scripts.lib import paths
 from scripts.tools import community_sources
 from scripts.tools.community_sources import work_list
+from tests.conftest import community_event, community_rows
 
 VIDEO = 'https://www.youtube.com/watch?v=abcdefghijk'
 PLAYLIST = 'https://www.youtube.com/playlist?list=PLabc'
@@ -25,17 +26,20 @@ def repo(tmp_repo):
         'jane-doe,name,Jane M. Doe,https://a.org/n,,', 'jane-doe,login,jdoe,https://a.org/n,,'])
     write(paths.ORGANISATIONS, 'id,name,kind,github,aliases,notes', [
         'acme,Acme,organisation,,Acme GmbH;ACME Inc.,', 'beta,Beta,organisation,,,'])
-    community = paths.COMMUNITY
-    write(community / '2021-world-plone-day-talks.csv', 'title,speakers,organisations,type,location,source,notes', [
-        f'A talk,jane-doe;john-roe,acme,Talk,Online,"Recording: {VIDEO}",'])
-    write(community / '2014-sprints.csv', 'sprint,start,end,location,organisers,organisations,level,source,notes', [
-        f'Sprint,2014-01-01,2014-01-05,Here,ann-lee,beta,community,'
-        f'"report: {SPRINT}; Board minutes: {MINUTES}; Recordings: {PLAYLIST}",'])
-    write(community / '2017-conference-talks.csv', 'event,scope,type,title,speakers,organisations,video,source,notes', [
-        f'Conf,all,Talk,Another,ann-lee,,https://vimeo.com/123,'
-        f'"""Ann Lee leads Beta."", Plone Conference 2017 speaker page: https://2017.ploneconf.org/ann",'])
-    write(community / '2020-release-managers.csv', 'person,source,notes', [
-        f'jane-doe,https://github.com/plone/release,'])
+    community_event('wpd-2021-online', 'wpd', 2021, cited_as='', format='online')
+    community_rows('talks', {'event': 'wpd-2021-online', 'type': 'Talk', 'title': 'A talk',
+                             'speakers': 'jane-doe;john-roe', 'organisations': 'acme', 'location': 'Online',
+                             'video': VIDEO, 'cited_as': f'Recording: {VIDEO}'})
+    community_event('sprint', 'sprint', 2014, ('ann-lee',), ('beta',),
+                    cited_as=f'report: {SPRINT}; Board minutes: {MINUTES}; Recordings: {PLAYLIST}', name='Sprint',
+                    level='community')
+    community_event('plone-conference-2017', 'conference', 2017, cited_as='', name='Plone Conference 2017')
+    community_rows('talks', {'event': 'plone-conference-2017', 'type': 'Talk', 'title': 'Another',
+                             'speakers': 'ann-lee', 'video': 'https://vimeo.com/123',
+                             'cited_as': '"Ann Lee leads Beta.", Plone Conference 2017 speaker page: '
+                                         'https://2017.ploneconf.org/ann'})
+    community_rows('release-managers', {'year': 2020, 'person': 'jane-doe',
+                                        'cited_as': 'https://github.com/plone/release'})
     return tmp_repo
 
 
@@ -88,11 +92,11 @@ def test_registered_urls_are_counted(repo, tmp_path, capsys):
 
 
 def test_names_of_world_plone_day_organisers_and_the_conference_organisation(repo):
-    community = paths.COMMUNITY
-    write(community / '2025-world-plone-day-event.csv', 'date,location,format,organisations,organisers,source,notes', [
-        '2025-04-10,"Bologna, Italy",in person,acme,john-roe,https://wpd.example.org/bologna,'])
-    write(community / '2025-plone-conference.csv', 'organisation,organisers,source,notes', [
-        'beta,ann-lee,https://conf.example.org/2025,'])
+    community_event('wpd-2025-04-10-bologna-italy', 'wpd', 2025, ('john-roe',), ('acme',),
+                    cited_as='https://wpd.example.org/bologna', start='2025-04-10', location='Bologna, Italy',
+                    format='in person')
+    community_event('plone-conference-2025', 'conference', 2025, ('ann-lee',), ('beta',),
+                    cited_as='https://conf.example.org/2025')
     found = by_url(work_list())
     assert found['https://wpd.example.org/bologna']['names'] == ['John Roe', 'Acme', 'Acme GmbH', 'ACME Inc.']
     assert found['https://conf.example.org/2025']['names'] == ['Ann Lee', 'Beta']

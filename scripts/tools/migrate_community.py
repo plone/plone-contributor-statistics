@@ -36,8 +36,10 @@ The rules (the decisions of plan 3b):
   the `plone-conference` rows. An organiser row cites what its old row cites; the notes of a conference row stay
   on its organiser rows, those of a sprint or World Plone Day row on the event.
 - Roles (`board-of-directors.csv`, `team-leaders.csv`, `release-managers.csv`, `podcasts.csv`) get a `year`.
-- Order: events by year, start and id; talks by event, type, title and id; trainings by event and title;
-  organisers by event, person and organisation; roles by year and their line in the old file.
+- Order: the rows of a year keep the order of the old files (events, talks, trainings and roles by year, then their
+  line in the old file); organisers by event, in the order of the events, then the order of the old rows and
+  cells, people before organisations. The model presents the rows of a year in this order, and the community page
+  and the recognition points follow it.
 
 Run `python -m scripts.tools.migrate_community` for a summary of what it would write, `--write` to write
 curated/community/ and the new sources, and to remove curated/community-contributions/ (the two recognition files
@@ -74,7 +76,8 @@ BYTES = re.compile(r'''(?<![A-Za-z0-9_])b(["'])(.*?)(?<!\\)\1''', re.S)
 ARCHIVE = Path('archive/migration-to-events')
 RESULT_FILES = ('capture-results.jsonl', 'videos-capture-results.jsonl')
 WORKLIST_FILES = ('worklist.jsonl', 'videos-worklist.jsonl')
-NEW_FOLDER = paths.COMMUNITY.parent / 'community'
+OLD_FOLDER = Path('curated/community-contributions')  # the yearly files before the switch
+NEW_FOLDER = paths.COMMUNITY
 KEPT_FILES = ('community-recognition-levels.csv', 'community-recognition-points.csv')
 OLD_FILE = re.compile(r'^(\d{4})-(.+)\.csv$')
 
@@ -418,10 +421,14 @@ def migrate(old, results, sources, worklist=(), now=None):
                                  **found.cite(r['source']), 'notes': r['notes'] or ''}
                                 for year, rows in of(kind).items() for r in rows]
 
-    migrated.events = sorted(events.values(), key=lambda e: (e['year'], e['start'], e['id']))
-    migrated.talks.sort(key=lambda t: (t['event'], t['type'], t['title'], t['id']))
-    migrated.trainings.sort(key=lambda t: (t['event'], t['title'], t['id']))
-    migrated.organisers = [organisers[key] for key in sorted(organisers)]
+    # The rows of a year keep the order of the old files, and the organisers of an event the order of their cells:
+    # the model presents them in it, and the page and the recognition points follow it (a strategic sprint counts
+    # once per organisation and year, at most four talks per organisation count)
+    migrated.events = sorted(events.values(), key=lambda e: e['year'])
+    migrated.talks.sort(key=lambda t: events[t['event']]['year'])
+    migrated.trainings.sort(key=lambda t: events[t['event']]['year'])
+    position = {e['id']: n for n, e in enumerate(migrated.events)}
+    migrated.organisers = sorted(organisers.values(), key=lambda o: position[o['event']])
     migrated.new_sources = [found.new[sid] for sid in sorted(found.new)]
     migrated.new_excerpts = {sid: found.new[sid]['notes'] for sid in sorted(found.new)}
     return migrated
@@ -472,7 +479,7 @@ def _write_csv(path, fields, rows):
         writer.writerows(rows)
 
 
-def write(migrated, old_folder=paths.COMMUNITY, new_folder=NEW_FOLDER):
+def write(migrated, old_folder=OLD_FOLDER, new_folder=NEW_FOLDER):
     """Write the new sources and files, move the recognition files and remove the old folder."""
     # The sources first: a failure part-way leaves extra sources, never rows citing missing ones
     for row in migrated.new_sources:
@@ -502,7 +509,7 @@ def main(argv=None):
     results = [line for name in RESULT_FILES for line in _read_jsonl(ARCHIVE / name)]
     worklist = [line for name in WORKLIST_FILES for line in _read_jsonl(ARCHIVE / name)]
     register = {sid: asdict(source) for sid, source in load_sources().items()}
-    migrated = migrate(read_old(paths.COMMUNITY), results, register, worklist)
+    migrated = migrate(read_old(OLD_FOLDER), results, register, worklist)
     print(summary(migrated))
     if args.write:
         write(migrated)

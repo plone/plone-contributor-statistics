@@ -4,10 +4,12 @@ from frictionless import Schema
 
 SCHEMAS = Path('curated/schemas')
 KINDS = {'people', 'identities', 'affiliations', 'citations', 'organisations',
-         'bot-accounts', 'excluded-repositories', 'board-of-directors', 'team-leaders', 'release-managers', 'podcasts',
-         'plone-conference-trainings', 'world-plone-day-talks', 'sprints', 'plone-conference',
-         'world-plone-day-event', 'conference-talks', 'community-recognition-levels', 'community-recognition-points',
+         'bot-accounts', 'excluded-repositories', 'events', 'talks', 'trainings', 'organisers', 'board-of-directors',
+         'team-leaders', 'release-managers', 'podcasts', 'community-recognition-levels', 'community-recognition-points',
          'plips-before-github', 'sources'}
+# The community files: every row cites source ids and keeps the old source cell as `cited_as` (#139)
+COMMUNITY = ('events', 'talks', 'trainings', 'organisers', 'board-of-directors', 'team-leaders', 'release-managers',
+             'podcasts')
 
 def test_every_kind_has_a_valid_schema():
     assert {p.stem for p in SCHEMAS.glob('*.json')} == KINDS
@@ -22,24 +24,52 @@ def test_people_and_organisations_have_opaque_ids():
         assert field['constraints']['pattern'] == '^[a-z0-9][a-z0-9-]*$'
 
 def test_set_columns_name_their_register():
-    expected = {'plone-conference-trainings': {'trainers': 'people'},
-                'world-plone-day-talks': {'speakers': 'people', 'organisations': 'organisations'},
-                'sprints': {'organisers': 'people', 'organisations': 'organisations'},
-                'plone-conference': {'organisers': 'people'},
-                'world-plone-day-event': {'organisers': 'people', 'organisations': 'organisations'},
-                'conference-talks': {'speakers': 'people', 'organisations': 'organisations'}}
+    expected = {'events': {'sources': 'sources'},
+                'trainings': {'trainers': 'people', 'sources': 'sources'},
+                'talks': {'speakers': 'people', 'organisations': 'organisations', 'sources': 'sources'},
+                'organisers': {'sources': 'sources'},
+                **{kind: {'sources': 'sources'} for kind in ('board-of-directors', 'team-leaders', 'release-managers',
+                                                             'podcasts')}}
     for kind, sets in expected.items():
         fields = json.loads((SCHEMAS / f'{kind}.json').read_text())['fields']
         assert {f['name']: f['x-set'] for f in fields if 'x-set' in f} == sets
 
 
-def test_conference_talk_enums():
-    fields = {f['name']: f for f in json.loads((SCHEMAS / 'conference-talks.json').read_text())['fields']}
-    assert fields['scope']['constraints']['enum'] == ['global', 'regional']
-    assert fields['type']['constraints']['enum'] == ['Keynote', 'Talk', 'Panel']
+def test_community_rows_cite_sources_and_keep_the_old_cell():
+    for kind in COMMUNITY:
+        schema = json.loads((SCHEMAS / f'{kind}.json').read_text())
+        names = [f['name'] for f in schema['fields']]
+        assert names[-3:] == ['sources', 'cited_as', 'notes'], kind
+        fields = {f['name']: f for f in schema['fields']}
+        # Only an event that holds the rows pointing to it may cite nothing itself; the check says which
+        required = kind != 'events'
+        assert bool(fields['sources'].get('constraints', {}).get('required')) is required, kind
+        assert bool(fields['cited_as'].get('constraints', {}).get('required')) is required, kind
+        assert 'source' not in fields
+
+
+def test_event_kinds_and_rows_that_point_to_events():
+    fields = {f['name']: f for f in json.loads((SCHEMAS / 'events.json').read_text())['fields']}
+    assert fields['kind']['constraints']['enum'] == ['conference', 'symposium', 'wpd', 'sprint']
+    assert fields['format']['constraints']['enum'] == ['in person', 'hybrid', 'online']
+    assert fields['level']['constraints']['enum'] == ['strategic', 'community']
+    assert fields['year']['type'] == 'integer'
+    for kind in ('talks', 'trainings', 'organisers'):
+        schema = json.loads((SCHEMAS / f'{kind}.json').read_text())
+        assert {'fields': ['event'], 'reference': {'resource': 'events', 'fields': ['id']}} in schema['foreignKeys']
+    organisers = json.loads((SCHEMAS / 'organisers.json').read_text())
+    assert {'fields': ['person'], 'reference': {'resource': 'people', 'fields': ['id']}} in organisers['foreignKeys']
+    assert {'fields': ['organisation'], 'reference': {'resource': 'organisations', 'fields': ['id']}} in (
+        organisers['foreignKeys'])
+
+
+def test_talk_enums():
+    fields = {f['name']: f for f in json.loads((SCHEMAS / 'talks.json').read_text())['fields']}
+    assert fields['type']['constraints']['enum'] == ['Keynote', 'Talk', 'Panel', 'Teaser', 'Announcement', 'Welcome',
+                                                     'Recap', 'Duplicate', 'Opening', 'Full stream', 'Newsroom']
     assert fields['video']['constraints'] == {'pattern': '^https?://.*$'}
     assert [f for f in fields if fields[f].get('constraints', {}).get('required')] == [
-        'event', 'scope', 'type', 'title', 'source']
+        'id', 'event', 'type', 'title', 'sources', 'cited_as']
 
 SOURCE_IDS = ('identities', 'citations')  # their source is a row of the source register
 
@@ -71,19 +101,21 @@ def test_citations_point_to_affiliations_and_sources():
     assert status['constraints']['enum'] == ['stated', 'assumed', 'denied', 'proposed']
 
 
-def test_conference_host_and_podcast_host_may_be_empty():
-    # The old files have conferences and a podcast series that name no host (#139)
-    for kind, name in (('plone-conference', 'organisation'), ('podcasts', 'person')):
+def test_an_organiser_and_a_podcast_host_may_be_empty():
+    # An organiser row names a person or an organisation (the check says one of them); a podcast series may name
+    # no host (#139)
+    for kind, name in (('organisers', 'person'), ('organisers', 'organisation'), ('podcasts', 'person')):
         fields = {f['name']: f for f in json.loads((SCHEMAS / f'{kind}.json').read_text())['fields']}
         assert 'required' not in fields[name]['constraints']
 
 
 def test_keys_make_rows_unique():
-    expected = {'board-of-directors': ['person'], 'release-managers': ['person'], 'team-leaders': ['person', 'team'],
-                'sprints': ['sprint'], 'plone-conference-trainings': ['title'], 'identities': ['person', 'kind', 'value'],
-                'affiliations': ['id']}
+    expected = {'board-of-directors': ['year', 'person'], 'release-managers': ['year', 'person'],
+                'team-leaders': ['year', 'person', 'team'], 'events': ['id'], 'talks': ['id'], 'trainings': ['id'],
+                'identities': ['person', 'kind', 'value'], 'affiliations': ['id']}
     for kind, key in expected.items():
         assert json.loads((SCHEMAS / f'{kind}.json').read_text())['primaryKey'] == key
-    # A source may be cited for an affiliation with several snippets; titles repeat; podcast hosts may be empty
-    for kind in ('citations', 'world-plone-day-talks', 'podcasts'):
+    # A source may be cited for an affiliation with several snippets; podcast hosts may be empty; an organiser row
+    # has an empty person or organisation (the check keeps the rows unique)
+    for kind in ('citations', 'podcasts', 'organisers'):
         assert 'primaryKey' not in json.loads((SCHEMAS / f'{kind}.json').read_text())
