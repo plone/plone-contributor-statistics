@@ -345,6 +345,16 @@ def test_an_organisation_named_by_its_first_word_or_a_freelancer_is_a_candidate_
     assert 'check the organisation: a freelancer, the independent organisation of the person' in freelancer.check
 
 
+def test_an_abbreviated_organisation_is_noted_on_the_citation():
+    note = f'not applied, the verified row stands: "Jane Doe, ClearWind", Plone Conference 2003 speaker page: {LIVE}'
+    page = source(LIVE, '2003-10-13')
+    (proposal,) = migrate_notes.plan_conflicts(world([row('a01', 2003, 2003, note)], sources=[page],
+                                                     excerpts={page.id: 'Jane Doe, ClearWind\n'}))
+    assert proposal.citation.snippet == 'Jane Doe, ClearWind'
+    assert proposal.citation.notes == ('cited as: "Jane Doe, ClearWind" (ClearWind: an abbreviation of Clearwind '
+                                       f'Consulting), Plone Conference 2003 speaker page: {LIVE}')
+
+
 def test_an_unclear_organisation_is_listed_without_a_row():
     note = f'not applied, the verified row stands: "Jane Doe, Somewhere Unknown", Plone Conference 2011: {LIVE}'
     both = f'not applied, the verified row stands: "Jane Doe, Acme and Zeta Labs", Plone Conference 2012: {LIVE}'
@@ -415,7 +425,48 @@ def test_main_conflicts_is_a_dry_run_and_writes_the_drafts(write_registers, tmp_
     assert [a.id for a in load_affiliations()] == ['a00', 'a01']  # nothing written
 
 
-def test_main_conflicts_refuses_to_write(write_registers):
-    write_registers(people=[('jane', None)], organisations=[('acme', 'Acme')])
-    with pytest.raises(SystemExit):
-        migrate_notes.main(['conflicts', '--write'])
+def test_apply_conflicts_adds_the_rows_and_says_on_the_verified_row_where_the_records_are():
+    page, talk = source(ARCHIVED, '2012-01-05'), source(LIVE, '2019-10-21')
+    affiliations = [row('a01', 2011, 2013, NOT_APPLIED), row('a02', 2019, 2019, KEPT)]
+    registry = world(affiliations, [cite('a01', S1)], sources=[page, talk],
+                     excerpts={page.id: 'Company Other\n', talk.id: 'CTO at Zeta Labs\n'})
+    proposals = migrate_notes.plan_conflicts(registry)
+    # The commits search of the KEPT note has no source in the register: nothing is written
+    new_affiliations, new_citations, errors = migrate_notes.apply_conflicts(affiliations, [cite('a01', S1)],
+                                                                           proposals)
+    assert errors == [f'a02: no source of {SEARCH} in the register: capture it first']
+    assert (new_affiliations, new_citations) == (affiliations, [cite('a01', S1)])
+    search = source(SEARCH, '2026-10-25', kind='page', notes='not captured on 2026-10-25: a login wall')
+    registry = world(affiliations, [cite('a01', S1)], sources=[page, talk, search],
+                     excerpts={page.id: 'Company Other\n', talk.id: 'CTO at Zeta Labs\n'})
+    proposals = migrate_notes.plan_conflicts(registry)
+    new_affiliations, new_citations, errors = migrate_notes.apply_conflicts(affiliations, [cite('a01', S1)],
+                                                                           proposals)
+    assert errors == []
+    rows = [p.row for p in proposals]
+    assert [a.id for a in new_affiliations] == ['a01', 'a02'] + [r.id for r in rows]
+    assert new_affiliations[0].notes == f'{NOT_APPLIED}; the record is row {rows[0].id}'
+    assert new_affiliations[1].notes == f'{KEPT}; the records are rows {rows[1].id} and {rows[2].id}'
+    assert new_citations == [cite('a01', S1)] + [p.citation for p in proposals]
+    # A second run finds the rows recorded and changes nothing
+    again = world(new_affiliations, new_citations, sources=[page, talk, search],
+                  excerpts={page.id: 'Company Other\n', talk.id: 'CTO at Zeta Labs\n'})
+    assert migrate_notes.apply_conflicts(new_affiliations, new_citations, migrate_notes.plan_conflicts(again)) == (
+        new_affiliations, new_citations, [])
+
+
+def test_main_conflicts_writes_the_rows_with_write(write_registers, capsys):
+    from scripts.lib.model import source_id, split_archive_url
+    from scripts.lib.model.sources import replace_excerpt, write_source
+
+    write_registers(people=[('jane', None)], organisations=[('acme', 'Acme'), ('other', 'Other')])
+    page = source(ARCHIVED, '2012-01-05')
+    write_source(page)
+    replace_excerpt(page.id, 'Company Other')
+    write_affiliations([row('a00', 2010, 2010, organisation='other'), row('a01', 2011, 2013, NOT_APPLIED)])
+    assert migrate_notes.main(['conflicts', '--write']) == 0
+    new_id = affiliation_id('jane', 'other', 2011, 2011)
+    assert [a.id for a in load_affiliations()] == ['a00', 'a01', new_id]
+    assert Citation(new_id, source_id(*split_archive_url(ARCHIVED)), 'Company Other', None,
+                    f'cited as: "Company Other", Plone Conference 2011 speaker page: {ARCHIVED}') in load_citations()
+    assert 'written: 1 rows, 1 citations' in capsys.readouterr().out

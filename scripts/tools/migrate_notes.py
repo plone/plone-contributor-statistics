@@ -24,16 +24,17 @@ deciding: <record>; <record>` names records of another organisation that a revie
 (optional), a label and an address. Each becomes a proposed `stated` row of the organisation it names (by name or
 alias in the quote, else the label; by the first word of a name or, for a freelancer, the person's independent
 organisation only as a candidate to check), for the years its label names (else the year of its source), with the
-record as its notes, citing the source of the address with the quote as snippet when the excerpt holds it. The
-step is a dry run only: it lists, per person and year, the organisation and rule today and with the proposed rows,
-and the conflicts; with --drafts it writes a decision draft for each year that changes or becomes a conflict, for
-the issue "Attribution decisions". The rows are written once the decisions are recorded.
+record as its notes, citing the source of the address with the quote as snippet when the excerpt holds it. A
+name found by its first word is noted as an abbreviation on the citation. The dry run lists, per person and year,
+the organisation and rule today and with the proposed rows, and the conflicts; with --drafts it writes a draft for
+each year that changes or becomes a conflict. --write adds the rows and their citations, and appends `the record is
+row <id>` to the notes of the row that named the record; a record without a source in the register stops it.
 
 Without --write, it prints every change it would make. A second run changes nothing.
 
     python -m scripts.tools.migrate_notes fills [--write]
     python -m scripts.tools.migrate_notes svn [--write]
-    python -m scripts.tools.migrate_notes conflicts [--drafts FILE]
+    python -m scripts.tools.migrate_notes conflicts [--drafts FILE] [--write]
 """
 
 import argparse
@@ -395,6 +396,19 @@ def _organisation_of(registry, record):
     return None, 'no organisation of the register is named', check
 
 
+def _cited_as(registry, record, organisation, how):
+    """The record as the notes cite it; a name found by its first word is noted as an abbreviation."""
+    if how != 'first word':
+        return record.text
+    first = fold(registry.organisation_name(organisation)).split()[0]
+    word = next(word for word in re.findall(r'\b[A-Z]\w+', record.quote or record.label) if fold(word) == first)
+    remark = f' ({word}: an abbreviation of {registry.organisation_name(organisation)})'
+    quoted = f'"{record.quote}"'
+    if record.quote and record.text.startswith(quoted):
+        return quoted + remark + record.text[len(quoted):]
+    return record.text + remark
+
+
 def plan_conflicts(registry):
     """A proposal for each record of another organisation that the notes of a row name (`records_of`): a stated
     row of that organisation for the years the record speaks for (those its label names, else the year of the
@@ -427,9 +441,35 @@ def plan_conflicts(registry):
                 row = Affiliation(affiliation_id(affiliation.person, organisation, *years), affiliation.person,
                                   organisation, years[0], years[1], STATED, None, record.clause)
                 if sid is not None:
-                    citation = Citation(row.id, sid, snippet, None, f'cited as: {record.text}')
+                    citation = Citation(row.id, sid, snippet, None,
+                                        f'cited as: {_cited_as(registry, record, organisation, how)}')
             proposals.append(Proposal(record, organisation, how, years, sid, row, citation, tuple(check)))
     return proposals
+
+
+def apply_conflicts(affiliations, citations, proposals):
+    """(affiliations, citations, errors) with the proposed rows and their citations added, and the verified rows'
+    notes saying where their records are now (`; the record is row <id>`). A proposal without a row or a citation
+    is an error, and then nothing is added. A row recorded already is left as it is."""
+    known = {affiliation.id for affiliation in affiliations}
+    new = [p for p in proposals if not (p.row and p.row.id in known)]
+    errors = [f'{p.record.affiliation.id}: ' + (p.how if p.row is None else
+                                                 f'no source of {p.record.url} in the register: capture it first')
+              for p in new if p.row is None or p.citation is None]
+    if errors or not new:
+        return affiliations, citations, errors
+    rows_of = {}
+    for p in new:
+        rows_of.setdefault(p.record.affiliation.id, []).append(p.row.id)
+    updated = []
+    for affiliation in affiliations:
+        ids = rows_of.get(affiliation.id)
+        if ids:
+            where = (f'the record is row {ids[0]}' if len(ids) == 1 else
+                     f'the records are rows {", ".join(ids[:-1])} and {ids[-1]}')
+            affiliation = dataclasses.replace(affiliation, notes=f'{affiliation.notes}; {where}')
+        updated.append(affiliation)
+    return updated + [p.row for p in new], list(citations) + [p.citation for p in new], []
 
 
 @dataclasses.dataclass(frozen=True)
@@ -625,8 +665,6 @@ def main(argv=None):
                         help='conflicts: write the decision drafts to the file')
     args = parser.parse_args(argv)
     if args.step == 'conflicts':
-        if args.write:
-            parser.error('conflicts is a dry run: its rows are written once the decisions are recorded')
         # Imported here: it reads the collected data
         from scripts.tools.attribution_changes import activity
 
@@ -638,7 +676,19 @@ def main(argv=None):
         if args.drafts:
             args.drafts.write_text(drafts(registry, proposals, results), encoding='utf-8')
             print(f'drafts: {sum(1 for r in results if r.changed)}, written to {args.drafts}')
-        print('dry run: nothing written to the registers')
+        if not args.write:
+            print('dry run: nothing written to the registers; use --write to write')
+            return 0
+        affiliations, citations, errors = apply_conflicts(registry.affiliations, registry.citations, proposals)
+        for error in errors:
+            print(f'error: {error}')
+        if errors:
+            return 1
+        added = len(affiliations) - len(registry.affiliations)
+        if added:
+            write_affiliations(affiliations)
+            write_citations(citations)
+        print(f'written: {added} rows, {len(citations) - len(registry.citations)} citations')
         return 0
     if args.step == 'svn':
         identities = load_identities()
