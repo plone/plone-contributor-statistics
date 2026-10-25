@@ -5,9 +5,10 @@
 This guide shows you how to add a completed year to the statistics.
 You need a GitHub personal access token, see {doc}`collect-data-again` for how to set it up.
 
-1.  Add or complete the curated community data of the year, each row with a public record, as described in {doc}`add-curated-community-data`.
-    Some files of the year may have been started during the year; check them for events that were still missing or had not happened yet.
-    After creating the files of the new year, run `python -m scripts.tools.datapackage`, so that `curated/datapackage.json` lists them; `make check` reports it as stale until then.
+1.  Add or complete the curated community data of the year in `curated/community/`, each row with a public record, as described in {doc}`add-curated-community-data`.
+    Some rows of the year may have been added during the year; check the events of the year for those that were still missing or had not happened yet.
+    The files hold the rows of every year, so a new year needs no new files, only rows: the events with their organisers, talks and trainings, and the roles with the year in their `year` column.
+    The Plone Conference of the year is the event `plone-conference-<year>`: add its row to `curated/community/events.csv` first, then the organisers, talks and trainings that point to it.
 
 2.  Collect, derive and report the year in one run:
 

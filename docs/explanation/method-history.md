@@ -101,6 +101,9 @@ Tooling:
 - The registers cite a source register instead of holding links and quotes in their cells: each record is captured once, with the passages we cite, and an affiliation cites its sources with verbatim snippets.
   Affiliations got a status (stated, assumed, denied, proposed), may overlap, and the organisation of a year is computed by the attribution rules, with decisions in public for the years they leave open.
   An audit showed that no link, quote or note of the old cells was lost, and the numbers didn't change.
+- The community data moved from one file per year and kind to one file per kind in `curated/community/`: events with stable ids, the talks, trainings and organisers that point to them, and the roles with a `year` column.
+  Every row cites the source register and keeps its old source cell verbatim in `cited_as`; the rows of each year kept their order, which decides which sprint and which talks count.
+  An audit showed that no cell of the old files was lost, and the numbers didn't change.
 
 ## Which files are comparable
 

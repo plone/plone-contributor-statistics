@@ -35,13 +35,24 @@ It looks at one recognition year: community work counts in that year, code in th
 
 Most rules are a direct reading of the points file.
 Where an event has several organisers, its points are split among them: a strategic sprint, a World Plone Day event, a conference, a training.
-An organisation gets points for one strategic sprint per year at most.
+The points of an organised event go to the organisations among its organisers in `curated/community/organisers.csv`; a person among the organisers counts as a role on the community page, not for points.
+An organisation gets points for one strategic sprint per year at most, and for four World Plone Day talks per year at most.
+Only World Plone Day events held in person or hybrid count, and only the trainings of the Plone Conference.
 Pull requests count as an average per year over the five years, from the yearly organisation files, so a person counts for the organisation of each year.
 
 PLIPs count in the same way.
 `scripts/derive/plip_organisation_stats.py` gives each PLIP to its author's organisation in the year the PLIP was closed ([#95](https://github.com/plone/plone-contributor-statistics/issues/95)).
 The points file asks for PLIPs that were merged and released, but the data only says whether a PLIP is closed.
 So a closed PLIP counts as merged and released ([#14](https://github.com/plone/plone-contributor-statistics/issues/14)).
+
+The order of the rows decides which ones count where the points have a limit.
+Of the strategic sprints of a year, the first one in `curated/community/events.csv` that names an organisation counts for it, with that sprint's split.
+Of the World Plone Day talks of an organisation in a year, the first four in `curated/community/talks.csv` count.
+The script has always read the rows this way: when the community data moved from one file per year and kind to one file per kind, the rows of each year kept their order.
+Reordering the rows of a year can change the points.
+
+What counts, and for how many points, is decided by the Board and the Marketing Team.
+This repository prepares the data and shows what the points file gives on it; it doesn't decide on credit.
 
 ## Why the published levels differ
 

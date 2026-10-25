@@ -3,12 +3,12 @@
 # Community recognition files
 
 This page describes the files of the Community Recognition Program in the repository.
-They are in `curated/community-contributions/`.
+They are in `curated/community/`, next to the community data.
 
 See {doc}`/explanation/community-recognition` for what these files can and can't explain.
 
-`scripts/report/generate_community_recognition_report.py` stops with an error if the curated community data of the year is missing altogether, or if a yearly organisation file, `collected/plips/plone-plips-detailed.csv` or the levels file is missing.
-If only one kind of community data is missing for the year, it prints a warning and goes on, because not every kind exists in every year.
+`scripts/report/generate_community_recognition_report.py` stops with an error if the curated community data has no event and no role of the year, or if a yearly organisation file, `collected/plips/plone-plips-detailed.csv` or the levels file is missing.
+If the year has no rows of one kind, it prints a warning and goes on, because not every kind exists in every year.
 
 ## `curated/community/community-recognition-points.csv`
 

@@ -36,6 +36,14 @@ decision
 default branch
     The main branch of a repository on GitHub, for example `main` or `master`.
 
+event
+    A gathering of the Plone community, one row of `curated/community/events.csv`, with an id that is chosen once and never renamed.
+    Its {term}`event kind` says what it is.
+    Talks, trainings and {term}`organisers <organiser>` point to it by its id.
+
+event kind
+    The `kind` of an {term}`event`: `conference` for the Plone Conference of a year, `symposium` for a regional conference, `wpd` for a World Plone Day event of one place or the online edition of a year, and `sprint` for a sprint.
+
 excluded repository
     A repository of the `plone` GitHub organisation that the statistics skip.
     Each one is listed with a reason in `curated/mappings/excluded_repositories.csv`.
@@ -51,6 +59,10 @@ independent contributor
 merge commit
     A commit with more than one parent, created when a branch or pull request is merged.
     The statistics don't count merge commits.
+
+organiser
+    A person or an organisation that organised an {term}`event`, one row of `curated/community/organisers.csv` with exactly one of the two.
+    An organisation in that row is an {term}`organising entity`.
 
 organising entity
     An organisation that a source names as organiser of an event or giver of a talk, such as a company team.
