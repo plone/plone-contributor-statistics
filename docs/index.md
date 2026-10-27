@@ -27,6 +27,7 @@ A memory alone is not enough: without a public record, an entry stays out, and a
 The one exception is identifying the people behind early CVS and Subversion commit addresses, where public records are often impossible.
 {doc}`/explanation/attribution` and {doc}`/explanation/curated-community-data` explain the rule.
 Some sources in the register could not be captured yet, see {ref}`how-to-capture-a-source-not-read`.
+The {doc}`draft privacy notice </reference/privacy>` says which personal data the statistics hold, and how to have it corrected or object to it.
 
 ## Who this is for
 

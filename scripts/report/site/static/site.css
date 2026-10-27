@@ -29,6 +29,7 @@ h1, h2, h3 { line-height: 1.2; color: var(--navy); }
 .brand { color: #fff; text-decoration: none; font-weight: 700; font-size: 1.15rem; }
 .brand span { font-weight: 400; color: #9fd3ee; }
 .brand .brand-mark { color: var(--blue); }
+.brand .beta { font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--navy); background: #9fd3ee; border-radius: 999px; padding: .1rem .5rem; vertical-align: middle; }
 .site-nav { display: flex; flex-wrap: wrap; gap: 1.1rem; }
 .site-nav a { color: #dbe9f3; text-decoration: none; font-size: .95rem; }
 .site-nav a:hover { color: #fff; text-decoration: underline; }
