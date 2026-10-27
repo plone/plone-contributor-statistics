@@ -30,7 +30,7 @@ import requests
 from dotenv import load_dotenv
 
 from scripts.lib import changelogs, git_history, paths
-from scripts.lib.addresses import mask_address, mask_text
+from scripts.lib.addresses import mask_text
 from scripts.lib.github_api import GitHubAPIError, github_get
 from scripts.lib.model import load_bot_accounts, load_excluded_repositories, load_registry
 from scripts.lib.tables import by_count
@@ -150,7 +150,7 @@ def count(entries, mapper):
 
 def year_table(people):
     rows = [{
-        'username': mask_address(person),
+        'username': mask_text(person),
         'changelog_entries': stats['entries'],
         'repositories_count': len(stats['repositories']),
         'repositories': ', '.join(sorted(stats['repositories'])),

@@ -374,6 +374,13 @@ def test_capture_masks_the_title_of_the_source_row(web):
     assert '@' not in title
 
 
+def test_capture_masks_the_title_given_by_the_user(web):
+    page = b'<html><head><title>Contact</title></head><body><p>Email: jane@acme.test is the contact.</p></body></html>'
+    fetcher, _ = web({URL: FakeResponse(body=page)})
+    capture(URL, ['Email: jane@acme.test'], title='Mail from jane@acme.test', fetcher=fetcher, run=no_run)
+    assert load_sources()[source_id(URL)].title == f"Mail from {mask_address('jane@acme.test')}"
+
+
 def test_capture_masks_a_general_service_address_completely(web):
     page = b'<html><head><title>Contact</title></head><body><p>Email: jane@gmx.test is the contact.</p></body></html>'
     fetcher, _ = web({URL: FakeResponse(body=page)})

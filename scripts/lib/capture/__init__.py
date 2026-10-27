@@ -245,6 +245,7 @@ def capture(url: str, quotes: Sequence[str] = (), kind: str | None = None, title
     """
     quotes = tuple(mask_text(quote, True) for quote in quotes)  # excerpts hold masked addresses only
     names = tuple(mask_text(name, True) for name in names)
+    title = mask_text(title) if title else title  # a title, like the page's, holds bare hashes only
     split = split_archive_url(url)
     if split is None and _is_wayback(url):
         raise CaptureError(f'{url}: give the full 14-digit capture URL, '

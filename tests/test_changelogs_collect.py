@@ -139,3 +139,11 @@ def test_year_table_masks_unmatched_addresses():
     assert masked.startswith('h-') and '@' not in masked
     assert set(table['username']) == {masked, 'limi'}
     assert set(table['changelog_names']) == {masked, 'limi'}
+
+
+def test_year_table_keeps_names_with_an_at_sign_that_are_no_address():
+    stats = {'entries': 1, 'repositories': {'plone.app.x'}, 'names': {'x'}, 'layers': {'unmatched'}}
+
+    table = plone_changelogs.year_table({'@jane': stats, 'foo @ bar': stats, 'jdoe@localhost': stats})
+
+    assert set(table['username']) == {'@jane', 'foo @ bar', 'jdoe@localhost'}

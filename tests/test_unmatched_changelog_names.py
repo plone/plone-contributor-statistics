@@ -131,3 +131,16 @@ def test_the_snippet_keeps_the_domain_and_the_note_does_not():
     assert rows[0][1][0] == f'?no person for Alec Mitchell <{bare}>'
     assert rows[0][1][4] == f'Author: Alec Mitchell <{bare}@acme.test>'
     assert 'amitch' not in ''.join(str(cell) for cell in rows[0][1])
+
+
+def test_an_address_in_the_author_name_is_masked_in_the_notes():
+    unmatched = {'jane': [entry('Fixed the broken calendar portlet in the right column [jane]')]}
+    commits = {'Products.CMFPlone': [commit('c9', 'jane@acme.test', 'jane@acme.test',
+                                            'Fixed the broken calendar portlet in the right column')]}
+    found = tool.evidence(unmatched, commits.get)
+
+    rows = tool.proposals(unmatched, found, lambda *args: None, Registry([], [], [], []))
+
+    notes = rows[0][1][5]
+    assert f'the commit by {mask_address("jane@acme.test")} that repeats it' in notes
+    assert 'jane@acme.test' not in notes
