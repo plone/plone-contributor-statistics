@@ -58,6 +58,7 @@ See {doc}`/explanation/counting-rules` for why the files count the way they do.
     Columns: `username`, `changelog_entries`, `repositories_count`, `repositories`, `changelog_names`, `matched_by`.
     `changelog_entries` counts each entry once, in full for every person it names.
     `changelog_names` lists the names in the changelogs that were mapped to the person, separated by semicolons.
+    A mail address in `username` or `changelog_names` is stored masked, as the bare hash, see {ref}`masked-addresses`.
     `matched_by` lists the rules that mapped them, separated by semicolons: `identity` for a name, address or login of `curated/mappings/identities.csv` or `curated/mappings/people.csv`, `login` for a login with commits or pull requests, or `unmatched` for a name that nothing maps; the names of bots are left out.
     The committed files carry the `username` and `matched_by` values of their last run; a change of the registers shows in them at the next `make run-changelogs`.
     The files collected before the registers still carry `commit_authors` and `fullname`, the older names of what is now `identity`, until that run, see {doc}`/explanation/known-limitations`.

@@ -178,7 +178,7 @@ This keeps the mapping close to what people would say about their own work.
 The repository doesn't hold readable mail addresses of people, as data minimisation (Art. 5(1)(c) GDPR).
 A masked address is `h-` and the first sixteen hexadecimal characters of the SHA-256 hash of the address, lower-cased and without whitespace and angle brackets, such as `h-<hash>`.
 It is no secret: anyone who knows an address can compute its hash and so find the identities and notes of that address, and the commits that carry it stay public at the sources that link them.
-The hash replaces the address in the identities, the notes and the collected files.
+The hash replaces the address in the identities, the notes and the collected changelog files ({doc}`/reference/data-files`).
 
 A company address is evidence for an organisation because of its domain.
 The excerpts in `curated/sources/excerpts/`, and the snippets of identities and citations that quote them verbatim, therefore keep the domain after the hash, as `h-<hash>@kitconcept.example`.

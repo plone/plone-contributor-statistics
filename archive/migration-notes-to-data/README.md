@@ -2,7 +2,7 @@
 
 Plan 5, "From notes to data": what the notes of `curated/mappings/affiliations.csv` and `identities.csv` said in prose became rows, and the attribution rules (`docs/explanation/attribution.md`) compute what the notes only wrote down.
 The method is documented in `docs/`, the design and the plan are in `archive/specs-and-plans/2026-10-25-notes-to-data-design.md` and `2026-10-25-notes-to-data-plan.md`.
-The code ran in the commits named below, with the data it changed; it is archived unchanged except for the removal of the decision drafts and the masking of mail addresses on 2026-10-27, which the open cases made obsolete.
+The code ran in the commits named below, with the data it changed; it is archived unchanged except for the removal of the decision drafts, which the open cases made obsolete, and the masking of mail addresses on 2026-10-27.
 The archived tests are not run: pytest collects only `tests/`.
 
 ## Files
