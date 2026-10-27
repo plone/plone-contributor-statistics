@@ -22,7 +22,7 @@
     {
       "name": "kind",
       "type": "string",
-      "description": "The kind of the organisation: a company, an independent or a foundation.",
+      "description": "The kind of the organisation: `organisation` a company or another body, such as a university, a public body or a community group; `independent` a self-employed person or volunteer; `foundation` a foundation.",
       "constraints": {
         "required": true,
         "enum": [

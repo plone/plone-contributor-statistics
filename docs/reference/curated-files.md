@@ -4,7 +4,7 @@
 
 # Curated files
 
-This page describes every file that people edit by hand under `curated/`.
+This page describes every curated file under `curated/`: most are edited by hand, the source register by the capture tool.
 The registers and lists are in `curated/mappings/`.
 The community data is in `curated/community/`, and the PLIPs from before GitHub are in `curated/plips/`.
 
@@ -50,7 +50,7 @@ One row is one string that denotes a person in the data: a GitHub login, a furth
 | Field | Type | Constraints | Description |
 |---|---|---|---|
 | `person` | string | required; pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `people` | The id of the person in the people register. |
-| `kind` | string | required; one of `github`, `github-alias`, `email`, `name`, `svn`, `irc`, `discourse` | The kind of identity: `github` the GitHub login the collected files count the person under (at most one per person), `github-alias` a further GitHub account, `email` a commit address, `name` a spelling of the name, `svn` a Subversion or CVS user, `irc` an IRC nick, `discourse` a handle on community.plone.org. |
+| `kind` | string | required; one of `github`, `github-alias`, `email`, `name`, `svn`, `irc`, `discourse` | The kind of identity: `github` the GitHub login the collected files count the person under (at most one per person), `github-alias` a further GitHub account, `email` a commit address, `name` a spelling of the name, `svn` a Subversion or CVS user, `irc` an IRC nick, `discourse` a handle on community.plone.org; the collectors read only `github`, `github-alias`, `email` and `name`, so `svn`, `irc` and `discourse` are for the record, and a Subversion commit is linked by an `email` identity. |
 | `value` | string | required | The login, address, spelling or handle as it appears in the data; a login with the case it has on GitHub. |
 | `source` | string | pattern `^[0-9a-f]{12}$`; id of a row of `sources` | The id of the source in the source register that connects the person to the value. Required, except for an early commit address whose notes say what it rests on. |
 | `snippet` | string |  | The words of the source that make the connection, verbatim from its excerpt; empty when no quote was verified. |
@@ -79,7 +79,7 @@ One row is one reading of the sources: one person, one organisation and one peri
 | `organisation` | string | required; pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `organisations` | The id of the organisation in the organisations register. |
 | `from` | integer | required; at least 2000 | The first year the person belonged to the organisation. |
 | `to` | integer | at least 2000 | The last year the person belonged to the organisation; empty while it lasts. |
-| `status` | string | required; one of `stated`, `assumed`, `denied`, `proposed` | How the row reads its citations: `stated` they say so; `assumed` a range extended beyond its records, counted where no stated row covers the year; `denied` the person did not belong to the organisation in those years, which removes it from the counting; `proposed` a reading a tool produced and nobody has reviewed, never counted. |
+| `status` | string | required; one of `stated`, `assumed`, `denied`, `proposed` | How the row reads its citations: `stated` they say so; `assumed` a range extended beyond its records, counted where no stated row or bridged year covers the year; `denied` the person did not belong to the organisation in those years, which removes it from the counting; `proposed` a reading a tool produced and nobody has reviewed, never counted. |
 | `checked` | date |  | The date the source was last checked. |
 | `notes` | string |  | Free-text remarks on the row; for a denied row, the reason. |
 
@@ -126,7 +126,7 @@ One row is one organisation.
 |---|---|---|---|
 | `id` | string | required; unique; pattern `^[a-z0-9][a-z0-9-]*$` | Opaque, stable identifier of the organisation: made once from the name when the row is created, and kept when the name changes. It is a key, not a spelling. |
 | `name` | string | required; unique | The name the organisation is published under. |
-| `kind` | string | required; one of `organisation`, `independent`, `foundation` | The kind of the organisation: a company, an independent or a foundation. |
+| `kind` | string | required; one of `organisation`, `independent`, `foundation` | The kind of the organisation: `organisation` a company or another body, such as a university, a public body or a community group; `independent` a self-employed person or volunteer; `foundation` a foundation. |
 | `github` | string | pattern `^[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?$` | The login of the organisation's GitHub organisation, with the case it has on GitHub; empty when it has none. Commits in its repositories are evidence for an affiliation. |
 | `aliases` | string |  | Other spellings of the name, separated by semicolons; free text, not keys. |
 | `notes` | string |  | Free-text remarks on the row. |
@@ -141,7 +141,7 @@ Checks beyond the schema:
 
 ## Sources
 
-The sources the registers cite, in `curated/sources/`, each with an excerpt file of the cited passages.
+The sources that the registers and the community data cite, in `curated/sources/`, each with an excerpt file `curated/sources/excerpts/<id>.md` of the cited passages.
 
 ### Sources
 
@@ -154,7 +154,7 @@ One row is one source: a page, profile, commit, video or decision that we read o
 | `id` | string | required; unique; pattern `^[0-9a-f]{12}$` | Opaque, stable identifier of the source: the first twelve hex digits of a hash of its normalised address and the archive timestamp. The normalised address keeps the fragment of a GitHub comment or review, which is a source of its own, and reduces a Google Doc to its document id. |
 | `kind` | string | required; one of `page`, `speaker-page`, `profile`, `commit`, `video`, `pdf`, `register`, `issue-comment`, `decision` | What kind of source it is. |
 | `title` | string | required | The title of the source as a reader sees it. |
-| `date` | date | required | The date the source speaks for: its publication date if it shows one (not a placeholder date), the date of the conference for a conference page, else the capture date of the archived copy, else the day it was fetched. |
+| `date` | date | required | The date the source speaks for: the date of the conference for a conference page; else, for an archived copy, the day of its capture; else the date the source shows, which the capture takes even when it is a placeholder such as 2000-01-01; else the day it was fetched. A wrong date is corrected by hand when there is evidence for the right one, cited in `notes`. |
 | `url` | string | required; pattern `^https?://.*$` | The address of the source on the web. |
 | `archive_url` | string | pattern `^https://web\.archive\.org/web/\d{14}/https?://.*$` | The address of the Wayback Machine copy that was read, if one was. |
 | `fetched` | datetime | required | When the source was read, in UTC. |
@@ -193,7 +193,7 @@ One row is one repository of the `plone` organisation that the statistics skip.
 
 | Field | Type | Constraints | Description |
 |---|---|---|---|
-| `repository` | string | required; unique | The repository, as owner/name, left out of the statistics. |
+| `repository` | string | required; unique | The name of the repository in the `plone` organisation, without the owner, left out of the statistics. |
 | `reason` | string | required | Why the repository is left out. |
 
 Primary key: `repository`.
@@ -272,7 +272,7 @@ One row is one training at the Plone Conference.
 
 | Field | Type | Constraints | Description |
 |---|---|---|---|
-| `id` | string | required; unique; pattern `^r[0-9a-f]{8}(-\d+)?$` | Opaque, stable identifier of the training: `r` and eight hex digits of a hash of its event and title. |
+| `id` | string | required; unique; pattern `^r[0-9a-f]{8}(-\d+)?$` | Opaque, stable identifier of the training: `r` and eight hex digits of a hash of its event and title, with `-2`, `-3` for a repeated one. |
 | `event` | string | required; pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `events` | The id of the event in the events file. |
 | `title` | string | required | The title of the training. |
 | `trainers` | string | ids of rows of `people` separated by semicolons | The ids of the trainers in the people register. Several values are separated by semicolons. |
@@ -438,7 +438,7 @@ One row is one PLIP from before the PLIPs moved to GitHub issues, as the plone.o
 | Field | Type | Constraints | Description |
 |---|---|---|---|
 | `Number` | string |  | The number of the PLIP in its numbering. |
-| `Numbering` | string |  | The numbering the number belongs to, such as roadmap. |
+| `Numbering` | string |  | The numbering the number belongs to: `roadmap` for the plone.org roadmap and the wiki pages before it, `trac` for the tickets of dev.plone.org. |
 | `Title` | string |  | The title of the PLIP. |
 | `Proposer` | string |  | The proposer of the PLIP. |
 | `Implementers` | string |  | The implementers of the PLIP. |

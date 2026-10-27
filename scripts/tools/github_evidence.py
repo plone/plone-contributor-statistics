@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Propose affiliations from the GitHub commit search (see docs/how-to/add-an-affiliation.md).
 
-The migration to the registers kept today's organisation for every year of a person's activity, as rows marked
-"not verified". This looks for dated evidence for those years, with two queries of the GitHub commit search for
+The migration to the registers kept today's organisation for every year of a person's activity, as rows of the
+status `assumed`. This looks for dated evidence for those years, with two queries of the GitHub commit search for
 each person and year:
 
 1. the commits of the person in the year, in all public repositories: a company address in them is evidence for
@@ -11,7 +11,8 @@ each person and year:
    organisation of the person (the `github` column of organisations.csv).
 
 The people are those with a login and an `assumed` affiliation, or those given with --person. The
-years are those of the rows in which the person has commits or pull requests in the collected data. Every
+years are those of the rows in which the person has commits or pull requests in the collected data, before 2026
+(--all-years takes every year of the rows). Every
 response is cached, so that an interrupted run resumes. With --write, the example commit of each proposal is
 captured as a source (curated/sources/), and the proposal goes to curated/mappings/affiliations.csv as a
 `proposed` row citing it, with the author line of the commit as the snippet; a commit found by query 2 is cited

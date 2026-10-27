@@ -12,7 +12,7 @@
     {
       "name": "kind",
       "type": "string",
-      "description": "The kind of identity: `github` the GitHub login the collected files count the person under (at most one per person), `github-alias` a further GitHub account, `email` a commit address, `name` a spelling of the name, `svn` a Subversion or CVS user, `irc` an IRC nick, `discourse` a handle on community.plone.org.",
+      "description": "The kind of identity: `github` the GitHub login the collected files count the person under (at most one per person), `github-alias` a further GitHub account, `email` a commit address, `name` a spelling of the name, `svn` a Subversion or CVS user, `irc` an IRC nick, `discourse` a handle on community.plone.org; the collectors read only `github`, `github-alias`, `email` and `name`, so `svn`, `irc` and `discourse` are for the record, and a Subversion commit is linked by an `email` identity.",
       "constraints": {
         "required": true,
         "enum": [

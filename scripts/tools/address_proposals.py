@@ -224,7 +224,8 @@ def main(argv=None):
                         help='only this person (repeat for several)')
     parser.add_argument('--since', type=int, default=DEFAULT_SINCE, help='ignore commits before this year')
     parser.add_argument('--cache', default=git_history.CACHE_DIR,
-                        help='directory of the clones whose authors are read; the capture of the evidence commits '
+                        help='directory of the clones whose authors are read (default: .cache/repositories of the '
+                             'current directory); the capture of the evidence commits '
                              'reads the clones of the shared cache (PLONE_STATS_CACHE) and may use the GitHub API')
     parser.add_argument('--write', action='store_true',
                         help='capture the example commits as sources and add the proposals to affiliations.csv as '

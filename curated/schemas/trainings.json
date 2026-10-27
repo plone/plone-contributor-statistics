@@ -3,7 +3,7 @@
     {
       "name": "id",
       "type": "string",
-      "description": "Opaque, stable identifier of the training: `r` and eight hex digits of a hash of its event and title.",
+      "description": "Opaque, stable identifier of the training: `r` and eight hex digits of a hash of its event and title, with `-2`, `-3` for a repeated one.",
       "constraints": {
         "required": true,
         "unique": true,
