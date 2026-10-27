@@ -5,6 +5,7 @@ import os
 
 import pytest
 
+from scripts.lib.addresses import mask_address
 from scripts.lib import paths
 from scripts.lib.model import affiliation_id, load_registry, load_sources, read_rows, source_id
 from scripts.tools import check, datapackage, github_evidence
@@ -248,9 +249,9 @@ def test_the_example_commits_are_captured_and_cited(setup):
     citations = {r['affiliation']: r for r in read_rows(paths.CITATIONS)}
     address = citations[affiliation_id('jane-doe', 'greenfinity', 2014, 2015)]
     assert (address['source'], address['snippet'], address['notes']) == (
-        source_id(early), 'Author: Jane Doe <jane@greenfinity.hu>', None)
+        source_id(early), f'Author: Jane Doe <{mask_address("jane@greenfinity.hu", True)}>', None)
     organisation = citations[affiliation_id('jane-doe', 'greenfinity', 2016, 2016)]
-    assert (organisation['source'], organisation['snippet']) == (source_id(org), 'Author: Jane Doe <x@y.test>')
+    assert (organisation['source'], organisation['snippet']) == (source_id(org), f'Author: Jane Doe <{mask_address("x@y.test", True)}>')
     assert organisation['notes'] == ('one of 3 commits in the GitHub organisation @greenfinity-hu in 2016 that the '
                                      'search https://github.com/search?q=author%3Ajanedoe+org%3Agreenfinity-hu+'
                                      'committer-date%3A2016-01-01..2016-12-31&type=commits found')

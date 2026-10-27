@@ -6,6 +6,7 @@ import subprocess
 
 import pytest
 
+from scripts.lib.addresses import mask_address
 from scripts.lib import git_history, paths
 from scripts.lib.capture import CaptureError
 from scripts.lib.model import affiliation_id, load_registry, load_sources, read_excerpt, read_rows, source_id
@@ -360,11 +361,12 @@ def test_write_appends_once_and_stays_valid(setup):
     # The example commit is captured from the clone as the source the proposal cites
     sid = source_id(url)
     assert [r for r in read_rows(paths.CITATIONS) if r['affiliation'] == aid] == [
-        {'affiliation': aid, 'source': sid, 'snippet': 'Author: Jane Doe <jane@greenfinity.hu>', 'supersedes': None,
+        {'affiliation': aid, 'source': sid, 'snippet': f'Author: Jane Doe <{mask_address("jane@greenfinity.hu", True)}>',
+         'supersedes': None,
          'notes': None}]
     source = load_sources()[sid]
     assert (source.kind, source.url, source.date) == ('commit', url, datetime.date(2015, 6, 1))
-    assert read_excerpt(sid).startswith('Author: Jane Doe <jane@greenfinity.hu>\nDate: 2015-06-01')
+    assert read_excerpt(sid).startswith(f'Author: Jane Doe <{mask_address("jane@greenfinity.hu", True)}>\nDate: 2015-06-01')
     _, again = run(cache, write=True)
     assert again == []
     assert len(proposed()) == 1
