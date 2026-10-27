@@ -44,10 +44,10 @@ def test_write_masks_the_value_bare_and_the_snippet_with_its_domain(tmp_repo, mo
     [identity] = load_identities()
     assert identity.value == mask_address(JANE)
     assert identity.snippet == f'Author: Jane <{mask_address(JANE, keep_domain=True)}>'
-    assert identity.notes == f'see {mask_address(JANE)}'
+    assert identity.notes == f'see {mask_address(JANE)} (an address at acme.test)'
     [citation] = load_citations()
     assert citation.snippet == f'Jane <{mask_address(JANE, keep_domain=True)}>'
-    assert citation.notes == f'from {mask_address(JANE)}'
+    assert citation.notes == f'from {mask_address(JANE)} (an address at acme.test)'
     excerpt = (paths.EXCERPTS_DIR / f'{sid}.md').read_text(encoding='utf-8')
     assert f'Author: Jane <{mask_address(JANE, keep_domain=True)}>' in excerpt
     assert mask_address(JANE, keep_domain=True).endswith('@acme.test')
@@ -157,3 +157,34 @@ def test_the_index_of_the_email_identities_keeps_every_address_and_its_person(tm
     assert tool.email_index_differences(old, paths.MAPPINGS_DIR) == []
     write_identities([identity.__class__('john-doe', 'email', mask_address(JANE), identity.source)])
     assert tool.email_index_differences(old, paths.MAPPINGS_DIR) == [(JANE, {'jane-doe'}, {'john-doe'})]
+
+
+def test_notes_of_the_registers_name_the_company_domain_in_words(tmp_repo, monkeypatch):
+    registers(monkeypatch)
+    paths.AFFILIATIONS.write_text('id,person,organisation,from,to,status,checked,notes\n'
+                                  f'a1,jane-doe,acme,2006,2006,stated,,"Jane Doe / {JANE}, bob@gmx.test"\n',
+                                  encoding='utf-8')
+    track()
+    tool.main(['write'])
+    words = f'{mask_address(JANE)} (an address at acme.test)'
+    [identity] = load_identities()
+    assert identity.notes == f'see {words}'
+    assert identity.snippet == f'Author: Jane <{mask_address(JANE, keep_domain=True)}>'
+    [citation] = load_citations()
+    assert citation.notes == f'from {words}'
+    assert paths.AFFILIATIONS.read_text(encoding='utf-8').splitlines()[1] == (
+        f'a1,jane-doe,acme,2006,2006,stated,,"Jane Doe / {words}, {mask_address("bob@gmx.test")}"')
+    # Elsewhere the bare form
+    assert Path('archive/old.md').read_text(encoding='utf-8') == f'Mail {mask_address(JANE)}.\n'
+    before = paths.IDENTITIES.read_bytes(), paths.CITATIONS.read_bytes(), paths.AFFILIATIONS.read_bytes()
+    tool.main(['write'])
+    assert (paths.IDENTITIES.read_bytes(), paths.CITATIONS.read_bytes(), paths.AFFILIATIONS.read_bytes()) == before
+
+
+def test_a_spelled_out_address_in_notes_names_its_domain_in_words(tmp_repo, monkeypatch):
+    registers(monkeypatch)
+    write_citations([Citation('jane-doe-acme', None, None, None, f'cited as: "write to {SPELLED}"')])
+    track()
+    tool.main(['write'])
+    [citation] = load_citations()
+    assert citation.notes == f'cited as: "write to {mask_address("natea@jazkarta.test")} (an address at jazkarta.test)"'

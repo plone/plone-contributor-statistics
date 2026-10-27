@@ -4,8 +4,9 @@
     list    every distinct address in the tracked text files, with its count, its class and its files, and the
             addresses spelled out to fool harvesters ("jane at acme dot com")
     write   mask them, by the rule of docs/explanation/attribution.md: the excerpts and the `snippet` cells of
-            identities.csv and citations.csv keep a company domain, everything else gets the bare hash, the
-            value of an email identity included
+            identities.csv and citations.csv keep a company domain, the `notes` cells of the registers in
+            curated/mappings name it in words ("h-… (an address at acme.test)"), everything else gets the
+            bare hash, the value of an email identity included
     verify  compare the persons the old registers (at --base) and the new ones (the working tree) find for every
             commit author of the cached clones; exit code 1 on any difference
 
@@ -57,6 +58,7 @@ SPELLED_ADDRESSES = {
     'h-769b04011011574e': ('h-a13eb3cd6593d0d2', 'moss.org.ph'),
     'h-e7fc4c145de58b5c': ('h-c8b693ff54ea4c77', 'pretaweb.com'),
     'h-6535ee48a4d3857b': ('h-b1e01befe255a634', None),
+    'h-12283b81858ea36e': ('h-646a8fe09b59a679', '4teamwork.ch'),
 }
 # Words, "at" and a domain whose labels are separated by "dot" or by dots, in the spellings found
 _AT = r'(?:at|<at>|\[at\])'
@@ -82,15 +84,34 @@ def is_placeholder(address):
     return bool(PLACEHOLDER.search(address.rsplit('@', 1)[1].lower()))
 
 
-def mask(text, keep_domain=False):
-    """The text with every address masked, placeholders left, and the checked spelled-out addresses masked."""
+def in_words(masked):
+    """A masked value with a company domain as the notes of the registers give it: the hash, then the domain in
+    words, which the guard against readable addresses accepts; a bare hash as it is."""
+    if '@' not in masked:
+        return masked
+    bare, domain = masked.split('@', 1)
+    return f'{bare} (an address at {domain})'
+
+
+def mask(text, keep_domain=False, words=False):
+    """The text with every address masked, placeholders left, and the checked spelled-out addresses masked.
+
+    keep_domain: a company address keeps its domain, as in the excerpts and snippets. words: a company address
+    becomes its hash and the domain in words, as in the notes of the registers ("h-… (an address at acme.test)")."""
     def address(match):
         found = match.group(0)
-        return found if is_placeholder(found) else mask_address(found, keep_domain)
+        if is_placeholder(found):
+            return found
+        if words:
+            masked = mask_address(found, keep_domain=True)
+            return in_words(masked) if is_masked(masked) else masked
+        return mask_address(found, keep_domain)
 
     def spelled(match):
-        masked = spelled_masked(match.group(0), keep_domain)
-        return match.group(0) if masked is None else masked
+        masked = spelled_masked(match.group(0), keep_domain or words)
+        if masked is None:
+            return match.group(0)
+        return in_words(masked) if words else masked
 
     return SPELLED_CANDIDATE.sub(spelled, ADDRESS.sub(address, text))
 
@@ -134,24 +155,33 @@ def _csv_text(rows):
     return buffer.getvalue()
 
 
-def mask_csv(text):
-    """The CSV text with every cell masked, bare; the quoting of the other cells as it was.
+def mask_csv(text, words_columns=()):
+    """The CSV text with every cell masked, bare, or in words in the named columns; the quoting as it was.
 
     Through the csv module when the file reads and writes back unchanged; otherwise as text, which gives the same
-    result, because an address and its hash hold no comma, quote or line break and so never cross a cell."""
+    result for the bare form, because an address and its hash hold no comma, quote or line break and so never
+    cross a cell."""
     rows = list(csv.reader(io.StringIO(text, newline='')))
     if _csv_text(rows) != text:
+        if words_columns:
+            raise ValueError('a register that does not read and write back unchanged')
         return mask(text)
-    return _csv_text([[mask(cell) for cell in row] for row in rows])
+    if not rows:
+        return text
+    header = rows[0]
+    words = [name in words_columns for name in header]
+    return _csv_text([header] + [[mask(cell, words=n < len(words) and words[n]) for n, cell in enumerate(row)]
+                                 for row in rows[1:]])
 
 
-def _masked_cells(row, fields, snippet_field='snippet'):
-    """The changed cells of a register row: the snippet with its domain, the other text cells bare."""
+def _masked_cells(row, fields):
+    """The changed cells of a register row: the snippet with its domain, the notes with the domain in words, the
+    other text cells bare."""
     changes = {}
     for field in fields:
         value = getattr(row, field)
         if isinstance(value, str):
-            masked = mask(value, keep_domain=field == snippet_field)
+            masked = mask(value, keep_domain=field == 'snippet', words=field == 'notes')
             if masked != value:
                 changes[field] = masked
     return changes
@@ -198,6 +228,8 @@ def write(files):
         text = _read(path)
         if is_excerpt(path):
             new = mask(text, keep_domain=True)
+        elif path.suffix == '.csv' and path.parent == paths.MAPPINGS_DIR:
+            new = mask_csv(text, words_columns={'notes'})
         elif path.suffix == '.csv':
             new = mask_csv(text)
         else:
