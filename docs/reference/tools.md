@@ -18,6 +18,7 @@ Most of them have no Make target, and the how-to guides show them at work.
 | `github_evidence` | Proposes affiliations for the years that assumed rows guess, from the GitHub commit search; needs `GITHUB_TOKEN`. | `--person`, `--all-years`, `--write`, `--refresh` | {ref}`find-affiliations-in-the-github-commit-search` |
 | `unmatched_names` | Lists people of the register without a GitHub login who appear as a login. | `--propose` | {doc}`/how-to/prepare-a-new-year` |
 | `unmatched_changelog_names` | Lists changelog names that no identity maps, and proposes the person from the commits. | `--from-year`, `--to-year`, `--propose` | {doc}`/how-to/link-old-commits-to-a-person` |
+| `mask_address` | Prints the masked forms of mail addresses: for identities and notes, and for snippets. | addresses | |
 | `get_github_name` | Prints the profile name of GitHub logins from the GitHub API. | logins | |
 | `analyze_independent_contributors` | Lists the Unmapped contributors worth researching; `make analyze-independent` runs it. | `--year` | {doc}`/how-to/prepare-a-new-year` |
 | `check` | Validates the curated data against the schemas and the checks beyond them; `make check` runs it. | | {ref}`reference-curated-files` |

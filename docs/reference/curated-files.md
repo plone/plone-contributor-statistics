@@ -51,7 +51,7 @@ One row is one string that denotes a person in the data: a GitHub login, a furth
 |---|---|---|---|
 | `person` | string | required; pattern `^[a-z0-9][a-z0-9-]*$`; id of a row of `people` | The id of the person in the people register. |
 | `kind` | string | required; one of `github`, `github-alias`, `email`, `name`, `svn`, `irc`, `discourse` | The kind of identity: `github` the GitHub login the collected files count the person under (at most one per person), `github-alias` a further GitHub account, `email` a commit address, `name` a spelling of the name, `svn` a Subversion or CVS user, `irc` an IRC nick, `discourse` a handle on community.plone.org; the collectors read only `github`, `github-alias`, `email` and `name`, so `svn`, `irc` and `discourse` are for the record, and a Subversion commit is linked by an `email` identity. |
-| `value` | string | required | The login, address, spelling or handle as it appears in the data; a login with the case it has on GitHub. |
+| `value` | string | required | The login, address, spelling or handle as it appears in the data; a login with the case it has on GitHub. An email value is the bare hash `h-` and 16 hex characters of the address, except a Subversion-era or noreply address, which stays readable (`python -m scripts.tools.mask_address`). |
 | `source` | string | pattern `^[0-9a-f]{12}$`; id of a row of `sources` | The id of the source in the source register that connects the person to the value. Required, except for an early commit address whose notes say what it rests on. |
 | `snippet` | string |  | The words of the source that make the connection, verbatim from its excerpt; empty when no quote was verified. |
 | `notes` | string |  | Free-text remarks: what the source shows, in our words, and other records. |
@@ -61,6 +61,7 @@ Primary key: `person`, `kind`, `value`.
 Checks beyond the schema:
 
 - An identity cites a source, unless it is an early commit address whose notes say what it rests on.
+- An email identity is the hash of the address, except a Subversion-era or noreply address.
 - A snippet appears in the excerpt of its source, compared as the capture compares a quote (`find_quote`).
 - The rows are sorted by `person`, `kind`, `value`.
 - `value` is unique within its `kind`, ignoring case for the kinds `github`, `github-alias`, `email`, `svn`.

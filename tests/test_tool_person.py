@@ -19,7 +19,7 @@ def registers(tmp_repo):
         f'alan-runyan,github,runyaga,{sid},,\n'
         f'alan-runyan,github-alias,bobdobbs666,{sid},,\n'
         f'jane-doe,github,JaneDoe,{sid},,\n'
-        f'zed,email,Zed@Example.org,{sid},,\n'
+        f'zed,email,{mask_address("Zed@Example.org")},{sid},,\n'
         f'zed,name,Zed Zeta,{sid},,\n'
         f'zed,name,Zédd Zeta,{sid},,\n', encoding='utf-8')
     return tmp_repo
@@ -121,7 +121,7 @@ def test_main_prints_identities_and_affiliations_of_the_match(registers, capsys)
         'zed,Zed Zeta\n'
         '# curated/mappings/identities.csv\n'
         'person,kind,value,source,snippet,notes\n'
-        f'zed,email,Zed@Example.org,{sid},,\n'
+        f'zed,email,{mask_address("Zed@Example.org")},{sid},,\n'
         f'zed,name,Zed Zeta,{sid},,\n'
         f'zed,name,Zédd Zeta,{sid},,\n'
         '# curated/mappings/affiliations.csv\n'

@@ -17,6 +17,12 @@ _MASKED_VALUE = re.compile(r'(?P<bare>h-[0-9a-f]{16})(?:@(?P<domain>[^@\s]+))?')
 # has letters only (react@18.2.0 is a version)
 ADDRESS = re.compile(r'(?<![\w.+\-/@])[\w.+\-]+@(?:[A-Za-z0-9\-]+\.)+[A-Za-z]{2,}(?![\w\-])')
 
+# A masked value that keeps its company domain, the form of excerpts and snippets
+MASKED_WITH_DOMAIN = re.compile(r'\bh-[0-9a-f]{16}@')
+
+# Domains that cannot be a person's: reserved for tests and documentation
+_RESERVED_DOMAIN = re.compile(r'(?:\.(?:test|example|invalid|localhost)|(?:^|\.)example\.(?:com|org|net))$')
+
 # Addresses that are not a person's and stay readable, each with its reason
 NOT_PERSONAL = {
     'git@github.com': 'the SSH address of GitHub repositories',
@@ -57,3 +63,18 @@ def mask_address(address, keep_domain=False):
 def mask_text(text, keep_domain=False):
     """Mask every address in free text."""
     return ADDRESS.sub(lambda m: mask_address(m.group(0), keep_domain), text)
+
+
+def readable_addresses(text):
+    """The addresses in the text that masking would change: raw addresses, not masked ones with a domain.
+
+    An address in a reserved domain (`.test`, `.example`, `.invalid`, `.localhost`, example.com, .org, .net) is
+    not readable: it belongs to nobody."""
+    found = []
+    for match in ADDRESS.finditer(text):
+        address = match.group(0)
+        if _RESERVED_DOMAIN.search(address.rsplit('@', 1)[1].lower()):
+            continue
+        if mask_address(address, keep_domain=True) != address:
+            found.append(address)
+    return found

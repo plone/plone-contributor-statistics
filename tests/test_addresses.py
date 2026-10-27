@@ -1,6 +1,6 @@
 import hashlib
 
-from scripts.lib.addresses import address_hash, is_masked, mask_address, mask_text
+from scripts.lib.addresses import address_hash, is_masked, mask_address, mask_text, readable_addresses
 
 
 def h(address):
@@ -56,3 +56,17 @@ def test_is_masked():
 
 def test_value_without_at_sign_is_unchanged():
     assert mask_address('Jane Doe') == 'Jane Doe'
+
+
+def test_reserved_domains_and_masked_values_are_not_readable():
+    text = 'a jane@acme.test b ' + mask_address('jane@acme.test', keep_domain=True) + ' c x@example.com y@mail.example.org'
+    assert readable_addresses(text) == []
+
+
+def test_a_raw_address_in_a_real_domain_is_readable():
+    address = 'jane@' + 'acme' + '.com'
+    assert readable_addresses(f'write to {address}, please') == [address]
+
+
+def test_noreply_and_svn_addresses_are_not_readable():
+    assert readable_addresses('1+jdoe@users.noreply.github.com and git@github.com') == []

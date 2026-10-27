@@ -29,7 +29,7 @@
     {
       "name": "value",
       "type": "string",
-      "description": "The login, address, spelling or handle as it appears in the data; a login with the case it has on GitHub.",
+      "description": "The login, address, spelling or handle as it appears in the data; a login with the case it has on GitHub. An email value is the bare hash `h-` and 16 hex characters of the address, except a Subversion-era or noreply address, which stays readable (`python -m scripts.tools.mask_address`).",
       "constraints": {
         "required": true
       }
