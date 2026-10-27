@@ -25,7 +25,7 @@ The registers in `curated/mappings/` record who people are and which organisatio
 
 - `github`: the GitHub login that the collected files count the person under, at most one per person.
 - `github-alias`: a further GitHub account of the person, counted for the same person.
-- `email`: a commit address that GitHub links to no account.
+- `email`: a commit address that GitHub links to no account. The value is the masked address, see {ref}`masked-addresses`; Subversion and CVS addresses are the exception.
 - `name`: a spelling of the name, such as a changelog nickname. A person without a GitHub account has their name as an identity of this kind, citing the record of the name.
 - `svn`, `irc` and `discourse`: a Subversion or CVS user, an IRC nick and a handle on community.plone.org. They record who a person is, and the collectors don't read them: a Subversion commit is linked to its person by an `email` identity.
 
@@ -170,6 +170,23 @@ When in doubt, a contributor stays Unmapped.
 Many corrections come from the people themselves, by pull request, with a link or a short confirmation.
 This keeps the mapping close to what people would say about their own work.
 {doc}`/how-to/add-an-affiliation` shows how to send one.
+
+(masked-addresses)=
+
+## Mail addresses are masked
+
+The repository doesn't hold readable mail addresses of people, as data minimisation (Art. 5(1)(c) GDPR).
+A masked address is `h-` and the first sixteen hexadecimal characters of the SHA-256 hash of the address, lower-cased and without whitespace and angle brackets, such as `h-<hash>`.
+It is no secret: anyone who knows an address can compute its hash and so find the identities and notes of that address, and the commits that carry it stay public at the sources that link them.
+The hash replaces the address in the identities, the notes and the collected files.
+
+A company address is evidence for an organisation because of its domain.
+The excerpts in `curated/sources/excerpts/`, and the snippets of identities and citations that quote them verbatim, therefore keep the domain after the hash, as `h-<hash>@kitconcept.example`.
+In the `notes` of the registers, an address of a company reads `h-<hash> (an address at kitconcept.example)`, so that the evidence stays with the note.
+Addresses of the Subversion and CVS years, such as `name@localhost`, whose local part is the Subversion login, GitHub noreply addresses and a short list of addresses that are no person's stay as they are.
+
+`python -m scripts.tools.mask_address` prints both forms of an address; `make check` rejects an `email` identity that isn't masked.
+The Git history was not rewritten, and a request to erase one address is handled one by one.
 
 ## Small mistakes are caught by checks
 

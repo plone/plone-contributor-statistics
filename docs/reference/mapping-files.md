@@ -6,7 +6,7 @@ The folder `curated/mappings/` holds five registers and two lists.
 The registers say who people and organisations are:
 
 - `curated/mappings/people.csv` has one row per person, with an opaque id and a name.
-- `curated/mappings/identities.csv` has the GitHub logins, further GitHub accounts, commit addresses and spellings of the name that denote a person, each citing a source.
+- `curated/mappings/identities.csv` has the GitHub logins, further GitHub accounts, commit addresses (masked, see {ref}`masked-addresses`) and spellings of the name that denote a person, each citing a source.
 - `curated/mappings/affiliations.csv` has the organisation a person belonged to in which years, with a status: `stated`, `assumed`, `denied` or `proposed`.
 - `curated/mappings/citations.csv` has the sources each affiliation rests on, one row per source and passage, with the passage as a snippet.
   A citation or an identity whose source was not read yet has an empty snippet; once the source is captured, `python -m scripts.tools.cite_snippets --write` fills it from the quotes in its `notes`, see {ref}`how-to-capture-a-source-not-read`.

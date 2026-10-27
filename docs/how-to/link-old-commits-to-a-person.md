@@ -8,6 +8,8 @@ You need to know who is behind the address, and a source for it.
 
 ## Find the address
 
+A company address of the Git years is masked in the register, so look it up with its masked form: `python -m scripts.tools.person jane.doe@kitconcept.example` masks the address before it searches.
+
 1.  Find the commits in the repository's history, for example with `git log --author=name@localhost` in a clone of the repository.
 2.  Check that the address isn't an identity yet:
 
@@ -31,7 +33,7 @@ person,kind,value,source,snippet,notes
 jane-doe,email,name@localhost,0123456789ab,name@localhost,Same name in commits linked to this account
 ```
 
-- Write the email address in lower case, with the kind `email`.
+- Use the kind `email`. For an address of GitHub's own forms or of the Subversion years, such as `name@localhost`, write it in lower case. For any other address, write the masked address (see {ref}`masked-addresses`), which `python -m scripts.tools.mask_address jane.doe@kitconcept.example` prints: the first form, `h-<hash>`, is the value, and the second, `h-<hash>@kitconcept.example`, is how the excerpt and the snippet quote a company address. `make check` rejects a raw address as the value.
 - `source` is the id of the source that the tool printed, and `snippet` the words of its excerpt that make the connection, such as the address; leave the snippet empty when the excerpt has no such words.
 - In `notes`, say how you know: the same name in commits that are linked to the account, an entry in the credits, the account profile, or a confirmation by the person in public.
 - A person with a GitHub account is counted under their login, a person without one as `person:<id>`.
@@ -85,7 +87,7 @@ Names that no identity links to a person count as written, see {doc}`/explanatio
 
     ```text
     person,kind,value,source,snippet,notes
-    alec-mitchell,name,alecm,0123456789ab,Author: Alec Mitchell <alecm@example.org>,Changelog entry: https://github.com/plone/Products.CMFPlone/blob/<commit>/HISTORY.txt#L123; the commit by Alec Mitchell that repeats it: https://github.com/plone/Products.CMFPlone/commit/<commit>
+    alec-mitchell,name,alecm,0123456789ab,Author: Alec Mitchell <h-<hash>>,Changelog entry: https://github.com/plone/Products.CMFPlone/blob/<commit>/HISTORY.txt#L123; the commit by Alec Mitchell that repeats it: https://github.com/plone/Products.CMFPlone/commit/<commit>
     ```
 
     A row whose person starts with `?no person for` names someone the register doesn't have: add the person first, see {doc}`add-a-person`, and put their id in the row.

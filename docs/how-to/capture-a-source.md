@@ -45,6 +45,7 @@ Do this when a fact rests on a page, a profile, a commit or a video, and you wan
     The passage of a page is the paragraph around the quote; the passage of a GitHub profile or commit is all of it, so the author and date of a commit stay with its message.
     A talk page of the Volto conference sites, such as `2023.ploneconf.org`, shows its presenters from the linked speaker pages, so their names are not in the text of the page; the tool adds them as a last paragraph `Presenters: <name>, <name>` (or `Speakers: …`), which is then the passage of such a name.
     For GitHub issues and comments, see {ref}`how-to-capture-a-source-github-issues`.
+    The tool masks every mail address in the excerpt, see {ref}`masked-addresses`: a commit shows `h-<hash>@kitconcept.example` for a company address and `h-<hash>` for any other, and the same holds for a quote or a name you type with a raw address, which is masked before the tool searches.
     Do not edit these files by hand.
     Then validate the files:
 

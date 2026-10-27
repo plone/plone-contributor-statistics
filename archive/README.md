@@ -1,7 +1,7 @@
 # Archive
 
 Historical material: one-off analyses, proposals, snapshots and agent notes, mostly written with AI agents in 2025 and 2026.
-The files are kept unchanged, at their original paths below `archive/` or, since 2026-10-18, in one folder per topic with their code, data and output together.
+The files are kept unchanged, at their original paths below `archive/` or, since 2026-10-18, in one folder per topic with their code, data and output together, except that mail addresses were masked on 2026-10-27.
 They are not maintained and do not describe the current method.
 For the current method, see the documentation at https://plone.github.io/plone-contributor-statistics/ or in `docs/`.
 
