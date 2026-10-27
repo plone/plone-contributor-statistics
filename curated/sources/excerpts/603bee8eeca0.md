@@ -1,4 +1,4 @@
-Author: Danny Bloemendaal <danny.bloemendaal@informaat.nl>
+Author: Danny Bloemendaal <h-0ae0eac013805591@informaat.nl>
 Date: 2006-08-30T12:04:12+00:00
 
 New branch for a new criterium for ATTopics

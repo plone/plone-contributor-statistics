@@ -1,4 +1,4 @@
-Author: Patrick Gerken <patrick.gerken@computer.org>
+Author: Patrick Gerken <h-0098c196fe25d045>
 Date: 2009-12-08T16:15:25+00:00
 
 Added some documentation for testing 3rd party packages

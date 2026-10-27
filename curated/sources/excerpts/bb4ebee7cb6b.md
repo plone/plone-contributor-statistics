@@ -1,4 +1,4 @@
-Author: Eric BREHAULT <ebrehault@gmail.com>
+Author: Eric BREHAULT <h-e2f1cf23c6fc7f4c>
 Date: 2022-10-10T07:58:49Z
 
 Static page to search in local kbs (#298)

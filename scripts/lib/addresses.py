@@ -14,8 +14,10 @@ MASKED = re.compile(r'h-[0-9a-f]{16}')
 _MASKED_VALUE = re.compile(r'(?P<bare>h-[0-9a-f]{16})(?:@(?P<domain>[^@\s]+))?')
 
 # An address in free text: not part of a path, a scoped package or a longer word; the last label of the domain
-# has letters only (react@18.2.0 is a version)
-ADDRESS = re.compile(r'(?<![\w.+\-/@])[\w.+\-]+@(?:[A-Za-z0-9\-]+\.)+[A-Za-z]{2,}(?![\w\-])')
+# has letters only (react@18.2.0 is a version). A lower-case last label ends before a capitalised word glued to it,
+# as in a page that lost its spaces ("jane@acme.testPlone Conf")
+ADDRESS = re.compile(r'(?<![\w.+\-/@])[\w.+\-]+@(?:[A-Za-z0-9\-]+\.)+'
+                     r'(?:[a-z]{2,}(?=[A-Z][a-z])|[A-Za-z]{2,}(?![\w\-]))')
 
 # A masked value that keeps its company domain, the form of excerpts and snippets
 MASKED_WITH_DOMAIN = re.compile(r'\bh-[0-9a-f]{16}@')
@@ -27,6 +29,12 @@ _RESERVED_DOMAIN = re.compile(r'(?:\.(?:test|example|invalid|localhost)|(?:^|\.)
 NOT_PERSONAL = {
     'git@github.com': 'the SSH address of GitHub repositories',
     'noreply@github.com': "GitHub's sender address",
+    'noreply@anthropic.com': "Anthropic's sender address, in the Co-Authored-By trailers of commits by Claude",
+    'releasemanager@plone.org': "the Plone Foundation's role address of the release manager, the maintainer of "
+                                'its npm packages',
+    'plonesymp@plone.jp': 'the address of the organising committee of the Plone Symposium Tokyo',
+    'eea-jenkins-npm@roles.eea.eionet.europa.eu': "the npm account of the build server (Jenkins) of the European "
+                                                  'Environment Agency',
 }
 
 

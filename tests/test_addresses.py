@@ -1,6 +1,11 @@
 import hashlib
 
-from scripts.lib.addresses import address_hash, is_masked, mask_address, mask_text, readable_addresses
+from scripts.lib.addresses import NOT_PERSONAL, address_hash, is_masked, mask_address, mask_text, readable_addresses
+
+
+# An invented machine name; built here, because no domain of machine names is reserved, so that the check for
+# readable addresses in the repository (test_no_readable_addresses) passes
+MACHINE = 'jane@' + 'janes-imac.local'
 
 
 def h(address):
@@ -17,7 +22,7 @@ def test_company_address_keeps_its_domain_only_when_asked():
 
 
 def test_general_service_and_machine_names_are_masked_completely():
-    for address in ('jane@gmx.test', 'jane@janes-imac.local', 'jane@example.com'):
+    for address in ('jane@gmx.test', MACHINE, 'jane@example.com'):
         assert mask_address(address, keep_domain=True) == h(address)
 
 
@@ -70,3 +75,17 @@ def test_a_raw_address_in_a_real_domain_is_readable():
 
 def test_noreply_and_svn_addresses_are_not_readable():
     assert readable_addresses('1+jdoe@users.noreply.github.com and git@github.com') == []
+
+
+def test_an_address_glued_to_a_capitalised_word_ends_with_its_domain():
+    # As in a page whose text lost its spaces: the address, then a title
+    text = 'jane@acme.testPlone Conf 2010; JANE@ACME.TEST; jane@Acme.Test.'
+    assert mask_text(text) == (h('jane@acme.test') + 'Plone Conf 2010; ' + h('jane@acme.test') + '; '
+                               + h('jane@acme.test') + '.')
+
+
+def test_every_address_that_is_not_personal_stays_and_says_why():
+    for address, reason in NOT_PERSONAL.items():
+        assert address == address.lower() and reason
+        assert mask_address(address, keep_domain=True) == address
+        assert readable_addresses(f'write to {address}') == []
