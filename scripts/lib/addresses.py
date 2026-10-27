@@ -32,6 +32,7 @@ NOT_PERSONAL = {
     'git@github.com': 'the SSH address of GitHub repositories',
     'noreply@github.com': "GitHub's sender address",
     'noreply@anthropic.com': "Anthropic's sender address, in the Co-Authored-By trailers of commits by Claude",
+    'board@plone.org': "the Plone Foundation Board's role address, the contact of its privacy policy",
     'releasemanager@plone.org': "the Plone Foundation's role address of the release manager, the maintainer of "
                                 'its npm packages',
     'plonesymp@plone.jp': 'the address of the organising committee of the Plone Symposium Tokyo',

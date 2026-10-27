@@ -23,4 +23,5 @@ mapping-files
 recognition-files
 make-targets
 tools
+privacy
 ```

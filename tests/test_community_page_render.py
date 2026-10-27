@@ -226,3 +226,14 @@ def test_page_says_all_data_comes_from_public_records(page):
     assert 'public records' in statement
     assert 'href="docs/index.html#public-records-only"' in statement
     assert 'href="docs/how-to/link-old-commits-to-a-person.html"' in statement
+
+
+def test_page_is_marked_beta(page):
+    header = page.split('</header>')[0]
+    assert '<span class="beta"' in header
+    assert '>Beta</span>' in header
+
+
+def test_footer_links_the_privacy_notice(page):
+    footer = page.split('<footer')[1]
+    assert 'href="docs/reference/privacy.html"' in footer
