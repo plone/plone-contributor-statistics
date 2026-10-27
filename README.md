@@ -12,7 +12,7 @@ The commits and pull requests are public on GitHub.
 Every attribution to a person or an organisation, and every row of curated community data, needs a public record: a web page, an archived page, a register entry, a conference biography, a public commit, or a public confirmation by the person.
 A memory alone is not enough; without a public record, an entry stays out, and a contributor stays Unmapped.
 The one exception is identifying the people behind early CVS and Subversion commit addresses, where public records are often impossible; there, the notes of the identity say what the identification rests on.
-Some older files still lack linked sources, and [#86](https://github.com/plone/plone-contributor-statistics/issues/86) tracks them.
+Some sources in the register could not be captured yet; their excerpt says so, and the attribution rules leave them out.
 
 The documentation explains where the data comes from, how it is counted, and why.
 It is for:
@@ -34,17 +34,17 @@ make help         # list all targets
 make year YEAR=2025 # collect, derive and report a completed year
 ```
 
-Collecting data from GitHub needs a token in `.env`.
+Collecting data from GitHub needs a token, in `.env` or in `GITHUB_TOKEN`; the capture and evidence tools read it only from the environment variable `GITHUB_TOKEN`.
 See [Prepare the numbers for a new year](https://plone.github.io/plone-contributor-statistics/docs/how-to/prepare-a-new-year.html) and [Collect the data again](https://plone.github.io/plone-contributor-statistics/docs/how-to/collect-data-again.html).
 
 ## Where things live
 
 The folders follow the pipeline: curated input and collected data go into the scripts, which write derived data and reports.
-Each folder has a README; the [data files reference](https://plone.github.io/plone-contributor-statistics/docs/reference/data-files.html) describes every file.
+Each data and code folder has a README; the [data files reference](https://plone.github.io/plone-contributor-statistics/docs/reference/data-files.html) describes every file.
 
 ```text
 scripts/     the code, by stage: collect/, derive/, report/, tools/, and shared code in lib/
-curated/     input edited by hand: registers and lists in mappings/, community data in community/, sources/, schemas/; every entry needs a public record
+curated/     input edited by hand: registers and lists in mappings/, community data in community/, the PLIPs before GitHub in plips/, sources/, schemas/; every entry needs a public record
 collected/   data fetched from GitHub by the collectors; never edit by hand
 derived/     data computed from curated and collected data, committed for transparency; never edit by hand
 reports/     reports, text summaries and graphs; never edit by hand

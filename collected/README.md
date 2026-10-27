@@ -9,6 +9,6 @@ Collect again with `make year YEAR=2025` or the single collection targets; see [
 | `pr-interactions/` | Comments and reviews per pull request, one file per year. | `pr-interactions`, `pr-interactions-all-years` |
 | `plips/` | All PLIPs, per author and per PLIP. | `run-plips` |
 | `changelogs/` | Changelog entries per person, one file per year. | `run-changelogs` |
-| `commit-domains/` | Mail domains of the commit authors per person, one file per year. | `run-commit-domains` |
+| `commit-domains/` | Mail domains of the commit authors per person, one file per year, read from the cached clones that `run-changelogs` fills. | `run-commit-domains` |
 
 See [Data files](https://plone.github.io/plone-contributor-statistics/docs/reference/data-files.html) for the columns.
