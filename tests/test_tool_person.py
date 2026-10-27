@@ -1,6 +1,7 @@
 import pytest
 
 from scripts.lib import paths
+from scripts.lib.addresses import mask_address
 from scripts.lib.model import Identity, load_registry, source_id, split_archive_url
 from scripts.lib.model.names import unique_slug
 from scripts.tools import check, datapackage, person
@@ -137,3 +138,14 @@ def test_main_add_without_a_source_says_how_to_give_one(registers, capsys, extra
     assert 'the id or the address of a source in the source register' in err
     assert 'python -m scripts.tools.capture' in err
     assert 'new-person' not in load_registry().people
+
+
+def test_find_by_address_matches_the_hash(registers):
+    sid = record_source(SRC)
+    with paths.IDENTITIES.open('a', encoding='utf-8') as handle:
+        handle.write(f'jane-doe,email,{mask_address("jane@acme.test")},{sid},,\n')
+
+    registry = load_registry()
+
+    assert ids(person.find(registry, 'Jane@acme.test')) == ['jane-doe']
+    assert ids(person.find(registry, mask_address('jane@acme.test'))) == ['jane-doe']

@@ -25,14 +25,14 @@ def extractor(tmp_repo, monkeypatch):
         'person,kind,value,source,snippet,notes\n'
         f'alan-runyan,github,runyaga,{sid},,\n'
         f'alan-runyan,github-alias,bobdobbs666,{sid},,\n'
-        f'benjamin-saller,email,bsaller@localhost,{sid},,\n'
+        f'benjamin-saller,email,bsmith@localhost,{sid},,\n'
         f'benjamin-saller,github-alias,bsaller-gh,{sid},,\n'
         f'whit-morriss,email,linked@example.org,{sid},,\n'
-        f'whit-morriss,email,whit@localhost,{sid},,\n'
+        f'whit-morriss,email,wsmith@localhost,{sid},,\n'
         f'whit-morriss,github,whitmo,{sid},,\n', encoding='utf-8')
 
     linked = {'linked@example.org': 'alice', 'bot@example.org': 'pre-commit-ci[bot]',
-              'alan@enfoldsystems.com': 'bobdobbs666', 'ben@example.org': 'bsaller-gh'}
+              'alan@acme.test': 'bobdobbs666', 'ben@example.org': 'bsaller-gh'}
 
     def fake_graphql(session, query, variables=None, **kwargs):
         shas = [part.split('"')[1] for part in query.split('object(oid: ')[1:]]
@@ -51,7 +51,7 @@ def logins(extractor, *emails):
 
 
 def test_unlinked_emails_are_mapped(extractor):
-    assert logins(extractor, 'Whit@localhost ', 'bsaller@localhost', 'unknown@localhost') == [
+    assert logins(extractor, 'WSmith@localhost ', 'bsmith@localhost', 'unknown@localhost') == [
         'whitmo', 'person:benjamin-saller', None]
 
 
@@ -60,7 +60,7 @@ def test_github_links_win_over_the_registers(extractor):
 
 
 def test_second_accounts_count_for_the_main_account(extractor):
-    assert logins(extractor, 'alan@enfoldsystems.com') == ['runyaga']
+    assert logins(extractor, 'alan@acme.test') == ['runyaga']
 
     extractor.process_pull_requests('Products.CMFPlone', [
         {'merged_at': '2003-05-01T12:00:00Z', 'user': {'login': 'bobdobbs666', 'type': 'User'}}])

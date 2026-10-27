@@ -29,7 +29,7 @@ def upstream(tmp_path):
     path = tmp_path / 'upstream'
     path.mkdir()
     git(path, 'init', '-q', '-b', '3.0')
-    commit(path, 'Initial revision', '2002-02-21T16:09:32+00:00', email='andyd_@localhost')
+    commit(path, 'Initial revision', '2002-02-21T16:09:32+00:00', email='jdoe@localhost')
     commit(path, 'Plone 2', '2003-06-01T12:00:00+02:00')  # 10:00 UTC
     git(path, 'tag', '3.0')  # a tag with the same name as the branch
 
@@ -55,7 +55,7 @@ def test_default_branch_plus_older_history_of_release_branches(upstream, tmp_pat
     assert sorted(by_date) == ['2002-02-21T16:09:32Z', '2003-06-01T10:00:00Z',
                                '2008-08-02T13:13:39Z', '2010-05-01T12:00:00Z']
     old = by_date['2002-02-21T16:09:32Z']
-    assert old['commit']['author'] == {'name': 'andyd_', 'email': 'andyd_@localhost', 'date': '2002-02-21T16:09:32Z'}
+    assert old['commit']['author'] == {'name': 'jdoe', 'email': 'jdoe@localhost', 'date': '2002-02-21T16:09:32Z'}
     assert old['commit']['message'] == 'Initial revision'
     assert old['parents'] == [] and old['author'] is None
 
@@ -113,7 +113,7 @@ def test_link_authors_looks_up_each_email_once(extractor, monkeypatch):
                                for i, sha in enumerate(shas)}}
 
     monkeypatch.setattr(plone_contributors, 'github_graphql', fake_graphql)
-    commits = [local_commit('s1', 'alice@example.org'), local_commit('s2', 'andyd_@localhost'),
+    commits = [local_commit('s1', 'alice@example.org'), local_commit('s2', 'jdoe@localhost'),
                local_commit('s3', 'Alice@Example.org'), local_commit('s4', 'bob@example.org')]
 
     extractor.link_authors('Products.CMFPlone', commits, batch_size=2)
@@ -171,11 +171,11 @@ def test_copies_and_duplicates_are_counted_once(tmp_path):
     path = tmp_path / 'coredev'
     path.mkdir()
     git(path, 'init', '-q', '-b', 'master')
-    commit(path, 'Prototype with mod_transform', '2008-07-28T12:00:00+00:00', email='paul@localhost')
+    commit(path, 'Prototype with mod_transform', '2008-07-28T12:00:00+00:00', email='pjones@localhost')
     # The same commit, imported again from another SVN repository under another user name
-    commit(path, 'Prototype with mod_transform', '2008-07-28T12:00:00+00:00', email='zopepaul@localhost')
+    commit(path, 'Prototype with mod_transform', '2008-07-28T12:00:00+00:00', email='zopepjones@localhost')
     # Same message, but another time: another change
-    commit(path, 'Prototype with mod_transform', '2008-07-29T12:00:00+00:00', email='paul@localhost')
+    commit(path, 'Prototype with mod_transform', '2008-07-29T12:00:00+00:00', email='pjones@localhost')
     commit(path, '[fc] Repository: plone.keyring', '2015-06-01T10:00:00+00:00')
     commit(path, 'Pin plone.keyring', '2015-06-01T10:05:00+00:00')
 

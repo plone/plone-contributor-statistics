@@ -7,7 +7,7 @@ import hashlib
 import re
 
 from scripts.lib.changelogs import SVN_DOMAIN
-from scripts.lib.commit_authors import NOREPLY, is_company_domain
+from scripts.lib import commit_authors  # used at call time: commit_authors imports the model, which imports this
 
 PREFIX = 'h-'
 MASKED = re.compile(r'h-[0-9a-f]{16}')
@@ -46,10 +46,10 @@ def mask_address(address, keep_domain=False):
     if '@' not in cleaned:
         return address
     domain = cleaned.rsplit('@', 1)[1].lower()
-    if cleaned.lower() in NOT_PERSONAL or NOREPLY.match(cleaned) or SVN_DOMAIN.match(domain):
+    if cleaned.lower() in NOT_PERSONAL or commit_authors.NOREPLY.match(cleaned) or SVN_DOMAIN.match(domain):
         return address
     hashed = address_hash(cleaned)
-    if keep_domain and is_company_domain(domain):
+    if keep_domain and commit_authors.is_company_domain(domain):
         return hashed + '@' + domain
     return hashed
 

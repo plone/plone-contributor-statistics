@@ -6,6 +6,7 @@ import csv
 import re
 import sys
 
+from scripts.lib import addresses
 from scripts.lib.model import (LOGIN_KINDS, MAPPINGS_DIR, Identity, Person, append_person, load_registry, source_id,
                                split_archive_url)
 from scripts.lib.model.names import fold, unique_slug
@@ -19,7 +20,8 @@ def find(registry, query):
     found = set()
     if query in registry.people:
         found.add(query)
-    folded, login, email = fold(query), query.casefold(), query.lower()
+    folded, login = fold(query), query.casefold()
+    email = addresses.mask_address(query).lower() if '@' in query or addresses.is_masked(query) else None
     if folded:
         found |= {p.id for p in registry.people.values() if fold(p.name) == folded}
     for identity in registry.identities:
@@ -27,7 +29,7 @@ def find(registry, query):
             found.add(identity.person)
         elif identity.kind in LOGIN_KINDS and identity.value.casefold() == login:
             found.add(identity.person)
-        elif identity.kind == 'email' and identity.value.lower() == email:
+        elif identity.kind == 'email' and email and addresses.mask_address(identity.value).lower() == email:
             found.add(identity.person)
     return [registry.people[person_id] for person_id in sorted(found) if person_id in registry.people]
 

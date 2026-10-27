@@ -17,14 +17,14 @@ LOCAL_NAMES = ['pepper.local', 'katjas-imac.local', 'office.lan', 'box.home', 'a
 
 
 def test_domain_of_folds_case_and_trailing_dot():
-    assert domain_of('Jane@Foo.COM.') == 'foo.com'
-    assert domain_of(' jane@foo.com ') == 'foo.com'
-    assert domain_of('a@b@mail.Foo.com') == 'mail.foo.com'
+    assert domain_of('Jane@Foo.TEST.') == 'foo.test'
+    assert domain_of(' jane@foo.test ') == 'foo.test'
+    assert domain_of('a@b@mail.Foo.test') == 'mail.foo.test'
 
 
 def test_domain_of_skips_svn_and_localhost():
-    assert domain_of('andyd@localhost') is None
-    assert domain_of('Andy@LOCALHOST.') is None
+    assert domain_of('jdoe@localhost') is None
+    assert domain_of('Jane@LOCALHOST.') is None
     assert domain_of('jane@6a2e9a5c-0e3f-0410-9a18-ab4d3b6c1e0d') is None
     assert domain_of('jane@users.sourceforge.net') is None
     assert domain_of('no-at-sign') is None
@@ -43,9 +43,9 @@ def test_the_names_of_machines_and_placeholders_name_no_company(domain):
 
 
 def test_public_domains_that_look_local_are_kept():
-    assert domain_of('jane@localhost-systems.com') == 'localhost-systems.com'
-    assert domain_of('jane@example.company.de') == 'example.company.de'
-    assert domain_of('jane@homes.de') == 'homes.de'
+    assert domain_of('jane@localhost-systems.test') == 'localhost-systems.test'
+    assert domain_of('jane@example.company.test') == 'example.company.test'
+    assert domain_of('jane@homes.test') == 'homes.test'
 
 
 def test_domain_of_noreply():

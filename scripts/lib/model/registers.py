@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
 
-from scripts.lib import paths
+from scripts.lib import addresses, paths
 from scripts.lib.model.attribution import DENIED, PROPOSED, Affiliation, Attribution, Citation
 from scripts.lib.model.names import fold
 from scripts.lib.model.schema import read_rows, split_set
@@ -91,7 +91,7 @@ class Registry:
                 self._logins.setdefault(identity.person, []).append(identity.value)
                 self._by_login.setdefault(identity.value.casefold(), set()).add(identity.person)
             elif identity.kind == 'email':
-                self._by_email.setdefault(identity.value.lower(), set()).add(identity.person)
+                self._by_email.setdefault(addresses.mask_address(identity.value).lower(), set()).add(identity.person)
             elif identity.kind == 'name':
                 person = self.people.get(identity.person)
                 if person is not None and fold(identity.value) == fold(person.name):
@@ -124,7 +124,7 @@ class Registry:
         if login is not None:
             return self._single(self._by_login, login.casefold())
         if email is not None:
-            return self._single(self._by_email, email.lower())
+            return self._single(self._by_email, addresses.mask_address(email).lower())
         if name is not None:
             return self._single(self._by_name, fold(name))
         return None
