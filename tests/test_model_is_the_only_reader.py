@@ -26,10 +26,6 @@ ALLOWED = {
     'scripts/tools/schema_docs.py': {'paths.SCHEMAS_DIR', 'paths.DATAPACKAGE', "'curated/", '"curated/'},
     # Names the two files that the model's loaders read, so that the tests can write them
     'scripts/collect/plone_contributors.py': {'paths.BOT_ACCOUNTS', 'paths.EXCLUDED_REPOSITORIES'},
-    # The one-off migration to masked addresses rewrites every tracked text file, the excerpts as text; it writes
-    # the registers through the model
-    'scripts/tools/mask_addresses.py': {'paths.CITATIONS', 'paths.EXCERPTS_DIR', 'paths.IDENTITIES',
-                                        'paths.MAPPINGS_DIR'},
 }
 
 
