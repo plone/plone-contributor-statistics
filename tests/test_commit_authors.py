@@ -10,9 +10,9 @@ from scripts.lib.commit_authors import domain_of, is_company_domain, is_own_doma
 from tests.test_address_proposals import make_clone
 
 # Names of machines and placeholders, no public mail domains; some of them carry a person's name
-LOCAL_NAMES = ['pepper.local', 'katjas-imac.local', 'office.lan', 'box.home', 'api.localdomain',
-               'localhost.localdomain', 'timos-mbp.fritz.box', 'ip-1.2.3.4.in-addr.arpa', 'rudolf.(none)',
-               'pawel-dell.(none)', 'planetmobile', 'example.com', 'example.org', 'mail.example.net',
+LOCAL_NAMES = ['build.local', 'janes-imac.local', 'office.lan', 'box.home', 'dev.localdomain',
+               'localhost.localdomain', 'jdoes-mbp.fritz.box', 'ip-1.2.3.4.in-addr.arpa', 'workstation.(none)',
+               'janes-laptop.(none)', 'janes-desktop', 'example.com', 'example.org', 'mail.example.net',
                'acme.example']
 
 

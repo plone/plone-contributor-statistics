@@ -9,7 +9,7 @@ from scripts.lib.model import Citation, Identity, load_citations, load_identitie
 from scripts.tools import mask_addresses as tool
 
 JANE = 'jane@acme.test'
-SPELLED = 'natea at jazkarta dot test'
+SPELLED = 'bob at widgets dot test'
 
 
 def track():
@@ -21,7 +21,7 @@ def track():
 def registers(monkeypatch):
     """Jane with an address identity and a citation; an excerpt, an archive file and a collected CSV file."""
     monkeypatch.setattr(tool, 'SPELLED_ADDRESSES',
-                        {tool.spelled_key(SPELLED): (mask_address('natea@jazkarta.test'), 'jazkarta.test')})
+                        {tool.spelled_key(SPELLED): (mask_address('bob@widgets.test'), 'widgets.test')})
     sid = record_source()
     (paths.EXCERPTS_DIR / f'{sid}.md').write_text(f'Author: Jane <{JANE}>\n\nWrite to {SPELLED}.\n',
                                                   encoding='utf-8')
@@ -59,7 +59,7 @@ def test_write_masks_a_spelled_out_address_in_the_form_of_its_place(tmp_repo, mo
     track()
     tool.main(['write'])
     excerpt = (paths.EXCERPTS_DIR / f'{sid}.md').read_text(encoding='utf-8')
-    assert f'Write to {mask_address("natea@jazkarta.test", keep_domain=True)}.' in excerpt
+    assert f'Write to {mask_address("bob@widgets.test", keep_domain=True)}.' in excerpt
     assert SPELLED not in excerpt
 
 
@@ -98,7 +98,7 @@ def test_list_names_the_address_its_class_and_its_files(tmp_repo, monkeypatch, c
     out = capsys.readouterr().out
     line = next(line for line in out.splitlines() if line.startswith(JANE))
     assert 'company' in line and 'archive/old.md' in line
-    assert 'natea at jazkarta dot test' in out
+    assert 'bob at widgets dot test' in out
 
 
 def copy_mappings(target):
@@ -134,17 +134,17 @@ def test_verify_reports_a_dropped_identity(tmp_repo, monkeypatch, tmp_path_facto
 
 
 def test_write_masks_a_spelling_with_dots_on_both_sides_as_a_whole(tmp_repo, monkeypatch):
-    spellings = {'ken <dot> doe <at> acme.test': 'ken.doe@acme.test', 'rj at moss dot org dot test': 'rj@moss.org.test'}
+    spellings = {'ken <dot> doe <at> acme.test': 'ken.doe@acme.test', 'al at shop dot org dot test': 'al@shop.org.test'}
     monkeypatch.setattr(tool, 'SPELLED_ADDRESSES', {tool.spelled_key(text): (mask_address(address), None)
                                                     for text, address in spellings.items()})
     note = Path('archive/note.md')
     note.parent.mkdir(parents=True, exist_ok=True)
-    note.write_text('Write to ken <dot> doe <at> acme.test or to rj at moss dot org dot test - or look at plone.org.\n',
+    note.write_text('Write to ken <dot> doe <at> acme.test or to al at shop dot org dot test - or look at plone.org.\n',
                     encoding='utf-8')
     track()
     tool.main(['write'])
     assert note.read_text(encoding='utf-8') == (f'Write to {mask_address("ken.doe@acme.test")} or to '
-                                                f'{mask_address("rj@moss.org.test")} - or look at plone.org.\n')
+                                                f'{mask_address("al@shop.org.test")} - or look at plone.org.\n')
 
 
 def test_the_index_of_the_email_identities_keeps_every_address_and_its_person(tmp_repo, monkeypatch,
@@ -187,4 +187,4 @@ def test_a_spelled_out_address_in_notes_names_its_domain_in_words(tmp_repo, monk
     track()
     tool.main(['write'])
     [citation] = load_citations()
-    assert citation.notes == f'cited as: "write to {mask_address("natea@jazkarta.test")} (an address at jazkarta.test)"'
+    assert citation.notes == f'cited as: "write to {mask_address("bob@widgets.test")} (an address at widgets.test)"'

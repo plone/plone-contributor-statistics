@@ -22,7 +22,7 @@ The shared code stayed in `scripts/lib/addresses.py` (`mask_address`, `readable_
    1257 company addresses, 1218 complete addresses and 15 spelled-out ones.
 3. The guard and the test addresses it found (commit `ea9e16e`).
 4. A correction after review (commit `3d8815d`): in the `notes` cells of the registers a company address is named in words, `h-<hash> (an address at <domain>)`, so the notes keep the organisation evidence.
-   Four files changed again, 22 lines; one more spelled-out address (`b.buehlmann at 4teamwork.ch`) was masked.
+   Four files changed again, 22 lines; one more spelled-out address, a 4teamwork.ch address in `curated/sources/excerpts/cb628bcab0e8.md`, was masked.
    After it the counts are 15 spelled-out occurrences in the data and 16 in the archive.
 
 Distinct addresses masked: 366 (301 company and 65 complete), plus 14 spelled-out ones, each checked by hand in its context.

@@ -8,7 +8,7 @@ You need to know who is behind the address, and a source for it.
 
 ## Find the address
 
-A company address of the Git years is masked in the register, so look it up with its masked form: `python -m scripts.tools.person jane.doe@kitconcept.example` masks the address before it searches.
+An address of the Git years is masked in the register, so look it up with its masked form: `python -m scripts.tools.person jane.doe@kitconcept.example` masks the address before it searches.
 
 1.  Find the commits in the repository's history, for example with `git log --author=name@localhost` in a clone of the repository.
 2.  Check that the address isn't an identity yet:
