@@ -277,7 +277,10 @@ def capture(url: str, quotes: Sequence[str] = (), kind: str | None = None, title
     except (FetchError, ExtractError, GitHubAPIError) as error:
         raise CaptureError(f'{url}: {error}') from error
 
-    read = dataclasses.replace(read, text=mask_text(read.text, True), full_text=mask_text(read.full_text, True))
+    read = dataclasses.replace(
+        read, text=mask_text(read.text, True), full_text=mask_text(read.full_text, True),
+        title=mask_text(read.title) if read.title else read.title,
+        notes=mask_text(read.notes) if read.notes else read.notes)
     sid = source_id(read.original, read.timestamp)
     existing = sources.get(sid)
     found, missing = [], []

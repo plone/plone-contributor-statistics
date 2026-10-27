@@ -364,6 +364,16 @@ def test_capture_masks_page_addresses(web):
     assert capture(URL, ['Email: jane@acme.test'], fetcher=NoNetwork(), run=no_run).added == ()
 
 
+def test_capture_masks_the_title_of_the_source_row(web):
+    page = (b'<html><head><title>Contact jane@acme.test</title></head><body><p>Email: jane@acme.test is the '
+            b'contact.</p></body></html>')
+    fetcher, _ = web({URL: FakeResponse(body=page)})
+    capture(URL, ['Email: jane@acme.test'], fetcher=fetcher, run=no_run)
+    title = load_sources()[source_id(URL)].title
+    assert title == f"Contact {mask_address('jane@acme.test')}"
+    assert '@' not in title
+
+
 def test_capture_masks_a_general_service_address_completely(web):
     page = b'<html><head><title>Contact</title></head><body><p>Email: jane@gmx.test is the contact.</p></body></html>'
     fetcher, _ = web({URL: FakeResponse(body=page)})

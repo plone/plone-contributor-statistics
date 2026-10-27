@@ -27,6 +27,7 @@ from dotenv import load_dotenv
 
 from scripts.collect import plone_changelogs
 from scripts.lib import changelogs, git_history
+from scripts.lib.addresses import mask_address, mask_text
 from scripts.lib.github_api import github_graphql
 from scripts.lib.model import load_excluded_repositories, load_registry, source_id
 
@@ -131,10 +132,10 @@ def proposals(unmatched, found, resolve, registry, min_share=0.8):
         elif login:
             who = f'?no person for the login {login}'
         else:
-            who = f'?no person for {author} <{email}>'
+            who = f'?no person for {mask_text(author)} <{mask_address(email)}>'
         commit_url = f"https://github.com/plone/{entry.repository}/commit/{commit['sha']}"
         notes = f'Changelog entry: {entry.url}; the commit by {author} that repeats it: {commit_url}'
-        snippet = f"Author: {commit['author_name']} <{commit['author_email']}>"
+        snippet = f"Author: {mask_text(commit['author_name'], True)} <{mask_address(commit['author_email'], True)}>"
         rows.append((capture_command(commit_url, commit['author_email']),
                      (who, 'name', name, source_id(commit_url), snippet, notes, len(unmatched[name]), commits,
                       round(share, 2))))

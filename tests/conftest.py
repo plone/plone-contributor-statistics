@@ -150,3 +150,14 @@ def registry_of(people, identities=(), affiliations=(), organisations=()):
     logins = [Identity(pid, 'github', github, source) for pid, _, github, source in people if github]
     return Registry([Person(pid, name) for pid, name, _, _ in people], [*logins, *identities], affiliations,
                     organisations)
+
+
+def assert_no_raw_addresses():
+    """No cell of the registers or of sources.csv holds a readable address; masked forms are fine."""
+    from scripts.lib.addresses import ADDRESS, is_masked
+    for path in (paths.IDENTITIES, paths.AFFILIATIONS, paths.CITATIONS, paths.SOURCES):
+        with open(path, encoding='utf-8', newline='') as f:
+            for row in csv.DictReader(f):
+                for cell in row.values():
+                    found = [m for m in ADDRESS.findall(cell or '') if not is_masked(m)]
+                    assert not found, f'{path}: {found}'

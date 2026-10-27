@@ -9,7 +9,7 @@ from scripts.lib.addresses import mask_address
 from scripts.lib import paths
 from scripts.lib.model import affiliation_id, load_registry, load_sources, read_rows, source_id
 from scripts.tools import check, datapackage, github_evidence
-from tests.conftest import record_source
+from tests.conftest import assert_no_raw_addresses, record_source
 
 SOURCE = 'https://example.org/record'
 GUESS = 'range from the current entry; years before 2026 not verified (#139)'
@@ -79,13 +79,13 @@ def q2(year, handle='greenfinity-hu', login='janedoe'):
 
 ANSWERS = {
     q1(2014): {'total_count': 4, 'items': [
-        commit('jane@greenfinity.hu', '2014-05-02T10:00:00Z', 'aaa'),
-        commit('jane@greenfinity.hu', '2014-03-01T10:00:00Z', 'ea7'),
-        commit('jane@gmail.com', '2014-04-01T10:00:00Z', 'bbb'),
-        commit('jane@janedoe.net', '2014-04-02T10:00:00Z', 'ccc'),
+        commit('jane@greenfinity.test', '2014-05-02T10:00:00Z', 'aaa'),
+        commit('jane@greenfinity.test', '2014-03-01T10:00:00Z', 'ea7'),
+        commit('jane@gmx.test', '2014-04-01T10:00:00Z', 'bbb'),
+        commit('jane@janedoe.test', '2014-04-02T10:00:00Z', 'ccc'),
         commit('jane@nothing.test', '2014-04-03T10:00:00Z', 'ddd'),
         commit('', '2014-04-03T10:00:00Z', 'eee')]},
-    q1(2015): {'total_count': 1, 'items': [commit('jane@greenfinity.hu', '2015-01-02T10:00:00Z', 'fff')]},
+    q1(2015): {'total_count': 1, 'items': [commit('jane@greenfinity.test', '2015-01-02T10:00:00Z', 'fff')]},
     q2(2016): {'total_count': 3, 'items': [commit('x@y.test', '2016-01-01T00:00:00Z', 'abc')]},
 }
 
@@ -143,12 +143,12 @@ def test_query_one_classifies_the_domains(setup):
     assert first[0] == github_evidence.SEARCH_URL
     assert first[1] == {'q': q1(2014), 'sort': 'committer-date', 'order': 'asc', 'per_page': 100}
     proposals = text.split('## Conflicts')[0]
-    assert '| jane-doe | greenfinity | 2014-2015 | 3 | address @greenfinity.hu (name) |' in proposals
+    assert '| jane-doe | greenfinity | 2014-2015 | 3 | address @greenfinity.test (name) |' in proposals
     # the earliest commit of the first year is the example
     assert 'https://github.com/plone/repo/commit/ea7' in proposals
     unmapped = text.split('## Unmapped domains')[1].split('## Organisations')[0]
     assert '| nothing.test | 1 | 2014 | 1 |' in unmapped
-    for ignored in ('gmail.com', 'janedoe.net'):
+    for ignored in ('gmx.test', 'janedoe.test'):
         assert ignored not in unmapped
 
 
@@ -157,7 +157,7 @@ def test_a_rejected_year_is_not_proposed_again(setup):
         f.write('a00000001,jane-doe,greenfinity,2014,2014,denied,,the year of a change\n')
     text, _, _, _ = run(setup)
     proposals = text.split('## Conflicts')[0]
-    assert '| jane-doe | greenfinity | 2015 | 1 | address @greenfinity.hu (name) |' in proposals
+    assert '| jane-doe | greenfinity | 2015 | 1 | address @greenfinity.test (name) |' in proposals
     assert '2014-2015' not in proposals
 
 
@@ -179,7 +179,7 @@ def test_query_two_with_a_count_of_zero_is_no_evidence(setup):
 def test_the_evidence_texts(setup):
     _, added, _, _ = run(setup, write=True)
     assert [(p['from'], p['to']) for p in added] == [(2014, 2015), (2016, 2016)]
-    assert added[0]['evidence'] == ('Company address @greenfinity.hu in commits 2014-2015 found by the GitHub '
+    assert added[0]['evidence'] == ('Company address @greenfinity.test in commits 2014-2015 found by the GitHub '
                                     'commit search (example: https://github.com/plone/repo/commit/ea7)')
     assert added[1]['evidence'].startswith(
         'Commits in the GitHub organisation @greenfinity-hu in 2016 (3 in 2016; search: https://github.com/search?q=')
@@ -199,7 +199,7 @@ def test_a_proposal_for_a_verified_row_is_left_out_but_a_guess_is_not(setup):
 
 
 def test_conflicts_say_whether_the_other_row_is_a_guess(setup):
-    answers = {q1(2017): {'total_count': 1, 'items': [commit('jane@greenfinity.hu', '2017-01-02T10:00:00Z', 'dad')]}}
+    answers = {q1(2017): {'total_count': 1, 'items': [commit('jane@greenfinity.test', '2017-01-02T10:00:00Z', 'dad')]}}
     text, _, _, _ = run(setup, answers=answers, people=['jane-doe'], all_years=True)
     conflicts = text.split('## Conflicts')[1].split('## Unmapped')[0]
     assert '| jane-doe | 2017 | greenfinity | bubblenet | no |' in conflicts
@@ -249,13 +249,15 @@ def test_the_example_commits_are_captured_and_cited(setup):
     citations = {r['affiliation']: r for r in read_rows(paths.CITATIONS)}
     address = citations[affiliation_id('jane-doe', 'greenfinity', 2014, 2015)]
     assert (address['source'], address['snippet'], address['notes']) == (
-        source_id(early), f'Author: Jane Doe <{mask_address("jane@greenfinity.hu", True)}>', None)
+        source_id(early), f'Author: Jane Doe <{mask_address("jane@greenfinity.test", True)}>', None)
     organisation = citations[affiliation_id('jane-doe', 'greenfinity', 2016, 2016)]
-    assert (organisation['source'], organisation['snippet']) == (source_id(org), f'Author: Jane Doe <{mask_address("x@y.test", True)}>')
+    assert (organisation['source'], organisation['snippet']) == (
+        source_id(org), f'Author: Jane Doe <{mask_address("x@y.test", True)}>')
     assert organisation['notes'] == ('one of 3 commits in the GitHub organisation @greenfinity-hu in 2016 that the '
                                      'search https://github.com/search?q=author%3Ajanedoe+org%3Agreenfinity-hu+'
                                      'committer-date%3A2016-01-01..2016-12-31&type=commits found')
     assert load_sources()[source_id(early)].kind == 'commit'
+    assert_no_raw_addresses()
 
 
 def test_without_write_nothing_is_written(setup):

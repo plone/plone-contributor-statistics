@@ -12,12 +12,13 @@ from scripts.lib.capture import CaptureError
 from scripts.lib.model import affiliation_id, load_registry, load_sources, read_excerpt, read_rows, source_id
 from scripts.lib.model.registers import Identity
 from scripts.tools import address_proposals, check, datapackage
-from tests.conftest import record_source, registry_of
+from tests.conftest import assert_no_raw_addresses, record_source, registry_of
 
 SOURCE = 'https://example.org/record'
 CLONES = '.cache/repositories'  # where the collectors keep the clones, and where the capture of a commit reads it
 NOREPLY = '1234+janedoe@users.noreply.github.com'
 SID = '0123456789ab'
+AUTHOR = f'Author: Jane Doe <{mask_address("jane@greenfinity.test", True)}>'
 
 
 def git(path, *args, author=('Someone', 'someone@example.org'), date=None):
@@ -54,7 +55,7 @@ def write_people(people, identities=()):
 
 PEOPLE = [('bob-builder', 'Bob Builder', ''), ('hanno-schlichting', 'Hanno Schlichting', 'hannosch'),
           ('jane-doe', 'Jane Doe', 'janedoe'), ('mononym', 'Mononym', '')]
-IDENTITIES = [('bob-builder', 'email', 'bob@old.example.org')]
+IDENTITIES = [('bob-builder', 'email', mask_address('bob@old.example.org'))]
 
 
 def write_affiliations(*rows):
@@ -132,8 +133,8 @@ def test_read_authors_can_leave_out_the_commits_imported_from_subversion(tmp_pat
 
 def test_organisation_for_domain(setup):
     registry = load_registry()
-    assert registry.organisation_for_domain('greenfinity.hu') == 'greenfinity'
-    assert registry.organisation_for_domain('mail.bubblenet.be') == 'bubblenet'
+    assert registry.organisation_for_domain('greenfinity.test') == 'greenfinity'
+    assert registry.organisation_for_domain('mail.bubblenet.test') == 'bubblenet'
     assert registry.organisation_for_domain('widgets.test') == 'acme'  # an alias
     assert registry.organisation_for_domain('acme.test') == 'acme'  # the first word of the name
     assert registry.organisation_for_domain('nothing.test') is None
@@ -154,7 +155,7 @@ def test_match_domain_says_alias(setup):
     registry = load_registry()
     assert registry.match_domain('widgets.test') == ('acme', 'alias')
     assert registry.match_domain('acme.test') == ('acme', 'first word')
-    assert registry.match_domain('greenfinity.hu') == ('greenfinity', 'name')
+    assert registry.match_domain('greenfinity.test') == ('greenfinity', 'name')
 
 
 def test_organisation_for_domain_ignores_independents_and_ambiguous_keys(tmp_repo, write_registers):
@@ -171,21 +172,21 @@ def test_matching_by_login_email_and_name(setup):
     finder = address_proposals.Finder(load_registry(), [])
     assert finder.person(NOREPLY, 'J').id == 'jane-doe'
     assert finder.person('janedoe@users.noreply.github.com', 'J').id == 'jane-doe'
-    assert finder.person('jane@greenfinity.hu', 'J') is None
-    assert finder.person('hanno@bubblenet.be', 'Hanno Schlichting').id == 'hanno-schlichting'
+    assert finder.person('jane@greenfinity.test', 'J') is None
+    assert finder.person('hanno@bubblenet.test', 'Hanno Schlichting').id == 'hanno-schlichting'
     assert finder.person('bob@old.example.org', 'Bob').id == 'bob-builder'
-    assert finder.person('mono@greenfinity.hu', 'Mononym') is None
+    assert finder.person('mono@greenfinity.test', 'Mononym') is None
 
 
 def test_bots_are_skipped(setup):
     finder = address_proposals.Finder(load_registry(), ['robot'])
     assert finder.person('49699333+dependabot[bot]@users.noreply.github.com', 'dependabot[bot]') is None
     assert finder.person('robot@users.noreply.github.com', 'robot') is None
-    assert finder.person('x@greenfinity.hu', 'robot[bot]') is None
+    assert finder.person('x@greenfinity.test', 'robot[bot]') is None
 
 
 @pytest.mark.parametrize('domain,company', [
-    ('greenfinity.hu', True), ('gmail.com', False), ('yahoo.co.uk', False), ('hotmail.fr', False),
+    ('greenfinity.test', True), ('gmail.com', False), ('yahoo.co.uk', False), ('hotmail.fr', False),
     ('plone.org', False), ('zope.org', False), ('lists.plone.org', False), ('svn.zope.org', False),
     ('localhost.localdomain', False), ('users.noreply.github.com', False), ('localhost', False),
     ('myhost.local', False), ('intranet', False), ('(none)', False), ('example.lan', False),
@@ -229,46 +230,46 @@ def test_a_registered_organisation_wins_over_the_own_domain(setup):
                                    + 'glick-software,Glick Software,organisation,,,\n', encoding='utf-8')
     write_people(PEOPLE + [('david-glick', 'David Glick', 'davisagli')], IDENTITIES)
     cache = setup / CLONES
-    make_clone(cache, 'r', [('David Glick', 'david@glicksoftware.com', 2011), ('Tom', 'x@foo.com.au', 2011)])
+    make_clone(cache, 'r', [('David Glick', 'david@glicksoftware.test', 2011), ('Tom', 'x@foo.test', 2011)])
     text, _ = run(cache)
-    assert '| david-glick | glick-software | 2011 | 1 | glicksoftware.com | name |' in text
+    assert '| david-glick | glick-software | 2011 | 1 | glicksoftware.test | name |' in text
     paths.ORGANISATIONS.write_text(paths.ORGANISATIONS.read_text(encoding='utf-8').replace(
         'glick-software,Glick Software,organisation,,,\n', ''), encoding='utf-8')
     text, _ = run(cache)
-    assert 'glicksoftware.com' not in text  # unmapped and the person's own
+    assert 'glicksoftware.test' not in text  # unmapped and the person's own
 
 
 def test_the_foo_and_andersonleeb_cases(setup):
-    write_people(PEOPLE + [('tom-comer', 'Tom Comer', ''), ('jane-leeb', 'Jane Leeb', '')], IDENTITIES)
+    write_people(PEOPLE + [('tom-comer', 'Tom Comer', ''), ('jane-fooleeb', 'Jane Fooleeb', '')], IDENTITIES)
     cache = setup / CLONES
-    make_clone(cache, 'r', [('Tom Comer', 'tom@foo.com.au', 2011), ('Jane Leeb', 'jane@andersonleeb.com', 2011)])
+    make_clone(cache, 'r', [('Tom Comer', 'tom@foo.test', 2011), ('Jane Fooleeb', 'jane@bigfooleeb.test', 2011)])
     text, _ = run(cache)
-    assert '| foo.com.au | 1 | 2011 | 1 |' in text  # reported as unmapped, not dropped silently
-    assert 'andersonleeb.com' not in text
+    assert '| foo.test | 1 | 2011 | 1 |' in text  # reported as unmapped, not dropped silently
+    assert 'bigfooleeb.test' not in text
 
 
 def test_proposals_runs_evidence_and_unmapped(setup):
     cache = setup / CLONES
     work, _ = make_clone(cache, 'plone.app.x', [
-        ('Hanno Schlichting', 'hanno@greenfinity.hu', 2016),
-        ('Hanno Schlichting', 'hanno@greenfinity.hu', 2017),
-        ('Hanno Schlichting', 'hanno@greenfinity.hu', 2017),
-        ('Hanno Schlichting', 'hanno@greenfinity.hu', 2019),
-        ('Hanno Schlichting', 'hanno@hannosch.eu', 2016),  # own domain
-        ('Hanno Schlichting', 'hanno@gmail.com', 2016),  # personal
+        ('Hanno Schlichting', 'hanno@greenfinity.test', 2016),
+        ('Hanno Schlichting', 'hanno@greenfinity.test', 2017),
+        ('Hanno Schlichting', 'hanno@greenfinity.test', 2017),
+        ('Hanno Schlichting', 'hanno@greenfinity.test', 2019),
+        ('Hanno Schlichting', 'hanno@schlichting.test', 2016),  # own domain
+        ('Hanno Schlichting', 'hanno@gmx.test', 2016),  # personal
         ('Hanno Schlichting', 'hanno@localhost', 2005),  # Subversion era
         ('Hanno Schlichting', 'hanno@widgets.test', 2018),  # alias
         ('Hanno Schlichting', 'hanno@mystery.test', 2018),  # unmapped
         ('Hanno Schlichting', 'hanno@mystery.test', 2019),
-        ('Stranger', 'x@greenfinity.hu', 2016),  # nobody
+        ('Stranger', 'x@greenfinity.test', 2016),  # nobody
         ('dependabot[bot]', '1+dependabot[bot]@users.noreply.github.com', 2016),
         # Imported from Subversion: the address was assigned by the migration, not used in 2008
-        ('Hanno Schlichting', 'hanno@greenfinity.hu', 2008, 'Imported\n\nsvn path=/plone.app.x/trunk/; revision=1\n'),
+        ('Hanno Schlichting', 'hanno@greenfinity.test', 2008, 'Imported\n\nsvn path=/plone.app.x/trunk/; revision=1\n'),
     ])
     text, added = run(cache)
     sha = sha_of(work, 0)
     assert added == []
-    assert (f'| hanno-schlichting | greenfinity | 2016-2017 | 3 | greenfinity.hu | name | '
+    assert (f'| hanno-schlichting | greenfinity | 2016-2017 | 3 | greenfinity.test | name | '
             f'plone.app.x@{sha[:10]} |') in text
     proposals, conflicts = address_proposals.propose(load_registry(), address_proposals.gather(
         [('plone.app.x', str(cache / 'plone' / 'plone.app.x.git'))],
@@ -276,18 +277,18 @@ def test_proposals_runs_evidence_and_unmapped(setup):
     assert [(p['organisation'], p['from'], p['to'], p['commits']) for p in proposals] == [
         ('acme', 2018, 2018, 1), ('greenfinity', 2016, 2017, 3), ('greenfinity', 2019, 2019, 1)]
     green = proposals[1]
-    assert green['evidence'] == (f'Company address @greenfinity.hu in commits 2016-2017 '
+    assert green['evidence'] == (f'Company address @greenfinity.test in commits 2016-2017 '
                                  f'(example: https://github.com/plone/plone.app.x/commit/{sha})')
     assert conflicts == []
     assert '## Proposals' in text and '## Conflicts' in text and '## Unmapped domains' in text
     assert '| mystery.test | 2 | 2018-2019 | 1 |' in text
-    assert 'hannosch.eu' not in text and 'gmail' not in text and 'localhost' not in text
+    assert 'schlichting.test' not in text and 'gmx' not in text and 'localhost' not in text
 
 
 def test_a_rejected_year_is_not_proposed_again(setup):
     cache = setup / CLONES
-    make_clone(cache, 'plone.app.x', [('Hanno Schlichting', 'hanno@greenfinity.hu', 2016),
-                                      ('Hanno Schlichting', 'hanno@greenfinity.hu', 2017)])
+    make_clone(cache, 'plone.app.x', [('Hanno Schlichting', 'hanno@greenfinity.test', 2016),
+                                      ('Hanno Schlichting', 'hanno@greenfinity.test', 2017)])
     with open(paths.AFFILIATIONS, 'a', encoding='utf-8') as f:
         f.write('a00000001,hanno-schlichting,greenfinity,2016,2016,denied,,the year of a change\n')
     text, _ = run(cache)
@@ -298,7 +299,7 @@ def test_a_rejected_year_is_not_proposed_again(setup):
 def test_covered_year_splits_the_run_and_other_organisation_conflicts(setup):
     write_affiliations(('jane-doe', 'greenfinity', 2016, 2016), ('jane-doe', 'oldco', 2018, 2018))
     cache = setup / CLONES
-    make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.hu', y) for y in (2015, 2016, 2017, 2018)])
+    make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.test', y) for y in (2015, 2016, 2017, 2018)])
     text, _ = run(cache)
     proposals, conflicts = address_proposals.propose(load_registry(), address_proposals.gather(
         [('r', str(cache / 'plone' / 'r.git'))], address_proposals.Finder(load_registry(), []), 2002)[0])
@@ -311,9 +312,9 @@ def test_covered_year_splits_the_run_and_other_organisation_conflicts(setup):
 def test_example_is_the_earliest_commit_and_each_run_has_its_own(setup):
     cache = setup / CLONES
     # repository "a" sorts first, but its commit is later than the one in "b"
-    work_a, _ = make_clone(cache, 'a', [('Jane Doe', 'jane@greenfinity.hu', '2015-09-01T00:00:00Z'),
-                                        ('Jane Doe', 'jane@greenfinity.hu', '2017-03-01T00:00:00Z')])
-    work_b, _ = make_clone(cache, 'b', [('Jane Doe', 'jane@greenfinity.hu', '2015-02-01T00:00:00Z')])
+    work_a, _ = make_clone(cache, 'a', [('Jane Doe', 'jane@greenfinity.test', '2015-09-01T00:00:00Z'),
+                                        ('Jane Doe', 'jane@greenfinity.test', '2017-03-01T00:00:00Z')])
+    work_b, _ = make_clone(cache, 'b', [('Jane Doe', 'jane@greenfinity.test', '2015-02-01T00:00:00Z')])
     text, _ = run(cache, write=True)
     rows = proposed()
     assert [(r['from'], r['to']) for r in rows] == [(2015, 2015), (2017, 2017)]
@@ -324,23 +325,23 @@ def test_example_is_the_earliest_commit_and_each_run_has_its_own(setup):
 def test_a_covered_block_of_several_years(setup):
     write_affiliations(('jane-doe', 'greenfinity', 2015, 2017))
     cache = setup / CLONES
-    make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.hu', y) for y in range(2014, 2020)])
+    make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.test', y) for y in range(2014, 2020)])
     run(cache, write=True)
     assert [(r['from'], r['to']) for r in proposed()] == [(2014, 2014), (2018, 2019)]
 
 
 def test_since(setup):
     cache = setup / CLONES
-    make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.hu', y) for y in (2005, 2010)])
+    make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.test', y) for y in (2005, 2010)])
     text, _ = run(cache, since=2008)
-    assert '| jane-doe | greenfinity | 2010 | 1 | greenfinity.hu | name |' in text
+    assert '| jane-doe | greenfinity | 2010 | 1 | greenfinity.test | name |' in text
     assert '2005' not in text
 
 
 def test_person_option(setup):
     cache = setup / CLONES
-    make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.hu', 2015),
-                            ('Hanno Schlichting', 'hanno@bubblenet.be', 2015),
+    make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.test', 2015),
+                            ('Hanno Schlichting', 'hanno@bubblenet.test', 2015),
                             ('Hanno Schlichting', 'hanno@mystery.test', 2015)])
     text, _ = run(cache, people=['hanno-schlichting'])
     assert 'bubblenet' in text and 'jane-doe' not in text and 'mystery.test' in text
@@ -350,23 +351,22 @@ def test_person_option(setup):
 
 def test_write_appends_once_and_stays_valid(setup):
     cache = setup / CLONES
-    work, _ = make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.hu', y) for y in (2015, 2016)])
+    work, _ = make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.test', y) for y in (2015, 2016)])
     _, added = run(cache, write=True)
     assert len(added) == 1
     url = f'https://github.com/plone/r/commit/{sha_of(work, 0)}'
     aid = affiliation_id('jane-doe', 'greenfinity', 2015, 2016)
     assert proposed() == [{'id': aid, 'person': 'jane-doe', 'organisation': 'greenfinity', 'from': 2015, 'to': 2016,
                            'status': 'proposed', 'checked': None,
-                           'notes': f'Company address @greenfinity.hu in commits 2015-2016 (example: {url})'}]
+                           'notes': f'Company address @greenfinity.test in commits 2015-2016 (example: {url})'}]
     # The example commit is captured from the clone as the source the proposal cites
     sid = source_id(url)
     assert [r for r in read_rows(paths.CITATIONS) if r['affiliation'] == aid] == [
-        {'affiliation': aid, 'source': sid, 'snippet': f'Author: Jane Doe <{mask_address("jane@greenfinity.hu", True)}>',
-         'supersedes': None,
-         'notes': None}]
+        {'affiliation': aid, 'source': sid, 'snippet': AUTHOR, 'supersedes': None, 'notes': None}]
     source = load_sources()[sid]
     assert (source.kind, source.url, source.date) == ('commit', url, datetime.date(2015, 6, 1))
-    assert read_excerpt(sid).startswith(f'Author: Jane Doe <{mask_address("jane@greenfinity.hu", True)}>\nDate: 2015-06-01')
+    assert read_excerpt(sid).startswith(f'{AUTHOR}\nDate: 2015-06-01')
+    assert_no_raw_addresses()
     _, again = run(cache, write=True)
     assert again == []
     assert len(proposed()) == 1
@@ -376,7 +376,7 @@ def test_write_appends_once_and_stays_valid(setup):
 
 def test_a_proposal_whose_commit_is_not_captured_is_listed_not_written(setup, monkeypatch):
     cache = setup / CLONES
-    make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.hu', 2015)])
+    make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.test', 2015)])
 
     def fail(url, email, **options):
         raise CaptureError(f'{url}: could not be fetched')
@@ -390,7 +390,7 @@ def test_a_proposal_whose_commit_is_not_captured_is_listed_not_written(setup, mo
 
 def test_no_write_captures_nothing(setup):
     cache = setup / CLONES
-    make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.hu', 2015)])
+    make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.test', 2015)])
     before = paths.SOURCES.read_text(encoding='utf-8')
     text, _ = run(cache)
     assert paths.SOURCES.read_text(encoding='utf-8') == before
@@ -399,7 +399,7 @@ def test_no_write_captures_nothing(setup):
 
 def test_no_write_leaves_the_file_alone(setup):
     cache = setup / CLONES
-    make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.hu', 2015)])
+    make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.test', 2015)])
     before = paths.AFFILIATIONS.read_text(encoding='utf-8')
     run(cache)
     assert paths.AFFILIATIONS.read_text(encoding='utf-8') == before
@@ -412,7 +412,7 @@ def test_missing_cache_names_the_command(setup):
 
 def test_main_prints_the_report(setup, capsys):
     cache = setup / CLONES
-    make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.hu', 2015)])
+    make_clone(cache, 'r', [('Jane Doe', 'jane@greenfinity.test', 2015)])
     address_proposals.main(['--cache', str(cache)])
     assert '## Proposals' in capsys.readouterr().out
 
