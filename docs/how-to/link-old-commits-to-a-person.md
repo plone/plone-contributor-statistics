@@ -33,7 +33,7 @@ person,kind,value,source,snippet,notes
 jane-doe,email,name@localhost,0123456789ab,name@localhost,Same name in commits linked to this account
 ```
 
-- Use the kind `email`. For an address of GitHub's own forms or of the Subversion years, such as `name@localhost`, write it in lower case. For any other address, write the masked address (see {ref}`masked-addresses`), which `python -m scripts.tools.mask_address jane.doe@kitconcept.example` prints: the first form, `h-<hash>`, is the value, and the second, `h-<hash>@kitconcept.example`, is how the excerpt and the snippet quote a company address. `make check` rejects a raw address as the value.
+- Use the kind `email`. For an address of GitHub's own forms or of the Subversion years, such as `name@localhost`, write it in lower case. For any other address, write the masked address (see {ref}`masked-addresses`), which `python -m scripts.tools.mask_address jane.doe@kitconcept.example` prints: the first form, `h-<hash>`, is the value, the second, `h-<hash> (an address at kitconcept.example)`, is how a note names a company address, and the third, `h-<hash>@kitconcept.example`, is how the excerpt and the snippet quote it. `make check` rejects a raw address as the value.
 - `source` is the id of the source that the tool printed, and `snippet` the words of its excerpt that make the connection, such as the address; leave the snippet empty when the excerpt has no such words.
 - In `notes`, say how you know: the same name in commits that are linked to the account, an entry in the credits, the account profile, or a confirmation by the person in public.
 - A person with a GitHub account is counted under their login, a person without one as `person:<id>`.

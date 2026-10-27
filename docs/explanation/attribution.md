@@ -185,7 +185,7 @@ The excerpts in `curated/sources/excerpts/`, and the snippets of identities and 
 In the `notes` of the registers, an address of a company reads `h-<hash> (an address at kitconcept.example)`, so that the evidence stays with the note.
 Addresses of the Subversion and CVS years, such as `name@localhost`, whose local part is the Subversion login, GitHub noreply addresses and a short list of addresses that are no person's stay as they are.
 
-`python -m scripts.tools.mask_address` prints both forms of an address; `make check` rejects an `email` identity that isn't masked.
+`python -m scripts.tools.mask_address` prints the three forms of an address, for identities, for notes and for snippets; `make check` rejects an `email` identity that isn't masked.
 The Git history was not rewritten, and a request to erase one address is handled one by one.
 
 ## Small mistakes are caught by checks
