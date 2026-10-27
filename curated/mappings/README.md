@@ -7,7 +7,7 @@ Ids are opaque and never renamed; add a person with `python -m scripts.tools.per
 |---|---|
 | `people.csv` | One row per person, with an id. |
 | `identities.csv` | The GitHub login a person is counted under, further GitHub accounts, commit email addresses, spellings of the name and further handles (`svn`, `irc`, `discourse`), each citing its source; an early commit address may instead say in `notes` what it rests on. |
-| `affiliations.csv` | The organisation of a person for a range of years, with a status: `stated`, `assumed` (a range beyond its records), `denied` (a proposal a reviewer turned down) or `proposed` (never counted). Rows may overlap; the attribution rules compute the organisation of each year, and a year that no row covers, or that no rule decides (an open case), counts as Unmapped. |
+| `affiliations.csv` | The organisation of a person for a range of years, with a status: `stated`, `assumed` (a range beyond its records), `denied` (a proposal a reviewer turned down) or `proposed` (never counted). Rows may overlap; the attribution rules compute the organisation of each year, and a year that the rules give no organisation, because no row covers it and no bridge fills it, or because no rule decides it (an open case), counts as Unmapped. |
 | `citations.csv` | The sources each affiliation rests on, one row per source and passage, with the passage verbatim as the snippet. |
 | `organisations.csv` | One row per organisation, with an id, a name and a kind. |
 | `bot_accounts.csv` | GitHub accounts that are bots. |

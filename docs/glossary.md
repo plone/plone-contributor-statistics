@@ -14,7 +14,7 @@ myst:
 affiliation
     A row of `curated/mappings/affiliations.csv`: a person belonged to an organisation from one year to another, as its {term}`citations <citation>` show.
     Its status is `stated`, `assumed`, `denied` or `proposed`.
-    The organisation of a person in a year is computed from the affiliations that cover it by the {ref}`attribution rules <explanation-attribution-rules>`, and a year that no affiliation covers is {term}`Unmapped`.
+    The organisation of a person in a year is computed from the affiliations by the {ref}`attribution rules <explanation-attribution-rules>`, and a year that the rules give no organisation is {term}`Unmapped`.
 
 bridging
     Rule 5 of the {ref}`attribution rules <explanation-attribution-rules>`: two years that stated affiliations of one organisation cover also cover the years between them, when no stated row of another organisation and no denied row of the same one covers any of them.
@@ -106,7 +106,7 @@ source
     A page, profile, commit, video or decision in the source register `curated/sources/sources.csv`, captured once with the passages we cite in its excerpt file.
 
 Unmapped
-    The group of contributors whose year no {term}`affiliation` covers, or whose year is an {term}`open case`.
+    The group of contributors whose year the {ref}`attribution rules <explanation-attribution-rules>` give no organisation: no counting {term}`affiliation` covers it and no {term}`bridging` fills it, or it is an {term}`open case`.
     Their work counts for no organisation.
     Unmapped is not an organisation and is not ranked among organisations.
 ```

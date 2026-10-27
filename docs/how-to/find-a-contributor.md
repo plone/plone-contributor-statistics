@@ -13,7 +13,7 @@ If you know the login, search the contributor files of all years:
 grep -i "^janedoe," collected/contributors/*-plone-contributors.csv
 ```
 
-Each file name shows a year in which the person contributed, and the line after it lists the repositories they worked on.
+Each match starts with the file name, which shows a year in which the person contributed; the rest of the line lists the repositories they worked on.
 `-i` ignores case, because the files keep the login in the case it has on GitHub.
 
 To see who the person is and which organisations they belonged to, find them in the register:

@@ -52,7 +52,7 @@ An affiliation is a reading of its sources, and its status says what kind of rea
 
 The organisation of a person in a year is computed from the affiliations that cover the year, by the rules in the next section.
 There is no default.
-A year that no row covers is Unmapped.
+A year that no row covers and no bridge fills (rule 5) gets no organisation, and is Unmapped.
 Today's organisation is a row with an empty last year, so it runs up to the present, and a row for a past organisation is a row like any other.
 `Unmapped` is never written as an organisation, because a gap in the rows says the same.
 A person who changed organisations has one row for each, and the organisation statistics, which are built year by year, count the person for the old organisation in the old years and for the new one in the new years ([#16](https://github.com/plone/plone-contributor-statistics/issues/16)).
@@ -139,7 +139,7 @@ The statistics, the community page and `python -m scripts.tools.affiliation` all
 
 ## Unmapped is not an organisation
 
-A person without an affiliation row for a year is Unmapped in that year.
+A person whose year the rules give no organisation is Unmapped in that year: no affiliation row covers it and no bridge fills it, or it is an open case.
 Unmapped and independent contributors are two different groups ([#53](https://github.com/plone/plone-contributor-statistics/issues/53)).
 Independent contributors are mapped: they chose to contribute on their own, and their organisation has the kind `independent`.
 Unmapped contributors are not mapped yet, and their affiliation is simply unknown.

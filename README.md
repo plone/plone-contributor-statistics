@@ -12,7 +12,7 @@ The commits and pull requests are public on GitHub.
 Every attribution to a person or an organisation, and every row of curated community data, needs a public record: a web page, an archived page, a register entry, a conference biography, a public commit, or a public confirmation by the person.
 A memory alone is not enough; without a public record, an entry stays out, and a contributor stays Unmapped.
 The one exception is identifying the people behind early CVS and Subversion commit addresses, where public records are often impossible; there, the notes of the identity say what the identification rests on.
-Some sources in the register could not be captured yet; their excerpt says so, and the attribution rules leave them out.
+Some sources in the register could not be captured yet; their excerpt says so, and the tie-breaks of the attribution rules that weigh dated sources leave them out.
 
 The documentation explains where the data comes from, how it is counted, and why.
 It is for:

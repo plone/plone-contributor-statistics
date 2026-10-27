@@ -11,8 +11,8 @@ each person and year:
    organisation of the person (the `github` column of organisations.csv).
 
 The people are those with a login and an `assumed` affiliation, or those given with --person. The
-years are those of the rows in which the person has commits or pull requests in the collected data, before 2026
-(--all-years takes every year of the rows). Every
+years are those of the rows in which the person has commits or pull requests in the collected data (--all-years
+takes every year of the rows); years after 2025 are never queried. Every
 response is cached, so that an interrupted run resumes. With --write, the example commit of each proposal is
 captured as a source (curated/sources/), and the proposal goes to curated/mappings/affiliations.csv as a
 `proposed` row citing it, with the author line of the commit as the snippet; a commit found by query 2 is cited

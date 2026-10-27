@@ -37,7 +37,7 @@ No pull requests before about 2011
 
 Organisations of the early years are mostly unknown
 :   Few affiliations before 2010 are known with a source ([#70](https://github.com/plone/plone-contributor-statistics/issues/70)).
-    A year that no affiliation row covers is Unmapped, so early organisation statistics show many Unmapped contributors.
+    A year that the attribution rules give no organisation is Unmapped, so early organisation statistics show many Unmapped contributors.
     The migration to the registers wrote the result of the old default, today's organisation for every year, as explicit rows; those that only the old default produced have the status `assumed`, cover only the years in which the person has commits, pull requests or a community role, count only in years that no stated row covers and no bridge fills, and stay until a record verifies or replaces them ([#139](https://github.com/plone/plone-contributor-statistics/issues/139)).
     The email addresses of the Subversion period don't help, because the conversion to Git assigned them ({doc}`history-and-coverage`).
 

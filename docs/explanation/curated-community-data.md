@@ -104,7 +104,7 @@ Several kinds of curated data depend on a definition, and the definitions follow
   A team can have several leaders in a year.
   Board committees such as the IP or Trademark Committee, programmes such as Google Summer of Code, and the Release Team, whose release managers count on their own, are not teams in this sense.
 - An appointment by the Board counts until a source records a successor or an end.
-- A podcast or live series is recorded with one row per host and year, and the number of episodes the host took part in; every series is recorded, also with fewer episodes. The recognition counts it through the hosts with at least five episodes in the year, see {doc}`community-recognition`.
+- A podcast or live series is recorded with one row per host and year, and the number of episodes the host took part in; every series is recorded, also with fewer episodes, and a series without a known host has one row with an empty `person`. The recognition counts it through the hosts with at least five episodes in the year, see {doc}`community-recognition`.
 - A World Plone Day talk is a video of the type `Talk`; teasers, streams, openings and podcast episodes are recorded, but are not talks.
   A full stream doesn't count when its parts are published as talks of their own.
   Only people speak: a talk counts for the organisations of its speakers, which the affiliations give for the year.

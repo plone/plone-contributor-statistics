@@ -1,11 +1,11 @@
 """The organisation a person counts for in a year, computed from the affiliations and the sources they cite.
 
-The rules are those of docs/explanation/attribution.md, in this order: 1 proposed ignored, denied removes its
-organisation; 2 the rules — one organisation left (stated over assumed), change year, bridging, tie-breaks 6a–6d;
-3 decisions settle only what the rules leave open; 4 conflict. In detail, with the numbers of attribution.md:
+The rules are those of docs/explanation/attribution.md, with its numbers: rule 1 proposals and denials; rules 2 to 6
+the rules proper (bridging, rule 5, is computed first, because its years count as stated years for rules 2, 3, 4 and
+6); rule 7 decisions, which settle only what rules 2 to 6 leave open; rule 8 conflict. In detail:
 
-1. A `proposed` row is ignored. A `denied` row removes its organisation from its years; a denied row without an
-   organisation (a reviewed "stays Unmapped") is ignored here.
+1. A `proposed` row is ignored. A `denied` row removes its organisation from its years; the schema requires the
+   organisation, and a denied row without one would be ignored here.
 2. Stated over assumed: when stated rows (or bridged years, rule 5) cover the year, the assumed ones drop out of
    the rules below, also for the years around it in rule 4.
 3. One organisation: if one organisation is left, it counts.

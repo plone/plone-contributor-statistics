@@ -77,7 +77,7 @@ The organisation is the one the affiliations give the person for the year, see {
 The card also lists the person's talks of the year, at conferences and on World Plone Day, each title linked to its recording where one exists, with the event in brackets when they spoke at more than one; talks count as community work like any role, and conference talks earn no recognition points, see {doc}`curated-community-data`.
 A name finds the person through the register, see "People active" above.
 The card pages to the nearest earlier and later years in which the person was active, and says so when the chosen year isn't one of them.
-Below the search, the page shows for the chosen year how many people made one, two to nine, ten to 49, or 50 and more merged pull requests, and how many commits, without names.
+Below the search, the page shows for the chosen year how many people made one, two to nine, ten to 49, or 50 and more merged pull requests, and the same for commits, without names.
 
 ## History
 

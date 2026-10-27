@@ -125,7 +125,7 @@ A decision settles only what the rules leave open: when the rules decide the yea
 
 A company address in the commits of a person is evidence for the years of those commits, see {doc}`/explanation/attribution`.
 Run the tool when you want candidates for affiliations without reading the history yourself.
-It reads the author of every commit in the cached clones of the plone repositories, so it works offline; `make run-changelogs` fills the cache, in `.cache/repositories/` of the current directory, which `--cache` changes.
+It reads the author of every commit in the cached clones of the plone repositories, so it works offline; `make run-changelogs` fills the cache in `.cache/repositories/` of the current directory; `--cache` makes the tool read another folder.
 
 ```shell
 python -m scripts.tools.address_proposals                  # the report only

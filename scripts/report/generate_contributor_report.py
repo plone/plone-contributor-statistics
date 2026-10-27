@@ -3,8 +3,8 @@
 Comprehensive Contributor and Organization Report Generator
 
 Generates a markdown report combining individual contributor and organization
-statistics across multiple time periods (current year, last full year,
-3-year and 10-year summaries), and the changelog entries of 2004-2012 (#71).
+statistics of the last full year and of the past three, five and ten years up
+to it, and the changelog entries of 2004-2012 (#71).
 """
 
 import argparse

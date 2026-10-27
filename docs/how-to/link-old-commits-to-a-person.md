@@ -61,7 +61,7 @@ Names that no identity links to a person count as written, see {doc}`/explanatio
     ```
 
     It reads the changelogs from the clones in `.cache/repositories/` of the current directory, so run `make run-changelogs` first.
-    Without clones it lists no names, and says nothing about it; in a worktree, see {doc}`/explanation/known-limitations`.
+    Without clones it reports `0 changelog names without a mapping`, without saying that the clones are missing; in a worktree, see {doc}`/explanation/known-limitations`.
     It lists the names of 2004 to 2012; `--from-year` and `--to-year` choose other years.
 
 2.  Let the tool propose people from the commits whose message repeats an entry with the name:
