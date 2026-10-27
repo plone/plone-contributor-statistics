@@ -39,7 +39,7 @@ COMMITS = {'Products.CMFPlone': [
     commit('c2', 'AMITCH@Acme.test', 'Alec Mitchell', 'Made the navigation tree work with very deep folder '
            'structures. Refs #123'),
     commit('c3', 'hanno@widgets.test', 'Hanno Schlichting', 'Fixed the sharing tab for groups with special characters'),
-    commit('c4', 'limi@plone.org', 'Alexander Limi', 'Added a test for the login form and the logout view'),
+    commit('c4', 'limi@plone.test', 'Alexander Limi', 'Added a test for the login form and the logout view'),
 ]}
 
 
