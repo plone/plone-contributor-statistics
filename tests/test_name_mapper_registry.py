@@ -64,7 +64,7 @@ def test_first_name_without_identity_is_unmatched():
 
 def test_local_part_of_an_ordinary_address_does_not_resolve():
     mapper = make_mapper(identities=[Identity('runyaga', 'email', 'pat@example.org', 'https://example.org/y')])
-    assert mapper.map('tiran') == ('tiran', 'unmatched')
+    assert mapper.map('pat') == ('pat', 'unmatched')
 
 
 def kims(logins=()):
