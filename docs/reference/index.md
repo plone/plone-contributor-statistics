@@ -1,8 +1,8 @@
 ---
 myst:
   html_meta:
-    "description": "Data sources, files, registers and Make targets of the Plone contributor statistics."
-    "property=og:description": "Data sources, files, registers and Make targets of the Plone contributor statistics."
+    "description": "Data sources, files, registers, Make targets and tools of the Plone contributor statistics."
+    "property=og:description": "Data sources, files, registers, Make targets and tools of the Plone contributor statistics."
     "property=og:title": "Reference"
 ---
 
@@ -10,7 +10,7 @@ myst:
 
 # Reference
 
-These pages list the data sources, the files in the repository, and the Make targets.
+These pages list the data sources, the files in the repository, the Make targets and the tools.
 They describe what exists, not why.
 
 ```{toctree}
@@ -22,4 +22,5 @@ curated-files
 mapping-files
 recognition-files
 make-targets
+tools
 ```
