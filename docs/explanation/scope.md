@@ -23,6 +23,7 @@ How to count Zope and the other projects of the Plone Foundation is not decided 
 ## Commits and merged pull requests
 
 Two things are counted for each person: commits and merged pull requests.
+For the years before pull requests, the changelog entries are counted as well, and shown next to them, see {doc}`counting-rules`.
 
 A commit is the smallest unit of authored code.
 Only commits that reached the default branch count, together with the older history that some repositories keep only on release branches.
@@ -32,7 +33,7 @@ A pull request counts only when it was merged.
 A merged pull request is a contribution that the project accepted.
 Open and rejected pull requests are left out, so the numbers reflect the code that Plone actually contains.
 
-{doc}`counting-rules` explains the details: which date decides the year, why merge commits don't count, and how bots are recognized.
+{doc}`counting-rules` explains the details: which date decides the year, why merge commits don't count, and how bots are recognised.
 
 ## Engagement is counted separately
 
@@ -64,15 +65,20 @@ flowchart LR
     gh --> interactions[PR interactions per year]
     gh --> changelogs[Changelog entries per year]
     changelogs --> orgs
+    gh --> domains[Commit domains per year]
+    domains --> mapping
     plips[PLIPs] --> recognition[Community recognition]
     curated[Curated community data] --> recognition
-    summaries --> recognition
+    orgs --> recognition
+    mapping --> recognition
+    orgs --> page[Community page]
+    recognition --> page
 ```
 
 The collectors write one file per year.
 The {doc}`organisation mapping <attribution>` then turns people into organisations, year by year.
 Summaries and reports are built from those files and never query GitHub themselves.
-This is why a corrected mapping needs no new collection, only a regeneration.
+This is why a corrected affiliation needs no new collection, only a regeneration; a new identity needs the collectors that map it, see {doc}`/how-to/regenerate-after-a-mapping-change`.
 
 ```{seealso}
 {doc}`/reference/data-sources` lists every source with the years it covers.

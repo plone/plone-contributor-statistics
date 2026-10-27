@@ -14,7 +14,10 @@ myst:
 affiliation
     A row of `curated/mappings/affiliations.csv`: a person belonged to an organisation from one year to another, as its {term}`citations <citation>` show.
     Its status is `stated`, `assumed`, `denied` or `proposed`.
-    The organisation of a person in a year is computed from the affiliations that cover it, and a year that no affiliation covers is {term}`Unmapped`.
+    The organisation of a person in a year is computed from the affiliations that cover it by the {ref}`attribution rules <explanation-attribution-rules>`, and a year that no affiliation covers is {term}`Unmapped`.
+
+bridging
+    Rule 5 of the {ref}`attribution rules <explanation-attribution-rules>`: two years that stated affiliations of one organisation cover also cover the years between them, when no stated row of another organisation and no denied row of the same one covers any of them.
 
 bot account
     A GitHub account that is not a person, such as a continuous integration bot or a GitHub App.
@@ -30,8 +33,8 @@ curated data
     Curated data lives in `curated/`.
 
 decision
-    A public comment on an issue or pull request of this repository that says which organisation a year of a person counts for, where the records disagree.
-    It is a {term}`source` of the kind `decision`, and the affiliation it chooses cites it.
+    A public comment that says which organisation a year of a person counts for, where the {ref}`attribution rules <explanation-attribution-rules>` leave it open.
+    It is captured as a {term}`source` of the kind `decision`, and the affiliation it chooses cites it.
 
 default branch
     The main branch of a repository on GitHub, for example `main` or `master`.
@@ -44,13 +47,16 @@ event
 event kind
     The `kind` of an {term}`event`: `conference` for the Plone Conference of a year, `symposium` for a regional conference, `wpd` for a World Plone Day event of one place, held in person, hybrid or online, or the online edition of a year, and `sprint` for a sprint.
 
+excerpt
+    The file `curated/sources/excerpts/<id>.md` of a {term}`source`: the passages cited from it, written by the capture tool, see {doc}`/how-to/capture-a-source`.
+
 excluded repository
     A repository of the `plone` GitHub organisation that the statistics skip.
     Each one is listed with a reason in `curated/mappings/excluded_repositories.csv`.
 
 identity
-    A string that denotes a person in the data: the GitHub login the person is counted under (kind `github`), a further GitHub account (`github-alias`), a commit email address (`email`) or a spelling of the name (`name`).
-    Identities are listed in `curated/mappings/identities.csv`, each with the id of its person and the {term}`source` that connects them.
+    A string that denotes a person in the data: the GitHub login the person is counted under (kind `github`), a further GitHub account (`github-alias`), a commit email address (`email`) or a spelling of the name (`name`), and further handles that the collectors don't read (`svn`, `irc`, `discourse`).
+    Identities are listed in `curated/mappings/identities.csv`, each with the id of its person and the {term}`source` that connects them; an early commit address may instead have notes that say what it rests on.
 
 independent contributor
     A self-employed person or volunteer whose organisation has the kind `independent` in `curated/mappings/organisations.csv`, for example `Name (independent)`.
@@ -59,6 +65,10 @@ independent contributor
 merge commit
     A commit with more than one parent, created when a branch or pull request is merged.
     The statistics don't count merge commits.
+
+open case
+    A person and year that no {ref}`attribution rule <explanation-attribution-rules>` decides and no {term}`decision` settles.
+    It counts as {term}`Unmapped`, and `make check` warns about it.
 
 organiser
     A person or an organisation that organised an {term}`event`, one row of `curated/community/organisers.csv` with exactly one of the two.
@@ -96,7 +106,7 @@ source
     A page, profile, commit, video or decision in the source register `curated/sources/sources.csv`, captured once with the passages we cite in its excerpt file.
 
 Unmapped
-    The group of contributors without an {term}`affiliation` for the year.
+    The group of contributors whose year no {term}`affiliation` covers, or whose year is an {term}`open case`.
     Their work counts for no organisation.
     Unmapped is not an organisation and is not ranked among organisations.
 ```

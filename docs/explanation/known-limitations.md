@@ -14,10 +14,17 @@ Commits of unidentified authors don't count
     Early years may undercount people, especially the early core developers.
 
 People without an affiliation are Unmapped
-:   A person has an organisation only in the years that an affiliation row covers.
+:   A person has an organisation only in the years that the attribution rules give one: years that an affiliation row covers, or that a bridge between two records of one organisation fills.
     People without any row, among them many people without a GitHub account, are Unmapped.
 
-Duplicates are recognized by date and message
+Open cases are Unmapped
+:   A year in which the records name several organisations and no rule or decision decides is an open case, and counts as Unmapped until a decision settles it; `make check` warns about each ({ref}`explanation-attribution-rules`).
+
+Bridging credits years that no record names
+:   Two records of one organisation cover the years between them, however many they are, when no record names another organisation in between.
+    This is a convention of the yearly statistics, and a bridged year can count for an organisation that the person had left for a while without a public record of it ({doc}`attribution`).
+
+Duplicates are recognised by date and message
 :   Two different commits in one repository with the same author date and message would count as one.
 
 The early commit history is uneven
@@ -31,7 +38,7 @@ No pull requests before about 2011
 Organisations of the early years are mostly unknown
 :   Few affiliations before 2010 are known with a source ([#70](https://github.com/plone/plone-contributor-statistics/issues/70)).
     A year that no affiliation row covers is Unmapped, so early organisation statistics show many Unmapped contributors.
-    The migration to the registers wrote the result of the old default, today's organisation for every year, as explicit rows; those that only the old default produced are marked in `notes`, cover only the years in which the person has commits, pull requests or a community role, and stay until a record verifies or replaces them ([#139](https://github.com/plone/plone-contributor-statistics/issues/139)).
+    The migration to the registers wrote the result of the old default, today's organisation for every year, as explicit rows; those that only the old default produced have the status `assumed`, cover only the years in which the person has commits, pull requests or a community role, count only in years that no stated row covers and no bridge fills, and stay until a record verifies or replaces them ([#139](https://github.com/plone/plone-contributor-statistics/issues/139)).
     The email addresses of the Subversion period don't help, because the conversion to Git assigned them ({doc}`history-and-coverage`).
 
 Changelog names without a mapping
@@ -53,7 +60,7 @@ Zope and other Foundation projects are not counted
 
 Work outside GitHub is counted only where curated data exists
 :   Documentation outside GitHub, marketing, and help in the forum are not recorded ([#35](https://github.com/plone/plone-contributor-statistics/issues/35)).
-    Podcasts are recorded from 2020 on; conference organisers, trainings and sprints from 2003, Board members, release managers and team leaders from 2004, and World Plone Day from 2008 ([#72](https://github.com/plone/plone-contributor-statistics/issues/72)).
+    How far back each kind of curated data reaches is described in {ref}`curated-data-coverage` ([#72](https://github.com/plone/plone-contributor-statistics/issues/72)).
     Most World Plone Day events before 2020 are known only from their announcement.
 
 ## Counting
@@ -71,8 +78,16 @@ Changelog habits differ
 
 Changelog entries of organisations without code work in the year are not shown
 :   The organisation statistics have one row per organisation with commits or pull requests in the year.
-    An organisation whose people have changelog entries in a year, but no commits or pull requests, gets no row, and its entries are not shown; they remain in the yearly changelog file.
-    This affects a handful of entries per year.
+    An organisation whose people have changelog entries in a year, but no commits or pull requests, gets no row, and its entries are not shown, not even under Unmapped; they remain in the yearly changelog file ([#137](https://github.com/plone/plone-contributor-statistics/issues/137)).
+    This affects few entries.
+
+The collected changelog files are from before the registers
+:   The files in `collected/changelogs/` were collected before the registers, and their `matched_by` column still carries the layer names of that time, `commit_authors` and `fullname`, where the collector now writes `identity` ([#137](https://github.com/plone/plone-contributor-statistics/issues/137)).
+    The next `make run-changelogs` brings them to the current layers.
+
+Pull requests of deleted accounts count as Unmapped
+:   GitHub returns the author of a pull request whose account was deleted as the user `ghost`, and the collector counts these pull requests under the login `ghost`, as Unmapped ([#180](https://github.com/plone/plone-contributor-statistics/issues/180)).
+    Commits of deleted accounts are left out, as {doc}`counting-rules` says.
 
 The committer date decides the year
 :   A rebased or cherry-picked commit can count for a later year than the one in which it was written.
@@ -94,6 +109,23 @@ PLIPs
 
 Community recognition
 :   The levels published in August 2026 were calculated outside the repository, and they differ from the script's levels on the current data ({doc}`community-recognition`).
+    The script differs from the points file for community sprints, team leaders and podcasts, see {doc}`community-recognition` ([#56](https://github.com/plone/plone-contributor-statistics/issues/56)).
 
 Yearly activity
 :   `scripts/derive/yearly_activity_analysis.py` counts Unmapped as an organisation.
+
+## Sources and tools
+
+Source dates can lie in another year than the page
+:   An archived copy is dated by the day of its capture, which can lie years after the date the page itself shows, and the capture takes a placeholder date such as 2000-01-01 that a page shows ([#183](https://github.com/plone/plone-contributor-statistics/issues/183)).
+    Rules 6c and 6d of the attribution count the sources dated in a year, so such a date can move a source into another year.
+    These dates are corrected by hand when there is evidence for the right one, see {doc}`/how-to/capture-a-source`.
+
+The clones are those of the current directory
+:   The collectors and the tools that read the Git clones use `.cache/repositories/` of the current directory, not the shared cache of the main checkout that the capture uses, and `PLONE_STATS_CACHE` doesn't move them ([#182](https://github.com/plone/plone-contributor-statistics/issues/182)).
+    In a worktree, they find no clones: `python -m scripts.tools.address_proposals` stops with `No clones`, and `python -m scripts.tools.unmatched_changelog_names` reports no names without an error.
+    Run them from the main checkout, or pass `--cache` where a tool takes it.
+
+`make year` doesn't collect the changelog entries and the commit domains
+:   `make year` runs neither `make run-changelogs` nor `make run-commit-domains` ([#181](https://github.com/plone/plone-contributor-statistics/issues/181)).
+    Without them, the organisation file of the new year has no changelog entries, and rules 6b and 6c of the attribution have no commit domains for the year; {doc}`/how-to/prepare-a-new-year` names them as extra steps.

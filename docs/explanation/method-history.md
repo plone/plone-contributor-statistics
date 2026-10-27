@@ -50,6 +50,7 @@ Data and sources:
 - Strategic sprints, release managers and team leaders were aligned with the Board minutes and the team pages.
 - Overrides record the employers of people who moved, as confirmed by them or by public sources ([#47](https://github.com/plone/plone-contributor-statistics/pull/47), [#49](https://github.com/plone/plone-contributor-statistics/pull/49), [#55](https://github.com/plone/plone-contributor-statistics/pull/55)).
 - The conference trainings were checked against the conference websites ([#30](https://github.com/plone/plone-contributor-statistics/pull/30)).
+- The talks of the Plone Conferences from 2003 on were recorded; their speakers count as active people on the community page, and the person card lists them ([#170](https://github.com/plone/plone-contributor-statistics/pull/170), [#171](https://github.com/plone/plone-contributor-statistics/pull/171)).
 
 Collection:
 
@@ -66,6 +67,7 @@ Collection:
 - "Independent" had mixed self-employed people and volunteers with contributors whose affiliation was unknown, and in 2025 it showed up as one of the biggest organisations.
   It was split into Unmapped and named independent contributors, and Unmapped is no longer ranked ([#53](https://github.com/plone/plone-contributor-statistics/issues/53)).
 - All years from 2003 to 2025 were collected again with the fixed collector ([#65](https://github.com/plone/plone-contributor-statistics/pull/65)).
+- The mail domains of the commit authors are collected per person and year, as evidence for the tie-break by commits ([#173](https://github.com/plone/plone-contributor-statistics/pull/173)).
 
 Pull request interactions:
 
@@ -104,6 +106,8 @@ Tooling:
 - The community data moved from one file per year and kind to one file per kind in `curated/community/`: events with stable ids, the talks, trainings and organisers that point to them, and the roles with a `year` column.
   Every row cites the source register and keeps its old source cell verbatim in `cited_as`; the rows of each year kept their order, which decides which sprint and which talks count.
   An audit showed that no cell of the old files was lost, and the numbers didn't change.
+- Two records of one organisation now cover the years between them, however far apart, when no record names another organisation in between ([#164](https://github.com/plone/plone-contributor-statistics/pull/164)).
+  The bridged years are computed by the attribution rules, which are applied in a fixed order; a year that the rules leave open is an open case and counts as Unmapped until a decision settles it ([#179](https://github.com/plone/plone-contributor-statistics/pull/179)).
 
 ## Which files are comparable
 

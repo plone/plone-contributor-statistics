@@ -12,8 +12,8 @@ For each pull request, the collector counts the comments on the pull request, th
 Pending reviews that were never submitted don't count.
 It also records how many people took part, and how long it took until someone other than the author responded.
 
-The counts are kept per pull request, not per person.
-They describe how the project works together, but they don't credit anyone yet ([#61](https://github.com/plone/plone-contributor-statistics/issues/61)).
+The data file has one row per pull request.
+The yearly report lists the most active participants and reviewers, but no person or organisation gets credit or recognition for them yet ([#61](https://github.com/plone/plone-contributor-statistics/issues/61)).
 
 ## Every pull request counts, merged or not
 
@@ -26,7 +26,7 @@ Many of these pull requests were never merged, so the creation date is the one d
 
 ## Bots are left out
 
-Bots can open about a third of the pull requests in a year, most of them automated updates of tool versions.
+Bots can open a large share of the pull requests in a year, most of them automated updates of tool versions.
 Bot comments arrive within seconds and would make response times look like zero hours.
 Pull requests, comments and reviews by bots are therefore left out, with the same rules as for {doc}`commits <counting-rules>`.
 
