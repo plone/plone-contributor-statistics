@@ -3,18 +3,18 @@
 # Find a contributor
 
 This guide shows you how to find a person in the data, for example someone you worked with years ago.
-The data knows people by their GitHub login or, for a person without one, by their id in the register, such as `person:jane-doe`.
+The data knows people by their GitHub login or, for a person without one, as `person:` and their id in the register, such as `person:jane-doe`.
 
 ## Search by GitHub login
 
 If you know the login, search the contributor files of all years:
 
 ```shell
-grep -l "^janedoe," collected/contributors/*-plone-contributors.csv
+grep -i "^janedoe," collected/contributors/*-plone-contributors.csv
 ```
 
-Each file name shows a year in which the person contributed.
-The matching line lists the repositories they worked on.
+Each match starts with the file name, which shows a year in which the person contributed; the rest of the line lists the repositories they worked on.
+`-i` ignores case, because the files keep the login in the case it has on GitHub.
 
 To see who the person is and which organisations they belonged to, find them in the register:
 

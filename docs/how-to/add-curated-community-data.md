@@ -104,7 +104,7 @@ The roles have one row per person and year:
 -   `curated/community/board-of-directors.csv`: the `person` and the `role`, `voting` or `non-voting`, with the year in which the term ends as `year`;
 -   `curated/community/team-leaders.csv`: the `person` and the `team`;
 -   `curated/community/release-managers.csv`: the `person`;
--   `curated/community/podcasts.csv`: the `series`, the `person` who hosted it and the number of `episodes` in the year.
+-   `curated/community/podcasts.csv`: the `series`, the `person` who hosted it, empty when the source names no host, and the number of `episodes` that person took part in that year.
 
 ## Check and propose the change
 
@@ -116,7 +116,7 @@ The roles have one row per person and year:
     ```
 
     The checks name the file, the row and the column of every error, and suggest the nearest ids for one that does not exist.
-    They find an event, a person, an organisation or a source that does not exist, an organiser row with both or neither of person and organisation, a talk or a training at an event of the wrong kind, a talk whose `type` doesn't fit the kind of its event, a `cited_as` without a web address, an id that is taken, and a CSV file that has no schema, which nothing reads.
+    They find an event, a person, an organisation or a source that does not exist, an organiser row with both or neither of person and organisation, a talk or a training at an event of the wrong kind, a talk whose `type` doesn't fit the kind of its event, a `cited_as` without a web address, an event without a source, other than `plone-conference-<year>` and `wpd-<year>-online`, a World Plone Day event without its day as `start`, two sprints of a year with the same name, a training or an organiser that is there twice for an event, an id that is taken, and a CSV file that has no schema, which nothing reads.
 
 2.  Open a pull request and name the source in its description.
 

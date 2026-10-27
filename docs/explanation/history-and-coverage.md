@@ -1,6 +1,6 @@
 (explanation-history-and-coverage)=
 
-# Thirty years of history
+# History and coverage
 
 Plone's first commits date from 2002.
 Its history moved through three version control systems and several ways of working before it reached today's pull requests on GitHub.
@@ -61,7 +61,7 @@ The entries are collected for all years, but they say something of their own onl
 - **From 2016 on**, towncrier writes the entries from pull requests, mostly with the login of the pull request's author, so the entries repeat the pull request counts.
 
 The contributor report therefore shows the changelog entries of 2004 to 2012.
-The yearly files and the organisation statistics have them for all years.
+The yearly changelog files in `collected/changelogs/` and the organisation statistics have them for all years.
 
 Old changelogs often live in subfolders and on old release branches: the changelog of `Products.CMFPlone` moved between several files and folders over the years, and each release branch keeps the file of its time.
 Many early entries exist only on release branches, so the collector reads them as well, and counts each entry once.
@@ -81,18 +81,14 @@ Many records lack a date or the names of the implementers, and the Trac list is 
 
 The {doc}`affiliations <attribution>` record where people worked, and for which years.
 For the years before 2010, few affiliations are known with a source ([#70](https://github.com/plone/plone-contributor-statistics/issues/70)).
-The commits and pull requests of a person in a year that no affiliation covers are Unmapped, so the early years show many Unmapped contributors.
+The commits and pull requests of a person in a year that the {ref}`attribution rules <explanation-attribution-rules>` give no organisation are Unmapped, so the early years show many Unmapped contributors.
 
 The email addresses in commits from the Subversion period don't help here.
 The conversion to Git assigned them, not the developers at the time of the commit.
 Commits from 2002 already carry addresses at `jarn.com`, although Plone Solutions only announced its new name Jarn at the Plone Conference 2007 ([archived announcement](http://web.archive.org/web/20080124030609/http://www.jarn.com:80/)).
 A company address therefore counts as evidence for an organisation only in commits that developers made in Git.
 
-The curated data reaches back further for some kinds of work.
-The organising organisations of every Plone Conference since 2003 are recorded; the rows from 2003 to 2019 also name the organisers and a public source.
-Board members, release managers and team leaders are recorded with sources from 2004 on.
-Sprints are recorded from 2003, and World Plone Day from its first edition in 2008.
-Trainings are recorded from 2003, and podcasts start in 2020 ([#72](https://github.com/plone/plone-contributor-statistics/issues/72)).
+The curated data reaches back further for some kinds of work, see {ref}`curated-data-coverage`.
 
 ## Best effort, and how you can help
 

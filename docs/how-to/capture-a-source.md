@@ -6,7 +6,7 @@ This guide shows you how to put a web page into the source register, so that a r
 Do this when a fact rests on a page, a profile, a commit or a video, and you want the passage that supports it to stay readable even if the page changes or disappears.
 
 1.  Pick the quote: a sentence from the page that supports the fact, written as it stands there.
-    Typographic quotes, dashes, line breaks and non-breaking spaces do not matter, and `…` stands for text you skip.
+    Typographic quotes, dashes, line breaks and non-breaking spaces do not matter, and `…` stands for text you skip within one paragraph.
 
 2.  Capture the page with the tool.
     A GitHub profile, commit, issue, pull request or comment is read through the GitHub API, so set `GITHUB_TOKEN` in the environment for those; never pass a token on the command line.
@@ -23,7 +23,7 @@ Do this when a fact rests on a page, a profile, a commit or a video, and you wan
 
     The tool prints the id of the source, then one line for each passage it added.
     Repeat `--quote` for more passages of the same page.
-    At least one quote or name is required for a new source.
+    The tool needs at least one `--quote` or `--name`.
     When the cell that cites the page has no quote, only a label in our own words, give the name of the person or organisation with `--name` instead; repeat it for several names.
     The tool then stores the paragraph around the first place where the page names them, ignoring case and accents, and prints `! not found: <name>` for a name the page does not show.
     A GitHub profile, a commit and an issue or comment of this repository are stored whole in that case, whether or not the name is found.
@@ -32,7 +32,9 @@ Do this when a fact rests on a page, a profile, a commit or a video, and you wan
     A source that was never read is the exception, see {ref}`how-to-capture-a-source-not-read`.
     `--kind`, `--title` and `--date` override what the tool finds on the page.
     Give `--kind speaker-page` for the page of a speaker at a conference, because it is the person's own statement.
-    A live page is dated by `--date`, else by the date the page shows (a placeholder date such as 2000-01-01 doesn't count), else by the day of the capture.
+    A live page is dated by `--date`, else by the date the page shows, else by the day of the capture.
+    The tool takes any date the page shows, a placeholder date such as 2000-01-01 as well: check the date of the new row, and give the right one with `--date` when the page or another record shows it.
+    A wrong date of a source that is already in the register is corrected by hand when there is evidence for the right one, with that evidence in the `notes` of the source ([#183](https://github.com/plone/plone-contributor-statistics/issues/183)).
     The page of a conference is dated by the conference: pass the date of the conference as `--date` and cite the page that gives it in the `notes` of the source.
     A video is dated by `--date`, else by the day YouTube says it was uploaded, else by the day its caption tracks were downloaded.
     A Wayback copy is dated by `--date`, else by the day of its capture; a date the page shows is not trusted for it, and a different one is kept in the `notes` of the new row as `page shows date YYYY-MM-DD`.
@@ -75,7 +77,8 @@ The complete download goes to the local cache, which Git ignores and which nobod
 
 The cache is the folder `.cache/sources/` of the main checkout, so all worktrees of a checkout share it, also with a capture made in another worktree.
 The environment variable `PLONE_STATS_CACHE` names another folder to use instead of `.cache/`.
-The commit adapter reads commits from the clones of the collectors in `.cache/repositories/` of the main checkout, and asks the GitHub API only for a repository without a clone.
+The commit adapter reads commits from the clones in `repositories/` of that cache, and asks the GitHub API only for a repository without a clone.
+The collectors and the other tools that read the clones use `.cache/repositories/` of the current directory instead, so in a worktree they fill or read the worktree's own folder, see {doc}`/explanation/known-limitations`.
 
 A page that is in the cache is not fetched again, so running the tool twice makes one request.
 This also lets you finish a capture that was interrupted without asking the web again.

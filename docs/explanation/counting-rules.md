@@ -12,7 +12,7 @@ GitHub links a commit to the account whose email address is the commit's author 
 The collector does the same: it reads the commits from local clones and asks the GitHub GraphQL API which account each new email address belongs to.
 
 Many old addresses belong to no account today: Subversion users like `name@localhost`, or company addresses that people no longer use.
-For these, an identity of the kind `email` in `curated/mappings/identities.csv` names the person behind the address, each with a source ([#77](https://github.com/plone/plone-contributor-statistics/pull/77)).
+For these, an identity of the kind `email` in `curated/mappings/identities.csv` names the person behind the address, each with a source, or, for an early commit address, with notes that say what the identification rests on ([#77](https://github.com/plone/plone-contributor-statistics/pull/77)).
 A person with a GitHub account is counted under the login of their identity of the kind `github`, a person without one as `person:<id>`.
 Commits whose address is neither linked by GitHub nor an identity are left out, because there is no way to tell who made them.
 {doc}`history-and-coverage` explains why this matters most for the early years.
@@ -36,7 +36,7 @@ They are counted once ([#78](https://github.com/plone/plone-contributor-statisti
 
 When someone merges a pull request with GitHub's merge button, GitHub creates a merge commit and makes the person who merged its author.
 Counting those commits gave maintainers an extra commit for every pull request they merged.
-For some maintainers, that was about a third of their commits.
+For some maintainers, that was a large share of their commits.
 
 Merging is not writing code, and how often it creates a commit depends on each repository's merge strategy.
 So commits with more than one parent are not counted ([#39](https://github.com/plone/plone-contributor-statistics/issues/39)).
@@ -74,16 +74,17 @@ An entry with several names counts in full for each person, as joint work does e
 Names that are no person, such as `[plone devs]`, placeholders such as "Nothing changed yet", and bots don't count.
 
 The names are mapped to people with the identities, see {doc}`attribution` and {ref}`reference-curated-files`.
-One register replaces the four files that earlier mapped names, addresses and second accounts.
-A name maps through the layers named in the `matched_by` column: `identity` for a name, an address, a login or a second account that the registers know, `login` for a login with commits or pull requests, and `bot` for a bot, which is left out.
+A name maps through the layers named in the `matched_by` column: `identity` for a name, an address, a login or a second account that the registers know, and `login` for a login with commits or pull requests.
+The names of bots are left out, so they never appear in the files.
 A name that nothing maps counts as written, as `unmatched`, and belongs to no organisation.
+The collected changelog files are still those of the run before the registers, and carry the older layer names, see {doc}`known-limitations`.
 
 Names of one word, such as the nicknames of the Subversion years, match as well, if the registers list them as an identity of the kind `name`.
 A display name in `curated/mappings/people.csv` matches only when it has more than one word, since a one-word display name is often a login or a first name that nobody checked against the changelogs.
 So does the identity of the kind `name` that holds the name of a person without a GitHub account, the record of their name.
 A name that the identities give to two people maps to neither, because nothing tells them apart.
 The policy for short names governs them: a short name that several people may have used, such as a first name, is added only when the records show that one person used it in the changelogs.
-Two rules stay in the collector and are not identities: a name that equals a login with commits, and the part before the `@` of a Subversion address.
+Two rules are not identities of their own: a name that equals a login with commits or pull requests, and the part before the `@` of the Subversion address of an `email` identity.
 
 ## Changelog entries are shown, not added
 
@@ -101,8 +102,9 @@ The community recognition doesn't use them.
 
 Bots open pull requests, push commits and write comments, sometimes more than people do.
 The statistics leave them out.
-A bot is recognized by its account type, by the `[bot]` suffix of GitHub Apps, or by an entry in `curated/mappings/bot_accounts.csv` for bots that GitHub lists as users.
-Commits and pull requests of deleted accounts are left out as well, because they can't be attributed to anyone.
+A bot is recognised by its account type, by the `[bot]` suffix of GitHub Apps, or by an entry in `curated/mappings/bot_accounts.csv` for bots that GitHub lists as users.
+Commits of deleted accounts are left out as well, because GitHub links their addresses to no account and they can't be attributed to anyone.
+Pull requests of deleted accounts are still counted, under the login `ghost` and as Unmapped, see {doc}`known-limitations`.
 
 ## Each repository is read once
 

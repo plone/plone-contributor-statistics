@@ -48,7 +48,7 @@
     {
       "name": "status",
       "type": "string",
-      "description": "How the row reads its citations: `stated` they say so; `assumed` a range extended beyond its records, counted where no stated row covers the year; `denied` the person did not belong to the organisation in those years, which removes it from the counting; `proposed` a reading a tool produced and nobody has reviewed, never counted.",
+      "description": "How the row reads its citations: `stated` they say so; `assumed` a range extended beyond its records, counted where no stated row or bridged year covers the year; `denied` the person did not belong to the organisation in those years, which removes it from the counting; `proposed` a reading a tool produced and nobody has reviewed, never counted.",
       "constraints": {
         "required": true,
         "enum": [

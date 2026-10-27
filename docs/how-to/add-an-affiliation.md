@@ -125,7 +125,7 @@ A decision settles only what the rules leave open: when the rules decide the yea
 
 A company address in the commits of a person is evidence for the years of those commits, see {doc}`/explanation/attribution`.
 Run the tool when you want candidates for affiliations without reading the history yourself.
-It reads the author of every commit in the cached clones of the plone repositories, so it works offline; `make run-changelogs` fills the cache.
+It reads the author of every commit in the cached clones of the plone repositories, so it works offline; `make run-changelogs` fills the cache in `.cache/repositories/` of the current directory; `--cache` makes the tool read another folder.
 
 ```shell
 python -m scripts.tools.address_proposals                  # the report only
@@ -154,7 +154,7 @@ The report has three tables:
 With `--write`, the tool captures the example commit of each proposal as a source, from the clone, and writes the proposal to `curated/mappings/affiliations.csv` as a `proposed` row that cites the commit, with the `Author:` line of the commit as the snippet.
 A proposal that is in the file already is not written twice.
 A proposal whose commit could not be captured is not written; the report lists it with the reason, under **Not captured**.
-The capture reads the clones of the shared cache of the main checkout; with another `--cache`, it may ask the GitHub API instead, which needs `GITHUB_TOKEN`.
+The capture reads the clones of the shared cache of the main checkout, not those of `--cache`; for a repository that this cache has no clone of, it asks the GitHub API instead, which needs `GITHUB_TOKEN` in the environment.
 A run that has grown since the last `--write`, because newer commits extend it, is a different row and appears next to the earlier one; keep the longer one when you review.
 The tool never writes a row that counts.
 Review each proposal as any other: check that the domain is a company's, and that the person worked for the company and not only used its address, then change its status from `proposed` to `stated`, keep its citation, and run `make check`.
@@ -175,7 +175,8 @@ python -m scripts.tools.github_evidence --write            # all assumed rows
 ```
 
 Without `--person` the tool takes the people with a GitHub login and an `assumed` row, and the years of those rows in which the person has commits or pull requests in `collected/contributors/`.
-With `--person` (repeat it for several people) it takes all rows of those people.
+With `--person` (repeat it for several people) it takes all stated and assumed rows of those people, again only in the years with commits or pull requests.
+Years after 2025 are never queried, because the assumed rows guess only the years before 2026.
 `--all-years` queries every year of the rows, `--refresh` asks GitHub again instead of reading the cache in `.cache/github-search/`, and `--cache` names another cache directory.
 Every response is cached, so a run that stops resumes where it was.
 

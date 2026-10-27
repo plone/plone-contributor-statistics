@@ -8,7 +8,7 @@
     {
       "name": "Numbering",
       "type": "string",
-      "description": "The numbering the number belongs to, such as roadmap."
+      "description": "The numbering the number belongs to: `roadmap` for the plone.org roadmap and the wiki pages before it, `trac` for the tickets of dev.plone.org."
     },
     {
       "name": "Title",

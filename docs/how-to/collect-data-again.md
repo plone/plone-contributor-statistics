@@ -2,7 +2,7 @@
 
 # Collect the data again
 
-This guide shows you how to collect commits, pull requests, pull request interactions and changelog entries from GitHub again.
+This guide shows you how to collect commits, pull requests, pull request interactions, PLIPs and changelog entries from GitHub again.
 You need a GitHub personal access token, git, and a few hundred megabytes of disk space.
 
 ## Set up the token
@@ -22,6 +22,9 @@ You need a GitHub personal access token, git, and a few hundred megabytes of dis
     Never commit `.env`.
     Instead of the file, you can also set `GITHUB_TOKEN` in the environment.
 
+The collectors read `.env`.
+The capture tool, and with it `python -m scripts.tools.address_proposals --write`, and `python -m scripts.tools.github_evidence` read the token only from the environment, for example `GITHUB_TOKEN=$(gh auth token) python -m scripts.tools.capture …`.
+
 The `make` targets run the scripts as modules from the repository root, for example `python -m scripts.collect.plone_contributors --year 2025`.
 Run a script yourself the same way; `python scripts/collect/plone_contributors.py` fails with `ModuleNotFoundError: No module named 'scripts'`.
 Every script answers `--help`.
@@ -38,6 +41,17 @@ To collect one year, run `make run-stats YEAR=2025` with that year instead.
 
 The first run clones all repositories into `.cache/repositories/`.
 The clones hold only the commit history, and later runs update them.
+This is the folder of the current directory: in a worktree, the collectors and the tools that read the clones fill and read the worktree's own folder, see {doc}`/explanation/known-limitations`.
+
+## Collect PLIPs
+
+To collect all PLIPs in one run:
+
+```shell
+make run-plips
+```
+
+The collector works without a token as well, within the lower limit of requests that GitHub allows then.
 
 ## Collect pull request interactions
 
@@ -58,7 +72,7 @@ make run-changelogs
 ```
 
 The collector reads the changelog files from the clones in `.cache/repositories/`, and fetches only the files it needs into them.
-It uses the token only to list the repositories, so it also works without one.
+It uses the token, if one is set, to list the repositories and to fetch from them, and also works without one.
 
 ## Collect commit mail domains
 

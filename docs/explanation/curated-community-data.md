@@ -21,16 +21,16 @@ An event is a gathering, one row of `curated/community/events.csv`.
 Its `kind` says what it is:
 
 - `conference`: the Plone Conference of a year;
-- `symposium`: a regional conference, such as the Plone Tagung, the symposia or PloneConf Brasil;
+- `symposium`: a regional conference, such as the Plone Tagung, the symposia or PloneConf Brasil; none is recorded yet;
 - `wpd`: a World Plone Day event of one place, held in person, hybrid or online, or the online edition of a year;
 - `sprint`: a sprint, with its `level` where the Board gave it one.
 
 Every event has an id that is chosen once and never renamed, such as `plone-conference-2025`, `wpd-2025-04-10-bologna-italy` or `beethoven-sprint-2026`.
 The talks, the trainings and the organisers are files of their own, and each row points to its event by that id:
 
-- `curated/community/talks.csv` holds the talks of the conferences and the symposia, and the videos of World Plone Day.
+- `curated/community/talks.csv` holds the talks of the conferences, and of the symposia once they are recorded, and the videos of World Plone Day.
   A World Plone Day talk points to the event of its place, and a talk of the online edition to `wpd-<year>-online`; `location` keeps where the talk was given, as the record named it.
-- `curated/community/trainings.csv` holds the trainings of a conference or a symposium.
+- `curated/community/trainings.csv` holds the trainings of a conference, and can hold those of a symposium.
 - `curated/community/organisers.csv` holds the organisers of an event, one row per person or organisation, with exactly one of the two.
 
 The roles are tied to a year, not to an event: `curated/community/board-of-directors.csv`, `curated/community/team-leaders.csv`, `curated/community/release-managers.csv` and `curated/community/podcasts.csv` have one row per person and year, with the year in their `year` column.
@@ -45,7 +45,7 @@ Today:
 - World Plone Day events held online, and the online edition of a year, are recorded, so that their talks have an event, but count nowhere as events: the community page doesn't list them, and they earn no points.
   The talks given there are World Plone Day talks like any other.
 - A person who organised a World Plone Day event is recorded, but counts neither as a role on the community page nor for points; the organisations of the event count.
-- Trainings at a symposium are recorded, but only the trainings of the Plone Conference count.
+- Trainings at a symposium can be recorded, but only the trainings of the Plone Conference count.
 - Conference talks count on the community page: their speakers are active people, and a team that gave one is an active organisation.
   They earn no recognition points.
 
@@ -54,13 +54,13 @@ Today:
 The rows of a year keep their order in the files, and so do the organisers of an event.
 The order decides which records count where the points have a limit: of the strategic sprints of a year, the first one that names an organisation counts for it, with that sprint's split, and only the first four World Plone Day talks of an organisation in a year count.
 This is how the recognition has always read the rows, not a new rule, see {doc}`community-recognition`.
-So add a new row after the rows of its year, a talk, a training or an organiser after the rows of the events of its year, and don't sort or reorder the rows of a year.
+So add a new row after the rows of its year, a talk, a training or an organiser after the rows that point to events of its year, and don't sort or reorder the rows of a year.
 
 ## People by id, organisations only for entities
 
 A curated row refers to a person by their id in `curated/mappings/people.csv`, never by a name.
 A person column holds one id.
-A set column holds several ids separated by semicolons, but only where the elements have no attributes of their own: the trainers of a training and the speakers of a talk.
+A set column holds several ids separated by semicolons, but only where the elements have no attributes of their own: the trainers of a training, the speakers and the organisations of a talk, and the sources of a row.
 Where an element needs an attribute, such as the episodes of a host, the team of a leader or the role of a Board member, the file has one row per person.
 The organisers of an event are rows of their own, so that each one cites its own source.
 
@@ -68,7 +68,7 @@ The organisation of a person is not written in the row.
 The statistics take it from the {doc}`affiliations <attribution>` for the year of the row or of its event.
 An organisation column holds the id of an organising entity that the source names, such as the company team that gave a talk or an organisation that held an event.
 A group in a person column is not allowed: a company team goes into an organisation column, and a community or a role goes into `notes`.
-A person or an organisation that the registers don't have yet is added to them first, see {doc}`/how-to/add-a-person`.
+A person or an organisation that the registers don't have yet is added to them first, see {doc}`/how-to/add-a-person`, and for an organisation step 1 of {doc}`/how-to/add-an-affiliation`.
 The format and the checks of every file are in {ref}`reference-curated-files`.
 
 ## No data without a source
@@ -104,7 +104,7 @@ Several kinds of curated data depend on a definition, and the definitions follow
   A team can have several leaders in a year.
   Board committees such as the IP or Trademark Committee, programmes such as Google Summer of Code, and the Release Team, whose release managers count on their own, are not teams in this sense.
 - An appointment by the Board counts until a source records a successor or an end.
-- A podcast or live series counts for a year with at least five episodes in that year, split among its hosts; every series is recorded, also with fewer episodes.
+- A podcast or live series is recorded with one row per host and year, and the number of episodes the host took part in; every series is recorded, also with fewer episodes, and a series without a known host has one row with an empty `person`. The recognition counts it through the hosts with at least five episodes in the year, see {doc}`community-recognition`.
 - A World Plone Day talk is a video of the type `Talk`; teasers, streams, openings and podcast episodes are recorded, but are not talks.
   A full stream doesn't count when its parts are published as talks of their own.
   Only people speak: a talk counts for the organisations of its speakers, which the affiliations give for the year.
@@ -115,7 +115,7 @@ Several kinds of curated data depend on a definition, and the definitions follow
   World Plone Day is not a conference, and sprints and meetups are not; a tutorial is a training; lightning-talk sessions, one recording with many short talks, are not recorded for now.
   Only people speak: a talk that the programme attributes to a team instead of people names the team in its `organisations` column.
   What the speaker page, the bio or the speaker in the recording says about their organisation is an affiliation row for that year, with the page or the recording and its timestamp as the source; the talk row carries no organisation of the speaker.
-  Talks are shown, in the person card of the community page, and not counted: they earn no recognition points until the Marketing Team or the Board decides otherwise.
+  Conference talks count as community work on the community page, and the person card lists them; they earn no recognition points until the Marketing Team or the Board decides otherwise.
 - Work is attributed to the people who did it and their organisations, not to the Plone Foundation.
 - PloneGov-BR and the Interlegis Program are not the same.
   PloneGov-BR is the community of practice of Plone users in the Brazilian public sector; it organises the events in Brasília.
@@ -129,7 +129,7 @@ Several kinds of curated data depend on a definition, and the definitions follow
   Trainings that the trainers organised and charged for themselves count too, when the conference announced them as its trainings.
   A training counts once, also when it has several parts or was given more than once; a training that a source records as cancelled or replaced, or that is missing from the room schedule, doesn't count.
   At a joint conference, only the Plone trainings count.
-  Trainings at a symposium are recorded, but don't count.
+  Trainings at a symposium can be recorded, but don't count.
   Where a trainer's bio names two organisations, the first one counts in the affiliation.
 
 ## The rules for sprints changed over time
@@ -143,7 +143,7 @@ The sponsorship policy said from 2013 that what counts as strategic "is in gener
 From December 2021, the Board graded the funding by size, from community to small, large and mega sprints ([minutes of December 9, 2021](https://plone.org/foundation/meetings/minutes/2021/plone-foundation-board-minutes-december-9-2021)).
 Since March 2025, a sprint must serve the roadmap by shipping PLIPs to get funding at all ([minutes of March 6, 2025](https://plone.org/foundation/meetings/minutes/2025/plone-foundation-board-minutes-march-6-2025)).
 
-So a sprint before 2011 has no level, and from 2011 on the level follows the rules of its time.
+So a sprint before 2011 has no level, and from 2011 on it has a level where a source records one, following the rules of its time.
 
 ## Why scripts don't fetch curated data
 
@@ -155,13 +155,14 @@ Every run of such a script would overwrite the corrections that people made by h
 The Board of Directors data followed the same path: a script used to read it from plone.org and guessed the organisations from the members' biographies.
 It is curated now, with the Board page of each term as the source.
 
+(curated-data-coverage)=
+
 ## Curated data reaches back further
 
-The organising organisations of every Plone Conference since 2003 are recorded.
-The rows from 2003 to 2019 also name the organisers and a source.
+The organisers of every Plone Conference since 2003 are recorded, as organisations, people or both, each with a source, and so are its talks and trainings.
 Board members, release managers and team leaders are recorded with sources from 2004 on ([#94](https://github.com/plone/plone-contributor-statistics/pull/94), [#99](https://github.com/plone/plone-contributor-statistics/pull/99), [#113](https://github.com/plone/plone-contributor-statistics/pull/113)).
 Sprints are recorded from the first one in 2003, and the local World Plone Day events from the first World Plone Day in 2008.
-Trainings are recorded from the first conference in 2003; podcasts start in 2020.
+World Plone Day talks are recorded from 2021, and podcasts from 2020.
 Collecting their earlier years needs sources that are hard to find, and people who remember ([#72](https://github.com/plone/plone-contributor-statistics/issues/72)).
 
 ```{seealso}

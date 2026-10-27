@@ -18,6 +18,8 @@ PAGE = Path('docs/reference/curated-files.md')
 
 COMMUNITY_DATA = ('Community work, one file per kind with the rows of every year, in `curated/community/`: the events,'
                   ' the talks, trainings and organisers that point to them, and the roles.')
+SOURCES = ('The sources that the registers and the community data cite, in `curated/sources/`, each with an excerpt '
+           'file `curated/sources/excerpts/<id>.md` of the cited passages.')
 # Group -> (what it holds, [(kind, title)]), in the order of the page
 GROUPS = [
     ('Registers', 'People, identities, affiliations, citations and organisations, in `curated/mappings/`.', [
@@ -27,7 +29,7 @@ GROUPS = [
         ('citations', 'Citations'),
         ('organisations', 'Organisations'),
     ]),
-    ('Sources', 'The sources the registers cite, in `curated/sources/`, each with an excerpt file of the cited passages.', [
+    ('Sources', SOURCES, [
         ('sources', 'Sources'),
     ]),
     ('Lists', 'Accounts and repositories that the collectors treat in a special way, in `curated/mappings/`.', [
@@ -83,7 +85,7 @@ INTRO = """\
 
 # Curated files
 
-This page describes every file that people edit by hand under `curated/`.
+This page describes every curated file under `curated/`: most are edited by hand, the source register by the capture tool.
 The registers and lists are in `curated/mappings/`.
 The community data is in `curated/community/`, and the PLIPs from before GitHub are in `curated/plips/`.
 

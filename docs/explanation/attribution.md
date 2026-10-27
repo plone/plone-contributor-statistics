@@ -27,6 +27,7 @@ The registers in `curated/mappings/` record who people are and which organisatio
 - `github-alias`: a further GitHub account of the person, counted for the same person.
 - `email`: a commit address that GitHub links to no account.
 - `name`: a spelling of the name, such as a changelog nickname. A person without a GitHub account has their name as an identity of this kind, citing the record of the name.
+- `svn`, `irc` and `discourse`: a Subversion or CVS user, an IRC nick and a handle on community.plone.org. They record who a person is, and the collectors don't read them: a Subversion commit is linked to its person by an `email` identity.
 
 `curated/mappings/affiliations.csv` has one row per person, organisation and period, with the first and the last year and a status.
 
@@ -51,7 +52,7 @@ An affiliation is a reading of its sources, and its status says what kind of rea
 
 The organisation of a person in a year is computed from the affiliations that cover the year, by the rules in the next section.
 There is no default.
-A year that no row covers is Unmapped.
+A year that no row covers and no bridge fills (rule 5) gets no organisation, and is Unmapped.
 Today's organisation is a row with an empty last year, so it runs up to the present, and a row for a past organisation is a row like any other.
 `Unmapped` is never written as an organisation, because a gap in the rows says the same.
 A person who changed organisations has one row for each, and the organisation statistics, which are built year by year, count the person for the old organisation in the old years and for the new one in the new years ([#16](https://github.com/plone/plone-contributor-statistics/issues/16)).
@@ -65,7 +66,7 @@ The records that do not decide the year stay cited, so that nobody has to resear
 Two records of the same organisation also cover the years between them, when no record names another organisation in between: a person named on a company's team page in two years was not elsewhere in the years between, however many they are.
 This is a convention: the statistics are built by year, and a year has one organisation per person.
 It is computed, by rule 5 below, and needs no row of its own: a stated row of another organisation or a denied row of the same one in between breaks the bridge, while an assumed row or a note doesn't.
-A period that begins and ends within one year doesn't appear at all.
+The unit is the year: a period shorter than a year is a row for that year, and the rules below decide whether the year counts for it.
 
 A biography that names an employer for a conference year is an affiliation row for that year, with the biography as its record.
 It is then also evidence for the commits of that year, as signatures and participant lists are.
@@ -77,13 +78,14 @@ For the early years especially, many affiliations are unknown, and {doc}`history
 ## How the year is decided
 
 For each person and year, the rules below are applied in this order, and the first one that leaves a single organisation decides.
+Bridging (rule 5) is computed before the others, because the years it fills count as stated years for them.
 Recorded facts and the rules come first: proposals are ignored and denials remove their organisation, then the rules decide where they can, and a decision settles only what they leave open.
 The statistics, the community page and `python -m scripts.tools.affiliation` all compute the organisation this way, see {ref}`how-to-add-an-affiliation-check`.
+`python -m scripts.tools.attribution_changes` lists the person-years whose organisation a change to the registers moves, see {doc}`/how-to/regenerate-after-a-mapping-change`.
 
 1.  **Proposals and denials.**
     Proposed rows are ignored.
     A denied row removes its organisation from its years.
-    A denied row without an organisation, which would record a reviewed "stays Unmapped", is not used here.
 2.  **Stated over assumed.**
     Where stated rows cover the year, or a bridge fills it (rule 5), the assumed rows drop out of the rules below.
 3.  **One organisation.**
@@ -104,7 +106,7 @@ The statistics, the community page and `python -m scripts.tools.affiliation` all
       When the shared sources name different organisations first, this rule doesn't decide.
 
     6b. Commits
-    : The year goes to the organisation whose address most of the person's commits of that year carry, because the commits are what the statistics count.
+    : The year goes to the organisation whose address most of the person's commits of that year carry, because the commits are the work the statistics count.
       This holds when the commits under the addresses of the organisations in question outnumber those under personal addresses; commits under other addresses are left out.
       A domain of the person's own, such as one with their name, is personal, unless an organisation of the register claims it.
 
@@ -116,9 +118,11 @@ The statistics, the community page and `python -m scripts.tools.affiliation` all
     6d. Records
     : Otherwise the organisation that more distinct sources dated in the year name counts.
 
-    Rules 6b and 6c read the commits that the collected files count under the person's username: the `github` login, or `person:<id>` for a person without one, whose commits the collected files count by the commit addresses.
+    Rules 6b and 6c read the commit domains in `collected/commit-domains/`, under the person's username: the `github` login, or `person:<id>` for a person without one.
+    These are the person's Git commits of all branches, in the year of their author date, without the commits imported from Subversion, so they are counted differently from the commits of the contributor files, see {doc}`/reference/data-files`.
     A source that could not be captured has no passage, and only the day of the attempt as its date, so rules 6c and 6d leave it out.
-    A source is dated as {doc}`/how-to/capture-a-source` says: a placeholder date on a page doesn't count, and a conference page is dated by the conference.
+    A source is dated as {doc}`/how-to/capture-a-source` says, and a conference page by the conference.
+    The capture takes a placeholder date that a page shows, and an archived copy has the date of its capture, which can lie in another year than the page; such dates are corrected by hand when there is evidence for the right one, see {doc}`known-limitations`.
 7.  **Decision.**
     When the rules leave the year open, a reviewer can decide in public: the decision is a public comment, by a maintainer, by someone else, or by the person or the organisation in question.
     Older decisions sit in comments on pull requests and issues of this repository.
@@ -135,7 +139,7 @@ The statistics, the community page and `python -m scripts.tools.affiliation` all
 
 ## Unmapped is not an organisation
 
-A person without an affiliation row for a year is Unmapped in that year.
+A person whose year the rules give no organisation is Unmapped in that year: no affiliation row covers it and no bridge fills it, or it is an open case.
 Unmapped and independent contributors are two different groups ([#53](https://github.com/plone/plone-contributor-statistics/issues/53)).
 Independent contributors are mapped: they chose to contribute on their own, and their organisation has the kind `independent`.
 Unmapped contributors are not mapped yet, and their affiliation is simply unknown.
@@ -155,7 +159,7 @@ A personal website is no employer, and a link to it says nothing about one; but 
 A confirmation that exists only in private doesn't count, because nobody else can check it.
 A company email address in the person's commits is evidence for the years in which the person used it, but only in commits made in Git, see {doc}`history-and-coverage`.
 An address can outlive the employment, as an old mailbox: where a dated record names another organisation for the same years, such as the person's own business on its own or an alliance's page, the record counts, and the address only documents the mailbox.
-The address never becomes a stated row: a proposal from it becomes a `denied` row with the reason in its notes, so the tools don't propose those years again.
+In that case the address doesn't become a stated row: its proposal becomes a `denied` row with the reason in its notes, so the tools don't propose those years again.
 The tool described in {ref}`find-affiliations-in-commit-addresses` proposes such affiliations.
 Commits in the repositories of an organisation's own GitHub organisation are evidence of the same kind for that organisation in the year of the commits.
 The tool described in {ref}`find-affiliations-in-the-github-commit-search` finds both kinds in the GitHub commit search, for the years that assumed rows only guess.
@@ -172,7 +176,7 @@ This keeps the mapping close to what people would say about their own work.
 A register is easy to get wrong.
 A single typo in a login used to send a contributor's whole activity to Unmapped, and with it part of an organisation's numbers ([#38](https://github.com/plone/plone-contributor-statistics/issues/38)).
 Now every file has a schema, and `make check` validates it.
-The checks say the file, the row and the column of an error: an id that no register has, a name that differs from another only in case or accents, an affiliation without a citation, or a snippet that the excerpt of its source doesn't hold.
+The checks say the file, the row and the column of an error: an id that no register has, an organisation name or alias that differs from another only in case, accents or punctuation, an assumed row that reaches back through a record of an older employer, an affiliation without a citation, or a snippet that the excerpt of its source doesn't hold.
 They also compute the organisation of every person and year, and warn about each year that no rule decides, and name each decision that overrules an earlier one without naming it.
 Every change still goes through review.
 

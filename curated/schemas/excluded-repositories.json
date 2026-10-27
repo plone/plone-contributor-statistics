@@ -3,7 +3,7 @@
     {
       "name": "repository",
       "type": "string",
-      "description": "The repository, as owner/name, left out of the statistics.",
+      "description": "The name of the repository in the `plone` organisation, without the owner, left out of the statistics.",
       "constraints": {
         "required": true,
         "unique": true
