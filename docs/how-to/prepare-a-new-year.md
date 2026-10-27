@@ -22,12 +22,22 @@ You need a GitHub personal access token, see {doc}`collect-data-again` for how t
     -   collect commits, merged pull requests, pull request interactions and PLIPs;
     -   write the organisation statistics of the year and the PLIPs per organisation;
     -   write the three-, five- and ten-year summaries that end with the year, and the yearly totals and graphs;
-    -   write the contributor report and the community recognition report of the year.
+    -   write the contributor report, the community recognition report and the data of the community page of the year.
 
     Most steps stop with an error if a file they need is missing.
     To repeat a single step, run its target, listed in {doc}`/reference/make-targets`.
 
-3.  List the unmapped contributors worth researching, of all years:
+3.  Collect the changelog entries and the commit domains, which `make year` doesn't collect ([#181](https://github.com/plone/plone-contributor-statistics/issues/181)):
+
+    ```shell
+    make run-changelogs
+    make run-commit-domains
+    ```
+
+    `make run-changelogs` brings the clones up to date, and `make run-commit-domains` reads them.
+    Then regenerate the derived files and the reports as described in {doc}`regenerate-after-a-mapping-change`, steps 2 to 4, so that the organisation statistics of the year have their changelog entries and the attribution has the commit domains of the year.
+
+4.  List the unmapped contributors worth researching, of all years:
 
     ```shell
     make analyze-independent
@@ -36,7 +46,7 @@ You need a GitHub personal access token, see {doc}`collect-data-again` for how t
     Add an affiliation for those you can support with a public record, as described in {doc}`add-an-affiliation`.
     Then regenerate as described in {doc}`regenerate-after-a-mapping-change`.
 
-4.  List the people of the register without a GitHub login who appear as a login, with proposals from GitHub profile names:
+5.  List the people of the register without a GitHub login who appear as a login, with proposals from GitHub profile names:
 
     ```shell
     python -m scripts.tools.unmatched_names --propose
@@ -44,9 +54,10 @@ You need a GitHub personal access token, see {doc}`collect-data-again` for how t
 
     The tool prints, per person, a row for `curated/mappings/identities.csv`: an identity of the kind `github` with the login, citing the GitHub profile, with the profile name as the snippet.
     It writes nothing: above each row it prints the command that captures the profile, as `# capture first: …`.
-    For the logins you can confirm, run the capture command, add the row in its place sorted by person, kind and value, and run `make community-page` again.
+    For the logins you can confirm, run the capture command and add the row in its place sorted by person, kind and value.
+    A new `github` identity changes the username the person is counted under, from `person:<id>` to the login, so run `make run-changelogs` and `make run-commit-domains` and regenerate as described in {doc}`regenerate-after-a-mapping-change`.
 
-5.  Validate the curated files, run the tests and review the changed files:
+6.  Validate the curated files, run the tests and review the changed files:
 
     ```shell
     make check
@@ -54,6 +65,6 @@ You need a GitHub personal access token, see {doc}`collect-data-again` for how t
     git status
     ```
 
-    The summaries of the new year are new files, because their names contain the years they cover.
+    The summaries in `derived/summaries/` and the recognition report in `derived/community-recognition/` of the new year are new files, because their names contain the years they cover; the text summaries in `reports/summaries/` are written over.
 
-6.  Commit the collected data, the derived data and the reports together, and open a pull request.
+7.  Commit the collected data, the derived data and the reports together, and open a pull request.

@@ -60,7 +60,8 @@ Names that no identity links to a person count as written, see {doc}`/explanatio
     python -m scripts.tools.unmatched_changelog_names
     ```
 
-    It reads the changelogs from the clones in `.cache/repositories/`, so run `make run-changelogs` first.
+    It reads the changelogs from the clones in `.cache/repositories/` of the current directory, so run `make run-changelogs` first.
+    Without clones it lists no names, and says nothing about it; in a worktree, see {doc}`/explanation/known-limitations`.
     It lists the names of 2004 to 2012; `--from-year` and `--to-year` choose other years.
 
 2.  Let the tool propose people from the commits whose message repeats an entry with the name:
@@ -87,7 +88,7 @@ Names that no identity links to a person count as written, see {doc}`/explanatio
     alec-mitchell,name,alecm,0123456789ab,Author: Alec Mitchell <alecm@example.org>,Changelog entry: https://github.com/plone/Products.CMFPlone/blob/<commit>/HISTORY.txt#L123; the commit by Alec Mitchell that repeats it: https://github.com/plone/Products.CMFPlone/commit/<commit>
     ```
 
-    If the person is not in the register, add them first, see {doc}`add-a-person`.
+    A row whose person starts with `?no person for` names someone the register doesn't have: add the person first, see {doc}`add-a-person`, and put their id in the row.
     A name of one word matches like any other name, so check that no other person used it.
 
 5.  Collect the changelog entries again, and regenerate the statistics as described in {doc}`regenerate-after-a-mapping-change`:
