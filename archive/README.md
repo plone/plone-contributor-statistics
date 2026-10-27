@@ -1,7 +1,7 @@
 # Archive
 
 Historical material: one-off analyses, proposals, snapshots and agent notes, mostly written with AI agents in 2025 and 2026.
-The files are kept unchanged, at their original paths below `archive/` or, since 2026-10-18, in one folder per topic with their code, data and output together.
+The files are kept unchanged, at their original paths below `archive/` or, since 2026-10-18, in one folder per topic with their code, data and output together, except that mail addresses were masked on 2026-10-27.
 They are not maintained and do not describe the current method.
 For the current method, see the documentation at https://plone.github.io/plone-contributor-statistics/ or in `docs/`.
 
@@ -22,6 +22,7 @@ For the current method, see the documentation at https://plone.github.io/plone-c
 | `migration-to-sources/` | 2026-10-22 | The work list, searches, review file and results of the bulk capture of the sources the mapping files cite (plan 2a), with the commands, run notes and counts; plan 2c reads them. |
 | `migration-to-events/` | 2026-10-25 | Plan 3a: the work lists and results of the bulk capture of the sources the curated community data cites, pages and videos, with the commands, run notes and counts. Plan 3b: the scripts that migrated the community data to events (`migrate_community.py`, the lossless audit `audit_community.py`, `community_sources.py`) with their tests, and the outputs comparison against the state before the switch; they ran once, the audit found no loss. |
 | `migration-notes-to-data/` | 2026-10-26 | Plan 5: `scripts/tools/migrate_notes.py` (the steps `fills`, `svn` and `conflicts`) with its tests, the two corrections after them, the list of the 2019 conference dates, and the list of sources whose archive date lies in another year than the page shows; they ran once, the lists are in its README. |
+| `migration-masked-addresses/` | 2026-10-27 | `scripts/tools/mask_addresses.py` (the steps `list`, `write` and `verify`) with its tests: the one-off masking of the mail addresses in the tracked files and the check that the commit authors find the same persons; it ran once, the counts are in its README. |
 | `migration-to-citations/` | 2026-10-23 | The scripts that migrated the registers to citations (plan 2c): `scripts/tools/migrate_registers.py`, the lossless audit `audit_migration.py` and `cited_sources.py` of plan 2a, with their tests; they ran once, the audit found no loss. |
 | `legacy-collectors/` | 2026-10-18 | From the root: `plone_contributor_statistics.py` (GitHub contributor statistics API) and `plone_companies.py` (guessed organisations from profiles and email domains); replaced by the current collectors and the mapping files. Removed Make targets: `run-contributors`, `run-organisations`, and the broken `run-all`. |
 | `plip-levels/` | 2026-10-18 | From the root: `analyze_plip_contributor_levels.py`, `generate_plip_3tier_levels.py` and the older PLIP counter `plip_stats.py`; PLIP level experiments that are not part of the method, see [#18](https://github.com/plone/plone-contributor-statistics/issues/18) and [#44](https://github.com/plone/plone-contributor-statistics/issues/44). Removed Make target: `analyze-plip-levels`. |

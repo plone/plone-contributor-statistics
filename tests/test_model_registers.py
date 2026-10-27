@@ -5,10 +5,11 @@ import datetime
 import pytest
 
 from scripts.lib import paths
+from scripts.lib.addresses import mask_address
 from scripts.lib.model import (UNMAPPED, affiliation_id, append_person, append_proposals, load_registry,
                                load_rejections, read_rows)
 from scripts.lib.model.registers import Identity, Person
-from tests.conftest import record_source
+from tests.conftest import record_source, registry_of
 
 SRC = 'https://example.org/record'
 SID = '0123456789ab'  # a source id; the registers are read without following it
@@ -71,6 +72,19 @@ def test_person_for_name_is_none_when_ambiguous(registry):
     assert registry.person_for(name='Kim') is None
     assert registry.person_for(name='tom schorr').id == 'thomas-schorr'
     assert registry.person_for(email='alan@example.ORG').id == 'alan-runyan'
+
+
+def test_person_for_email_matches_by_hash():
+    registry = registry_of([('jane-doe', 'Jane Doe', None, 'https://example.org/a'),
+                            ('j-doe', 'J Doe', None, 'https://example.org/b')],
+                           identities=[Identity('jane-doe', 'email', mask_address('jane@acme.test'), None),
+                                       Identity('j-doe', 'email', 'jdoe@localhost', None)])
+
+    assert registry.person_for(email='Jane@ACME.test').id == 'jane-doe'
+    assert registry.person_for(email=mask_address('jane@acme.test', keep_domain=True)).id == 'jane-doe'
+    assert registry.person_for(email=mask_address('jane@acme.test')).id == 'jane-doe'
+    assert registry.person_for(email='JDoe@localhost').id == 'j-doe'
+    assert registry.person_for(email='nobody@acme.test') is None
 
 
 def test_a_display_name_of_one_word_matches_no_name(tmp_repo):

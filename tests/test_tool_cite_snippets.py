@@ -2,6 +2,7 @@ import datetime
 
 import pytest
 
+from scripts.lib.addresses import mask_address
 from scripts.lib.model import (Citation, Identity, Source, affiliation_id, load_citations, load_identities,
                                replace_excerpt, source_id, write_citations, write_identities, write_source)
 from scripts.tools import cite_snippets
@@ -13,6 +14,7 @@ WORKS = 'Jane Doe works at Example Company'
 LEADS = 'She leads the Plone team'
 EXCERPT = f'{WORKS} since 2015.\n\n---\n\n{LEADS} at Example Company.'
 JANE = affiliation_id('jane', 'example-company', 2015, 2019)
+ZOE_MAIL = mask_address('zoe@example.com')
 ZOE = affiliation_id('zoe', 'example-company', 2016, 2020)
 
 
@@ -44,7 +46,7 @@ def registers(write_registers):
     identities = [
         Identity('jane', 'name', 'Jane Doe', captured, None, f'cited as: "{LEADS}" and "{WORKS}"'),
         Identity('jane', 'github', 'janedoe', uncaptured, None, f'"{NOTE}"'),
-        Identity('zoe', 'email', 'zoe@example.org', None, None, 'a commit address'),
+        Identity('zoe', 'email', ZOE_MAIL, None, None, 'a commit address'),
     ]
     write_citations(citations)
     write_identities(identities)
@@ -86,7 +88,7 @@ def test_write_fills_the_snippets_and_adds_rows(registers):
         (None, 'cited as: "Zoe works at Example Company"'), (LEADS, f'cited as: "{WORKS}"')]
     identities = {(i.kind, i.value): i.snippet for i in load_identities()}
     assert identities == {('name', 'Jane Doe'): LEADS, ('github', 'janedoe'): None,
-                          ('email', 'zoe@example.org'): None}
+                          ('email', ZOE_MAIL): None}
     datapackage.main([])
     assert check.validate() == []
 
@@ -167,3 +169,16 @@ def test_the_dry_run_lists_every_change(registers, capsys):
     assert added[0].startswith(f'citation row added: jane, {JANE}, source {captured}: "{LEADS}" (after: …')
     assert added[0].endswith('Example Company", speaker page;)')
     assert f'identity filled: jane, name Jane Doe, source {captured}: "{LEADS}" (after: cited as:)' in lines
+
+
+def test_a_raw_address_in_a_note_is_found_in_the_masked_excerpt(registers):
+    captured, _ = registers
+    masked = mask_address('jane@acme.test', keep_domain=True)
+    line = f'Author: Jane <{masked}>'
+    replace_excerpt(captured, f'{EXCERPT}\n\n---\n\n{line}')
+    note = 'cited as: "Author: Jane <jane@acme.test>"'
+    write_citations([*load_citations(), Citation(ZOE, captured, None, None, note)])
+    cite_snippets.main(['--write'])
+    snippets = [c.snippet for c in load_citations() if c.affiliation == ZOE]
+    assert line in snippets
+    assert all('jane@acme.test' not in (s or '') for s in snippets)

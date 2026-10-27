@@ -11,6 +11,7 @@ from scripts.lib.commit_authors import Finder
 from scripts.lib.model import load_bot_accounts, load_registry
 from tests.conftest import record_source
 from tests.test_address_proposals import SOURCE, git, make_clone
+from tests.test_addresses import MACHINE
 
 
 @pytest.fixture
@@ -79,8 +80,8 @@ def test_the_same_change_twice_in_a_repository_counts_once(setup, tmp_path):
 
 def test_machine_names_are_skipped(setup, tmp_path):
     paths.IDENTITIES.write_text(paths.IDENTITIES.read_text(encoding='utf-8')
-                                + f'jane-doe,email,jane@janes-imac.local,{SOURCE}\n', encoding='utf-8')
-    counts = run(tmp_path, {'a': [('Jane Doe', 'jane@janes-imac.local', 2010), ('Jane Doe', 'jane@acme.test', 2011)]})
+                                + f'jane-doe,email,{MACHINE},{SOURCE}\n', encoding='utf-8')
+    counts = run(tmp_path, {'a': [('Jane Doe', MACHINE, 2010), ('Jane Doe', 'jane@acme.test', 2011)]})
     assert counts == {2011: {('janedoe', 'acme.test'): 1}}
 
 

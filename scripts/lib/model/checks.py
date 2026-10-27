@@ -8,6 +8,7 @@ from pathlib import Path
 import attrs
 from frictionless import Check, errors
 
+from scripts.lib.addresses import mask_address
 from scripts.lib.model.attribution import ASSUMED, COUNTING
 from scripts.lib.model.names import fold
 from scripts.lib.model.registers import UNIQUE_IDENTITY_KINDS
@@ -19,6 +20,13 @@ class SetKeysError(errors.CellError):
     type = 'set-keys'
     title = 'Set Keys'
     description = 'An element of a set cell is empty, repeated or not a key of the referenced register.'
+    template = 'The cell {cell} in row at position {rowNumber} and field {fieldName} has an error: {note}'
+
+
+class EmailIdentityError(errors.CellError):
+    type = 'email-identity'
+    title = 'Email Identity'
+    description = 'An email identity is a readable address, or a hash with a domain.'
     template = 'The cell {cell} in row at position {rowNumber} and field {fieldName} has an error: {note}'
 
 
@@ -366,6 +374,19 @@ class SourceUnlessEmail(Check):
         elif not row['notes']:
             yield IdentitySourceError.from_row(row, note='an address without a source needs notes that say what '
                                                          'it rests on', field_name='source')
+
+
+@attrs.define(kw_only=True, repr=False)
+class EmailIdentityMasked(Check):
+    """An email identity is the hash of the address, except a Subversion-era or noreply address."""
+
+    type = 'email-identity'
+    Errors = [EmailIdentityError]
+
+    def validate_row(self, row):
+        if row['kind'] == 'email' and row['value'] != mask_address(row['value']):
+            yield EmailIdentityError.from_row(row, note='an email identity is the hash of the address, see '
+                                                        'python -m scripts.tools.mask_address', field_name='value')
 
 
 @attrs.define(kw_only=True, repr=False)
@@ -733,7 +754,7 @@ def checks_for(resource_name, package, until=None):
         'citations': lambda: [SnippetInExcerpt(folder=excerpts),
                               Sorted(fields=['affiliation', 'source', 'snippet'], casefold=False),
                               UniqueRow(fields=['affiliation', 'source', 'snippet'])],
-        'identities': lambda: [SourceUnlessEmail(), SnippetInExcerpt(folder=excerpts),
+        'identities': lambda: [SourceUnlessEmail(), EmailIdentityMasked(), SnippetInExcerpt(folder=excerpts),
                                Sorted(fields=['person', 'kind', 'value'], casefold=False),
                                UniqueCasefold(field='value', scope='kind', only=UNIQUE_IDENTITY_KINDS),
                                GithubLogins()],

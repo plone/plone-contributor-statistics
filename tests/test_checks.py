@@ -4,6 +4,7 @@ from pathlib import Path
 
 import pytest
 
+from scripts.lib.addresses import mask_address
 from scripts.lib.model import affiliation_id
 from scripts.lib.model.checks import TALK_TYPES_OF
 from scripts.lib.model.names import fold, slugify
@@ -350,6 +351,22 @@ def test_an_identity_cites_a_source_unless_an_early_address_says_what_it_rests_o
     assert [(row, field) for _, row, field, _ in errors] == [(2, 'source'), (4, 'source')]
 
 
+def test_an_email_identity_is_masked_except_svn_and_noreply_addresses(tmp_package):
+    masked = mask_address('jane@acme.test')
+    errors = check.validate(tmp_package(identities(
+        f'pbauer,email,{masked},RECORD,,', 'pbauer,email,jdoe@localhost,,,the same SVN user as pbauer',
+        'tschorr,email,1+jdoe@users.noreply.github.com,RECORD,,')))
+    assert errors == []
+
+
+def test_an_email_identity_with_a_domain_or_readable_is_rejected(tmp_package):
+    with_domain = mask_address('jane@acme.test', keep_domain=True)
+    errors = check.validate(tmp_package(identities(f'pbauer,email,{with_domain},RECORD,,',
+                                                   'tschorr,email,jane@acme.test,RECORD,,')))
+    assert sorted((row, field) for _, row, field, _ in errors if field == 'value') == [(2, 'value'), (3, 'value')]
+    assert any('hash of the address' in message for *_, message in errors)
+
+
 def test_an_identity_source_is_in_the_source_register(tmp_package):
     errors = check.validate(tmp_package(identities('pbauer,name,Phil B,0123456789ab,,')))
     assert [(file, row, field) for file, row, field, _ in errors] == [('curated/mappings/identities.csv', 2, 'source')]
@@ -360,7 +377,7 @@ def test_identities_are_sorted(tmp_package):
     assert [(row, 'sorts before' in message) for _, row, _, message in errors] == [(3, True)]
 
 
-@pytest.mark.parametrize('kind,value,other', [('email', 'pb@example.org', 'PB@Example.org'),
+@pytest.mark.parametrize('kind,value,other', [('email', mask_address('pb@example.org'), mask_address('pb@example.org').upper()),
                                               ('github', 'pbauer', 'PBauer'),
                                               ('github-alias', 'pbauer-old', 'PBAUER-OLD'),
                                               ('svn', 'pbauer', 'PBauer')])

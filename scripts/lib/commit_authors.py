@@ -32,7 +32,7 @@ _PERSONAL = re.compile(
 
 
 # The names of machines in a local network, which git takes when nobody set an address, and the domains reserved
-# for examples (RFC 2606): no public mail domain, and some of them carry a person's name (katjas-imac.local)
+# for examples (RFC 2606): no public mail domain, and some of them carry a person's name (janes-imac.local)
 LOCAL_ENDINGS = ('.local', '.lan', '.home', '.localdomain', '.fritz.box', '.in-addr.arpa', '.example')
 _EXAMPLE = re.compile(r'^(?:.+\.)?example\.(?:com|org|net)$')
 
@@ -114,7 +114,7 @@ def domain_of(email):
 
     None for an address without `@`, for the Subversion-era domains (a repository UUID, localhost and
     `users.sourceforge.net`, see `SVN_DOMAIN`) and for the names of machines and placeholders (`is_local_name`:
-    pepper.local, rudolf.(none), example.com): those say nothing about an employer, and some of them carry a
+    build.local, workstation.(none), example.com): those say nothing about an employer, and some of them carry a
     person's name. GitHub noreply addresses give `users.noreply.github.com`.
     """
     if '@' not in email:

@@ -16,18 +16,18 @@ def make_mapper(logins=(), bots=(), people=(), identities=()):
     ]
     identities = [
         *identities,
-        Identity('alex-clark', 'email', f'aclark@{SVN}', 'https://example.org/a'),
+        Identity('alex-clark', 'email', f'jdoe@{SVN}', 'https://example.org/a'),
         Identity('runyaga', 'github-alias', 'bobdobbs666', 'https://example.org/y'),
     ]
     return NameMapper(registry_of(people, identities), logins, bots)
 
 
 def test_svn_local_part_resolves_through_email_identity():
-    assert make_mapper().map('aclark') == ('aclark4life', 'identity')
+    assert make_mapper().map('jdoe') == ('aclark4life', 'identity')
 
 
 def test_email_resolves_through_email_identity():
-    assert make_mapper().map(f'aclark@{SVN}') == ('aclark4life', 'identity')
+    assert make_mapper().map(f'jdoe@{SVN}') == ('aclark4life', 'identity')
 
 
 def test_name_equal_to_collected_login_resolves():
@@ -63,8 +63,8 @@ def test_first_name_without_identity_is_unmatched():
 
 
 def test_local_part_of_an_ordinary_address_does_not_resolve():
-    mapper = make_mapper(identities=[Identity('runyaga', 'email', 'tiran@example.org', 'https://example.org/y')])
-    assert mapper.map('tiran') == ('tiran', 'unmatched')
+    mapper = make_mapper(identities=[Identity('runyaga', 'email', 'pat@example.org', 'https://example.org/y')])
+    assert mapper.map('pat') == ('pat', 'unmatched')
 
 
 def kims(logins=()):

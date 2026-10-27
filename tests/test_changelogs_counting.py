@@ -114,8 +114,8 @@ def mapper():
     ]
     identities = [
         Identity('alecpm', 'name', 'alecm', src), Identity('wichert', 'name', 'Wiggy', src),
-        Identity('andy-mckay', 'email', 'andyd_@localhost', src), Identity('whitmo', 'email', 'whit@localhost', src),
-        Identity('tiran', 'email', 'tiran@example.org', src), Identity('runyaga', 'github-alias', 'bobdobbs666', src),
+        Identity('andy-mckay', 'email', 'jdoe@localhost', src), Identity('whitmo', 'email', 'wsmith@localhost', src),
+        Identity('tiran', 'email', 'tess@example.org', src), Identity('runyaga', 'github-alias', 'bobdobbs666', src),
     ]
     return NameMapper(registry_of(people, identities), ['hannosch', 'Limi', 'bobdobbs666', 'whitmo'],
                       {'mister-roboto': 'bot'})
@@ -125,11 +125,11 @@ def mapper():
     ('alecm', 'alecpm', 'identity'),
     ('ALECM', 'alecpm', 'identity'),
     ('wiggy', 'wichert', 'identity'),
-    ('andyd_', 'andym', 'identity'),
-    ('whit', 'whitmo', 'identity'),
+    ('jdoe', 'andym', 'identity'),
+    ('wsmith', 'whitmo', 'identity'),
     ('Whit Morriss', 'whitmo', 'identity'),
-    ('tiran@example.org', 'tiran', 'identity'),
-    ('whit@localhost', 'whitmo', 'identity'),
+    ('tess@example.org', 'tiran', 'identity'),
+    ('wsmith@localhost', 'whitmo', 'identity'),
     ('mister-roboto', None, 'bot'),
     ('pre-commit-ci[bot]', None, 'bot'),
     ('limi', 'Limi', 'login'),

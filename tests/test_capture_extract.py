@@ -294,13 +294,13 @@ def test_extract_commit_prefers_the_clone(tmp_path, monkeypatch):
     monkeypatch.setenv('PLONE_STATS_CACHE', str(tmp_path))
     clone = tmp_path / 'repositories' / 'plone' / 'Products.CMFPlone.git'
     clone.mkdir(parents=True)
-    run = FakeRun(b'Jane Doe <jane@example.org>\n2015-03-12T10:00:00+01:00\n\nFix the thing\n\nLonger text\n')
+    run = FakeRun(b'Jane Doe <jane@example.com>\n2015-03-12T10:00:00+01:00\n\nFix the thing\n\nLonger text\n')
     session = FakeGitHubSession()
     result = extract_commit('plone', 'Products.CMFPlone', 'abc1234', run=run, session=session)
     assert session.urls == []
     assert run.calls[0][:3] == ['git', '--git-dir', str(clone)]
     assert result.text.splitlines()[:3] == [
-        'Author: Jane Doe <jane@example.org>', 'Date: 2015-03-12T10:00:00+01:00', '']
+        'Author: Jane Doe <jane@example.com>', 'Date: 2015-03-12T10:00:00+01:00', '']
     assert 'Fix the thing' in result.text
     assert result.date == datetime.date(2015, 3, 12)
 
@@ -309,12 +309,12 @@ def test_extract_commit_falls_back_to_api(tmp_path, monkeypatch):
     monkeypatch.setenv('PLONE_STATS_CACHE', str(tmp_path))
     run = FakeRun()
     session = FakeGitHubSession(FakeGitHubResponse({'commit': {
-        'author': {'name': 'Jane Doe', 'email': 'jane@example.org', 'date': '2015-03-12T09:00:00Z'},
+        'author': {'name': 'Jane Doe', 'email': 'jane@example.com', 'date': '2015-03-12T09:00:00Z'},
         'message': 'Fix the thing'}}))
     result = extract_commit('plone', 'plone.api', 'abc1234', run=run, session=session)
     assert run.calls == []
     assert session.urls == ['https://api.github.com/repos/plone/plone.api/commits/abc1234']
-    assert result.text == 'Author: Jane Doe <jane@example.org>\nDate: 2015-03-12T09:00:00Z\n\nFix the thing'
+    assert result.text == 'Author: Jane Doe <jane@example.com>\nDate: 2015-03-12T09:00:00Z\n\nFix the thing'
     assert result.date == datetime.date(2015, 3, 12)
 
 

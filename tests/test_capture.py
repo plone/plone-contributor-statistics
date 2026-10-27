@@ -6,6 +6,7 @@ import subprocess
 
 import pytest
 
+from scripts.lib.addresses import mask_address
 from scripts.lib.capture import CaptureError, CaptureResult, capture, capture_commit
 from scripts.lib.capture import fetch as fetch_module
 from scripts.lib.capture.fetch import Fetcher
@@ -315,7 +316,7 @@ def test_github_server_error_is_not_unreachable(web):
 def test_commit_from_api(web):
     fetcher, _ = web(session=NoNetwork())
     api = 'https://api.github.com/repos/plone/Products.CMFPlone/commits/abc123'
-    commit = {'commit': {'author': {'name': 'Jane', 'email': 'jane@example.org', 'date': '2012-05-06T07:08:09Z'},
+    commit = {'commit': {'author': {'name': 'Jane', 'email': 'jane@acme.test', 'date': '2012-05-06T07:08:09Z'},
                          'message': 'Fix the release process'}}
     session = FakeSession({api: FakeResponse(body=json.dumps(commit).encode())})
     result = capture('https://github.com/plone/Products.CMFPlone/commit/abc123', ['Fix the release'],
@@ -323,7 +324,8 @@ def test_commit_from_api(web):
     row = load_sources()[result.source_id]
     assert (row.kind, row.date, row.title) == ('commit', datetime.date(2012, 5, 6),
                                                'https://github.com/plone/Products.CMFPlone/commit/abc123')
-    assert result.added == ('Author: Jane <jane@example.org>\nDate: 2012-05-06T07:08:09Z\n\nFix the release process',)
+    masked = mask_address('jane@acme.test', keep_domain=True)
+    assert result.added == (f'Author: Jane <{masked}>\nDate: 2012-05-06T07:08:09Z\n\nFix the release process',)
 
 
 def test_capture_commit_cites_the_author_line(web):
@@ -333,18 +335,61 @@ def test_capture_commit_cites_the_author_line(web):
                          'message': 'Fix the release process'}}
     session = FakeSession({api: FakeResponse(body=json.dumps(commit).encode())})
     url = 'https://github.com/acme/site/commit/abc123'
+    masked = mask_address('jane@acme.test', keep_domain=True)
     assert capture_commit(url, 'JANE@acme.test', fetcher=fetcher, session=session, run=no_run) == (
-        source_id(url), 'Author: Jane <jane@acme.test>')
+        source_id(url), f'Author: Jane <{masked}>')
+    assert 'jane@acme.test' not in read_excerpt(source_id(url))
     # Captured once: the second call reads the register
     assert capture_commit(url, 'jane@acme.test', fetcher=fetcher, session=NoNetwork(), run=no_run) == (
-        source_id(url), 'Author: Jane <jane@acme.test>')
+        source_id(url), f'Author: Jane <{masked}>')
     # Without an address (the commit search found it in an organisation) the commit is stored whole, no snippet
     other = 'https://github.com/acme/site/commit/def456'
     session.pages['https://api.github.com/repos/acme/site/commits/def456'] = FakeResponse(body=json.dumps(
         {'commit': {**commit['commit'], 'message': 'Another'}}).encode())
     assert capture_commit(other, '', names=['Jane'], fetcher=fetcher, session=session, run=no_run) == (
         source_id(other), None)
-    assert read_excerpt(source_id(other)).startswith('Author: Jane <jane@acme.test>')
+    assert read_excerpt(source_id(other)).startswith(f'Author: Jane <{masked}>')
+
+
+def test_capture_masks_page_addresses(web):
+    page = b'<html><head><title>Contact</title></head><body><p>Email: jane@acme.test is the contact.</p></body></html>'
+    fetcher, _ = web({URL: FakeResponse(body=page)})
+    masked = mask_address('jane@acme.test', keep_domain=True)
+    result = capture(URL, ['Email: jane@acme.test'], fetcher=fetcher, run=no_run)
+    assert result.missing == ()
+    assert masked.endswith('@acme.test')
+    assert f'Email: {masked}' in read_excerpt(source_id(URL))
+    assert 'jane@acme.test' not in read_excerpt(source_id(URL))
+    # The raw quote is recognised as stored the second time
+    assert capture(URL, ['Email: jane@acme.test'], fetcher=NoNetwork(), run=no_run).added == ()
+
+
+def test_capture_masks_the_title_of_the_source_row(web):
+    page = (b'<html><head><title>Contact jane@acme.test</title></head><body><p>Email: jane@acme.test is the '
+            b'contact.</p></body></html>')
+    fetcher, _ = web({URL: FakeResponse(body=page)})
+    capture(URL, ['Email: jane@acme.test'], fetcher=fetcher, run=no_run)
+    title = load_sources()[source_id(URL)].title
+    assert title == f"Contact {mask_address('jane@acme.test')}"
+    assert '@' not in title
+
+
+def test_capture_masks_the_title_given_by_the_user(web):
+    page = b'<html><head><title>Contact</title></head><body><p>Email: jane@acme.test is the contact.</p></body></html>'
+    fetcher, _ = web({URL: FakeResponse(body=page)})
+    capture(URL, ['Email: jane@acme.test'], title='Mail from jane@acme.test', fetcher=fetcher, run=no_run)
+    assert load_sources()[source_id(URL)].title == f"Mail from {mask_address('jane@acme.test')}"
+
+
+def test_capture_masks_a_general_service_address_completely(web):
+    page = b'<html><head><title>Contact</title></head><body><p>Email: jane@gmx.test is the contact.</p></body></html>'
+    fetcher, _ = web({URL: FakeResponse(body=page)})
+    masked = mask_address('jane@gmx.test', keep_domain=True)
+    assert '@' not in masked
+    result = capture(URL, ['Email: jane@gmx.test'], fetcher=fetcher, run=no_run)
+    assert result.missing == ()
+    assert f'Email: {masked}' in read_excerpt(source_id(URL))
+    assert 'gmx' not in read_excerpt(source_id(URL))
 
 
 def test_capture_commit_fails_for_an_unreachable_commit(web):
@@ -503,12 +548,13 @@ def test_commit_quote_in_the_message_keeps_author_and_date(web):
     fetcher, _ = web(session=NoNetwork())
     api = 'https://api.github.com/repos/plone/plone.api/commits/abc123'
     message = 'Fix the release process\n\nJane works for Acme on this.'
-    commit = {'commit': {'author': {'name': 'Jane', 'email': 'jane@example.org', 'date': '2012-05-06T07:08:09Z'},
+    commit = {'commit': {'author': {'name': 'Jane', 'email': 'jane@acme.test', 'date': '2012-05-06T07:08:09Z'},
                          'message': message}}
     session = FakeSession({api: FakeResponse(body=json.dumps(commit).encode())})
     result = capture('https://github.com/plone/plone.api/commit/abc123', ['works for Acme'],
                      fetcher=fetcher, session=session, run=no_run)
-    assert result.added == (f'Author: Jane <jane@example.org>\nDate: 2012-05-06T07:08:09Z\n\n{message}',)
+    masked = mask_address('jane@acme.test', keep_domain=True)
+    assert result.added == (f'Author: Jane <{masked}>\nDate: 2012-05-06T07:08:09Z\n\n{message}',)
 
 
 def test_profile_passage_is_the_whole_profile(web):

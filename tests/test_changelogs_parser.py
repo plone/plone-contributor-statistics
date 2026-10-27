@@ -146,8 +146,8 @@ def test_aggregated_release_notes_are_skipped():
 
 
 def test_gnu_changelogs_are_recognized():
-    gnu = ('2005-07-22 Hanno Schlichting <plone@hannosch.info>\n\n    * Correct failing test\n\n'
-           '2004-07-24  Christian Heimes <heimes@faho.rwth-aachen.de>\n\n    * Changed version\n')
+    gnu = ('2005-07-22 Jane Doe <jane@acme.test>\n\n    * Correct failing test\n\n'
+           '2004-07-24  John Smith <jsmith@university.test>\n\n    * Changed version\n')
 
     assert changelogs.is_gnu_changelog(gnu)
     assert not changelogs.is_gnu_changelog(RST)

@@ -14,6 +14,7 @@ from collections.abc import Sequence
 
 import requests
 
+from scripts.lib.addresses import mask_address, mask_text
 from scripts.lib.capture import extract as extraction  # the module: a name `extract` here would hide it
 from scripts.lib.capture import fetch
 from scripts.lib.capture.extract import (
@@ -242,8 +243,9 @@ def capture(url: str, quotes: Sequence[str] = (), kind: str | None = None, title
     is found; quotes not found are reported as missing either way.
     A fetcher given here keeps its own refresh setting; one built here refetches when refresh is true.
     """
-    quotes = tuple(quotes)
-    names = tuple(names)
+    quotes = tuple(mask_text(quote, True) for quote in quotes)  # excerpts hold masked addresses only
+    names = tuple(mask_text(name, True) for name in names)
+    title = mask_text(title) if title else title  # a title, like the page's, holds bare hashes only
     split = split_archive_url(url)
     if split is None and _is_wayback(url):
         raise CaptureError(f'{url}: give the full 14-digit capture URL, '
@@ -276,6 +278,10 @@ def capture(url: str, quotes: Sequence[str] = (), kind: str | None = None, title
     except (FetchError, ExtractError, GitHubAPIError) as error:
         raise CaptureError(f'{url}: {error}') from error
 
+    read = dataclasses.replace(
+        read, text=mask_text(read.text, True), full_text=mask_text(read.full_text, True),
+        title=mask_text(read.title) if read.title else read.title,
+        notes=mask_text(read.notes) if read.notes else read.notes)
     sid = source_id(read.original, read.timestamp)
     existing = sources.get(sid)
     found, missing = [], []
@@ -401,7 +407,8 @@ def capture_commit(url: str, email: str, names: Sequence[str] = (), **options) -
     `Author: Name <address>`; None without an address. Without an address, `names` (at least one) are what the
     capture looks for. The other options go to `capture`. CaptureError when the commit could not be captured.
     """
-    result = capture(url, names=(email,) if email else tuple(names), **options)
+    masked = mask_address(email, True) if email else ''
+    result = capture(url, names=(masked,) if email else tuple(names), **options)
     if result.unreachable:
         raise CaptureError(f'{url}: could not be fetched')
     if result.source_id not in load_sources():
@@ -410,5 +417,5 @@ def capture_commit(url: str, email: str, names: Sequence[str] = (), **options) -
         return result.source_id, None
     excerpt = read_excerpt(result.source_id)
     line = next((line.strip() for line in excerpt.splitlines()
-                 if line.startswith('Author: ') and email.lower() in line.lower()), None)
+                 if line.startswith('Author: ') and masked.lower() in line.lower()), None)
     return result.source_id, line if line and find_quote(excerpt, line) else None

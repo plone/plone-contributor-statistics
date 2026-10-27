@@ -12,7 +12,7 @@ GitHub links a commit to the account whose email address is the commit's author 
 The collector does the same: it reads the commits from local clones and asks the GitHub GraphQL API which account each new email address belongs to.
 
 Many old addresses belong to no account today: Subversion users like `name@localhost`, or company addresses that people no longer use.
-For these, an identity of the kind `email` in `curated/mappings/identities.csv` names the person behind the address, each with a source, or, for an early commit address, with notes that say what the identification rests on ([#77](https://github.com/plone/plone-contributor-statistics/pull/77)).
+For these, an identity of the kind `email` in `curated/mappings/identities.csv` names the person behind the address, each with a source (a masked address, see {ref}`masked-addresses`; the collector hashes the commit address and compares), or, for an early commit address, with notes that say what the identification rests on ([#77](https://github.com/plone/plone-contributor-statistics/pull/77)).
 A person with a GitHub account is counted under the login of their identity of the kind `github`, a person without one as `person:<id>`.
 Commits whose address is neither linked by GitHub nor an identity are left out, because there is no way to tell who made them.
 {doc}`history-and-coverage` explains why this matters most for the early years.

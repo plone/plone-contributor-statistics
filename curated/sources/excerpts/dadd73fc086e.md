@@ -1,1 +1,1 @@
-I'm a new employee on the services team and would like to get commit access to https://hg.mozilla.org/services email: hschlichting@mozilla.com I'll send in the signed agreement tomorrow and will update this bug once I've done so.
+I'm a new employee on the services team and would like to get commit access to https://hg.mozilla.org/services email: h-a1d31fcbfc658179@mozilla.com I'll send in the signed agreement tomorrow and will update this bug once I've done so.

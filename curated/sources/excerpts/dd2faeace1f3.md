@@ -1,4 +1,4 @@
-Author: Andreas Zeidler <az@zitc.de>
+Author: Andreas Zeidler <h-d1ddb68aa425cad1@zitc.de>
 Date: 2018-11-12T15:06:30+01:00
 
 Pass the source object's UUID when adding a new translation.

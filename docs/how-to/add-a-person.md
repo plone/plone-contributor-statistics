@@ -7,7 +7,7 @@ Do this before you add an affiliation or a row of community data that names a pe
 You need a public record that connects the person to their name and, if they have one, their GitHub login.
 
 1.  Decide on the spelling of the name: the one the person uses in public, usually the name on their GitHub profile.
-    A different spelling in a source, an email address of old commits or a second GitHub account is an identity, see {doc}`link-old-commits-to-a-person`.
+    A different spelling in a source, an email address of old commits (stored masked, see {ref}`masked-addresses`) or a second GitHub account is an identity, see {doc}`link-old-commits-to-a-person`.
 
 2.  Check that the person is not in the register yet, under another spelling:
 

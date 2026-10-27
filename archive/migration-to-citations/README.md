@@ -2,7 +2,7 @@
 
 The code that migrated the registers in `curated/mappings/` to citations (plan 2c of the data structure work), with its audit and its tests.
 It ran once, on 2026-10-23: the code that reads the new registers and the migrated data are the single commit 1c8e0bb, because neither can read the registers of the other.
-The files are kept unchanged and do not run any more: the old registers and their schemas were removed by the switch.
+The files are kept unchanged, except that mail addresses were masked on 2026-10-27; they do not run any more: the old registers and their schemas were removed by the switch.
 
 ## Files
 

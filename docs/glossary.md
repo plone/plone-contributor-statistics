@@ -55,12 +55,17 @@ excluded repository
     Each one is listed with a reason in `curated/mappings/excluded_repositories.csv`.
 
 identity
-    A string that denotes a person in the data: the GitHub login the person is counted under (kind `github`), a further GitHub account (`github-alias`), a commit email address (`email`) or a spelling of the name (`name`), and further handles that the collectors don't read (`svn`, `irc`, `discourse`).
+    A string that denotes a person in the data: the GitHub login the person is counted under (kind `github`), a further GitHub account (`github-alias`), a commit email address (`email`, stored masked, see {term}`masked address`) or a spelling of the name (`name`), and further handles that the collectors don't read (`svn`, `irc`, `discourse`).
     Identities are listed in `curated/mappings/identities.csv`, each with the id of its person and the {term}`source` that connects them; an early commit address may instead have notes that say what it rests on.
 
 independent contributor
     A self-employed person or volunteer whose organisation has the kind `independent` in `curated/mappings/organisations.csv`, for example `Name (independent)`.
     An independent contributor is mapped, unlike an {term}`Unmapped` one.
+
+masked address
+    A mail address replaced by `h-` and sixteen hexadecimal characters of its SHA-256 hash, so that the repository holds no readable address; anyone who knows the address can compute the hash.
+    Excerpts and the snippets that quote them keep the domain of a company address after the hash.
+    See {ref}`masked-addresses`.
 
 merge commit
     A commit with more than one parent, created when a branch or pull request is merged.

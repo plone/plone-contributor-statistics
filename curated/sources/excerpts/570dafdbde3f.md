@@ -1,4 +1,4 @@
-Author: Ramon Navarro Bosch <ramon.nb@gmail.com>
+Author: Ramon Navarro Bosch <h-963c0f420f3f8d93>
 Date: 2019-06-19T16:36:34Z
 
 Back to development: 5.0.0a2

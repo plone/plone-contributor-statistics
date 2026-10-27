@@ -57,7 +57,7 @@ To see everyone who contributed in one year, open the contributor file of that y
 Files exist from 2003 on.
 
 People without a GitHub account appear in the contributor files as `person:<id>`.
-`curated/mappings/identities.csv` lists the old email addresses the statistics know, as identities of the kind `email`.
+`curated/mappings/identities.csv` lists the old email addresses the statistics know, as identities of the kind `email`; the addresses of the Git years are masked, so search them with `python -m scripts.tools.person <address>`, which masks the address first, see {ref}`masked-addresses`.
 
 To find people of the early years whose commits nobody could identify yet, look at the repositories' history directly.
 The statistics leave their commits out:

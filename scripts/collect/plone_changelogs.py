@@ -30,6 +30,7 @@ import requests
 from dotenv import load_dotenv
 
 from scripts.lib import changelogs, git_history, paths
+from scripts.lib.addresses import mask_text
 from scripts.lib.github_api import GitHubAPIError, github_get
 from scripts.lib.model import load_bot_accounts, load_excluded_repositories, load_registry
 from scripts.lib.tables import by_count
@@ -149,11 +150,11 @@ def count(entries, mapper):
 
 def year_table(people):
     rows = [{
-        'username': person,
+        'username': mask_text(person),
         'changelog_entries': stats['entries'],
         'repositories_count': len(stats['repositories']),
         'repositories': ', '.join(sorted(stats['repositories'])),
-        'changelog_names': ';'.join(sorted(stats['names'], key=lambda name: (name.casefold(), name))),
+        'changelog_names': mask_text(';'.join(sorted(stats['names'], key=lambda name: (name.casefold(), name)))),
         'matched_by': ';'.join(sorted(stats['layers'])),
     } for person, stats in people.items()]
     return by_count(pd.DataFrame(rows, columns=COLUMNS), 'changelog_entries', 'username')

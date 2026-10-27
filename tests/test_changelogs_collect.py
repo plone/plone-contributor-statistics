@@ -4,11 +4,12 @@ import pytest
 
 from scripts.collect import plone_changelogs
 from scripts.lib import git_history, paths
+from scripts.lib.addresses import mask_address
 
 CHANGES = '1.0 (2009-12-01)\n----------------\n\n- Fixed the portlet [hannosch]\n'
 HISTORY = 'Version 0.9\n-----------\n\n- Initial release [limi, alecm]\n'
-GNU = ('2005-07-22 Hanno Schlichting <plone@hannosch.info>\n\n    * Fixed a test\n\n'
-       '2004-07-24  Christian Heimes <heimes@faho.rwth-aachen.de>\n\n    * Changed version\n')
+GNU = ('2005-07-22 Hanno Schlichting <hanno@own.test>\n\n    * Fixed a test\n\n'
+       '2004-07-24  Christian Heimes <chris@acme.test>\n\n    * Changed version\n')
 
 
 class FakeGit:
@@ -127,3 +128,22 @@ def test_main_writes_nothing_when_a_fetch_fails(run_main, tmp_repo):
 
     assert status == 1
     assert not list(paths.CHANGELOGS_DIR.glob('*.csv'))
+
+
+def test_year_table_masks_unmatched_addresses():
+    stats = {'entries': 2, 'repositories': {'plone.app.x'}, 'names': {'jane@acme.test'}, 'layers': {'unmatched'}}
+
+    table = plone_changelogs.year_table({'jane@acme.test': stats, 'limi': {**stats, 'names': {'limi'}}})
+
+    masked = mask_address('jane@acme.test')
+    assert masked.startswith('h-') and '@' not in masked
+    assert set(table['username']) == {masked, 'limi'}
+    assert set(table['changelog_names']) == {masked, 'limi'}
+
+
+def test_year_table_keeps_names_with_an_at_sign_that_are_no_address():
+    stats = {'entries': 1, 'repositories': {'plone.app.x'}, 'names': {'x'}, 'layers': {'unmatched'}}
+
+    table = plone_changelogs.year_table({'@jane': stats, 'foo @ bar': stats, 'jdoe@localhost': stats})
+
+    assert set(table['username']) == {'@jane', 'foo @ bar', 'jdoe@localhost'}

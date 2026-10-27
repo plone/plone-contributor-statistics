@@ -23,6 +23,7 @@ import dataclasses
 import re
 import sys
 
+from scripts.lib.addresses import mask_text
 from scripts.lib.capture.passages import find_quote
 from scripts.lib.model import (is_uncaptured, load_citations, load_identities, load_registry, load_sources,
                                read_excerpt, write_citations, write_identities)
@@ -42,7 +43,8 @@ class Quote:
 
 def quotes(notes):
     """The double-quoted quotes of the notes, in order: the text between each pair of `"`, stripped, at least
-    MIN_QUOTE characters long, and not right after a title word."""
+    MIN_QUOTE characters long, and not right after a title word. An address in a quote is masked with its
+    domain, as the excerpts hold it."""
     notes = notes or ''
     found = []
     for match in QUOTE.finditer(notes):
@@ -53,7 +55,7 @@ def quotes(notes):
         context = notes[:match.start()].strip()
         if len(context) > CONTEXT:
             context = '…' + context[-CONTEXT:].strip()
-        found.append(Quote(text, context))
+        found.append(Quote(mask_text(text, True), context))  # the excerpts hold masked text
     return found
 
 
@@ -85,7 +87,7 @@ class _Excerpts:
             return None
         if source not in self.texts:
             self.texts[source] = read_excerpt(source)
-        return find_quote(self.texts[source], quote)
+        return find_quote(self.texts[source], mask_text(quote, True))
 
 
 def _overlaps(span, spans):
