@@ -1,6 +1,7 @@
 import hashlib
 
-from scripts.lib.addresses import NOT_PERSONAL, address_hash, is_masked, mask_address, mask_text, readable_addresses
+from scripts.lib.addresses import (NOT_PERSONAL, address_hash, is_masked, mask_address, mask_address_for_notes,
+                                   mask_text, readable_addresses)
 
 
 # An invented machine name; built here, because no domain of machine names is reserved, so that the check for
@@ -89,3 +90,35 @@ def test_every_address_that_is_not_personal_stays_and_says_why():
         assert address == address.lower() and reason
         assert mask_address(address, keep_domain=True) == address
         assert readable_addresses(f'write to {address}') == []
+
+
+def test_an_address_in_markdown_emphasis_is_masked_without_the_underscores():
+    text = 'Author: Jane _jane@acme.test_ <jane_doe@acme.test>'
+    assert mask_text(text, keep_domain=True) == (f'Author: Jane _{h("jane@acme.test")}@acme.test_ '
+                                                 f'<{h("jane_doe@acme.test")}@acme.test>')
+    assert mask_text(text) == f'Author: Jane _{h("jane@acme.test")}_ <{h("jane_doe@acme.test")}>'
+
+
+def test_an_address_in_markdown_emphasis_is_readable():
+    address = 'jane@' + 'acme' + '.com'
+    assert readable_addresses(f'Author: Jane _{address}_') == [address]
+
+
+def test_a_masked_value_with_a_company_domain_is_not_readable():
+    masked = mask_address('jane@' + 'acme' + '.com', keep_domain=True)
+    assert masked == h('jane@' + 'acme' + '.com') + '@' + 'acme' + '.com'
+    assert readable_addresses(f'Author: Jane <{masked}> and _{masked}_') == []
+
+
+def test_the_notes_name_the_domain_of_a_company_address_in_words():
+    words = h('jane@acme.test') + ' (an address at acme.test)'
+    assert mask_address_for_notes('Jane@Acme.test') == words
+    assert mask_address_for_notes(h('jane@acme.test') + '@acme.test') == words
+    assert readable_addresses(mask_address_for_notes('jane@' + 'acme' + '.com')) == []
+
+
+def test_the_notes_give_other_addresses_bare_or_unchanged():
+    assert mask_address_for_notes('jane@gmx.test') == h('jane@gmx.test')
+    assert mask_address_for_notes(MACHINE) == h(MACHINE)
+    assert mask_address_for_notes('jdoe@localhost') == 'jdoe@localhost'
+    assert mask_address_for_notes('Jane Doe') == 'Jane Doe'

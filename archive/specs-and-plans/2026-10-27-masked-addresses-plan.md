@@ -72,7 +72,7 @@ def test_company_address_keeps_its_domain_only_when_asked():
     assert mask_address('Jane@Acme.test') == h('jane@acme.test')
 
 def test_general_service_and_machine_names_are_masked_completely():
-    for address in ('jane@gmx.test', 'jane@janes-imac.local', 'jane@example.com'):
+    for address in ('jane@gmx.test', 'jane@' + 'janes-imac.local', 'jane@example.com'):
         assert mask_address(address, keep_domain=True) == h(address)
 
 def test_subversion_noreply_and_not_personal_stay():

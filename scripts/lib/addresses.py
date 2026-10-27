@@ -1,7 +1,8 @@
 """Mask mail addresses: a hash replaces the readable address, see docs/explanation/attribution.md.
 
 The bare form `h-<16 hex>` is the default. The form with the domain, `h-<16 hex>@<company domain>`, is only for
-excerpts and snippets, which quote text where the domain is the evidence.
+excerpts and snippets, which quote text where the domain is the evidence. The `notes` of the curated mappings
+name the domain of a company address in words, `h-<16 hex> (an address at <domain>)`.
 """
 import hashlib
 import re
@@ -15,9 +16,10 @@ _MASKED_VALUE = re.compile(r'(?P<bare>h-[0-9a-f]{16})(?:@(?P<domain>[^@\s]+))?')
 
 # An address in free text: not part of a path, a scoped package or a longer word; the last label of the domain
 # has letters only (react@18.2.0 is a version). A lower-case last label ends before a capitalised word glued to it,
-# as in a page that lost its spaces ("jane@acme.testPlone Conf")
-ADDRESS = re.compile(r'(?<![\w.+\-/@])[\w.+\-]+@(?:[A-Za-z0-9\-]+\.)+'
-                     r'(?:[a-z]{2,}(?=[A-Z][a-z])|[A-Za-z]{2,}(?![\w\-]))')
+# as in a page that lost its spaces ("jane@acme.testPlone Conf"). Underscores around an address are Markdown
+# emphasis ("_jane@acme.test_"), not part of it
+ADDRESS = re.compile(r'(?<![A-Za-z0-9.+\-/@])[A-Za-z0-9.+\-][\w.+\-]*@(?:[A-Za-z0-9\-]+\.)+'
+                     r'(?:[a-z]{2,}(?=[A-Z][a-z])|[A-Za-z]{2,}(?![A-Za-z0-9\-]))')
 
 # A masked value that keeps its company domain, the form of excerpts and snippets
 MASKED_WITH_DOMAIN = re.compile(r'\bh-[0-9a-f]{16}@')
@@ -66,6 +68,16 @@ def mask_address(address, keep_domain=False):
     if keep_domain and commit_authors.is_company_domain(domain):
         return hashed + '@' + domain
     return hashed
+
+
+def mask_address_for_notes(address):
+    """Mask an address as the `notes` of the curated mappings give it: a company address is the hash, then its
+    domain in words, `h-<16 hex> (an address at <domain>)`; any other address as `mask_address` masks it."""
+    masked = mask_address(address, keep_domain=True)
+    match = _MASKED_VALUE.fullmatch(masked)
+    if match and match.group('domain'):
+        return f"{match.group('bare')} (an address at {match.group('domain')})"
+    return masked
 
 
 def mask_text(text, keep_domain=False):
