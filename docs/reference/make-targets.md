@@ -26,18 +26,18 @@ Set a variable on the command line to use another year, for example `make five-y
 | `make install` | Installs `requirements.txt`. | works |
 | `make setup` | Runs `install` and creates a `.env` template for the GitHub token. | works |
 | `make dev-setup` | Runs `setup` and installs development tools. | works |
-| `make test` | Runs the test suite with pytest. | works |
+| `make test` | Runs the test suite with pytest, which `make dev-setup` installs. | works |
 | `make check` | Runs `lint`, compiles all scripts, checks the installed requirements and runs the data checks on `curated/`, see {ref}`reference-curated-files`. | works |
-| `make lint` | Runs flake8 on the scripts, if installed. | works |
-| `make format` | Formats the scripts. | works |
-| `make clean` | Deletes caches, checkpoint files, the built documentation and the built site; never committed files. | works |
-| `make status` | Prints the Python version and whether a GitHub token is configured. | works |
+| `make lint` | Runs flake8 on the scripts and the tests, if installed. | works |
+| `make format` | Formats the scripts and the tests with black, if installed. | works |
+| `make clean` | Deletes the Python and pytest caches, checkpoint files, the built documentation and the built site; never committed files. It keeps the clones in `.cache/repositories/`. | works |
+| `make status` | Prints the Python version and whether `.env` holds a GitHub token; a token in the environment variable `GITHUB_TOKEN` is not checked. | works |
 
 ## A whole year
 
 | Target | Does | Status |
 |---|---|---|
-| `make year` | Collects, derives and reports `YEAR` in pipeline order, see {doc}`/how-to/prepare-a-new-year`. | works |
+| `make year` | Collects, derives and reports `YEAR` in pipeline order, see {doc}`/how-to/prepare-a-new-year`. It doesn't collect the changelog entries or the commit domains: run `make run-changelogs` and `make run-commit-domains` as well ([#181](https://github.com/plone/plone-contributor-statistics/issues/181)). | works |
 
 ## Collection
 

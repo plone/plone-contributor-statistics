@@ -25,7 +25,8 @@ The commits and pull requests are public on GitHub.
 Every attribution to a person or an organisation, and every row of curated community data, rests on a public record: a web page, an archived page, a register entry, a conference biography, a public commit, or a confirmation by the person in public.
 A memory alone is not enough: without a public record, an entry stays out, and a contributor stays Unmapped.
 The one exception is identifying the people behind early CVS and Subversion commit addresses, where public records are often impossible.
-{doc}`/explanation/attribution` and {doc}`/explanation/curated-community-data` explain the rule, and [#86](https://github.com/plone/plone-contributor-statistics/issues/86) lists the files that still lack linked sources.
+{doc}`/explanation/attribution` and {doc}`/explanation/curated-community-data` explain the rule.
+Some sources in the register could not be captured yet, see {ref}`how-to-capture-a-source-not-read`.
 
 ## Who this is for
 

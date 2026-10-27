@@ -8,6 +8,9 @@ This documentation describes the method of the statistics, so it must change tog
 
 A pull request that changes anything the documentation describes — a data source, a collection or counting rule, the attribution rules, a mapping or exclusion convention, a file's format or location, or a Make target — must update `docs/` in the same pull request.
 
+`docs/reference/curated-files.md` is generated from the Table Schemas: change the `description` in `curated/schemas/` or the text in `scripts/tools/schema_docs.py`, then run `python -m scripts.tools.schema_docs`.
+A change by hand fails `make test`.
+
 The pull request template asks for this.
 A reviewer should not merge a pull request that changes the method without changing the documentation.
 
@@ -28,7 +31,7 @@ A reviewer should not merge a pull request that changes the method without chang
     The build treats warnings as errors.
     Open `docs/_build/html/index.html` in a browser to read the result.
 
-3.  Run the tests, which also check that every file and Make target the documentation names exists:
+3.  Run the tests, which also check that every file and Make target the documentation names exists; they need pytest, which `make dev-setup` installs:
 
     ```shell
     make test
@@ -44,7 +47,7 @@ The documentation follows the [Plone documentation style guide](https://6.docs.p
 In short:
 
 - Write one sentence per line.
-- Use American English, the active voice, and sentence case in headings.
+- Use British English as the project writes it, such as "organisation" and "recognised", the active voice, and sentence case in headings.
 - Give each page one purpose: explanation, reference or how-to guide.
 - Explain the method and its reasons, not the numbers it produces.
 - Describe the current state in explanation, reference and how-to pages.
