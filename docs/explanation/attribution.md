@@ -17,6 +17,11 @@ A developer who works on Plone in their free time, while their employer has noth
 Self-employed people and volunteers therefore have entries of their own, such as `Name (independent)`.
 Self-employed people with a company name use that name.
 
+An organisation and its legal predecessor are one organisation, with one row in `curated/mappings/organisations.csv` whose `notes` name the predecessor and cite the record of the succession, and with the predecessor's name among its `aliases`.
+The affiliations of the predecessor's years point to that row, so those years count for the organisation under its present name.
+This holds for a company that succeeded another, such as the Burning Man Project for Black Rock City LLC, and for a sole proprietorship that its owner continued as a company, when a public record says so, such as a statement by the owner on an issue of this repository ([#188](https://github.com/plone/plone-contributor-statistics/issues/188)).
+A person who leaves their own business to work for another organisation changes organisations, and has a row for each.
+
 ## Registers, sources and citations
 
 The registers in `curated/mappings/` record who people are and which organisations they belonged to.

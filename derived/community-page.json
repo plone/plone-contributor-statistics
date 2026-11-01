@@ -4883,7 +4883,7 @@
      "level": "",
      "name": "World Plone Day 2013, Cologne, Germany",
      "organisations": [
-      "Timo Stollenwerk (independent)"
+      "kitconcept GmbH"
      ],
      "sources": [
       "https://web.archive.org/web/20130721013530/http://plone.org/events/wpd/hosts/cologne-germany"
@@ -5092,7 +5092,7 @@
     },
     {
      "name": "Timo Stollenwerk",
-     "organisation": "Timo Stollenwerk (independent)",
+     "organisation": "kitconcept GmbH",
      "source": "https://web.archive.org/web/20130920093753/http://plone.org/community/teams/cit",
      "team": "Testing & Continuous Integration Team"
     },
@@ -5493,7 +5493,7 @@
     },
     {
      "name": "Timo Stollenwerk",
-     "organisation": "Timo Stollenwerk (independent)",
+     "organisation": "kitconcept GmbH",
      "source": "https://web.archive.org/web/20140728124415/http://plone.org/community/teams/cit",
      "team": "Testing & Continuous Integration Team"
     },
@@ -5798,7 +5798,7 @@
     },
     {
      "name": "Timo Stollenwerk",
-     "organisation": "Timo Stollenwerk (independent)",
+     "organisation": "kitconcept GmbH",
      "source": "https://web.archive.org/web/20150919103304/http://plone.org/community/teams/cit",
      "team": "Testing & Continuous Integration Team"
     },
@@ -12365,40 +12365,40 @@
      "roles": 0
     },
     "2010": {
-     "commits": 0,
+     "commits": 557,
      "events": 0,
      "pull_requests": 0,
      "roles": 0
     },
     "2011": {
-     "commits": 0,
+     "commits": 272,
      "events": 0,
-     "pull_requests": 0,
-     "roles": 0
+     "pull_requests": 1,
+     "roles": 1
     },
     "2012": {
-     "commits": 0,
+     "commits": 558,
      "events": 0,
-     "pull_requests": 0,
-     "roles": 0
+     "pull_requests": 2,
+     "roles": 2
     },
     "2013": {
-     "commits": 0,
-     "events": 0,
-     "pull_requests": 0,
-     "roles": 0
+     "commits": 910,
+     "events": 1,
+     "pull_requests": 5,
+     "roles": 3
     },
     "2014": {
-     "commits": 0,
+     "commits": 1022,
      "events": 0,
-     "pull_requests": 0,
-     "roles": 0
+     "pull_requests": 23,
+     "roles": 3
     },
     "2015": {
-     "commits": 0,
+     "commits": 1677,
      "events": 0,
-     "pull_requests": 0,
-     "roles": 0
+     "pull_requests": 89,
+     "roles": 2
     },
     "2016": {
      "commits": 172,
@@ -28166,7 +28166,7 @@
     "commits": 557,
     "id": "timo-stollenwerk",
     "name": "Timo Stollenwerk",
-    "organisation": "Timo Stollenwerk (independent)",
+    "organisation": "kitconcept GmbH",
     "pull_requests": 0,
     "roles": [],
     "talks": []
@@ -30370,7 +30370,7 @@
     "commits": 272,
     "id": "timo-stollenwerk",
     "name": "Timo Stollenwerk",
-    "organisation": "Timo Stollenwerk (independent)",
+    "organisation": "kitconcept GmbH",
     "pull_requests": 1,
     "roles": [
      "Speaker"
@@ -33023,7 +33023,7 @@
     "commits": 558,
     "id": "timo-stollenwerk",
     "name": "Timo Stollenwerk",
-    "organisation": "Timo Stollenwerk (independent)",
+    "organisation": "kitconcept GmbH",
     "pull_requests": 2,
     "roles": [
      "Speaker"
@@ -36054,7 +36054,7 @@
     "commits": 910,
     "id": "timo-stollenwerk",
     "name": "Timo Stollenwerk",
-    "organisation": "Timo Stollenwerk (independent)",
+    "organisation": "kitconcept GmbH",
     "pull_requests": 5,
     "roles": [
      "Speaker",
@@ -38752,7 +38752,7 @@
     "commits": 1022,
     "id": "timo-stollenwerk",
     "name": "Timo Stollenwerk",
-    "organisation": "Timo Stollenwerk (independent)",
+    "organisation": "kitconcept GmbH",
     "pull_requests": 23,
     "roles": [
      "Speaker",
@@ -41097,7 +41097,7 @@
     "commits": 1677,
     "id": "timo-stollenwerk",
     "name": "Timo Stollenwerk",
-    "organisation": "Timo Stollenwerk (independent)",
+    "organisation": "kitconcept GmbH",
     "pull_requests": 89,
     "roles": [
      "Speaker",

@@ -108,6 +108,7 @@ Tooling:
   An audit showed that no cell of the old files was lost, and the numbers didn't change.
 - Two records of one organisation now cover the years between them, however far apart, when no record names another organisation in between ([#164](https://github.com/plone/plone-contributor-statistics/pull/164)).
   The bridged years are computed by the attribution rules, which are applied in a fixed order; a year that the rules leave open is an open case and counts as Unmapped until a decision settles it ([#179](https://github.com/plone/plone-contributor-statistics/pull/179)).
+- An organisation and its legal predecessor are one organisation, also when the predecessor was the owner's sole proprietorship and a public record says that the company continues it ([#188](https://github.com/plone/plone-contributor-statistics/issues/188)).
 
 ## Which files are comparable
 
