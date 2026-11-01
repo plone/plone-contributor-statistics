@@ -118,7 +118,7 @@ The source register is written by `python -m scripts.tools.capture`, not by hand
 
 `derived/community-page.json`
 :   Written by `scripts/derive/community_page.py`.
-    Every number and list the community page shows: the headline numbers, the recognition levels and the organisations on the wall with their points and contributions, the yearly counts per person (by login or name, sorted, without ranks, with the organisation of the year, the community roles and the talks of the year with their recordings), and the history per year.
+    Every number and list the community page shows: the headline numbers, the recognition levels and the organisations on the wall with their points and contributions and the PLIPs behind them, the yearly counts per person (by login or name, sorted, without ranks, with the organisation of the year, the community roles, the talks of the year with their recordings, and the PLIPs closed in the year), and the history per year with its PLIPs by organisation.
     {doc}`/explanation/community-page` explains the definitions.
 
 `derived/summaries/summary-past-*-years-*.csv`

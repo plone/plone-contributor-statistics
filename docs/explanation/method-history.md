@@ -109,6 +109,7 @@ Tooling:
 - Two records of one organisation now cover the years between them, however far apart, when no record names another organisation in between ([#164](https://github.com/plone/plone-contributor-statistics/pull/164)).
   The bridged years are computed by the attribution rules, which are applied in a fixed order; a year that the rules leave open is an open case and counts as Unmapped until a decision settles it ([#179](https://github.com/plone/plone-contributor-statistics/pull/179)).
 - An organisation and its legal predecessor are one organisation, also when the predecessor was the owner's sole proprietorship and a public record says that the company continues it ([#188](https://github.com/plone/plone-contributor-statistics/issues/188)).
+- A PLIP closed in a year makes its author and the author's organisation active in that year, and the community page lists the PLIPs on the person's card, behind an organisation's points and for each year in its history, instead of a separate PLIP report ([#104](https://github.com/plone/plone-contributor-statistics/issues/104)).
 
 ## Which files are comparable
 
