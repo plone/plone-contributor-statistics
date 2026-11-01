@@ -11,6 +11,7 @@ import csv
 import json
 from collections import defaultdict
 
+from scripts.derive.plip_organisation_stats import plip_year
 from scripts.lib import paths
 from scripts.lib.model import LOGIN_KINDS, TALK_TYPES, UNMAPPED, events, items, load_registry, roles, talks
 from scripts.lib.model.names import fold, slugify
@@ -44,19 +45,50 @@ def organisation_code_work(year):
             yield row['organisation'], commits, pulls
 
 
+def closed_plips(up_to):
+    """The closed PLIPs by the year that decides their organisation (#95), from FIRST_YEAR up to `up_to`."""
+    found = defaultdict(list)
+    for plip in read_rows(paths.PLIPS_DETAILED):
+        if plip['state'] == 'closed' and FIRST_YEAR <= plip_year(plip) <= up_to:
+            found[plip_year(plip)].append(plip)
+    return dict(found)
+
+
+def plip_entry(plip):
+    """A PLIP as the page shows it: the repository without `plone/`, the number, the title, the issue."""
+    return {'repository': plip['repository'].split('/')[-1], 'number': int(plip['number']),
+            'title': plip['title'], 'url': plip['html_url']}
+
+
+def newest_first(plips):
+    return sorted((plip_entry(plip) for plip in plips), key=lambda e: (-e['number'], e['repository']))
+
+
+def plips_by_repository(plips):
+    """PLIPs grouped by repository, the largest group first, each group newest first."""
+    groups = defaultdict(list)
+    for plip in plips:
+        groups[plip_entry(plip)['repository']].append(plip)
+    return [{'repository': name, 'plips': newest_first(rows)}
+            for name, rows in sorted(groups.items(), key=lambda g: (-len(g[1]), g[0].casefold()))]
+
+
 def code_key(registry, username):
     """Who a collected username is: the id of the registered person, else the login in lower case."""
     person = registry.person_for_username(username)
     return person.id if person else username.casefold()
 
 
-def people_of_year(year, registry, year_roles, year_talks):
-    """Everyone active in the year, one entry per person: code work, roles and talks together."""
-    found = defaultdict(lambda: {'commits': 0, 'pull_requests': 0, 'roles': set(), 'talks': []})
+def people_of_year(year, registry, year_roles, year_talks, year_plips=()):
+    """Everyone active in the year, one entry per person: code work, PLIPs, roles and talks together."""
+    found = defaultdict(lambda: {'commits': 0, 'pull_requests': 0, 'roles': set(), 'talks': [], 'plips': []})
     for username, commits, pulls in code_work(year):
         person = found[code_key(registry, username)]
         person['commits'] += commits
         person['pull_requests'] += pulls
+    # A PLIP closed in the year counts as code work of its author
+    for plip in year_plips:
+        found[code_key(registry, plip['author'])]['plips'].append(plip)
     for role in year_roles:
         found[role.person]['roles'].add(role.label)
     for talk in year_talks:
@@ -65,6 +97,7 @@ def people_of_year(year, registry, year_roles, year_talks):
              'commits': value['commits'], 'pull_requests': value['pull_requests'],
              'roles': sorted(value['roles']),
              'talks': sorted(value['talks'], key=lambda t: (t['event'], t['title'])),
+             'plips': plips_by_repository(value['plips']),
              # The organisation the affiliations give the person for the year; a login outside the register has none
              'organisation': registry.organisation_of(key, year)} for key, value in sorted(found.items())]
 
@@ -77,9 +110,11 @@ def talk_organisations(year, registry):
     return found
 
 
-def organisations_of_year(year, registry, year_roles, year_events):
-    """The organisations active in the year: from code work, from the organisation of role holders, from events."""
+def organisations_of_year(year, registry, year_roles, year_events, year_plips=()):
+    """The organisations active in the year: from code work and PLIPs, from the organisation of role holders,
+    from events."""
     found = {organisation for organisation, _, _ in organisation_code_work(year)}
+    found.update(registry.organisation_for_username(plip['author'], year) for plip in year_plips)
     found.update(registry.organisation_of(role.person, year) for role in year_roles)
     found.update(registry.organisation_name(o) for event in year_events for o in event.organisations)
     found.update(talk_organisations(year, registry))
@@ -194,8 +229,10 @@ def build_page_data(year=RECOGNITION_YEAR):
     year_roles = {y: roles(y) for y in all_years}
     year_events = {y: events(y) for y in all_years}
     year_talks = {y: talks(y) for y in all_years}
+    plips = closed_plips(year)
+    year_plips = {y: plips.get(y, []) for y in all_years}
 
-    per_person = {y: people_of_year(y, registry, year_roles[y], year_talks[y]) for y in all_years}
+    per_person = {y: people_of_year(y, registry, year_roles[y], year_talks[y], year_plips[y]) for y in all_years}
     per_organisation = {y: organisation_history(y, registry, year_roles[y], year_events[y]) for y in all_years}
 
     found = {}
@@ -215,7 +252,8 @@ def build_page_data(year=RECOGNITION_YEAR):
         return len({p['id'] for y in years_ for p in per_person[y]})
 
     def organisations_in(years_):
-        return len(set().union(*(organisations_of_year(y, registry, year_roles[y], year_events[y]) for y in years_)))
+        return len(set().union(*(
+            organisations_of_year(y, registry, year_roles[y], year_events[y], year_plips[y]) for y in years_)))
 
     return {
         'year': year,
