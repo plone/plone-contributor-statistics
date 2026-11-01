@@ -73,6 +73,24 @@ def plips_by_repository(plips):
             for name, rows in sorted(groups.items(), key=lambda g: (-len(g[1]), g[0].casefold()))]
 
 
+def plips_by_year(plips):
+    """PLIPs grouped by the year that decides their organisation, newest year first, each group newest first."""
+    groups = defaultdict(list)
+    for plip in plips:
+        groups[plip_year(plip)].append(plip)
+    return [{'year': year, 'plips': newest_first(rows)} for year, rows in sorted(groups.items(), reverse=True)]
+
+
+def plips_by_organisation(plips, year, registry):
+    """PLIPs grouped by the author's organisation in the year, alphabetically; without one (None) last."""
+    groups = defaultdict(list)
+    for plip in plips:
+        organisation = registry.organisation_for_username(plip['author'], year)
+        groups[None if organisation == UNMAPPED else organisation].append(plip)
+    return [{'organisation': name, 'plips': newest_first(rows)}
+            for name, rows in sorted(groups.items(), key=lambda g: (g[0] is None, (g[0] or '').casefold()))]
+
+
 def code_key(registry, username):
     """Who a collected username is: the id of the registered person, else the login in lower case."""
     person = registry.person_for_username(username)
@@ -152,7 +170,7 @@ def rounded(points):
     return round(points, 4)
 
 
-def organisation_data(name, categories, found, levels, history_years, per_year):
+def organisation_data(name, categories, found, levels, history_years, per_year, plips=()):
     total = sum(categories.values())
     level = recognition.get_recognition_level(total, levels)
     higher = [lvl for lvl in levels if lvl['min_points'] > total]
@@ -168,6 +186,8 @@ def organisation_data(name, categories, found, levels, history_years, per_year):
                 'points': rounded(points),
                 'contributions': merged(found.get(category, [])),
             } for category, points in sorted(categories.items())},
+        # The PLIPs behind the points of the category, from the same computation as the points
+        'plips': plips_by_year(plips) if 'PLIP Contributions' in categories else [],
         'history': {str(year): per_year[year].get(name, {'commits': 0, 'pull_requests': 0, 'roles': 0, 'events': 0})
                     for year in history_years},
     }
@@ -192,7 +212,7 @@ def organisation_history(year, registry, year_roles, year_events):
     return found
 
 
-def history_of_year(year, registry, people_list, year_roles, year_events):
+def history_of_year(year, registry, people_list, year_roles, year_events, year_plips=()):
     commits = sum(c for _, c, _ in code_work(year))
     pulls = sum(p for _, _, p in code_work(year))
 
@@ -208,6 +228,7 @@ def history_of_year(year, registry, people_list, year_roles, year_events):
         'board': [holder(r) for r in year_roles if r.kind == 'board-of-directors'],
         'team_leads': [holder(r, team=r.detail) for r in year_roles if r.kind == 'team-leaders'],
         'events': [event_data(registry, event) for event in year_events],
+        'plips': plips_by_organisation(year_plips, year, registry),
     }
 
 
@@ -238,11 +259,13 @@ def build_page_data(year=RECOGNITION_YEAR):
     found = {}
     org_points, _ = recognition.calculate_community_recognition_points(year=year, registry=registry,
                                                                        contributions=found)
+    window_plips = recognition.closed_plips_by_organisation(window, registry=registry)
     levels = recognition.load_recognition_levels()
     organisations = {}
     wall = defaultdict(list)
     for name in sorted(org_points, key=str.casefold):
-        data = organisation_data(name, org_points[name], found.get(name, {}), levels, all_years, per_organisation)
+        data = organisation_data(name, org_points[name], found.get(name, {}), levels, all_years, per_organisation,
+                                 window_plips.get(name, []))
         if data['level'] == 'No Level':
             continue
         organisations[slugify(name)] = data
@@ -272,7 +295,7 @@ def build_page_data(year=RECOGNITION_YEAR):
         'people': {str(y): per_person[y] for y in all_years},
         # Names of the people in the register, for the people search: the folded name finds the id
         'people_names': people_names(registry),
-        'history': {str(y): history_of_year(y, registry, per_person[y], year_roles[y], year_events[y])
+        'history': {str(y): history_of_year(y, registry, per_person[y], year_roles[y], year_events[y], year_plips[y])
                     for y in all_years},
     }
 

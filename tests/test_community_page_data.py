@@ -371,3 +371,31 @@ def test_a_closed_plip_without_a_closing_date_counts_in_the_year_it_was_created(
     data = community_page.build_page_data(2025)
     assert [p['id'] for p in data['people']['2024']] == ['timo']
     assert data['people']['2025'] == []
+
+
+def test_an_organisation_lists_the_plips_behind_its_points_by_year(repo):
+    write(paths.PLIPS_DETAILED, PLIPS + plip(5, 'tisto', '2025-01-01') + plip(4, 'robgietema', '2025-02-01')
+          + plip(3, 'tisto', '2023-01-01') + plip(1, 'tisto', '2019-01-01'))
+    kitconcept = community_page.build_page_data(2025)['organisations']['kitconcept-gmbh']
+    groups = [(g['year'], [p['number'] for p in g['plips']]) for g in kitconcept['plips']]
+    assert groups == [(2025, [5, 4]), (2023, [3])]
+    [contribution] = kitconcept['categories']['PLIP Contributions']['contributions']
+    assert contribution['text'].endswith(f"({sum(len(g['plips']) for g in kitconcept['plips'])} PLIPs)")
+
+
+def test_an_organisation_without_plip_points_has_no_plip_list(repo):
+    write(paths.PLIPS_DETAILED, PLIPS + plip(5, 'tisto', '2025-01-01'))
+    write(paths.organisation_contributors_file(2025), ORGANISATIONS + 'kitconcept GmbH,0,500,1\n')
+    kitconcept = community_page.build_page_data(2025)['organisations']['kitconcept-gmbh']
+    assert 'PLIP Contributions' not in kitconcept['categories']
+    assert kitconcept['plips'] == []
+
+
+def test_history_groups_the_plips_of_the_year_by_organisation(repo):
+    write(paths.PLIPS_DETAILED, PLIPS + plip(5, 'tisto', '2025-01-01') + plip(6, 'stranger', '2025-01-02')
+          + plip(7, 'mamico', '2025-01-03') + plip(8, 'tisto', '2024-01-01'))
+    history = community_page.build_page_data(2025)['history']
+    assert [(g['organisation'], [p['number'] for p in g['plips']]) for g in history['2025']['plips']] == [
+        ('kitconcept GmbH', [5]), ('RedTurtle', [7]), (None, [6])]
+    assert [g['organisation'] for g in history['2024']['plips']] == ['kitconcept GmbH']
+    assert history['2023']['plips'] == []

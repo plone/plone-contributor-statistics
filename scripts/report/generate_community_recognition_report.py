@@ -68,10 +68,15 @@ def load_pr_data(years, data_dir=paths.ORGANISATION_CONTRIBUTORS_DIR):
             for org, total in totals.items()}
 
 
-def load_plip_data(years, plips_file=paths.PLIPS_DETAILED, registry=None):
-    """PLIPs closed in the years, for the author's organisation in the year of closing (#95)."""
+def closed_plips_by_organisation(years, plips_file=paths.PLIPS_DETAILED, registry=None):
+    """The PLIPs closed in the years, by the author's organisation in the year of closing (#95)."""
     plips = read_plips(plips_file)
-    groups = plips_by_organisation(plips, organisation_lookup(registry=registry), years=set(years), closed_only=True)
+    return plips_by_organisation(plips, organisation_lookup(registry=registry), years=set(years), closed_only=True)
+
+
+def load_plip_data(years, plips_file=paths.PLIPS_DETAILED, registry=None):
+    """The number of PLIPs closed in the years, per organisation, from closed_plips_by_organisation."""
+    groups = closed_plips_by_organisation(years, plips_file, registry)
     return {org: {'closed_plips': len(org_plips)} for org, org_plips in groups.items()}
 
 
