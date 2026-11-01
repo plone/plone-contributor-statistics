@@ -255,12 +255,13 @@ COMMUNITY_RULES = (
 
 def calculate_community_recognition_points(year=YEAR, data_dir=paths.ORGANISATION_CONTRIBUTORS_DIR,
                                            community_dir=None, plips_file=paths.PLIPS_DETAILED,
-                                           registry=None, contributions=None):
+                                           registry=None, contributions=None, plip_groups=None):
     """Calculate the points of the recognition year, as community-recognition-points.csv says.
 
     People in the community files count for their organisation in the year, from the registers. If
     `contributions` is a dict, it is filled with the Contribution behind each point:
-    {organisation: {category: [Contribution, ...]}}.
+    {organisation: {category: [Contribution, ...]}}. If `plip_groups` is a dict, it is filled with the
+    PLIPs the PLIP points count: {organisation: [PLIP row, ...]}.
     """
     org_points = defaultdict(lambda: defaultdict(float))
     org_details = defaultdict(lambda: defaultdict(list))
@@ -277,7 +278,10 @@ def calculate_community_recognition_points(year=YEAR, data_dir=paths.ORGANISATIO
 
     # Load code contribution data (PRs and PLIPs)
     pr_data = load_pr_data(five_years(year), data_dir)
-    plip_data = load_plip_data(five_years(year), plips_file, registry)
+    groups = closed_plips_by_organisation(five_years(year), plips_file, registry)
+    plip_data = {org: {'closed_plips': len(org_plips)} for org, org_plips in groups.items()}
+    if plip_groups is not None:
+        plip_groups.update(groups)
 
     # 1.-9. Community contributions
     for kind, rule in COMMUNITY_RULES:

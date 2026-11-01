@@ -257,9 +257,10 @@ def build_page_data(year=RECOGNITION_YEAR):
     per_organisation = {y: organisation_history(y, registry, year_roles[y], year_events[y]) for y in all_years}
 
     found = {}
+    # The PLIPs the PLIP points count, so that an organisation's list is exactly what its points count
+    window_plips = {}
     org_points, _ = recognition.calculate_community_recognition_points(year=year, registry=registry,
-                                                                       contributions=found)
-    window_plips = recognition.closed_plips_by_organisation(window, registry=registry)
+                                                                       contributions=found, plip_groups=window_plips)
     levels = recognition.load_recognition_levels()
     organisations = {}
     wall = defaultdict(list)
