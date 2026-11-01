@@ -158,3 +158,4 @@ details.year > summary { cursor: pointer; padding: .6rem .2rem; display: flex; f
 .plips .group { color: var(--muted); font-size: .8rem; font-weight: 600; margin-right: .3rem; }
 .plips .count { font-weight: 400; }
 .plips .ref { color: var(--muted); font-size: .8rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.result .card .plips { margin: 0; }

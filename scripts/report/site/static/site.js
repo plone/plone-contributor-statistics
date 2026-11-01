@@ -186,6 +186,38 @@
         facts.appendChild(row[1]);
       }
     });
+    // The PLIPs of the year, grouped by project: the title linked to the issue, then its number
+    var plipGroups = match.plips || [];
+    var plipCount = plipGroups.reduce(function (sum, group) { return sum + group.plips.length; }, 0);
+    if (plipCount) {
+      var plipsTitle = document.createElement('dt');
+      plipsTitle.textContent = 'PLIPs (' + plipCount + ')';
+      facts.appendChild(plipsTitle);
+      var plipsList = document.createElement('dd');
+      var groupList = document.createElement('ul');
+      groupList.className = 'plips';
+      plipGroups.forEach(function (group) {
+        var line = document.createElement('li');
+        var name = document.createElement('span');
+        name.className = 'group';
+        name.textContent = group.repository;
+        line.appendChild(name);
+        group.plips.forEach(function (plip, index) {
+          if (index) { line.appendChild(document.createTextNode(' \u00b7 ')); }
+          var link = document.createElement('a');
+          link.href = plip.url;
+          link.textContent = plip.title;
+          line.appendChild(link);
+          var ref = document.createElement('span');
+          ref.className = 'ref';
+          ref.textContent = ' #' + plip.number;
+          line.appendChild(ref);
+        });
+        groupList.appendChild(line);
+      });
+      plipsList.appendChild(groupList);
+      facts.appendChild(plipsList);
+    }
     // The talks of the year: the title, linked to the recording where there is one; the event only when there are several
     var talks = match.talks || [];
     if (talks.length) {
@@ -212,7 +244,8 @@
     }
     var note = document.createElement('p');
     note.className = 'note';
-    note.textContent = 'Out of ' + list.length + ' people active in ' + year + '. ' +
+    note.textContent = (plipCount ? 'PLIPs: proposed by them and closed in ' + year + '. ' : '') +
+      'Out of ' + list.length + ' people active in ' + year + '. ' +
       'Community roles recorded under a full name that the data doesn\u2019t link to a login show up when you search that name (#117).';
     card.appendChild(facts);
     card.appendChild(note);

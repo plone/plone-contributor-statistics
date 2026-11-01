@@ -63,7 +63,8 @@ DATA = {
     },
     'people': {'2025': [{'id': 'secret-person', 'name': 'Secret Person', 'commits': 5, 'pull_requests': 2,
                          'roles': ['Board', 'Speaker'], 'organisation': 'Affinitic',
-                         'talks': [{'title': 'Secret talk', 'event': 'Plone Conference 2025', 'video': 'https://v/1'}]},
+                         'talks': [{'title': 'Secret talk', 'event': 'Plone Conference 2025', 'video': 'https://v/1'}],
+                         'plips': [{'repository': 'volto', 'plips': [PLIP]}]},
                         {'id': 'other', 'name': 'other', 'commits': 60, 'pull_requests': 12, 'roles': [],
                          'organisation': 'Unmapped'},
                         {'id': 'third-person', 'name': 'Third Person', 'commits': 0, 'pull_requests': 0,
@@ -271,3 +272,15 @@ def test_history_lists_the_plips_of_the_year_by_organisation(page):
 def test_plip_lists_name_no_author(page):
     visible = page.split('<script type="application/json" id="people-data">')[0]
     assert 'Secret Person' not in visible and 'secretlogin' not in visible
+
+
+def test_people_data_carries_the_plips(page):
+    data = page.split('<script type="application/json" id="people-data">')[1].split('</script>')[0]
+    assert json.loads(data)['years']['2025'][0]['plips'][0]['repository'] == 'volto'
+
+
+def test_page_script_draws_the_plips_row():
+    script = (REPO / 'scripts/report/site/static/site.js').read_text(encoding='utf-8')
+    assert "'PLIPs ('" in script and 'match.plips || []' in script
+    assert 'PLIPs: proposed by them and closed in ' in script
+    assert script.index('match.plips || []') < script.index('match.talks || []')
