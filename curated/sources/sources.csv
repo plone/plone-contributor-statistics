@@ -1297,6 +1297,7 @@ id,kind,title,date,url,archive_url,fetched,notes
 55aaf63ce711,commit,https://github.com/RedTurtle/pas.plugins.velruse/commit/cefee1e7de92f6420ee5de71808e12fabc4b321c,2013-08-21,https://github.com/RedTurtle/pas.plugins.velruse/commit/cefee1e7de92f6420ee5de71808e12fabc4b321c,,2026-10-22T15:46:14Z,
 55ada0bd9c31,speaker-page,Enrico Polesel - Plone Conference 2019,2019-10-21,https://2019.ploneconf.org/people/enrico-polesel/,,2026-10-22T15:36:52Z,"date: first day of the Plone Conference 2019, as 70669bc437fd states"
 55b33d2de694,page,KUMAR AKSHAY,2018-10-31,https://2018.ploneconf.org/people/kumar-akshay.html,,2026-10-22T15:36:25Z,
+55b8d135568c,issue-comment,kitconcept GmbH is the legal continuation of timostollenwerk.net (my sole proprietorship),2026-11-01,https://github.com/plone/plone-contributor-statistics/issues/188,,2026-11-01T08:41:43Z,
 55c1afe63eb4,commit,https://github.com/kitconcept/kitconcept.richpage/commit/685943dcb600012bbbc366f5835713fe53a9bf91,2022-11-23,https://github.com/kitconcept/kitconcept.richpage/commit/685943dcb600012bbbc366f5835713fe53a9bf91,,2026-10-22T15:48:11Z,
 55d0c2894908,page,Form Block / Formbuilder,2020-12-04,https://2020.ploneconf.org/talks/form-block-formbuilder/view,https://web.archive.org/web/20201204144337/https://2020.ploneconf.org/talks/form-block-formbuilder/view,2026-10-25T03:48:12Z,page shows date 2020-10-31
 55d1eed4d8a1,profile,https://github.com/davconvent,2026-10-22,https://github.com/davconvent,,2026-10-22T21:07:05Z,
