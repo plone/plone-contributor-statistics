@@ -11,6 +11,12 @@ from scripts.report import community_page
 
 REPO = Path(__file__).resolve().parent.parent
 
+# A PLIP whose title needs escaping, and one of another repository
+PLIP = {'repository': 'volto', 'number': 6396, 'title': 'Remove <config> & co',
+        'url': 'https://github.com/plone/volto/issues/6396'}
+RESTAPI_PLIP = {'repository': 'plone.restapi', 'number': 641, 'title': 'Behaviors',
+                'url': 'https://github.com/plone/plone.restapi/issues/641'}
+
 DATA = {
     'year': 2025,
     'years': [2021, 2022, 2023, 2024, 2025],
@@ -33,7 +39,11 @@ DATA = {
                      'file': 'derived/organisation-contributors', 'line': None, 'source': None,
                      'rows': [[str(year), f'derived/organisation-contributors/{year}-plone-organisation-contributors.csv', 7]
                               for year in range(2021, 2026)]}]},
+                'PLIP Contributions': {'points': 3.0, 'contributions': [
+                    {'text': 'Occasional PLIP Contributor (2 PLIPs)', 'points': 3.0,
+                     'file': 'collected/plips/plone-plips-detailed.csv', 'line': None, 'source': None}]},
             },
+            'plips': [{'year': 2025, 'plips': [PLIP]}],
             'history': {'2024': {'commits': 10, 'pull_requests': 4, 'roles': 1, 'events': 0},
                         '2025': {'commits': 20, 'pull_requests': 8, 'roles': 2, 'events': 1}},
         },
@@ -47,12 +57,14 @@ DATA = {
                      'source': 'https://example.org/teams; organisation: https://github.com/janedoe; '
                                'Board: https://example.org/minutes'}]},
             },
+            'plips': [],
             'history': {'2025': {'commits': 0, 'pull_requests': 0, 'roles': 1, 'events': 0}},
         },
     },
     'people': {'2025': [{'id': 'secret-person', 'name': 'Secret Person', 'commits': 5, 'pull_requests': 2,
                          'roles': ['Board', 'Speaker'], 'organisation': 'Affinitic',
-                         'talks': [{'title': 'Secret talk', 'event': 'Plone Conference 2025', 'video': 'https://v/1'}]},
+                         'talks': [{'title': 'Secret talk', 'event': 'Plone Conference 2025', 'video': 'https://v/1'}],
+                         'plips': [{'repository': 'volto', 'plips': [PLIP]}]},
                         {'id': 'other', 'name': 'other', 'commits': 60, 'pull_requests': 12, 'roles': [],
                          'organisation': 'Unmapped'},
                         {'id': 'third-person', 'name': 'Third Person', 'commits': 0, 'pull_requests': 0,
@@ -61,13 +73,16 @@ DATA = {
     'history': {
         '2005': {'people_active': 40, 'commits': 1500, 'pull_requests': None, 'board': [], 'team_leads': [],
                  'events': [{'kind': 'plone-conference', 'level': '', 'name': 'Plone Conference 2005',
-                             'organisations': ['Six Feet Up'], 'sources': ['https://example.org/c2005']}]},
+                             'organisations': ['Six Feet Up'], 'sources': ['https://example.org/c2005']}],
+                 'plips': []},
         '2025': {'people_active': 151, 'commits': 7502, 'pull_requests': 2107,
                  'board': [{'name': 'Anna Board', 'organisation': 'Affinitic', 'source': 'https://example.org/board'},
                            {'name': 'Bob Board', 'organisation': 'Unmapped', 'source': 'http://www.example.com"'}],
                  'team_leads': [{'name': 'Jane Doe', 'team': 'Docs Team', 'organisation': 'Jane Doe (independent)',
                                  'source': None}],
-                 'events': []},
+                 'events': [],
+                 'plips': [{'organisation': 'RedTurtle', 'plips': [PLIP]},
+                           {'organisation': None, 'plips': [RESTAPI_PLIP]}]},
     },
 }
 
@@ -237,3 +252,35 @@ def test_page_is_marked_beta(page):
 def test_footer_links_the_privacy_notice(page):
     footer = page.split('<footer')[1]
     assert 'href="docs/reference/privacy.html"' in footer
+
+
+def test_organisation_lists_the_plips_behind_its_points(page):
+    org = page.split('id="org-redturtle"')[1].split('id="org-')[0]
+    assert 'href="https://github.com/plone/volto/issues/6396"' in org
+    assert 'Remove &lt;config&gt; &amp; co' in org
+    assert '>volto#6396<' in org
+
+
+def test_history_lists_the_plips_of_the_year_by_organisation(page):
+    year = page.split('id="year-2025"')[1].split('</details>')[0]
+    assert '2 PLIPs' in year
+    assert year.index('>RedTurtle') < year.index('no organisation recorded')
+    assert '>plone.restapi#641<' in year
+    assert 'PLIPs' not in page.split('id="year-2005"')[1].split('</details>')[0]
+
+
+def test_plip_lists_name_no_author(page):
+    visible = page.split('<script type="application/json" id="people-data">')[0]
+    assert 'Secret Person' not in visible and 'secretlogin' not in visible
+
+
+def test_people_data_carries_the_plips(page):
+    data = page.split('<script type="application/json" id="people-data">')[1].split('</script>')[0]
+    assert json.loads(data)['years']['2025'][0]['plips'][0]['repository'] == 'volto'
+
+
+def test_page_script_draws_the_plips_row():
+    script = (REPO / 'scripts/report/site/static/site.js').read_text(encoding='utf-8')
+    assert "'PLIPs ('" in script and 'match.plips || []' in script
+    assert 'PLIPs: proposed by them and closed in ' in script
+    assert script.index('match.plips || []') < script.index('match.talks || []')

@@ -151,3 +151,11 @@ details.year > summary { cursor: pointer; padding: .6rem .2rem; display: flex; f
 /* Footer */
 .site-footer { background: var(--soft); border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; padding: 1.2rem 0; margin-top: 2rem; }
 .site-footer p { margin: .3rem 0; }
+
+/* PLIPs: one line per group, the titles linked, the reference in grey */
+.plips { list-style: none; margin: .3rem 0 0; padding: 0; font-size: .92rem; }
+.plips li { margin: .25rem 0; line-height: 1.5; }
+.plips .group { color: var(--muted); font-size: .8rem; font-weight: 600; margin-right: .3rem; }
+.plips .count { font-weight: 400; }
+.plips .ref { color: var(--muted); font-size: .8rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.result .card .plips { margin: 0; }

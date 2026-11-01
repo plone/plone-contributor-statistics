@@ -26,6 +26,16 @@ AREAS = [('commits', 'Commits'), ('pull_requests', 'Merged pull requests'), ('ro
          ('events', 'Events')]
 
 
+def plip_year_label(group):
+    """The label of a group of PLIPs by year, on an organisation's entry."""
+    return group['year']
+
+
+def plip_organisation_label(group):
+    """The label of a group of PLIPs by organisation, in History: None is the PLIPs without an organisation."""
+    return group['organisation'] or 'no organisation recorded'
+
+
 def number(value):
     return f'{value:,}'
 
@@ -82,7 +92,7 @@ def environment():
                       trim_blocks=True, lstrip_blocks=True)
     env.filters.update(number=number, points=points, links=labelled_links)
     env.globals.update(data_link=data_link, bars=bars, areas=AREAS, repository=REPOSITORY, buckets=BUCKETS,
-                       distribution=distribution)
+                       distribution=distribution, by_year=plip_year_label, by_organisation=plip_organisation_label)
     return env
 
 

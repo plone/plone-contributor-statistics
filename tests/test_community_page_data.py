@@ -92,7 +92,7 @@ def test_people_active_counts_a_person_once_across_code_and_roles(repo):
     role('release-managers', 'timo', 'https://a')
     [entry] = community_page.build_page_data(2025)['people']['2025']
     assert entry == {'id': 'timo', 'name': 'timo', 'commits': 10, 'pull_requests': 5, 'roles': ['Release manager'],
-                     'talks': [], 'organisation': 'kitconcept GmbH'}
+                     'talks': [], 'plips': [], 'organisation': 'kitconcept GmbH'}
 
 
 def test_a_login_outside_the_register_is_keyed_by_the_login(repo):
@@ -161,7 +161,7 @@ def test_people_are_sorted_by_id_and_carry_no_rank(repo):
     write(paths.contributors_file(2025), CONTRIBUTORS + 'zed,1,1\nalice,5,9\n')
     people = community_page.build_page_data(2025)['people']['2025']
     assert [p['id'] for p in people] == ['alice', 'zed']
-    assert set(people[0]) == {'id', 'name', 'commits', 'pull_requests', 'roles', 'talks', 'organisation'}
+    assert set(people[0]) == {'id', 'name', 'commits', 'pull_requests', 'roles', 'talks', 'plips', 'organisation'}
 
 
 def test_data_is_deterministic(repo):
@@ -325,3 +325,77 @@ def test_the_organisation_of_a_person_follows_the_years_of_the_affiliation(repo,
     data = community_page.build_page_data(2025)
     organisation = {year: data['people'][year][0]['organisation'] for year in ('2023', '2024', '2025')}
     assert organisation == {'2023': 'kitconcept GmbH', '2024': 'Unmapped', '2025': 'RedTurtle'}
+
+
+def plip(number, author, closed, repository='plone/volto', title='A PLIP', state='closed'):
+    return (f'{number},{title},{author},{state},{closed[:4]}-01-01,{closed},'
+            f'{closed if state == "closed" else ""},{repository},https://github.com/{repository}/issues/{number}\n')
+
+
+def test_a_person_lists_the_plips_closed_in_the_year_grouped_by_repository(repo):
+    write(paths.PLIPS_DETAILED, PLIPS + plip(6326, 'tisto', '2025-04-12', title='Vitest')
+          + plip(6320, 'tisto', '2025-02-02') + plip(2, 'tisto', '2025-04-08', 'plone/aurora')
+          + plip(641, 'TISTO', '2025-09-13', 'plone/plone.restapi')
+          + plip(7, 'tisto', '2024-05-01') + plip(9, 'tisto', '2025-05-01', state='open'))
+    timo = next(p for p in community_page.build_page_data(2025)['people']['2025'] if p['id'] == 'timo')
+    assert timo['plips'] == [
+        {'repository': 'volto', 'plips': [
+            {'repository': 'volto', 'number': 6326, 'title': 'Vitest',
+             'url': 'https://github.com/plone/volto/issues/6326'},
+            {'repository': 'volto', 'number': 6320, 'title': 'A PLIP',
+             'url': 'https://github.com/plone/volto/issues/6320'}]},
+        {'repository': 'aurora', 'plips': [{'repository': 'aurora', 'number': 2, 'title': 'A PLIP',
+                                            'url': 'https://github.com/plone/aurora/issues/2'}]},
+        {'repository': 'plone.restapi', 'plips': [{'repository': 'plone.restapi', 'number': 641, 'title': 'A PLIP',
+                                                   'url': 'https://github.com/plone/plone.restapi/issues/641'}]}]
+
+
+def test_a_plip_makes_its_author_and_organisation_active(repo):
+    write(paths.PLIPS_DETAILED, PLIPS + plip(1, 'tisto', '2025-03-01') + plip(2, 'stranger', '2025-03-02'))
+    data = community_page.build_page_data(2025)
+    assert [p['id'] for p in data['people']['2025']] == ['stranger', 'timo']
+    assert data['history']['2025']['people_active'] == 2
+    # RedTurtle through the conference of the fixture, kitconcept through timo's PLIP; stranger has none
+    assert data['headline']['year']['organisations'] == 2
+
+
+def test_people_without_plips_have_an_empty_list(repo):
+    write(paths.contributors_file(2025), CONTRIBUTORS + 'tisto,10,5\n')
+    [entry] = community_page.build_page_data(2025)['people']['2025']
+    assert entry['plips'] == []
+
+
+def test_a_closed_plip_without_a_closing_date_counts_in_the_year_it_was_created(repo):
+    # The same rule as plip_organisation_stats.plip_year, so the page and the points agree
+    write(paths.PLIPS_DETAILED, PLIPS + '3,Old,tisto,closed,2024-02-01,2024-02-02,,plone/volto,https://u/3\n')
+    data = community_page.build_page_data(2025)
+    assert [p['id'] for p in data['people']['2024']] == ['timo']
+    assert data['people']['2025'] == []
+
+
+def test_an_organisation_lists_the_plips_behind_its_points_by_year(repo):
+    write(paths.PLIPS_DETAILED, PLIPS + plip(5, 'tisto', '2025-01-01') + plip(4, 'robgietema', '2025-02-01')
+          + plip(3, 'tisto', '2023-01-01') + plip(1, 'tisto', '2019-01-01'))
+    kitconcept = community_page.build_page_data(2025)['organisations']['kitconcept-gmbh']
+    groups = [(g['year'], [p['number'] for p in g['plips']]) for g in kitconcept['plips']]
+    assert groups == [(2025, [5, 4]), (2023, [3])]
+    [contribution] = kitconcept['categories']['PLIP Contributions']['contributions']
+    assert contribution['text'].endswith(f"({sum(len(g['plips']) for g in kitconcept['plips'])} PLIPs)")
+
+
+def test_an_organisation_without_plip_points_has_no_plip_list(repo):
+    write(paths.PLIPS_DETAILED, PLIPS + plip(5, 'tisto', '2025-01-01'))
+    write(paths.organisation_contributors_file(2025), ORGANISATIONS + 'kitconcept GmbH,0,500,1\n')
+    kitconcept = community_page.build_page_data(2025)['organisations']['kitconcept-gmbh']
+    assert 'PLIP Contributions' not in kitconcept['categories']
+    assert kitconcept['plips'] == []
+
+
+def test_history_groups_the_plips_of_the_year_by_organisation(repo):
+    write(paths.PLIPS_DETAILED, PLIPS + plip(5, 'tisto', '2025-01-01') + plip(6, 'stranger', '2025-01-02')
+          + plip(7, 'mamico', '2025-01-03') + plip(8, 'tisto', '2024-01-01'))
+    history = community_page.build_page_data(2025)['history']
+    assert [(g['organisation'], [p['number'] for p in g['plips']]) for g in history['2025']['plips']] == [
+        ('kitconcept GmbH', [5]), ('RedTurtle', [7]), (None, [6])]
+    assert [g['organisation'] for g in history['2024']['plips']] == ['kitconcept GmbH']
+    assert history['2023']['plips'] == []

@@ -10,6 +10,14 @@
     {% for label, file, line in contribution.rows %}<a class="row" href="{{ data_link(file, line) }}">{{ label }}</a>{% endfor %}
   {% elif contribution.file %}<a class="row" href="{{ data_link(contribution.file, contribution.line) }}">data</a>{% endif %}
 {% endmacro %}
+{% macro plip_list(groups, label) %}
+<ul class="plips">
+  {% for group in groups %}
+  <li><span class="group">{{ label(group) }} <span class="count">{{ group.plips | length }}</span></span>
+    {% for plip in group.plips %}<a href="{{ plip.url }}">{{ plip.title }}</a> <span class="ref">{{ plip.repository }}#{{ plip.number }}</span>{% if not loop.last %} · {% endif %}{% endfor %}</li>
+  {% endfor %}
+</ul>
+{% endmacro %}
 {% macro record_links(source) %}
   {% for url, label in source | links %}<a class="record" href="{{ url }}">{{ label }}</a>{% endfor %}
 {% endmacro %}
@@ -98,6 +106,7 @@
                     <span class="links">{{ source_links(contribution) }}</span></li>
                   {% endfor %}
                 </ul>
+                {% if category == 'PLIP Contributions' and organisation.plips %}{{ plip_list(organisation.plips, by_year) }}{% endif %}
               </details>
             </td><td class="num">{{ details.points | points }}</td></tr>
           {% endfor %}
@@ -160,7 +169,8 @@
         <span class="facts">{{ item.people_active | number }} people active ·
           {{ item.commits | number }} commits ·
           {% if item.pull_requests is none %}no pull requests yet{% else %}{{ item.pull_requests | number }} merged pull requests{% endif %}
-          {% if item.events %} · {{ item.events | length }} events{% endif %}</span></summary>
+          {% if item.events %} · {{ item.events | length }} events{% endif %}
+          {% if item.plips %} · {{ item.plips | sum(attribute='plips', start=[]) | length }} PLIPs{% endif %}</span></summary>
       <div class="year-body">
         {% if item.events %}
         <h3>Events</h3>
@@ -171,6 +181,10 @@
             {% for source in event.sources %}{{ record_links(source) }}{% endfor %}</li>
           {% endfor %}
         </ul>
+        {% endif %}
+        {% if item.plips %}
+        <h3>PLIPs</h3>
+        {{ plip_list(item.plips, by_organisation) }}
         {% endif %}
         {% if item.board %}
         <h3>Board of Directors</h3>
@@ -184,7 +198,7 @@
           {% for lead in item.team_leads %}<li>{{ lead.name }} <span class="by">{{ lead.team }}{% if lead.organisation not in ('', 'Unmapped') %}, {{ lead.organisation }}{% endif %}</span>{{ record_links(lead.source) }}</li>{% endfor %}
         </ul>
         {% endif %}
-        {% if not item.events and not item.board and not item.team_leads %}
+        {% if not item.events and not item.plips and not item.board and not item.team_leads %}
         <p class="note">No community records for this year yet.</p>
         {% endif %}
       </div>

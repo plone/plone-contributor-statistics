@@ -138,6 +138,25 @@ def test_plips_count_when_closed_in_the_five_years_for_the_organisation_of_that_
     assert plip_data == {'kitconcept GmbH': {'closed_plips': 2}, 'Unmapped': {'closed_plips': 1}}
 
 
+def test_closed_plips_by_organisation_returns_the_rows_load_plip_data_counts(data):
+    rows = [f'{n},PLIP,tisto,closed,{year}-01-01,{year}-06-01,{year}-06-01,plone/volto,u\n'
+            for n, year in enumerate([2019, 2021, 2022, 2023], 1)]
+    write(data / 'plips.csv', PLIP_HEADER + ''.join(rows))
+    groups = recognition.closed_plips_by_organisation(recognition.five_years(2025), str(data / 'plips.csv'))
+    assert {org: [p['number'] for p in rows] for org, rows in groups.items()} == {
+        'kitconcept GmbH': ['3', '4'], 'Unmapped': ['2']}
+
+
+def test_points_hand_out_the_plip_groups_they_count(data):
+    rows = [f'{n},PLIP,tisto,closed,2024-0{n}-01,2024-0{n}-02,2024-0{n}-02,plone/volto,u\n' for n in range(1, 4)]
+    write(data / 'plips.csv', PLIP_HEADER + ''.join(rows))
+    groups = {}
+    recognition.calculate_community_recognition_points(
+        year=2025, data_dir=str(data / 'data'), community_dir=paths.COMMUNITY, plips_file=str(data / 'plips.csv'),
+        plip_groups=groups)
+    assert {org: [p['number'] for p in rows] for org, rows in groups.items()} == {'kitconcept GmbH': ['1', '2', '3']}
+
+
 def test_plip_summary_maps_open_plips_by_the_year_they_were_created(data):
     write(data / 'plips.csv', PLIP_HEADER
           + '1,PLIP,tisto,open,2021-03-01,2021-03-02,,plone/volto,u\n'
