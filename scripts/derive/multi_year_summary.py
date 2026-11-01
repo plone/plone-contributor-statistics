@@ -10,12 +10,14 @@ Supports any combination of years and generates both CSV and TXT outputs.
 import pandas as pd
 import argparse
 import sys
+from collections import Counter
 from pathlib import Path
 
 from scripts.lib import paths
 from scripts.lib.years import window
 from scripts.lib.model import UNMAPPED
 from scripts.lib.tables import by_count
+from scripts.report import generate_community_recognition_report as recognition
 
 
 def load_organisation_file(year):
@@ -185,6 +187,9 @@ def save_summary(df, years):
     txt_content.append(f"- {len(df[df['organisation'] != UNMAPPED])} total organisations tracked across {period_label}")
     txt_content.append(f"- {df['total_commits'].sum():,} total commits and {df['total_pull_requests'].sum():,} pull requests")
     txt_content.append(f"- {df['contributors_count'].sum()} unique contributors across all organisations")
+    plips = plip_totals(years)
+    if plips is not None:
+        txt_content.append(f"- {sum(plips[0].values()):,} PLIPs closed")
     txt_content.append(f"- File generated: {csv_filename}")
     
     # Add top individual contributors
@@ -198,6 +203,12 @@ def save_summary(df, years):
             top = contributors.sort_values(column, ascending=False).head(10)
             for i, (username, row) in enumerate(top.iterrows(), 1):
                 txt_content.append(f"{i}. {username} - {row[column]:,} {unit}")
+    if plips is not None:
+        txt_content.append("")
+        txt_content.append(f"## Top 10 contributors by PLIPs ({year_range})")
+        txt_content.append("")
+        for i, (author, count) in enumerate(ranked(plips[0])[:10], 1):
+            txt_content.append(f"{i}. {author} - {count:,} PLIPs")
 
     # Add top organisations; unmapped contributors are not an organisation (#53)
     organisations = df[df['organisation'] != UNMAPPED]
@@ -213,6 +224,16 @@ def save_summary(df, years):
         if not unmapped.empty:
             txt_content.append("")
             txt_content.append(f"Not mapped to an organisation: {unmapped.iloc[0][column]:,} {unit}")
+    if plips is not None:
+        txt_content.append("")
+        txt_content.append(f"## Top 10 organisations by PLIPs ({year_range})")
+        txt_content.append("")
+        counts = {org: count for org, count in plips[1].items() if org != UNMAPPED}
+        for i, (org, count) in enumerate(ranked(counts)[:10], 1):
+            txt_content.append(f"{i}. {org}: {count:,} PLIPs")
+        if plips[1].get(UNMAPPED):
+            txt_content.append("")
+            txt_content.append(f"Not mapped to an organisation: {plips[1][UNMAPPED]:,} PLIPs")
     
     # Write to TXT file
     with open(txt_filename, 'w', encoding='utf-8') as f:
@@ -226,6 +247,21 @@ def save_summary(df, years):
         print(line)
     
     return csv_filename, txt_filename
+
+
+def plip_totals(years):
+    """The PLIPs closed in the years, as (per author login, per organisation), counted as the recognition does:
+    for the author's organisation in the year of closing (#95). None without the PLIP file."""
+    if not paths.PLIPS_DETAILED.exists():
+        return None
+    groups = recognition.closed_plips_by_organisation(years)
+    authors = Counter(plip['author'] for rows in groups.values() for plip in rows)
+    return authors, {org: len(rows) for org, rows in groups.items()}
+
+
+def ranked(counts):
+    """(name, count) pairs, the highest count first, equal counts by name."""
+    return sorted(counts.items(), key=lambda item: (-item[1], item[0].casefold()))
 
 
 def get_contributor_totals(years):

@@ -151,7 +151,8 @@ The source register is written by `python -m scripts.tools.capture`, not by hand
 
 `reports/summaries/STATISTICS-PAST-*-YEARS.txt`
 :   Written by `scripts/derive/multi_year_summary.py`, together with the summaries in `derived/summaries/`.
-    A text summary of the matching `derived/summaries/summary-past-*-years-*.csv`.
+    A text summary of the matching `derived/summaries/summary-past-*-years-*.csv`, with the contributors and organisations with the most pull requests, commits and PLIPs in the years.
+    PLIPs count as for the recognition: closed in the years, for the organisation of the author in the year of closing.
 
 `reports/graphs/`
 :   Written by `scripts/report/generate_yearly_graphs.py`.

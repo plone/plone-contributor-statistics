@@ -3,6 +3,7 @@
 - 60 total organisations tracked across 3 years
 - 22,390 total commits and 6,060 pull requests
 - 240 unique contributors across all organisations
+- 63 PLIPs closed
 - File generated: derived/summaries/summary-past-three-years-2023-2025.csv
 
 ## Top 10 contributors by pull requests (2023-2025)
@@ -30,6 +31,19 @@
 8. fredvd - 669 commits
 9. MrTango - 498 commits
 10. erral - 457 commits
+
+## Top 10 contributors by PLIPs (2023-2025)
+
+1. sneridagh - 14 PLIPs
+2. tisto - 11 PLIPs
+3. mauritsvanrees - 5 PLIPs
+4. tkimnguyen - 4 PLIPs
+5. djay - 3 PLIPs
+6. thet - 3 PLIPs
+7. datakurre - 2 PLIPs
+8. gforcada - 2 PLIPs
+9. iham - 2 PLIPs
+10. pigeonflight - 2 PLIPs
 
 ## Top 10 organisations by pull requests (2023-2025)
 
@@ -60,3 +74,18 @@ Not mapped to an organisation: 361 PRs
 10. Syslab: 384 commits
 
 Not mapped to an organisation: 757 commits
+
+## Top 10 organisations by PLIPs (2023-2025)
+
+1. kitconcept GmbH: 26 PLIPs
+2. PY76: 5 PLIPs
+3. Sixfeetup: 4 PLIPs
+4. Pretaweb: 3 PLIPs
+5. Syslab: 3 PLIPs
+6. der Freitag: 2 PLIPs
+7. Eau de Web: 2 PLIPs
+8. Markus Hilbert (independent): 2 PLIPs
+9. University of Jyväskylä: 2 PLIPs
+10. Codesyntax: 1 PLIPs
+
+Not mapped to an organisation: 5 PLIPs

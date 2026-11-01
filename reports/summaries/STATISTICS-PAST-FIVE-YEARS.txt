@@ -3,6 +3,7 @@
 - 83 total organisations tracked across the past 5 years
 - 41,001 total commits and 9,917 pull requests
 - 350 unique contributors across all organisations
+- 94 PLIPs closed
 - File generated: derived/summaries/summary-past-five-years-2021-2025.csv
 
 ## Top 10 contributors by pull requests (2021-2025)
@@ -30,6 +31,19 @@
 8. MrTango - 1,110 commits
 9. thet - 1,036 commits
 10. ksuess - 1,010 commits
+
+## Top 10 contributors by PLIPs (2021-2025)
+
+1. tisto - 17 PLIPs
+2. sneridagh - 16 PLIPs
+3. mauritsvanrees - 7 PLIPs
+4. jensens - 5 PLIPs
+5. thet - 5 PLIPs
+6. tkimnguyen - 5 PLIPs
+7. djay - 3 PLIPs
+8. agitator - 2 PLIPs
+9. datakurre - 2 PLIPs
+10. gforcada - 2 PLIPs
 
 ## Top 10 organisations by pull requests (2021-2025)
 
@@ -60,3 +74,18 @@ Not mapped to an organisation: 627 PRs
 10. Rohberg: 1,010 commits
 
 Not mapped to an organisation: 1,755 commits
+
+## Top 10 organisations by PLIPs (2021-2025)
+
+1. kitconcept GmbH: 34 PLIPs
+2. Klein & Partner KG: 5 PLIPs
+3. PY76: 5 PLIPs
+4. Sixfeetup: 5 PLIPs
+5. Syslab: 5 PLIPs
+6. Pretaweb: 3 PLIPs
+7. Zest Software: 3 PLIPs
+8. Agitator: 2 PLIPs
+9. der Freitag: 2 PLIPs
+10. Eau de Web: 2 PLIPs
+
+Not mapped to an organisation: 9 PLIPs

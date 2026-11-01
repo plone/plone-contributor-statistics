@@ -3,6 +3,7 @@
 - 113 total organisations tracked across the decade
 - 83,175 total commits and 18,357 pull requests
 - 615 unique contributors across all organisations
+- 168 PLIPs closed
 - File generated: derived/summaries/summary-past-ten-years-2016-2025.csv
 
 ## Top 10 contributors by pull requests (2016-2025)
@@ -30,6 +31,19 @@
 8. petschki - 2,882 commits
 9. esteele - 2,510 commits
 10. pbauer - 2,235 commits
+
+## Top 10 contributors by PLIPs (2016-2025)
+
+1. tisto - 26 PLIPs
+2. sneridagh - 18 PLIPs
+3. thet - 13 PLIPs
+4. jensens - 9 PLIPs
+5. mauritsvanrees - 9 PLIPs
+6. tkimnguyen - 9 PLIPs
+7. vangheem - 6 PLIPs
+8. ebrehault - 5 PLIPs
+9. iham - 5 PLIPs
+10. djay - 4 PLIPs
 
 ## Top 10 organisations by pull requests (2016-2025)
 
@@ -60,3 +74,18 @@ Not mapped to an organisation: 1,814 PRs
 10. Starzel: 2,297 commits
 
 Not mapped to an organisation: 5,004 commits
+
+## Top 10 organisations by PLIPs (2016-2025)
+
+1. kitconcept GmbH: 45 PLIPs
+2. Klein & Partner KG: 9 PLIPs
+3. Syslab: 9 PLIPs
+4. Wildcard Corp: 6 PLIPs
+5. Zest Software: 6 PLIPs
+6. programmatic: 5 PLIPs
+7. PY76: 5 PLIPs
+8. Sixfeetup: 5 PLIPs
+9. der Freitag: 4 PLIPs
+10. Eau de Web: 4 PLIPs
+
+Not mapped to an organisation: 17 PLIPs

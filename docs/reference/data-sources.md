@@ -47,7 +47,7 @@ The PLIPs before GitHub give the record of every row in their `Source` column.
 | Data | Inputs | Script | Output | Make target |
 |---|---|---|---|---|
 | Organisation statistics per year | contributor and changelog files, the {doc}`registers </reference/mapping-files>` | `scripts/derive/organisation_stats.py` | `derived/organisation-contributors/YYYY-plone-organisation-contributors.csv` | `make run-organisation-stats`, `make run-organisation-stats-year` |
-| Multi-year summaries | organisation and contributor files | `scripts/derive/multi_year_summary.py` | `derived/summaries/summary-past-*-years-*.csv`, `reports/summaries/STATISTICS-PAST-*-YEARS.txt` | `make three-year-summary`, `make five-year-summary`, `make ten-year-summary` |
+| Multi-year summaries | organisation and contributor files, `collected/plips/plone-plips-detailed.csv` | `scripts/derive/multi_year_summary.py` | `derived/summaries/summary-past-*-years-*.csv`, `reports/summaries/STATISTICS-PAST-*-YEARS.txt` | `make three-year-summary`, `make five-year-summary`, `make ten-year-summary` |
 | Contributor report | contributor, changelog and organisation files | `scripts/report/generate_contributor_report.py` | `reports/github-contributor-report.md` | `make generate-report` |
 | PLIPs per organisation | `collected/plips/plone-plips-detailed.csv`, the registers | `scripts/derive/plip_organisation_stats.py` | `derived/plone-plip-organisations.csv` | `make run-plip-organisations` |
 | Community recognition | curated files, yearly organisation files, PLIP files, the levels file | `scripts/report/generate_community_recognition_report.py` | `reports/community-recognition.md`, `derived/community-recognition/YYYY-community-recognition-report.csv` | `make community-recognition` |
